@@ -1,4 +1,6 @@
+// coverage:ignore-file
 // ignore_for_file: type=lint
+// ignore_for_file: unused_element_parameter
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:json_annotation/json_annotation.dart' as json;
@@ -13,6 +15,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
 import 'mobile.enums.swagger.dart' as enums;
+import 'mobile.metadata.swagger.dart';
 export 'mobile.enums.swagger.dart';
 
 part 'mobile.swagger.chopper.dart';
@@ -38,13 +41,14 @@ abstract class Mobile extends ChopperService {
     }
 
     final newClient = ChopperClient(
-        services: [_$Mobile()],
-        converter: converter ?? $JsonSerializableConverter(),
-        interceptors: interceptors ?? [],
-        client: httpClient,
-        authenticator: authenticator,
-        errorConverter: errorConverter,
-        baseUrl: baseUrl);
+      services: [_$Mobile()],
+      converter: converter ?? $JsonSerializableConverter(),
+      interceptors: interceptors ?? [],
+      client: httpClient,
+      authenticator: authenticator,
+      errorConverter: errorConverter,
+      baseUrl: baseUrl,
+    );
     return _$Mobile(newClient);
   }
 
@@ -56,9 +60,11 @@ abstract class Mobile extends ChopperService {
   ///@param PageSize Limit result set to the specified amount.
   ///@param Sort A sort expression to use of the form: Field1:asc,Field2:desc
   Future<
-          chopper.Response<
-              FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>>
-      quikscanAssetdispositionLookupretiredreasonGet({
+    chopper.Response<
+      FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
+    >
+  >
+  quikscanAssetdispositionLookupretiredreasonGet({
     String? retiredReasonId,
     String? retiredReason,
     required String? reasonType,
@@ -67,18 +73,20 @@ abstract class Mobile extends ChopperService {
     String? sort,
   }) {
     generatedMapping.putIfAbsent(
-        FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse,
-        () =>
-            FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
-                .fromJsonFactory);
+      FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse,
+      () =>
+          FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
+              .fromJsonFactory,
+    );
 
     return _quikscanAssetdispositionLookupretiredreasonGet(
-        retiredReasonId: retiredReasonId,
-        retiredReason: retiredReason,
-        reasonType: reasonType,
-        pageNo: pageNo,
-        pageSize: pageSize,
-        sort: sort);
+      retiredReasonId: retiredReasonId,
+      retiredReason: retiredReason,
+      reasonType: reasonType,
+      pageNo: pageNo,
+      pageSize: pageSize,
+      sort: sort,
+    );
   }
 
   ///Get a list of valid Retired Reasons
@@ -88,39 +96,62 @@ abstract class Mobile extends ChopperService {
   ///@param PageNo The page number in the result set starting from 1.  PageNo is required when the PageSize is specified.
   ///@param PageSize Limit result set to the specified amount.
   ///@param Sort A sort expression to use of the form: Field1:asc,Field2:desc
-  @Get(path: '/quikscan/assetdisposition/lookupretiredreason')
+  @GET(path: '/quikscan/assetdisposition/lookupretiredreason')
   Future<
-          chopper.Response<
-              FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>>
-      _quikscanAssetdispositionLookupretiredreasonGet({
+    chopper.Response<
+      FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
+    >
+  >
+  _quikscanAssetdispositionLookupretiredreasonGet({
     @Query('RetiredReasonId') String? retiredReasonId,
     @Query('RetiredReason') String? retiredReason,
     @Query('ReasonType') required String? reasonType,
     @Query('PageNo') int? pageNo,
     @Query('PageSize') int? pageSize,
     @Query('Sort') String? sort,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get a list of valid Retired Reasons',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetDisposition"],
+      deprecated: false,
+    ),
   });
 
   ///
   Future<chopper.Response<FwStandardSqlServerTSpStatusResponse>>
-      quikscanExchangeCancelcontractPost(
-          {required WebApiModulesWarehouseContractCancelContractRequest?
-              body}) {
-    generatedMapping.putIfAbsent(FwStandardSqlServerTSpStatusResponse,
-        () => FwStandardSqlServerTSpStatusResponse.fromJsonFactory);
+  quikscanExchangeCancelcontractPost({
+    required WebApiModulesWarehouseContractCancelContractRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerTSpStatusResponse,
+      () => FwStandardSqlServerTSpStatusResponse.fromJsonFactory,
+    );
 
     return _quikscanExchangeCancelcontractPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/exchange/cancelcontract',
-    optionalBody: true,
-  )
+  @POST(path: '/quikscan/exchange/cancelcontract', optionalBody: true)
   Future<chopper.Response<FwStandardSqlServerTSpStatusResponse>>
-      _quikscanExchangeCancelcontractPost(
-          {@Body()
-          required WebApiModulesWarehouseContractCancelContractRequest? body});
+  _quikscanExchangeCancelcontractPost({
+    @Body() required WebApiModulesWarehouseContractCancelContractRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Exchange"],
+      deprecated: false,
+    ),
+  });
 
   ///Get a list of valid Container Descriptions.
   ///@param scannableinventoryid
@@ -129,9 +160,11 @@ abstract class Mobile extends ChopperService {
   ///@param sort
   ///@param filter
   Future<
-          chopper.Response<
-              FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>>
-      quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet({
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
+    >
+  >
+  quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet({
     required String? scannableinventoryid,
     int? pageno,
     int? pagesize,
@@ -139,17 +172,19 @@ abstract class Mobile extends ChopperService {
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
     generatedMapping.putIfAbsent(
-        FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse,
-        () =>
-            FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
-                .fromJsonFactory);
+      FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse,
+      () =>
+          FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
+              .fromJsonFactory,
+    );
 
     return _quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet(
-        scannableinventoryid: scannableinventoryid,
-        pageno: pageno,
-        pagesize: pagesize,
-        sort: sort,
-        filter: filter);
+      scannableinventoryid: scannableinventoryid,
+      pageno: pageno,
+      pagesize: pagesize,
+      sort: sort,
+      filter: filter,
+    );
   }
 
   ///Get a list of valid Container Descriptions.
@@ -158,18 +193,32 @@ abstract class Mobile extends ChopperService {
   ///@param pagesize
   ///@param sort
   ///@param filter
-  @Get(
-      path:
-          '/quikscan/fillcontainer/scannableitem/{scannableinventoryid}/lookuprentalinventory')
+  @GET(
+    path:
+        '/quikscan/fillcontainer/scannableitem/{scannableinventoryid}/lookuprentalinventory',
+  )
   Future<
-          chopper.Response<
-              FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>>
-      _quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet({
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
+    >
+  >
+  _quikscanFillcontainerScannableitemScannableinventoryidLookuprentalinventoryGet({
     @Path('scannableinventoryid') required String? scannableinventoryid,
     @Query('pageno') int? pageno,
     @Query('pagesize') int? pagesize,
     @Query('sort') String? sort,
     @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get a list of valid Container Descriptions.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FillContainer"],
+      deprecated: false,
+    ),
   });
 
   ///
@@ -180,351 +229,528 @@ abstract class Mobile extends ChopperService {
 
   ///
   ///@param path
-  @Post(
-    path: '/mobile',
-    optionalBody: true,
-  )
-  Future<chopper.Response<Object>> _mobilePost({@Query('path') String? path});
+  @POST(path: '/mobile', optionalBody: true)
+  Future<chopper.Response<Object>> _mobilePost({
+    @Query('path') String? path,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Mobile"],
+      deprecated: false,
+    ),
+  });
 
   ///
   Future<chopper.Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
-      quikscanQuikassetPost(
-          {required WebApiModulesInventoryRentalInventoryRentalInventory?
-              body}) {
+  quikscanQuikassetPost({
+    required WebApiModulesInventoryRentalInventoryRentalInventory? body,
+  }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesInventoryRentalInventoryRentalInventory,
-        () => WebApiModulesInventoryRentalInventoryRentalInventory
-            .fromJsonFactory);
+      WebApiModulesInventoryRentalInventoryRentalInventory,
+      () =>
+          WebApiModulesInventoryRentalInventoryRentalInventory.fromJsonFactory,
+    );
 
     return _quikscanQuikassetPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset',
-    optionalBody: true,
-  )
+  @POST(path: '/quikscan/quikasset', optionalBody: true)
   Future<chopper.Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
-      _quikscanQuikassetPost(
-          {@Body()
-          required WebApiModulesInventoryRentalInventoryRentalInventory? body});
+  _quikscanQuikassetPost({
+    @Body() required WebApiModulesInventoryRentalInventoryRentalInventory? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
   Future<chopper.Response<FwStandardSqlServerTSpStatusResponse>>
-      quikscanQuikassetUpdateunitvaluePost(
-          {required WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest?
-              body}) {
-    generatedMapping.putIfAbsent(FwStandardSqlServerTSpStatusResponse,
-        () => FwStandardSqlServerTSpStatusResponse.fromJsonFactory);
+  quikscanQuikassetUpdateunitvaluePost({
+    required WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerTSpStatusResponse,
+      () => FwStandardSqlServerTSpStatusResponse.fromJsonFactory,
+    );
 
     return _quikscanQuikassetUpdateunitvaluePost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/updateunitvalue',
-    optionalBody: true,
-  )
+  @POST(path: '/quikscan/quikasset/updateunitvalue', optionalBody: true)
   Future<chopper.Response<FwStandardSqlServerTSpStatusResponse>>
-      _quikscanQuikassetUpdateunitvaluePost(
-          {@Body()
-          required WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest?
-              body});
+  _quikscanQuikassetUpdateunitvaluePost({
+    @Body()
+    required WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
   ///@param id
   Future<chopper.Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
-      quikscanQuikassetIdPut({
+  quikscanQuikassetIdPut({
     required String? id,
     required WebApiModulesInventoryRentalInventoryRentalInventory? body,
   }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesInventoryRentalInventoryRentalInventory,
-        () => WebApiModulesInventoryRentalInventoryRentalInventory
-            .fromJsonFactory);
+      WebApiModulesInventoryRentalInventoryRentalInventory,
+      () =>
+          WebApiModulesInventoryRentalInventoryRentalInventory.fromJsonFactory,
+    );
 
     return _quikscanQuikassetIdPut(id: id, body: body);
   }
 
   ///
   ///@param id
-  @Put(
-    path: '/quikscan/quikasset/{id}',
-    optionalBody: true,
-  )
+  @PUT(path: '/quikscan/quikasset/{id}', optionalBody: true)
   Future<chopper.Response<WebApiModulesInventoryRentalInventoryRentalInventory>>
-      _quikscanQuikassetIdPut({
+  _quikscanQuikassetIdPut({
     @Path('id') required String? id,
     @Body() required WebApiModulesInventoryRentalInventoryRentalInventory? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
   });
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      quikscanQuikassetInventorypurchaseitembrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
-        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+  quikscanQuikassetInventorypurchaseitembrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
 
     return _quikscanQuikassetInventorypurchaseitembrowsePost(body: body);
   }
 
   ///
-  @Post(
+  @POST(
     path: '/quikscan/quikasset/inventorypurchaseitembrowse',
     optionalBody: true,
   )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      _quikscanQuikassetInventorypurchaseitembrowsePost(
-          {@Body() required FwStandardModelsBrowseRequest? body});
+  _quikscanQuikassetInventorypurchaseitembrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
   ///@param id
   Future<
-          chopper.Response<
-              WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem>>
-      quikscanQuikassetInventorypurchaseitemIdPut({
+    chopper.Response<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
+    >
+  >
+  quikscanQuikassetInventorypurchaseitemIdPut({
     required String? id,
     required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem?
-        body,
+    body,
   }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem,
-        () =>
-            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
-                .fromJsonFactory);
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem,
+      () => WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
+          .fromJsonFactory,
+    );
 
     return _quikscanQuikassetInventorypurchaseitemIdPut(id: id, body: body);
   }
 
   ///
   ///@param id
-  @Put(
+  @PUT(
     path: '/quikscan/quikasset/inventorypurchaseitem/{id}',
     optionalBody: true,
   )
   Future<
-          chopper.Response<
-              WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem>>
-      _quikscanQuikassetInventorypurchaseitemIdPut({
+    chopper.Response<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
+    >
+  >
+  _quikscanQuikassetInventorypurchaseitemIdPut({
     @Path('id') required String? id,
     @Body()
     required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem?
-        body,
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
   });
 
   ///
   Future<
-          chopper.Response<
-              WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse>>
-      quikscanQuikassetStartsessionPost(
-          {required WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest?
-              body}) {
+    chopper.Response<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
+    >
+  >
+  quikscanQuikassetStartsessionPost({
+    required WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest?
+    body,
+  }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse,
-        () =>
-            WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
-                .fromJsonFactory);
+      WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse,
+      () =>
+          WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
+              .fromJsonFactory,
+    );
 
     return _quikscanQuikassetStartsessionPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/startsession',
-    optionalBody: true,
-  )
+  @POST(path: '/quikscan/quikasset/startsession', optionalBody: true)
   Future<
-          chopper.Response<
-              WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse>>
-      _quikscanQuikassetStartsessionPost(
-          {@Body()
-          required WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest?
-              body});
+    chopper.Response<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
+    >
+  >
+  _quikscanQuikassetStartsessionPost({
+    @Body()
+    required WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
   Future<
-          chopper.Response<
-              WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse>>
-      quikscanQuikassetUpdatesessionPost(
-          {required WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest?
-              body}) {
+    chopper.Response<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
+    >
+  >
+  quikscanQuikassetUpdatesessionPost({
+    required WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest?
+    body,
+  }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse,
-        () =>
-            WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
-                .fromJsonFactory);
+      WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse,
+      () =>
+          WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
+              .fromJsonFactory,
+    );
 
     return _quikscanQuikassetUpdatesessionPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/updatesession',
-    optionalBody: true,
-  )
+  @POST(path: '/quikscan/quikasset/updatesession', optionalBody: true)
   Future<
-          chopper.Response<
-              WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse>>
-      _quikscanQuikassetUpdatesessionPost(
-          {@Body()
-          required WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest?
-              body});
+    chopper.Response<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
+    >
+  >
+  _quikscanQuikassetUpdatesessionPost({
+    @Body()
+    required WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
   Future<
-          chopper.Response<
-              WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse>>
-      quikscanQuikassetInsertimagePost(
-          {required WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest?
-              body}) {
+    chopper.Response<
+      WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
+    >
+  >
+  quikscanQuikassetInsertimagePost({
+    required WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest?
+    body,
+  }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse,
-        () =>
-            WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
-                .fromJsonFactory);
+      WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse,
+      () =>
+          WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
+              .fromJsonFactory,
+    );
 
     return _quikscanQuikassetInsertimagePost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/insertimage',
-    optionalBody: true,
-  )
+  @POST(path: '/quikscan/quikasset/insertimage', optionalBody: true)
   Future<
-          chopper.Response<
-              WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse>>
-      _quikscanQuikassetInsertimagePost(
-          {@Body()
-          required WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest?
-              body});
+    chopper.Response<
+      WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
+    >
+  >
+  _quikscanQuikassetInsertimagePost({
+    @Body()
+    required WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
   Future<
-          chopper
-          .Response<WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse>>
-      quikscanQuikassetGetimagesPost(
-          {required WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest?
-              body}) {
+    chopper.Response<WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse>
+  >
+  quikscanQuikassetGetimagesPost({
+    required WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest? body,
+  }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse,
-        () => WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse
-            .fromJsonFactory);
+      WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse,
+      () => WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse
+          .fromJsonFactory,
+    );
 
     return _quikscanQuikassetGetimagesPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/getimages',
-    optionalBody: true,
-  )
+  @POST(path: '/quikscan/quikasset/getimages', optionalBody: true)
   Future<
-          chopper
-          .Response<WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse>>
-      _quikscanQuikassetGetimagesPost(
-          {@Body()
-          required WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest?
-              body});
+    chopper.Response<WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse>
+  >
+  _quikscanQuikassetGetimagesPost({
+    @Body()
+    required WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
   Future<chopper.Response<FwStandardSqlServerTSpStatusResponse>>
-      quikscanQuikassetDeleteimagePost(
-          {required WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest?
-              body}) {
-    generatedMapping.putIfAbsent(FwStandardSqlServerTSpStatusResponse,
-        () => FwStandardSqlServerTSpStatusResponse.fromJsonFactory);
+  quikscanQuikassetDeleteimagePost({
+    required WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerTSpStatusResponse,
+      () => FwStandardSqlServerTSpStatusResponse.fromJsonFactory,
+    );
 
     return _quikscanQuikassetDeleteimagePost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/deleteimage',
-    optionalBody: true,
-  )
+  @POST(path: '/quikscan/quikasset/deleteimage', optionalBody: true)
   Future<chopper.Response<FwStandardSqlServerTSpStatusResponse>>
-      _quikscanQuikassetDeleteimagePost(
-          {@Body()
-          required WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest?
-              body});
+  _quikscanQuikassetDeleteimagePost({
+    @Body()
+    required WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
   Future<
-          chopper.Response<
-              WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse>>
-      quikscanQuikassetCompletesessionPost(
-          {required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest?
-              body}) {
+    chopper.Response<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
+    >
+  >
+  quikscanQuikassetCompletesessionPost({
+    required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest?
+    body,
+  }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse,
-        () =>
-            WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
-                .fromJsonFactory);
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse,
+      () =>
+          WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
+              .fromJsonFactory,
+    );
 
     return _quikscanQuikassetCompletesessionPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/completesession',
-    optionalBody: true,
-  )
+  @POST(path: '/quikscan/quikasset/completesession', optionalBody: true)
   Future<
-          chopper.Response<
-              WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse>>
-      _quikscanQuikassetCompletesessionPost(
-          {@Body()
-          required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest?
-              body});
+    chopper.Response<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
+    >
+  >
+  _quikscanQuikassetCompletesessionPost({
+    @Body()
+    required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
-  Future<chopper.Response> quikscanQuikassetInventorydepartmentPost(
-      {required String? body}) {
+  Future<chopper.Response> quikscanQuikassetInventorydepartmentPost({
+    required String? body,
+  }) {
     return _quikscanQuikassetInventorydepartmentPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/inventorydepartment',
-    optionalBody: true,
-  )
-  Future<chopper.Response> _quikscanQuikassetInventorydepartmentPost(
-      {@Body() required String? body});
+  @POST(path: '/quikscan/quikasset/inventorydepartment', optionalBody: true)
+  Future<chopper.Response> _quikscanQuikassetInventorydepartmentPost({
+    @Body() required String? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
-  Future<chopper.Response> quikscanQuikassetCategoryPost(
-      {required WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest?
-          body}) {
+  Future<chopper.Response> quikscanQuikassetCategoryPost({
+    required WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest? body,
+  }) {
     return _quikscanQuikassetCategoryPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/category',
-    optionalBody: true,
-  )
-  Future<chopper.Response> _quikscanQuikassetCategoryPost(
-      {@Body()
-      required WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest?
-          body});
+  @POST(path: '/quikscan/quikasset/category', optionalBody: true)
+  Future<chopper.Response> _quikscanQuikassetCategoryPost({
+    @Body()
+    required WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
-  Future<chopper.Response> quikscanQuikassetSubcategoryPost(
-      {required WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest?
-          body}) {
+  Future<chopper.Response> quikscanQuikassetSubcategoryPost({
+    required WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest?
+    body,
+  }) {
     return _quikscanQuikassetSubcategoryPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/subcategory',
-    optionalBody: true,
-  )
-  Future<chopper.Response> _quikscanQuikassetSubcategoryPost(
-      {@Body()
-      required WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest?
-          body});
+  @POST(path: '/quikscan/quikasset/subcategory', optionalBody: true)
+  Future<chopper.Response> _quikscanQuikassetSubcategoryPost({
+    @Body()
+    required WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
   Future<chopper.Response> quikscanQuikassetDealsPost() {
@@ -532,11 +758,20 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/deals',
-    optionalBody: true,
-  )
-  Future<chopper.Response> _quikscanQuikassetDealsPost();
+  @POST(path: '/quikscan/quikasset/deals', optionalBody: true)
+  Future<chopper.Response> _quikscanQuikassetDealsPost({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
   Future<chopper.Response> quikscanQuikassetVendorPost() {
@@ -544,143 +779,227 @@ abstract class Mobile extends ChopperService {
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/vendor',
-    optionalBody: true,
-  )
-  Future<chopper.Response> _quikscanQuikassetVendorPost();
+  @POST(path: '/quikscan/quikasset/vendor', optionalBody: true)
+  Future<chopper.Response> _quikscanQuikassetVendorPost({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
-  Future<chopper.Response> quikscanQuikassetSearchitemsbydescPost(
-      {required WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest?
-          body}) {
+  Future<chopper.Response> quikscanQuikassetSearchitemsbydescPost({
+    required WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest?
+    body,
+  }) {
     return _quikscanQuikassetSearchitemsbydescPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/quikasset/searchitemsbydesc',
-    optionalBody: true,
-  )
-  Future<chopper.Response> _quikscanQuikassetSearchitemsbydescPost(
-      {@Body()
-      required WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest?
-          body});
+  @POST(path: '/quikscan/quikasset/searchitemsbydesc', optionalBody: true)
+  Future<chopper.Response> _quikscanQuikassetSearchitemsbydescPost({
+    @Body()
+    required WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikAsset"],
+      deprecated: false,
+    ),
+  });
 
   ///
   ///@param OrderId
   ///@param WarehouseId
   Future<chopper.Response<WebApiModulesWarehouseCheckOutStagingTabsResponse>>
-      quikscanStagingStagingtabsGet({
-    String? orderId,
-    String? warehouseId,
-  }) {
+  quikscanStagingStagingtabsGet({String? orderId, String? warehouseId}) {
     generatedMapping.putIfAbsent(
-        WebApiModulesWarehouseCheckOutStagingTabsResponse,
-        () =>
-            WebApiModulesWarehouseCheckOutStagingTabsResponse.fromJsonFactory);
+      WebApiModulesWarehouseCheckOutStagingTabsResponse,
+      () => WebApiModulesWarehouseCheckOutStagingTabsResponse.fromJsonFactory,
+    );
 
     return _quikscanStagingStagingtabsGet(
-        orderId: orderId, warehouseId: warehouseId);
+      orderId: orderId,
+      warehouseId: warehouseId,
+    );
   }
 
   ///
   ///@param OrderId
   ///@param WarehouseId
-  @Get(path: '/quikscan/staging/stagingtabs')
+  @GET(path: '/quikscan/staging/stagingtabs')
   Future<chopper.Response<WebApiModulesWarehouseCheckOutStagingTabsResponse>>
-      _quikscanStagingStagingtabsGet({
+  _quikscanStagingStagingtabsGet({
     @Query('OrderId') String? orderId,
     @Query('WarehouseId') String? warehouseId,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Staging"],
+      deprecated: false,
+    ),
   });
 
   ///
   Future<
-          chopper.Response<
-              WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse>>
-      quikscanStagingOrderhasstoragecontainerPost(
-          {required WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest?
-              body}) {
+    chopper.Response<
+      WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse
+    >
+  >
+  quikscanStagingOrderhasstoragecontainerPost({
+    required WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest?
+    body,
+  }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse,
-        () => WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse
-            .fromJsonFactory);
+      WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse,
+      () => WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse
+          .fromJsonFactory,
+    );
 
     return _quikscanStagingOrderhasstoragecontainerPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/quikscan/staging/orderhasstoragecontainer',
-    optionalBody: true,
-  )
+  @POST(path: '/quikscan/staging/orderhasstoragecontainer', optionalBody: true)
   Future<
-          chopper.Response<
-              WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse>>
-      _quikscanStagingOrderhasstoragecontainerPost(
-          {@Body()
-          required WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest?
-              body});
+    chopper.Response<
+      WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse
+    >
+  >
+  _quikscanStagingOrderhasstoragecontainerPost({
+    @Body()
+    required WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Staging"],
+      deprecated: false,
+    ),
+  });
 
   ///
   ///@param OrderId
   Future<chopper.Response<bool>>
-      quikscanStagingAllowCreateContractOrderOrderidGet(
-          {required String? orderId}) {
+  quikscanStagingAllowCreateContractOrderOrderidGet({
+    required String? orderId,
+  }) {
     return _quikscanStagingAllowCreateContractOrderOrderidGet(orderId: orderId);
   }
 
   ///
   ///@param OrderId
-  @Get(path: '/quikscan/staging/allow-create-contract/order/{orderid}')
+  @GET(path: '/quikscan/staging/allow-create-contract/order/{orderid}')
   Future<chopper.Response<bool>>
-      _quikscanStagingAllowCreateContractOrderOrderidGet(
-          {@Path('OrderId') required String? orderId});
+  _quikscanStagingAllowCreateContractOrderOrderidGet({
+    @Path('OrderId') required String? orderId,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Staging"],
+      deprecated: false,
+    ),
+  });
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      taskschedulerTaskstepsBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
-    generatedMapping.putIfAbsent(FwStandardSqlServerFwJsonDataTable,
-        () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory);
+  taskschedulerTaskstepsBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
 
     return _taskschedulerTaskstepsBrowsePost(body: body);
   }
 
   ///
-  @Post(
-    path: '/taskscheduler/tasksteps/browse',
-    optionalBody: true,
-  )
+  @POST(path: '/taskscheduler/tasksteps/browse', optionalBody: true)
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-      _taskschedulerTaskstepsBrowsePost(
-          {@Body() required FwStandardModelsBrowseRequest? body});
+  _taskschedulerTaskstepsBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  });
 
   ///
   Future<
-          chopper.Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      taskschedulerTaskstepsExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  taskschedulerTaskstepsExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
     generatedMapping.putIfAbsent(
-        FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-        () =>
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-                .fromJsonFactory);
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      () =>
+          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+              .fromJsonFactory,
+    );
 
     return _taskschedulerTaskstepsExportexcelxlsxPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/taskscheduler/tasksteps/exportexcelxlsx',
-    optionalBody: true,
-  )
+  @POST(path: '/taskscheduler/tasksteps/exportexcelxlsx', optionalBody: true)
   Future<
-          chopper.Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _taskschedulerTaskstepsExportexcelxlsxPost(
-          {@Body() required FwStandardModelsBrowseRequest? body});
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _taskschedulerTaskstepsExportexcelxlsxPost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  });
 
   ///
   ///@param pageno
@@ -688,22 +1007,29 @@ abstract class Mobile extends ChopperService {
   ///@param sort
   ///@param filter
   Future<
-          chopper.Response<
-              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
-      taskschedulerTaskstepsGet({
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+    >
+  >
+  taskschedulerTaskstepsGet({
     int? pageno,
     int? pagesize,
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
     generatedMapping.putIfAbsent(
-        FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-        () =>
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-                .fromJsonFactory);
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
+      () =>
+          FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+              .fromJsonFactory,
+    );
 
     return _taskschedulerTaskstepsGet(
-        pageno: pageno, pagesize: pagesize, sort: sort, filter: filter);
+      pageno: pageno,
+      pagesize: pagesize,
+      sort: sort,
+      filter: filter,
+    );
   }
 
   ///
@@ -711,93 +1037,152 @@ abstract class Mobile extends ChopperService {
   ///@param pagesize
   ///@param sort
   ///@param filter
-  @Get(path: '/taskscheduler/tasksteps')
+  @GET(path: '/taskscheduler/tasksteps')
   Future<
-          chopper.Response<
-              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
-      _taskschedulerTaskstepsGet({
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+    >
+  >
+  _taskschedulerTaskstepsGet({
     @Query('pageno') int? pageno,
     @Query('pagesize') int? pagesize,
     @Query('sort') String? sort,
     @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
   });
 
   ///
   Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      taskschedulerTaskstepsPost(
-          {required WebApiModulesAdministratorTaskSchedulerTaskSteps? body}) {
+  taskschedulerTaskstepsPost({
+    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory);
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
+    );
 
     return _taskschedulerTaskstepsPost(body: body);
   }
 
   ///
-  @Post(
-    path: '/taskscheduler/tasksteps',
-    optionalBody: true,
-  )
+  @POST(path: '/taskscheduler/tasksteps', optionalBody: true)
   Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsPost(
-          {@Body()
-          required WebApiModulesAdministratorTaskSchedulerTaskSteps? body});
+  _taskschedulerTaskstepsPost({
+    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  });
 
   ///
   ///@param id
   Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      taskschedulerTaskstepsIdGet({required String? id}) {
+  taskschedulerTaskstepsIdGet({required String? id}) {
     generatedMapping.putIfAbsent(
-        WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory);
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
+    );
 
     return _taskschedulerTaskstepsIdGet(id: id);
   }
 
   ///
   ///@param id
-  @Get(path: '/taskscheduler/tasksteps/{id}')
+  @GET(path: '/taskscheduler/tasksteps/{id}')
   Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsIdGet({@Path('id') required String? id});
+  _taskschedulerTaskstepsIdGet({
+    @Path('id') required String? id,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  });
 
   ///
   ///@param id
   Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      taskschedulerTaskstepsIdPut({
+  taskschedulerTaskstepsIdPut({
     required String? id,
     required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
   }) {
     generatedMapping.putIfAbsent(
-        WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory);
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
+    );
 
     return _taskschedulerTaskstepsIdPut(id: id, body: body);
   }
 
   ///
   ///@param id
-  @Put(
-    path: '/taskscheduler/tasksteps/{id}',
-    optionalBody: true,
-  )
+  @PUT(path: '/taskscheduler/tasksteps/{id}', optionalBody: true)
   Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsIdPut({
+  _taskschedulerTaskstepsIdPut({
     @Path('id') required String? id,
     @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
   });
 
   ///
   ///@param id
-  Future<chopper.Response<bool>> taskschedulerTaskstepsIdDelete(
-      {required String? id}) {
+  Future<chopper.Response<bool>> taskschedulerTaskstepsIdDelete({
+    required String? id,
+  }) {
     return _taskschedulerTaskstepsIdDelete(id: id);
   }
 
   ///
   ///@param id
-  @Delete(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<bool>> _taskschedulerTaskstepsIdDelete(
-      {@Path('id') required String? id});
+  @DELETE(path: '/taskscheduler/tasksteps/{id}')
+  Future<chopper.Response<bool>> _taskschedulerTaskstepsIdDelete({
+    @Path('id') required String? id,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  });
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -805,8 +1190,8 @@ class FwCoreApiSwashbuckleBadRequestResponse {
   const FwCoreApiSwashbuckleBadRequestResponse();
 
   factory FwCoreApiSwashbuckleBadRequestResponse.fromJson(
-          Map<String, dynamic> json) =>
-      _$FwCoreApiSwashbuckleBadRequestResponseFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$FwCoreApiSwashbuckleBadRequestResponseFromJson(json);
 
   static const toJsonFactory = _$FwCoreApiSwashbuckleBadRequestResponseToJson;
   Map<String, dynamic> toJson() =>
@@ -829,15 +1214,18 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
   });
 
   factory FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson;
   Map<String, dynamic> toJson() =>
       _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'downloadUrl', includeIfNull: false)
   final String? downloadUrl;
@@ -847,10 +1235,13 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult &&
+        (other
+                is FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult &&
             (identical(other.downloadUrl, downloadUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.downloadUrl, downloadUrl)));
+                const DeepCollectionEquality().equals(
+                  other.downloadUrl,
+                  downloadUrl,
+                )));
   }
 
   @override
@@ -864,16 +1255,17 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
 extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultExtension
     on FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
   FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-      copyWith({String? downloadUrl}) {
+  copyWith({String? downloadUrl}) {
     return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
-        downloadUrl: downloadUrl ?? this.downloadUrl);
+      downloadUrl: downloadUrl ?? this.downloadUrl,
+    );
   }
 
   FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-      copyWithWrapped({Wrapped<String?>? downloadUrl}) {
+  copyWithWrapped({Wrapped<String?>? downloadUrl}) {
     return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
-        downloadUrl:
-            (downloadUrl != null ? downloadUrl.value : this.downloadUrl));
+      downloadUrl: (downloadUrl != null ? downloadUrl.value : this.downloadUrl),
+    );
   }
 }
 
@@ -898,8 +1290,8 @@ class FwStandardBusinessLogicFwBusinessLogic {
   });
 
   factory FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          Map<String, dynamic> json) =>
-      _$FwStandardBusinessLogicFwBusinessLogicFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$FwStandardBusinessLogicFwBusinessLogicFromJson(json);
 
   static const toJsonFactory = _$FwStandardBusinessLogicFwBusinessLogicToJson;
   Map<String, dynamic> toJson() =>
@@ -912,26 +1304,30 @@ class FwStandardBusinessLogicFwBusinessLogic {
   @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
   final dynamic urlIdentifier;
   @JsonKey(
-      name: '_Fields',
-      includeIfNull: false,
-      defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
+    name: '_Fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+  )
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
   @JsonKey(
-      name: '_Custom',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwCustomValue>[])
+    name: '_Custom',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwCustomValue>[],
+  )
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
-      name: '_DefaultFieldAttributes',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwDefaultAttribute>[])
+    name: '_DefaultFieldAttributes',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwDefaultAttribute>[],
+  )
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   @JsonKey(name: '_Original', includeIfNull: false)
   final FwStandardBusinessLogicFwBusinessLogic? original;
   @JsonKey(
-      name: '_Translation',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwTranslatedValue>[])
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
@@ -955,48 +1351,74 @@ class FwStandardBusinessLogicFwBusinessLogic {
     return identical(this, other) ||
         (other is FwStandardBusinessLogicFwBusinessLogic &&
             (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality()
-                    .equals(other.auditNote, auditNote)) &&
+                const DeepCollectionEquality().equals(
+                  other.auditNote,
+                  auditNote,
+                )) &&
             (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.recordTitle, recordTitle)) &&
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )) &&
             (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.urlIdentifier, urlIdentifier)) &&
+                const DeepCollectionEquality().equals(
+                  other.urlIdentifier,
+                  urlIdentifier,
+                )) &&
             (identical(other.fields, fields) ||
                 const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) ||
                 const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
                 const DeepCollectionEquality().equals(
-                    other.defaultFieldAttributes, defaultFieldAttributes)) &&
+                  other.defaultFieldAttributes,
+                  defaultFieldAttributes,
+                )) &&
             (identical(other.original, original) ||
-                const DeepCollectionEquality()
-                    .equals(other.original, original)) &&
+                const DeepCollectionEquality().equals(
+                  other.original,
+                  original,
+                )) &&
             (identical(other.translation, translation) ||
-                const DeepCollectionEquality()
-                    .equals(other.translation, translation)) &&
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )) &&
             (identical(other.hasImport, hasImport) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasImport, hasImport)) &&
+                const DeepCollectionEquality().equals(
+                  other.hasImport,
+                  hasImport,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdByUserId, createdByUserId)) &&
+                const DeepCollectionEquality().equals(
+                  other.createdByUserId,
+                  createdByUserId,
+                )) &&
             (identical(other.createdByUserName, createdByUserName) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdByUserName, createdByUserName)) &&
+                const DeepCollectionEquality().equals(
+                  other.createdByUserName,
+                  createdByUserName,
+                )) &&
             (identical(other.createdDateTime, createdDateTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdDateTime, createdDateTime)) &&
+                const DeepCollectionEquality().equals(
+                  other.createdDateTime,
+                  createdDateTime,
+                )) &&
             (identical(other.modifiedByUserId, modifiedByUserId) ||
-                const DeepCollectionEquality()
-                    .equals(other.modifiedByUserId, modifiedByUserId)) &&
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserId,
+                  modifiedByUserId,
+                )) &&
             (identical(other.modifiedByUserName, modifiedByUserName) ||
-                const DeepCollectionEquality()
-                    .equals(other.modifiedByUserName, modifiedByUserName)) &&
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserName,
+                  modifiedByUserName,
+                )) &&
             (identical(other.modifiedDateTime, modifiedDateTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.modifiedDateTime, modifiedDateTime)));
+                const DeepCollectionEquality().equals(
+                  other.modifiedDateTime,
+                  modifiedDateTime,
+                )));
   }
 
   @override
@@ -1024,91 +1446,94 @@ class FwStandardBusinessLogicFwBusinessLogic {
 
 extension $FwStandardBusinessLogicFwBusinessLogicExtension
     on FwStandardBusinessLogicFwBusinessLogic {
-  FwStandardBusinessLogicFwBusinessLogic copyWith(
-      {String? auditNote,
-      String? recordTitle,
-      dynamic urlIdentifier,
-      List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-      List<FwStandardDataFwCustomValue>? custom,
-      List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-      FwStandardBusinessLogicFwBusinessLogic? original,
-      List<FwStandardDataFwTranslatedValue>? translation,
-      bool? hasImport,
-      String? createdByUserId,
-      String? createdByUserName,
-      String? createdDateTime,
-      String? modifiedByUserId,
-      String? modifiedByUserName,
-      String? modifiedDateTime}) {
+  FwStandardBusinessLogicFwBusinessLogic copyWith({
+    String? auditNote,
+    String? recordTitle,
+    dynamic urlIdentifier,
+    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+    List<FwStandardDataFwCustomValue>? custom,
+    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+    FwStandardBusinessLogicFwBusinessLogic? original,
+    List<FwStandardDataFwTranslatedValue>? translation,
+    bool? hasImport,
+    String? createdByUserId,
+    String? createdByUserName,
+    String? createdDateTime,
+    String? modifiedByUserId,
+    String? modifiedByUserName,
+    String? modifiedDateTime,
+  }) {
     return FwStandardBusinessLogicFwBusinessLogic(
-        auditNote: auditNote ?? this.auditNote,
-        recordTitle: recordTitle ?? this.recordTitle,
-        urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-        fields: fields ?? this.fields,
-        custom: custom ?? this.custom,
-        defaultFieldAttributes:
-            defaultFieldAttributes ?? this.defaultFieldAttributes,
-        original: original ?? this.original,
-        translation: translation ?? this.translation,
-        hasImport: hasImport ?? this.hasImport,
-        createdByUserId: createdByUserId ?? this.createdByUserId,
-        createdByUserName: createdByUserName ?? this.createdByUserName,
-        createdDateTime: createdDateTime ?? this.createdDateTime,
-        modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-        modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-        modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime);
+      auditNote: auditNote ?? this.auditNote,
+      recordTitle: recordTitle ?? this.recordTitle,
+      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
+      fields: fields ?? this.fields,
+      custom: custom ?? this.custom,
+      defaultFieldAttributes:
+          defaultFieldAttributes ?? this.defaultFieldAttributes,
+      original: original ?? this.original,
+      translation: translation ?? this.translation,
+      hasImport: hasImport ?? this.hasImport,
+      createdByUserId: createdByUserId ?? this.createdByUserId,
+      createdByUserName: createdByUserName ?? this.createdByUserName,
+      createdDateTime: createdDateTime ?? this.createdDateTime,
+      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
+      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
+      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    );
   }
 
-  FwStandardBusinessLogicFwBusinessLogic copyWithWrapped(
-      {Wrapped<String?>? auditNote,
-      Wrapped<String?>? recordTitle,
-      Wrapped<dynamic>? urlIdentifier,
-      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-          fields,
-      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-      Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-      Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-      Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-      Wrapped<bool?>? hasImport,
-      Wrapped<String?>? createdByUserId,
-      Wrapped<String?>? createdByUserName,
-      Wrapped<String?>? createdDateTime,
-      Wrapped<String?>? modifiedByUserId,
-      Wrapped<String?>? modifiedByUserName,
-      Wrapped<String?>? modifiedDateTime}) {
+  FwStandardBusinessLogicFwBusinessLogic copyWithWrapped({
+    Wrapped<String?>? auditNote,
+    Wrapped<String?>? recordTitle,
+    Wrapped<dynamic>? urlIdentifier,
+    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+    fields,
+    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+    Wrapped<bool?>? hasImport,
+    Wrapped<String?>? createdByUserId,
+    Wrapped<String?>? createdByUserName,
+    Wrapped<String?>? createdDateTime,
+    Wrapped<String?>? modifiedByUserId,
+    Wrapped<String?>? modifiedByUserName,
+    Wrapped<String?>? modifiedDateTime,
+  }) {
     return FwStandardBusinessLogicFwBusinessLogic(
-        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-        recordTitle:
-            (recordTitle != null ? recordTitle.value : this.recordTitle),
-        urlIdentifier:
-            (urlIdentifier != null ? urlIdentifier.value : this.urlIdentifier),
-        fields: (fields != null ? fields.value : this.fields),
-        custom: (custom != null ? custom.value : this.custom),
-        defaultFieldAttributes: (defaultFieldAttributes != null
-            ? defaultFieldAttributes.value
-            : this.defaultFieldAttributes),
-        original: (original != null ? original.value : this.original),
-        translation:
-            (translation != null ? translation.value : this.translation),
-        hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-        createdByUserId: (createdByUserId != null
-            ? createdByUserId.value
-            : this.createdByUserId),
-        createdByUserName: (createdByUserName != null
-            ? createdByUserName.value
-            : this.createdByUserName),
-        createdDateTime: (createdDateTime != null
-            ? createdDateTime.value
-            : this.createdDateTime),
-        modifiedByUserId: (modifiedByUserId != null
-            ? modifiedByUserId.value
-            : this.modifiedByUserId),
-        modifiedByUserName: (modifiedByUserName != null
-            ? modifiedByUserName.value
-            : this.modifiedByUserName),
-        modifiedDateTime: (modifiedDateTime != null
-            ? modifiedDateTime.value
-            : this.modifiedDateTime));
+      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+      urlIdentifier: (urlIdentifier != null
+          ? urlIdentifier.value
+          : this.urlIdentifier),
+      fields: (fields != null ? fields.value : this.fields),
+      custom: (custom != null ? custom.value : this.custom),
+      defaultFieldAttributes: (defaultFieldAttributes != null
+          ? defaultFieldAttributes.value
+          : this.defaultFieldAttributes),
+      original: (original != null ? original.value : this.original),
+      translation: (translation != null ? translation.value : this.translation),
+      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      createdByUserId: (createdByUserId != null
+          ? createdByUserId.value
+          : this.createdByUserId),
+      createdByUserName: (createdByUserName != null
+          ? createdByUserName.value
+          : this.createdByUserName),
+      createdDateTime: (createdDateTime != null
+          ? createdDateTime.value
+          : this.createdDateTime),
+      modifiedByUserId: (modifiedByUserId != null
+          ? modifiedByUserId.value
+          : this.modifiedByUserId),
+      modifiedByUserName: (modifiedByUserName != null
+          ? modifiedByUserName.value
+          : this.modifiedByUserName),
+      modifiedDateTime: (modifiedDateTime != null
+          ? modifiedDateTime.value
+          : this.modifiedDateTime),
+    );
   }
 }
 
@@ -1128,8 +1553,8 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
   });
 
   factory FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-          Map<String, dynamic> json) =>
-      _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(json);
 
   static const toJsonFactory =
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson;
@@ -1176,32 +1601,50 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.dataType, dataType) ||
-                const DeepCollectionEquality()
-                    .equals(other.dataType, dataType)) &&
+                const DeepCollectionEquality().equals(
+                  other.dataType,
+                  dataType,
+                )) &&
             (identical(other.excelOptions, excelOptions) ||
-                const DeepCollectionEquality()
-                    .equals(other.excelOptions, excelOptions)) &&
+                const DeepCollectionEquality().equals(
+                  other.excelOptions,
+                  excelOptions,
+                )) &&
             (identical(other.maxLength, maxLength) ||
-                const DeepCollectionEquality()
-                    .equals(other.maxLength, maxLength)) &&
+                const DeepCollectionEquality().equals(
+                  other.maxLength,
+                  maxLength,
+                )) &&
             (identical(other.isRequired, isRequired) ||
-                const DeepCollectionEquality()
-                    .equals(other.isRequired, isRequired)) &&
+                const DeepCollectionEquality().equals(
+                  other.isRequired,
+                  isRequired,
+                )) &&
             (identical(other.isPrimaryKey, isPrimaryKey) ||
-                const DeepCollectionEquality()
-                    .equals(other.isPrimaryKey, isPrimaryKey)) &&
+                const DeepCollectionEquality().equals(
+                  other.isPrimaryKey,
+                  isPrimaryKey,
+                )) &&
             (identical(other.isReadOnly, isReadOnly) ||
-                const DeepCollectionEquality()
-                    .equals(other.isReadOnly, isReadOnly)) &&
+                const DeepCollectionEquality().equals(
+                  other.isReadOnly,
+                  isReadOnly,
+                )) &&
             (identical(other.displayFieldName, displayFieldName) ||
-                const DeepCollectionEquality()
-                    .equals(other.displayFieldName, displayFieldName)) &&
+                const DeepCollectionEquality().equals(
+                  other.displayFieldName,
+                  displayFieldName,
+                )) &&
             (identical(other.allowedValues, allowedValues) ||
-                const DeepCollectionEquality()
-                    .equals(other.allowedValues, allowedValues)) &&
+                const DeepCollectionEquality().equals(
+                  other.allowedValues,
+                  allowedValues,
+                )) &&
             (identical(other.templateSequence, templateSequence) ||
-                const DeepCollectionEquality()
-                    .equals(other.templateSequence, templateSequence)));
+                const DeepCollectionEquality().equals(
+                  other.templateSequence,
+                  templateSequence,
+                )));
   }
 
   @override
@@ -1224,59 +1667,66 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
 
 extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     on FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
-  FwStandardBusinessLogicFwBusinessLogicFieldDefinition copyWith(
-      {String? name,
-      enums.FwStandardSqlServerFwDataTypes? dataType,
-      enums.FwStandardSqlServerAttributesFwExcelOptions? excelOptions,
-      int? maxLength,
-      bool? isRequired,
-      bool? isPrimaryKey,
-      bool? isReadOnly,
-      String? displayFieldName,
-      String? allowedValues,
-      int? templateSequence}) {
+  FwStandardBusinessLogicFwBusinessLogicFieldDefinition copyWith({
+    String? name,
+    enums.FwStandardSqlServerFwDataTypes? dataType,
+    enums.FwStandardSqlServerAttributesFwExcelOptions? excelOptions,
+    int? maxLength,
+    bool? isRequired,
+    bool? isPrimaryKey,
+    bool? isReadOnly,
+    String? displayFieldName,
+    String? allowedValues,
+    int? templateSequence,
+  }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
-        name: name ?? this.name,
-        dataType: dataType ?? this.dataType,
-        excelOptions: excelOptions ?? this.excelOptions,
-        maxLength: maxLength ?? this.maxLength,
-        isRequired: isRequired ?? this.isRequired,
-        isPrimaryKey: isPrimaryKey ?? this.isPrimaryKey,
-        isReadOnly: isReadOnly ?? this.isReadOnly,
-        displayFieldName: displayFieldName ?? this.displayFieldName,
-        allowedValues: allowedValues ?? this.allowedValues,
-        templateSequence: templateSequence ?? this.templateSequence);
+      name: name ?? this.name,
+      dataType: dataType ?? this.dataType,
+      excelOptions: excelOptions ?? this.excelOptions,
+      maxLength: maxLength ?? this.maxLength,
+      isRequired: isRequired ?? this.isRequired,
+      isPrimaryKey: isPrimaryKey ?? this.isPrimaryKey,
+      isReadOnly: isReadOnly ?? this.isReadOnly,
+      displayFieldName: displayFieldName ?? this.displayFieldName,
+      allowedValues: allowedValues ?? this.allowedValues,
+      templateSequence: templateSequence ?? this.templateSequence,
+    );
   }
 
-  FwStandardBusinessLogicFwBusinessLogicFieldDefinition copyWithWrapped(
-      {Wrapped<String?>? name,
-      Wrapped<enums.FwStandardSqlServerFwDataTypes?>? dataType,
-      Wrapped<enums.FwStandardSqlServerAttributesFwExcelOptions?>? excelOptions,
-      Wrapped<int?>? maxLength,
-      Wrapped<bool?>? isRequired,
-      Wrapped<bool?>? isPrimaryKey,
-      Wrapped<bool?>? isReadOnly,
-      Wrapped<String?>? displayFieldName,
-      Wrapped<String?>? allowedValues,
-      Wrapped<int?>? templateSequence}) {
+  FwStandardBusinessLogicFwBusinessLogicFieldDefinition copyWithWrapped({
+    Wrapped<String?>? name,
+    Wrapped<enums.FwStandardSqlServerFwDataTypes?>? dataType,
+    Wrapped<enums.FwStandardSqlServerAttributesFwExcelOptions?>? excelOptions,
+    Wrapped<int?>? maxLength,
+    Wrapped<bool?>? isRequired,
+    Wrapped<bool?>? isPrimaryKey,
+    Wrapped<bool?>? isReadOnly,
+    Wrapped<String?>? displayFieldName,
+    Wrapped<String?>? allowedValues,
+    Wrapped<int?>? templateSequence,
+  }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
-        name: (name != null ? name.value : this.name),
-        dataType: (dataType != null ? dataType.value : this.dataType),
-        excelOptions:
-            (excelOptions != null ? excelOptions.value : this.excelOptions),
-        maxLength: (maxLength != null ? maxLength.value : this.maxLength),
-        isRequired: (isRequired != null ? isRequired.value : this.isRequired),
-        isPrimaryKey:
-            (isPrimaryKey != null ? isPrimaryKey.value : this.isPrimaryKey),
-        isReadOnly: (isReadOnly != null ? isReadOnly.value : this.isReadOnly),
-        displayFieldName: (displayFieldName != null
-            ? displayFieldName.value
-            : this.displayFieldName),
-        allowedValues:
-            (allowedValues != null ? allowedValues.value : this.allowedValues),
-        templateSequence: (templateSequence != null
-            ? templateSequence.value
-            : this.templateSequence));
+      name: (name != null ? name.value : this.name),
+      dataType: (dataType != null ? dataType.value : this.dataType),
+      excelOptions: (excelOptions != null
+          ? excelOptions.value
+          : this.excelOptions),
+      maxLength: (maxLength != null ? maxLength.value : this.maxLength),
+      isRequired: (isRequired != null ? isRequired.value : this.isRequired),
+      isPrimaryKey: (isPrimaryKey != null
+          ? isPrimaryKey.value
+          : this.isPrimaryKey),
+      isReadOnly: (isReadOnly != null ? isReadOnly.value : this.isReadOnly),
+      displayFieldName: (displayFieldName != null
+          ? displayFieldName.value
+          : this.displayFieldName),
+      allowedValues: (allowedValues != null
+          ? allowedValues.value
+          : this.allowedValues),
+      templateSequence: (templateSequence != null
+          ? templateSequence.value
+          : this.templateSequence),
+    );
   }
 }
 
@@ -1316,23 +1766,35 @@ class FwStandardDataFwCustomValue {
     return identical(this, other) ||
         (other is FwStandardDataFwCustomValue &&
             (identical(other.moduleName, moduleName) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleName, moduleName)) &&
+                const DeepCollectionEquality().equals(
+                  other.moduleName,
+                  moduleName,
+                )) &&
             (identical(other.fieldName, fieldName) ||
-                const DeepCollectionEquality()
-                    .equals(other.fieldName, fieldName)) &&
+                const DeepCollectionEquality().equals(
+                  other.fieldName,
+                  fieldName,
+                )) &&
             (identical(other.fieldValue, fieldValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.fieldValue, fieldValue)) &&
+                const DeepCollectionEquality().equals(
+                  other.fieldValue,
+                  fieldValue,
+                )) &&
             (identical(other.fieldType, fieldType) ||
-                const DeepCollectionEquality()
-                    .equals(other.fieldType, fieldType)) &&
+                const DeepCollectionEquality().equals(
+                  other.fieldType,
+                  fieldType,
+                )) &&
             (identical(other.validationModule, validationModule) ||
-                const DeepCollectionEquality()
-                    .equals(other.validationModule, validationModule)) &&
+                const DeepCollectionEquality().equals(
+                  other.validationModule,
+                  validationModule,
+                )) &&
             (identical(other.validationFieldName, validationFieldName) ||
-                const DeepCollectionEquality()
-                    .equals(other.validationFieldName, validationFieldName)));
+                const DeepCollectionEquality().equals(
+                  other.validationFieldName,
+                  validationFieldName,
+                )));
   }
 
   @override
@@ -1350,40 +1812,44 @@ class FwStandardDataFwCustomValue {
 }
 
 extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
-  FwStandardDataFwCustomValue copyWith(
-      {String? moduleName,
-      String? fieldName,
-      String? fieldValue,
-      String? fieldType,
-      String? validationModule,
-      String? validationFieldName}) {
+  FwStandardDataFwCustomValue copyWith({
+    String? moduleName,
+    String? fieldName,
+    String? fieldValue,
+    String? fieldType,
+    String? validationModule,
+    String? validationFieldName,
+  }) {
     return FwStandardDataFwCustomValue(
-        moduleName: moduleName ?? this.moduleName,
-        fieldName: fieldName ?? this.fieldName,
-        fieldValue: fieldValue ?? this.fieldValue,
-        fieldType: fieldType ?? this.fieldType,
-        validationModule: validationModule ?? this.validationModule,
-        validationFieldName: validationFieldName ?? this.validationFieldName);
+      moduleName: moduleName ?? this.moduleName,
+      fieldName: fieldName ?? this.fieldName,
+      fieldValue: fieldValue ?? this.fieldValue,
+      fieldType: fieldType ?? this.fieldType,
+      validationModule: validationModule ?? this.validationModule,
+      validationFieldName: validationFieldName ?? this.validationFieldName,
+    );
   }
 
-  FwStandardDataFwCustomValue copyWithWrapped(
-      {Wrapped<String?>? moduleName,
-      Wrapped<String?>? fieldName,
-      Wrapped<String?>? fieldValue,
-      Wrapped<String?>? fieldType,
-      Wrapped<String?>? validationModule,
-      Wrapped<String?>? validationFieldName}) {
+  FwStandardDataFwCustomValue copyWithWrapped({
+    Wrapped<String?>? moduleName,
+    Wrapped<String?>? fieldName,
+    Wrapped<String?>? fieldValue,
+    Wrapped<String?>? fieldType,
+    Wrapped<String?>? validationModule,
+    Wrapped<String?>? validationFieldName,
+  }) {
     return FwStandardDataFwCustomValue(
-        moduleName: (moduleName != null ? moduleName.value : this.moduleName),
-        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
-        fieldValue: (fieldValue != null ? fieldValue.value : this.fieldValue),
-        fieldType: (fieldType != null ? fieldType.value : this.fieldType),
-        validationModule: (validationModule != null
-            ? validationModule.value
-            : this.validationModule),
-        validationFieldName: (validationFieldName != null
-            ? validationFieldName.value
-            : this.validationFieldName));
+      moduleName: (moduleName != null ? moduleName.value : this.moduleName),
+      fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+      fieldValue: (fieldValue != null ? fieldValue.value : this.fieldValue),
+      fieldType: (fieldType != null ? fieldType.value : this.fieldType),
+      validationModule: (validationModule != null
+          ? validationModule.value
+          : this.validationModule),
+      validationFieldName: (validationFieldName != null
+          ? validationFieldName.value
+          : this.validationFieldName),
+    );
   }
 }
 
@@ -1396,8 +1862,8 @@ class FwStandardDataFwDefaultAttribute {
   });
 
   factory FwStandardDataFwDefaultAttribute.fromJson(
-          Map<String, dynamic> json) =>
-      _$FwStandardDataFwDefaultAttributeFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$FwStandardDataFwDefaultAttributeFromJson(json);
 
   static const toJsonFactory = _$FwStandardDataFwDefaultAttributeToJson;
   Map<String, dynamic> toJson() =>
@@ -1416,14 +1882,20 @@ class FwStandardDataFwDefaultAttribute {
     return identical(this, other) ||
         (other is FwStandardDataFwDefaultAttribute &&
             (identical(other.fieldName, fieldName) ||
-                const DeepCollectionEquality()
-                    .equals(other.fieldName, fieldName)) &&
+                const DeepCollectionEquality().equals(
+                  other.fieldName,
+                  fieldName,
+                )) &&
             (identical(other.attributeName, attributeName) ||
-                const DeepCollectionEquality()
-                    .equals(other.attributeName, attributeName)) &&
+                const DeepCollectionEquality().equals(
+                  other.attributeName,
+                  attributeName,
+                )) &&
             (identical(other.defaultValue, defaultValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.defaultValue, defaultValue)));
+                const DeepCollectionEquality().equals(
+                  other.defaultValue,
+                  defaultValue,
+                )));
   }
 
   @override
@@ -1439,24 +1911,32 @@ class FwStandardDataFwDefaultAttribute {
 
 extension $FwStandardDataFwDefaultAttributeExtension
     on FwStandardDataFwDefaultAttribute {
-  FwStandardDataFwDefaultAttribute copyWith(
-      {String? fieldName, String? attributeName, String? defaultValue}) {
+  FwStandardDataFwDefaultAttribute copyWith({
+    String? fieldName,
+    String? attributeName,
+    String? defaultValue,
+  }) {
     return FwStandardDataFwDefaultAttribute(
-        fieldName: fieldName ?? this.fieldName,
-        attributeName: attributeName ?? this.attributeName,
-        defaultValue: defaultValue ?? this.defaultValue);
+      fieldName: fieldName ?? this.fieldName,
+      attributeName: attributeName ?? this.attributeName,
+      defaultValue: defaultValue ?? this.defaultValue,
+    );
   }
 
-  FwStandardDataFwDefaultAttribute copyWithWrapped(
-      {Wrapped<String?>? fieldName,
-      Wrapped<String?>? attributeName,
-      Wrapped<String?>? defaultValue}) {
+  FwStandardDataFwDefaultAttribute copyWithWrapped({
+    Wrapped<String?>? fieldName,
+    Wrapped<String?>? attributeName,
+    Wrapped<String?>? defaultValue,
+  }) {
     return FwStandardDataFwDefaultAttribute(
-        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
-        attributeName:
-            (attributeName != null ? attributeName.value : this.attributeName),
-        defaultValue:
-            (defaultValue != null ? defaultValue.value : this.defaultValue));
+      fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+      attributeName: (attributeName != null
+          ? attributeName.value
+          : this.attributeName),
+      defaultValue: (defaultValue != null
+          ? defaultValue.value
+          : this.defaultValue),
+    );
   }
 }
 
@@ -1494,20 +1974,30 @@ class FwStandardDataFwTranslatedValue {
     return identical(this, other) ||
         (other is FwStandardDataFwTranslatedValue &&
             (identical(other.fieldName, fieldName) ||
-                const DeepCollectionEquality()
-                    .equals(other.fieldName, fieldName)) &&
+                const DeepCollectionEquality().equals(
+                  other.fieldName,
+                  fieldName,
+                )) &&
             (identical(other.translatedValue, translatedValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.translatedValue, translatedValue)) &&
+                const DeepCollectionEquality().equals(
+                  other.translatedValue,
+                  translatedValue,
+                )) &&
             (identical(other.untranslatedValue, untranslatedValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.untranslatedValue, untranslatedValue)) &&
+                const DeepCollectionEquality().equals(
+                  other.untranslatedValue,
+                  untranslatedValue,
+                )) &&
             (identical(other.isTranslated, isTranslated) ||
-                const DeepCollectionEquality()
-                    .equals(other.isTranslated, isTranslated)) &&
+                const DeepCollectionEquality().equals(
+                  other.isTranslated,
+                  isTranslated,
+                )) &&
             (identical(other.userIsTranslating, userIsTranslating) ||
-                const DeepCollectionEquality()
-                    .equals(other.userIsTranslating, userIsTranslating)));
+                const DeepCollectionEquality().equals(
+                  other.userIsTranslating,
+                  userIsTranslating,
+                )));
   }
 
   @override
@@ -1525,39 +2015,44 @@ class FwStandardDataFwTranslatedValue {
 
 extension $FwStandardDataFwTranslatedValueExtension
     on FwStandardDataFwTranslatedValue {
-  FwStandardDataFwTranslatedValue copyWith(
-      {String? fieldName,
-      String? translatedValue,
-      String? untranslatedValue,
-      bool? isTranslated,
-      bool? userIsTranslating}) {
+  FwStandardDataFwTranslatedValue copyWith({
+    String? fieldName,
+    String? translatedValue,
+    String? untranslatedValue,
+    bool? isTranslated,
+    bool? userIsTranslating,
+  }) {
     return FwStandardDataFwTranslatedValue(
-        fieldName: fieldName ?? this.fieldName,
-        translatedValue: translatedValue ?? this.translatedValue,
-        untranslatedValue: untranslatedValue ?? this.untranslatedValue,
-        isTranslated: isTranslated ?? this.isTranslated,
-        userIsTranslating: userIsTranslating ?? this.userIsTranslating);
+      fieldName: fieldName ?? this.fieldName,
+      translatedValue: translatedValue ?? this.translatedValue,
+      untranslatedValue: untranslatedValue ?? this.untranslatedValue,
+      isTranslated: isTranslated ?? this.isTranslated,
+      userIsTranslating: userIsTranslating ?? this.userIsTranslating,
+    );
   }
 
-  FwStandardDataFwTranslatedValue copyWithWrapped(
-      {Wrapped<String?>? fieldName,
-      Wrapped<String?>? translatedValue,
-      Wrapped<String?>? untranslatedValue,
-      Wrapped<bool?>? isTranslated,
-      Wrapped<bool?>? userIsTranslating}) {
+  FwStandardDataFwTranslatedValue copyWithWrapped({
+    Wrapped<String?>? fieldName,
+    Wrapped<String?>? translatedValue,
+    Wrapped<String?>? untranslatedValue,
+    Wrapped<bool?>? isTranslated,
+    Wrapped<bool?>? userIsTranslating,
+  }) {
     return FwStandardDataFwTranslatedValue(
-        fieldName: (fieldName != null ? fieldName.value : this.fieldName),
-        translatedValue: (translatedValue != null
-            ? translatedValue.value
-            : this.translatedValue),
-        untranslatedValue: (untranslatedValue != null
-            ? untranslatedValue.value
-            : this.untranslatedValue),
-        isTranslated:
-            (isTranslated != null ? isTranslated.value : this.isTranslated),
-        userIsTranslating: (userIsTranslating != null
-            ? userIsTranslating.value
-            : this.userIsTranslating));
+      fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+      translatedValue: (translatedValue != null
+          ? translatedValue.value
+          : this.translatedValue),
+      untranslatedValue: (untranslatedValue != null
+          ? untranslatedValue.value
+          : this.untranslatedValue),
+      isTranslated: (isTranslated != null
+          ? isTranslated.value
+          : this.isTranslated),
+      userIsTranslating: (userIsTranslating != null
+          ? userIsTranslating.value
+          : this.userIsTranslating),
+    );
   }
 }
 
@@ -1615,28 +2110,42 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'pagesize', includeIfNull: false)
   final int? pagesize;
   @JsonKey(
-      name: 'searchfieldoperators',
-      includeIfNull: false,
-      defaultValue: <String>[])
+    name: 'searchfieldoperators',
+    includeIfNull: false,
+    defaultValue: <String>[],
+  )
   final List<String>? searchfieldoperators;
   @JsonKey(name: 'searchfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? searchfields;
   @JsonKey(
-      name: 'searchfieldvalues', includeIfNull: false, defaultValue: <String>[])
+    name: 'searchfieldvalues',
+    includeIfNull: false,
+    defaultValue: <String>[],
+  )
   final List<String>? searchfieldvalues;
   @JsonKey(
-      name: 'searchfieldtypes', includeIfNull: false, defaultValue: <String>[])
+    name: 'searchfieldtypes',
+    includeIfNull: false,
+    defaultValue: <String>[],
+  )
   final List<String>? searchfieldtypes;
   @JsonKey(
-      name: 'searchseparators', includeIfNull: false, defaultValue: <String>[])
+    name: 'searchseparators',
+    includeIfNull: false,
+    defaultValue: <String>[],
+  )
   final List<String>? searchseparators;
   @JsonKey(
-      name: 'searchcondition', includeIfNull: false, defaultValue: <String>[])
+    name: 'searchcondition',
+    includeIfNull: false,
+    defaultValue: <String>[],
+  )
   final List<String>? searchcondition;
   @JsonKey(
-      name: 'searchconjunctions',
-      includeIfNull: false,
-      defaultValue: <String>[])
+    name: 'searchconjunctions',
+    includeIfNull: false,
+    defaultValue: <String>[],
+  )
   final List<String>? searchconjunctions;
   @JsonKey(name: 'searchgroupings', includeIfNull: false, defaultValue: <int>[])
   final List<int>? searchgroupings;
@@ -1655,9 +2164,10 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'includeallcolumns', includeIfNull: false)
   final bool? includeallcolumns;
   @JsonKey(
-      name: 'fields',
-      includeIfNull: false,
-      defaultValue: <FwStandardModelsCheckBoxListItem>[])
+    name: 'fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardModelsCheckBoxListItem>[],
+  )
   final List<FwStandardModelsCheckBoxListItem>? fields;
   @JsonKey(name: 'totalfields', includeIfNull: false, defaultValue: <String>[])
   final List<String>? totalfields;
@@ -1670,74 +2180,123 @@ class FwStandardModelsBrowseRequest {
     return identical(this, other) ||
         (other is FwStandardModelsBrowseRequest &&
             (identical(other.miscfields, miscfields) ||
-                const DeepCollectionEquality()
-                    .equals(other.miscfields, miscfields)) &&
+                const DeepCollectionEquality().equals(
+                  other.miscfields,
+                  miscfields,
+                )) &&
             (identical(other.module, module) ||
                 const DeepCollectionEquality().equals(other.module, module)) &&
             (identical(other.options, options) ||
-                const DeepCollectionEquality()
-                    .equals(other.options, options)) &&
+                const DeepCollectionEquality().equals(
+                  other.options,
+                  options,
+                )) &&
             (identical(other.orderby, orderby) ||
-                const DeepCollectionEquality()
-                    .equals(other.orderby, orderby)) &&
+                const DeepCollectionEquality().equals(
+                  other.orderby,
+                  orderby,
+                )) &&
             (identical(other.orderbydirection, orderbydirection) ||
-                const DeepCollectionEquality()
-                    .equals(other.orderbydirection, orderbydirection)) &&
+                const DeepCollectionEquality().equals(
+                  other.orderbydirection,
+                  orderbydirection,
+                )) &&
             (identical(other.top, top) ||
                 const DeepCollectionEquality().equals(other.top, top)) &&
             (identical(other.pageno, pageno) ||
                 const DeepCollectionEquality().equals(other.pageno, pageno)) &&
             (identical(other.pagesize, pagesize) ||
-                const DeepCollectionEquality()
-                    .equals(other.pagesize, pagesize)) &&
+                const DeepCollectionEquality().equals(
+                  other.pagesize,
+                  pagesize,
+                )) &&
             (identical(other.searchfieldoperators, searchfieldoperators) ||
                 const DeepCollectionEquality().equals(
-                    other.searchfieldoperators, searchfieldoperators)) &&
+                  other.searchfieldoperators,
+                  searchfieldoperators,
+                )) &&
             (identical(other.searchfields, searchfields) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchfields, searchfields)) &&
+                const DeepCollectionEquality().equals(
+                  other.searchfields,
+                  searchfields,
+                )) &&
             (identical(other.searchfieldvalues, searchfieldvalues) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchfieldvalues, searchfieldvalues)) &&
+                const DeepCollectionEquality().equals(
+                  other.searchfieldvalues,
+                  searchfieldvalues,
+                )) &&
             (identical(other.searchfieldtypes, searchfieldtypes) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchfieldtypes, searchfieldtypes)) &&
+                const DeepCollectionEquality().equals(
+                  other.searchfieldtypes,
+                  searchfieldtypes,
+                )) &&
             (identical(other.searchseparators, searchseparators) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchseparators, searchseparators)) &&
+                const DeepCollectionEquality().equals(
+                  other.searchseparators,
+                  searchseparators,
+                )) &&
             (identical(other.searchcondition, searchcondition) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchcondition, searchcondition)) &&
+                const DeepCollectionEquality().equals(
+                  other.searchcondition,
+                  searchcondition,
+                )) &&
             (identical(other.searchconjunctions, searchconjunctions) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchconjunctions, searchconjunctions)) &&
+                const DeepCollectionEquality().equals(
+                  other.searchconjunctions,
+                  searchconjunctions,
+                )) &&
             (identical(other.searchgroupings, searchgroupings) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchgroupings, searchgroupings)) &&
+                const DeepCollectionEquality().equals(
+                  other.searchgroupings,
+                  searchgroupings,
+                )) &&
             (identical(other.uniqueids, uniqueids) ||
-                const DeepCollectionEquality()
-                    .equals(other.uniqueids, uniqueids)) &&
+                const DeepCollectionEquality().equals(
+                  other.uniqueids,
+                  uniqueids,
+                )) &&
             (identical(other.boundids, boundids) ||
-                const DeepCollectionEquality()
-                    .equals(other.boundids, boundids)) &&
+                const DeepCollectionEquality().equals(
+                  other.boundids,
+                  boundids,
+                )) &&
             (identical(other.filterfields, filterfields) ||
-                const DeepCollectionEquality()
-                    .equals(other.filterfields, filterfields)) &&
+                const DeepCollectionEquality().equals(
+                  other.filterfields,
+                  filterfields,
+                )) &&
             (identical(other.activeview, activeview) ||
-                const DeepCollectionEquality()
-                    .equals(other.activeview, activeview)) &&
+                const DeepCollectionEquality().equals(
+                  other.activeview,
+                  activeview,
+                )) &&
             (identical(other.emptyobject, emptyobject) ||
-                const DeepCollectionEquality()
-                    .equals(other.emptyobject, emptyobject)) &&
+                const DeepCollectionEquality().equals(
+                  other.emptyobject,
+                  emptyobject,
+                )) &&
             (identical(other.forexcel, forexcel) ||
-                const DeepCollectionEquality()
-                    .equals(other.forexcel, forexcel)) &&
+                const DeepCollectionEquality().equals(
+                  other.forexcel,
+                  forexcel,
+                )) &&
             (identical(other.includeallcolumns, includeallcolumns) ||
-                const DeepCollectionEquality()
-                    .equals(other.includeallcolumns, includeallcolumns)) &&
-            (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.totalfields, totalfields) || const DeepCollectionEquality().equals(other.totalfields, totalfields)) &&
-            (identical(other.activeviewfields, activeviewfields) || const DeepCollectionEquality().equals(other.activeviewfields, activeviewfields)));
+                const DeepCollectionEquality().equals(
+                  other.includeallcolumns,
+                  includeallcolumns,
+                )) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.totalfields, totalfields) ||
+                const DeepCollectionEquality().equals(
+                  other.totalfields,
+                  totalfields,
+                )) &&
+            (identical(other.activeviewfields, activeviewfields) ||
+                const DeepCollectionEquality().equals(
+                  other.activeviewfields,
+                  activeviewfields,
+                )));
   }
 
   @override
@@ -1776,161 +2335,165 @@ class FwStandardModelsBrowseRequest {
 
 extension $FwStandardModelsBrowseRequestExtension
     on FwStandardModelsBrowseRequest {
-  FwStandardModelsBrowseRequest copyWith(
-      {dynamic miscfields,
-      String? module,
-      dynamic options,
-      String? orderby,
-      String? orderbydirection,
-      int? top,
-      int? pageno,
-      int? pagesize,
-      List<String>? searchfieldoperators,
-      List<String>? searchfields,
-      List<String>? searchfieldvalues,
-      List<String>? searchfieldtypes,
-      List<String>? searchseparators,
-      List<String>? searchcondition,
-      List<String>? searchconjunctions,
-      List<int>? searchgroupings,
-      dynamic uniqueids,
-      dynamic boundids,
-      Map<String, dynamic>? filterfields,
-      String? activeview,
-      bool? emptyobject,
-      bool? forexcel,
-      bool? includeallcolumns,
-      List<FwStandardModelsCheckBoxListItem>? fields,
-      List<String>? totalfields,
-      Map<String, dynamic>? activeviewfields}) {
+  FwStandardModelsBrowseRequest copyWith({
+    dynamic miscfields,
+    String? module,
+    dynamic options,
+    String? orderby,
+    String? orderbydirection,
+    int? top,
+    int? pageno,
+    int? pagesize,
+    List<String>? searchfieldoperators,
+    List<String>? searchfields,
+    List<String>? searchfieldvalues,
+    List<String>? searchfieldtypes,
+    List<String>? searchseparators,
+    List<String>? searchcondition,
+    List<String>? searchconjunctions,
+    List<int>? searchgroupings,
+    dynamic uniqueids,
+    dynamic boundids,
+    Map<String, dynamic>? filterfields,
+    String? activeview,
+    bool? emptyobject,
+    bool? forexcel,
+    bool? includeallcolumns,
+    List<FwStandardModelsCheckBoxListItem>? fields,
+    List<String>? totalfields,
+    Map<String, dynamic>? activeviewfields,
+  }) {
     return FwStandardModelsBrowseRequest(
-        miscfields: miscfields ?? this.miscfields,
-        module: module ?? this.module,
-        options: options ?? this.options,
-        orderby: orderby ?? this.orderby,
-        orderbydirection: orderbydirection ?? this.orderbydirection,
-        top: top ?? this.top,
-        pageno: pageno ?? this.pageno,
-        pagesize: pagesize ?? this.pagesize,
-        searchfieldoperators: searchfieldoperators ?? this.searchfieldoperators,
-        searchfields: searchfields ?? this.searchfields,
-        searchfieldvalues: searchfieldvalues ?? this.searchfieldvalues,
-        searchfieldtypes: searchfieldtypes ?? this.searchfieldtypes,
-        searchseparators: searchseparators ?? this.searchseparators,
-        searchcondition: searchcondition ?? this.searchcondition,
-        searchconjunctions: searchconjunctions ?? this.searchconjunctions,
-        searchgroupings: searchgroupings ?? this.searchgroupings,
-        uniqueids: uniqueids ?? this.uniqueids,
-        boundids: boundids ?? this.boundids,
-        filterfields: filterfields ?? this.filterfields,
-        activeview: activeview ?? this.activeview,
-        emptyobject: emptyobject ?? this.emptyobject,
-        forexcel: forexcel ?? this.forexcel,
-        includeallcolumns: includeallcolumns ?? this.includeallcolumns,
-        fields: fields ?? this.fields,
-        totalfields: totalfields ?? this.totalfields,
-        activeviewfields: activeviewfields ?? this.activeviewfields);
+      miscfields: miscfields ?? this.miscfields,
+      module: module ?? this.module,
+      options: options ?? this.options,
+      orderby: orderby ?? this.orderby,
+      orderbydirection: orderbydirection ?? this.orderbydirection,
+      top: top ?? this.top,
+      pageno: pageno ?? this.pageno,
+      pagesize: pagesize ?? this.pagesize,
+      searchfieldoperators: searchfieldoperators ?? this.searchfieldoperators,
+      searchfields: searchfields ?? this.searchfields,
+      searchfieldvalues: searchfieldvalues ?? this.searchfieldvalues,
+      searchfieldtypes: searchfieldtypes ?? this.searchfieldtypes,
+      searchseparators: searchseparators ?? this.searchseparators,
+      searchcondition: searchcondition ?? this.searchcondition,
+      searchconjunctions: searchconjunctions ?? this.searchconjunctions,
+      searchgroupings: searchgroupings ?? this.searchgroupings,
+      uniqueids: uniqueids ?? this.uniqueids,
+      boundids: boundids ?? this.boundids,
+      filterfields: filterfields ?? this.filterfields,
+      activeview: activeview ?? this.activeview,
+      emptyobject: emptyobject ?? this.emptyobject,
+      forexcel: forexcel ?? this.forexcel,
+      includeallcolumns: includeallcolumns ?? this.includeallcolumns,
+      fields: fields ?? this.fields,
+      totalfields: totalfields ?? this.totalfields,
+      activeviewfields: activeviewfields ?? this.activeviewfields,
+    );
   }
 
-  FwStandardModelsBrowseRequest copyWithWrapped(
-      {Wrapped<dynamic>? miscfields,
-      Wrapped<String?>? module,
-      Wrapped<dynamic>? options,
-      Wrapped<String?>? orderby,
-      Wrapped<String?>? orderbydirection,
-      Wrapped<int?>? top,
-      Wrapped<int?>? pageno,
-      Wrapped<int?>? pagesize,
-      Wrapped<List<String>?>? searchfieldoperators,
-      Wrapped<List<String>?>? searchfields,
-      Wrapped<List<String>?>? searchfieldvalues,
-      Wrapped<List<String>?>? searchfieldtypes,
-      Wrapped<List<String>?>? searchseparators,
-      Wrapped<List<String>?>? searchcondition,
-      Wrapped<List<String>?>? searchconjunctions,
-      Wrapped<List<int>?>? searchgroupings,
-      Wrapped<dynamic>? uniqueids,
-      Wrapped<dynamic>? boundids,
-      Wrapped<Map<String, dynamic>?>? filterfields,
-      Wrapped<String?>? activeview,
-      Wrapped<bool?>? emptyobject,
-      Wrapped<bool?>? forexcel,
-      Wrapped<bool?>? includeallcolumns,
-      Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
-      Wrapped<List<String>?>? totalfields,
-      Wrapped<Map<String, dynamic>?>? activeviewfields}) {
+  FwStandardModelsBrowseRequest copyWithWrapped({
+    Wrapped<dynamic>? miscfields,
+    Wrapped<String?>? module,
+    Wrapped<dynamic>? options,
+    Wrapped<String?>? orderby,
+    Wrapped<String?>? orderbydirection,
+    Wrapped<int?>? top,
+    Wrapped<int?>? pageno,
+    Wrapped<int?>? pagesize,
+    Wrapped<List<String>?>? searchfieldoperators,
+    Wrapped<List<String>?>? searchfields,
+    Wrapped<List<String>?>? searchfieldvalues,
+    Wrapped<List<String>?>? searchfieldtypes,
+    Wrapped<List<String>?>? searchseparators,
+    Wrapped<List<String>?>? searchcondition,
+    Wrapped<List<String>?>? searchconjunctions,
+    Wrapped<List<int>?>? searchgroupings,
+    Wrapped<dynamic>? uniqueids,
+    Wrapped<dynamic>? boundids,
+    Wrapped<Map<String, dynamic>?>? filterfields,
+    Wrapped<String?>? activeview,
+    Wrapped<bool?>? emptyobject,
+    Wrapped<bool?>? forexcel,
+    Wrapped<bool?>? includeallcolumns,
+    Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
+    Wrapped<List<String>?>? totalfields,
+    Wrapped<Map<String, dynamic>?>? activeviewfields,
+  }) {
     return FwStandardModelsBrowseRequest(
-        miscfields: (miscfields != null ? miscfields.value : this.miscfields),
-        module: (module != null ? module.value : this.module),
-        options: (options != null ? options.value : this.options),
-        orderby: (orderby != null ? orderby.value : this.orderby),
-        orderbydirection: (orderbydirection != null
-            ? orderbydirection.value
-            : this.orderbydirection),
-        top: (top != null ? top.value : this.top),
-        pageno: (pageno != null ? pageno.value : this.pageno),
-        pagesize: (pagesize != null ? pagesize.value : this.pagesize),
-        searchfieldoperators: (searchfieldoperators != null
-            ? searchfieldoperators.value
-            : this.searchfieldoperators),
-        searchfields:
-            (searchfields != null ? searchfields.value : this.searchfields),
-        searchfieldvalues: (searchfieldvalues != null
-            ? searchfieldvalues.value
-            : this.searchfieldvalues),
-        searchfieldtypes: (searchfieldtypes != null
-            ? searchfieldtypes.value
-            : this.searchfieldtypes),
-        searchseparators: (searchseparators != null
-            ? searchseparators.value
-            : this.searchseparators),
-        searchcondition: (searchcondition != null
-            ? searchcondition.value
-            : this.searchcondition),
-        searchconjunctions: (searchconjunctions != null
-            ? searchconjunctions.value
-            : this.searchconjunctions),
-        searchgroupings: (searchgroupings != null
-            ? searchgroupings.value
-            : this.searchgroupings),
-        uniqueids: (uniqueids != null ? uniqueids.value : this.uniqueids),
-        boundids: (boundids != null ? boundids.value : this.boundids),
-        filterfields:
-            (filterfields != null ? filterfields.value : this.filterfields),
-        activeview: (activeview != null ? activeview.value : this.activeview),
-        emptyobject:
-            (emptyobject != null ? emptyobject.value : this.emptyobject),
-        forexcel: (forexcel != null ? forexcel.value : this.forexcel),
-        includeallcolumns: (includeallcolumns != null
-            ? includeallcolumns.value
-            : this.includeallcolumns),
-        fields: (fields != null ? fields.value : this.fields),
-        totalfields:
-            (totalfields != null ? totalfields.value : this.totalfields),
-        activeviewfields: (activeviewfields != null
-            ? activeviewfields.value
-            : this.activeviewfields));
+      miscfields: (miscfields != null ? miscfields.value : this.miscfields),
+      module: (module != null ? module.value : this.module),
+      options: (options != null ? options.value : this.options),
+      orderby: (orderby != null ? orderby.value : this.orderby),
+      orderbydirection: (orderbydirection != null
+          ? orderbydirection.value
+          : this.orderbydirection),
+      top: (top != null ? top.value : this.top),
+      pageno: (pageno != null ? pageno.value : this.pageno),
+      pagesize: (pagesize != null ? pagesize.value : this.pagesize),
+      searchfieldoperators: (searchfieldoperators != null
+          ? searchfieldoperators.value
+          : this.searchfieldoperators),
+      searchfields: (searchfields != null
+          ? searchfields.value
+          : this.searchfields),
+      searchfieldvalues: (searchfieldvalues != null
+          ? searchfieldvalues.value
+          : this.searchfieldvalues),
+      searchfieldtypes: (searchfieldtypes != null
+          ? searchfieldtypes.value
+          : this.searchfieldtypes),
+      searchseparators: (searchseparators != null
+          ? searchseparators.value
+          : this.searchseparators),
+      searchcondition: (searchcondition != null
+          ? searchcondition.value
+          : this.searchcondition),
+      searchconjunctions: (searchconjunctions != null
+          ? searchconjunctions.value
+          : this.searchconjunctions),
+      searchgroupings: (searchgroupings != null
+          ? searchgroupings.value
+          : this.searchgroupings),
+      uniqueids: (uniqueids != null ? uniqueids.value : this.uniqueids),
+      boundids: (boundids != null ? boundids.value : this.boundids),
+      filterfields: (filterfields != null
+          ? filterfields.value
+          : this.filterfields),
+      activeview: (activeview != null ? activeview.value : this.activeview),
+      emptyobject: (emptyobject != null ? emptyobject.value : this.emptyobject),
+      forexcel: (forexcel != null ? forexcel.value : this.forexcel),
+      includeallcolumns: (includeallcolumns != null
+          ? includeallcolumns.value
+          : this.includeallcolumns),
+      fields: (fields != null ? fields.value : this.fields),
+      totalfields: (totalfields != null ? totalfields.value : this.totalfields),
+      activeviewfields: (activeviewfields != null
+          ? activeviewfields.value
+          : this.activeviewfields),
+    );
   }
 }
 
 @JsonSerializable(explicitToJson: true)
 class FwStandardModelsCheckBoxListItem {
   const FwStandardModelsCheckBoxListItem({
-    this.$value,
+    this.value,
     this.text,
     this.selected,
   });
 
   factory FwStandardModelsCheckBoxListItem.fromJson(
-          Map<String, dynamic> json) =>
-      _$FwStandardModelsCheckBoxListItemFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$FwStandardModelsCheckBoxListItemFromJson(json);
 
   static const toJsonFactory = _$FwStandardModelsCheckBoxListItemToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsCheckBoxListItemToJson(this);
 
   @JsonKey(name: 'value', includeIfNull: false)
-  final String? $value;
+  final String? value;
   @JsonKey(name: 'text', includeIfNull: false)
   final String? text;
   @JsonKey(name: 'selected', includeIfNull: false)
@@ -1941,13 +2504,15 @@ class FwStandardModelsCheckBoxListItem {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other is FwStandardModelsCheckBoxListItem &&
-            (identical(other.$value, $value) ||
-                const DeepCollectionEquality().equals(other.$value, $value)) &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.text, text) ||
                 const DeepCollectionEquality().equals(other.text, text)) &&
             (identical(other.selected, selected) ||
-                const DeepCollectionEquality()
-                    .equals(other.selected, selected)));
+                const DeepCollectionEquality().equals(
+                  other.selected,
+                  selected,
+                )));
   }
 
   @override
@@ -1955,7 +2520,7 @@ class FwStandardModelsCheckBoxListItem {
 
   @override
   int get hashCode =>
-      const DeepCollectionEquality().hash($value) ^
+      const DeepCollectionEquality().hash(value) ^
       const DeepCollectionEquality().hash(text) ^
       const DeepCollectionEquality().hash(selected) ^
       runtimeType.hashCode;
@@ -1963,22 +2528,28 @@ class FwStandardModelsCheckBoxListItem {
 
 extension $FwStandardModelsCheckBoxListItemExtension
     on FwStandardModelsCheckBoxListItem {
-  FwStandardModelsCheckBoxListItem copyWith(
-      {String? $value, String? text, bool? selected}) {
+  FwStandardModelsCheckBoxListItem copyWith({
+    String? value,
+    String? text,
+    bool? selected,
+  }) {
     return FwStandardModelsCheckBoxListItem(
-        $value: $value ?? this.$value,
-        text: text ?? this.text,
-        selected: selected ?? this.selected);
+      value: value ?? this.value,
+      text: text ?? this.text,
+      selected: selected ?? this.selected,
+    );
   }
 
-  FwStandardModelsCheckBoxListItem copyWithWrapped(
-      {Wrapped<String?>? $value,
-      Wrapped<String?>? text,
-      Wrapped<bool?>? selected}) {
+  FwStandardModelsCheckBoxListItem copyWithWrapped({
+    Wrapped<String?>? value,
+    Wrapped<String?>? text,
+    Wrapped<bool?>? selected,
+  }) {
     return FwStandardModelsCheckBoxListItem(
-        $value: ($value != null ? $value.value : this.$value),
-        text: (text != null ? text.value : this.text),
-        selected: (selected != null ? selected.value : this.selected));
+      value: (value != null ? value.value : this.value),
+      text: (text != null ? text.value : this.text),
+      selected: (selected != null ? selected.value : this.selected),
+    );
   }
 }
 
@@ -2009,14 +2580,20 @@ class FwStandardModelsFwApiException {
     return identical(this, other) ||
         (other is FwStandardModelsFwApiException &&
             (identical(other.statusCode, statusCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.statusCode, statusCode)) &&
+                const DeepCollectionEquality().equals(
+                  other.statusCode,
+                  statusCode,
+                )) &&
             (identical(other.message, message) ||
-                const DeepCollectionEquality()
-                    .equals(other.message, message)) &&
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
             (identical(other.stackTrace, stackTrace) ||
-                const DeepCollectionEquality()
-                    .equals(other.stackTrace, stackTrace)));
+                const DeepCollectionEquality().equals(
+                  other.stackTrace,
+                  stackTrace,
+                )));
   }
 
   @override
@@ -2032,22 +2609,28 @@ class FwStandardModelsFwApiException {
 
 extension $FwStandardModelsFwApiExceptionExtension
     on FwStandardModelsFwApiException {
-  FwStandardModelsFwApiException copyWith(
-      {int? statusCode, String? message, String? stackTrace}) {
+  FwStandardModelsFwApiException copyWith({
+    int? statusCode,
+    String? message,
+    String? stackTrace,
+  }) {
     return FwStandardModelsFwApiException(
-        statusCode: statusCode ?? this.statusCode,
-        message: message ?? this.message,
-        stackTrace: stackTrace ?? this.stackTrace);
+      statusCode: statusCode ?? this.statusCode,
+      message: message ?? this.message,
+      stackTrace: stackTrace ?? this.stackTrace,
+    );
   }
 
-  FwStandardModelsFwApiException copyWithWrapped(
-      {Wrapped<int?>? statusCode,
-      Wrapped<String?>? message,
-      Wrapped<String?>? stackTrace}) {
+  FwStandardModelsFwApiException copyWithWrapped({
+    Wrapped<int?>? statusCode,
+    Wrapped<String?>? message,
+    Wrapped<String?>? stackTrace,
+  }) {
     return FwStandardModelsFwApiException(
-        statusCode: (statusCode != null ? statusCode.value : this.statusCode),
-        message: (message != null ? message.value : this.message),
-        stackTrace: (stackTrace != null ? stackTrace.value : this.stackTrace));
+      statusCode: (statusCode != null ? statusCode.value : this.statusCode),
+      message: (message != null ? message.value : this.message),
+      stackTrace: (stackTrace != null ? stackTrace.value : this.stackTrace),
+    );
   }
 }
 
@@ -2056,7 +2639,7 @@ class FwStandardModelsFwQueryFilter {
   const FwStandardModelsFwQueryFilter({
     required this.field,
     required this.op,
-    this.$Value,
+    this.value,
   });
 
   factory FwStandardModelsFwQueryFilter.fromJson(Map<String, dynamic> json) =>
@@ -2070,7 +2653,7 @@ class FwStandardModelsFwQueryFilter {
   @JsonKey(name: 'Op', includeIfNull: false)
   final String op;
   @JsonKey(name: 'Value', includeIfNull: false)
-  final String? $Value;
+  final String? value;
   static const fromJsonFactory = _$FwStandardModelsFwQueryFilterFromJson;
 
   @override
@@ -2081,8 +2664,8 @@ class FwStandardModelsFwQueryFilter {
                 const DeepCollectionEquality().equals(other.field, field)) &&
             (identical(other.op, op) ||
                 const DeepCollectionEquality().equals(other.op, op)) &&
-            (identical(other.$Value, $Value) ||
-                const DeepCollectionEquality().equals(other.$Value, $Value)));
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
   }
 
   @override
@@ -2092,26 +2675,34 @@ class FwStandardModelsFwQueryFilter {
   int get hashCode =>
       const DeepCollectionEquality().hash(field) ^
       const DeepCollectionEquality().hash(op) ^
-      const DeepCollectionEquality().hash($Value) ^
+      const DeepCollectionEquality().hash(value) ^
       runtimeType.hashCode;
 }
 
 extension $FwStandardModelsFwQueryFilterExtension
     on FwStandardModelsFwQueryFilter {
-  FwStandardModelsFwQueryFilter copyWith(
-      {String? field, String? op, String? $Value}) {
+  FwStandardModelsFwQueryFilter copyWith({
+    String? field,
+    String? op,
+    String? value,
+  }) {
     return FwStandardModelsFwQueryFilter(
-        field: field ?? this.field,
-        op: op ?? this.op,
-        $Value: $Value ?? this.$Value);
+      field: field ?? this.field,
+      op: op ?? this.op,
+      value: value ?? this.value,
+    );
   }
 
-  FwStandardModelsFwQueryFilter copyWithWrapped(
-      {Wrapped<String>? field, Wrapped<String>? op, Wrapped<String?>? $Value}) {
+  FwStandardModelsFwQueryFilter copyWithWrapped({
+    Wrapped<String>? field,
+    Wrapped<String>? op,
+    Wrapped<String?>? value,
+  }) {
     return FwStandardModelsFwQueryFilter(
-        field: (field != null ? field.value : this.field),
-        op: (op != null ? op.value : this.op),
-        $Value: ($Value != null ? $Value.value : this.$Value));
+      field: (field != null ? field.value : this.field),
+      op: (op != null ? op.value : this.op),
+      value: (value != null ? value.value : this.value),
+    );
   }
 }
 
@@ -2126,20 +2717,24 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTask
   });
 
   factory FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-          this);
+        this,
+      );
 
   @JsonKey(
-      name: 'Items',
-      includeIfNull: false,
-      defaultValue: <WebApiModulesAdministratorTaskSchedulerTaskSteps>[])
+    name: 'Items',
+    includeIfNull: false,
+    defaultValue: <WebApiModulesAdministratorTaskSchedulerTaskSteps>[],
+  )
   final List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
@@ -2155,17 +2750,22 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTask
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
                 const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
             (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageSize, pageSize)) &&
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
             (identical(other.totalItems, totalItems) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalItems, totalItems)) &&
+                const DeepCollectionEquality().equals(
+                  other.totalItems,
+                  totalItems,
+                )) &&
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
@@ -2184,36 +2784,40 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTask
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicExtension
-    on FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
+    on
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
   FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-      copyWith(
-          {List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items,
-          int? pageNo,
-          int? pageSize,
-          int? totalItems,
-          String? sort}) {
+  copyWith({
+    List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items,
+    int? pageNo,
+    int? pageSize,
+    int? totalItems,
+    String? sort,
+  }) {
     return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-        items: items ?? this.items,
-        pageNo: pageNo ?? this.pageNo,
-        pageSize: pageSize ?? this.pageSize,
-        totalItems: totalItems ?? this.totalItems,
-        sort: sort ?? this.sort);
+      items: items ?? this.items,
+      pageNo: pageNo ?? this.pageNo,
+      pageSize: pageSize ?? this.pageSize,
+      totalItems: totalItems ?? this.totalItems,
+      sort: sort ?? this.sort,
+    );
   }
 
   FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-      copyWithWrapped(
-          {Wrapped<List<WebApiModulesAdministratorTaskSchedulerTaskSteps>?>?
-              items,
-          Wrapped<int?>? pageNo,
-          Wrapped<int?>? pageSize,
-          Wrapped<int?>? totalItems,
-          Wrapped<String?>? sort}) {
+  copyWithWrapped({
+    Wrapped<List<WebApiModulesAdministratorTaskSchedulerTaskSteps>?>? items,
+    Wrapped<int?>? pageNo,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalItems,
+    Wrapped<String?>? sort,
+  }) {
     return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-        items: (items != null ? items.value : this.items),
-        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
-        sort: (sort != null ? sort.value : this.sort));
+      items: (items != null ? items.value : this.items),
+      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+      sort: (sort != null ? sort.value : this.sort),
+    );
   }
 }
 
@@ -2228,23 +2832,31 @@ class FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScann
   });
 
   factory FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
-          this);
+        this,
+      );
 
   @JsonKey(
-      name: 'Items',
-      includeIfNull: false,
-      defaultValue: <WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>[])
+    name: 'Items',
+    includeIfNull: false,
+    defaultValue:
+        <
+          WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
+        >[],
+  )
   final List<
-          WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>?
-      items;
+    WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
+  >?
+  items;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
   @JsonKey(name: 'PageSize', includeIfNull: false)
@@ -2259,17 +2871,22 @@ class FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScann
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
                 const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
             (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageSize, pageSize)) &&
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
             (identical(other.totalItems, totalItems) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalItems, totalItems)) &&
+                const DeepCollectionEquality().equals(
+                  other.totalItems,
+                  totalItems,
+                )) &&
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
@@ -2288,39 +2905,48 @@ class FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScann
 }
 
 extension $FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseExtension
-    on FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse {
+    on
+        FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse {
   FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
-      copyWith(
-          {List<WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>?
-              items,
-          int? pageNo,
-          int? pageSize,
-          int? totalItems,
-          String? sort}) {
+  copyWith({
+    List<
+      WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
+    >?
+    items,
+    int? pageNo,
+    int? pageSize,
+    int? totalItems,
+    String? sort,
+  }) {
     return FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse(
-        items: items ?? this.items,
-        pageNo: pageNo ?? this.pageNo,
-        pageSize: pageSize ?? this.pageSize,
-        totalItems: totalItems ?? this.totalItems,
-        sort: sort ?? this.sort);
+      items: items ?? this.items,
+      pageNo: pageNo ?? this.pageNo,
+      pageSize: pageSize ?? this.pageSize,
+      totalItems: totalItems ?? this.totalItems,
+      sort: sort ?? this.sort,
+    );
   }
 
   FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
-      copyWithWrapped(
-          {Wrapped<
-                  List<
-                      WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse>?>?
-              items,
-          Wrapped<int?>? pageNo,
-          Wrapped<int?>? pageSize,
-          Wrapped<int?>? totalItems,
-          Wrapped<String?>? sort}) {
+  copyWithWrapped({
+    Wrapped<
+      List<
+        WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
+      >?
+    >?
+    items,
+    Wrapped<int?>? pageNo,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalItems,
+    Wrapped<String?>? sort,
+  }) {
     return FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse(
-        items: (items != null ? items.value : this.items),
-        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-        totalItems: (totalItems != null ? totalItems.value : this.totalItems),
-        sort: (sort != null ? sort.value : this.sort));
+      items: (items != null ? items.value : this.items),
+      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+      sort: (sort != null ? sort.value : this.sort),
+    );
   }
 }
 
@@ -2335,22 +2961,27 @@ class FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetire
   });
 
   factory FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson;
   Map<String, dynamic> toJson() =>
       _$FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson(
-          this);
+        this,
+      );
 
   @JsonKey(
-      name: 'Items',
-      includeIfNull: false,
-      defaultValue: <WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>[])
+    name: 'Items',
+    includeIfNull: false,
+    defaultValue:
+        <WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>[],
+  )
   final List<WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>?
-      items;
+  items;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
   @JsonKey(name: 'PageSize', includeIfNull: false)
@@ -2365,17 +2996,22 @@ class FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetire
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse &&
+        (other
+                is FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
                 const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
             (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageSize, pageSize)) &&
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
             (identical(other.totalRows, totalRows) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalRows, totalRows)) &&
+                const DeepCollectionEquality().equals(
+                  other.totalRows,
+                  totalRows,
+                )) &&
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)));
   }
@@ -2394,39 +3030,43 @@ class FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetire
 }
 
 extension $FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponseExtension
-    on FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse {
+    on
+        FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse {
   FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
-      copyWith(
-          {List<WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>?
-              items,
-          int? pageNo,
-          int? pageSize,
-          int? totalRows,
-          String? sort}) {
+  copyWith({
+    List<WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>? items,
+    int? pageNo,
+    int? pageSize,
+    int? totalRows,
+    String? sort,
+  }) {
     return FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse(
-        items: items ?? this.items,
-        pageNo: pageNo ?? this.pageNo,
-        pageSize: pageSize ?? this.pageSize,
-        totalRows: totalRows ?? this.totalRows,
-        sort: sort ?? this.sort);
+      items: items ?? this.items,
+      pageNo: pageNo ?? this.pageNo,
+      pageSize: pageSize ?? this.pageSize,
+      totalRows: totalRows ?? this.totalRows,
+      sort: sort ?? this.sort,
+    );
   }
 
   FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
-      copyWithWrapped(
-          {Wrapped<
-                  List<
-                      WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>?>?
-              items,
-          Wrapped<int?>? pageNo,
-          Wrapped<int?>? pageSize,
-          Wrapped<int?>? totalRows,
-          Wrapped<String?>? sort}) {
+  copyWithWrapped({
+    Wrapped<
+      List<WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse>?
+    >?
+    items,
+    Wrapped<int?>? pageNo,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalRows,
+    Wrapped<String?>? sort,
+  }) {
     return FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse(
-        items: (items != null ? items.value : this.items),
-        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-        totalRows: (totalRows != null ? totalRows.value : this.totalRows),
-        sort: (sort != null ? sort.value : this.sort));
+      items: (items != null ? items.value : this.items),
+      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      totalRows: (totalRows != null ? totalRows.value : this.totalRows),
+      sort: (sort != null ? sort.value : this.sort),
+    );
   }
 }
 
@@ -2448,8 +3088,8 @@ class FwStandardSqlServerFwJsonDataTable {
   });
 
   factory FwStandardSqlServerFwJsonDataTable.fromJson(
-          Map<String, dynamic> json) =>
-      _$FwStandardSqlServerFwJsonDataTableFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$FwStandardSqlServerFwJsonDataTableFromJson(json);
 
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableToJson;
   Map<String, dynamic> toJson() =>
@@ -2460,9 +3100,10 @@ class FwStandardSqlServerFwJsonDataTable {
   @JsonKey(name: 'Totals', includeIfNull: false)
   final Map<String, dynamic>? totals;
   @JsonKey(
-      name: 'Columns',
-      includeIfNull: false,
-      defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[])
+    name: 'Columns',
+    includeIfNull: false,
+    defaultValue: <FwStandardSqlServerFwJsonDataTableColumn>[],
+  )
   final List<FwStandardSqlServerFwJsonDataTableColumn>? columns;
   @JsonKey(name: 'Rows', includeIfNull: false, defaultValue: <List<Object?>>[])
   final List<List<Object?>>? rows;
@@ -2481,9 +3122,10 @@ class FwStandardSqlServerFwJsonDataTable {
   @JsonKey(name: 'ServerVersion', includeIfNull: false)
   final String? serverVersion;
   @JsonKey(
-      name: '_Translation',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwTranslatedValue>[])
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
   final List<FwStandardDataFwTranslatedValue>? translation;
   static const fromJsonFactory = _$FwStandardSqlServerFwJsonDataTableFromJson;
 
@@ -2492,38 +3134,56 @@ class FwStandardSqlServerFwJsonDataTable {
     return identical(this, other) ||
         (other is FwStandardSqlServerFwJsonDataTable &&
             (identical(other.columnIndex, columnIndex) ||
-                const DeepCollectionEquality()
-                    .equals(other.columnIndex, columnIndex)) &&
+                const DeepCollectionEquality().equals(
+                  other.columnIndex,
+                  columnIndex,
+                )) &&
             (identical(other.totals, totals) ||
                 const DeepCollectionEquality().equals(other.totals, totals)) &&
             (identical(other.columns, columns) ||
-                const DeepCollectionEquality()
-                    .equals(other.columns, columns)) &&
+                const DeepCollectionEquality().equals(
+                  other.columns,
+                  columns,
+                )) &&
             (identical(other.rows, rows) ||
                 const DeepCollectionEquality().equals(other.rows, rows)) &&
             (identical(other.pageNo, pageNo) ||
                 const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
             (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageSize, pageSize)) &&
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
             (identical(other.totalPages, totalPages) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalPages, totalPages)) &&
+                const DeepCollectionEquality().equals(
+                  other.totalPages,
+                  totalPages,
+                )) &&
             (identical(other.totalRows, totalRows) ||
-                const DeepCollectionEquality()
-                    .equals(other.totalRows, totalRows)) &&
+                const DeepCollectionEquality().equals(
+                  other.totalRows,
+                  totalRows,
+                )) &&
             (identical(other.dateFields, dateFields) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateFields, dateFields)) &&
+                const DeepCollectionEquality().equals(
+                  other.dateFields,
+                  dateFields,
+                )) &&
             (identical(other.columnNameByIndex, columnNameByIndex) ||
-                const DeepCollectionEquality()
-                    .equals(other.columnNameByIndex, columnNameByIndex)) &&
+                const DeepCollectionEquality().equals(
+                  other.columnNameByIndex,
+                  columnNameByIndex,
+                )) &&
             (identical(other.serverVersion, serverVersion) ||
-                const DeepCollectionEquality()
-                    .equals(other.serverVersion, serverVersion)) &&
+                const DeepCollectionEquality().equals(
+                  other.serverVersion,
+                  serverVersion,
+                )) &&
             (identical(other.translation, translation) ||
-                const DeepCollectionEquality()
-                    .equals(other.translation, translation)));
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )));
   }
 
   @override
@@ -2548,65 +3208,68 @@ class FwStandardSqlServerFwJsonDataTable {
 
 extension $FwStandardSqlServerFwJsonDataTableExtension
     on FwStandardSqlServerFwJsonDataTable {
-  FwStandardSqlServerFwJsonDataTable copyWith(
-      {Map<String, dynamic>? columnIndex,
-      Map<String, dynamic>? totals,
-      List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
-      List<List<Object?>>? rows,
-      int? pageNo,
-      int? pageSize,
-      int? totalPages,
-      int? totalRows,
-      List<String>? dateFields,
-      Map<String, dynamic>? columnNameByIndex,
-      String? serverVersion,
-      List<FwStandardDataFwTranslatedValue>? translation}) {
+  FwStandardSqlServerFwJsonDataTable copyWith({
+    Map<String, dynamic>? columnIndex,
+    Map<String, dynamic>? totals,
+    List<FwStandardSqlServerFwJsonDataTableColumn>? columns,
+    List<List<Object?>>? rows,
+    int? pageNo,
+    int? pageSize,
+    int? totalPages,
+    int? totalRows,
+    List<String>? dateFields,
+    Map<String, dynamic>? columnNameByIndex,
+    String? serverVersion,
+    List<FwStandardDataFwTranslatedValue>? translation,
+  }) {
     return FwStandardSqlServerFwJsonDataTable(
-        columnIndex: columnIndex ?? this.columnIndex,
-        totals: totals ?? this.totals,
-        columns: columns ?? this.columns,
-        rows: rows ?? this.rows,
-        pageNo: pageNo ?? this.pageNo,
-        pageSize: pageSize ?? this.pageSize,
-        totalPages: totalPages ?? this.totalPages,
-        totalRows: totalRows ?? this.totalRows,
-        dateFields: dateFields ?? this.dateFields,
-        columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex,
-        serverVersion: serverVersion ?? this.serverVersion,
-        translation: translation ?? this.translation);
+      columnIndex: columnIndex ?? this.columnIndex,
+      totals: totals ?? this.totals,
+      columns: columns ?? this.columns,
+      rows: rows ?? this.rows,
+      pageNo: pageNo ?? this.pageNo,
+      pageSize: pageSize ?? this.pageSize,
+      totalPages: totalPages ?? this.totalPages,
+      totalRows: totalRows ?? this.totalRows,
+      dateFields: dateFields ?? this.dateFields,
+      columnNameByIndex: columnNameByIndex ?? this.columnNameByIndex,
+      serverVersion: serverVersion ?? this.serverVersion,
+      translation: translation ?? this.translation,
+    );
   }
 
-  FwStandardSqlServerFwJsonDataTable copyWithWrapped(
-      {Wrapped<Map<String, dynamic>?>? columnIndex,
-      Wrapped<Map<String, dynamic>?>? totals,
-      Wrapped<List<FwStandardSqlServerFwJsonDataTableColumn>?>? columns,
-      Wrapped<List<List<Object?>>?>? rows,
-      Wrapped<int?>? pageNo,
-      Wrapped<int?>? pageSize,
-      Wrapped<int?>? totalPages,
-      Wrapped<int?>? totalRows,
-      Wrapped<List<String>?>? dateFields,
-      Wrapped<Map<String, dynamic>?>? columnNameByIndex,
-      Wrapped<String?>? serverVersion,
-      Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation}) {
+  FwStandardSqlServerFwJsonDataTable copyWithWrapped({
+    Wrapped<Map<String, dynamic>?>? columnIndex,
+    Wrapped<Map<String, dynamic>?>? totals,
+    Wrapped<List<FwStandardSqlServerFwJsonDataTableColumn>?>? columns,
+    Wrapped<List<List<Object?>>?>? rows,
+    Wrapped<int?>? pageNo,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalPages,
+    Wrapped<int?>? totalRows,
+    Wrapped<List<String>?>? dateFields,
+    Wrapped<Map<String, dynamic>?>? columnNameByIndex,
+    Wrapped<String?>? serverVersion,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+  }) {
     return FwStandardSqlServerFwJsonDataTable(
-        columnIndex:
-            (columnIndex != null ? columnIndex.value : this.columnIndex),
-        totals: (totals != null ? totals.value : this.totals),
-        columns: (columns != null ? columns.value : this.columns),
-        rows: (rows != null ? rows.value : this.rows),
-        pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-        pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-        totalPages: (totalPages != null ? totalPages.value : this.totalPages),
-        totalRows: (totalRows != null ? totalRows.value : this.totalRows),
-        dateFields: (dateFields != null ? dateFields.value : this.dateFields),
-        columnNameByIndex: (columnNameByIndex != null
-            ? columnNameByIndex.value
-            : this.columnNameByIndex),
-        serverVersion:
-            (serverVersion != null ? serverVersion.value : this.serverVersion),
-        translation:
-            (translation != null ? translation.value : this.translation));
+      columnIndex: (columnIndex != null ? columnIndex.value : this.columnIndex),
+      totals: (totals != null ? totals.value : this.totals),
+      columns: (columns != null ? columns.value : this.columns),
+      rows: (rows != null ? rows.value : this.rows),
+      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      totalPages: (totalPages != null ? totalPages.value : this.totalPages),
+      totalRows: (totalRows != null ? totalRows.value : this.totalRows),
+      dateFields: (dateFields != null ? dateFields.value : this.dateFields),
+      columnNameByIndex: (columnNameByIndex != null
+          ? columnNameByIndex.value
+          : this.columnNameByIndex),
+      serverVersion: (serverVersion != null
+          ? serverVersion.value
+          : this.serverVersion),
+      translation: (translation != null ? translation.value : this.translation),
+    );
   }
 }
 
@@ -2621,8 +3284,8 @@ class FwStandardSqlServerFwJsonDataTableColumn {
   });
 
   factory FwStandardSqlServerFwJsonDataTableColumn.fromJson(
-          Map<String, dynamic> json) =>
-      _$FwStandardSqlServerFwJsonDataTableColumnFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$FwStandardSqlServerFwJsonDataTableColumnFromJson(json);
 
   static const toJsonFactory = _$FwStandardSqlServerFwJsonDataTableColumnToJson;
   Map<String, dynamic> toJson() =>
@@ -2653,17 +3316,25 @@ class FwStandardSqlServerFwJsonDataTableColumn {
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.dataField, dataField) ||
-                const DeepCollectionEquality()
-                    .equals(other.dataField, dataField)) &&
+                const DeepCollectionEquality().equals(
+                  other.dataField,
+                  dataField,
+                )) &&
             (identical(other.dataType, dataType) ||
-                const DeepCollectionEquality()
-                    .equals(other.dataType, dataType)) &&
+                const DeepCollectionEquality().equals(
+                  other.dataType,
+                  dataType,
+                )) &&
             (identical(other.isUniqueId, isUniqueId) ||
-                const DeepCollectionEquality()
-                    .equals(other.isUniqueId, isUniqueId)) &&
+                const DeepCollectionEquality().equals(
+                  other.isUniqueId,
+                  isUniqueId,
+                )) &&
             (identical(other.isVisible, isVisible) ||
-                const DeepCollectionEquality()
-                    .equals(other.isVisible, isVisible)));
+                const DeepCollectionEquality().equals(
+                  other.isVisible,
+                  isVisible,
+                )));
   }
 
   @override
@@ -2681,32 +3352,36 @@ class FwStandardSqlServerFwJsonDataTableColumn {
 
 extension $FwStandardSqlServerFwJsonDataTableColumnExtension
     on FwStandardSqlServerFwJsonDataTableColumn {
-  FwStandardSqlServerFwJsonDataTableColumn copyWith(
-      {String? name,
-      String? dataField,
-      enums.FwStandardSqlServerFwDataTypes? dataType,
-      bool? isUniqueId,
-      bool? isVisible}) {
+  FwStandardSqlServerFwJsonDataTableColumn copyWith({
+    String? name,
+    String? dataField,
+    enums.FwStandardSqlServerFwDataTypes? dataType,
+    bool? isUniqueId,
+    bool? isVisible,
+  }) {
     return FwStandardSqlServerFwJsonDataTableColumn(
-        name: name ?? this.name,
-        dataField: dataField ?? this.dataField,
-        dataType: dataType ?? this.dataType,
-        isUniqueId: isUniqueId ?? this.isUniqueId,
-        isVisible: isVisible ?? this.isVisible);
+      name: name ?? this.name,
+      dataField: dataField ?? this.dataField,
+      dataType: dataType ?? this.dataType,
+      isUniqueId: isUniqueId ?? this.isUniqueId,
+      isVisible: isVisible ?? this.isVisible,
+    );
   }
 
-  FwStandardSqlServerFwJsonDataTableColumn copyWithWrapped(
-      {Wrapped<String?>? name,
-      Wrapped<String?>? dataField,
-      Wrapped<enums.FwStandardSqlServerFwDataTypes?>? dataType,
-      Wrapped<bool?>? isUniqueId,
-      Wrapped<bool?>? isVisible}) {
+  FwStandardSqlServerFwJsonDataTableColumn copyWithWrapped({
+    Wrapped<String?>? name,
+    Wrapped<String?>? dataField,
+    Wrapped<enums.FwStandardSqlServerFwDataTypes?>? dataType,
+    Wrapped<bool?>? isUniqueId,
+    Wrapped<bool?>? isVisible,
+  }) {
     return FwStandardSqlServerFwJsonDataTableColumn(
-        name: (name != null ? name.value : this.name),
-        dataField: (dataField != null ? dataField.value : this.dataField),
-        dataType: (dataType != null ? dataType.value : this.dataType),
-        isUniqueId: (isUniqueId != null ? isUniqueId.value : this.isUniqueId),
-        isVisible: (isVisible != null ? isVisible.value : this.isVisible));
+      name: (name != null ? name.value : this.name),
+      dataField: (dataField != null ? dataField.value : this.dataField),
+      dataType: (dataType != null ? dataType.value : this.dataType),
+      isUniqueId: (isUniqueId != null ? isUniqueId.value : this.isUniqueId),
+      isVisible: (isVisible != null ? isVisible.value : this.isVisible),
+    );
   }
 }
 
@@ -2719,8 +3394,8 @@ class FwStandardSqlServerTSpStatusResponse {
   });
 
   factory FwStandardSqlServerTSpStatusResponse.fromJson(
-          Map<String, dynamic> json) =>
-      _$FwStandardSqlServerTSpStatusResponseFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$FwStandardSqlServerTSpStatusResponseFromJson(json);
 
   static const toJsonFactory = _$FwStandardSqlServerTSpStatusResponseToJson;
   Map<String, dynamic> toJson() =>
@@ -2741,8 +3416,10 @@ class FwStandardSqlServerTSpStatusResponse {
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
-                const DeepCollectionEquality()
-                    .equals(other.success, success)) &&
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
             (identical(other.msg, msg) ||
                 const DeepCollectionEquality().equals(other.msg, msg)));
   }
@@ -2760,20 +3437,28 @@ class FwStandardSqlServerTSpStatusResponse {
 
 extension $FwStandardSqlServerTSpStatusResponseExtension
     on FwStandardSqlServerTSpStatusResponse {
-  FwStandardSqlServerTSpStatusResponse copyWith(
-      {int? status, bool? success, String? msg}) {
+  FwStandardSqlServerTSpStatusResponse copyWith({
+    int? status,
+    bool? success,
+    String? msg,
+  }) {
     return FwStandardSqlServerTSpStatusResponse(
-        status: status ?? this.status,
-        success: success ?? this.success,
-        msg: msg ?? this.msg);
+      status: status ?? this.status,
+      success: success ?? this.success,
+      msg: msg ?? this.msg,
+    );
   }
 
-  FwStandardSqlServerTSpStatusResponse copyWithWrapped(
-      {Wrapped<int?>? status, Wrapped<bool?>? success, Wrapped<String?>? msg}) {
+  FwStandardSqlServerTSpStatusResponse copyWithWrapped({
+    Wrapped<int?>? status,
+    Wrapped<bool?>? success,
+    Wrapped<String?>? msg,
+  }) {
     return FwStandardSqlServerTSpStatusResponse(
-        status: (status != null ? status.value : this.status),
-        success: (success != null ? success.value : this.success),
-        msg: (msg != null ? msg.value : this.msg));
+      status: (status != null ? status.value : this.status),
+      success: (success != null ? success.value : this.success),
+      msg: (msg != null ? msg.value : this.msg),
+    );
   }
 }
 
@@ -2817,8 +3502,8 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
   });
 
   factory WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(json);
 
   static const toJsonFactory =
       _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson;
@@ -2870,26 +3555,30 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
   @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
   final dynamic urlIdentifier;
   @JsonKey(
-      name: '_Fields',
-      includeIfNull: false,
-      defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
+    name: '_Fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+  )
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
   @JsonKey(
-      name: '_Custom',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwCustomValue>[])
+    name: '_Custom',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwCustomValue>[],
+  )
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
-      name: '_DefaultFieldAttributes',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwDefaultAttribute>[])
+    name: '_DefaultFieldAttributes',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwDefaultAttribute>[],
+  )
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   @JsonKey(name: '_Original', includeIfNull: false)
   final FwStandardBusinessLogicFwBusinessLogic? original;
   @JsonKey(
-      name: '_Translation',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwTranslatedValue>[])
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
@@ -2913,80 +3602,160 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
     return identical(this, other) ||
         (other is WebApiModulesAdministratorTaskSchedulerTaskSteps &&
             (identical(other.taskStepsId, taskStepsId) ||
-                const DeepCollectionEquality()
-                    .equals(other.taskStepsId, taskStepsId)) &&
+                const DeepCollectionEquality().equals(
+                  other.taskStepsId,
+                  taskStepsId,
+                )) &&
             (identical(other.taskId, taskId) ||
                 const DeepCollectionEquality().equals(other.taskId, taskId)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.stepNumber, stepNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.stepNumber, stepNumber)) &&
+                const DeepCollectionEquality().equals(
+                  other.stepNumber,
+                  stepNumber,
+                )) &&
             (identical(other.type, type) ||
                 const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.command, command) ||
-                const DeepCollectionEquality()
-                    .equals(other.command, command)) &&
+                const DeepCollectionEquality().equals(
+                  other.command,
+                  command,
+                )) &&
             (identical(other.onSuccessActionDisplay, onSuccessActionDisplay) ||
                 const DeepCollectionEquality().equals(
-                    other.onSuccessActionDisplay, onSuccessActionDisplay)) &&
+                  other.onSuccessActionDisplay,
+                  onSuccessActionDisplay,
+                )) &&
             (identical(other.onFailureActionDisplay, onFailureActionDisplay) ||
                 const DeepCollectionEquality().equals(
-                    other.onFailureActionDisplay, onFailureActionDisplay)) &&
+                  other.onFailureActionDisplay,
+                  onFailureActionDisplay,
+                )) &&
             (identical(other.onSuccessAction, onSuccessAction) ||
-                const DeepCollectionEquality()
-                    .equals(other.onSuccessAction, onSuccessAction)) &&
+                const DeepCollectionEquality().equals(
+                  other.onSuccessAction,
+                  onSuccessAction,
+                )) &&
             (identical(other.retryAttempts, retryAttempts) ||
-                const DeepCollectionEquality()
-                    .equals(other.retryAttempts, retryAttempts)) &&
+                const DeepCollectionEquality().equals(
+                  other.retryAttempts,
+                  retryAttempts,
+                )) &&
             (identical(other.retryInterval, retryInterval) ||
-                const DeepCollectionEquality()
-                    .equals(other.retryInterval, retryInterval)) &&
+                const DeepCollectionEquality().equals(
+                  other.retryInterval,
+                  retryInterval,
+                )) &&
             (identical(other.onFailureAction, onFailureAction) ||
-                const DeepCollectionEquality()
-                    .equals(other.onFailureAction, onFailureAction)) &&
+                const DeepCollectionEquality().equals(
+                  other.onFailureAction,
+                  onFailureAction,
+                )) &&
             (identical(other.onSuccessTaskStepsId, onSuccessTaskStepsId) ||
                 const DeepCollectionEquality().equals(
-                    other.onSuccessTaskStepsId, onSuccessTaskStepsId)) &&
+                  other.onSuccessTaskStepsId,
+                  onSuccessTaskStepsId,
+                )) &&
             (identical(other.onFailureTaskStepsId, onFailureTaskStepsId) ||
                 const DeepCollectionEquality().equals(
-                    other.onFailureTaskStepsId, onFailureTaskStepsId)) &&
+                  other.onFailureTaskStepsId,
+                  onFailureTaskStepsId,
+                )) &&
             (identical(other.outputFilename, outputFilename) ||
-                const DeepCollectionEquality()
-                    .equals(other.outputFilename, outputFilename)) &&
+                const DeepCollectionEquality().equals(
+                  other.outputFilename,
+                  outputFilename,
+                )) &&
             (identical(other.lastRunOutcome, lastRunOutcome) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastRunOutcome, lastRunOutcome)) &&
+                const DeepCollectionEquality().equals(
+                  other.lastRunOutcome,
+                  lastRunOutcome,
+                )) &&
             (identical(other.lastRunDuration, lastRunDuration) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastRunDuration, lastRunDuration)) &&
+                const DeepCollectionEquality().equals(
+                  other.lastRunDuration,
+                  lastRunDuration,
+                )) &&
             (identical(other.lastRunRetries, lastRunRetries) ||
-                const DeepCollectionEquality()
-                    .equals(other.lastRunRetries, lastRunRetries)) &&
+                const DeepCollectionEquality().equals(
+                  other.lastRunRetries,
+                  lastRunRetries,
+                )) &&
             (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateStamp, dateStamp)) &&
+                const DeepCollectionEquality().equals(
+                  other.dateStamp,
+                  dateStamp,
+                )) &&
             (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality()
-                    .equals(other.auditNote, auditNote)) &&
+                const DeepCollectionEquality().equals(
+                  other.auditNote,
+                  auditNote,
+                )) &&
             (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.recordTitle, recordTitle)) &&
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )) &&
             (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.urlIdentifier, urlIdentifier)) &&
-            (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)) &&
-            (identical(other.original, original) || const DeepCollectionEquality().equals(other.original, original)) &&
-            (identical(other.translation, translation) || const DeepCollectionEquality().equals(other.translation, translation)) &&
-            (identical(other.hasImport, hasImport) || const DeepCollectionEquality().equals(other.hasImport, hasImport)) &&
-            (identical(other.createdByUserId, createdByUserId) || const DeepCollectionEquality().equals(other.createdByUserId, createdByUserId)) &&
-            (identical(other.createdByUserName, createdByUserName) || const DeepCollectionEquality().equals(other.createdByUserName, createdByUserName)) &&
-            (identical(other.createdDateTime, createdDateTime) || const DeepCollectionEquality().equals(other.createdDateTime, createdDateTime)) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) || const DeepCollectionEquality().equals(other.modifiedByUserId, modifiedByUserId)) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) || const DeepCollectionEquality().equals(other.modifiedByUserName, modifiedByUserName)) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) || const DeepCollectionEquality().equals(other.modifiedDateTime, modifiedDateTime)));
+                const DeepCollectionEquality().equals(
+                  other.urlIdentifier,
+                  urlIdentifier,
+                )) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultFieldAttributes,
+                  defaultFieldAttributes,
+                )) &&
+            (identical(other.original, original) ||
+                const DeepCollectionEquality().equals(
+                  other.original,
+                  original,
+                )) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )) &&
+            (identical(other.hasImport, hasImport) ||
+                const DeepCollectionEquality().equals(
+                  other.hasImport,
+                  hasImport,
+                )) &&
+            (identical(other.createdByUserId, createdByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserId,
+                  createdByUserId,
+                )) &&
+            (identical(other.createdByUserName, createdByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserName,
+                  createdByUserName,
+                )) &&
+            (identical(other.createdDateTime, createdDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.createdDateTime,
+                  createdDateTime,
+                )) &&
+            (identical(other.modifiedByUserId, modifiedByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserId,
+                  modifiedByUserId,
+                )) &&
+            (identical(other.modifiedByUserName, modifiedByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserName,
+                  modifiedByUserName,
+                )) &&
+            (identical(other.modifiedDateTime, modifiedDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedDateTime,
+                  modifiedDateTime,
+                )));
   }
 
   @override
@@ -3033,192 +3802,196 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
 
 extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     on WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWith(
-      {int? taskStepsId,
-      int? taskId,
-      String? name,
-      int? stepNumber,
-      String? type,
-      String? command,
-      String? onSuccessActionDisplay,
-      String? onFailureActionDisplay,
-      int? onSuccessAction,
-      int? retryAttempts,
-      int? retryInterval,
-      int? onFailureAction,
-      int? onSuccessTaskStepsId,
-      int? onFailureTaskStepsId,
-      String? outputFilename,
-      int? lastRunOutcome,
-      int? lastRunDuration,
-      int? lastRunRetries,
-      String? dateStamp,
-      String? auditNote,
-      String? recordTitle,
-      dynamic urlIdentifier,
-      List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-      List<FwStandardDataFwCustomValue>? custom,
-      List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-      FwStandardBusinessLogicFwBusinessLogic? original,
-      List<FwStandardDataFwTranslatedValue>? translation,
-      bool? hasImport,
-      String? createdByUserId,
-      String? createdByUserName,
-      String? createdDateTime,
-      String? modifiedByUserId,
-      String? modifiedByUserName,
-      String? modifiedDateTime}) {
+  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWith({
+    int? taskStepsId,
+    int? taskId,
+    String? name,
+    int? stepNumber,
+    String? type,
+    String? command,
+    String? onSuccessActionDisplay,
+    String? onFailureActionDisplay,
+    int? onSuccessAction,
+    int? retryAttempts,
+    int? retryInterval,
+    int? onFailureAction,
+    int? onSuccessTaskStepsId,
+    int? onFailureTaskStepsId,
+    String? outputFilename,
+    int? lastRunOutcome,
+    int? lastRunDuration,
+    int? lastRunRetries,
+    String? dateStamp,
+    String? auditNote,
+    String? recordTitle,
+    dynamic urlIdentifier,
+    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+    List<FwStandardDataFwCustomValue>? custom,
+    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+    FwStandardBusinessLogicFwBusinessLogic? original,
+    List<FwStandardDataFwTranslatedValue>? translation,
+    bool? hasImport,
+    String? createdByUserId,
+    String? createdByUserName,
+    String? createdDateTime,
+    String? modifiedByUserId,
+    String? modifiedByUserName,
+    String? modifiedDateTime,
+  }) {
     return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-        taskStepsId: taskStepsId ?? this.taskStepsId,
-        taskId: taskId ?? this.taskId,
-        name: name ?? this.name,
-        stepNumber: stepNumber ?? this.stepNumber,
-        type: type ?? this.type,
-        command: command ?? this.command,
-        onSuccessActionDisplay:
-            onSuccessActionDisplay ?? this.onSuccessActionDisplay,
-        onFailureActionDisplay:
-            onFailureActionDisplay ?? this.onFailureActionDisplay,
-        onSuccessAction: onSuccessAction ?? this.onSuccessAction,
-        retryAttempts: retryAttempts ?? this.retryAttempts,
-        retryInterval: retryInterval ?? this.retryInterval,
-        onFailureAction: onFailureAction ?? this.onFailureAction,
-        onSuccessTaskStepsId: onSuccessTaskStepsId ?? this.onSuccessTaskStepsId,
-        onFailureTaskStepsId: onFailureTaskStepsId ?? this.onFailureTaskStepsId,
-        outputFilename: outputFilename ?? this.outputFilename,
-        lastRunOutcome: lastRunOutcome ?? this.lastRunOutcome,
-        lastRunDuration: lastRunDuration ?? this.lastRunDuration,
-        lastRunRetries: lastRunRetries ?? this.lastRunRetries,
-        dateStamp: dateStamp ?? this.dateStamp,
-        auditNote: auditNote ?? this.auditNote,
-        recordTitle: recordTitle ?? this.recordTitle,
-        urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-        fields: fields ?? this.fields,
-        custom: custom ?? this.custom,
-        defaultFieldAttributes:
-            defaultFieldAttributes ?? this.defaultFieldAttributes,
-        original: original ?? this.original,
-        translation: translation ?? this.translation,
-        hasImport: hasImport ?? this.hasImport,
-        createdByUserId: createdByUserId ?? this.createdByUserId,
-        createdByUserName: createdByUserName ?? this.createdByUserName,
-        createdDateTime: createdDateTime ?? this.createdDateTime,
-        modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-        modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-        modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime);
+      taskStepsId: taskStepsId ?? this.taskStepsId,
+      taskId: taskId ?? this.taskId,
+      name: name ?? this.name,
+      stepNumber: stepNumber ?? this.stepNumber,
+      type: type ?? this.type,
+      command: command ?? this.command,
+      onSuccessActionDisplay:
+          onSuccessActionDisplay ?? this.onSuccessActionDisplay,
+      onFailureActionDisplay:
+          onFailureActionDisplay ?? this.onFailureActionDisplay,
+      onSuccessAction: onSuccessAction ?? this.onSuccessAction,
+      retryAttempts: retryAttempts ?? this.retryAttempts,
+      retryInterval: retryInterval ?? this.retryInterval,
+      onFailureAction: onFailureAction ?? this.onFailureAction,
+      onSuccessTaskStepsId: onSuccessTaskStepsId ?? this.onSuccessTaskStepsId,
+      onFailureTaskStepsId: onFailureTaskStepsId ?? this.onFailureTaskStepsId,
+      outputFilename: outputFilename ?? this.outputFilename,
+      lastRunOutcome: lastRunOutcome ?? this.lastRunOutcome,
+      lastRunDuration: lastRunDuration ?? this.lastRunDuration,
+      lastRunRetries: lastRunRetries ?? this.lastRunRetries,
+      dateStamp: dateStamp ?? this.dateStamp,
+      auditNote: auditNote ?? this.auditNote,
+      recordTitle: recordTitle ?? this.recordTitle,
+      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
+      fields: fields ?? this.fields,
+      custom: custom ?? this.custom,
+      defaultFieldAttributes:
+          defaultFieldAttributes ?? this.defaultFieldAttributes,
+      original: original ?? this.original,
+      translation: translation ?? this.translation,
+      hasImport: hasImport ?? this.hasImport,
+      createdByUserId: createdByUserId ?? this.createdByUserId,
+      createdByUserName: createdByUserName ?? this.createdByUserName,
+      createdDateTime: createdDateTime ?? this.createdDateTime,
+      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
+      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
+      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    );
   }
 
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWithWrapped(
-      {Wrapped<int?>? taskStepsId,
-      Wrapped<int?>? taskId,
-      Wrapped<String?>? name,
-      Wrapped<int?>? stepNumber,
-      Wrapped<String?>? type,
-      Wrapped<String?>? command,
-      Wrapped<String?>? onSuccessActionDisplay,
-      Wrapped<String?>? onFailureActionDisplay,
-      Wrapped<int?>? onSuccessAction,
-      Wrapped<int?>? retryAttempts,
-      Wrapped<int?>? retryInterval,
-      Wrapped<int?>? onFailureAction,
-      Wrapped<int?>? onSuccessTaskStepsId,
-      Wrapped<int?>? onFailureTaskStepsId,
-      Wrapped<String?>? outputFilename,
-      Wrapped<int?>? lastRunOutcome,
-      Wrapped<int?>? lastRunDuration,
-      Wrapped<int?>? lastRunRetries,
-      Wrapped<String?>? dateStamp,
-      Wrapped<String?>? auditNote,
-      Wrapped<String?>? recordTitle,
-      Wrapped<dynamic>? urlIdentifier,
-      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-          fields,
-      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-      Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-      Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-      Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-      Wrapped<bool?>? hasImport,
-      Wrapped<String?>? createdByUserId,
-      Wrapped<String?>? createdByUserName,
-      Wrapped<String?>? createdDateTime,
-      Wrapped<String?>? modifiedByUserId,
-      Wrapped<String?>? modifiedByUserName,
-      Wrapped<String?>? modifiedDateTime}) {
+  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWithWrapped({
+    Wrapped<int?>? taskStepsId,
+    Wrapped<int?>? taskId,
+    Wrapped<String?>? name,
+    Wrapped<int?>? stepNumber,
+    Wrapped<String?>? type,
+    Wrapped<String?>? command,
+    Wrapped<String?>? onSuccessActionDisplay,
+    Wrapped<String?>? onFailureActionDisplay,
+    Wrapped<int?>? onSuccessAction,
+    Wrapped<int?>? retryAttempts,
+    Wrapped<int?>? retryInterval,
+    Wrapped<int?>? onFailureAction,
+    Wrapped<int?>? onSuccessTaskStepsId,
+    Wrapped<int?>? onFailureTaskStepsId,
+    Wrapped<String?>? outputFilename,
+    Wrapped<int?>? lastRunOutcome,
+    Wrapped<int?>? lastRunDuration,
+    Wrapped<int?>? lastRunRetries,
+    Wrapped<String?>? dateStamp,
+    Wrapped<String?>? auditNote,
+    Wrapped<String?>? recordTitle,
+    Wrapped<dynamic>? urlIdentifier,
+    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+    fields,
+    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+    Wrapped<bool?>? hasImport,
+    Wrapped<String?>? createdByUserId,
+    Wrapped<String?>? createdByUserName,
+    Wrapped<String?>? createdDateTime,
+    Wrapped<String?>? modifiedByUserId,
+    Wrapped<String?>? modifiedByUserName,
+    Wrapped<String?>? modifiedDateTime,
+  }) {
     return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-        taskStepsId:
-            (taskStepsId != null ? taskStepsId.value : this.taskStepsId),
-        taskId: (taskId != null ? taskId.value : this.taskId),
-        name: (name != null ? name.value : this.name),
-        stepNumber: (stepNumber != null ? stepNumber.value : this.stepNumber),
-        type: (type != null ? type.value : this.type),
-        command: (command != null ? command.value : this.command),
-        onSuccessActionDisplay: (onSuccessActionDisplay != null
-            ? onSuccessActionDisplay.value
-            : this.onSuccessActionDisplay),
-        onFailureActionDisplay: (onFailureActionDisplay != null
-            ? onFailureActionDisplay.value
-            : this.onFailureActionDisplay),
-        onSuccessAction: (onSuccessAction != null
-            ? onSuccessAction.value
-            : this.onSuccessAction),
-        retryAttempts:
-            (retryAttempts != null ? retryAttempts.value : this.retryAttempts),
-        retryInterval:
-            (retryInterval != null ? retryInterval.value : this.retryInterval),
-        onFailureAction: (onFailureAction != null
-            ? onFailureAction.value
-            : this.onFailureAction),
-        onSuccessTaskStepsId: (onSuccessTaskStepsId != null
-            ? onSuccessTaskStepsId.value
-            : this.onSuccessTaskStepsId),
-        onFailureTaskStepsId: (onFailureTaskStepsId != null
-            ? onFailureTaskStepsId.value
-            : this.onFailureTaskStepsId),
-        outputFilename: (outputFilename != null
-            ? outputFilename.value
-            : this.outputFilename),
-        lastRunOutcome: (lastRunOutcome != null
-            ? lastRunOutcome.value
-            : this.lastRunOutcome),
-        lastRunDuration: (lastRunDuration != null
-            ? lastRunDuration.value
-            : this.lastRunDuration),
-        lastRunRetries: (lastRunRetries != null
-            ? lastRunRetries.value
-            : this.lastRunRetries),
-        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-        recordTitle:
-            (recordTitle != null ? recordTitle.value : this.recordTitle),
-        urlIdentifier:
-            (urlIdentifier != null ? urlIdentifier.value : this.urlIdentifier),
-        fields: (fields != null ? fields.value : this.fields),
-        custom: (custom != null ? custom.value : this.custom),
-        defaultFieldAttributes: (defaultFieldAttributes != null
-            ? defaultFieldAttributes.value
-            : this.defaultFieldAttributes),
-        original: (original != null ? original.value : this.original),
-        translation:
-            (translation != null ? translation.value : this.translation),
-        hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-        createdByUserId: (createdByUserId != null
-            ? createdByUserId.value
-            : this.createdByUserId),
-        createdByUserName: (createdByUserName != null
-            ? createdByUserName.value
-            : this.createdByUserName),
-        createdDateTime: (createdDateTime != null
-            ? createdDateTime.value
-            : this.createdDateTime),
-        modifiedByUserId: (modifiedByUserId != null
-            ? modifiedByUserId.value
-            : this.modifiedByUserId),
-        modifiedByUserName: (modifiedByUserName != null
-            ? modifiedByUserName.value
-            : this.modifiedByUserName),
-        modifiedDateTime: (modifiedDateTime != null
-            ? modifiedDateTime.value
-            : this.modifiedDateTime));
+      taskStepsId: (taskStepsId != null ? taskStepsId.value : this.taskStepsId),
+      taskId: (taskId != null ? taskId.value : this.taskId),
+      name: (name != null ? name.value : this.name),
+      stepNumber: (stepNumber != null ? stepNumber.value : this.stepNumber),
+      type: (type != null ? type.value : this.type),
+      command: (command != null ? command.value : this.command),
+      onSuccessActionDisplay: (onSuccessActionDisplay != null
+          ? onSuccessActionDisplay.value
+          : this.onSuccessActionDisplay),
+      onFailureActionDisplay: (onFailureActionDisplay != null
+          ? onFailureActionDisplay.value
+          : this.onFailureActionDisplay),
+      onSuccessAction: (onSuccessAction != null
+          ? onSuccessAction.value
+          : this.onSuccessAction),
+      retryAttempts: (retryAttempts != null
+          ? retryAttempts.value
+          : this.retryAttempts),
+      retryInterval: (retryInterval != null
+          ? retryInterval.value
+          : this.retryInterval),
+      onFailureAction: (onFailureAction != null
+          ? onFailureAction.value
+          : this.onFailureAction),
+      onSuccessTaskStepsId: (onSuccessTaskStepsId != null
+          ? onSuccessTaskStepsId.value
+          : this.onSuccessTaskStepsId),
+      onFailureTaskStepsId: (onFailureTaskStepsId != null
+          ? onFailureTaskStepsId.value
+          : this.onFailureTaskStepsId),
+      outputFilename: (outputFilename != null
+          ? outputFilename.value
+          : this.outputFilename),
+      lastRunOutcome: (lastRunOutcome != null
+          ? lastRunOutcome.value
+          : this.lastRunOutcome),
+      lastRunDuration: (lastRunDuration != null
+          ? lastRunDuration.value
+          : this.lastRunDuration),
+      lastRunRetries: (lastRunRetries != null
+          ? lastRunRetries.value
+          : this.lastRunRetries),
+      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+      urlIdentifier: (urlIdentifier != null
+          ? urlIdentifier.value
+          : this.urlIdentifier),
+      fields: (fields != null ? fields.value : this.fields),
+      custom: (custom != null ? custom.value : this.custom),
+      defaultFieldAttributes: (defaultFieldAttributes != null
+          ? defaultFieldAttributes.value
+          : this.defaultFieldAttributes),
+      original: (original != null ? original.value : this.original),
+      translation: (translation != null ? translation.value : this.translation),
+      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      createdByUserId: (createdByUserId != null
+          ? createdByUserId.value
+          : this.createdByUserId),
+      createdByUserName: (createdByUserName != null
+          ? createdByUserName.value
+          : this.createdByUserName),
+      createdDateTime: (createdDateTime != null
+          ? createdDateTime.value
+          : this.createdDateTime),
+      modifiedByUserId: (modifiedByUserId != null
+          ? modifiedByUserId.value
+          : this.modifiedByUserId),
+      modifiedByUserName: (modifiedByUserName != null
+          ? modifiedByUserName.value
+          : this.modifiedByUserName),
+      modifiedDateTime: (modifiedDateTime != null
+          ? modifiedDateTime.value
+          : this.modifiedDateTime),
+    );
   }
 }
 
@@ -3230,15 +4003,18 @@ class WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
   });
 
   factory WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
@@ -3250,13 +4026,18 @@ class WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse &&
+        (other
+                is WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse &&
             (identical(other.inventoryId, inventoryId) ||
-                const DeepCollectionEquality()
-                    .equals(other.inventoryId, inventoryId)) &&
+                const DeepCollectionEquality().equals(
+                  other.inventoryId,
+                  inventoryId,
+                )) &&
             (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)));
+                const DeepCollectionEquality().equals(
+                  other.description,
+                  description,
+                )));
   }
 
   @override
@@ -3272,20 +4053,22 @@ class WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
 extension $WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponseExtension
     on WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse {
   WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
-      copyWith({String? inventoryId, String? description}) {
+  copyWith({String? inventoryId, String? description}) {
     return WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse(
-        inventoryId: inventoryId ?? this.inventoryId,
-        description: description ?? this.description);
+      inventoryId: inventoryId ?? this.inventoryId,
+      description: description ?? this.description,
+    );
   }
 
   WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse
-      copyWithWrapped(
-          {Wrapped<String?>? inventoryId, Wrapped<String?>? description}) {
+  copyWithWrapped({
+    Wrapped<String?>? inventoryId,
+    Wrapped<String?>? description,
+  }) {
     return WebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse(
-        inventoryId:
-            (inventoryId != null ? inventoryId.value : this.inventoryId),
-        description:
-            (description != null ? description.value : this.description));
+      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
+      description: (description != null ? description.value : this.description),
+    );
   }
 }
 
@@ -3569,8 +4352,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   });
 
   factory WebApiModulesInventoryRentalInventoryRentalInventory.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(json);
 
   static const toJsonFactory =
       _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson;
@@ -3830,19 +4613,24 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   @JsonKey(name: 'AutomaticallyRebuildContainerAtCheckIn', includeIfNull: false)
   final bool? automaticallyRebuildContainerAtCheckIn;
   @JsonKey(
-      name: 'AutomaticallyCheckInEntireContainerWithScannableItem',
-      includeIfNull: false)
+    name: 'AutomaticallyCheckInEntireContainerWithScannableItem',
+    includeIfNull: false,
+  )
   final bool? automaticallyCheckInEntireContainerWithScannableItem;
   @JsonKey(
-      name: 'AutomaticallyRebuildContainerAtTransferIn', includeIfNull: false)
+    name: 'AutomaticallyRebuildContainerAtTransferIn',
+    includeIfNull: false,
+  )
   final bool? automaticallyRebuildContainerAtTransferIn;
   @JsonKey(
-      name: 'AutomaticallyCountAllItemsWhenPhysicalInventoryInitiated',
-      includeIfNull: false)
+    name: 'AutomaticallyCountAllItemsWhenPhysicalInventoryInitiated',
+    includeIfNull: false,
+  )
   final bool? automaticallyCountAllItemsWhenPhysicalInventoryInitiated;
   @JsonKey(
-      name: 'AutomaticallyTransferInEntireContainerWithScannableItem',
-      includeIfNull: false)
+    name: 'AutomaticallyTransferInEntireContainerWithScannableItem',
+    includeIfNull: false,
+  )
   final bool? automaticallyTransferInEntireContainerWithScannableItem;
   @JsonKey(name: 'ContainerStagingRule', includeIfNull: false)
   final String? containerStagingRule;
@@ -4057,14 +4845,18 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   @JsonKey(name: 'CostOfGoodsSoldExpenseAccountNo', includeIfNull: false)
   final String? costOfGoodsSoldExpenseAccountNo;
   @JsonKey(
-      name: 'CostOfGoodsSoldExpenseAccountDescription', includeIfNull: false)
+    name: 'CostOfGoodsSoldExpenseAccountDescription',
+    includeIfNull: false,
+  )
   final String? costOfGoodsSoldExpenseAccountDescription;
   @JsonKey(name: 'CostOfGoodsRentedExpenseAccountId', includeIfNull: false)
   final String? costOfGoodsRentedExpenseAccountId;
   @JsonKey(name: 'CostOfGoodsRentedExpenseAccountNo', includeIfNull: false)
   final String? costOfGoodsRentedExpenseAccountNo;
   @JsonKey(
-      name: 'CostOfGoodsRentedExpenseAccountDescription', includeIfNull: false)
+    name: 'CostOfGoodsRentedExpenseAccountDescription',
+    includeIfNull: false,
+  )
   final String? costOfGoodsRentedExpenseAccountDescription;
   @JsonKey(name: 'DepreciationExpenseAccountId', includeIfNull: false)
   final String? depreciationExpenseAccountId;
@@ -4073,14 +4865,19 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   @JsonKey(name: 'DepreciationExpenseAccountDescription', includeIfNull: false)
   final String? depreciationExpenseAccountDescription;
   @JsonKey(
-      name: 'AccumulatedDepreciationExpenseAccountId', includeIfNull: false)
+    name: 'AccumulatedDepreciationExpenseAccountId',
+    includeIfNull: false,
+  )
   final String? accumulatedDepreciationExpenseAccountId;
   @JsonKey(
-      name: 'AccumulatedDepreciationExpenseAccountNo', includeIfNull: false)
+    name: 'AccumulatedDepreciationExpenseAccountNo',
+    includeIfNull: false,
+  )
   final String? accumulatedDepreciationExpenseAccountNo;
   @JsonKey(
-      name: 'AccumulatedDepreciationExpenseAccountDescription',
-      includeIfNull: false)
+    name: 'AccumulatedDepreciationExpenseAccountDescription',
+    includeIfNull: false,
+  )
   final String? accumulatedDepreciationExpenseAccountDescription;
   @JsonKey(name: 'InputDate', includeIfNull: false)
   final String? inputDate;
@@ -4115,26 +4912,30 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
   final dynamic urlIdentifier;
   @JsonKey(
-      name: '_Fields',
-      includeIfNull: false,
-      defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
+    name: '_Fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+  )
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
   @JsonKey(
-      name: '_Custom',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwCustomValue>[])
+    name: '_Custom',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwCustomValue>[],
+  )
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
-      name: '_DefaultFieldAttributes',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwDefaultAttribute>[])
+    name: '_DefaultFieldAttributes',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwDefaultAttribute>[],
+  )
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   @JsonKey(name: '_Original', includeIfNull: false)
   final FwStandardBusinessLogicFwBusinessLogic? original;
   @JsonKey(
-      name: '_Translation',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwTranslatedValue>[])
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
@@ -4158,310 +4959,1650 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     return identical(this, other) ||
         (other is WebApiModulesInventoryRentalInventoryRentalInventory &&
             (identical(other.rentalInventoryId, rentalInventoryId) ||
-                const DeepCollectionEquality()
-                    .equals(other.rentalInventoryId, rentalInventoryId)) &&
-            (identical(other.inventoryId, inventoryId) ||
-                const DeepCollectionEquality()
-                    .equals(other.inventoryId, inventoryId)) &&
-            (identical(other.excludeFromReturnOnAsset, excludeFromReturnOnAsset) ||
                 const DeepCollectionEquality().equals(
-                    other.excludeFromReturnOnAsset,
-                    excludeFromReturnOnAsset)) &&
+                  other.rentalInventoryId,
+                  rentalInventoryId,
+                )) &&
+            (identical(other.inventoryId, inventoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryId,
+                  inventoryId,
+                )) &&
+            (identical(
+                  other.excludeFromReturnOnAsset,
+                  excludeFromReturnOnAsset,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.excludeFromReturnOnAsset,
+                  excludeFromReturnOnAsset,
+                )) &&
             (identical(other.isFixedAsset, isFixedAsset) ||
-                const DeepCollectionEquality()
-                    .equals(other.isFixedAsset, isFixedAsset)) &&
+                const DeepCollectionEquality().equals(
+                  other.isFixedAsset,
+                  isFixedAsset,
+                )) &&
             (identical(other.isFixedContainer, isFixedContainer) ||
-                const DeepCollectionEquality()
-                    .equals(other.isFixedContainer, isFixedContainer)) &&
+                const DeepCollectionEquality().equals(
+                  other.isFixedContainer,
+                  isFixedContainer,
+                )) &&
             (identical(other.multiAssignRFIDs, multiAssignRFIDs) ||
-                const DeepCollectionEquality()
-                    .equals(other.multiAssignRFIDs, multiAssignRFIDs)) &&
+                const DeepCollectionEquality().equals(
+                  other.multiAssignRFIDs,
+                  multiAssignRFIDs,
+                )) &&
             (identical(other.allowFlexibleContainer, allowFlexibleContainer) ||
                 const DeepCollectionEquality().equals(
-                    other.allowFlexibleContainer, allowFlexibleContainer)) &&
+                  other.allowFlexibleContainer,
+                  allowFlexibleContainer,
+                )) &&
             (identical(other.minimumDaysPerWeek, minimumDaysPerWeek) ||
-                const DeepCollectionEquality()
-                    .equals(other.minimumDaysPerWeek, minimumDaysPerWeek)) &&
+                const DeepCollectionEquality().equals(
+                  other.minimumDaysPerWeek,
+                  minimumDaysPerWeek,
+                )) &&
             (identical(other.showAssetAvailability, showAssetAvailability) ||
                 const DeepCollectionEquality().equals(
-                    other.showAssetAvailability, showAssetAvailability)) &&
-            (identical(other.assetAvailabilityWarehouseIds, assetAvailabilityWarehouseIds) ||
+                  other.showAssetAvailability,
+                  showAssetAvailability,
+                )) &&
+            (identical(
+                  other.assetAvailabilityWarehouseIds,
+                  assetAvailabilityWarehouseIds,
+                ) ||
                 const DeepCollectionEquality().equals(
-                    other.assetAvailabilityWarehouseIds,
-                    assetAvailabilityWarehouseIds)) &&
+                  other.assetAvailabilityWarehouseIds,
+                  assetAvailabilityWarehouseIds,
+                )) &&
             (identical(other.openingId, openingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.openingId, openingId)) &&
+                const DeepCollectionEquality().equals(
+                  other.openingId,
+                  openingId,
+                )) &&
             (identical(other.opening, opening) ||
-                const DeepCollectionEquality()
-                    .equals(other.opening, opening)) &&
+                const DeepCollectionEquality().equals(
+                  other.opening,
+                  opening,
+                )) &&
             (identical(other.wallTypeId, wallTypeId) ||
-                const DeepCollectionEquality()
-                    .equals(other.wallTypeId, wallTypeId)) &&
+                const DeepCollectionEquality().equals(
+                  other.wallTypeId,
+                  wallTypeId,
+                )) &&
             (identical(other.wallType, wallType) ||
-                const DeepCollectionEquality()
-                    .equals(other.wallType, wallType)) &&
+                const DeepCollectionEquality().equals(
+                  other.wallType,
+                  wallType,
+                )) &&
             (identical(other.surfaceId, surfaceId) ||
-                const DeepCollectionEquality().equals(other.surfaceId, surfaceId)) &&
-            (identical(other.surface, surface) || const DeepCollectionEquality().equals(other.surface, surface)) &&
-            (identical(other.conditionId, conditionId) || const DeepCollectionEquality().equals(other.conditionId, conditionId)) &&
-            (identical(other.condition, condition) || const DeepCollectionEquality().equals(other.condition, condition)) &&
-            (identical(other.originalShowId, originalShowId) || const DeepCollectionEquality().equals(other.originalShowId, originalShowId)) &&
-            (identical(other.originalShow, originalShow) || const DeepCollectionEquality().equals(other.originalShow, originalShow)) &&
-            (identical(other.wallWidthFt, wallWidthFt) || const DeepCollectionEquality().equals(other.wallWidthFt, wallWidthFt)) &&
-            (identical(other.wallWidthIn, wallWidthIn) || const DeepCollectionEquality().equals(other.wallWidthIn, wallWidthIn)) &&
-            (identical(other.wallHeightFt, wallHeightFt) || const DeepCollectionEquality().equals(other.wallHeightFt, wallHeightFt)) &&
-            (identical(other.wallHeightIn, wallHeightIn) || const DeepCollectionEquality().equals(other.wallHeightIn, wallHeightIn)) &&
-            (identical(other.wallLengthFt, wallLengthFt) || const DeepCollectionEquality().equals(other.wallLengthFt, wallLengthFt)) &&
-            (identical(other.wallLengthIn, wallLengthIn) || const DeepCollectionEquality().equals(other.wallLengthIn, wallLengthIn)) &&
-            (identical(other.treatConsignedQtyAsOwned, treatConsignedQtyAsOwned) || const DeepCollectionEquality().equals(other.treatConsignedQtyAsOwned, treatConsignedQtyAsOwned)) &&
-            (identical(other.dailyRate, dailyRate) || const DeepCollectionEquality().equals(other.dailyRate, dailyRate)) &&
-            (identical(other.weeklyRate, weeklyRate) || const DeepCollectionEquality().equals(other.weeklyRate, weeklyRate)) &&
-            (identical(other.week2Rate, week2Rate) || const DeepCollectionEquality().equals(other.week2Rate, week2Rate)) &&
-            (identical(other.week3Rate, week3Rate) || const DeepCollectionEquality().equals(other.week3Rate, week3Rate)) &&
-            (identical(other.week4Rate, week4Rate) || const DeepCollectionEquality().equals(other.week4Rate, week4Rate)) &&
-            (identical(other.week5Rate, week5Rate) || const DeepCollectionEquality().equals(other.week5Rate, week5Rate)) &&
-            (identical(other.monthlyRate, monthlyRate) || const DeepCollectionEquality().equals(other.monthlyRate, monthlyRate)) &&
-            (identical(other.unitValue, unitValue) || const DeepCollectionEquality().equals(other.unitValue, unitValue)) &&
-            (identical(other.replacementCost, replacementCost) || const DeepCollectionEquality().equals(other.replacementCost, replacementCost)) &&
-            (identical(other.sourceId, sourceId) || const DeepCollectionEquality().equals(other.sourceId, sourceId)) &&
-            (identical(other.qcRequiredForMyWarehouse, qcRequiredForMyWarehouse) || const DeepCollectionEquality().equals(other.qcRequiredForMyWarehouse, qcRequiredForMyWarehouse)) &&
-            (identical(other.myWarehouseId, myWarehouseId) || const DeepCollectionEquality().equals(other.myWarehouseId, myWarehouseId)) &&
-            (identical(other.qcRequiredForAllWarehouses, qcRequiredForAllWarehouses) || const DeepCollectionEquality().equals(other.qcRequiredForAllWarehouses, qcRequiredForAllWarehouses)) &&
-            (identical(other.unitValueForAllWarehouses, unitValueForAllWarehouses) || const DeepCollectionEquality().equals(other.unitValueForAllWarehouses, unitValueForAllWarehouses)) &&
-            (identical(other.replacementCostForAllWarehouses, replacementCostForAllWarehouses) || const DeepCollectionEquality().equals(other.replacementCostForAllWarehouses, replacementCostForAllWarehouses)) &&
-            (identical(other.inventoryTypeId, inventoryTypeId) || const DeepCollectionEquality().equals(other.inventoryTypeId, inventoryTypeId)) &&
-            (identical(other.inventoryType, inventoryType) || const DeepCollectionEquality().equals(other.inventoryType, inventoryType)) &&
-            (identical(other.availableFrom, availableFrom) || const DeepCollectionEquality().equals(other.availableFrom, availableFrom)) &&
-            (identical(other.trackedBy, trackedBy) || const DeepCollectionEquality().equals(other.trackedBy, trackedBy)) &&
-            (identical(other.confirmTrackedBy, confirmTrackedBy) || const DeepCollectionEquality().equals(other.confirmTrackedBy, confirmTrackedBy)) &&
-            (identical(other.rank, rank) || const DeepCollectionEquality().equals(other.rank, rank)) &&
-            (identical(other.manufacturerPartNumber, manufacturerPartNumber) || const DeepCollectionEquality().equals(other.manufacturerPartNumber, manufacturerPartNumber)) &&
-            (identical(other.manufacturerId, manufacturerId) || const DeepCollectionEquality().equals(other.manufacturerId, manufacturerId)) &&
-            (identical(other.manufacturer, manufacturer) || const DeepCollectionEquality().equals(other.manufacturer, manufacturer)) &&
-            (identical(other.manufacturerUrl, manufacturerUrl) || const DeepCollectionEquality().equals(other.manufacturerUrl, manufacturerUrl)) &&
-            (identical(other.excludeImageFromQuoteOrderPrint, excludeImageFromQuoteOrderPrint) || const DeepCollectionEquality().equals(other.excludeImageFromQuoteOrderPrint, excludeImageFromQuoteOrderPrint)) &&
-            (identical(other.noAvailabilityCheck, noAvailabilityCheck) || const DeepCollectionEquality().equals(other.noAvailabilityCheck, noAvailabilityCheck)) &&
-            (identical(other.availabilityManuallyResolveConflicts, availabilityManuallyResolveConflicts) || const DeepCollectionEquality().equals(other.availabilityManuallyResolveConflicts, availabilityManuallyResolveConflicts)) &&
-            (identical(other.sendAvailabilityAlert, sendAvailabilityAlert) || const DeepCollectionEquality().equals(other.sendAvailabilityAlert, sendAvailabilityAlert)) &&
-            (identical(other.primaryDimensionUniqueId, primaryDimensionUniqueId) || const DeepCollectionEquality().equals(other.primaryDimensionUniqueId, primaryDimensionUniqueId)) &&
-            (identical(other.defaultImperialMetric, defaultImperialMetric) || const DeepCollectionEquality().equals(other.defaultImperialMetric, defaultImperialMetric)) &&
-            (identical(other.primaryDimensionDescription, primaryDimensionDescription) || const DeepCollectionEquality().equals(other.primaryDimensionDescription, primaryDimensionDescription)) &&
-            (identical(other.primaryDimensionShipWeightLbs, primaryDimensionShipWeightLbs) || const DeepCollectionEquality().equals(other.primaryDimensionShipWeightLbs, primaryDimensionShipWeightLbs)) &&
-            (identical(other.primaryDimensionShipWeightOz, primaryDimensionShipWeightOz) || const DeepCollectionEquality().equals(other.primaryDimensionShipWeightOz, primaryDimensionShipWeightOz)) &&
-            (identical(other.primaryDimensionWeightInCaseLbs, primaryDimensionWeightInCaseLbs) || const DeepCollectionEquality().equals(other.primaryDimensionWeightInCaseLbs, primaryDimensionWeightInCaseLbs)) &&
-            (identical(other.primaryDimensionWeightInCaseOz, primaryDimensionWeightInCaseOz) || const DeepCollectionEquality().equals(other.primaryDimensionWeightInCaseOz, primaryDimensionWeightInCaseOz)) &&
-            (identical(other.primaryDimensionWidthFt, primaryDimensionWidthFt) || const DeepCollectionEquality().equals(other.primaryDimensionWidthFt, primaryDimensionWidthFt)) &&
-            (identical(other.primaryDimensionWidthIn, primaryDimensionWidthIn) || const DeepCollectionEquality().equals(other.primaryDimensionWidthIn, primaryDimensionWidthIn)) &&
-            (identical(other.primaryDimensionHeightFt, primaryDimensionHeightFt) || const DeepCollectionEquality().equals(other.primaryDimensionHeightFt, primaryDimensionHeightFt)) &&
-            (identical(other.primaryDimensionHeightIn, primaryDimensionHeightIn) || const DeepCollectionEquality().equals(other.primaryDimensionHeightIn, primaryDimensionHeightIn)) &&
-            (identical(other.primaryDimensionLengthFt, primaryDimensionLengthFt) || const DeepCollectionEquality().equals(other.primaryDimensionLengthFt, primaryDimensionLengthFt)) &&
-            (identical(other.primaryDimensionLengthIn, primaryDimensionLengthIn) || const DeepCollectionEquality().equals(other.primaryDimensionLengthIn, primaryDimensionLengthIn)) &&
-            (identical(other.primaryDimensionShipWeightKg, primaryDimensionShipWeightKg) || const DeepCollectionEquality().equals(other.primaryDimensionShipWeightKg, primaryDimensionShipWeightKg)) &&
-            (identical(other.primaryDimensionShipWeightG, primaryDimensionShipWeightG) || const DeepCollectionEquality().equals(other.primaryDimensionShipWeightG, primaryDimensionShipWeightG)) &&
-            (identical(other.primaryDimensionWeightInCaseKg, primaryDimensionWeightInCaseKg) || const DeepCollectionEquality().equals(other.primaryDimensionWeightInCaseKg, primaryDimensionWeightInCaseKg)) &&
-            (identical(other.primaryDimensionWeightInCaseG, primaryDimensionWeightInCaseG) || const DeepCollectionEquality().equals(other.primaryDimensionWeightInCaseG, primaryDimensionWeightInCaseG)) &&
-            (identical(other.primaryDimensionWidthM, primaryDimensionWidthM) || const DeepCollectionEquality().equals(other.primaryDimensionWidthM, primaryDimensionWidthM)) &&
-            (identical(other.primaryDimensionWidthCm, primaryDimensionWidthCm) || const DeepCollectionEquality().equals(other.primaryDimensionWidthCm, primaryDimensionWidthCm)) &&
-            (identical(other.primaryDimensionHeightM, primaryDimensionHeightM) || const DeepCollectionEquality().equals(other.primaryDimensionHeightM, primaryDimensionHeightM)) &&
-            (identical(other.primaryDimensionHeightCm, primaryDimensionHeightCm) || const DeepCollectionEquality().equals(other.primaryDimensionHeightCm, primaryDimensionHeightCm)) &&
-            (identical(other.primaryDimensionLengthM, primaryDimensionLengthM) || const DeepCollectionEquality().equals(other.primaryDimensionLengthM, primaryDimensionLengthM)) &&
-            (identical(other.primaryDimensionLengthCm, primaryDimensionLengthCm) || const DeepCollectionEquality().equals(other.primaryDimensionLengthCm, primaryDimensionLengthCm)) &&
-            (identical(other.hasSecondaryDimensions, hasSecondaryDimensions) || const DeepCollectionEquality().equals(other.hasSecondaryDimensions, hasSecondaryDimensions)) &&
-            (identical(other.secondaryDimensionUniqueId, secondaryDimensionUniqueId) || const DeepCollectionEquality().equals(other.secondaryDimensionUniqueId, secondaryDimensionUniqueId)) &&
-            (identical(other.secondaryDimensionDescription, secondaryDimensionDescription) || const DeepCollectionEquality().equals(other.secondaryDimensionDescription, secondaryDimensionDescription)) &&
-            (identical(other.secondaryDimensionShipWeightLbs, secondaryDimensionShipWeightLbs) || const DeepCollectionEquality().equals(other.secondaryDimensionShipWeightLbs, secondaryDimensionShipWeightLbs)) &&
-            (identical(other.secondaryDimensionShipWeightOz, secondaryDimensionShipWeightOz) || const DeepCollectionEquality().equals(other.secondaryDimensionShipWeightOz, secondaryDimensionShipWeightOz)) &&
-            (identical(other.secondaryDimensionWeightInCaseLbs, secondaryDimensionWeightInCaseLbs) || const DeepCollectionEquality().equals(other.secondaryDimensionWeightInCaseLbs, secondaryDimensionWeightInCaseLbs)) &&
-            (identical(other.secondaryDimensionWeightInCaseOz, secondaryDimensionWeightInCaseOz) || const DeepCollectionEquality().equals(other.secondaryDimensionWeightInCaseOz, secondaryDimensionWeightInCaseOz)) &&
-            (identical(other.secondaryDimensionWidthFt, secondaryDimensionWidthFt) || const DeepCollectionEquality().equals(other.secondaryDimensionWidthFt, secondaryDimensionWidthFt)) &&
-            (identical(other.secondaryDimensionWidthIn, secondaryDimensionWidthIn) || const DeepCollectionEquality().equals(other.secondaryDimensionWidthIn, secondaryDimensionWidthIn)) &&
-            (identical(other.secondaryDimensionHeightFt, secondaryDimensionHeightFt) || const DeepCollectionEquality().equals(other.secondaryDimensionHeightFt, secondaryDimensionHeightFt)) &&
-            (identical(other.secondaryDimensionHeightIn, secondaryDimensionHeightIn) || const DeepCollectionEquality().equals(other.secondaryDimensionHeightIn, secondaryDimensionHeightIn)) &&
-            (identical(other.secondaryDimensionLengthFt, secondaryDimensionLengthFt) || const DeepCollectionEquality().equals(other.secondaryDimensionLengthFt, secondaryDimensionLengthFt)) &&
-            (identical(other.secondaryDimensionLengthIn, secondaryDimensionLengthIn) || const DeepCollectionEquality().equals(other.secondaryDimensionLengthIn, secondaryDimensionLengthIn)) &&
-            (identical(other.secondaryDimensionShipWeightKg, secondaryDimensionShipWeightKg) || const DeepCollectionEquality().equals(other.secondaryDimensionShipWeightKg, secondaryDimensionShipWeightKg)) &&
-            (identical(other.secondaryDimensionShipWeightG, secondaryDimensionShipWeightG) || const DeepCollectionEquality().equals(other.secondaryDimensionShipWeightG, secondaryDimensionShipWeightG)) &&
-            (identical(other.secondaryDimensionWeightInCaseKg, secondaryDimensionWeightInCaseKg) || const DeepCollectionEquality().equals(other.secondaryDimensionWeightInCaseKg, secondaryDimensionWeightInCaseKg)) &&
-            (identical(other.secondaryDimensionWeightInCaseG, secondaryDimensionWeightInCaseG) || const DeepCollectionEquality().equals(other.secondaryDimensionWeightInCaseG, secondaryDimensionWeightInCaseG)) &&
-            (identical(other.secondaryDimensionWidthM, secondaryDimensionWidthM) || const DeepCollectionEquality().equals(other.secondaryDimensionWidthM, secondaryDimensionWidthM)) &&
-            (identical(other.secondaryDimensionWidthCm, secondaryDimensionWidthCm) || const DeepCollectionEquality().equals(other.secondaryDimensionWidthCm, secondaryDimensionWidthCm)) &&
-            (identical(other.secondaryDimensionHeightM, secondaryDimensionHeightM) || const DeepCollectionEquality().equals(other.secondaryDimensionHeightM, secondaryDimensionHeightM)) &&
-            (identical(other.secondaryDimensionHeightCm, secondaryDimensionHeightCm) || const DeepCollectionEquality().equals(other.secondaryDimensionHeightCm, secondaryDimensionHeightCm)) &&
-            (identical(other.secondaryDimensionLengthM, secondaryDimensionLengthM) || const DeepCollectionEquality().equals(other.secondaryDimensionLengthM, secondaryDimensionLengthM)) &&
-            (identical(other.secondaryDimensionLengthCm, secondaryDimensionLengthCm) || const DeepCollectionEquality().equals(other.secondaryDimensionLengthCm, secondaryDimensionLengthCm)) &&
-            (identical(other.countryOfOriginId, countryOfOriginId) || const DeepCollectionEquality().equals(other.countryOfOriginId, countryOfOriginId)) &&
-            (identical(other.countryOfOrigin, countryOfOrigin) || const DeepCollectionEquality().equals(other.countryOfOrigin, countryOfOrigin)) &&
-            (identical(other.displayInSummaryModeWhenRateIsZero, displayInSummaryModeWhenRateIsZero) || const DeepCollectionEquality().equals(other.displayInSummaryModeWhenRateIsZero, displayInSummaryModeWhenRateIsZero)) &&
-            (identical(other.qcRequired, qcRequired) || const DeepCollectionEquality().equals(other.qcRequired, qcRequired)) &&
-            (identical(other.qcTime, qcTime) || const DeepCollectionEquality().equals(other.qcTime, qcTime)) &&
-            (identical(other.copyAttributesAsNote, copyAttributesAsNote) || const DeepCollectionEquality().equals(other.copyAttributesAsNote, copyAttributesAsNote)) &&
-            (identical(other.trackAssetUsage, trackAssetUsage) || const DeepCollectionEquality().equals(other.trackAssetUsage, trackAssetUsage)) &&
-            (identical(other.trackLampUsage, trackLampUsage) || const DeepCollectionEquality().equals(other.trackLampUsage, trackLampUsage)) &&
-            (identical(other.trackStrikes, trackStrikes) || const DeepCollectionEquality().equals(other.trackStrikes, trackStrikes)) &&
-            (identical(other.trackCandles, trackCandles) || const DeepCollectionEquality().equals(other.trackCandles, trackCandles)) &&
-            (identical(other.lampCount, lampCount) || const DeepCollectionEquality().equals(other.lampCount, lampCount)) &&
-            (identical(other.minimumFootCandles, minimumFootCandles) || const DeepCollectionEquality().equals(other.minimumFootCandles, minimumFootCandles)) &&
-            (identical(other.trackSoftware, trackSoftware) || const DeepCollectionEquality().equals(other.trackSoftware, trackSoftware)) &&
-            (identical(other.softwareVersion, softwareVersion) || const DeepCollectionEquality().equals(other.softwareVersion, softwareVersion)) &&
-            (identical(other.softwareEffectiveDate, softwareEffectiveDate) || const DeepCollectionEquality().equals(other.softwareEffectiveDate, softwareEffectiveDate)) &&
-            (identical(other.warehouseSpecificPackage, warehouseSpecificPackage) || const DeepCollectionEquality().equals(other.warehouseSpecificPackage, warehouseSpecificPackage)) &&
-            (identical(other.completePackagePrice, completePackagePrice) || const DeepCollectionEquality().equals(other.completePackagePrice, completePackagePrice)) &&
-            (identical(other.kitPackagePrice, kitPackagePrice) || const DeepCollectionEquality().equals(other.kitPackagePrice, kitPackagePrice)) &&
-            (identical(other.separatePackageOnQuoteOrder, separatePackageOnQuoteOrder) || const DeepCollectionEquality().equals(other.separatePackageOnQuoteOrder, separatePackageOnQuoteOrder)) &&
-            (identical(other.containerId, containerId) || const DeepCollectionEquality().equals(other.containerId, containerId)) &&
-            (identical(other.containerScannableInventoryId, containerScannableInventoryId) || const DeepCollectionEquality().equals(other.containerScannableInventoryId, containerScannableInventoryId)) &&
-            (identical(other.containerScannableICode, containerScannableICode) || const DeepCollectionEquality().equals(other.containerScannableICode, containerScannableICode)) &&
-            (identical(other.containerScannableDescription, containerScannableDescription) || const DeepCollectionEquality().equals(other.containerScannableDescription, containerScannableDescription)) &&
-            (identical(other.automaticallyRebuildContainerAtCheckIn, automaticallyRebuildContainerAtCheckIn) || const DeepCollectionEquality().equals(other.automaticallyRebuildContainerAtCheckIn, automaticallyRebuildContainerAtCheckIn)) &&
-            (identical(other.automaticallyCheckInEntireContainerWithScannableItem, automaticallyCheckInEntireContainerWithScannableItem) || const DeepCollectionEquality().equals(other.automaticallyCheckInEntireContainerWithScannableItem, automaticallyCheckInEntireContainerWithScannableItem)) &&
-            (identical(other.automaticallyRebuildContainerAtTransferIn, automaticallyRebuildContainerAtTransferIn) || const DeepCollectionEquality().equals(other.automaticallyRebuildContainerAtTransferIn, automaticallyRebuildContainerAtTransferIn)) &&
-            (identical(other.automaticallyCountAllItemsWhenPhysicalInventoryInitiated, automaticallyCountAllItemsWhenPhysicalInventoryInitiated) || const DeepCollectionEquality().equals(other.automaticallyCountAllItemsWhenPhysicalInventoryInitiated, automaticallyCountAllItemsWhenPhysicalInventoryInitiated)) &&
-            (identical(other.automaticallyTransferInEntireContainerWithScannableItem, automaticallyTransferInEntireContainerWithScannableItem) || const DeepCollectionEquality().equals(other.automaticallyTransferInEntireContainerWithScannableItem, automaticallyTransferInEntireContainerWithScannableItem)) &&
-            (identical(other.containerStagingRule, containerStagingRule) || const DeepCollectionEquality().equals(other.containerStagingRule, containerStagingRule)) &&
-            (identical(other.excludeContainedItemsFromAvailability, excludeContainedItemsFromAvailability) || const DeepCollectionEquality().equals(other.excludeContainedItemsFromAvailability, excludeContainedItemsFromAvailability)) &&
-            (identical(other.useContainerNumber, useContainerNumber) || const DeepCollectionEquality().equals(other.useContainerNumber, useContainerNumber)) &&
-            (identical(other.containerPackingListBehavior, containerPackingListBehavior) || const DeepCollectionEquality().equals(other.containerPackingListBehavior, containerPackingListBehavior)) &&
-            (identical(other.inventoryTypeIsWardrobe, inventoryTypeIsWardrobe) || const DeepCollectionEquality().equals(other.inventoryTypeIsWardrobe, inventoryTypeIsWardrobe)) &&
-            (identical(other.inventoryTypeIsSets, inventoryTypeIsSets) || const DeepCollectionEquality().equals(other.inventoryTypeIsSets, inventoryTypeIsSets)) &&
-            (identical(other.patternId, patternId) || const DeepCollectionEquality().equals(other.patternId, patternId)) &&
-            (identical(other.pattern, pattern) || const DeepCollectionEquality().equals(other.pattern, pattern)) &&
-            (identical(other.periodId, periodId) || const DeepCollectionEquality().equals(other.periodId, periodId)) &&
-            (identical(other.period, period) || const DeepCollectionEquality().equals(other.period, period)) &&
-            (identical(other.materialId, materialId) || const DeepCollectionEquality().equals(other.materialId, materialId)) &&
-            (identical(other.material, material) || const DeepCollectionEquality().equals(other.material, material)) &&
-            (identical(other.genderId, genderId) || const DeepCollectionEquality().equals(other.genderId, genderId)) &&
-            (identical(other.gender, gender) || const DeepCollectionEquality().equals(other.gender, gender)) &&
-            (identical(other.labelId, labelId) || const DeepCollectionEquality().equals(other.labelId, labelId)) &&
-            (identical(other.label, label) || const DeepCollectionEquality().equals(other.label, label)) &&
-            (identical(other.wardrobeSize, wardrobeSize) || const DeepCollectionEquality().equals(other.wardrobeSize, wardrobeSize)) &&
-            (identical(other.wardrobePieceCount, wardrobePieceCount) || const DeepCollectionEquality().equals(other.wardrobePieceCount, wardrobePieceCount)) &&
-            (identical(other.dyed, dyed) || const DeepCollectionEquality().equals(other.dyed, dyed)) &&
-            (identical(other.wardrobeSourceId, wardrobeSourceId) || const DeepCollectionEquality().equals(other.wardrobeSourceId, wardrobeSourceId)) &&
-            (identical(other.wardrobeSource, wardrobeSource) || const DeepCollectionEquality().equals(other.wardrobeSource, wardrobeSource)) &&
-            (identical(other.wardrobeCareId, wardrobeCareId) || const DeepCollectionEquality().equals(other.wardrobeCareId, wardrobeCareId)) &&
-            (identical(other.wardrobeCare, wardrobeCare) || const DeepCollectionEquality().equals(other.wardrobeCare, wardrobeCare)) &&
-            (identical(other.cleaningFeeAmount, cleaningFeeAmount) || const DeepCollectionEquality().equals(other.cleaningFeeAmount, cleaningFeeAmount)) &&
-            (identical(other.wardrobeDetailedDescription, wardrobeDetailedDescription) || const DeepCollectionEquality().equals(other.wardrobeDetailedDescription, wardrobeDetailedDescription)) &&
-            (identical(other.webDetailedDescription, webDetailedDescription) || const DeepCollectionEquality().equals(other.webDetailedDescription, webDetailedDescription)) &&
-            (identical(other.technicalNotes, technicalNotes) || const DeepCollectionEquality().equals(other.technicalNotes, technicalNotes)) &&
-            (identical(other.allocateRevenueForAccessories, allocateRevenueForAccessories) || const DeepCollectionEquality().equals(other.allocateRevenueForAccessories, allocateRevenueForAccessories)) &&
-            (identical(other.packageRevenueCalculationFormula, packageRevenueCalculationFormula) || const DeepCollectionEquality().equals(other.packageRevenueCalculationFormula, packageRevenueCalculationFormula)) &&
-            (identical(other.isHazardousMaterial, isHazardousMaterial) || const DeepCollectionEquality().equals(other.isHazardousMaterial, isHazardousMaterial)) &&
-            (identical(other.descriptionWithAkas, descriptionWithAkas) || const DeepCollectionEquality().equals(other.descriptionWithAkas, descriptionWithAkas)) &&
-            (identical(other.costCalculation, costCalculation) || const DeepCollectionEquality().equals(other.costCalculation, costCalculation)) &&
-            (identical(other.noChargePrint, noChargePrint) || const DeepCollectionEquality().equals(other.noChargePrint, noChargePrint)) &&
-            (identical(other.quantity, quantity) || const DeepCollectionEquality().equals(other.quantity, quantity)) &&
-            (identical(other.quantityIn, quantityIn) || const DeepCollectionEquality().equals(other.quantityIn, quantityIn)) &&
-            (identical(other.quantityStaged, quantityStaged) || const DeepCollectionEquality().equals(other.quantityStaged, quantityStaged)) &&
-            (identical(other.quantityOut, quantityOut) || const DeepCollectionEquality().equals(other.quantityOut, quantityOut)) &&
-            (identical(other.quantityInContainer, quantityInContainer) || const DeepCollectionEquality().equals(other.quantityInContainer, quantityInContainer)) &&
-            (identical(other.quantityInRepair, quantityInRepair) || const DeepCollectionEquality().equals(other.quantityInRepair, quantityInRepair)) &&
-            (identical(other.quantityInTransit, quantityInTransit) || const DeepCollectionEquality().equals(other.quantityInTransit, quantityInTransit)) &&
-            (identical(other.quantityOnTruck, quantityOnTruck) || const DeepCollectionEquality().equals(other.quantityOnTruck, quantityOnTruck)) &&
-            (identical(other.totalQuantity, totalQuantity) || const DeepCollectionEquality().equals(other.totalQuantity, totalQuantity)) &&
-            (identical(other.lastPurchasePrice, lastPurchasePrice) || const DeepCollectionEquality().equals(other.lastPurchasePrice, lastPurchasePrice)) &&
-            (identical(other.aisleLocation, aisleLocation) || const DeepCollectionEquality().equals(other.aisleLocation, aisleLocation)) &&
-            (identical(other.shelfLocation, shelfLocation) || const DeepCollectionEquality().equals(other.shelfLocation, shelfLocation)) &&
-            (identical(other.taxable, taxable) || const DeepCollectionEquality().equals(other.taxable, taxable)) &&
-            (identical(other.dateOfLastPhysicalInventory, dateOfLastPhysicalInventory) || const DeepCollectionEquality().equals(other.dateOfLastPhysicalInventory, dateOfLastPhysicalInventory)) &&
-            (identical(other.hasImage, hasImage) || const DeepCollectionEquality().equals(other.hasImage, hasImage)) &&
-            (identical(other.hasDimensionsImage, hasDimensionsImage) || const DeepCollectionEquality().equals(other.hasDimensionsImage, hasDimensionsImage)) &&
-            (identical(other.stagingUnreadyContainer, stagingUnreadyContainer) || const DeepCollectionEquality().equals(other.stagingUnreadyContainer, stagingUnreadyContainer)) &&
-            (identical(other.disableMiscDescriptionChange, disableMiscDescriptionChange) || const DeepCollectionEquality().equals(other.disableMiscDescriptionChange, disableMiscDescriptionChange)) &&
-            (identical(other.iCode, iCode) || const DeepCollectionEquality().equals(other.iCode, iCode)) &&
-            (identical(other.description, description) || const DeepCollectionEquality().equals(other.description, description)) &&
-            (identical(other.availFor, availFor) || const DeepCollectionEquality().equals(other.availFor, availFor)) &&
-            (identical(other.categoryId, categoryId) || const DeepCollectionEquality().equals(other.categoryId, categoryId)) &&
-            (identical(other.category, category) || const DeepCollectionEquality().equals(other.category, category)) &&
-            (identical(other.subCategoryCount, subCategoryCount) || const DeepCollectionEquality().equals(other.subCategoryCount, subCategoryCount)) &&
-            (identical(other.subCategoryId, subCategoryId) || const DeepCollectionEquality().equals(other.subCategoryId, subCategoryId)) &&
-            (identical(other.subCategory, subCategory) || const DeepCollectionEquality().equals(other.subCategory, subCategory)) &&
-            (identical(other.classification, classification) || const DeepCollectionEquality().equals(other.classification, classification)) &&
-            (identical(other.classificationDescription, classificationDescription) || const DeepCollectionEquality().equals(other.classificationDescription, classificationDescription)) &&
-            (identical(other.classificationColor, classificationColor) || const DeepCollectionEquality().equals(other.classificationColor, classificationColor)) &&
-            (identical(other.unitId, unitId) || const DeepCollectionEquality().equals(other.unitId, unitId)) &&
-            (identical(other.unit, unit) || const DeepCollectionEquality().equals(other.unit, unit)) &&
-            (identical(other.unitType, unitType) || const DeepCollectionEquality().equals(other.unitType, unitType)) &&
-            (identical(other.nonDiscountable, nonDiscountable) || const DeepCollectionEquality().equals(other.nonDiscountable, nonDiscountable)) &&
-            (identical(other.overrideProfitAndLossCategory, overrideProfitAndLossCategory) || const DeepCollectionEquality().equals(other.overrideProfitAndLossCategory, overrideProfitAndLossCategory)) &&
-            (identical(other.profitAndLossCategoryId, profitAndLossCategoryId) || const DeepCollectionEquality().equals(other.profitAndLossCategoryId, profitAndLossCategoryId)) &&
-            (identical(other.profitAndLossCategory, profitAndLossCategory) || const DeepCollectionEquality().equals(other.profitAndLossCategory, profitAndLossCategory)) &&
-            (identical(other.autoCopyNotesToQuoteOrder, autoCopyNotesToQuoteOrder) || const DeepCollectionEquality().equals(other.autoCopyNotesToQuoteOrder, autoCopyNotesToQuoteOrder)) &&
-            (identical(other.note, note) || const DeepCollectionEquality().equals(other.note, note)) &&
-            (identical(other.printNoteOnInContract, printNoteOnInContract) || const DeepCollectionEquality().equals(other.printNoteOnInContract, printNoteOnInContract)) &&
-            (identical(other.printNoteOnOutContract, printNoteOnOutContract) || const DeepCollectionEquality().equals(other.printNoteOnOutContract, printNoteOnOutContract)) &&
-            (identical(other.printNoteOnReceiveContract, printNoteOnReceiveContract) || const DeepCollectionEquality().equals(other.printNoteOnReceiveContract, printNoteOnReceiveContract)) &&
-            (identical(other.printNoteOnReturnContract, printNoteOnReturnContract) || const DeepCollectionEquality().equals(other.printNoteOnReturnContract, printNoteOnReturnContract)) &&
-            (identical(other.printNoteOnInvoice, printNoteOnInvoice) || const DeepCollectionEquality().equals(other.printNoteOnInvoice, printNoteOnInvoice)) &&
-            (identical(other.printNoteOnOrder, printNoteOnOrder) || const DeepCollectionEquality().equals(other.printNoteOnOrder, printNoteOnOrder)) &&
-            (identical(other.printNoteOnPickList, printNoteOnPickList) || const DeepCollectionEquality().equals(other.printNoteOnPickList, printNoteOnPickList)) &&
-            (identical(other.printNoteOnPO, printNoteOnPO) || const DeepCollectionEquality().equals(other.printNoteOnPO, printNoteOnPO)) &&
-            (identical(other.printNoteOnQuote, printNoteOnQuote) || const DeepCollectionEquality().equals(other.printNoteOnQuote, printNoteOnQuote)) &&
-            (identical(other.printNoteOnReturnList, printNoteOnReturnList) || const DeepCollectionEquality().equals(other.printNoteOnReturnList, printNoteOnReturnList)) &&
-            (identical(other.printNoteOnPoReceiveList, printNoteOnPoReceiveList) || const DeepCollectionEquality().equals(other.printNoteOnPoReceiveList, printNoteOnPoReceiveList)) &&
-            (identical(other.printNoteOnPoReturnList, printNoteOnPoReturnList) || const DeepCollectionEquality().equals(other.printNoteOnPoReturnList, printNoteOnPoReturnList)) &&
-            (identical(other.assetAccountId, assetAccountId) || const DeepCollectionEquality().equals(other.assetAccountId, assetAccountId)) &&
-            (identical(other.assetAccountNo, assetAccountNo) || const DeepCollectionEquality().equals(other.assetAccountNo, assetAccountNo)) &&
-            (identical(other.assetAccountDescription, assetAccountDescription) || const DeepCollectionEquality().equals(other.assetAccountDescription, assetAccountDescription)) &&
-            (identical(other.incomeAccountId, incomeAccountId) || const DeepCollectionEquality().equals(other.incomeAccountId, incomeAccountId)) &&
-            (identical(other.incomeAccountNo, incomeAccountNo) || const DeepCollectionEquality().equals(other.incomeAccountNo, incomeAccountNo)) &&
-            (identical(other.incomeAccountDescription, incomeAccountDescription) || const DeepCollectionEquality().equals(other.incomeAccountDescription, incomeAccountDescription)) &&
-            (identical(other.subIncomeAccountId, subIncomeAccountId) || const DeepCollectionEquality().equals(other.subIncomeAccountId, subIncomeAccountId)) &&
-            (identical(other.subIncomeAccountNo, subIncomeAccountNo) || const DeepCollectionEquality().equals(other.subIncomeAccountNo, subIncomeAccountNo)) &&
-            (identical(other.subIncomeAccountDescription, subIncomeAccountDescription) || const DeepCollectionEquality().equals(other.subIncomeAccountDescription, subIncomeAccountDescription)) &&
-            (identical(other.consignmentIncomeAccountId, consignmentIncomeAccountId) || const DeepCollectionEquality().equals(other.consignmentIncomeAccountId, consignmentIncomeAccountId)) &&
-            (identical(other.consignmentIncomeAccountNo, consignmentIncomeAccountNo) || const DeepCollectionEquality().equals(other.consignmentIncomeAccountNo, consignmentIncomeAccountNo)) &&
-            (identical(other.consignmentIncomeAccountDescription, consignmentIncomeAccountDescription) || const DeepCollectionEquality().equals(other.consignmentIncomeAccountDescription, consignmentIncomeAccountDescription)) &&
-            (identical(other.ldIncomeAccountId, ldIncomeAccountId) || const DeepCollectionEquality().equals(other.ldIncomeAccountId, ldIncomeAccountId)) &&
-            (identical(other.ldIncomeAccountNo, ldIncomeAccountNo) || const DeepCollectionEquality().equals(other.ldIncomeAccountNo, ldIncomeAccountNo)) &&
-            (identical(other.ldIncomeAccountDescription, ldIncomeAccountDescription) || const DeepCollectionEquality().equals(other.ldIncomeAccountDescription, ldIncomeAccountDescription)) &&
-            (identical(other.equipmentSaleIncomeAccountId, equipmentSaleIncomeAccountId) || const DeepCollectionEquality().equals(other.equipmentSaleIncomeAccountId, equipmentSaleIncomeAccountId)) &&
-            (identical(other.equipmentSaleIncomeAccountNo, equipmentSaleIncomeAccountNo) || const DeepCollectionEquality().equals(other.equipmentSaleIncomeAccountNo, equipmentSaleIncomeAccountNo)) &&
-            (identical(other.equipmentSaleIncomeAccountDescription, equipmentSaleIncomeAccountDescription) || const DeepCollectionEquality().equals(other.equipmentSaleIncomeAccountDescription, equipmentSaleIncomeAccountDescription)) &&
-            (identical(other.expenseAccountId, expenseAccountId) || const DeepCollectionEquality().equals(other.expenseAccountId, expenseAccountId)) &&
-            (identical(other.expenseAccountNo, expenseAccountNo) || const DeepCollectionEquality().equals(other.expenseAccountNo, expenseAccountNo)) &&
-            (identical(other.expenseAccountDescription, expenseAccountDescription) || const DeepCollectionEquality().equals(other.expenseAccountDescription, expenseAccountDescription)) &&
-            (identical(other.costOfGoodsSoldExpenseAccountId, costOfGoodsSoldExpenseAccountId) || const DeepCollectionEquality().equals(other.costOfGoodsSoldExpenseAccountId, costOfGoodsSoldExpenseAccountId)) &&
-            (identical(other.costOfGoodsSoldExpenseAccountNo, costOfGoodsSoldExpenseAccountNo) || const DeepCollectionEquality().equals(other.costOfGoodsSoldExpenseAccountNo, costOfGoodsSoldExpenseAccountNo)) &&
-            (identical(other.costOfGoodsSoldExpenseAccountDescription, costOfGoodsSoldExpenseAccountDescription) || const DeepCollectionEquality().equals(other.costOfGoodsSoldExpenseAccountDescription, costOfGoodsSoldExpenseAccountDescription)) &&
-            (identical(other.costOfGoodsRentedExpenseAccountId, costOfGoodsRentedExpenseAccountId) || const DeepCollectionEquality().equals(other.costOfGoodsRentedExpenseAccountId, costOfGoodsRentedExpenseAccountId)) &&
-            (identical(other.costOfGoodsRentedExpenseAccountNo, costOfGoodsRentedExpenseAccountNo) || const DeepCollectionEquality().equals(other.costOfGoodsRentedExpenseAccountNo, costOfGoodsRentedExpenseAccountNo)) &&
-            (identical(other.costOfGoodsRentedExpenseAccountDescription, costOfGoodsRentedExpenseAccountDescription) || const DeepCollectionEquality().equals(other.costOfGoodsRentedExpenseAccountDescription, costOfGoodsRentedExpenseAccountDescription)) &&
-            (identical(other.depreciationExpenseAccountId, depreciationExpenseAccountId) || const DeepCollectionEquality().equals(other.depreciationExpenseAccountId, depreciationExpenseAccountId)) &&
-            (identical(other.depreciationExpenseAccountNo, depreciationExpenseAccountNo) || const DeepCollectionEquality().equals(other.depreciationExpenseAccountNo, depreciationExpenseAccountNo)) &&
-            (identical(other.depreciationExpenseAccountDescription, depreciationExpenseAccountDescription) || const DeepCollectionEquality().equals(other.depreciationExpenseAccountDescription, depreciationExpenseAccountDescription)) &&
-            (identical(other.accumulatedDepreciationExpenseAccountId, accumulatedDepreciationExpenseAccountId) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountId, accumulatedDepreciationExpenseAccountId)) &&
-            (identical(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountNo, accumulatedDepreciationExpenseAccountNo)) &&
-            (identical(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription) || const DeepCollectionEquality().equals(other.accumulatedDepreciationExpenseAccountDescription, accumulatedDepreciationExpenseAccountDescription)) &&
-            (identical(other.inputDate, inputDate) || const DeepCollectionEquality().equals(other.inputDate, inputDate)) &&
-            (identical(other.inputByUsersId, inputByUsersId) || const DeepCollectionEquality().equals(other.inputByUsersId, inputByUsersId)) &&
-            (identical(other.category2, category2) || const DeepCollectionEquality().equals(other.category2, category2)) &&
-            (identical(other.class2, class2) || const DeepCollectionEquality().equals(other.class2, class2)) &&
-            (identical(other.stockClass, stockClass) || const DeepCollectionEquality().equals(other.stockClass, stockClass)) &&
-            (identical(other.webTitle, webTitle) || const DeepCollectionEquality().equals(other.webTitle, webTitle)) &&
-            (identical(other.inactive, inactive) || const DeepCollectionEquality().equals(other.inactive, inactive)) &&
-            (identical(other.dateStamp, dateStamp) || const DeepCollectionEquality().equals(other.dateStamp, dateStamp)) &&
-            (identical(other.manifestShippingContainer, manifestShippingContainer) || const DeepCollectionEquality().equals(other.manifestShippingContainer, manifestShippingContainer)) &&
-            (identical(other.manifestStandAloneItem, manifestStandAloneItem) || const DeepCollectionEquality().equals(other.manifestStandAloneItem, manifestStandAloneItem)) &&
-            (identical(other.taxableForMyLocation, taxableForMyLocation) || const DeepCollectionEquality().equals(other.taxableForMyLocation, taxableForMyLocation)) &&
-            (identical(other.myLocationId, myLocationId) || const DeepCollectionEquality().equals(other.myLocationId, myLocationId)) &&
-            (identical(other.taxableForAllLocations, taxableForAllLocations) || const DeepCollectionEquality().equals(other.taxableForAllLocations, taxableForAllLocations)) &&
-            (identical(other.auditNote, auditNote) || const DeepCollectionEquality().equals(other.auditNote, auditNote)) &&
-            (identical(other.recordTitle, recordTitle) || const DeepCollectionEquality().equals(other.recordTitle, recordTitle)) &&
-            (identical(other.urlIdentifier, urlIdentifier) || const DeepCollectionEquality().equals(other.urlIdentifier, urlIdentifier)) &&
-            (identical(other.fields, fields) || const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) || const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) || const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)) &&
-            (identical(other.original, original) || const DeepCollectionEquality().equals(other.original, original)) &&
-            (identical(other.translation, translation) || const DeepCollectionEquality().equals(other.translation, translation)) &&
-            (identical(other.hasImport, hasImport) || const DeepCollectionEquality().equals(other.hasImport, hasImport)) &&
-            (identical(other.createdByUserId, createdByUserId) || const DeepCollectionEquality().equals(other.createdByUserId, createdByUserId)) &&
-            (identical(other.createdByUserName, createdByUserName) || const DeepCollectionEquality().equals(other.createdByUserName, createdByUserName)) &&
-            (identical(other.createdDateTime, createdDateTime) || const DeepCollectionEquality().equals(other.createdDateTime, createdDateTime)) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) || const DeepCollectionEquality().equals(other.modifiedByUserId, modifiedByUserId)) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) || const DeepCollectionEquality().equals(other.modifiedByUserName, modifiedByUserName)) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) || const DeepCollectionEquality().equals(other.modifiedDateTime, modifiedDateTime)));
+                const DeepCollectionEquality().equals(
+                  other.surfaceId,
+                  surfaceId,
+                )) &&
+            (identical(other.surface, surface) ||
+                const DeepCollectionEquality().equals(
+                  other.surface,
+                  surface,
+                )) &&
+            (identical(other.conditionId, conditionId) ||
+                const DeepCollectionEquality().equals(
+                  other.conditionId,
+                  conditionId,
+                )) &&
+            (identical(other.condition, condition) ||
+                const DeepCollectionEquality().equals(
+                  other.condition,
+                  condition,
+                )) &&
+            (identical(other.originalShowId, originalShowId) ||
+                const DeepCollectionEquality().equals(
+                  other.originalShowId,
+                  originalShowId,
+                )) &&
+            (identical(other.originalShow, originalShow) ||
+                const DeepCollectionEquality().equals(
+                  other.originalShow,
+                  originalShow,
+                )) &&
+            (identical(other.wallWidthFt, wallWidthFt) ||
+                const DeepCollectionEquality().equals(
+                  other.wallWidthFt,
+                  wallWidthFt,
+                )) &&
+            (identical(other.wallWidthIn, wallWidthIn) ||
+                const DeepCollectionEquality().equals(
+                  other.wallWidthIn,
+                  wallWidthIn,
+                )) &&
+            (identical(other.wallHeightFt, wallHeightFt) ||
+                const DeepCollectionEquality().equals(
+                  other.wallHeightFt,
+                  wallHeightFt,
+                )) &&
+            (identical(other.wallHeightIn, wallHeightIn) ||
+                const DeepCollectionEquality().equals(
+                  other.wallHeightIn,
+                  wallHeightIn,
+                )) &&
+            (identical(other.wallLengthFt, wallLengthFt) ||
+                const DeepCollectionEquality().equals(
+                  other.wallLengthFt,
+                  wallLengthFt,
+                )) &&
+            (identical(other.wallLengthIn, wallLengthIn) ||
+                const DeepCollectionEquality().equals(
+                  other.wallLengthIn,
+                  wallLengthIn,
+                )) &&
+            (identical(
+                  other.treatConsignedQtyAsOwned,
+                  treatConsignedQtyAsOwned,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.treatConsignedQtyAsOwned,
+                  treatConsignedQtyAsOwned,
+                )) &&
+            (identical(other.dailyRate, dailyRate) ||
+                const DeepCollectionEquality().equals(
+                  other.dailyRate,
+                  dailyRate,
+                )) &&
+            (identical(other.weeklyRate, weeklyRate) ||
+                const DeepCollectionEquality().equals(
+                  other.weeklyRate,
+                  weeklyRate,
+                )) &&
+            (identical(other.week2Rate, week2Rate) ||
+                const DeepCollectionEquality().equals(
+                  other.week2Rate,
+                  week2Rate,
+                )) &&
+            (identical(other.week3Rate, week3Rate) ||
+                const DeepCollectionEquality().equals(
+                  other.week3Rate,
+                  week3Rate,
+                )) &&
+            (identical(other.week4Rate, week4Rate) ||
+                const DeepCollectionEquality().equals(
+                  other.week4Rate,
+                  week4Rate,
+                )) &&
+            (identical(other.week5Rate, week5Rate) ||
+                const DeepCollectionEquality().equals(
+                  other.week5Rate,
+                  week5Rate,
+                )) &&
+            (identical(other.monthlyRate, monthlyRate) ||
+                const DeepCollectionEquality().equals(
+                  other.monthlyRate,
+                  monthlyRate,
+                )) &&
+            (identical(other.unitValue, unitValue) ||
+                const DeepCollectionEquality().equals(
+                  other.unitValue,
+                  unitValue,
+                )) &&
+            (identical(other.replacementCost, replacementCost) ||
+                const DeepCollectionEquality().equals(
+                  other.replacementCost,
+                  replacementCost,
+                )) &&
+            (identical(other.sourceId, sourceId) ||
+                const DeepCollectionEquality().equals(
+                  other.sourceId,
+                  sourceId,
+                )) &&
+            (identical(
+                  other.qcRequiredForMyWarehouse,
+                  qcRequiredForMyWarehouse,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.qcRequiredForMyWarehouse,
+                  qcRequiredForMyWarehouse,
+                )) &&
+            (identical(other.myWarehouseId, myWarehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.myWarehouseId,
+                  myWarehouseId,
+                )) &&
+            (identical(
+                  other.qcRequiredForAllWarehouses,
+                  qcRequiredForAllWarehouses,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.qcRequiredForAllWarehouses,
+                  qcRequiredForAllWarehouses,
+                )) &&
+            (identical(
+                  other.unitValueForAllWarehouses,
+                  unitValueForAllWarehouses,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.unitValueForAllWarehouses,
+                  unitValueForAllWarehouses,
+                )) &&
+            (identical(
+                  other.replacementCostForAllWarehouses,
+                  replacementCostForAllWarehouses,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.replacementCostForAllWarehouses,
+                  replacementCostForAllWarehouses,
+                )) &&
+            (identical(other.inventoryTypeId, inventoryTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryTypeId,
+                  inventoryTypeId,
+                )) &&
+            (identical(other.inventoryType, inventoryType) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryType,
+                  inventoryType,
+                )) &&
+            (identical(other.availableFrom, availableFrom) ||
+                const DeepCollectionEquality().equals(
+                  other.availableFrom,
+                  availableFrom,
+                )) &&
+            (identical(other.trackedBy, trackedBy) ||
+                const DeepCollectionEquality().equals(
+                  other.trackedBy,
+                  trackedBy,
+                )) &&
+            (identical(other.confirmTrackedBy, confirmTrackedBy) ||
+                const DeepCollectionEquality().equals(
+                  other.confirmTrackedBy,
+                  confirmTrackedBy,
+                )) &&
+            (identical(other.rank, rank) ||
+                const DeepCollectionEquality().equals(other.rank, rank)) &&
+            (identical(other.manufacturerPartNumber, manufacturerPartNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.manufacturerPartNumber,
+                  manufacturerPartNumber,
+                )) &&
+            (identical(other.manufacturerId, manufacturerId) ||
+                const DeepCollectionEquality().equals(
+                  other.manufacturerId,
+                  manufacturerId,
+                )) &&
+            (identical(other.manufacturer, manufacturer) ||
+                const DeepCollectionEquality().equals(
+                  other.manufacturer,
+                  manufacturer,
+                )) &&
+            (identical(other.manufacturerUrl, manufacturerUrl) ||
+                const DeepCollectionEquality().equals(
+                  other.manufacturerUrl,
+                  manufacturerUrl,
+                )) &&
+            (identical(
+                  other.excludeImageFromQuoteOrderPrint,
+                  excludeImageFromQuoteOrderPrint,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.excludeImageFromQuoteOrderPrint,
+                  excludeImageFromQuoteOrderPrint,
+                )) &&
+            (identical(other.noAvailabilityCheck, noAvailabilityCheck) ||
+                const DeepCollectionEquality().equals(
+                  other.noAvailabilityCheck,
+                  noAvailabilityCheck,
+                )) &&
+            (identical(
+                  other.availabilityManuallyResolveConflicts,
+                  availabilityManuallyResolveConflicts,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.availabilityManuallyResolveConflicts,
+                  availabilityManuallyResolveConflicts,
+                )) &&
+            (identical(other.sendAvailabilityAlert, sendAvailabilityAlert) ||
+                const DeepCollectionEquality().equals(
+                  other.sendAvailabilityAlert,
+                  sendAvailabilityAlert,
+                )) &&
+            (identical(
+                  other.primaryDimensionUniqueId,
+                  primaryDimensionUniqueId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionUniqueId,
+                  primaryDimensionUniqueId,
+                )) &&
+            (identical(other.defaultImperialMetric, defaultImperialMetric) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultImperialMetric,
+                  defaultImperialMetric,
+                )) &&
+            (identical(
+                  other.primaryDimensionDescription,
+                  primaryDimensionDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionDescription,
+                  primaryDimensionDescription,
+                )) &&
+            (identical(
+                  other.primaryDimensionShipWeightLbs,
+                  primaryDimensionShipWeightLbs,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionShipWeightLbs,
+                  primaryDimensionShipWeightLbs,
+                )) &&
+            (identical(
+                  other.primaryDimensionShipWeightOz,
+                  primaryDimensionShipWeightOz,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionShipWeightOz,
+                  primaryDimensionShipWeightOz,
+                )) &&
+            (identical(
+                  other.primaryDimensionWeightInCaseLbs,
+                  primaryDimensionWeightInCaseLbs,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionWeightInCaseLbs,
+                  primaryDimensionWeightInCaseLbs,
+                )) &&
+            (identical(
+                  other.primaryDimensionWeightInCaseOz,
+                  primaryDimensionWeightInCaseOz,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionWeightInCaseOz,
+                  primaryDimensionWeightInCaseOz,
+                )) &&
+            (identical(
+                  other.primaryDimensionWidthFt,
+                  primaryDimensionWidthFt,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionWidthFt,
+                  primaryDimensionWidthFt,
+                )) &&
+            (identical(
+                  other.primaryDimensionWidthIn,
+                  primaryDimensionWidthIn,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionWidthIn,
+                  primaryDimensionWidthIn,
+                )) &&
+            (identical(
+                  other.primaryDimensionHeightFt,
+                  primaryDimensionHeightFt,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionHeightFt,
+                  primaryDimensionHeightFt,
+                )) &&
+            (identical(
+                  other.primaryDimensionHeightIn,
+                  primaryDimensionHeightIn,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionHeightIn,
+                  primaryDimensionHeightIn,
+                )) &&
+            (identical(
+                  other.primaryDimensionLengthFt,
+                  primaryDimensionLengthFt,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionLengthFt,
+                  primaryDimensionLengthFt,
+                )) &&
+            (identical(
+                  other.primaryDimensionLengthIn,
+                  primaryDimensionLengthIn,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionLengthIn,
+                  primaryDimensionLengthIn,
+                )) &&
+            (identical(
+                  other.primaryDimensionShipWeightKg,
+                  primaryDimensionShipWeightKg,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionShipWeightKg,
+                  primaryDimensionShipWeightKg,
+                )) &&
+            (identical(
+                  other.primaryDimensionShipWeightG,
+                  primaryDimensionShipWeightG,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionShipWeightG,
+                  primaryDimensionShipWeightG,
+                )) &&
+            (identical(
+                  other.primaryDimensionWeightInCaseKg,
+                  primaryDimensionWeightInCaseKg,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionWeightInCaseKg,
+                  primaryDimensionWeightInCaseKg,
+                )) &&
+            (identical(
+                  other.primaryDimensionWeightInCaseG,
+                  primaryDimensionWeightInCaseG,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionWeightInCaseG,
+                  primaryDimensionWeightInCaseG,
+                )) &&
+            (identical(other.primaryDimensionWidthM, primaryDimensionWidthM) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionWidthM,
+                  primaryDimensionWidthM,
+                )) &&
+            (identical(
+                  other.primaryDimensionWidthCm,
+                  primaryDimensionWidthCm,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionWidthCm,
+                  primaryDimensionWidthCm,
+                )) &&
+            (identical(
+                  other.primaryDimensionHeightM,
+                  primaryDimensionHeightM,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionHeightM,
+                  primaryDimensionHeightM,
+                )) &&
+            (identical(
+                  other.primaryDimensionHeightCm,
+                  primaryDimensionHeightCm,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionHeightCm,
+                  primaryDimensionHeightCm,
+                )) &&
+            (identical(
+                  other.primaryDimensionLengthM,
+                  primaryDimensionLengthM,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionLengthM,
+                  primaryDimensionLengthM,
+                )) &&
+            (identical(
+                  other.primaryDimensionLengthCm,
+                  primaryDimensionLengthCm,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDimensionLengthCm,
+                  primaryDimensionLengthCm,
+                )) &&
+            (identical(other.hasSecondaryDimensions, hasSecondaryDimensions) ||
+                const DeepCollectionEquality().equals(
+                  other.hasSecondaryDimensions,
+                  hasSecondaryDimensions,
+                )) &&
+            (identical(
+                  other.secondaryDimensionUniqueId,
+                  secondaryDimensionUniqueId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionUniqueId,
+                  secondaryDimensionUniqueId,
+                )) &&
+            (identical(
+                  other.secondaryDimensionDescription,
+                  secondaryDimensionDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionDescription,
+                  secondaryDimensionDescription,
+                )) &&
+            (identical(
+                  other.secondaryDimensionShipWeightLbs,
+                  secondaryDimensionShipWeightLbs,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionShipWeightLbs,
+                  secondaryDimensionShipWeightLbs,
+                )) &&
+            (identical(
+                  other.secondaryDimensionShipWeightOz,
+                  secondaryDimensionShipWeightOz,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionShipWeightOz,
+                  secondaryDimensionShipWeightOz,
+                )) &&
+            (identical(
+                  other.secondaryDimensionWeightInCaseLbs,
+                  secondaryDimensionWeightInCaseLbs,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionWeightInCaseLbs,
+                  secondaryDimensionWeightInCaseLbs,
+                )) &&
+            (identical(
+                  other.secondaryDimensionWeightInCaseOz,
+                  secondaryDimensionWeightInCaseOz,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionWeightInCaseOz,
+                  secondaryDimensionWeightInCaseOz,
+                )) &&
+            (identical(
+                  other.secondaryDimensionWidthFt,
+                  secondaryDimensionWidthFt,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionWidthFt,
+                  secondaryDimensionWidthFt,
+                )) &&
+            (identical(
+                  other.secondaryDimensionWidthIn,
+                  secondaryDimensionWidthIn,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionWidthIn,
+                  secondaryDimensionWidthIn,
+                )) &&
+            (identical(
+                  other.secondaryDimensionHeightFt,
+                  secondaryDimensionHeightFt,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionHeightFt,
+                  secondaryDimensionHeightFt,
+                )) &&
+            (identical(
+                  other.secondaryDimensionHeightIn,
+                  secondaryDimensionHeightIn,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionHeightIn,
+                  secondaryDimensionHeightIn,
+                )) &&
+            (identical(
+                  other.secondaryDimensionLengthFt,
+                  secondaryDimensionLengthFt,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionLengthFt,
+                  secondaryDimensionLengthFt,
+                )) &&
+            (identical(
+                  other.secondaryDimensionLengthIn,
+                  secondaryDimensionLengthIn,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionLengthIn,
+                  secondaryDimensionLengthIn,
+                )) &&
+            (identical(
+                  other.secondaryDimensionShipWeightKg,
+                  secondaryDimensionShipWeightKg,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionShipWeightKg,
+                  secondaryDimensionShipWeightKg,
+                )) &&
+            (identical(
+                  other.secondaryDimensionShipWeightG,
+                  secondaryDimensionShipWeightG,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionShipWeightG,
+                  secondaryDimensionShipWeightG,
+                )) &&
+            (identical(
+                  other.secondaryDimensionWeightInCaseKg,
+                  secondaryDimensionWeightInCaseKg,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionWeightInCaseKg,
+                  secondaryDimensionWeightInCaseKg,
+                )) &&
+            (identical(
+                  other.secondaryDimensionWeightInCaseG,
+                  secondaryDimensionWeightInCaseG,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionWeightInCaseG,
+                  secondaryDimensionWeightInCaseG,
+                )) &&
+            (identical(
+                  other.secondaryDimensionWidthM,
+                  secondaryDimensionWidthM,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionWidthM,
+                  secondaryDimensionWidthM,
+                )) &&
+            (identical(
+                  other.secondaryDimensionWidthCm,
+                  secondaryDimensionWidthCm,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionWidthCm,
+                  secondaryDimensionWidthCm,
+                )) &&
+            (identical(
+                  other.secondaryDimensionHeightM,
+                  secondaryDimensionHeightM,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionHeightM,
+                  secondaryDimensionHeightM,
+                )) &&
+            (identical(
+                  other.secondaryDimensionHeightCm,
+                  secondaryDimensionHeightCm,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionHeightCm,
+                  secondaryDimensionHeightCm,
+                )) &&
+            (identical(
+                  other.secondaryDimensionLengthM,
+                  secondaryDimensionLengthM,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionLengthM,
+                  secondaryDimensionLengthM,
+                )) &&
+            (identical(
+                  other.secondaryDimensionLengthCm,
+                  secondaryDimensionLengthCm,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.secondaryDimensionLengthCm,
+                  secondaryDimensionLengthCm,
+                )) &&
+            (identical(other.countryOfOriginId, countryOfOriginId) ||
+                const DeepCollectionEquality().equals(
+                  other.countryOfOriginId,
+                  countryOfOriginId,
+                )) &&
+            (identical(other.countryOfOrigin, countryOfOrigin) ||
+                const DeepCollectionEquality().equals(
+                  other.countryOfOrigin,
+                  countryOfOrigin,
+                )) &&
+            (identical(
+                  other.displayInSummaryModeWhenRateIsZero,
+                  displayInSummaryModeWhenRateIsZero,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.displayInSummaryModeWhenRateIsZero,
+                  displayInSummaryModeWhenRateIsZero,
+                )) &&
+            (identical(other.qcRequired, qcRequired) ||
+                const DeepCollectionEquality().equals(
+                  other.qcRequired,
+                  qcRequired,
+                )) &&
+            (identical(other.qcTime, qcTime) ||
+                const DeepCollectionEquality().equals(other.qcTime, qcTime)) &&
+            (identical(other.copyAttributesAsNote, copyAttributesAsNote) ||
+                const DeepCollectionEquality().equals(
+                  other.copyAttributesAsNote,
+                  copyAttributesAsNote,
+                )) &&
+            (identical(other.trackAssetUsage, trackAssetUsage) ||
+                const DeepCollectionEquality().equals(
+                  other.trackAssetUsage,
+                  trackAssetUsage,
+                )) &&
+            (identical(other.trackLampUsage, trackLampUsage) ||
+                const DeepCollectionEquality().equals(
+                  other.trackLampUsage,
+                  trackLampUsage,
+                )) &&
+            (identical(other.trackStrikes, trackStrikes) ||
+                const DeepCollectionEquality().equals(
+                  other.trackStrikes,
+                  trackStrikes,
+                )) &&
+            (identical(other.trackCandles, trackCandles) ||
+                const DeepCollectionEquality().equals(
+                  other.trackCandles,
+                  trackCandles,
+                )) &&
+            (identical(other.lampCount, lampCount) ||
+                const DeepCollectionEquality().equals(
+                  other.lampCount,
+                  lampCount,
+                )) &&
+            (identical(other.minimumFootCandles, minimumFootCandles) ||
+                const DeepCollectionEquality().equals(
+                  other.minimumFootCandles,
+                  minimumFootCandles,
+                )) &&
+            (identical(other.trackSoftware, trackSoftware) ||
+                const DeepCollectionEquality().equals(
+                  other.trackSoftware,
+                  trackSoftware,
+                )) &&
+            (identical(other.softwareVersion, softwareVersion) ||
+                const DeepCollectionEquality().equals(
+                  other.softwareVersion,
+                  softwareVersion,
+                )) &&
+            (identical(other.softwareEffectiveDate, softwareEffectiveDate) ||
+                const DeepCollectionEquality().equals(
+                  other.softwareEffectiveDate,
+                  softwareEffectiveDate,
+                )) &&
+            (identical(
+                  other.warehouseSpecificPackage,
+                  warehouseSpecificPackage,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.warehouseSpecificPackage,
+                  warehouseSpecificPackage,
+                )) &&
+            (identical(other.completePackagePrice, completePackagePrice) ||
+                const DeepCollectionEquality().equals(
+                  other.completePackagePrice,
+                  completePackagePrice,
+                )) &&
+            (identical(other.kitPackagePrice, kitPackagePrice) ||
+                const DeepCollectionEquality().equals(
+                  other.kitPackagePrice,
+                  kitPackagePrice,
+                )) &&
+            (identical(
+                  other.separatePackageOnQuoteOrder,
+                  separatePackageOnQuoteOrder,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.separatePackageOnQuoteOrder,
+                  separatePackageOnQuoteOrder,
+                )) &&
+            (identical(other.containerId, containerId) ||
+                const DeepCollectionEquality().equals(
+                  other.containerId,
+                  containerId,
+                )) &&
+            (identical(
+                  other.containerScannableInventoryId,
+                  containerScannableInventoryId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.containerScannableInventoryId,
+                  containerScannableInventoryId,
+                )) &&
+            (identical(
+                  other.containerScannableICode,
+                  containerScannableICode,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.containerScannableICode,
+                  containerScannableICode,
+                )) &&
+            (identical(
+                  other.containerScannableDescription,
+                  containerScannableDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.containerScannableDescription,
+                  containerScannableDescription,
+                )) &&
+            (identical(
+                  other.automaticallyRebuildContainerAtCheckIn,
+                  automaticallyRebuildContainerAtCheckIn,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.automaticallyRebuildContainerAtCheckIn,
+                  automaticallyRebuildContainerAtCheckIn,
+                )) &&
+            (identical(
+                  other.automaticallyCheckInEntireContainerWithScannableItem,
+                  automaticallyCheckInEntireContainerWithScannableItem,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.automaticallyCheckInEntireContainerWithScannableItem,
+                  automaticallyCheckInEntireContainerWithScannableItem,
+                )) &&
+            (identical(
+                  other.automaticallyRebuildContainerAtTransferIn,
+                  automaticallyRebuildContainerAtTransferIn,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.automaticallyRebuildContainerAtTransferIn,
+                  automaticallyRebuildContainerAtTransferIn,
+                )) &&
+            (identical(
+                  other
+                      .automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
+                  automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other
+                      .automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
+                  automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
+                )) &&
+            (identical(
+                  other.automaticallyTransferInEntireContainerWithScannableItem,
+                  automaticallyTransferInEntireContainerWithScannableItem,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.automaticallyTransferInEntireContainerWithScannableItem,
+                  automaticallyTransferInEntireContainerWithScannableItem,
+                )) &&
+            (identical(other.containerStagingRule, containerStagingRule) ||
+                const DeepCollectionEquality().equals(
+                  other.containerStagingRule,
+                  containerStagingRule,
+                )) &&
+            (identical(
+                  other.excludeContainedItemsFromAvailability,
+                  excludeContainedItemsFromAvailability,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.excludeContainedItemsFromAvailability,
+                  excludeContainedItemsFromAvailability,
+                )) &&
+            (identical(other.useContainerNumber, useContainerNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.useContainerNumber,
+                  useContainerNumber,
+                )) &&
+            (identical(
+                  other.containerPackingListBehavior,
+                  containerPackingListBehavior,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.containerPackingListBehavior,
+                  containerPackingListBehavior,
+                )) &&
+            (identical(
+                  other.inventoryTypeIsWardrobe,
+                  inventoryTypeIsWardrobe,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryTypeIsWardrobe,
+                  inventoryTypeIsWardrobe,
+                )) &&
+            (identical(other.inventoryTypeIsSets, inventoryTypeIsSets) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryTypeIsSets,
+                  inventoryTypeIsSets,
+                )) &&
+            (identical(other.patternId, patternId) ||
+                const DeepCollectionEquality().equals(
+                  other.patternId,
+                  patternId,
+                )) &&
+            (identical(other.pattern, pattern) ||
+                const DeepCollectionEquality().equals(
+                  other.pattern,
+                  pattern,
+                )) &&
+            (identical(other.periodId, periodId) ||
+                const DeepCollectionEquality().equals(
+                  other.periodId,
+                  periodId,
+                )) &&
+            (identical(other.period, period) ||
+                const DeepCollectionEquality().equals(other.period, period)) &&
+            (identical(other.materialId, materialId) ||
+                const DeepCollectionEquality().equals(
+                  other.materialId,
+                  materialId,
+                )) &&
+            (identical(other.material, material) ||
+                const DeepCollectionEquality().equals(
+                  other.material,
+                  material,
+                )) &&
+            (identical(other.genderId, genderId) ||
+                const DeepCollectionEquality().equals(
+                  other.genderId,
+                  genderId,
+                )) &&
+            (identical(other.gender, gender) ||
+                const DeepCollectionEquality().equals(other.gender, gender)) &&
+            (identical(other.labelId, labelId) ||
+                const DeepCollectionEquality().equals(
+                  other.labelId,
+                  labelId,
+                )) &&
+            (identical(other.label, label) ||
+                const DeepCollectionEquality().equals(other.label, label)) &&
+            (identical(other.wardrobeSize, wardrobeSize) ||
+                const DeepCollectionEquality().equals(
+                  other.wardrobeSize,
+                  wardrobeSize,
+                )) &&
+            (identical(other.wardrobePieceCount, wardrobePieceCount) ||
+                const DeepCollectionEquality().equals(
+                  other.wardrobePieceCount,
+                  wardrobePieceCount,
+                )) &&
+            (identical(other.dyed, dyed) ||
+                const DeepCollectionEquality().equals(other.dyed, dyed)) &&
+            (identical(other.wardrobeSourceId, wardrobeSourceId) ||
+                const DeepCollectionEquality().equals(
+                  other.wardrobeSourceId,
+                  wardrobeSourceId,
+                )) &&
+            (identical(other.wardrobeSource, wardrobeSource) ||
+                const DeepCollectionEquality().equals(
+                  other.wardrobeSource,
+                  wardrobeSource,
+                )) &&
+            (identical(other.wardrobeCareId, wardrobeCareId) ||
+                const DeepCollectionEquality().equals(
+                  other.wardrobeCareId,
+                  wardrobeCareId,
+                )) &&
+            (identical(other.wardrobeCare, wardrobeCare) ||
+                const DeepCollectionEquality().equals(
+                  other.wardrobeCare,
+                  wardrobeCare,
+                )) &&
+            (identical(other.cleaningFeeAmount, cleaningFeeAmount) ||
+                const DeepCollectionEquality().equals(
+                  other.cleaningFeeAmount,
+                  cleaningFeeAmount,
+                )) &&
+            (identical(
+                  other.wardrobeDetailedDescription,
+                  wardrobeDetailedDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.wardrobeDetailedDescription,
+                  wardrobeDetailedDescription,
+                )) &&
+            (identical(other.webDetailedDescription, webDetailedDescription) ||
+                const DeepCollectionEquality().equals(
+                  other.webDetailedDescription,
+                  webDetailedDescription,
+                )) &&
+            (identical(other.technicalNotes, technicalNotes) ||
+                const DeepCollectionEquality().equals(
+                  other.technicalNotes,
+                  technicalNotes,
+                )) &&
+            (identical(
+                  other.allocateRevenueForAccessories,
+                  allocateRevenueForAccessories,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allocateRevenueForAccessories,
+                  allocateRevenueForAccessories,
+                )) &&
+            (identical(
+                  other.packageRevenueCalculationFormula,
+                  packageRevenueCalculationFormula,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.packageRevenueCalculationFormula,
+                  packageRevenueCalculationFormula,
+                )) &&
+            (identical(other.isHazardousMaterial, isHazardousMaterial) ||
+                const DeepCollectionEquality().equals(
+                  other.isHazardousMaterial,
+                  isHazardousMaterial,
+                )) &&
+            (identical(other.descriptionWithAkas, descriptionWithAkas) ||
+                const DeepCollectionEquality().equals(
+                  other.descriptionWithAkas,
+                  descriptionWithAkas,
+                )) &&
+            (identical(other.costCalculation, costCalculation) ||
+                const DeepCollectionEquality().equals(
+                  other.costCalculation,
+                  costCalculation,
+                )) &&
+            (identical(other.noChargePrint, noChargePrint) ||
+                const DeepCollectionEquality().equals(
+                  other.noChargePrint,
+                  noChargePrint,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.quantityIn, quantityIn) ||
+                const DeepCollectionEquality().equals(
+                  other.quantityIn,
+                  quantityIn,
+                )) &&
+            (identical(other.quantityStaged, quantityStaged) ||
+                const DeepCollectionEquality().equals(
+                  other.quantityStaged,
+                  quantityStaged,
+                )) &&
+            (identical(other.quantityOut, quantityOut) ||
+                const DeepCollectionEquality().equals(
+                  other.quantityOut,
+                  quantityOut,
+                )) &&
+            (identical(other.quantityInContainer, quantityInContainer) ||
+                const DeepCollectionEquality().equals(
+                  other.quantityInContainer,
+                  quantityInContainer,
+                )) &&
+            (identical(other.quantityInRepair, quantityInRepair) ||
+                const DeepCollectionEquality().equals(
+                  other.quantityInRepair,
+                  quantityInRepair,
+                )) &&
+            (identical(other.quantityInTransit, quantityInTransit) ||
+                const DeepCollectionEquality().equals(
+                  other.quantityInTransit,
+                  quantityInTransit,
+                )) &&
+            (identical(other.quantityOnTruck, quantityOnTruck) ||
+                const DeepCollectionEquality().equals(
+                  other.quantityOnTruck,
+                  quantityOnTruck,
+                )) &&
+            (identical(other.totalQuantity, totalQuantity) ||
+                const DeepCollectionEquality().equals(
+                  other.totalQuantity,
+                  totalQuantity,
+                )) &&
+            (identical(other.lastPurchasePrice, lastPurchasePrice) ||
+                const DeepCollectionEquality().equals(
+                  other.lastPurchasePrice,
+                  lastPurchasePrice,
+                )) &&
+            (identical(other.aisleLocation, aisleLocation) ||
+                const DeepCollectionEquality().equals(
+                  other.aisleLocation,
+                  aisleLocation,
+                )) &&
+            (identical(other.shelfLocation, shelfLocation) ||
+                const DeepCollectionEquality().equals(
+                  other.shelfLocation,
+                  shelfLocation,
+                )) &&
+            (identical(other.taxable, taxable) ||
+                const DeepCollectionEquality().equals(
+                  other.taxable,
+                  taxable,
+                )) &&
+            (identical(
+                  other.dateOfLastPhysicalInventory,
+                  dateOfLastPhysicalInventory,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.dateOfLastPhysicalInventory,
+                  dateOfLastPhysicalInventory,
+                )) &&
+            (identical(other.hasImage, hasImage) ||
+                const DeepCollectionEquality().equals(
+                  other.hasImage,
+                  hasImage,
+                )) &&
+            (identical(other.hasDimensionsImage, hasDimensionsImage) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDimensionsImage,
+                  hasDimensionsImage,
+                )) &&
+            (identical(
+                  other.stagingUnreadyContainer,
+                  stagingUnreadyContainer,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.stagingUnreadyContainer,
+                  stagingUnreadyContainer,
+                )) &&
+            (identical(
+                  other.disableMiscDescriptionChange,
+                  disableMiscDescriptionChange,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.disableMiscDescriptionChange,
+                  disableMiscDescriptionChange,
+                )) &&
+            (identical(other.iCode, iCode) ||
+                const DeepCollectionEquality().equals(other.iCode, iCode)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality().equals(
+                  other.description,
+                  description,
+                )) &&
+            (identical(other.availFor, availFor) ||
+                const DeepCollectionEquality().equals(
+                  other.availFor,
+                  availFor,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.category, category) ||
+                const DeepCollectionEquality().equals(
+                  other.category,
+                  category,
+                )) &&
+            (identical(other.subCategoryCount, subCategoryCount) ||
+                const DeepCollectionEquality().equals(
+                  other.subCategoryCount,
+                  subCategoryCount,
+                )) &&
+            (identical(other.subCategoryId, subCategoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.subCategoryId,
+                  subCategoryId,
+                )) &&
+            (identical(other.subCategory, subCategory) ||
+                const DeepCollectionEquality().equals(
+                  other.subCategory,
+                  subCategory,
+                )) &&
+            (identical(other.classification, classification) ||
+                const DeepCollectionEquality().equals(
+                  other.classification,
+                  classification,
+                )) &&
+            (identical(
+                  other.classificationDescription,
+                  classificationDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.classificationDescription,
+                  classificationDescription,
+                )) &&
+            (identical(other.classificationColor, classificationColor) ||
+                const DeepCollectionEquality().equals(
+                  other.classificationColor,
+                  classificationColor,
+                )) &&
+            (identical(other.unitId, unitId) ||
+                const DeepCollectionEquality().equals(other.unitId, unitId)) &&
+            (identical(other.unit, unit) ||
+                const DeepCollectionEquality().equals(other.unit, unit)) &&
+            (identical(other.unitType, unitType) ||
+                const DeepCollectionEquality().equals(
+                  other.unitType,
+                  unitType,
+                )) &&
+            (identical(other.nonDiscountable, nonDiscountable) ||
+                const DeepCollectionEquality().equals(
+                  other.nonDiscountable,
+                  nonDiscountable,
+                )) &&
+            (identical(
+                  other.overrideProfitAndLossCategory,
+                  overrideProfitAndLossCategory,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.overrideProfitAndLossCategory,
+                  overrideProfitAndLossCategory,
+                )) &&
+            (identical(
+                  other.profitAndLossCategoryId,
+                  profitAndLossCategoryId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.profitAndLossCategoryId,
+                  profitAndLossCategoryId,
+                )) &&
+            (identical(other.profitAndLossCategory, profitAndLossCategory) ||
+                const DeepCollectionEquality().equals(
+                  other.profitAndLossCategory,
+                  profitAndLossCategory,
+                )) &&
+            (identical(
+                  other.autoCopyNotesToQuoteOrder,
+                  autoCopyNotesToQuoteOrder,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.autoCopyNotesToQuoteOrder,
+                  autoCopyNotesToQuoteOrder,
+                )) &&
+            (identical(other.note, note) ||
+                const DeepCollectionEquality().equals(other.note, note)) &&
+            (identical(other.printNoteOnInContract, printNoteOnInContract) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnInContract,
+                  printNoteOnInContract,
+                )) &&
+            (identical(other.printNoteOnOutContract, printNoteOnOutContract) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnOutContract,
+                  printNoteOnOutContract,
+                )) &&
+            (identical(
+                  other.printNoteOnReceiveContract,
+                  printNoteOnReceiveContract,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnReceiveContract,
+                  printNoteOnReceiveContract,
+                )) &&
+            (identical(
+                  other.printNoteOnReturnContract,
+                  printNoteOnReturnContract,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnReturnContract,
+                  printNoteOnReturnContract,
+                )) &&
+            (identical(other.printNoteOnInvoice, printNoteOnInvoice) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnInvoice,
+                  printNoteOnInvoice,
+                )) &&
+            (identical(other.printNoteOnOrder, printNoteOnOrder) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnOrder,
+                  printNoteOnOrder,
+                )) &&
+            (identical(other.printNoteOnPickList, printNoteOnPickList) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnPickList,
+                  printNoteOnPickList,
+                )) &&
+            (identical(other.printNoteOnPO, printNoteOnPO) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnPO,
+                  printNoteOnPO,
+                )) &&
+            (identical(other.printNoteOnQuote, printNoteOnQuote) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnQuote,
+                  printNoteOnQuote,
+                )) &&
+            (identical(other.printNoteOnReturnList, printNoteOnReturnList) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnReturnList,
+                  printNoteOnReturnList,
+                )) &&
+            (identical(
+                  other.printNoteOnPoReceiveList,
+                  printNoteOnPoReceiveList,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnPoReceiveList,
+                  printNoteOnPoReceiveList,
+                )) &&
+            (identical(
+                  other.printNoteOnPoReturnList,
+                  printNoteOnPoReturnList,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.printNoteOnPoReturnList,
+                  printNoteOnPoReturnList,
+                )) &&
+            (identical(other.assetAccountId, assetAccountId) ||
+                const DeepCollectionEquality().equals(
+                  other.assetAccountId,
+                  assetAccountId,
+                )) &&
+            (identical(other.assetAccountNo, assetAccountNo) ||
+                const DeepCollectionEquality().equals(
+                  other.assetAccountNo,
+                  assetAccountNo,
+                )) &&
+            (identical(
+                  other.assetAccountDescription,
+                  assetAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.assetAccountDescription,
+                  assetAccountDescription,
+                )) &&
+            (identical(other.incomeAccountId, incomeAccountId) ||
+                const DeepCollectionEquality().equals(
+                  other.incomeAccountId,
+                  incomeAccountId,
+                )) &&
+            (identical(other.incomeAccountNo, incomeAccountNo) ||
+                const DeepCollectionEquality().equals(
+                  other.incomeAccountNo,
+                  incomeAccountNo,
+                )) &&
+            (identical(
+                  other.incomeAccountDescription,
+                  incomeAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.incomeAccountDescription,
+                  incomeAccountDescription,
+                )) &&
+            (identical(other.subIncomeAccountId, subIncomeAccountId) ||
+                const DeepCollectionEquality().equals(
+                  other.subIncomeAccountId,
+                  subIncomeAccountId,
+                )) &&
+            (identical(other.subIncomeAccountNo, subIncomeAccountNo) ||
+                const DeepCollectionEquality().equals(
+                  other.subIncomeAccountNo,
+                  subIncomeAccountNo,
+                )) &&
+            (identical(
+                  other.subIncomeAccountDescription,
+                  subIncomeAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.subIncomeAccountDescription,
+                  subIncomeAccountDescription,
+                )) &&
+            (identical(
+                  other.consignmentIncomeAccountId,
+                  consignmentIncomeAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.consignmentIncomeAccountId,
+                  consignmentIncomeAccountId,
+                )) &&
+            (identical(
+                  other.consignmentIncomeAccountNo,
+                  consignmentIncomeAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.consignmentIncomeAccountNo,
+                  consignmentIncomeAccountNo,
+                )) &&
+            (identical(
+                  other.consignmentIncomeAccountDescription,
+                  consignmentIncomeAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.consignmentIncomeAccountDescription,
+                  consignmentIncomeAccountDescription,
+                )) &&
+            (identical(other.ldIncomeAccountId, ldIncomeAccountId) ||
+                const DeepCollectionEquality().equals(
+                  other.ldIncomeAccountId,
+                  ldIncomeAccountId,
+                )) &&
+            (identical(other.ldIncomeAccountNo, ldIncomeAccountNo) ||
+                const DeepCollectionEquality().equals(
+                  other.ldIncomeAccountNo,
+                  ldIncomeAccountNo,
+                )) &&
+            (identical(
+                  other.ldIncomeAccountDescription,
+                  ldIncomeAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.ldIncomeAccountDescription,
+                  ldIncomeAccountDescription,
+                )) &&
+            (identical(
+                  other.equipmentSaleIncomeAccountId,
+                  equipmentSaleIncomeAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.equipmentSaleIncomeAccountId,
+                  equipmentSaleIncomeAccountId,
+                )) &&
+            (identical(
+                  other.equipmentSaleIncomeAccountNo,
+                  equipmentSaleIncomeAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.equipmentSaleIncomeAccountNo,
+                  equipmentSaleIncomeAccountNo,
+                )) &&
+            (identical(
+                  other.equipmentSaleIncomeAccountDescription,
+                  equipmentSaleIncomeAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.equipmentSaleIncomeAccountDescription,
+                  equipmentSaleIncomeAccountDescription,
+                )) &&
+            (identical(other.expenseAccountId, expenseAccountId) ||
+                const DeepCollectionEquality().equals(
+                  other.expenseAccountId,
+                  expenseAccountId,
+                )) &&
+            (identical(other.expenseAccountNo, expenseAccountNo) ||
+                const DeepCollectionEquality().equals(
+                  other.expenseAccountNo,
+                  expenseAccountNo,
+                )) &&
+            (identical(
+                  other.expenseAccountDescription,
+                  expenseAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.expenseAccountDescription,
+                  expenseAccountDescription,
+                )) &&
+            (identical(
+                  other.costOfGoodsSoldExpenseAccountId,
+                  costOfGoodsSoldExpenseAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsSoldExpenseAccountId,
+                  costOfGoodsSoldExpenseAccountId,
+                )) &&
+            (identical(
+                  other.costOfGoodsSoldExpenseAccountNo,
+                  costOfGoodsSoldExpenseAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsSoldExpenseAccountNo,
+                  costOfGoodsSoldExpenseAccountNo,
+                )) &&
+            (identical(
+                  other.costOfGoodsSoldExpenseAccountDescription,
+                  costOfGoodsSoldExpenseAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsSoldExpenseAccountDescription,
+                  costOfGoodsSoldExpenseAccountDescription,
+                )) &&
+            (identical(
+                  other.costOfGoodsRentedExpenseAccountId,
+                  costOfGoodsRentedExpenseAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsRentedExpenseAccountId,
+                  costOfGoodsRentedExpenseAccountId,
+                )) &&
+            (identical(
+                  other.costOfGoodsRentedExpenseAccountNo,
+                  costOfGoodsRentedExpenseAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsRentedExpenseAccountNo,
+                  costOfGoodsRentedExpenseAccountNo,
+                )) &&
+            (identical(
+                  other.costOfGoodsRentedExpenseAccountDescription,
+                  costOfGoodsRentedExpenseAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsRentedExpenseAccountDescription,
+                  costOfGoodsRentedExpenseAccountDescription,
+                )) &&
+            (identical(
+                  other.depreciationExpenseAccountId,
+                  depreciationExpenseAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.depreciationExpenseAccountId,
+                  depreciationExpenseAccountId,
+                )) &&
+            (identical(
+                  other.depreciationExpenseAccountNo,
+                  depreciationExpenseAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.depreciationExpenseAccountNo,
+                  depreciationExpenseAccountNo,
+                )) &&
+            (identical(
+                  other.depreciationExpenseAccountDescription,
+                  depreciationExpenseAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.depreciationExpenseAccountDescription,
+                  depreciationExpenseAccountDescription,
+                )) &&
+            (identical(
+                  other.accumulatedDepreciationExpenseAccountId,
+                  accumulatedDepreciationExpenseAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.accumulatedDepreciationExpenseAccountId,
+                  accumulatedDepreciationExpenseAccountId,
+                )) &&
+            (identical(
+                  other.accumulatedDepreciationExpenseAccountNo,
+                  accumulatedDepreciationExpenseAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.accumulatedDepreciationExpenseAccountNo,
+                  accumulatedDepreciationExpenseAccountNo,
+                )) &&
+            (identical(
+                  other.accumulatedDepreciationExpenseAccountDescription,
+                  accumulatedDepreciationExpenseAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.accumulatedDepreciationExpenseAccountDescription,
+                  accumulatedDepreciationExpenseAccountDescription,
+                )) &&
+            (identical(other.inputDate, inputDate) ||
+                const DeepCollectionEquality().equals(
+                  other.inputDate,
+                  inputDate,
+                )) &&
+            (identical(other.inputByUsersId, inputByUsersId) ||
+                const DeepCollectionEquality().equals(
+                  other.inputByUsersId,
+                  inputByUsersId,
+                )) &&
+            (identical(other.category2, category2) ||
+                const DeepCollectionEquality().equals(
+                  other.category2,
+                  category2,
+                )) &&
+            (identical(other.class2, class2) ||
+                const DeepCollectionEquality().equals(other.class2, class2)) &&
+            (identical(other.stockClass, stockClass) ||
+                const DeepCollectionEquality().equals(
+                  other.stockClass,
+                  stockClass,
+                )) &&
+            (identical(other.webTitle, webTitle) ||
+                const DeepCollectionEquality().equals(
+                  other.webTitle,
+                  webTitle,
+                )) &&
+            (identical(other.inactive, inactive) ||
+                const DeepCollectionEquality().equals(
+                  other.inactive,
+                  inactive,
+                )) &&
+            (identical(other.dateStamp, dateStamp) ||
+                const DeepCollectionEquality().equals(
+                  other.dateStamp,
+                  dateStamp,
+                )) &&
+            (identical(
+                  other.manifestShippingContainer,
+                  manifestShippingContainer,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.manifestShippingContainer,
+                  manifestShippingContainer,
+                )) &&
+            (identical(other.manifestStandAloneItem, manifestStandAloneItem) ||
+                const DeepCollectionEquality().equals(
+                  other.manifestStandAloneItem,
+                  manifestStandAloneItem,
+                )) &&
+            (identical(other.taxableForMyLocation, taxableForMyLocation) ||
+                const DeepCollectionEquality().equals(
+                  other.taxableForMyLocation,
+                  taxableForMyLocation,
+                )) &&
+            (identical(other.myLocationId, myLocationId) ||
+                const DeepCollectionEquality().equals(
+                  other.myLocationId,
+                  myLocationId,
+                )) &&
+            (identical(other.taxableForAllLocations, taxableForAllLocations) ||
+                const DeepCollectionEquality().equals(
+                  other.taxableForAllLocations,
+                  taxableForAllLocations,
+                )) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality().equals(
+                  other.auditNote,
+                  auditNote,
+                )) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )) &&
+            (identical(other.urlIdentifier, urlIdentifier) ||
+                const DeepCollectionEquality().equals(
+                  other.urlIdentifier,
+                  urlIdentifier,
+                )) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultFieldAttributes,
+                  defaultFieldAttributes,
+                )) &&
+            (identical(other.original, original) ||
+                const DeepCollectionEquality().equals(
+                  other.original,
+                  original,
+                )) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )) &&
+            (identical(other.hasImport, hasImport) ||
+                const DeepCollectionEquality().equals(
+                  other.hasImport,
+                  hasImport,
+                )) &&
+            (identical(other.createdByUserId, createdByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserId,
+                  createdByUserId,
+                )) &&
+            (identical(other.createdByUserName, createdByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserName,
+                  createdByUserName,
+                )) &&
+            (identical(other.createdDateTime, createdDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.createdDateTime,
+                  createdDateTime,
+                )) &&
+            (identical(other.modifiedByUserId, modifiedByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserId,
+                  modifiedByUserId,
+                )) &&
+            (identical(other.modifiedByUserName, modifiedByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserName,
+                  modifiedByUserName,
+                )) &&
+            (identical(other.modifiedDateTime, modifiedDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedDateTime,
+                  modifiedDateTime,
+                )));
   }
 
   @override
@@ -4523,8 +6664,9 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(manufacturerUrl) ^
       const DeepCollectionEquality().hash(excludeImageFromQuoteOrderPrint) ^
       const DeepCollectionEquality().hash(noAvailabilityCheck) ^
-      const DeepCollectionEquality()
-          .hash(availabilityManuallyResolveConflicts) ^
+      const DeepCollectionEquality().hash(
+        availabilityManuallyResolveConflicts,
+      ) ^
       const DeepCollectionEquality().hash(sendAvailabilityAlert) ^
       const DeepCollectionEquality().hash(primaryDimensionUniqueId) ^
       const DeepCollectionEquality().hash(defaultImperialMetric) ^
@@ -4595,19 +6737,25 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(containerScannableInventoryId) ^
       const DeepCollectionEquality().hash(containerScannableICode) ^
       const DeepCollectionEquality().hash(containerScannableDescription) ^
-      const DeepCollectionEquality()
-          .hash(automaticallyRebuildContainerAtCheckIn) ^
-      const DeepCollectionEquality()
-          .hash(automaticallyCheckInEntireContainerWithScannableItem) ^
-      const DeepCollectionEquality()
-          .hash(automaticallyRebuildContainerAtTransferIn) ^
-      const DeepCollectionEquality()
-          .hash(automaticallyCountAllItemsWhenPhysicalInventoryInitiated) ^
-      const DeepCollectionEquality()
-          .hash(automaticallyTransferInEntireContainerWithScannableItem) ^
+      const DeepCollectionEquality().hash(
+        automaticallyRebuildContainerAtCheckIn,
+      ) ^
+      const DeepCollectionEquality().hash(
+        automaticallyCheckInEntireContainerWithScannableItem,
+      ) ^
+      const DeepCollectionEquality().hash(
+        automaticallyRebuildContainerAtTransferIn,
+      ) ^
+      const DeepCollectionEquality().hash(
+        automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
+      ) ^
+      const DeepCollectionEquality().hash(
+        automaticallyTransferInEntireContainerWithScannableItem,
+      ) ^
       const DeepCollectionEquality().hash(containerStagingRule) ^
-      const DeepCollectionEquality()
-          .hash(excludeContainedItemsFromAvailability) ^
+      const DeepCollectionEquality().hash(
+        excludeContainedItemsFromAvailability,
+      ) ^
       const DeepCollectionEquality().hash(useContainerNumber) ^
       const DeepCollectionEquality().hash(containerPackingListBehavior) ^
       const DeepCollectionEquality().hash(inventoryTypeIsWardrobe) ^
@@ -4706,29 +6854,36 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(ldIncomeAccountDescription) ^
       const DeepCollectionEquality().hash(equipmentSaleIncomeAccountId) ^
       const DeepCollectionEquality().hash(equipmentSaleIncomeAccountNo) ^
-      const DeepCollectionEquality()
-          .hash(equipmentSaleIncomeAccountDescription) ^
+      const DeepCollectionEquality().hash(
+        equipmentSaleIncomeAccountDescription,
+      ) ^
       const DeepCollectionEquality().hash(expenseAccountId) ^
       const DeepCollectionEquality().hash(expenseAccountNo) ^
       const DeepCollectionEquality().hash(expenseAccountDescription) ^
       const DeepCollectionEquality().hash(costOfGoodsSoldExpenseAccountId) ^
       const DeepCollectionEquality().hash(costOfGoodsSoldExpenseAccountNo) ^
-      const DeepCollectionEquality()
-          .hash(costOfGoodsSoldExpenseAccountDescription) ^
+      const DeepCollectionEquality().hash(
+        costOfGoodsSoldExpenseAccountDescription,
+      ) ^
       const DeepCollectionEquality().hash(costOfGoodsRentedExpenseAccountId) ^
       const DeepCollectionEquality().hash(costOfGoodsRentedExpenseAccountNo) ^
-      const DeepCollectionEquality()
-          .hash(costOfGoodsRentedExpenseAccountDescription) ^
+      const DeepCollectionEquality().hash(
+        costOfGoodsRentedExpenseAccountDescription,
+      ) ^
       const DeepCollectionEquality().hash(depreciationExpenseAccountId) ^
       const DeepCollectionEquality().hash(depreciationExpenseAccountNo) ^
-      const DeepCollectionEquality()
-          .hash(depreciationExpenseAccountDescription) ^
-      const DeepCollectionEquality()
-          .hash(accumulatedDepreciationExpenseAccountId) ^
-      const DeepCollectionEquality()
-          .hash(accumulatedDepreciationExpenseAccountNo) ^
-      const DeepCollectionEquality()
-          .hash(accumulatedDepreciationExpenseAccountDescription) ^
+      const DeepCollectionEquality().hash(
+        depreciationExpenseAccountDescription,
+      ) ^
+      const DeepCollectionEquality().hash(
+        accumulatedDepreciationExpenseAccountId,
+      ) ^
+      const DeepCollectionEquality().hash(
+        accumulatedDepreciationExpenseAccountNo,
+      ) ^
+      const DeepCollectionEquality().hash(
+        accumulatedDepreciationExpenseAccountDescription,
+      ) ^
       const DeepCollectionEquality().hash(inputDate) ^
       const DeepCollectionEquality().hash(inputByUsersId) ^
       const DeepCollectionEquality().hash(category2) ^
@@ -4762,1246 +6917,1700 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
 
 extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     on WebApiModulesInventoryRentalInventoryRentalInventory {
-  WebApiModulesInventoryRentalInventoryRentalInventory copyWith(
-      {String? rentalInventoryId,
-      String? inventoryId,
-      bool? excludeFromReturnOnAsset,
-      bool? isFixedAsset,
-      bool? isFixedContainer,
-      bool? multiAssignRFIDs,
-      bool? allowFlexibleContainer,
-      double? minimumDaysPerWeek,
-      bool? showAssetAvailability,
-      String? assetAvailabilityWarehouseIds,
-      String? openingId,
-      String? opening,
-      String? wallTypeId,
-      String? wallType,
-      String? surfaceId,
-      String? surface,
-      String? conditionId,
-      String? condition,
-      String? originalShowId,
-      String? originalShow,
-      int? wallWidthFt,
-      int? wallWidthIn,
-      int? wallHeightFt,
-      int? wallHeightIn,
-      int? wallLengthFt,
-      int? wallLengthIn,
-      bool? treatConsignedQtyAsOwned,
-      double? dailyRate,
-      double? weeklyRate,
-      double? week2Rate,
-      double? week3Rate,
-      double? week4Rate,
-      double? week5Rate,
-      double? monthlyRate,
-      double? unitValue,
-      double? replacementCost,
-      String? sourceId,
-      bool? qcRequiredForMyWarehouse,
-      String? myWarehouseId,
-      bool? qcRequiredForAllWarehouses,
-      double? unitValueForAllWarehouses,
-      double? replacementCostForAllWarehouses,
-      String? inventoryTypeId,
-      String? inventoryType,
-      String? availableFrom,
-      String? trackedBy,
-      String? confirmTrackedBy,
-      String? rank,
-      String? manufacturerPartNumber,
-      String? manufacturerId,
-      String? manufacturer,
-      String? manufacturerUrl,
-      bool? excludeImageFromQuoteOrderPrint,
-      bool? noAvailabilityCheck,
-      bool? availabilityManuallyResolveConflicts,
-      bool? sendAvailabilityAlert,
-      String? primaryDimensionUniqueId,
-      String? defaultImperialMetric,
-      String? primaryDimensionDescription,
-      int? primaryDimensionShipWeightLbs,
-      int? primaryDimensionShipWeightOz,
-      int? primaryDimensionWeightInCaseLbs,
-      int? primaryDimensionWeightInCaseOz,
-      int? primaryDimensionWidthFt,
-      int? primaryDimensionWidthIn,
-      int? primaryDimensionHeightFt,
-      int? primaryDimensionHeightIn,
-      int? primaryDimensionLengthFt,
-      int? primaryDimensionLengthIn,
-      int? primaryDimensionShipWeightKg,
-      int? primaryDimensionShipWeightG,
-      int? primaryDimensionWeightInCaseKg,
-      int? primaryDimensionWeightInCaseG,
-      int? primaryDimensionWidthM,
-      int? primaryDimensionWidthCm,
-      int? primaryDimensionHeightM,
-      int? primaryDimensionHeightCm,
-      int? primaryDimensionLengthM,
-      int? primaryDimensionLengthCm,
-      bool? hasSecondaryDimensions,
-      String? secondaryDimensionUniqueId,
-      String? secondaryDimensionDescription,
-      int? secondaryDimensionShipWeightLbs,
-      int? secondaryDimensionShipWeightOz,
-      int? secondaryDimensionWeightInCaseLbs,
-      int? secondaryDimensionWeightInCaseOz,
-      int? secondaryDimensionWidthFt,
-      int? secondaryDimensionWidthIn,
-      int? secondaryDimensionHeightFt,
-      int? secondaryDimensionHeightIn,
-      int? secondaryDimensionLengthFt,
-      int? secondaryDimensionLengthIn,
-      int? secondaryDimensionShipWeightKg,
-      int? secondaryDimensionShipWeightG,
-      int? secondaryDimensionWeightInCaseKg,
-      int? secondaryDimensionWeightInCaseG,
-      int? secondaryDimensionWidthM,
-      int? secondaryDimensionWidthCm,
-      int? secondaryDimensionHeightM,
-      int? secondaryDimensionHeightCm,
-      int? secondaryDimensionLengthM,
-      int? secondaryDimensionLengthCm,
-      String? countryOfOriginId,
-      String? countryOfOrigin,
-      bool? displayInSummaryModeWhenRateIsZero,
-      bool? qcRequired,
-      String? qcTime,
-      bool? copyAttributesAsNote,
-      bool? trackAssetUsage,
-      bool? trackLampUsage,
-      bool? trackStrikes,
-      bool? trackCandles,
-      int? lampCount,
-      int? minimumFootCandles,
-      bool? trackSoftware,
-      String? softwareVersion,
-      String? softwareEffectiveDate,
-      bool? warehouseSpecificPackage,
-      String? completePackagePrice,
-      String? kitPackagePrice,
-      bool? separatePackageOnQuoteOrder,
-      String? containerId,
-      String? containerScannableInventoryId,
-      String? containerScannableICode,
-      String? containerScannableDescription,
-      bool? automaticallyRebuildContainerAtCheckIn,
-      bool? automaticallyCheckInEntireContainerWithScannableItem,
-      bool? automaticallyRebuildContainerAtTransferIn,
-      bool? automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
-      bool? automaticallyTransferInEntireContainerWithScannableItem,
-      String? containerStagingRule,
-      bool? excludeContainedItemsFromAvailability,
-      bool? useContainerNumber,
-      String? containerPackingListBehavior,
-      bool? inventoryTypeIsWardrobe,
-      bool? inventoryTypeIsSets,
-      String? patternId,
-      String? pattern,
-      String? periodId,
-      String? period,
-      String? materialId,
-      String? material,
-      String? genderId,
-      String? gender,
-      String? labelId,
-      String? label,
-      String? wardrobeSize,
-      int? wardrobePieceCount,
-      bool? dyed,
-      String? wardrobeSourceId,
-      String? wardrobeSource,
-      String? wardrobeCareId,
-      String? wardrobeCare,
-      double? cleaningFeeAmount,
-      String? wardrobeDetailedDescription,
-      String? webDetailedDescription,
-      String? technicalNotes,
-      bool? allocateRevenueForAccessories,
-      String? packageRevenueCalculationFormula,
-      bool? isHazardousMaterial,
-      String? descriptionWithAkas,
-      String? costCalculation,
-      bool? noChargePrint,
-      double? quantity,
-      double? quantityIn,
-      double? quantityStaged,
-      double? quantityOut,
-      double? quantityInContainer,
-      double? quantityInRepair,
-      double? quantityInTransit,
-      double? quantityOnTruck,
-      double? totalQuantity,
-      double? lastPurchasePrice,
-      String? aisleLocation,
-      String? shelfLocation,
-      bool? taxable,
-      String? dateOfLastPhysicalInventory,
-      bool? hasImage,
-      bool? hasDimensionsImage,
-      bool? stagingUnreadyContainer,
-      bool? disableMiscDescriptionChange,
-      String? iCode,
-      String? description,
-      String? availFor,
-      String? categoryId,
-      String? category,
-      int? subCategoryCount,
-      String? subCategoryId,
-      String? subCategory,
-      String? classification,
-      String? classificationDescription,
-      String? classificationColor,
-      String? unitId,
-      String? unit,
-      String? unitType,
-      bool? nonDiscountable,
-      bool? overrideProfitAndLossCategory,
-      String? profitAndLossCategoryId,
-      String? profitAndLossCategory,
-      bool? autoCopyNotesToQuoteOrder,
-      String? note,
-      bool? printNoteOnInContract,
-      bool? printNoteOnOutContract,
-      bool? printNoteOnReceiveContract,
-      bool? printNoteOnReturnContract,
-      bool? printNoteOnInvoice,
-      bool? printNoteOnOrder,
-      bool? printNoteOnPickList,
-      bool? printNoteOnPO,
-      bool? printNoteOnQuote,
-      bool? printNoteOnReturnList,
-      bool? printNoteOnPoReceiveList,
-      bool? printNoteOnPoReturnList,
-      String? assetAccountId,
-      String? assetAccountNo,
-      String? assetAccountDescription,
-      String? incomeAccountId,
-      String? incomeAccountNo,
-      String? incomeAccountDescription,
-      String? subIncomeAccountId,
-      String? subIncomeAccountNo,
-      String? subIncomeAccountDescription,
-      String? consignmentIncomeAccountId,
-      String? consignmentIncomeAccountNo,
-      String? consignmentIncomeAccountDescription,
-      String? ldIncomeAccountId,
-      String? ldIncomeAccountNo,
-      String? ldIncomeAccountDescription,
-      String? equipmentSaleIncomeAccountId,
-      String? equipmentSaleIncomeAccountNo,
-      String? equipmentSaleIncomeAccountDescription,
-      String? expenseAccountId,
-      String? expenseAccountNo,
-      String? expenseAccountDescription,
-      String? costOfGoodsSoldExpenseAccountId,
-      String? costOfGoodsSoldExpenseAccountNo,
-      String? costOfGoodsSoldExpenseAccountDescription,
-      String? costOfGoodsRentedExpenseAccountId,
-      String? costOfGoodsRentedExpenseAccountNo,
-      String? costOfGoodsRentedExpenseAccountDescription,
-      String? depreciationExpenseAccountId,
-      String? depreciationExpenseAccountNo,
-      String? depreciationExpenseAccountDescription,
-      String? accumulatedDepreciationExpenseAccountId,
-      String? accumulatedDepreciationExpenseAccountNo,
-      String? accumulatedDepreciationExpenseAccountDescription,
-      String? inputDate,
-      String? inputByUsersId,
-      String? category2,
-      String? class2,
-      String? stockClass,
-      String? webTitle,
-      bool? inactive,
-      String? dateStamp,
-      bool? manifestShippingContainer,
-      bool? manifestStandAloneItem,
-      bool? taxableForMyLocation,
-      String? myLocationId,
-      bool? taxableForAllLocations,
-      String? auditNote,
-      String? recordTitle,
-      dynamic urlIdentifier,
-      List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-      List<FwStandardDataFwCustomValue>? custom,
-      List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-      FwStandardBusinessLogicFwBusinessLogic? original,
-      List<FwStandardDataFwTranslatedValue>? translation,
-      bool? hasImport,
-      String? createdByUserId,
-      String? createdByUserName,
-      String? createdDateTime,
-      String? modifiedByUserId,
-      String? modifiedByUserName,
-      String? modifiedDateTime}) {
+  WebApiModulesInventoryRentalInventoryRentalInventory copyWith({
+    String? rentalInventoryId,
+    String? inventoryId,
+    bool? excludeFromReturnOnAsset,
+    bool? isFixedAsset,
+    bool? isFixedContainer,
+    bool? multiAssignRFIDs,
+    bool? allowFlexibleContainer,
+    double? minimumDaysPerWeek,
+    bool? showAssetAvailability,
+    String? assetAvailabilityWarehouseIds,
+    String? openingId,
+    String? opening,
+    String? wallTypeId,
+    String? wallType,
+    String? surfaceId,
+    String? surface,
+    String? conditionId,
+    String? condition,
+    String? originalShowId,
+    String? originalShow,
+    int? wallWidthFt,
+    int? wallWidthIn,
+    int? wallHeightFt,
+    int? wallHeightIn,
+    int? wallLengthFt,
+    int? wallLengthIn,
+    bool? treatConsignedQtyAsOwned,
+    double? dailyRate,
+    double? weeklyRate,
+    double? week2Rate,
+    double? week3Rate,
+    double? week4Rate,
+    double? week5Rate,
+    double? monthlyRate,
+    double? unitValue,
+    double? replacementCost,
+    String? sourceId,
+    bool? qcRequiredForMyWarehouse,
+    String? myWarehouseId,
+    bool? qcRequiredForAllWarehouses,
+    double? unitValueForAllWarehouses,
+    double? replacementCostForAllWarehouses,
+    String? inventoryTypeId,
+    String? inventoryType,
+    String? availableFrom,
+    String? trackedBy,
+    String? confirmTrackedBy,
+    String? rank,
+    String? manufacturerPartNumber,
+    String? manufacturerId,
+    String? manufacturer,
+    String? manufacturerUrl,
+    bool? excludeImageFromQuoteOrderPrint,
+    bool? noAvailabilityCheck,
+    bool? availabilityManuallyResolveConflicts,
+    bool? sendAvailabilityAlert,
+    String? primaryDimensionUniqueId,
+    String? defaultImperialMetric,
+    String? primaryDimensionDescription,
+    int? primaryDimensionShipWeightLbs,
+    int? primaryDimensionShipWeightOz,
+    int? primaryDimensionWeightInCaseLbs,
+    int? primaryDimensionWeightInCaseOz,
+    int? primaryDimensionWidthFt,
+    int? primaryDimensionWidthIn,
+    int? primaryDimensionHeightFt,
+    int? primaryDimensionHeightIn,
+    int? primaryDimensionLengthFt,
+    int? primaryDimensionLengthIn,
+    int? primaryDimensionShipWeightKg,
+    int? primaryDimensionShipWeightG,
+    int? primaryDimensionWeightInCaseKg,
+    int? primaryDimensionWeightInCaseG,
+    int? primaryDimensionWidthM,
+    int? primaryDimensionWidthCm,
+    int? primaryDimensionHeightM,
+    int? primaryDimensionHeightCm,
+    int? primaryDimensionLengthM,
+    int? primaryDimensionLengthCm,
+    bool? hasSecondaryDimensions,
+    String? secondaryDimensionUniqueId,
+    String? secondaryDimensionDescription,
+    int? secondaryDimensionShipWeightLbs,
+    int? secondaryDimensionShipWeightOz,
+    int? secondaryDimensionWeightInCaseLbs,
+    int? secondaryDimensionWeightInCaseOz,
+    int? secondaryDimensionWidthFt,
+    int? secondaryDimensionWidthIn,
+    int? secondaryDimensionHeightFt,
+    int? secondaryDimensionHeightIn,
+    int? secondaryDimensionLengthFt,
+    int? secondaryDimensionLengthIn,
+    int? secondaryDimensionShipWeightKg,
+    int? secondaryDimensionShipWeightG,
+    int? secondaryDimensionWeightInCaseKg,
+    int? secondaryDimensionWeightInCaseG,
+    int? secondaryDimensionWidthM,
+    int? secondaryDimensionWidthCm,
+    int? secondaryDimensionHeightM,
+    int? secondaryDimensionHeightCm,
+    int? secondaryDimensionLengthM,
+    int? secondaryDimensionLengthCm,
+    String? countryOfOriginId,
+    String? countryOfOrigin,
+    bool? displayInSummaryModeWhenRateIsZero,
+    bool? qcRequired,
+    String? qcTime,
+    bool? copyAttributesAsNote,
+    bool? trackAssetUsage,
+    bool? trackLampUsage,
+    bool? trackStrikes,
+    bool? trackCandles,
+    int? lampCount,
+    int? minimumFootCandles,
+    bool? trackSoftware,
+    String? softwareVersion,
+    String? softwareEffectiveDate,
+    bool? warehouseSpecificPackage,
+    String? completePackagePrice,
+    String? kitPackagePrice,
+    bool? separatePackageOnQuoteOrder,
+    String? containerId,
+    String? containerScannableInventoryId,
+    String? containerScannableICode,
+    String? containerScannableDescription,
+    bool? automaticallyRebuildContainerAtCheckIn,
+    bool? automaticallyCheckInEntireContainerWithScannableItem,
+    bool? automaticallyRebuildContainerAtTransferIn,
+    bool? automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
+    bool? automaticallyTransferInEntireContainerWithScannableItem,
+    String? containerStagingRule,
+    bool? excludeContainedItemsFromAvailability,
+    bool? useContainerNumber,
+    String? containerPackingListBehavior,
+    bool? inventoryTypeIsWardrobe,
+    bool? inventoryTypeIsSets,
+    String? patternId,
+    String? pattern,
+    String? periodId,
+    String? period,
+    String? materialId,
+    String? material,
+    String? genderId,
+    String? gender,
+    String? labelId,
+    String? label,
+    String? wardrobeSize,
+    int? wardrobePieceCount,
+    bool? dyed,
+    String? wardrobeSourceId,
+    String? wardrobeSource,
+    String? wardrobeCareId,
+    String? wardrobeCare,
+    double? cleaningFeeAmount,
+    String? wardrobeDetailedDescription,
+    String? webDetailedDescription,
+    String? technicalNotes,
+    bool? allocateRevenueForAccessories,
+    String? packageRevenueCalculationFormula,
+    bool? isHazardousMaterial,
+    String? descriptionWithAkas,
+    String? costCalculation,
+    bool? noChargePrint,
+    double? quantity,
+    double? quantityIn,
+    double? quantityStaged,
+    double? quantityOut,
+    double? quantityInContainer,
+    double? quantityInRepair,
+    double? quantityInTransit,
+    double? quantityOnTruck,
+    double? totalQuantity,
+    double? lastPurchasePrice,
+    String? aisleLocation,
+    String? shelfLocation,
+    bool? taxable,
+    String? dateOfLastPhysicalInventory,
+    bool? hasImage,
+    bool? hasDimensionsImage,
+    bool? stagingUnreadyContainer,
+    bool? disableMiscDescriptionChange,
+    String? iCode,
+    String? description,
+    String? availFor,
+    String? categoryId,
+    String? category,
+    int? subCategoryCount,
+    String? subCategoryId,
+    String? subCategory,
+    String? classification,
+    String? classificationDescription,
+    String? classificationColor,
+    String? unitId,
+    String? unit,
+    String? unitType,
+    bool? nonDiscountable,
+    bool? overrideProfitAndLossCategory,
+    String? profitAndLossCategoryId,
+    String? profitAndLossCategory,
+    bool? autoCopyNotesToQuoteOrder,
+    String? note,
+    bool? printNoteOnInContract,
+    bool? printNoteOnOutContract,
+    bool? printNoteOnReceiveContract,
+    bool? printNoteOnReturnContract,
+    bool? printNoteOnInvoice,
+    bool? printNoteOnOrder,
+    bool? printNoteOnPickList,
+    bool? printNoteOnPO,
+    bool? printNoteOnQuote,
+    bool? printNoteOnReturnList,
+    bool? printNoteOnPoReceiveList,
+    bool? printNoteOnPoReturnList,
+    String? assetAccountId,
+    String? assetAccountNo,
+    String? assetAccountDescription,
+    String? incomeAccountId,
+    String? incomeAccountNo,
+    String? incomeAccountDescription,
+    String? subIncomeAccountId,
+    String? subIncomeAccountNo,
+    String? subIncomeAccountDescription,
+    String? consignmentIncomeAccountId,
+    String? consignmentIncomeAccountNo,
+    String? consignmentIncomeAccountDescription,
+    String? ldIncomeAccountId,
+    String? ldIncomeAccountNo,
+    String? ldIncomeAccountDescription,
+    String? equipmentSaleIncomeAccountId,
+    String? equipmentSaleIncomeAccountNo,
+    String? equipmentSaleIncomeAccountDescription,
+    String? expenseAccountId,
+    String? expenseAccountNo,
+    String? expenseAccountDescription,
+    String? costOfGoodsSoldExpenseAccountId,
+    String? costOfGoodsSoldExpenseAccountNo,
+    String? costOfGoodsSoldExpenseAccountDescription,
+    String? costOfGoodsRentedExpenseAccountId,
+    String? costOfGoodsRentedExpenseAccountNo,
+    String? costOfGoodsRentedExpenseAccountDescription,
+    String? depreciationExpenseAccountId,
+    String? depreciationExpenseAccountNo,
+    String? depreciationExpenseAccountDescription,
+    String? accumulatedDepreciationExpenseAccountId,
+    String? accumulatedDepreciationExpenseAccountNo,
+    String? accumulatedDepreciationExpenseAccountDescription,
+    String? inputDate,
+    String? inputByUsersId,
+    String? category2,
+    String? class2,
+    String? stockClass,
+    String? webTitle,
+    bool? inactive,
+    String? dateStamp,
+    bool? manifestShippingContainer,
+    bool? manifestStandAloneItem,
+    bool? taxableForMyLocation,
+    String? myLocationId,
+    bool? taxableForAllLocations,
+    String? auditNote,
+    String? recordTitle,
+    dynamic urlIdentifier,
+    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+    List<FwStandardDataFwCustomValue>? custom,
+    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+    FwStandardBusinessLogicFwBusinessLogic? original,
+    List<FwStandardDataFwTranslatedValue>? translation,
+    bool? hasImport,
+    String? createdByUserId,
+    String? createdByUserName,
+    String? createdDateTime,
+    String? modifiedByUserId,
+    String? modifiedByUserName,
+    String? modifiedDateTime,
+  }) {
     return WebApiModulesInventoryRentalInventoryRentalInventory(
-        rentalInventoryId: rentalInventoryId ?? this.rentalInventoryId,
-        inventoryId: inventoryId ?? this.inventoryId,
-        excludeFromReturnOnAsset:
-            excludeFromReturnOnAsset ?? this.excludeFromReturnOnAsset,
-        isFixedAsset: isFixedAsset ?? this.isFixedAsset,
-        isFixedContainer: isFixedContainer ?? this.isFixedContainer,
-        multiAssignRFIDs: multiAssignRFIDs ?? this.multiAssignRFIDs,
-        allowFlexibleContainer:
-            allowFlexibleContainer ?? this.allowFlexibleContainer,
-        minimumDaysPerWeek: minimumDaysPerWeek ?? this.minimumDaysPerWeek,
-        showAssetAvailability:
-            showAssetAvailability ?? this.showAssetAvailability,
-        assetAvailabilityWarehouseIds:
-            assetAvailabilityWarehouseIds ?? this.assetAvailabilityWarehouseIds,
-        openingId: openingId ?? this.openingId,
-        opening: opening ?? this.opening,
-        wallTypeId: wallTypeId ?? this.wallTypeId,
-        wallType: wallType ?? this.wallType,
-        surfaceId: surfaceId ?? this.surfaceId,
-        surface: surface ?? this.surface,
-        conditionId: conditionId ?? this.conditionId,
-        condition: condition ?? this.condition,
-        originalShowId: originalShowId ?? this.originalShowId,
-        originalShow: originalShow ?? this.originalShow,
-        wallWidthFt: wallWidthFt ?? this.wallWidthFt,
-        wallWidthIn: wallWidthIn ?? this.wallWidthIn,
-        wallHeightFt: wallHeightFt ?? this.wallHeightFt,
-        wallHeightIn: wallHeightIn ?? this.wallHeightIn,
-        wallLengthFt: wallLengthFt ?? this.wallLengthFt,
-        wallLengthIn: wallLengthIn ?? this.wallLengthIn,
-        treatConsignedQtyAsOwned:
-            treatConsignedQtyAsOwned ?? this.treatConsignedQtyAsOwned,
-        dailyRate: dailyRate ?? this.dailyRate,
-        weeklyRate: weeklyRate ?? this.weeklyRate,
-        week2Rate: week2Rate ?? this.week2Rate,
-        week3Rate: week3Rate ?? this.week3Rate,
-        week4Rate: week4Rate ?? this.week4Rate,
-        week5Rate: week5Rate ?? this.week5Rate,
-        monthlyRate: monthlyRate ?? this.monthlyRate,
-        unitValue: unitValue ?? this.unitValue,
-        replacementCost: replacementCost ?? this.replacementCost,
-        sourceId: sourceId ?? this.sourceId,
-        qcRequiredForMyWarehouse:
-            qcRequiredForMyWarehouse ?? this.qcRequiredForMyWarehouse,
-        myWarehouseId: myWarehouseId ?? this.myWarehouseId,
-        qcRequiredForAllWarehouses:
-            qcRequiredForAllWarehouses ?? this.qcRequiredForAllWarehouses,
-        unitValueForAllWarehouses:
-            unitValueForAllWarehouses ?? this.unitValueForAllWarehouses,
-        replacementCostForAllWarehouses: replacementCostForAllWarehouses ??
-            this.replacementCostForAllWarehouses,
-        inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
-        inventoryType: inventoryType ?? this.inventoryType,
-        availableFrom: availableFrom ?? this.availableFrom,
-        trackedBy: trackedBy ?? this.trackedBy,
-        confirmTrackedBy: confirmTrackedBy ?? this.confirmTrackedBy,
-        rank: rank ?? this.rank,
-        manufacturerPartNumber:
-            manufacturerPartNumber ?? this.manufacturerPartNumber,
-        manufacturerId: manufacturerId ?? this.manufacturerId,
-        manufacturer: manufacturer ?? this.manufacturer,
-        manufacturerUrl: manufacturerUrl ?? this.manufacturerUrl,
-        excludeImageFromQuoteOrderPrint: excludeImageFromQuoteOrderPrint ??
-            this.excludeImageFromQuoteOrderPrint,
-        noAvailabilityCheck: noAvailabilityCheck ?? this.noAvailabilityCheck,
-        availabilityManuallyResolveConflicts:
-            availabilityManuallyResolveConflicts ??
-                this.availabilityManuallyResolveConflicts,
-        sendAvailabilityAlert:
-            sendAvailabilityAlert ?? this.sendAvailabilityAlert,
-        primaryDimensionUniqueId:
-            primaryDimensionUniqueId ?? this.primaryDimensionUniqueId,
-        defaultImperialMetric:
-            defaultImperialMetric ?? this.defaultImperialMetric,
-        primaryDimensionDescription:
-            primaryDimensionDescription ?? this.primaryDimensionDescription,
-        primaryDimensionShipWeightLbs:
-            primaryDimensionShipWeightLbs ?? this.primaryDimensionShipWeightLbs,
-        primaryDimensionShipWeightOz:
-            primaryDimensionShipWeightOz ?? this.primaryDimensionShipWeightOz,
-        primaryDimensionWeightInCaseLbs: primaryDimensionWeightInCaseLbs ??
-            this.primaryDimensionWeightInCaseLbs,
-        primaryDimensionWeightInCaseOz: primaryDimensionWeightInCaseOz ??
-            this.primaryDimensionWeightInCaseOz,
-        primaryDimensionWidthFt:
-            primaryDimensionWidthFt ?? this.primaryDimensionWidthFt,
-        primaryDimensionWidthIn:
-            primaryDimensionWidthIn ?? this.primaryDimensionWidthIn,
-        primaryDimensionHeightFt:
-            primaryDimensionHeightFt ?? this.primaryDimensionHeightFt,
-        primaryDimensionHeightIn:
-            primaryDimensionHeightIn ?? this.primaryDimensionHeightIn,
-        primaryDimensionLengthFt:
-            primaryDimensionLengthFt ?? this.primaryDimensionLengthFt,
-        primaryDimensionLengthIn:
-            primaryDimensionLengthIn ?? this.primaryDimensionLengthIn,
-        primaryDimensionShipWeightKg:
-            primaryDimensionShipWeightKg ?? this.primaryDimensionShipWeightKg,
-        primaryDimensionShipWeightG:
-            primaryDimensionShipWeightG ?? this.primaryDimensionShipWeightG,
-        primaryDimensionWeightInCaseKg: primaryDimensionWeightInCaseKg ??
-            this.primaryDimensionWeightInCaseKg,
-        primaryDimensionWeightInCaseG:
-            primaryDimensionWeightInCaseG ?? this.primaryDimensionWeightInCaseG,
-        primaryDimensionWidthM:
-            primaryDimensionWidthM ?? this.primaryDimensionWidthM,
-        primaryDimensionWidthCm:
-            primaryDimensionWidthCm ?? this.primaryDimensionWidthCm,
-        primaryDimensionHeightM:
-            primaryDimensionHeightM ?? this.primaryDimensionHeightM,
-        primaryDimensionHeightCm:
-            primaryDimensionHeightCm ?? this.primaryDimensionHeightCm,
-        primaryDimensionLengthM:
-            primaryDimensionLengthM ?? this.primaryDimensionLengthM,
-        primaryDimensionLengthCm:
-            primaryDimensionLengthCm ?? this.primaryDimensionLengthCm,
-        hasSecondaryDimensions:
-            hasSecondaryDimensions ?? this.hasSecondaryDimensions,
-        secondaryDimensionUniqueId:
-            secondaryDimensionUniqueId ?? this.secondaryDimensionUniqueId,
-        secondaryDimensionDescription:
-            secondaryDimensionDescription ?? this.secondaryDimensionDescription,
-        secondaryDimensionShipWeightLbs: secondaryDimensionShipWeightLbs ??
-            this.secondaryDimensionShipWeightLbs,
-        secondaryDimensionShipWeightOz: secondaryDimensionShipWeightOz ??
-            this.secondaryDimensionShipWeightOz,
-        secondaryDimensionWeightInCaseLbs: secondaryDimensionWeightInCaseLbs ??
-            this.secondaryDimensionWeightInCaseLbs,
-        secondaryDimensionWeightInCaseOz: secondaryDimensionWeightInCaseOz ??
-            this.secondaryDimensionWeightInCaseOz,
-        secondaryDimensionWidthFt:
-            secondaryDimensionWidthFt ?? this.secondaryDimensionWidthFt,
-        secondaryDimensionWidthIn:
-            secondaryDimensionWidthIn ?? this.secondaryDimensionWidthIn,
-        secondaryDimensionHeightFt:
-            secondaryDimensionHeightFt ?? this.secondaryDimensionHeightFt,
-        secondaryDimensionHeightIn:
-            secondaryDimensionHeightIn ?? this.secondaryDimensionHeightIn,
-        secondaryDimensionLengthFt:
-            secondaryDimensionLengthFt ?? this.secondaryDimensionLengthFt,
-        secondaryDimensionLengthIn:
-            secondaryDimensionLengthIn ?? this.secondaryDimensionLengthIn,
-        secondaryDimensionShipWeightKg: secondaryDimensionShipWeightKg ??
-            this.secondaryDimensionShipWeightKg,
-        secondaryDimensionShipWeightG:
-            secondaryDimensionShipWeightG ?? this.secondaryDimensionShipWeightG,
-        secondaryDimensionWeightInCaseKg: secondaryDimensionWeightInCaseKg ??
-            this.secondaryDimensionWeightInCaseKg,
-        secondaryDimensionWeightInCaseG: secondaryDimensionWeightInCaseG ??
-            this.secondaryDimensionWeightInCaseG,
-        secondaryDimensionWidthM:
-            secondaryDimensionWidthM ?? this.secondaryDimensionWidthM,
-        secondaryDimensionWidthCm:
-            secondaryDimensionWidthCm ?? this.secondaryDimensionWidthCm,
-        secondaryDimensionHeightM:
-            secondaryDimensionHeightM ?? this.secondaryDimensionHeightM,
-        secondaryDimensionHeightCm:
-            secondaryDimensionHeightCm ?? this.secondaryDimensionHeightCm,
-        secondaryDimensionLengthM:
-            secondaryDimensionLengthM ?? this.secondaryDimensionLengthM,
-        secondaryDimensionLengthCm:
-            secondaryDimensionLengthCm ?? this.secondaryDimensionLengthCm,
-        countryOfOriginId: countryOfOriginId ?? this.countryOfOriginId,
-        countryOfOrigin: countryOfOrigin ?? this.countryOfOrigin,
-        displayInSummaryModeWhenRateIsZero: displayInSummaryModeWhenRateIsZero ??
-            this.displayInSummaryModeWhenRateIsZero,
-        qcRequired: qcRequired ?? this.qcRequired,
-        qcTime: qcTime ?? this.qcTime,
-        copyAttributesAsNote: copyAttributesAsNote ?? this.copyAttributesAsNote,
-        trackAssetUsage: trackAssetUsage ?? this.trackAssetUsage,
-        trackLampUsage: trackLampUsage ?? this.trackLampUsage,
-        trackStrikes: trackStrikes ?? this.trackStrikes,
-        trackCandles: trackCandles ?? this.trackCandles,
-        lampCount: lampCount ?? this.lampCount,
-        minimumFootCandles: minimumFootCandles ?? this.minimumFootCandles,
-        trackSoftware: trackSoftware ?? this.trackSoftware,
-        softwareVersion: softwareVersion ?? this.softwareVersion,
-        softwareEffectiveDate:
-            softwareEffectiveDate ?? this.softwareEffectiveDate,
-        warehouseSpecificPackage: warehouseSpecificPackage ?? this.warehouseSpecificPackage,
-        completePackagePrice: completePackagePrice ?? this.completePackagePrice,
-        kitPackagePrice: kitPackagePrice ?? this.kitPackagePrice,
-        separatePackageOnQuoteOrder: separatePackageOnQuoteOrder ?? this.separatePackageOnQuoteOrder,
-        containerId: containerId ?? this.containerId,
-        containerScannableInventoryId: containerScannableInventoryId ?? this.containerScannableInventoryId,
-        containerScannableICode: containerScannableICode ?? this.containerScannableICode,
-        containerScannableDescription: containerScannableDescription ?? this.containerScannableDescription,
-        automaticallyRebuildContainerAtCheckIn: automaticallyRebuildContainerAtCheckIn ?? this.automaticallyRebuildContainerAtCheckIn,
-        automaticallyCheckInEntireContainerWithScannableItem: automaticallyCheckInEntireContainerWithScannableItem ?? this.automaticallyCheckInEntireContainerWithScannableItem,
-        automaticallyRebuildContainerAtTransferIn: automaticallyRebuildContainerAtTransferIn ?? this.automaticallyRebuildContainerAtTransferIn,
-        automaticallyCountAllItemsWhenPhysicalInventoryInitiated: automaticallyCountAllItemsWhenPhysicalInventoryInitiated ?? this.automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
-        automaticallyTransferInEntireContainerWithScannableItem: automaticallyTransferInEntireContainerWithScannableItem ?? this.automaticallyTransferInEntireContainerWithScannableItem,
-        containerStagingRule: containerStagingRule ?? this.containerStagingRule,
-        excludeContainedItemsFromAvailability: excludeContainedItemsFromAvailability ?? this.excludeContainedItemsFromAvailability,
-        useContainerNumber: useContainerNumber ?? this.useContainerNumber,
-        containerPackingListBehavior: containerPackingListBehavior ?? this.containerPackingListBehavior,
-        inventoryTypeIsWardrobe: inventoryTypeIsWardrobe ?? this.inventoryTypeIsWardrobe,
-        inventoryTypeIsSets: inventoryTypeIsSets ?? this.inventoryTypeIsSets,
-        patternId: patternId ?? this.patternId,
-        pattern: pattern ?? this.pattern,
-        periodId: periodId ?? this.periodId,
-        period: period ?? this.period,
-        materialId: materialId ?? this.materialId,
-        material: material ?? this.material,
-        genderId: genderId ?? this.genderId,
-        gender: gender ?? this.gender,
-        labelId: labelId ?? this.labelId,
-        label: label ?? this.label,
-        wardrobeSize: wardrobeSize ?? this.wardrobeSize,
-        wardrobePieceCount: wardrobePieceCount ?? this.wardrobePieceCount,
-        dyed: dyed ?? this.dyed,
-        wardrobeSourceId: wardrobeSourceId ?? this.wardrobeSourceId,
-        wardrobeSource: wardrobeSource ?? this.wardrobeSource,
-        wardrobeCareId: wardrobeCareId ?? this.wardrobeCareId,
-        wardrobeCare: wardrobeCare ?? this.wardrobeCare,
-        cleaningFeeAmount: cleaningFeeAmount ?? this.cleaningFeeAmount,
-        wardrobeDetailedDescription: wardrobeDetailedDescription ?? this.wardrobeDetailedDescription,
-        webDetailedDescription: webDetailedDescription ?? this.webDetailedDescription,
-        technicalNotes: technicalNotes ?? this.technicalNotes,
-        allocateRevenueForAccessories: allocateRevenueForAccessories ?? this.allocateRevenueForAccessories,
-        packageRevenueCalculationFormula: packageRevenueCalculationFormula ?? this.packageRevenueCalculationFormula,
-        isHazardousMaterial: isHazardousMaterial ?? this.isHazardousMaterial,
-        descriptionWithAkas: descriptionWithAkas ?? this.descriptionWithAkas,
-        costCalculation: costCalculation ?? this.costCalculation,
-        noChargePrint: noChargePrint ?? this.noChargePrint,
-        quantity: quantity ?? this.quantity,
-        quantityIn: quantityIn ?? this.quantityIn,
-        quantityStaged: quantityStaged ?? this.quantityStaged,
-        quantityOut: quantityOut ?? this.quantityOut,
-        quantityInContainer: quantityInContainer ?? this.quantityInContainer,
-        quantityInRepair: quantityInRepair ?? this.quantityInRepair,
-        quantityInTransit: quantityInTransit ?? this.quantityInTransit,
-        quantityOnTruck: quantityOnTruck ?? this.quantityOnTruck,
-        totalQuantity: totalQuantity ?? this.totalQuantity,
-        lastPurchasePrice: lastPurchasePrice ?? this.lastPurchasePrice,
-        aisleLocation: aisleLocation ?? this.aisleLocation,
-        shelfLocation: shelfLocation ?? this.shelfLocation,
-        taxable: taxable ?? this.taxable,
-        dateOfLastPhysicalInventory: dateOfLastPhysicalInventory ?? this.dateOfLastPhysicalInventory,
-        hasImage: hasImage ?? this.hasImage,
-        hasDimensionsImage: hasDimensionsImage ?? this.hasDimensionsImage,
-        stagingUnreadyContainer: stagingUnreadyContainer ?? this.stagingUnreadyContainer,
-        disableMiscDescriptionChange: disableMiscDescriptionChange ?? this.disableMiscDescriptionChange,
-        iCode: iCode ?? this.iCode,
-        description: description ?? this.description,
-        availFor: availFor ?? this.availFor,
-        categoryId: categoryId ?? this.categoryId,
-        category: category ?? this.category,
-        subCategoryCount: subCategoryCount ?? this.subCategoryCount,
-        subCategoryId: subCategoryId ?? this.subCategoryId,
-        subCategory: subCategory ?? this.subCategory,
-        classification: classification ?? this.classification,
-        classificationDescription: classificationDescription ?? this.classificationDescription,
-        classificationColor: classificationColor ?? this.classificationColor,
-        unitId: unitId ?? this.unitId,
-        unit: unit ?? this.unit,
-        unitType: unitType ?? this.unitType,
-        nonDiscountable: nonDiscountable ?? this.nonDiscountable,
-        overrideProfitAndLossCategory: overrideProfitAndLossCategory ?? this.overrideProfitAndLossCategory,
-        profitAndLossCategoryId: profitAndLossCategoryId ?? this.profitAndLossCategoryId,
-        profitAndLossCategory: profitAndLossCategory ?? this.profitAndLossCategory,
-        autoCopyNotesToQuoteOrder: autoCopyNotesToQuoteOrder ?? this.autoCopyNotesToQuoteOrder,
-        note: note ?? this.note,
-        printNoteOnInContract: printNoteOnInContract ?? this.printNoteOnInContract,
-        printNoteOnOutContract: printNoteOnOutContract ?? this.printNoteOnOutContract,
-        printNoteOnReceiveContract: printNoteOnReceiveContract ?? this.printNoteOnReceiveContract,
-        printNoteOnReturnContract: printNoteOnReturnContract ?? this.printNoteOnReturnContract,
-        printNoteOnInvoice: printNoteOnInvoice ?? this.printNoteOnInvoice,
-        printNoteOnOrder: printNoteOnOrder ?? this.printNoteOnOrder,
-        printNoteOnPickList: printNoteOnPickList ?? this.printNoteOnPickList,
-        printNoteOnPO: printNoteOnPO ?? this.printNoteOnPO,
-        printNoteOnQuote: printNoteOnQuote ?? this.printNoteOnQuote,
-        printNoteOnReturnList: printNoteOnReturnList ?? this.printNoteOnReturnList,
-        printNoteOnPoReceiveList: printNoteOnPoReceiveList ?? this.printNoteOnPoReceiveList,
-        printNoteOnPoReturnList: printNoteOnPoReturnList ?? this.printNoteOnPoReturnList,
-        assetAccountId: assetAccountId ?? this.assetAccountId,
-        assetAccountNo: assetAccountNo ?? this.assetAccountNo,
-        assetAccountDescription: assetAccountDescription ?? this.assetAccountDescription,
-        incomeAccountId: incomeAccountId ?? this.incomeAccountId,
-        incomeAccountNo: incomeAccountNo ?? this.incomeAccountNo,
-        incomeAccountDescription: incomeAccountDescription ?? this.incomeAccountDescription,
-        subIncomeAccountId: subIncomeAccountId ?? this.subIncomeAccountId,
-        subIncomeAccountNo: subIncomeAccountNo ?? this.subIncomeAccountNo,
-        subIncomeAccountDescription: subIncomeAccountDescription ?? this.subIncomeAccountDescription,
-        consignmentIncomeAccountId: consignmentIncomeAccountId ?? this.consignmentIncomeAccountId,
-        consignmentIncomeAccountNo: consignmentIncomeAccountNo ?? this.consignmentIncomeAccountNo,
-        consignmentIncomeAccountDescription: consignmentIncomeAccountDescription ?? this.consignmentIncomeAccountDescription,
-        ldIncomeAccountId: ldIncomeAccountId ?? this.ldIncomeAccountId,
-        ldIncomeAccountNo: ldIncomeAccountNo ?? this.ldIncomeAccountNo,
-        ldIncomeAccountDescription: ldIncomeAccountDescription ?? this.ldIncomeAccountDescription,
-        equipmentSaleIncomeAccountId: equipmentSaleIncomeAccountId ?? this.equipmentSaleIncomeAccountId,
-        equipmentSaleIncomeAccountNo: equipmentSaleIncomeAccountNo ?? this.equipmentSaleIncomeAccountNo,
-        equipmentSaleIncomeAccountDescription: equipmentSaleIncomeAccountDescription ?? this.equipmentSaleIncomeAccountDescription,
-        expenseAccountId: expenseAccountId ?? this.expenseAccountId,
-        expenseAccountNo: expenseAccountNo ?? this.expenseAccountNo,
-        expenseAccountDescription: expenseAccountDescription ?? this.expenseAccountDescription,
-        costOfGoodsSoldExpenseAccountId: costOfGoodsSoldExpenseAccountId ?? this.costOfGoodsSoldExpenseAccountId,
-        costOfGoodsSoldExpenseAccountNo: costOfGoodsSoldExpenseAccountNo ?? this.costOfGoodsSoldExpenseAccountNo,
-        costOfGoodsSoldExpenseAccountDescription: costOfGoodsSoldExpenseAccountDescription ?? this.costOfGoodsSoldExpenseAccountDescription,
-        costOfGoodsRentedExpenseAccountId: costOfGoodsRentedExpenseAccountId ?? this.costOfGoodsRentedExpenseAccountId,
-        costOfGoodsRentedExpenseAccountNo: costOfGoodsRentedExpenseAccountNo ?? this.costOfGoodsRentedExpenseAccountNo,
-        costOfGoodsRentedExpenseAccountDescription: costOfGoodsRentedExpenseAccountDescription ?? this.costOfGoodsRentedExpenseAccountDescription,
-        depreciationExpenseAccountId: depreciationExpenseAccountId ?? this.depreciationExpenseAccountId,
-        depreciationExpenseAccountNo: depreciationExpenseAccountNo ?? this.depreciationExpenseAccountNo,
-        depreciationExpenseAccountDescription: depreciationExpenseAccountDescription ?? this.depreciationExpenseAccountDescription,
-        accumulatedDepreciationExpenseAccountId: accumulatedDepreciationExpenseAccountId ?? this.accumulatedDepreciationExpenseAccountId,
-        accumulatedDepreciationExpenseAccountNo: accumulatedDepreciationExpenseAccountNo ?? this.accumulatedDepreciationExpenseAccountNo,
-        accumulatedDepreciationExpenseAccountDescription: accumulatedDepreciationExpenseAccountDescription ?? this.accumulatedDepreciationExpenseAccountDescription,
-        inputDate: inputDate ?? this.inputDate,
-        inputByUsersId: inputByUsersId ?? this.inputByUsersId,
-        category2: category2 ?? this.category2,
-        class2: class2 ?? this.class2,
-        stockClass: stockClass ?? this.stockClass,
-        webTitle: webTitle ?? this.webTitle,
-        inactive: inactive ?? this.inactive,
-        dateStamp: dateStamp ?? this.dateStamp,
-        manifestShippingContainer: manifestShippingContainer ?? this.manifestShippingContainer,
-        manifestStandAloneItem: manifestStandAloneItem ?? this.manifestStandAloneItem,
-        taxableForMyLocation: taxableForMyLocation ?? this.taxableForMyLocation,
-        myLocationId: myLocationId ?? this.myLocationId,
-        taxableForAllLocations: taxableForAllLocations ?? this.taxableForAllLocations,
-        auditNote: auditNote ?? this.auditNote,
-        recordTitle: recordTitle ?? this.recordTitle,
-        urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-        fields: fields ?? this.fields,
-        custom: custom ?? this.custom,
-        defaultFieldAttributes: defaultFieldAttributes ?? this.defaultFieldAttributes,
-        original: original ?? this.original,
-        translation: translation ?? this.translation,
-        hasImport: hasImport ?? this.hasImport,
-        createdByUserId: createdByUserId ?? this.createdByUserId,
-        createdByUserName: createdByUserName ?? this.createdByUserName,
-        createdDateTime: createdDateTime ?? this.createdDateTime,
-        modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-        modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-        modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime);
+      rentalInventoryId: rentalInventoryId ?? this.rentalInventoryId,
+      inventoryId: inventoryId ?? this.inventoryId,
+      excludeFromReturnOnAsset:
+          excludeFromReturnOnAsset ?? this.excludeFromReturnOnAsset,
+      isFixedAsset: isFixedAsset ?? this.isFixedAsset,
+      isFixedContainer: isFixedContainer ?? this.isFixedContainer,
+      multiAssignRFIDs: multiAssignRFIDs ?? this.multiAssignRFIDs,
+      allowFlexibleContainer:
+          allowFlexibleContainer ?? this.allowFlexibleContainer,
+      minimumDaysPerWeek: minimumDaysPerWeek ?? this.minimumDaysPerWeek,
+      showAssetAvailability:
+          showAssetAvailability ?? this.showAssetAvailability,
+      assetAvailabilityWarehouseIds:
+          assetAvailabilityWarehouseIds ?? this.assetAvailabilityWarehouseIds,
+      openingId: openingId ?? this.openingId,
+      opening: opening ?? this.opening,
+      wallTypeId: wallTypeId ?? this.wallTypeId,
+      wallType: wallType ?? this.wallType,
+      surfaceId: surfaceId ?? this.surfaceId,
+      surface: surface ?? this.surface,
+      conditionId: conditionId ?? this.conditionId,
+      condition: condition ?? this.condition,
+      originalShowId: originalShowId ?? this.originalShowId,
+      originalShow: originalShow ?? this.originalShow,
+      wallWidthFt: wallWidthFt ?? this.wallWidthFt,
+      wallWidthIn: wallWidthIn ?? this.wallWidthIn,
+      wallHeightFt: wallHeightFt ?? this.wallHeightFt,
+      wallHeightIn: wallHeightIn ?? this.wallHeightIn,
+      wallLengthFt: wallLengthFt ?? this.wallLengthFt,
+      wallLengthIn: wallLengthIn ?? this.wallLengthIn,
+      treatConsignedQtyAsOwned:
+          treatConsignedQtyAsOwned ?? this.treatConsignedQtyAsOwned,
+      dailyRate: dailyRate ?? this.dailyRate,
+      weeklyRate: weeklyRate ?? this.weeklyRate,
+      week2Rate: week2Rate ?? this.week2Rate,
+      week3Rate: week3Rate ?? this.week3Rate,
+      week4Rate: week4Rate ?? this.week4Rate,
+      week5Rate: week5Rate ?? this.week5Rate,
+      monthlyRate: monthlyRate ?? this.monthlyRate,
+      unitValue: unitValue ?? this.unitValue,
+      replacementCost: replacementCost ?? this.replacementCost,
+      sourceId: sourceId ?? this.sourceId,
+      qcRequiredForMyWarehouse:
+          qcRequiredForMyWarehouse ?? this.qcRequiredForMyWarehouse,
+      myWarehouseId: myWarehouseId ?? this.myWarehouseId,
+      qcRequiredForAllWarehouses:
+          qcRequiredForAllWarehouses ?? this.qcRequiredForAllWarehouses,
+      unitValueForAllWarehouses:
+          unitValueForAllWarehouses ?? this.unitValueForAllWarehouses,
+      replacementCostForAllWarehouses:
+          replacementCostForAllWarehouses ??
+          this.replacementCostForAllWarehouses,
+      inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
+      inventoryType: inventoryType ?? this.inventoryType,
+      availableFrom: availableFrom ?? this.availableFrom,
+      trackedBy: trackedBy ?? this.trackedBy,
+      confirmTrackedBy: confirmTrackedBy ?? this.confirmTrackedBy,
+      rank: rank ?? this.rank,
+      manufacturerPartNumber:
+          manufacturerPartNumber ?? this.manufacturerPartNumber,
+      manufacturerId: manufacturerId ?? this.manufacturerId,
+      manufacturer: manufacturer ?? this.manufacturer,
+      manufacturerUrl: manufacturerUrl ?? this.manufacturerUrl,
+      excludeImageFromQuoteOrderPrint:
+          excludeImageFromQuoteOrderPrint ??
+          this.excludeImageFromQuoteOrderPrint,
+      noAvailabilityCheck: noAvailabilityCheck ?? this.noAvailabilityCheck,
+      availabilityManuallyResolveConflicts:
+          availabilityManuallyResolveConflicts ??
+          this.availabilityManuallyResolveConflicts,
+      sendAvailabilityAlert:
+          sendAvailabilityAlert ?? this.sendAvailabilityAlert,
+      primaryDimensionUniqueId:
+          primaryDimensionUniqueId ?? this.primaryDimensionUniqueId,
+      defaultImperialMetric:
+          defaultImperialMetric ?? this.defaultImperialMetric,
+      primaryDimensionDescription:
+          primaryDimensionDescription ?? this.primaryDimensionDescription,
+      primaryDimensionShipWeightLbs:
+          primaryDimensionShipWeightLbs ?? this.primaryDimensionShipWeightLbs,
+      primaryDimensionShipWeightOz:
+          primaryDimensionShipWeightOz ?? this.primaryDimensionShipWeightOz,
+      primaryDimensionWeightInCaseLbs:
+          primaryDimensionWeightInCaseLbs ??
+          this.primaryDimensionWeightInCaseLbs,
+      primaryDimensionWeightInCaseOz:
+          primaryDimensionWeightInCaseOz ?? this.primaryDimensionWeightInCaseOz,
+      primaryDimensionWidthFt:
+          primaryDimensionWidthFt ?? this.primaryDimensionWidthFt,
+      primaryDimensionWidthIn:
+          primaryDimensionWidthIn ?? this.primaryDimensionWidthIn,
+      primaryDimensionHeightFt:
+          primaryDimensionHeightFt ?? this.primaryDimensionHeightFt,
+      primaryDimensionHeightIn:
+          primaryDimensionHeightIn ?? this.primaryDimensionHeightIn,
+      primaryDimensionLengthFt:
+          primaryDimensionLengthFt ?? this.primaryDimensionLengthFt,
+      primaryDimensionLengthIn:
+          primaryDimensionLengthIn ?? this.primaryDimensionLengthIn,
+      primaryDimensionShipWeightKg:
+          primaryDimensionShipWeightKg ?? this.primaryDimensionShipWeightKg,
+      primaryDimensionShipWeightG:
+          primaryDimensionShipWeightG ?? this.primaryDimensionShipWeightG,
+      primaryDimensionWeightInCaseKg:
+          primaryDimensionWeightInCaseKg ?? this.primaryDimensionWeightInCaseKg,
+      primaryDimensionWeightInCaseG:
+          primaryDimensionWeightInCaseG ?? this.primaryDimensionWeightInCaseG,
+      primaryDimensionWidthM:
+          primaryDimensionWidthM ?? this.primaryDimensionWidthM,
+      primaryDimensionWidthCm:
+          primaryDimensionWidthCm ?? this.primaryDimensionWidthCm,
+      primaryDimensionHeightM:
+          primaryDimensionHeightM ?? this.primaryDimensionHeightM,
+      primaryDimensionHeightCm:
+          primaryDimensionHeightCm ?? this.primaryDimensionHeightCm,
+      primaryDimensionLengthM:
+          primaryDimensionLengthM ?? this.primaryDimensionLengthM,
+      primaryDimensionLengthCm:
+          primaryDimensionLengthCm ?? this.primaryDimensionLengthCm,
+      hasSecondaryDimensions:
+          hasSecondaryDimensions ?? this.hasSecondaryDimensions,
+      secondaryDimensionUniqueId:
+          secondaryDimensionUniqueId ?? this.secondaryDimensionUniqueId,
+      secondaryDimensionDescription:
+          secondaryDimensionDescription ?? this.secondaryDimensionDescription,
+      secondaryDimensionShipWeightLbs:
+          secondaryDimensionShipWeightLbs ??
+          this.secondaryDimensionShipWeightLbs,
+      secondaryDimensionShipWeightOz:
+          secondaryDimensionShipWeightOz ?? this.secondaryDimensionShipWeightOz,
+      secondaryDimensionWeightInCaseLbs:
+          secondaryDimensionWeightInCaseLbs ??
+          this.secondaryDimensionWeightInCaseLbs,
+      secondaryDimensionWeightInCaseOz:
+          secondaryDimensionWeightInCaseOz ??
+          this.secondaryDimensionWeightInCaseOz,
+      secondaryDimensionWidthFt:
+          secondaryDimensionWidthFt ?? this.secondaryDimensionWidthFt,
+      secondaryDimensionWidthIn:
+          secondaryDimensionWidthIn ?? this.secondaryDimensionWidthIn,
+      secondaryDimensionHeightFt:
+          secondaryDimensionHeightFt ?? this.secondaryDimensionHeightFt,
+      secondaryDimensionHeightIn:
+          secondaryDimensionHeightIn ?? this.secondaryDimensionHeightIn,
+      secondaryDimensionLengthFt:
+          secondaryDimensionLengthFt ?? this.secondaryDimensionLengthFt,
+      secondaryDimensionLengthIn:
+          secondaryDimensionLengthIn ?? this.secondaryDimensionLengthIn,
+      secondaryDimensionShipWeightKg:
+          secondaryDimensionShipWeightKg ?? this.secondaryDimensionShipWeightKg,
+      secondaryDimensionShipWeightG:
+          secondaryDimensionShipWeightG ?? this.secondaryDimensionShipWeightG,
+      secondaryDimensionWeightInCaseKg:
+          secondaryDimensionWeightInCaseKg ??
+          this.secondaryDimensionWeightInCaseKg,
+      secondaryDimensionWeightInCaseG:
+          secondaryDimensionWeightInCaseG ??
+          this.secondaryDimensionWeightInCaseG,
+      secondaryDimensionWidthM:
+          secondaryDimensionWidthM ?? this.secondaryDimensionWidthM,
+      secondaryDimensionWidthCm:
+          secondaryDimensionWidthCm ?? this.secondaryDimensionWidthCm,
+      secondaryDimensionHeightM:
+          secondaryDimensionHeightM ?? this.secondaryDimensionHeightM,
+      secondaryDimensionHeightCm:
+          secondaryDimensionHeightCm ?? this.secondaryDimensionHeightCm,
+      secondaryDimensionLengthM:
+          secondaryDimensionLengthM ?? this.secondaryDimensionLengthM,
+      secondaryDimensionLengthCm:
+          secondaryDimensionLengthCm ?? this.secondaryDimensionLengthCm,
+      countryOfOriginId: countryOfOriginId ?? this.countryOfOriginId,
+      countryOfOrigin: countryOfOrigin ?? this.countryOfOrigin,
+      displayInSummaryModeWhenRateIsZero:
+          displayInSummaryModeWhenRateIsZero ??
+          this.displayInSummaryModeWhenRateIsZero,
+      qcRequired: qcRequired ?? this.qcRequired,
+      qcTime: qcTime ?? this.qcTime,
+      copyAttributesAsNote: copyAttributesAsNote ?? this.copyAttributesAsNote,
+      trackAssetUsage: trackAssetUsage ?? this.trackAssetUsage,
+      trackLampUsage: trackLampUsage ?? this.trackLampUsage,
+      trackStrikes: trackStrikes ?? this.trackStrikes,
+      trackCandles: trackCandles ?? this.trackCandles,
+      lampCount: lampCount ?? this.lampCount,
+      minimumFootCandles: minimumFootCandles ?? this.minimumFootCandles,
+      trackSoftware: trackSoftware ?? this.trackSoftware,
+      softwareVersion: softwareVersion ?? this.softwareVersion,
+      softwareEffectiveDate:
+          softwareEffectiveDate ?? this.softwareEffectiveDate,
+      warehouseSpecificPackage:
+          warehouseSpecificPackage ?? this.warehouseSpecificPackage,
+      completePackagePrice: completePackagePrice ?? this.completePackagePrice,
+      kitPackagePrice: kitPackagePrice ?? this.kitPackagePrice,
+      separatePackageOnQuoteOrder:
+          separatePackageOnQuoteOrder ?? this.separatePackageOnQuoteOrder,
+      containerId: containerId ?? this.containerId,
+      containerScannableInventoryId:
+          containerScannableInventoryId ?? this.containerScannableInventoryId,
+      containerScannableICode:
+          containerScannableICode ?? this.containerScannableICode,
+      containerScannableDescription:
+          containerScannableDescription ?? this.containerScannableDescription,
+      automaticallyRebuildContainerAtCheckIn:
+          automaticallyRebuildContainerAtCheckIn ??
+          this.automaticallyRebuildContainerAtCheckIn,
+      automaticallyCheckInEntireContainerWithScannableItem:
+          automaticallyCheckInEntireContainerWithScannableItem ??
+          this.automaticallyCheckInEntireContainerWithScannableItem,
+      automaticallyRebuildContainerAtTransferIn:
+          automaticallyRebuildContainerAtTransferIn ??
+          this.automaticallyRebuildContainerAtTransferIn,
+      automaticallyCountAllItemsWhenPhysicalInventoryInitiated:
+          automaticallyCountAllItemsWhenPhysicalInventoryInitiated ??
+          this.automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
+      automaticallyTransferInEntireContainerWithScannableItem:
+          automaticallyTransferInEntireContainerWithScannableItem ??
+          this.automaticallyTransferInEntireContainerWithScannableItem,
+      containerStagingRule: containerStagingRule ?? this.containerStagingRule,
+      excludeContainedItemsFromAvailability:
+          excludeContainedItemsFromAvailability ??
+          this.excludeContainedItemsFromAvailability,
+      useContainerNumber: useContainerNumber ?? this.useContainerNumber,
+      containerPackingListBehavior:
+          containerPackingListBehavior ?? this.containerPackingListBehavior,
+      inventoryTypeIsWardrobe:
+          inventoryTypeIsWardrobe ?? this.inventoryTypeIsWardrobe,
+      inventoryTypeIsSets: inventoryTypeIsSets ?? this.inventoryTypeIsSets,
+      patternId: patternId ?? this.patternId,
+      pattern: pattern ?? this.pattern,
+      periodId: periodId ?? this.periodId,
+      period: period ?? this.period,
+      materialId: materialId ?? this.materialId,
+      material: material ?? this.material,
+      genderId: genderId ?? this.genderId,
+      gender: gender ?? this.gender,
+      labelId: labelId ?? this.labelId,
+      label: label ?? this.label,
+      wardrobeSize: wardrobeSize ?? this.wardrobeSize,
+      wardrobePieceCount: wardrobePieceCount ?? this.wardrobePieceCount,
+      dyed: dyed ?? this.dyed,
+      wardrobeSourceId: wardrobeSourceId ?? this.wardrobeSourceId,
+      wardrobeSource: wardrobeSource ?? this.wardrobeSource,
+      wardrobeCareId: wardrobeCareId ?? this.wardrobeCareId,
+      wardrobeCare: wardrobeCare ?? this.wardrobeCare,
+      cleaningFeeAmount: cleaningFeeAmount ?? this.cleaningFeeAmount,
+      wardrobeDetailedDescription:
+          wardrobeDetailedDescription ?? this.wardrobeDetailedDescription,
+      webDetailedDescription:
+          webDetailedDescription ?? this.webDetailedDescription,
+      technicalNotes: technicalNotes ?? this.technicalNotes,
+      allocateRevenueForAccessories:
+          allocateRevenueForAccessories ?? this.allocateRevenueForAccessories,
+      packageRevenueCalculationFormula:
+          packageRevenueCalculationFormula ??
+          this.packageRevenueCalculationFormula,
+      isHazardousMaterial: isHazardousMaterial ?? this.isHazardousMaterial,
+      descriptionWithAkas: descriptionWithAkas ?? this.descriptionWithAkas,
+      costCalculation: costCalculation ?? this.costCalculation,
+      noChargePrint: noChargePrint ?? this.noChargePrint,
+      quantity: quantity ?? this.quantity,
+      quantityIn: quantityIn ?? this.quantityIn,
+      quantityStaged: quantityStaged ?? this.quantityStaged,
+      quantityOut: quantityOut ?? this.quantityOut,
+      quantityInContainer: quantityInContainer ?? this.quantityInContainer,
+      quantityInRepair: quantityInRepair ?? this.quantityInRepair,
+      quantityInTransit: quantityInTransit ?? this.quantityInTransit,
+      quantityOnTruck: quantityOnTruck ?? this.quantityOnTruck,
+      totalQuantity: totalQuantity ?? this.totalQuantity,
+      lastPurchasePrice: lastPurchasePrice ?? this.lastPurchasePrice,
+      aisleLocation: aisleLocation ?? this.aisleLocation,
+      shelfLocation: shelfLocation ?? this.shelfLocation,
+      taxable: taxable ?? this.taxable,
+      dateOfLastPhysicalInventory:
+          dateOfLastPhysicalInventory ?? this.dateOfLastPhysicalInventory,
+      hasImage: hasImage ?? this.hasImage,
+      hasDimensionsImage: hasDimensionsImage ?? this.hasDimensionsImage,
+      stagingUnreadyContainer:
+          stagingUnreadyContainer ?? this.stagingUnreadyContainer,
+      disableMiscDescriptionChange:
+          disableMiscDescriptionChange ?? this.disableMiscDescriptionChange,
+      iCode: iCode ?? this.iCode,
+      description: description ?? this.description,
+      availFor: availFor ?? this.availFor,
+      categoryId: categoryId ?? this.categoryId,
+      category: category ?? this.category,
+      subCategoryCount: subCategoryCount ?? this.subCategoryCount,
+      subCategoryId: subCategoryId ?? this.subCategoryId,
+      subCategory: subCategory ?? this.subCategory,
+      classification: classification ?? this.classification,
+      classificationDescription:
+          classificationDescription ?? this.classificationDescription,
+      classificationColor: classificationColor ?? this.classificationColor,
+      unitId: unitId ?? this.unitId,
+      unit: unit ?? this.unit,
+      unitType: unitType ?? this.unitType,
+      nonDiscountable: nonDiscountable ?? this.nonDiscountable,
+      overrideProfitAndLossCategory:
+          overrideProfitAndLossCategory ?? this.overrideProfitAndLossCategory,
+      profitAndLossCategoryId:
+          profitAndLossCategoryId ?? this.profitAndLossCategoryId,
+      profitAndLossCategory:
+          profitAndLossCategory ?? this.profitAndLossCategory,
+      autoCopyNotesToQuoteOrder:
+          autoCopyNotesToQuoteOrder ?? this.autoCopyNotesToQuoteOrder,
+      note: note ?? this.note,
+      printNoteOnInContract:
+          printNoteOnInContract ?? this.printNoteOnInContract,
+      printNoteOnOutContract:
+          printNoteOnOutContract ?? this.printNoteOnOutContract,
+      printNoteOnReceiveContract:
+          printNoteOnReceiveContract ?? this.printNoteOnReceiveContract,
+      printNoteOnReturnContract:
+          printNoteOnReturnContract ?? this.printNoteOnReturnContract,
+      printNoteOnInvoice: printNoteOnInvoice ?? this.printNoteOnInvoice,
+      printNoteOnOrder: printNoteOnOrder ?? this.printNoteOnOrder,
+      printNoteOnPickList: printNoteOnPickList ?? this.printNoteOnPickList,
+      printNoteOnPO: printNoteOnPO ?? this.printNoteOnPO,
+      printNoteOnQuote: printNoteOnQuote ?? this.printNoteOnQuote,
+      printNoteOnReturnList:
+          printNoteOnReturnList ?? this.printNoteOnReturnList,
+      printNoteOnPoReceiveList:
+          printNoteOnPoReceiveList ?? this.printNoteOnPoReceiveList,
+      printNoteOnPoReturnList:
+          printNoteOnPoReturnList ?? this.printNoteOnPoReturnList,
+      assetAccountId: assetAccountId ?? this.assetAccountId,
+      assetAccountNo: assetAccountNo ?? this.assetAccountNo,
+      assetAccountDescription:
+          assetAccountDescription ?? this.assetAccountDescription,
+      incomeAccountId: incomeAccountId ?? this.incomeAccountId,
+      incomeAccountNo: incomeAccountNo ?? this.incomeAccountNo,
+      incomeAccountDescription:
+          incomeAccountDescription ?? this.incomeAccountDescription,
+      subIncomeAccountId: subIncomeAccountId ?? this.subIncomeAccountId,
+      subIncomeAccountNo: subIncomeAccountNo ?? this.subIncomeAccountNo,
+      subIncomeAccountDescription:
+          subIncomeAccountDescription ?? this.subIncomeAccountDescription,
+      consignmentIncomeAccountId:
+          consignmentIncomeAccountId ?? this.consignmentIncomeAccountId,
+      consignmentIncomeAccountNo:
+          consignmentIncomeAccountNo ?? this.consignmentIncomeAccountNo,
+      consignmentIncomeAccountDescription:
+          consignmentIncomeAccountDescription ??
+          this.consignmentIncomeAccountDescription,
+      ldIncomeAccountId: ldIncomeAccountId ?? this.ldIncomeAccountId,
+      ldIncomeAccountNo: ldIncomeAccountNo ?? this.ldIncomeAccountNo,
+      ldIncomeAccountDescription:
+          ldIncomeAccountDescription ?? this.ldIncomeAccountDescription,
+      equipmentSaleIncomeAccountId:
+          equipmentSaleIncomeAccountId ?? this.equipmentSaleIncomeAccountId,
+      equipmentSaleIncomeAccountNo:
+          equipmentSaleIncomeAccountNo ?? this.equipmentSaleIncomeAccountNo,
+      equipmentSaleIncomeAccountDescription:
+          equipmentSaleIncomeAccountDescription ??
+          this.equipmentSaleIncomeAccountDescription,
+      expenseAccountId: expenseAccountId ?? this.expenseAccountId,
+      expenseAccountNo: expenseAccountNo ?? this.expenseAccountNo,
+      expenseAccountDescription:
+          expenseAccountDescription ?? this.expenseAccountDescription,
+      costOfGoodsSoldExpenseAccountId:
+          costOfGoodsSoldExpenseAccountId ??
+          this.costOfGoodsSoldExpenseAccountId,
+      costOfGoodsSoldExpenseAccountNo:
+          costOfGoodsSoldExpenseAccountNo ??
+          this.costOfGoodsSoldExpenseAccountNo,
+      costOfGoodsSoldExpenseAccountDescription:
+          costOfGoodsSoldExpenseAccountDescription ??
+          this.costOfGoodsSoldExpenseAccountDescription,
+      costOfGoodsRentedExpenseAccountId:
+          costOfGoodsRentedExpenseAccountId ??
+          this.costOfGoodsRentedExpenseAccountId,
+      costOfGoodsRentedExpenseAccountNo:
+          costOfGoodsRentedExpenseAccountNo ??
+          this.costOfGoodsRentedExpenseAccountNo,
+      costOfGoodsRentedExpenseAccountDescription:
+          costOfGoodsRentedExpenseAccountDescription ??
+          this.costOfGoodsRentedExpenseAccountDescription,
+      depreciationExpenseAccountId:
+          depreciationExpenseAccountId ?? this.depreciationExpenseAccountId,
+      depreciationExpenseAccountNo:
+          depreciationExpenseAccountNo ?? this.depreciationExpenseAccountNo,
+      depreciationExpenseAccountDescription:
+          depreciationExpenseAccountDescription ??
+          this.depreciationExpenseAccountDescription,
+      accumulatedDepreciationExpenseAccountId:
+          accumulatedDepreciationExpenseAccountId ??
+          this.accumulatedDepreciationExpenseAccountId,
+      accumulatedDepreciationExpenseAccountNo:
+          accumulatedDepreciationExpenseAccountNo ??
+          this.accumulatedDepreciationExpenseAccountNo,
+      accumulatedDepreciationExpenseAccountDescription:
+          accumulatedDepreciationExpenseAccountDescription ??
+          this.accumulatedDepreciationExpenseAccountDescription,
+      inputDate: inputDate ?? this.inputDate,
+      inputByUsersId: inputByUsersId ?? this.inputByUsersId,
+      category2: category2 ?? this.category2,
+      class2: class2 ?? this.class2,
+      stockClass: stockClass ?? this.stockClass,
+      webTitle: webTitle ?? this.webTitle,
+      inactive: inactive ?? this.inactive,
+      dateStamp: dateStamp ?? this.dateStamp,
+      manifestShippingContainer:
+          manifestShippingContainer ?? this.manifestShippingContainer,
+      manifestStandAloneItem:
+          manifestStandAloneItem ?? this.manifestStandAloneItem,
+      taxableForMyLocation: taxableForMyLocation ?? this.taxableForMyLocation,
+      myLocationId: myLocationId ?? this.myLocationId,
+      taxableForAllLocations:
+          taxableForAllLocations ?? this.taxableForAllLocations,
+      auditNote: auditNote ?? this.auditNote,
+      recordTitle: recordTitle ?? this.recordTitle,
+      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
+      fields: fields ?? this.fields,
+      custom: custom ?? this.custom,
+      defaultFieldAttributes:
+          defaultFieldAttributes ?? this.defaultFieldAttributes,
+      original: original ?? this.original,
+      translation: translation ?? this.translation,
+      hasImport: hasImport ?? this.hasImport,
+      createdByUserId: createdByUserId ?? this.createdByUserId,
+      createdByUserName: createdByUserName ?? this.createdByUserName,
+      createdDateTime: createdDateTime ?? this.createdDateTime,
+      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
+      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
+      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    );
   }
 
-  WebApiModulesInventoryRentalInventoryRentalInventory copyWithWrapped(
-      {Wrapped<String?>? rentalInventoryId,
-      Wrapped<String?>? inventoryId,
-      Wrapped<bool?>? excludeFromReturnOnAsset,
-      Wrapped<bool?>? isFixedAsset,
-      Wrapped<bool?>? isFixedContainer,
-      Wrapped<bool?>? multiAssignRFIDs,
-      Wrapped<bool?>? allowFlexibleContainer,
-      Wrapped<double?>? minimumDaysPerWeek,
-      Wrapped<bool?>? showAssetAvailability,
-      Wrapped<String?>? assetAvailabilityWarehouseIds,
-      Wrapped<String?>? openingId,
-      Wrapped<String?>? opening,
-      Wrapped<String?>? wallTypeId,
-      Wrapped<String?>? wallType,
-      Wrapped<String?>? surfaceId,
-      Wrapped<String?>? surface,
-      Wrapped<String?>? conditionId,
-      Wrapped<String?>? condition,
-      Wrapped<String?>? originalShowId,
-      Wrapped<String?>? originalShow,
-      Wrapped<int?>? wallWidthFt,
-      Wrapped<int?>? wallWidthIn,
-      Wrapped<int?>? wallHeightFt,
-      Wrapped<int?>? wallHeightIn,
-      Wrapped<int?>? wallLengthFt,
-      Wrapped<int?>? wallLengthIn,
-      Wrapped<bool?>? treatConsignedQtyAsOwned,
-      Wrapped<double?>? dailyRate,
-      Wrapped<double?>? weeklyRate,
-      Wrapped<double?>? week2Rate,
-      Wrapped<double?>? week3Rate,
-      Wrapped<double?>? week4Rate,
-      Wrapped<double?>? week5Rate,
-      Wrapped<double?>? monthlyRate,
-      Wrapped<double?>? unitValue,
-      Wrapped<double?>? replacementCost,
-      Wrapped<String?>? sourceId,
-      Wrapped<bool?>? qcRequiredForMyWarehouse,
-      Wrapped<String?>? myWarehouseId,
-      Wrapped<bool?>? qcRequiredForAllWarehouses,
-      Wrapped<double?>? unitValueForAllWarehouses,
-      Wrapped<double?>? replacementCostForAllWarehouses,
-      Wrapped<String?>? inventoryTypeId,
-      Wrapped<String?>? inventoryType,
-      Wrapped<String?>? availableFrom,
-      Wrapped<String?>? trackedBy,
-      Wrapped<String?>? confirmTrackedBy,
-      Wrapped<String?>? rank,
-      Wrapped<String?>? manufacturerPartNumber,
-      Wrapped<String?>? manufacturerId,
-      Wrapped<String?>? manufacturer,
-      Wrapped<String?>? manufacturerUrl,
-      Wrapped<bool?>? excludeImageFromQuoteOrderPrint,
-      Wrapped<bool?>? noAvailabilityCheck,
-      Wrapped<bool?>? availabilityManuallyResolveConflicts,
-      Wrapped<bool?>? sendAvailabilityAlert,
-      Wrapped<String?>? primaryDimensionUniqueId,
-      Wrapped<String?>? defaultImperialMetric,
-      Wrapped<String?>? primaryDimensionDescription,
-      Wrapped<int?>? primaryDimensionShipWeightLbs,
-      Wrapped<int?>? primaryDimensionShipWeightOz,
-      Wrapped<int?>? primaryDimensionWeightInCaseLbs,
-      Wrapped<int?>? primaryDimensionWeightInCaseOz,
-      Wrapped<int?>? primaryDimensionWidthFt,
-      Wrapped<int?>? primaryDimensionWidthIn,
-      Wrapped<int?>? primaryDimensionHeightFt,
-      Wrapped<int?>? primaryDimensionHeightIn,
-      Wrapped<int?>? primaryDimensionLengthFt,
-      Wrapped<int?>? primaryDimensionLengthIn,
-      Wrapped<int?>? primaryDimensionShipWeightKg,
-      Wrapped<int?>? primaryDimensionShipWeightG,
-      Wrapped<int?>? primaryDimensionWeightInCaseKg,
-      Wrapped<int?>? primaryDimensionWeightInCaseG,
-      Wrapped<int?>? primaryDimensionWidthM,
-      Wrapped<int?>? primaryDimensionWidthCm,
-      Wrapped<int?>? primaryDimensionHeightM,
-      Wrapped<int?>? primaryDimensionHeightCm,
-      Wrapped<int?>? primaryDimensionLengthM,
-      Wrapped<int?>? primaryDimensionLengthCm,
-      Wrapped<bool?>? hasSecondaryDimensions,
-      Wrapped<String?>? secondaryDimensionUniqueId,
-      Wrapped<String?>? secondaryDimensionDescription,
-      Wrapped<int?>? secondaryDimensionShipWeightLbs,
-      Wrapped<int?>? secondaryDimensionShipWeightOz,
-      Wrapped<int?>? secondaryDimensionWeightInCaseLbs,
-      Wrapped<int?>? secondaryDimensionWeightInCaseOz,
-      Wrapped<int?>? secondaryDimensionWidthFt,
-      Wrapped<int?>? secondaryDimensionWidthIn,
-      Wrapped<int?>? secondaryDimensionHeightFt,
-      Wrapped<int?>? secondaryDimensionHeightIn,
-      Wrapped<int?>? secondaryDimensionLengthFt,
-      Wrapped<int?>? secondaryDimensionLengthIn,
-      Wrapped<int?>? secondaryDimensionShipWeightKg,
-      Wrapped<int?>? secondaryDimensionShipWeightG,
-      Wrapped<int?>? secondaryDimensionWeightInCaseKg,
-      Wrapped<int?>? secondaryDimensionWeightInCaseG,
-      Wrapped<int?>? secondaryDimensionWidthM,
-      Wrapped<int?>? secondaryDimensionWidthCm,
-      Wrapped<int?>? secondaryDimensionHeightM,
-      Wrapped<int?>? secondaryDimensionHeightCm,
-      Wrapped<int?>? secondaryDimensionLengthM,
-      Wrapped<int?>? secondaryDimensionLengthCm,
-      Wrapped<String?>? countryOfOriginId,
-      Wrapped<String?>? countryOfOrigin,
-      Wrapped<bool?>? displayInSummaryModeWhenRateIsZero,
-      Wrapped<bool?>? qcRequired,
-      Wrapped<String?>? qcTime,
-      Wrapped<bool?>? copyAttributesAsNote,
-      Wrapped<bool?>? trackAssetUsage,
-      Wrapped<bool?>? trackLampUsage,
-      Wrapped<bool?>? trackStrikes,
-      Wrapped<bool?>? trackCandles,
-      Wrapped<int?>? lampCount,
-      Wrapped<int?>? minimumFootCandles,
-      Wrapped<bool?>? trackSoftware,
-      Wrapped<String?>? softwareVersion,
-      Wrapped<String?>? softwareEffectiveDate,
-      Wrapped<bool?>? warehouseSpecificPackage,
-      Wrapped<String?>? completePackagePrice,
-      Wrapped<String?>? kitPackagePrice,
-      Wrapped<bool?>? separatePackageOnQuoteOrder,
-      Wrapped<String?>? containerId,
-      Wrapped<String?>? containerScannableInventoryId,
-      Wrapped<String?>? containerScannableICode,
-      Wrapped<String?>? containerScannableDescription,
-      Wrapped<bool?>? automaticallyRebuildContainerAtCheckIn,
-      Wrapped<bool?>? automaticallyCheckInEntireContainerWithScannableItem,
-      Wrapped<bool?>? automaticallyRebuildContainerAtTransferIn,
-      Wrapped<bool?>? automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
-      Wrapped<bool?>? automaticallyTransferInEntireContainerWithScannableItem,
-      Wrapped<String?>? containerStagingRule,
-      Wrapped<bool?>? excludeContainedItemsFromAvailability,
-      Wrapped<bool?>? useContainerNumber,
-      Wrapped<String?>? containerPackingListBehavior,
-      Wrapped<bool?>? inventoryTypeIsWardrobe,
-      Wrapped<bool?>? inventoryTypeIsSets,
-      Wrapped<String?>? patternId,
-      Wrapped<String?>? pattern,
-      Wrapped<String?>? periodId,
-      Wrapped<String?>? period,
-      Wrapped<String?>? materialId,
-      Wrapped<String?>? material,
-      Wrapped<String?>? genderId,
-      Wrapped<String?>? gender,
-      Wrapped<String?>? labelId,
-      Wrapped<String?>? label,
-      Wrapped<String?>? wardrobeSize,
-      Wrapped<int?>? wardrobePieceCount,
-      Wrapped<bool?>? dyed,
-      Wrapped<String?>? wardrobeSourceId,
-      Wrapped<String?>? wardrobeSource,
-      Wrapped<String?>? wardrobeCareId,
-      Wrapped<String?>? wardrobeCare,
-      Wrapped<double?>? cleaningFeeAmount,
-      Wrapped<String?>? wardrobeDetailedDescription,
-      Wrapped<String?>? webDetailedDescription,
-      Wrapped<String?>? technicalNotes,
-      Wrapped<bool?>? allocateRevenueForAccessories,
-      Wrapped<String?>? packageRevenueCalculationFormula,
-      Wrapped<bool?>? isHazardousMaterial,
-      Wrapped<String?>? descriptionWithAkas,
-      Wrapped<String?>? costCalculation,
-      Wrapped<bool?>? noChargePrint,
-      Wrapped<double?>? quantity,
-      Wrapped<double?>? quantityIn,
-      Wrapped<double?>? quantityStaged,
-      Wrapped<double?>? quantityOut,
-      Wrapped<double?>? quantityInContainer,
-      Wrapped<double?>? quantityInRepair,
-      Wrapped<double?>? quantityInTransit,
-      Wrapped<double?>? quantityOnTruck,
-      Wrapped<double?>? totalQuantity,
-      Wrapped<double?>? lastPurchasePrice,
-      Wrapped<String?>? aisleLocation,
-      Wrapped<String?>? shelfLocation,
-      Wrapped<bool?>? taxable,
-      Wrapped<String?>? dateOfLastPhysicalInventory,
-      Wrapped<bool?>? hasImage,
-      Wrapped<bool?>? hasDimensionsImage,
-      Wrapped<bool?>? stagingUnreadyContainer,
-      Wrapped<bool?>? disableMiscDescriptionChange,
-      Wrapped<String?>? iCode,
-      Wrapped<String?>? description,
-      Wrapped<String?>? availFor,
-      Wrapped<String?>? categoryId,
-      Wrapped<String?>? category,
-      Wrapped<int?>? subCategoryCount,
-      Wrapped<String?>? subCategoryId,
-      Wrapped<String?>? subCategory,
-      Wrapped<String?>? classification,
-      Wrapped<String?>? classificationDescription,
-      Wrapped<String?>? classificationColor,
-      Wrapped<String?>? unitId,
-      Wrapped<String?>? unit,
-      Wrapped<String?>? unitType,
-      Wrapped<bool?>? nonDiscountable,
-      Wrapped<bool?>? overrideProfitAndLossCategory,
-      Wrapped<String?>? profitAndLossCategoryId,
-      Wrapped<String?>? profitAndLossCategory,
-      Wrapped<bool?>? autoCopyNotesToQuoteOrder,
-      Wrapped<String?>? note,
-      Wrapped<bool?>? printNoteOnInContract,
-      Wrapped<bool?>? printNoteOnOutContract,
-      Wrapped<bool?>? printNoteOnReceiveContract,
-      Wrapped<bool?>? printNoteOnReturnContract,
-      Wrapped<bool?>? printNoteOnInvoice,
-      Wrapped<bool?>? printNoteOnOrder,
-      Wrapped<bool?>? printNoteOnPickList,
-      Wrapped<bool?>? printNoteOnPO,
-      Wrapped<bool?>? printNoteOnQuote,
-      Wrapped<bool?>? printNoteOnReturnList,
-      Wrapped<bool?>? printNoteOnPoReceiveList,
-      Wrapped<bool?>? printNoteOnPoReturnList,
-      Wrapped<String?>? assetAccountId,
-      Wrapped<String?>? assetAccountNo,
-      Wrapped<String?>? assetAccountDescription,
-      Wrapped<String?>? incomeAccountId,
-      Wrapped<String?>? incomeAccountNo,
-      Wrapped<String?>? incomeAccountDescription,
-      Wrapped<String?>? subIncomeAccountId,
-      Wrapped<String?>? subIncomeAccountNo,
-      Wrapped<String?>? subIncomeAccountDescription,
-      Wrapped<String?>? consignmentIncomeAccountId,
-      Wrapped<String?>? consignmentIncomeAccountNo,
-      Wrapped<String?>? consignmentIncomeAccountDescription,
-      Wrapped<String?>? ldIncomeAccountId,
-      Wrapped<String?>? ldIncomeAccountNo,
-      Wrapped<String?>? ldIncomeAccountDescription,
-      Wrapped<String?>? equipmentSaleIncomeAccountId,
-      Wrapped<String?>? equipmentSaleIncomeAccountNo,
-      Wrapped<String?>? equipmentSaleIncomeAccountDescription,
-      Wrapped<String?>? expenseAccountId,
-      Wrapped<String?>? expenseAccountNo,
-      Wrapped<String?>? expenseAccountDescription,
-      Wrapped<String?>? costOfGoodsSoldExpenseAccountId,
-      Wrapped<String?>? costOfGoodsSoldExpenseAccountNo,
-      Wrapped<String?>? costOfGoodsSoldExpenseAccountDescription,
-      Wrapped<String?>? costOfGoodsRentedExpenseAccountId,
-      Wrapped<String?>? costOfGoodsRentedExpenseAccountNo,
-      Wrapped<String?>? costOfGoodsRentedExpenseAccountDescription,
-      Wrapped<String?>? depreciationExpenseAccountId,
-      Wrapped<String?>? depreciationExpenseAccountNo,
-      Wrapped<String?>? depreciationExpenseAccountDescription,
-      Wrapped<String?>? accumulatedDepreciationExpenseAccountId,
-      Wrapped<String?>? accumulatedDepreciationExpenseAccountNo,
-      Wrapped<String?>? accumulatedDepreciationExpenseAccountDescription,
-      Wrapped<String?>? inputDate,
-      Wrapped<String?>? inputByUsersId,
-      Wrapped<String?>? category2,
-      Wrapped<String?>? class2,
-      Wrapped<String?>? stockClass,
-      Wrapped<String?>? webTitle,
-      Wrapped<bool?>? inactive,
-      Wrapped<String?>? dateStamp,
-      Wrapped<bool?>? manifestShippingContainer,
-      Wrapped<bool?>? manifestStandAloneItem,
-      Wrapped<bool?>? taxableForMyLocation,
-      Wrapped<String?>? myLocationId,
-      Wrapped<bool?>? taxableForAllLocations,
-      Wrapped<String?>? auditNote,
-      Wrapped<String?>? recordTitle,
-      Wrapped<dynamic>? urlIdentifier,
-      Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-          fields,
-      Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-      Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-      Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-      Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-      Wrapped<bool?>? hasImport,
-      Wrapped<String?>? createdByUserId,
-      Wrapped<String?>? createdByUserName,
-      Wrapped<String?>? createdDateTime,
-      Wrapped<String?>? modifiedByUserId,
-      Wrapped<String?>? modifiedByUserName,
-      Wrapped<String?>? modifiedDateTime}) {
+  WebApiModulesInventoryRentalInventoryRentalInventory copyWithWrapped({
+    Wrapped<String?>? rentalInventoryId,
+    Wrapped<String?>? inventoryId,
+    Wrapped<bool?>? excludeFromReturnOnAsset,
+    Wrapped<bool?>? isFixedAsset,
+    Wrapped<bool?>? isFixedContainer,
+    Wrapped<bool?>? multiAssignRFIDs,
+    Wrapped<bool?>? allowFlexibleContainer,
+    Wrapped<double?>? minimumDaysPerWeek,
+    Wrapped<bool?>? showAssetAvailability,
+    Wrapped<String?>? assetAvailabilityWarehouseIds,
+    Wrapped<String?>? openingId,
+    Wrapped<String?>? opening,
+    Wrapped<String?>? wallTypeId,
+    Wrapped<String?>? wallType,
+    Wrapped<String?>? surfaceId,
+    Wrapped<String?>? surface,
+    Wrapped<String?>? conditionId,
+    Wrapped<String?>? condition,
+    Wrapped<String?>? originalShowId,
+    Wrapped<String?>? originalShow,
+    Wrapped<int?>? wallWidthFt,
+    Wrapped<int?>? wallWidthIn,
+    Wrapped<int?>? wallHeightFt,
+    Wrapped<int?>? wallHeightIn,
+    Wrapped<int?>? wallLengthFt,
+    Wrapped<int?>? wallLengthIn,
+    Wrapped<bool?>? treatConsignedQtyAsOwned,
+    Wrapped<double?>? dailyRate,
+    Wrapped<double?>? weeklyRate,
+    Wrapped<double?>? week2Rate,
+    Wrapped<double?>? week3Rate,
+    Wrapped<double?>? week4Rate,
+    Wrapped<double?>? week5Rate,
+    Wrapped<double?>? monthlyRate,
+    Wrapped<double?>? unitValue,
+    Wrapped<double?>? replacementCost,
+    Wrapped<String?>? sourceId,
+    Wrapped<bool?>? qcRequiredForMyWarehouse,
+    Wrapped<String?>? myWarehouseId,
+    Wrapped<bool?>? qcRequiredForAllWarehouses,
+    Wrapped<double?>? unitValueForAllWarehouses,
+    Wrapped<double?>? replacementCostForAllWarehouses,
+    Wrapped<String?>? inventoryTypeId,
+    Wrapped<String?>? inventoryType,
+    Wrapped<String?>? availableFrom,
+    Wrapped<String?>? trackedBy,
+    Wrapped<String?>? confirmTrackedBy,
+    Wrapped<String?>? rank,
+    Wrapped<String?>? manufacturerPartNumber,
+    Wrapped<String?>? manufacturerId,
+    Wrapped<String?>? manufacturer,
+    Wrapped<String?>? manufacturerUrl,
+    Wrapped<bool?>? excludeImageFromQuoteOrderPrint,
+    Wrapped<bool?>? noAvailabilityCheck,
+    Wrapped<bool?>? availabilityManuallyResolveConflicts,
+    Wrapped<bool?>? sendAvailabilityAlert,
+    Wrapped<String?>? primaryDimensionUniqueId,
+    Wrapped<String?>? defaultImperialMetric,
+    Wrapped<String?>? primaryDimensionDescription,
+    Wrapped<int?>? primaryDimensionShipWeightLbs,
+    Wrapped<int?>? primaryDimensionShipWeightOz,
+    Wrapped<int?>? primaryDimensionWeightInCaseLbs,
+    Wrapped<int?>? primaryDimensionWeightInCaseOz,
+    Wrapped<int?>? primaryDimensionWidthFt,
+    Wrapped<int?>? primaryDimensionWidthIn,
+    Wrapped<int?>? primaryDimensionHeightFt,
+    Wrapped<int?>? primaryDimensionHeightIn,
+    Wrapped<int?>? primaryDimensionLengthFt,
+    Wrapped<int?>? primaryDimensionLengthIn,
+    Wrapped<int?>? primaryDimensionShipWeightKg,
+    Wrapped<int?>? primaryDimensionShipWeightG,
+    Wrapped<int?>? primaryDimensionWeightInCaseKg,
+    Wrapped<int?>? primaryDimensionWeightInCaseG,
+    Wrapped<int?>? primaryDimensionWidthM,
+    Wrapped<int?>? primaryDimensionWidthCm,
+    Wrapped<int?>? primaryDimensionHeightM,
+    Wrapped<int?>? primaryDimensionHeightCm,
+    Wrapped<int?>? primaryDimensionLengthM,
+    Wrapped<int?>? primaryDimensionLengthCm,
+    Wrapped<bool?>? hasSecondaryDimensions,
+    Wrapped<String?>? secondaryDimensionUniqueId,
+    Wrapped<String?>? secondaryDimensionDescription,
+    Wrapped<int?>? secondaryDimensionShipWeightLbs,
+    Wrapped<int?>? secondaryDimensionShipWeightOz,
+    Wrapped<int?>? secondaryDimensionWeightInCaseLbs,
+    Wrapped<int?>? secondaryDimensionWeightInCaseOz,
+    Wrapped<int?>? secondaryDimensionWidthFt,
+    Wrapped<int?>? secondaryDimensionWidthIn,
+    Wrapped<int?>? secondaryDimensionHeightFt,
+    Wrapped<int?>? secondaryDimensionHeightIn,
+    Wrapped<int?>? secondaryDimensionLengthFt,
+    Wrapped<int?>? secondaryDimensionLengthIn,
+    Wrapped<int?>? secondaryDimensionShipWeightKg,
+    Wrapped<int?>? secondaryDimensionShipWeightG,
+    Wrapped<int?>? secondaryDimensionWeightInCaseKg,
+    Wrapped<int?>? secondaryDimensionWeightInCaseG,
+    Wrapped<int?>? secondaryDimensionWidthM,
+    Wrapped<int?>? secondaryDimensionWidthCm,
+    Wrapped<int?>? secondaryDimensionHeightM,
+    Wrapped<int?>? secondaryDimensionHeightCm,
+    Wrapped<int?>? secondaryDimensionLengthM,
+    Wrapped<int?>? secondaryDimensionLengthCm,
+    Wrapped<String?>? countryOfOriginId,
+    Wrapped<String?>? countryOfOrigin,
+    Wrapped<bool?>? displayInSummaryModeWhenRateIsZero,
+    Wrapped<bool?>? qcRequired,
+    Wrapped<String?>? qcTime,
+    Wrapped<bool?>? copyAttributesAsNote,
+    Wrapped<bool?>? trackAssetUsage,
+    Wrapped<bool?>? trackLampUsage,
+    Wrapped<bool?>? trackStrikes,
+    Wrapped<bool?>? trackCandles,
+    Wrapped<int?>? lampCount,
+    Wrapped<int?>? minimumFootCandles,
+    Wrapped<bool?>? trackSoftware,
+    Wrapped<String?>? softwareVersion,
+    Wrapped<String?>? softwareEffectiveDate,
+    Wrapped<bool?>? warehouseSpecificPackage,
+    Wrapped<String?>? completePackagePrice,
+    Wrapped<String?>? kitPackagePrice,
+    Wrapped<bool?>? separatePackageOnQuoteOrder,
+    Wrapped<String?>? containerId,
+    Wrapped<String?>? containerScannableInventoryId,
+    Wrapped<String?>? containerScannableICode,
+    Wrapped<String?>? containerScannableDescription,
+    Wrapped<bool?>? automaticallyRebuildContainerAtCheckIn,
+    Wrapped<bool?>? automaticallyCheckInEntireContainerWithScannableItem,
+    Wrapped<bool?>? automaticallyRebuildContainerAtTransferIn,
+    Wrapped<bool?>? automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
+    Wrapped<bool?>? automaticallyTransferInEntireContainerWithScannableItem,
+    Wrapped<String?>? containerStagingRule,
+    Wrapped<bool?>? excludeContainedItemsFromAvailability,
+    Wrapped<bool?>? useContainerNumber,
+    Wrapped<String?>? containerPackingListBehavior,
+    Wrapped<bool?>? inventoryTypeIsWardrobe,
+    Wrapped<bool?>? inventoryTypeIsSets,
+    Wrapped<String?>? patternId,
+    Wrapped<String?>? pattern,
+    Wrapped<String?>? periodId,
+    Wrapped<String?>? period,
+    Wrapped<String?>? materialId,
+    Wrapped<String?>? material,
+    Wrapped<String?>? genderId,
+    Wrapped<String?>? gender,
+    Wrapped<String?>? labelId,
+    Wrapped<String?>? label,
+    Wrapped<String?>? wardrobeSize,
+    Wrapped<int?>? wardrobePieceCount,
+    Wrapped<bool?>? dyed,
+    Wrapped<String?>? wardrobeSourceId,
+    Wrapped<String?>? wardrobeSource,
+    Wrapped<String?>? wardrobeCareId,
+    Wrapped<String?>? wardrobeCare,
+    Wrapped<double?>? cleaningFeeAmount,
+    Wrapped<String?>? wardrobeDetailedDescription,
+    Wrapped<String?>? webDetailedDescription,
+    Wrapped<String?>? technicalNotes,
+    Wrapped<bool?>? allocateRevenueForAccessories,
+    Wrapped<String?>? packageRevenueCalculationFormula,
+    Wrapped<bool?>? isHazardousMaterial,
+    Wrapped<String?>? descriptionWithAkas,
+    Wrapped<String?>? costCalculation,
+    Wrapped<bool?>? noChargePrint,
+    Wrapped<double?>? quantity,
+    Wrapped<double?>? quantityIn,
+    Wrapped<double?>? quantityStaged,
+    Wrapped<double?>? quantityOut,
+    Wrapped<double?>? quantityInContainer,
+    Wrapped<double?>? quantityInRepair,
+    Wrapped<double?>? quantityInTransit,
+    Wrapped<double?>? quantityOnTruck,
+    Wrapped<double?>? totalQuantity,
+    Wrapped<double?>? lastPurchasePrice,
+    Wrapped<String?>? aisleLocation,
+    Wrapped<String?>? shelfLocation,
+    Wrapped<bool?>? taxable,
+    Wrapped<String?>? dateOfLastPhysicalInventory,
+    Wrapped<bool?>? hasImage,
+    Wrapped<bool?>? hasDimensionsImage,
+    Wrapped<bool?>? stagingUnreadyContainer,
+    Wrapped<bool?>? disableMiscDescriptionChange,
+    Wrapped<String?>? iCode,
+    Wrapped<String?>? description,
+    Wrapped<String?>? availFor,
+    Wrapped<String?>? categoryId,
+    Wrapped<String?>? category,
+    Wrapped<int?>? subCategoryCount,
+    Wrapped<String?>? subCategoryId,
+    Wrapped<String?>? subCategory,
+    Wrapped<String?>? classification,
+    Wrapped<String?>? classificationDescription,
+    Wrapped<String?>? classificationColor,
+    Wrapped<String?>? unitId,
+    Wrapped<String?>? unit,
+    Wrapped<String?>? unitType,
+    Wrapped<bool?>? nonDiscountable,
+    Wrapped<bool?>? overrideProfitAndLossCategory,
+    Wrapped<String?>? profitAndLossCategoryId,
+    Wrapped<String?>? profitAndLossCategory,
+    Wrapped<bool?>? autoCopyNotesToQuoteOrder,
+    Wrapped<String?>? note,
+    Wrapped<bool?>? printNoteOnInContract,
+    Wrapped<bool?>? printNoteOnOutContract,
+    Wrapped<bool?>? printNoteOnReceiveContract,
+    Wrapped<bool?>? printNoteOnReturnContract,
+    Wrapped<bool?>? printNoteOnInvoice,
+    Wrapped<bool?>? printNoteOnOrder,
+    Wrapped<bool?>? printNoteOnPickList,
+    Wrapped<bool?>? printNoteOnPO,
+    Wrapped<bool?>? printNoteOnQuote,
+    Wrapped<bool?>? printNoteOnReturnList,
+    Wrapped<bool?>? printNoteOnPoReceiveList,
+    Wrapped<bool?>? printNoteOnPoReturnList,
+    Wrapped<String?>? assetAccountId,
+    Wrapped<String?>? assetAccountNo,
+    Wrapped<String?>? assetAccountDescription,
+    Wrapped<String?>? incomeAccountId,
+    Wrapped<String?>? incomeAccountNo,
+    Wrapped<String?>? incomeAccountDescription,
+    Wrapped<String?>? subIncomeAccountId,
+    Wrapped<String?>? subIncomeAccountNo,
+    Wrapped<String?>? subIncomeAccountDescription,
+    Wrapped<String?>? consignmentIncomeAccountId,
+    Wrapped<String?>? consignmentIncomeAccountNo,
+    Wrapped<String?>? consignmentIncomeAccountDescription,
+    Wrapped<String?>? ldIncomeAccountId,
+    Wrapped<String?>? ldIncomeAccountNo,
+    Wrapped<String?>? ldIncomeAccountDescription,
+    Wrapped<String?>? equipmentSaleIncomeAccountId,
+    Wrapped<String?>? equipmentSaleIncomeAccountNo,
+    Wrapped<String?>? equipmentSaleIncomeAccountDescription,
+    Wrapped<String?>? expenseAccountId,
+    Wrapped<String?>? expenseAccountNo,
+    Wrapped<String?>? expenseAccountDescription,
+    Wrapped<String?>? costOfGoodsSoldExpenseAccountId,
+    Wrapped<String?>? costOfGoodsSoldExpenseAccountNo,
+    Wrapped<String?>? costOfGoodsSoldExpenseAccountDescription,
+    Wrapped<String?>? costOfGoodsRentedExpenseAccountId,
+    Wrapped<String?>? costOfGoodsRentedExpenseAccountNo,
+    Wrapped<String?>? costOfGoodsRentedExpenseAccountDescription,
+    Wrapped<String?>? depreciationExpenseAccountId,
+    Wrapped<String?>? depreciationExpenseAccountNo,
+    Wrapped<String?>? depreciationExpenseAccountDescription,
+    Wrapped<String?>? accumulatedDepreciationExpenseAccountId,
+    Wrapped<String?>? accumulatedDepreciationExpenseAccountNo,
+    Wrapped<String?>? accumulatedDepreciationExpenseAccountDescription,
+    Wrapped<String?>? inputDate,
+    Wrapped<String?>? inputByUsersId,
+    Wrapped<String?>? category2,
+    Wrapped<String?>? class2,
+    Wrapped<String?>? stockClass,
+    Wrapped<String?>? webTitle,
+    Wrapped<bool?>? inactive,
+    Wrapped<String?>? dateStamp,
+    Wrapped<bool?>? manifestShippingContainer,
+    Wrapped<bool?>? manifestStandAloneItem,
+    Wrapped<bool?>? taxableForMyLocation,
+    Wrapped<String?>? myLocationId,
+    Wrapped<bool?>? taxableForAllLocations,
+    Wrapped<String?>? auditNote,
+    Wrapped<String?>? recordTitle,
+    Wrapped<dynamic>? urlIdentifier,
+    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+    fields,
+    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+    Wrapped<bool?>? hasImport,
+    Wrapped<String?>? createdByUserId,
+    Wrapped<String?>? createdByUserName,
+    Wrapped<String?>? createdDateTime,
+    Wrapped<String?>? modifiedByUserId,
+    Wrapped<String?>? modifiedByUserName,
+    Wrapped<String?>? modifiedDateTime,
+  }) {
     return WebApiModulesInventoryRentalInventoryRentalInventory(
-        rentalInventoryId: (rentalInventoryId != null
-            ? rentalInventoryId.value
-            : this.rentalInventoryId),
-        inventoryId:
-            (inventoryId != null ? inventoryId.value : this.inventoryId),
-        excludeFromReturnOnAsset: (excludeFromReturnOnAsset != null
-            ? excludeFromReturnOnAsset.value
-            : this.excludeFromReturnOnAsset),
-        isFixedAsset:
-            (isFixedAsset != null ? isFixedAsset.value : this.isFixedAsset),
-        isFixedContainer: (isFixedContainer != null
-            ? isFixedContainer.value
-            : this.isFixedContainer),
-        multiAssignRFIDs: (multiAssignRFIDs != null
-            ? multiAssignRFIDs.value
-            : this.multiAssignRFIDs),
-        allowFlexibleContainer: (allowFlexibleContainer != null
-            ? allowFlexibleContainer.value
-            : this.allowFlexibleContainer),
-        minimumDaysPerWeek: (minimumDaysPerWeek != null
-            ? minimumDaysPerWeek.value
-            : this.minimumDaysPerWeek),
-        showAssetAvailability: (showAssetAvailability != null
-            ? showAssetAvailability.value
-            : this.showAssetAvailability),
-        assetAvailabilityWarehouseIds: (assetAvailabilityWarehouseIds != null
-            ? assetAvailabilityWarehouseIds.value
-            : this.assetAvailabilityWarehouseIds),
-        openingId: (openingId != null ? openingId.value : this.openingId),
-        opening: (opening != null ? opening.value : this.opening),
-        wallTypeId: (wallTypeId != null ? wallTypeId.value : this.wallTypeId),
-        wallType: (wallType != null ? wallType.value : this.wallType),
-        surfaceId: (surfaceId != null ? surfaceId.value : this.surfaceId),
-        surface: (surface != null ? surface.value : this.surface),
-        conditionId:
-            (conditionId != null ? conditionId.value : this.conditionId),
-        condition: (condition != null ? condition.value : this.condition),
-        originalShowId: (originalShowId != null
-            ? originalShowId.value
-            : this.originalShowId),
-        originalShow:
-            (originalShow != null ? originalShow.value : this.originalShow),
-        wallWidthFt:
-            (wallWidthFt != null ? wallWidthFt.value : this.wallWidthFt),
-        wallWidthIn:
-            (wallWidthIn != null ? wallWidthIn.value : this.wallWidthIn),
-        wallHeightFt:
-            (wallHeightFt != null ? wallHeightFt.value : this.wallHeightFt),
-        wallHeightIn:
-            (wallHeightIn != null ? wallHeightIn.value : this.wallHeightIn),
-        wallLengthFt:
-            (wallLengthFt != null ? wallLengthFt.value : this.wallLengthFt),
-        wallLengthIn:
-            (wallLengthIn != null ? wallLengthIn.value : this.wallLengthIn),
-        treatConsignedQtyAsOwned: (treatConsignedQtyAsOwned != null
-            ? treatConsignedQtyAsOwned.value
-            : this.treatConsignedQtyAsOwned),
-        dailyRate: (dailyRate != null ? dailyRate.value : this.dailyRate),
-        weeklyRate: (weeklyRate != null ? weeklyRate.value : this.weeklyRate),
-        week2Rate: (week2Rate != null ? week2Rate.value : this.week2Rate),
-        week3Rate: (week3Rate != null ? week3Rate.value : this.week3Rate),
-        week4Rate: (week4Rate != null ? week4Rate.value : this.week4Rate),
-        week5Rate: (week5Rate != null ? week5Rate.value : this.week5Rate),
-        monthlyRate:
-            (monthlyRate != null ? monthlyRate.value : this.monthlyRate),
-        unitValue: (unitValue != null ? unitValue.value : this.unitValue),
-        replacementCost: (replacementCost != null
-            ? replacementCost.value
-            : this.replacementCost),
-        sourceId: (sourceId != null ? sourceId.value : this.sourceId),
-        qcRequiredForMyWarehouse: (qcRequiredForMyWarehouse != null
-            ? qcRequiredForMyWarehouse.value
-            : this.qcRequiredForMyWarehouse),
-        myWarehouseId:
-            (myWarehouseId != null ? myWarehouseId.value : this.myWarehouseId),
-        qcRequiredForAllWarehouses: (qcRequiredForAllWarehouses != null
-            ? qcRequiredForAllWarehouses.value
-            : this.qcRequiredForAllWarehouses),
-        unitValueForAllWarehouses: (unitValueForAllWarehouses != null
-            ? unitValueForAllWarehouses.value
-            : this.unitValueForAllWarehouses),
-        replacementCostForAllWarehouses: (replacementCostForAllWarehouses != null
-            ? replacementCostForAllWarehouses.value
-            : this.replacementCostForAllWarehouses),
-        inventoryTypeId: (inventoryTypeId != null
-            ? inventoryTypeId.value
-            : this.inventoryTypeId),
-        inventoryType:
-            (inventoryType != null ? inventoryType.value : this.inventoryType),
-        availableFrom:
-            (availableFrom != null ? availableFrom.value : this.availableFrom),
-        trackedBy: (trackedBy != null ? trackedBy.value : this.trackedBy),
-        confirmTrackedBy: (confirmTrackedBy != null
-            ? confirmTrackedBy.value
-            : this.confirmTrackedBy),
-        rank: (rank != null ? rank.value : this.rank),
-        manufacturerPartNumber: (manufacturerPartNumber != null
-            ? manufacturerPartNumber.value
-            : this.manufacturerPartNumber),
-        manufacturerId: (manufacturerId != null
-            ? manufacturerId.value
-            : this.manufacturerId),
-        manufacturer:
-            (manufacturer != null ? manufacturer.value : this.manufacturer),
-        manufacturerUrl: (manufacturerUrl != null
-            ? manufacturerUrl.value
-            : this.manufacturerUrl),
-        excludeImageFromQuoteOrderPrint: (excludeImageFromQuoteOrderPrint != null
-            ? excludeImageFromQuoteOrderPrint.value
-            : this.excludeImageFromQuoteOrderPrint),
-        noAvailabilityCheck: (noAvailabilityCheck != null
-            ? noAvailabilityCheck.value
-            : this.noAvailabilityCheck),
-        availabilityManuallyResolveConflicts: (availabilityManuallyResolveConflicts != null
-            ? availabilityManuallyResolveConflicts.value
-            : this.availabilityManuallyResolveConflicts),
-        sendAvailabilityAlert: (sendAvailabilityAlert != null
-            ? sendAvailabilityAlert.value
-            : this.sendAvailabilityAlert),
-        primaryDimensionUniqueId: (primaryDimensionUniqueId != null
-            ? primaryDimensionUniqueId.value
-            : this.primaryDimensionUniqueId),
-        defaultImperialMetric: (defaultImperialMetric != null
-            ? defaultImperialMetric.value
-            : this.defaultImperialMetric),
-        primaryDimensionDescription: (primaryDimensionDescription != null
-            ? primaryDimensionDescription.value
-            : this.primaryDimensionDescription),
-        primaryDimensionShipWeightLbs: (primaryDimensionShipWeightLbs != null
-            ? primaryDimensionShipWeightLbs.value
-            : this.primaryDimensionShipWeightLbs),
-        primaryDimensionShipWeightOz: (primaryDimensionShipWeightOz != null
-            ? primaryDimensionShipWeightOz.value
-            : this.primaryDimensionShipWeightOz),
-        primaryDimensionWeightInCaseLbs: (primaryDimensionWeightInCaseLbs != null
-            ? primaryDimensionWeightInCaseLbs.value
-            : this.primaryDimensionWeightInCaseLbs),
-        primaryDimensionWeightInCaseOz: (primaryDimensionWeightInCaseOz != null ? primaryDimensionWeightInCaseOz.value : this.primaryDimensionWeightInCaseOz),
-        primaryDimensionWidthFt: (primaryDimensionWidthFt != null ? primaryDimensionWidthFt.value : this.primaryDimensionWidthFt),
-        primaryDimensionWidthIn: (primaryDimensionWidthIn != null ? primaryDimensionWidthIn.value : this.primaryDimensionWidthIn),
-        primaryDimensionHeightFt: (primaryDimensionHeightFt != null ? primaryDimensionHeightFt.value : this.primaryDimensionHeightFt),
-        primaryDimensionHeightIn: (primaryDimensionHeightIn != null ? primaryDimensionHeightIn.value : this.primaryDimensionHeightIn),
-        primaryDimensionLengthFt: (primaryDimensionLengthFt != null ? primaryDimensionLengthFt.value : this.primaryDimensionLengthFt),
-        primaryDimensionLengthIn: (primaryDimensionLengthIn != null ? primaryDimensionLengthIn.value : this.primaryDimensionLengthIn),
-        primaryDimensionShipWeightKg: (primaryDimensionShipWeightKg != null ? primaryDimensionShipWeightKg.value : this.primaryDimensionShipWeightKg),
-        primaryDimensionShipWeightG: (primaryDimensionShipWeightG != null ? primaryDimensionShipWeightG.value : this.primaryDimensionShipWeightG),
-        primaryDimensionWeightInCaseKg: (primaryDimensionWeightInCaseKg != null ? primaryDimensionWeightInCaseKg.value : this.primaryDimensionWeightInCaseKg),
-        primaryDimensionWeightInCaseG: (primaryDimensionWeightInCaseG != null ? primaryDimensionWeightInCaseG.value : this.primaryDimensionWeightInCaseG),
-        primaryDimensionWidthM: (primaryDimensionWidthM != null ? primaryDimensionWidthM.value : this.primaryDimensionWidthM),
-        primaryDimensionWidthCm: (primaryDimensionWidthCm != null ? primaryDimensionWidthCm.value : this.primaryDimensionWidthCm),
-        primaryDimensionHeightM: (primaryDimensionHeightM != null ? primaryDimensionHeightM.value : this.primaryDimensionHeightM),
-        primaryDimensionHeightCm: (primaryDimensionHeightCm != null ? primaryDimensionHeightCm.value : this.primaryDimensionHeightCm),
-        primaryDimensionLengthM: (primaryDimensionLengthM != null ? primaryDimensionLengthM.value : this.primaryDimensionLengthM),
-        primaryDimensionLengthCm: (primaryDimensionLengthCm != null ? primaryDimensionLengthCm.value : this.primaryDimensionLengthCm),
-        hasSecondaryDimensions: (hasSecondaryDimensions != null ? hasSecondaryDimensions.value : this.hasSecondaryDimensions),
-        secondaryDimensionUniqueId: (secondaryDimensionUniqueId != null ? secondaryDimensionUniqueId.value : this.secondaryDimensionUniqueId),
-        secondaryDimensionDescription: (secondaryDimensionDescription != null ? secondaryDimensionDescription.value : this.secondaryDimensionDescription),
-        secondaryDimensionShipWeightLbs: (secondaryDimensionShipWeightLbs != null ? secondaryDimensionShipWeightLbs.value : this.secondaryDimensionShipWeightLbs),
-        secondaryDimensionShipWeightOz: (secondaryDimensionShipWeightOz != null ? secondaryDimensionShipWeightOz.value : this.secondaryDimensionShipWeightOz),
-        secondaryDimensionWeightInCaseLbs: (secondaryDimensionWeightInCaseLbs != null ? secondaryDimensionWeightInCaseLbs.value : this.secondaryDimensionWeightInCaseLbs),
-        secondaryDimensionWeightInCaseOz: (secondaryDimensionWeightInCaseOz != null ? secondaryDimensionWeightInCaseOz.value : this.secondaryDimensionWeightInCaseOz),
-        secondaryDimensionWidthFt: (secondaryDimensionWidthFt != null ? secondaryDimensionWidthFt.value : this.secondaryDimensionWidthFt),
-        secondaryDimensionWidthIn: (secondaryDimensionWidthIn != null ? secondaryDimensionWidthIn.value : this.secondaryDimensionWidthIn),
-        secondaryDimensionHeightFt: (secondaryDimensionHeightFt != null ? secondaryDimensionHeightFt.value : this.secondaryDimensionHeightFt),
-        secondaryDimensionHeightIn: (secondaryDimensionHeightIn != null ? secondaryDimensionHeightIn.value : this.secondaryDimensionHeightIn),
-        secondaryDimensionLengthFt: (secondaryDimensionLengthFt != null ? secondaryDimensionLengthFt.value : this.secondaryDimensionLengthFt),
-        secondaryDimensionLengthIn: (secondaryDimensionLengthIn != null ? secondaryDimensionLengthIn.value : this.secondaryDimensionLengthIn),
-        secondaryDimensionShipWeightKg: (secondaryDimensionShipWeightKg != null ? secondaryDimensionShipWeightKg.value : this.secondaryDimensionShipWeightKg),
-        secondaryDimensionShipWeightG: (secondaryDimensionShipWeightG != null ? secondaryDimensionShipWeightG.value : this.secondaryDimensionShipWeightG),
-        secondaryDimensionWeightInCaseKg: (secondaryDimensionWeightInCaseKg != null ? secondaryDimensionWeightInCaseKg.value : this.secondaryDimensionWeightInCaseKg),
-        secondaryDimensionWeightInCaseG: (secondaryDimensionWeightInCaseG != null ? secondaryDimensionWeightInCaseG.value : this.secondaryDimensionWeightInCaseG),
-        secondaryDimensionWidthM: (secondaryDimensionWidthM != null ? secondaryDimensionWidthM.value : this.secondaryDimensionWidthM),
-        secondaryDimensionWidthCm: (secondaryDimensionWidthCm != null ? secondaryDimensionWidthCm.value : this.secondaryDimensionWidthCm),
-        secondaryDimensionHeightM: (secondaryDimensionHeightM != null ? secondaryDimensionHeightM.value : this.secondaryDimensionHeightM),
-        secondaryDimensionHeightCm: (secondaryDimensionHeightCm != null ? secondaryDimensionHeightCm.value : this.secondaryDimensionHeightCm),
-        secondaryDimensionLengthM: (secondaryDimensionLengthM != null ? secondaryDimensionLengthM.value : this.secondaryDimensionLengthM),
-        secondaryDimensionLengthCm: (secondaryDimensionLengthCm != null ? secondaryDimensionLengthCm.value : this.secondaryDimensionLengthCm),
-        countryOfOriginId: (countryOfOriginId != null ? countryOfOriginId.value : this.countryOfOriginId),
-        countryOfOrigin: (countryOfOrigin != null ? countryOfOrigin.value : this.countryOfOrigin),
-        displayInSummaryModeWhenRateIsZero: (displayInSummaryModeWhenRateIsZero != null ? displayInSummaryModeWhenRateIsZero.value : this.displayInSummaryModeWhenRateIsZero),
-        qcRequired: (qcRequired != null ? qcRequired.value : this.qcRequired),
-        qcTime: (qcTime != null ? qcTime.value : this.qcTime),
-        copyAttributesAsNote: (copyAttributesAsNote != null ? copyAttributesAsNote.value : this.copyAttributesAsNote),
-        trackAssetUsage: (trackAssetUsage != null ? trackAssetUsage.value : this.trackAssetUsage),
-        trackLampUsage: (trackLampUsage != null ? trackLampUsage.value : this.trackLampUsage),
-        trackStrikes: (trackStrikes != null ? trackStrikes.value : this.trackStrikes),
-        trackCandles: (trackCandles != null ? trackCandles.value : this.trackCandles),
-        lampCount: (lampCount != null ? lampCount.value : this.lampCount),
-        minimumFootCandles: (minimumFootCandles != null ? minimumFootCandles.value : this.minimumFootCandles),
-        trackSoftware: (trackSoftware != null ? trackSoftware.value : this.trackSoftware),
-        softwareVersion: (softwareVersion != null ? softwareVersion.value : this.softwareVersion),
-        softwareEffectiveDate: (softwareEffectiveDate != null ? softwareEffectiveDate.value : this.softwareEffectiveDate),
-        warehouseSpecificPackage: (warehouseSpecificPackage != null ? warehouseSpecificPackage.value : this.warehouseSpecificPackage),
-        completePackagePrice: (completePackagePrice != null ? completePackagePrice.value : this.completePackagePrice),
-        kitPackagePrice: (kitPackagePrice != null ? kitPackagePrice.value : this.kitPackagePrice),
-        separatePackageOnQuoteOrder: (separatePackageOnQuoteOrder != null ? separatePackageOnQuoteOrder.value : this.separatePackageOnQuoteOrder),
-        containerId: (containerId != null ? containerId.value : this.containerId),
-        containerScannableInventoryId: (containerScannableInventoryId != null ? containerScannableInventoryId.value : this.containerScannableInventoryId),
-        containerScannableICode: (containerScannableICode != null ? containerScannableICode.value : this.containerScannableICode),
-        containerScannableDescription: (containerScannableDescription != null ? containerScannableDescription.value : this.containerScannableDescription),
-        automaticallyRebuildContainerAtCheckIn: (automaticallyRebuildContainerAtCheckIn != null ? automaticallyRebuildContainerAtCheckIn.value : this.automaticallyRebuildContainerAtCheckIn),
-        automaticallyCheckInEntireContainerWithScannableItem: (automaticallyCheckInEntireContainerWithScannableItem != null ? automaticallyCheckInEntireContainerWithScannableItem.value : this.automaticallyCheckInEntireContainerWithScannableItem),
-        automaticallyRebuildContainerAtTransferIn: (automaticallyRebuildContainerAtTransferIn != null ? automaticallyRebuildContainerAtTransferIn.value : this.automaticallyRebuildContainerAtTransferIn),
-        automaticallyCountAllItemsWhenPhysicalInventoryInitiated: (automaticallyCountAllItemsWhenPhysicalInventoryInitiated != null ? automaticallyCountAllItemsWhenPhysicalInventoryInitiated.value : this.automaticallyCountAllItemsWhenPhysicalInventoryInitiated),
-        automaticallyTransferInEntireContainerWithScannableItem: (automaticallyTransferInEntireContainerWithScannableItem != null ? automaticallyTransferInEntireContainerWithScannableItem.value : this.automaticallyTransferInEntireContainerWithScannableItem),
-        containerStagingRule: (containerStagingRule != null ? containerStagingRule.value : this.containerStagingRule),
-        excludeContainedItemsFromAvailability: (excludeContainedItemsFromAvailability != null ? excludeContainedItemsFromAvailability.value : this.excludeContainedItemsFromAvailability),
-        useContainerNumber: (useContainerNumber != null ? useContainerNumber.value : this.useContainerNumber),
-        containerPackingListBehavior: (containerPackingListBehavior != null ? containerPackingListBehavior.value : this.containerPackingListBehavior),
-        inventoryTypeIsWardrobe: (inventoryTypeIsWardrobe != null ? inventoryTypeIsWardrobe.value : this.inventoryTypeIsWardrobe),
-        inventoryTypeIsSets: (inventoryTypeIsSets != null ? inventoryTypeIsSets.value : this.inventoryTypeIsSets),
-        patternId: (patternId != null ? patternId.value : this.patternId),
-        pattern: (pattern != null ? pattern.value : this.pattern),
-        periodId: (periodId != null ? periodId.value : this.periodId),
-        period: (period != null ? period.value : this.period),
-        materialId: (materialId != null ? materialId.value : this.materialId),
-        material: (material != null ? material.value : this.material),
-        genderId: (genderId != null ? genderId.value : this.genderId),
-        gender: (gender != null ? gender.value : this.gender),
-        labelId: (labelId != null ? labelId.value : this.labelId),
-        label: (label != null ? label.value : this.label),
-        wardrobeSize: (wardrobeSize != null ? wardrobeSize.value : this.wardrobeSize),
-        wardrobePieceCount: (wardrobePieceCount != null ? wardrobePieceCount.value : this.wardrobePieceCount),
-        dyed: (dyed != null ? dyed.value : this.dyed),
-        wardrobeSourceId: (wardrobeSourceId != null ? wardrobeSourceId.value : this.wardrobeSourceId),
-        wardrobeSource: (wardrobeSource != null ? wardrobeSource.value : this.wardrobeSource),
-        wardrobeCareId: (wardrobeCareId != null ? wardrobeCareId.value : this.wardrobeCareId),
-        wardrobeCare: (wardrobeCare != null ? wardrobeCare.value : this.wardrobeCare),
-        cleaningFeeAmount: (cleaningFeeAmount != null ? cleaningFeeAmount.value : this.cleaningFeeAmount),
-        wardrobeDetailedDescription: (wardrobeDetailedDescription != null ? wardrobeDetailedDescription.value : this.wardrobeDetailedDescription),
-        webDetailedDescription: (webDetailedDescription != null ? webDetailedDescription.value : this.webDetailedDescription),
-        technicalNotes: (technicalNotes != null ? technicalNotes.value : this.technicalNotes),
-        allocateRevenueForAccessories: (allocateRevenueForAccessories != null ? allocateRevenueForAccessories.value : this.allocateRevenueForAccessories),
-        packageRevenueCalculationFormula: (packageRevenueCalculationFormula != null ? packageRevenueCalculationFormula.value : this.packageRevenueCalculationFormula),
-        isHazardousMaterial: (isHazardousMaterial != null ? isHazardousMaterial.value : this.isHazardousMaterial),
-        descriptionWithAkas: (descriptionWithAkas != null ? descriptionWithAkas.value : this.descriptionWithAkas),
-        costCalculation: (costCalculation != null ? costCalculation.value : this.costCalculation),
-        noChargePrint: (noChargePrint != null ? noChargePrint.value : this.noChargePrint),
-        quantity: (quantity != null ? quantity.value : this.quantity),
-        quantityIn: (quantityIn != null ? quantityIn.value : this.quantityIn),
-        quantityStaged: (quantityStaged != null ? quantityStaged.value : this.quantityStaged),
-        quantityOut: (quantityOut != null ? quantityOut.value : this.quantityOut),
-        quantityInContainer: (quantityInContainer != null ? quantityInContainer.value : this.quantityInContainer),
-        quantityInRepair: (quantityInRepair != null ? quantityInRepair.value : this.quantityInRepair),
-        quantityInTransit: (quantityInTransit != null ? quantityInTransit.value : this.quantityInTransit),
-        quantityOnTruck: (quantityOnTruck != null ? quantityOnTruck.value : this.quantityOnTruck),
-        totalQuantity: (totalQuantity != null ? totalQuantity.value : this.totalQuantity),
-        lastPurchasePrice: (lastPurchasePrice != null ? lastPurchasePrice.value : this.lastPurchasePrice),
-        aisleLocation: (aisleLocation != null ? aisleLocation.value : this.aisleLocation),
-        shelfLocation: (shelfLocation != null ? shelfLocation.value : this.shelfLocation),
-        taxable: (taxable != null ? taxable.value : this.taxable),
-        dateOfLastPhysicalInventory: (dateOfLastPhysicalInventory != null ? dateOfLastPhysicalInventory.value : this.dateOfLastPhysicalInventory),
-        hasImage: (hasImage != null ? hasImage.value : this.hasImage),
-        hasDimensionsImage: (hasDimensionsImage != null ? hasDimensionsImage.value : this.hasDimensionsImage),
-        stagingUnreadyContainer: (stagingUnreadyContainer != null ? stagingUnreadyContainer.value : this.stagingUnreadyContainer),
-        disableMiscDescriptionChange: (disableMiscDescriptionChange != null ? disableMiscDescriptionChange.value : this.disableMiscDescriptionChange),
-        iCode: (iCode != null ? iCode.value : this.iCode),
-        description: (description != null ? description.value : this.description),
-        availFor: (availFor != null ? availFor.value : this.availFor),
-        categoryId: (categoryId != null ? categoryId.value : this.categoryId),
-        category: (category != null ? category.value : this.category),
-        subCategoryCount: (subCategoryCount != null ? subCategoryCount.value : this.subCategoryCount),
-        subCategoryId: (subCategoryId != null ? subCategoryId.value : this.subCategoryId),
-        subCategory: (subCategory != null ? subCategory.value : this.subCategory),
-        classification: (classification != null ? classification.value : this.classification),
-        classificationDescription: (classificationDescription != null ? classificationDescription.value : this.classificationDescription),
-        classificationColor: (classificationColor != null ? classificationColor.value : this.classificationColor),
-        unitId: (unitId != null ? unitId.value : this.unitId),
-        unit: (unit != null ? unit.value : this.unit),
-        unitType: (unitType != null ? unitType.value : this.unitType),
-        nonDiscountable: (nonDiscountable != null ? nonDiscountable.value : this.nonDiscountable),
-        overrideProfitAndLossCategory: (overrideProfitAndLossCategory != null ? overrideProfitAndLossCategory.value : this.overrideProfitAndLossCategory),
-        profitAndLossCategoryId: (profitAndLossCategoryId != null ? profitAndLossCategoryId.value : this.profitAndLossCategoryId),
-        profitAndLossCategory: (profitAndLossCategory != null ? profitAndLossCategory.value : this.profitAndLossCategory),
-        autoCopyNotesToQuoteOrder: (autoCopyNotesToQuoteOrder != null ? autoCopyNotesToQuoteOrder.value : this.autoCopyNotesToQuoteOrder),
-        note: (note != null ? note.value : this.note),
-        printNoteOnInContract: (printNoteOnInContract != null ? printNoteOnInContract.value : this.printNoteOnInContract),
-        printNoteOnOutContract: (printNoteOnOutContract != null ? printNoteOnOutContract.value : this.printNoteOnOutContract),
-        printNoteOnReceiveContract: (printNoteOnReceiveContract != null ? printNoteOnReceiveContract.value : this.printNoteOnReceiveContract),
-        printNoteOnReturnContract: (printNoteOnReturnContract != null ? printNoteOnReturnContract.value : this.printNoteOnReturnContract),
-        printNoteOnInvoice: (printNoteOnInvoice != null ? printNoteOnInvoice.value : this.printNoteOnInvoice),
-        printNoteOnOrder: (printNoteOnOrder != null ? printNoteOnOrder.value : this.printNoteOnOrder),
-        printNoteOnPickList: (printNoteOnPickList != null ? printNoteOnPickList.value : this.printNoteOnPickList),
-        printNoteOnPO: (printNoteOnPO != null ? printNoteOnPO.value : this.printNoteOnPO),
-        printNoteOnQuote: (printNoteOnQuote != null ? printNoteOnQuote.value : this.printNoteOnQuote),
-        printNoteOnReturnList: (printNoteOnReturnList != null ? printNoteOnReturnList.value : this.printNoteOnReturnList),
-        printNoteOnPoReceiveList: (printNoteOnPoReceiveList != null ? printNoteOnPoReceiveList.value : this.printNoteOnPoReceiveList),
-        printNoteOnPoReturnList: (printNoteOnPoReturnList != null ? printNoteOnPoReturnList.value : this.printNoteOnPoReturnList),
-        assetAccountId: (assetAccountId != null ? assetAccountId.value : this.assetAccountId),
-        assetAccountNo: (assetAccountNo != null ? assetAccountNo.value : this.assetAccountNo),
-        assetAccountDescription: (assetAccountDescription != null ? assetAccountDescription.value : this.assetAccountDescription),
-        incomeAccountId: (incomeAccountId != null ? incomeAccountId.value : this.incomeAccountId),
-        incomeAccountNo: (incomeAccountNo != null ? incomeAccountNo.value : this.incomeAccountNo),
-        incomeAccountDescription: (incomeAccountDescription != null ? incomeAccountDescription.value : this.incomeAccountDescription),
-        subIncomeAccountId: (subIncomeAccountId != null ? subIncomeAccountId.value : this.subIncomeAccountId),
-        subIncomeAccountNo: (subIncomeAccountNo != null ? subIncomeAccountNo.value : this.subIncomeAccountNo),
-        subIncomeAccountDescription: (subIncomeAccountDescription != null ? subIncomeAccountDescription.value : this.subIncomeAccountDescription),
-        consignmentIncomeAccountId: (consignmentIncomeAccountId != null ? consignmentIncomeAccountId.value : this.consignmentIncomeAccountId),
-        consignmentIncomeAccountNo: (consignmentIncomeAccountNo != null ? consignmentIncomeAccountNo.value : this.consignmentIncomeAccountNo),
-        consignmentIncomeAccountDescription: (consignmentIncomeAccountDescription != null ? consignmentIncomeAccountDescription.value : this.consignmentIncomeAccountDescription),
-        ldIncomeAccountId: (ldIncomeAccountId != null ? ldIncomeAccountId.value : this.ldIncomeAccountId),
-        ldIncomeAccountNo: (ldIncomeAccountNo != null ? ldIncomeAccountNo.value : this.ldIncomeAccountNo),
-        ldIncomeAccountDescription: (ldIncomeAccountDescription != null ? ldIncomeAccountDescription.value : this.ldIncomeAccountDescription),
-        equipmentSaleIncomeAccountId: (equipmentSaleIncomeAccountId != null ? equipmentSaleIncomeAccountId.value : this.equipmentSaleIncomeAccountId),
-        equipmentSaleIncomeAccountNo: (equipmentSaleIncomeAccountNo != null ? equipmentSaleIncomeAccountNo.value : this.equipmentSaleIncomeAccountNo),
-        equipmentSaleIncomeAccountDescription: (equipmentSaleIncomeAccountDescription != null ? equipmentSaleIncomeAccountDescription.value : this.equipmentSaleIncomeAccountDescription),
-        expenseAccountId: (expenseAccountId != null ? expenseAccountId.value : this.expenseAccountId),
-        expenseAccountNo: (expenseAccountNo != null ? expenseAccountNo.value : this.expenseAccountNo),
-        expenseAccountDescription: (expenseAccountDescription != null ? expenseAccountDescription.value : this.expenseAccountDescription),
-        costOfGoodsSoldExpenseAccountId: (costOfGoodsSoldExpenseAccountId != null ? costOfGoodsSoldExpenseAccountId.value : this.costOfGoodsSoldExpenseAccountId),
-        costOfGoodsSoldExpenseAccountNo: (costOfGoodsSoldExpenseAccountNo != null ? costOfGoodsSoldExpenseAccountNo.value : this.costOfGoodsSoldExpenseAccountNo),
-        costOfGoodsSoldExpenseAccountDescription: (costOfGoodsSoldExpenseAccountDescription != null ? costOfGoodsSoldExpenseAccountDescription.value : this.costOfGoodsSoldExpenseAccountDescription),
-        costOfGoodsRentedExpenseAccountId: (costOfGoodsRentedExpenseAccountId != null ? costOfGoodsRentedExpenseAccountId.value : this.costOfGoodsRentedExpenseAccountId),
-        costOfGoodsRentedExpenseAccountNo: (costOfGoodsRentedExpenseAccountNo != null ? costOfGoodsRentedExpenseAccountNo.value : this.costOfGoodsRentedExpenseAccountNo),
-        costOfGoodsRentedExpenseAccountDescription: (costOfGoodsRentedExpenseAccountDescription != null ? costOfGoodsRentedExpenseAccountDescription.value : this.costOfGoodsRentedExpenseAccountDescription),
-        depreciationExpenseAccountId: (depreciationExpenseAccountId != null ? depreciationExpenseAccountId.value : this.depreciationExpenseAccountId),
-        depreciationExpenseAccountNo: (depreciationExpenseAccountNo != null ? depreciationExpenseAccountNo.value : this.depreciationExpenseAccountNo),
-        depreciationExpenseAccountDescription: (depreciationExpenseAccountDescription != null ? depreciationExpenseAccountDescription.value : this.depreciationExpenseAccountDescription),
-        accumulatedDepreciationExpenseAccountId: (accumulatedDepreciationExpenseAccountId != null ? accumulatedDepreciationExpenseAccountId.value : this.accumulatedDepreciationExpenseAccountId),
-        accumulatedDepreciationExpenseAccountNo: (accumulatedDepreciationExpenseAccountNo != null ? accumulatedDepreciationExpenseAccountNo.value : this.accumulatedDepreciationExpenseAccountNo),
-        accumulatedDepreciationExpenseAccountDescription: (accumulatedDepreciationExpenseAccountDescription != null ? accumulatedDepreciationExpenseAccountDescription.value : this.accumulatedDepreciationExpenseAccountDescription),
-        inputDate: (inputDate != null ? inputDate.value : this.inputDate),
-        inputByUsersId: (inputByUsersId != null ? inputByUsersId.value : this.inputByUsersId),
-        category2: (category2 != null ? category2.value : this.category2),
-        class2: (class2 != null ? class2.value : this.class2),
-        stockClass: (stockClass != null ? stockClass.value : this.stockClass),
-        webTitle: (webTitle != null ? webTitle.value : this.webTitle),
-        inactive: (inactive != null ? inactive.value : this.inactive),
-        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-        manifestShippingContainer: (manifestShippingContainer != null ? manifestShippingContainer.value : this.manifestShippingContainer),
-        manifestStandAloneItem: (manifestStandAloneItem != null ? manifestStandAloneItem.value : this.manifestStandAloneItem),
-        taxableForMyLocation: (taxableForMyLocation != null ? taxableForMyLocation.value : this.taxableForMyLocation),
-        myLocationId: (myLocationId != null ? myLocationId.value : this.myLocationId),
-        taxableForAllLocations: (taxableForAllLocations != null ? taxableForAllLocations.value : this.taxableForAllLocations),
-        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-        recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
-        urlIdentifier: (urlIdentifier != null ? urlIdentifier.value : this.urlIdentifier),
-        fields: (fields != null ? fields.value : this.fields),
-        custom: (custom != null ? custom.value : this.custom),
-        defaultFieldAttributes: (defaultFieldAttributes != null ? defaultFieldAttributes.value : this.defaultFieldAttributes),
-        original: (original != null ? original.value : this.original),
-        translation: (translation != null ? translation.value : this.translation),
-        hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-        createdByUserId: (createdByUserId != null ? createdByUserId.value : this.createdByUserId),
-        createdByUserName: (createdByUserName != null ? createdByUserName.value : this.createdByUserName),
-        createdDateTime: (createdDateTime != null ? createdDateTime.value : this.createdDateTime),
-        modifiedByUserId: (modifiedByUserId != null ? modifiedByUserId.value : this.modifiedByUserId),
-        modifiedByUserName: (modifiedByUserName != null ? modifiedByUserName.value : this.modifiedByUserName),
-        modifiedDateTime: (modifiedDateTime != null ? modifiedDateTime.value : this.modifiedDateTime));
+      rentalInventoryId: (rentalInventoryId != null
+          ? rentalInventoryId.value
+          : this.rentalInventoryId),
+      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
+      excludeFromReturnOnAsset: (excludeFromReturnOnAsset != null
+          ? excludeFromReturnOnAsset.value
+          : this.excludeFromReturnOnAsset),
+      isFixedAsset: (isFixedAsset != null
+          ? isFixedAsset.value
+          : this.isFixedAsset),
+      isFixedContainer: (isFixedContainer != null
+          ? isFixedContainer.value
+          : this.isFixedContainer),
+      multiAssignRFIDs: (multiAssignRFIDs != null
+          ? multiAssignRFIDs.value
+          : this.multiAssignRFIDs),
+      allowFlexibleContainer: (allowFlexibleContainer != null
+          ? allowFlexibleContainer.value
+          : this.allowFlexibleContainer),
+      minimumDaysPerWeek: (minimumDaysPerWeek != null
+          ? minimumDaysPerWeek.value
+          : this.minimumDaysPerWeek),
+      showAssetAvailability: (showAssetAvailability != null
+          ? showAssetAvailability.value
+          : this.showAssetAvailability),
+      assetAvailabilityWarehouseIds: (assetAvailabilityWarehouseIds != null
+          ? assetAvailabilityWarehouseIds.value
+          : this.assetAvailabilityWarehouseIds),
+      openingId: (openingId != null ? openingId.value : this.openingId),
+      opening: (opening != null ? opening.value : this.opening),
+      wallTypeId: (wallTypeId != null ? wallTypeId.value : this.wallTypeId),
+      wallType: (wallType != null ? wallType.value : this.wallType),
+      surfaceId: (surfaceId != null ? surfaceId.value : this.surfaceId),
+      surface: (surface != null ? surface.value : this.surface),
+      conditionId: (conditionId != null ? conditionId.value : this.conditionId),
+      condition: (condition != null ? condition.value : this.condition),
+      originalShowId: (originalShowId != null
+          ? originalShowId.value
+          : this.originalShowId),
+      originalShow: (originalShow != null
+          ? originalShow.value
+          : this.originalShow),
+      wallWidthFt: (wallWidthFt != null ? wallWidthFt.value : this.wallWidthFt),
+      wallWidthIn: (wallWidthIn != null ? wallWidthIn.value : this.wallWidthIn),
+      wallHeightFt: (wallHeightFt != null
+          ? wallHeightFt.value
+          : this.wallHeightFt),
+      wallHeightIn: (wallHeightIn != null
+          ? wallHeightIn.value
+          : this.wallHeightIn),
+      wallLengthFt: (wallLengthFt != null
+          ? wallLengthFt.value
+          : this.wallLengthFt),
+      wallLengthIn: (wallLengthIn != null
+          ? wallLengthIn.value
+          : this.wallLengthIn),
+      treatConsignedQtyAsOwned: (treatConsignedQtyAsOwned != null
+          ? treatConsignedQtyAsOwned.value
+          : this.treatConsignedQtyAsOwned),
+      dailyRate: (dailyRate != null ? dailyRate.value : this.dailyRate),
+      weeklyRate: (weeklyRate != null ? weeklyRate.value : this.weeklyRate),
+      week2Rate: (week2Rate != null ? week2Rate.value : this.week2Rate),
+      week3Rate: (week3Rate != null ? week3Rate.value : this.week3Rate),
+      week4Rate: (week4Rate != null ? week4Rate.value : this.week4Rate),
+      week5Rate: (week5Rate != null ? week5Rate.value : this.week5Rate),
+      monthlyRate: (monthlyRate != null ? monthlyRate.value : this.monthlyRate),
+      unitValue: (unitValue != null ? unitValue.value : this.unitValue),
+      replacementCost: (replacementCost != null
+          ? replacementCost.value
+          : this.replacementCost),
+      sourceId: (sourceId != null ? sourceId.value : this.sourceId),
+      qcRequiredForMyWarehouse: (qcRequiredForMyWarehouse != null
+          ? qcRequiredForMyWarehouse.value
+          : this.qcRequiredForMyWarehouse),
+      myWarehouseId: (myWarehouseId != null
+          ? myWarehouseId.value
+          : this.myWarehouseId),
+      qcRequiredForAllWarehouses: (qcRequiredForAllWarehouses != null
+          ? qcRequiredForAllWarehouses.value
+          : this.qcRequiredForAllWarehouses),
+      unitValueForAllWarehouses: (unitValueForAllWarehouses != null
+          ? unitValueForAllWarehouses.value
+          : this.unitValueForAllWarehouses),
+      replacementCostForAllWarehouses: (replacementCostForAllWarehouses != null
+          ? replacementCostForAllWarehouses.value
+          : this.replacementCostForAllWarehouses),
+      inventoryTypeId: (inventoryTypeId != null
+          ? inventoryTypeId.value
+          : this.inventoryTypeId),
+      inventoryType: (inventoryType != null
+          ? inventoryType.value
+          : this.inventoryType),
+      availableFrom: (availableFrom != null
+          ? availableFrom.value
+          : this.availableFrom),
+      trackedBy: (trackedBy != null ? trackedBy.value : this.trackedBy),
+      confirmTrackedBy: (confirmTrackedBy != null
+          ? confirmTrackedBy.value
+          : this.confirmTrackedBy),
+      rank: (rank != null ? rank.value : this.rank),
+      manufacturerPartNumber: (manufacturerPartNumber != null
+          ? manufacturerPartNumber.value
+          : this.manufacturerPartNumber),
+      manufacturerId: (manufacturerId != null
+          ? manufacturerId.value
+          : this.manufacturerId),
+      manufacturer: (manufacturer != null
+          ? manufacturer.value
+          : this.manufacturer),
+      manufacturerUrl: (manufacturerUrl != null
+          ? manufacturerUrl.value
+          : this.manufacturerUrl),
+      excludeImageFromQuoteOrderPrint: (excludeImageFromQuoteOrderPrint != null
+          ? excludeImageFromQuoteOrderPrint.value
+          : this.excludeImageFromQuoteOrderPrint),
+      noAvailabilityCheck: (noAvailabilityCheck != null
+          ? noAvailabilityCheck.value
+          : this.noAvailabilityCheck),
+      availabilityManuallyResolveConflicts:
+          (availabilityManuallyResolveConflicts != null
+          ? availabilityManuallyResolveConflicts.value
+          : this.availabilityManuallyResolveConflicts),
+      sendAvailabilityAlert: (sendAvailabilityAlert != null
+          ? sendAvailabilityAlert.value
+          : this.sendAvailabilityAlert),
+      primaryDimensionUniqueId: (primaryDimensionUniqueId != null
+          ? primaryDimensionUniqueId.value
+          : this.primaryDimensionUniqueId),
+      defaultImperialMetric: (defaultImperialMetric != null
+          ? defaultImperialMetric.value
+          : this.defaultImperialMetric),
+      primaryDimensionDescription: (primaryDimensionDescription != null
+          ? primaryDimensionDescription.value
+          : this.primaryDimensionDescription),
+      primaryDimensionShipWeightLbs: (primaryDimensionShipWeightLbs != null
+          ? primaryDimensionShipWeightLbs.value
+          : this.primaryDimensionShipWeightLbs),
+      primaryDimensionShipWeightOz: (primaryDimensionShipWeightOz != null
+          ? primaryDimensionShipWeightOz.value
+          : this.primaryDimensionShipWeightOz),
+      primaryDimensionWeightInCaseLbs: (primaryDimensionWeightInCaseLbs != null
+          ? primaryDimensionWeightInCaseLbs.value
+          : this.primaryDimensionWeightInCaseLbs),
+      primaryDimensionWeightInCaseOz: (primaryDimensionWeightInCaseOz != null
+          ? primaryDimensionWeightInCaseOz.value
+          : this.primaryDimensionWeightInCaseOz),
+      primaryDimensionWidthFt: (primaryDimensionWidthFt != null
+          ? primaryDimensionWidthFt.value
+          : this.primaryDimensionWidthFt),
+      primaryDimensionWidthIn: (primaryDimensionWidthIn != null
+          ? primaryDimensionWidthIn.value
+          : this.primaryDimensionWidthIn),
+      primaryDimensionHeightFt: (primaryDimensionHeightFt != null
+          ? primaryDimensionHeightFt.value
+          : this.primaryDimensionHeightFt),
+      primaryDimensionHeightIn: (primaryDimensionHeightIn != null
+          ? primaryDimensionHeightIn.value
+          : this.primaryDimensionHeightIn),
+      primaryDimensionLengthFt: (primaryDimensionLengthFt != null
+          ? primaryDimensionLengthFt.value
+          : this.primaryDimensionLengthFt),
+      primaryDimensionLengthIn: (primaryDimensionLengthIn != null
+          ? primaryDimensionLengthIn.value
+          : this.primaryDimensionLengthIn),
+      primaryDimensionShipWeightKg: (primaryDimensionShipWeightKg != null
+          ? primaryDimensionShipWeightKg.value
+          : this.primaryDimensionShipWeightKg),
+      primaryDimensionShipWeightG: (primaryDimensionShipWeightG != null
+          ? primaryDimensionShipWeightG.value
+          : this.primaryDimensionShipWeightG),
+      primaryDimensionWeightInCaseKg: (primaryDimensionWeightInCaseKg != null
+          ? primaryDimensionWeightInCaseKg.value
+          : this.primaryDimensionWeightInCaseKg),
+      primaryDimensionWeightInCaseG: (primaryDimensionWeightInCaseG != null
+          ? primaryDimensionWeightInCaseG.value
+          : this.primaryDimensionWeightInCaseG),
+      primaryDimensionWidthM: (primaryDimensionWidthM != null
+          ? primaryDimensionWidthM.value
+          : this.primaryDimensionWidthM),
+      primaryDimensionWidthCm: (primaryDimensionWidthCm != null
+          ? primaryDimensionWidthCm.value
+          : this.primaryDimensionWidthCm),
+      primaryDimensionHeightM: (primaryDimensionHeightM != null
+          ? primaryDimensionHeightM.value
+          : this.primaryDimensionHeightM),
+      primaryDimensionHeightCm: (primaryDimensionHeightCm != null
+          ? primaryDimensionHeightCm.value
+          : this.primaryDimensionHeightCm),
+      primaryDimensionLengthM: (primaryDimensionLengthM != null
+          ? primaryDimensionLengthM.value
+          : this.primaryDimensionLengthM),
+      primaryDimensionLengthCm: (primaryDimensionLengthCm != null
+          ? primaryDimensionLengthCm.value
+          : this.primaryDimensionLengthCm),
+      hasSecondaryDimensions: (hasSecondaryDimensions != null
+          ? hasSecondaryDimensions.value
+          : this.hasSecondaryDimensions),
+      secondaryDimensionUniqueId: (secondaryDimensionUniqueId != null
+          ? secondaryDimensionUniqueId.value
+          : this.secondaryDimensionUniqueId),
+      secondaryDimensionDescription: (secondaryDimensionDescription != null
+          ? secondaryDimensionDescription.value
+          : this.secondaryDimensionDescription),
+      secondaryDimensionShipWeightLbs: (secondaryDimensionShipWeightLbs != null
+          ? secondaryDimensionShipWeightLbs.value
+          : this.secondaryDimensionShipWeightLbs),
+      secondaryDimensionShipWeightOz: (secondaryDimensionShipWeightOz != null
+          ? secondaryDimensionShipWeightOz.value
+          : this.secondaryDimensionShipWeightOz),
+      secondaryDimensionWeightInCaseLbs:
+          (secondaryDimensionWeightInCaseLbs != null
+          ? secondaryDimensionWeightInCaseLbs.value
+          : this.secondaryDimensionWeightInCaseLbs),
+      secondaryDimensionWeightInCaseOz:
+          (secondaryDimensionWeightInCaseOz != null
+          ? secondaryDimensionWeightInCaseOz.value
+          : this.secondaryDimensionWeightInCaseOz),
+      secondaryDimensionWidthFt: (secondaryDimensionWidthFt != null
+          ? secondaryDimensionWidthFt.value
+          : this.secondaryDimensionWidthFt),
+      secondaryDimensionWidthIn: (secondaryDimensionWidthIn != null
+          ? secondaryDimensionWidthIn.value
+          : this.secondaryDimensionWidthIn),
+      secondaryDimensionHeightFt: (secondaryDimensionHeightFt != null
+          ? secondaryDimensionHeightFt.value
+          : this.secondaryDimensionHeightFt),
+      secondaryDimensionHeightIn: (secondaryDimensionHeightIn != null
+          ? secondaryDimensionHeightIn.value
+          : this.secondaryDimensionHeightIn),
+      secondaryDimensionLengthFt: (secondaryDimensionLengthFt != null
+          ? secondaryDimensionLengthFt.value
+          : this.secondaryDimensionLengthFt),
+      secondaryDimensionLengthIn: (secondaryDimensionLengthIn != null
+          ? secondaryDimensionLengthIn.value
+          : this.secondaryDimensionLengthIn),
+      secondaryDimensionShipWeightKg: (secondaryDimensionShipWeightKg != null
+          ? secondaryDimensionShipWeightKg.value
+          : this.secondaryDimensionShipWeightKg),
+      secondaryDimensionShipWeightG: (secondaryDimensionShipWeightG != null
+          ? secondaryDimensionShipWeightG.value
+          : this.secondaryDimensionShipWeightG),
+      secondaryDimensionWeightInCaseKg:
+          (secondaryDimensionWeightInCaseKg != null
+          ? secondaryDimensionWeightInCaseKg.value
+          : this.secondaryDimensionWeightInCaseKg),
+      secondaryDimensionWeightInCaseG: (secondaryDimensionWeightInCaseG != null
+          ? secondaryDimensionWeightInCaseG.value
+          : this.secondaryDimensionWeightInCaseG),
+      secondaryDimensionWidthM: (secondaryDimensionWidthM != null
+          ? secondaryDimensionWidthM.value
+          : this.secondaryDimensionWidthM),
+      secondaryDimensionWidthCm: (secondaryDimensionWidthCm != null
+          ? secondaryDimensionWidthCm.value
+          : this.secondaryDimensionWidthCm),
+      secondaryDimensionHeightM: (secondaryDimensionHeightM != null
+          ? secondaryDimensionHeightM.value
+          : this.secondaryDimensionHeightM),
+      secondaryDimensionHeightCm: (secondaryDimensionHeightCm != null
+          ? secondaryDimensionHeightCm.value
+          : this.secondaryDimensionHeightCm),
+      secondaryDimensionLengthM: (secondaryDimensionLengthM != null
+          ? secondaryDimensionLengthM.value
+          : this.secondaryDimensionLengthM),
+      secondaryDimensionLengthCm: (secondaryDimensionLengthCm != null
+          ? secondaryDimensionLengthCm.value
+          : this.secondaryDimensionLengthCm),
+      countryOfOriginId: (countryOfOriginId != null
+          ? countryOfOriginId.value
+          : this.countryOfOriginId),
+      countryOfOrigin: (countryOfOrigin != null
+          ? countryOfOrigin.value
+          : this.countryOfOrigin),
+      displayInSummaryModeWhenRateIsZero:
+          (displayInSummaryModeWhenRateIsZero != null
+          ? displayInSummaryModeWhenRateIsZero.value
+          : this.displayInSummaryModeWhenRateIsZero),
+      qcRequired: (qcRequired != null ? qcRequired.value : this.qcRequired),
+      qcTime: (qcTime != null ? qcTime.value : this.qcTime),
+      copyAttributesAsNote: (copyAttributesAsNote != null
+          ? copyAttributesAsNote.value
+          : this.copyAttributesAsNote),
+      trackAssetUsage: (trackAssetUsage != null
+          ? trackAssetUsage.value
+          : this.trackAssetUsage),
+      trackLampUsage: (trackLampUsage != null
+          ? trackLampUsage.value
+          : this.trackLampUsage),
+      trackStrikes: (trackStrikes != null
+          ? trackStrikes.value
+          : this.trackStrikes),
+      trackCandles: (trackCandles != null
+          ? trackCandles.value
+          : this.trackCandles),
+      lampCount: (lampCount != null ? lampCount.value : this.lampCount),
+      minimumFootCandles: (minimumFootCandles != null
+          ? minimumFootCandles.value
+          : this.minimumFootCandles),
+      trackSoftware: (trackSoftware != null
+          ? trackSoftware.value
+          : this.trackSoftware),
+      softwareVersion: (softwareVersion != null
+          ? softwareVersion.value
+          : this.softwareVersion),
+      softwareEffectiveDate: (softwareEffectiveDate != null
+          ? softwareEffectiveDate.value
+          : this.softwareEffectiveDate),
+      warehouseSpecificPackage: (warehouseSpecificPackage != null
+          ? warehouseSpecificPackage.value
+          : this.warehouseSpecificPackage),
+      completePackagePrice: (completePackagePrice != null
+          ? completePackagePrice.value
+          : this.completePackagePrice),
+      kitPackagePrice: (kitPackagePrice != null
+          ? kitPackagePrice.value
+          : this.kitPackagePrice),
+      separatePackageOnQuoteOrder: (separatePackageOnQuoteOrder != null
+          ? separatePackageOnQuoteOrder.value
+          : this.separatePackageOnQuoteOrder),
+      containerId: (containerId != null ? containerId.value : this.containerId),
+      containerScannableInventoryId: (containerScannableInventoryId != null
+          ? containerScannableInventoryId.value
+          : this.containerScannableInventoryId),
+      containerScannableICode: (containerScannableICode != null
+          ? containerScannableICode.value
+          : this.containerScannableICode),
+      containerScannableDescription: (containerScannableDescription != null
+          ? containerScannableDescription.value
+          : this.containerScannableDescription),
+      automaticallyRebuildContainerAtCheckIn:
+          (automaticallyRebuildContainerAtCheckIn != null
+          ? automaticallyRebuildContainerAtCheckIn.value
+          : this.automaticallyRebuildContainerAtCheckIn),
+      automaticallyCheckInEntireContainerWithScannableItem:
+          (automaticallyCheckInEntireContainerWithScannableItem != null
+          ? automaticallyCheckInEntireContainerWithScannableItem.value
+          : this.automaticallyCheckInEntireContainerWithScannableItem),
+      automaticallyRebuildContainerAtTransferIn:
+          (automaticallyRebuildContainerAtTransferIn != null
+          ? automaticallyRebuildContainerAtTransferIn.value
+          : this.automaticallyRebuildContainerAtTransferIn),
+      automaticallyCountAllItemsWhenPhysicalInventoryInitiated:
+          (automaticallyCountAllItemsWhenPhysicalInventoryInitiated != null
+          ? automaticallyCountAllItemsWhenPhysicalInventoryInitiated.value
+          : this.automaticallyCountAllItemsWhenPhysicalInventoryInitiated),
+      automaticallyTransferInEntireContainerWithScannableItem:
+          (automaticallyTransferInEntireContainerWithScannableItem != null
+          ? automaticallyTransferInEntireContainerWithScannableItem.value
+          : this.automaticallyTransferInEntireContainerWithScannableItem),
+      containerStagingRule: (containerStagingRule != null
+          ? containerStagingRule.value
+          : this.containerStagingRule),
+      excludeContainedItemsFromAvailability:
+          (excludeContainedItemsFromAvailability != null
+          ? excludeContainedItemsFromAvailability.value
+          : this.excludeContainedItemsFromAvailability),
+      useContainerNumber: (useContainerNumber != null
+          ? useContainerNumber.value
+          : this.useContainerNumber),
+      containerPackingListBehavior: (containerPackingListBehavior != null
+          ? containerPackingListBehavior.value
+          : this.containerPackingListBehavior),
+      inventoryTypeIsWardrobe: (inventoryTypeIsWardrobe != null
+          ? inventoryTypeIsWardrobe.value
+          : this.inventoryTypeIsWardrobe),
+      inventoryTypeIsSets: (inventoryTypeIsSets != null
+          ? inventoryTypeIsSets.value
+          : this.inventoryTypeIsSets),
+      patternId: (patternId != null ? patternId.value : this.patternId),
+      pattern: (pattern != null ? pattern.value : this.pattern),
+      periodId: (periodId != null ? periodId.value : this.periodId),
+      period: (period != null ? period.value : this.period),
+      materialId: (materialId != null ? materialId.value : this.materialId),
+      material: (material != null ? material.value : this.material),
+      genderId: (genderId != null ? genderId.value : this.genderId),
+      gender: (gender != null ? gender.value : this.gender),
+      labelId: (labelId != null ? labelId.value : this.labelId),
+      label: (label != null ? label.value : this.label),
+      wardrobeSize: (wardrobeSize != null
+          ? wardrobeSize.value
+          : this.wardrobeSize),
+      wardrobePieceCount: (wardrobePieceCount != null
+          ? wardrobePieceCount.value
+          : this.wardrobePieceCount),
+      dyed: (dyed != null ? dyed.value : this.dyed),
+      wardrobeSourceId: (wardrobeSourceId != null
+          ? wardrobeSourceId.value
+          : this.wardrobeSourceId),
+      wardrobeSource: (wardrobeSource != null
+          ? wardrobeSource.value
+          : this.wardrobeSource),
+      wardrobeCareId: (wardrobeCareId != null
+          ? wardrobeCareId.value
+          : this.wardrobeCareId),
+      wardrobeCare: (wardrobeCare != null
+          ? wardrobeCare.value
+          : this.wardrobeCare),
+      cleaningFeeAmount: (cleaningFeeAmount != null
+          ? cleaningFeeAmount.value
+          : this.cleaningFeeAmount),
+      wardrobeDetailedDescription: (wardrobeDetailedDescription != null
+          ? wardrobeDetailedDescription.value
+          : this.wardrobeDetailedDescription),
+      webDetailedDescription: (webDetailedDescription != null
+          ? webDetailedDescription.value
+          : this.webDetailedDescription),
+      technicalNotes: (technicalNotes != null
+          ? technicalNotes.value
+          : this.technicalNotes),
+      allocateRevenueForAccessories: (allocateRevenueForAccessories != null
+          ? allocateRevenueForAccessories.value
+          : this.allocateRevenueForAccessories),
+      packageRevenueCalculationFormula:
+          (packageRevenueCalculationFormula != null
+          ? packageRevenueCalculationFormula.value
+          : this.packageRevenueCalculationFormula),
+      isHazardousMaterial: (isHazardousMaterial != null
+          ? isHazardousMaterial.value
+          : this.isHazardousMaterial),
+      descriptionWithAkas: (descriptionWithAkas != null
+          ? descriptionWithAkas.value
+          : this.descriptionWithAkas),
+      costCalculation: (costCalculation != null
+          ? costCalculation.value
+          : this.costCalculation),
+      noChargePrint: (noChargePrint != null
+          ? noChargePrint.value
+          : this.noChargePrint),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      quantityIn: (quantityIn != null ? quantityIn.value : this.quantityIn),
+      quantityStaged: (quantityStaged != null
+          ? quantityStaged.value
+          : this.quantityStaged),
+      quantityOut: (quantityOut != null ? quantityOut.value : this.quantityOut),
+      quantityInContainer: (quantityInContainer != null
+          ? quantityInContainer.value
+          : this.quantityInContainer),
+      quantityInRepair: (quantityInRepair != null
+          ? quantityInRepair.value
+          : this.quantityInRepair),
+      quantityInTransit: (quantityInTransit != null
+          ? quantityInTransit.value
+          : this.quantityInTransit),
+      quantityOnTruck: (quantityOnTruck != null
+          ? quantityOnTruck.value
+          : this.quantityOnTruck),
+      totalQuantity: (totalQuantity != null
+          ? totalQuantity.value
+          : this.totalQuantity),
+      lastPurchasePrice: (lastPurchasePrice != null
+          ? lastPurchasePrice.value
+          : this.lastPurchasePrice),
+      aisleLocation: (aisleLocation != null
+          ? aisleLocation.value
+          : this.aisleLocation),
+      shelfLocation: (shelfLocation != null
+          ? shelfLocation.value
+          : this.shelfLocation),
+      taxable: (taxable != null ? taxable.value : this.taxable),
+      dateOfLastPhysicalInventory: (dateOfLastPhysicalInventory != null
+          ? dateOfLastPhysicalInventory.value
+          : this.dateOfLastPhysicalInventory),
+      hasImage: (hasImage != null ? hasImage.value : this.hasImage),
+      hasDimensionsImage: (hasDimensionsImage != null
+          ? hasDimensionsImage.value
+          : this.hasDimensionsImage),
+      stagingUnreadyContainer: (stagingUnreadyContainer != null
+          ? stagingUnreadyContainer.value
+          : this.stagingUnreadyContainer),
+      disableMiscDescriptionChange: (disableMiscDescriptionChange != null
+          ? disableMiscDescriptionChange.value
+          : this.disableMiscDescriptionChange),
+      iCode: (iCode != null ? iCode.value : this.iCode),
+      description: (description != null ? description.value : this.description),
+      availFor: (availFor != null ? availFor.value : this.availFor),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      category: (category != null ? category.value : this.category),
+      subCategoryCount: (subCategoryCount != null
+          ? subCategoryCount.value
+          : this.subCategoryCount),
+      subCategoryId: (subCategoryId != null
+          ? subCategoryId.value
+          : this.subCategoryId),
+      subCategory: (subCategory != null ? subCategory.value : this.subCategory),
+      classification: (classification != null
+          ? classification.value
+          : this.classification),
+      classificationDescription: (classificationDescription != null
+          ? classificationDescription.value
+          : this.classificationDescription),
+      classificationColor: (classificationColor != null
+          ? classificationColor.value
+          : this.classificationColor),
+      unitId: (unitId != null ? unitId.value : this.unitId),
+      unit: (unit != null ? unit.value : this.unit),
+      unitType: (unitType != null ? unitType.value : this.unitType),
+      nonDiscountable: (nonDiscountable != null
+          ? nonDiscountable.value
+          : this.nonDiscountable),
+      overrideProfitAndLossCategory: (overrideProfitAndLossCategory != null
+          ? overrideProfitAndLossCategory.value
+          : this.overrideProfitAndLossCategory),
+      profitAndLossCategoryId: (profitAndLossCategoryId != null
+          ? profitAndLossCategoryId.value
+          : this.profitAndLossCategoryId),
+      profitAndLossCategory: (profitAndLossCategory != null
+          ? profitAndLossCategory.value
+          : this.profitAndLossCategory),
+      autoCopyNotesToQuoteOrder: (autoCopyNotesToQuoteOrder != null
+          ? autoCopyNotesToQuoteOrder.value
+          : this.autoCopyNotesToQuoteOrder),
+      note: (note != null ? note.value : this.note),
+      printNoteOnInContract: (printNoteOnInContract != null
+          ? printNoteOnInContract.value
+          : this.printNoteOnInContract),
+      printNoteOnOutContract: (printNoteOnOutContract != null
+          ? printNoteOnOutContract.value
+          : this.printNoteOnOutContract),
+      printNoteOnReceiveContract: (printNoteOnReceiveContract != null
+          ? printNoteOnReceiveContract.value
+          : this.printNoteOnReceiveContract),
+      printNoteOnReturnContract: (printNoteOnReturnContract != null
+          ? printNoteOnReturnContract.value
+          : this.printNoteOnReturnContract),
+      printNoteOnInvoice: (printNoteOnInvoice != null
+          ? printNoteOnInvoice.value
+          : this.printNoteOnInvoice),
+      printNoteOnOrder: (printNoteOnOrder != null
+          ? printNoteOnOrder.value
+          : this.printNoteOnOrder),
+      printNoteOnPickList: (printNoteOnPickList != null
+          ? printNoteOnPickList.value
+          : this.printNoteOnPickList),
+      printNoteOnPO: (printNoteOnPO != null
+          ? printNoteOnPO.value
+          : this.printNoteOnPO),
+      printNoteOnQuote: (printNoteOnQuote != null
+          ? printNoteOnQuote.value
+          : this.printNoteOnQuote),
+      printNoteOnReturnList: (printNoteOnReturnList != null
+          ? printNoteOnReturnList.value
+          : this.printNoteOnReturnList),
+      printNoteOnPoReceiveList: (printNoteOnPoReceiveList != null
+          ? printNoteOnPoReceiveList.value
+          : this.printNoteOnPoReceiveList),
+      printNoteOnPoReturnList: (printNoteOnPoReturnList != null
+          ? printNoteOnPoReturnList.value
+          : this.printNoteOnPoReturnList),
+      assetAccountId: (assetAccountId != null
+          ? assetAccountId.value
+          : this.assetAccountId),
+      assetAccountNo: (assetAccountNo != null
+          ? assetAccountNo.value
+          : this.assetAccountNo),
+      assetAccountDescription: (assetAccountDescription != null
+          ? assetAccountDescription.value
+          : this.assetAccountDescription),
+      incomeAccountId: (incomeAccountId != null
+          ? incomeAccountId.value
+          : this.incomeAccountId),
+      incomeAccountNo: (incomeAccountNo != null
+          ? incomeAccountNo.value
+          : this.incomeAccountNo),
+      incomeAccountDescription: (incomeAccountDescription != null
+          ? incomeAccountDescription.value
+          : this.incomeAccountDescription),
+      subIncomeAccountId: (subIncomeAccountId != null
+          ? subIncomeAccountId.value
+          : this.subIncomeAccountId),
+      subIncomeAccountNo: (subIncomeAccountNo != null
+          ? subIncomeAccountNo.value
+          : this.subIncomeAccountNo),
+      subIncomeAccountDescription: (subIncomeAccountDescription != null
+          ? subIncomeAccountDescription.value
+          : this.subIncomeAccountDescription),
+      consignmentIncomeAccountId: (consignmentIncomeAccountId != null
+          ? consignmentIncomeAccountId.value
+          : this.consignmentIncomeAccountId),
+      consignmentIncomeAccountNo: (consignmentIncomeAccountNo != null
+          ? consignmentIncomeAccountNo.value
+          : this.consignmentIncomeAccountNo),
+      consignmentIncomeAccountDescription:
+          (consignmentIncomeAccountDescription != null
+          ? consignmentIncomeAccountDescription.value
+          : this.consignmentIncomeAccountDescription),
+      ldIncomeAccountId: (ldIncomeAccountId != null
+          ? ldIncomeAccountId.value
+          : this.ldIncomeAccountId),
+      ldIncomeAccountNo: (ldIncomeAccountNo != null
+          ? ldIncomeAccountNo.value
+          : this.ldIncomeAccountNo),
+      ldIncomeAccountDescription: (ldIncomeAccountDescription != null
+          ? ldIncomeAccountDescription.value
+          : this.ldIncomeAccountDescription),
+      equipmentSaleIncomeAccountId: (equipmentSaleIncomeAccountId != null
+          ? equipmentSaleIncomeAccountId.value
+          : this.equipmentSaleIncomeAccountId),
+      equipmentSaleIncomeAccountNo: (equipmentSaleIncomeAccountNo != null
+          ? equipmentSaleIncomeAccountNo.value
+          : this.equipmentSaleIncomeAccountNo),
+      equipmentSaleIncomeAccountDescription:
+          (equipmentSaleIncomeAccountDescription != null
+          ? equipmentSaleIncomeAccountDescription.value
+          : this.equipmentSaleIncomeAccountDescription),
+      expenseAccountId: (expenseAccountId != null
+          ? expenseAccountId.value
+          : this.expenseAccountId),
+      expenseAccountNo: (expenseAccountNo != null
+          ? expenseAccountNo.value
+          : this.expenseAccountNo),
+      expenseAccountDescription: (expenseAccountDescription != null
+          ? expenseAccountDescription.value
+          : this.expenseAccountDescription),
+      costOfGoodsSoldExpenseAccountId: (costOfGoodsSoldExpenseAccountId != null
+          ? costOfGoodsSoldExpenseAccountId.value
+          : this.costOfGoodsSoldExpenseAccountId),
+      costOfGoodsSoldExpenseAccountNo: (costOfGoodsSoldExpenseAccountNo != null
+          ? costOfGoodsSoldExpenseAccountNo.value
+          : this.costOfGoodsSoldExpenseAccountNo),
+      costOfGoodsSoldExpenseAccountDescription:
+          (costOfGoodsSoldExpenseAccountDescription != null
+          ? costOfGoodsSoldExpenseAccountDescription.value
+          : this.costOfGoodsSoldExpenseAccountDescription),
+      costOfGoodsRentedExpenseAccountId:
+          (costOfGoodsRentedExpenseAccountId != null
+          ? costOfGoodsRentedExpenseAccountId.value
+          : this.costOfGoodsRentedExpenseAccountId),
+      costOfGoodsRentedExpenseAccountNo:
+          (costOfGoodsRentedExpenseAccountNo != null
+          ? costOfGoodsRentedExpenseAccountNo.value
+          : this.costOfGoodsRentedExpenseAccountNo),
+      costOfGoodsRentedExpenseAccountDescription:
+          (costOfGoodsRentedExpenseAccountDescription != null
+          ? costOfGoodsRentedExpenseAccountDescription.value
+          : this.costOfGoodsRentedExpenseAccountDescription),
+      depreciationExpenseAccountId: (depreciationExpenseAccountId != null
+          ? depreciationExpenseAccountId.value
+          : this.depreciationExpenseAccountId),
+      depreciationExpenseAccountNo: (depreciationExpenseAccountNo != null
+          ? depreciationExpenseAccountNo.value
+          : this.depreciationExpenseAccountNo),
+      depreciationExpenseAccountDescription:
+          (depreciationExpenseAccountDescription != null
+          ? depreciationExpenseAccountDescription.value
+          : this.depreciationExpenseAccountDescription),
+      accumulatedDepreciationExpenseAccountId:
+          (accumulatedDepreciationExpenseAccountId != null
+          ? accumulatedDepreciationExpenseAccountId.value
+          : this.accumulatedDepreciationExpenseAccountId),
+      accumulatedDepreciationExpenseAccountNo:
+          (accumulatedDepreciationExpenseAccountNo != null
+          ? accumulatedDepreciationExpenseAccountNo.value
+          : this.accumulatedDepreciationExpenseAccountNo),
+      accumulatedDepreciationExpenseAccountDescription:
+          (accumulatedDepreciationExpenseAccountDescription != null
+          ? accumulatedDepreciationExpenseAccountDescription.value
+          : this.accumulatedDepreciationExpenseAccountDescription),
+      inputDate: (inputDate != null ? inputDate.value : this.inputDate),
+      inputByUsersId: (inputByUsersId != null
+          ? inputByUsersId.value
+          : this.inputByUsersId),
+      category2: (category2 != null ? category2.value : this.category2),
+      class2: (class2 != null ? class2.value : this.class2),
+      stockClass: (stockClass != null ? stockClass.value : this.stockClass),
+      webTitle: (webTitle != null ? webTitle.value : this.webTitle),
+      inactive: (inactive != null ? inactive.value : this.inactive),
+      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+      manifestShippingContainer: (manifestShippingContainer != null
+          ? manifestShippingContainer.value
+          : this.manifestShippingContainer),
+      manifestStandAloneItem: (manifestStandAloneItem != null
+          ? manifestStandAloneItem.value
+          : this.manifestStandAloneItem),
+      taxableForMyLocation: (taxableForMyLocation != null
+          ? taxableForMyLocation.value
+          : this.taxableForMyLocation),
+      myLocationId: (myLocationId != null
+          ? myLocationId.value
+          : this.myLocationId),
+      taxableForAllLocations: (taxableForAllLocations != null
+          ? taxableForAllLocations.value
+          : this.taxableForAllLocations),
+      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+      urlIdentifier: (urlIdentifier != null
+          ? urlIdentifier.value
+          : this.urlIdentifier),
+      fields: (fields != null ? fields.value : this.fields),
+      custom: (custom != null ? custom.value : this.custom),
+      defaultFieldAttributes: (defaultFieldAttributes != null
+          ? defaultFieldAttributes.value
+          : this.defaultFieldAttributes),
+      original: (original != null ? original.value : this.original),
+      translation: (translation != null ? translation.value : this.translation),
+      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      createdByUserId: (createdByUserId != null
+          ? createdByUserId.value
+          : this.createdByUserId),
+      createdByUserName: (createdByUserName != null
+          ? createdByUserName.value
+          : this.createdByUserName),
+      createdDateTime: (createdDateTime != null
+          ? createdDateTime.value
+          : this.createdDateTime),
+      modifiedByUserId: (modifiedByUserId != null
+          ? modifiedByUserId.value
+          : this.modifiedByUserId),
+      modifiedByUserName: (modifiedByUserName != null
+          ? modifiedByUserName.value
+          : this.modifiedByUserName),
+      modifiedDateTime: (modifiedDateTime != null
+          ? modifiedDateTime.value
+          : this.modifiedDateTime),
+    );
   }
 }
 
@@ -6013,15 +8622,17 @@ class WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse {
   });
 
   factory WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson(
-          json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseFromJson(
+    json,
+  );
 
   static const toJsonFactory =
       _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'RetiredReasonId', includeIfNull: false)
   final String? retiredReasonId;
@@ -6033,13 +8644,18 @@ class WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse &&
+        (other
+                is WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse &&
             (identical(other.retiredReasonId, retiredReasonId) ||
-                const DeepCollectionEquality()
-                    .equals(other.retiredReasonId, retiredReasonId)) &&
+                const DeepCollectionEquality().equals(
+                  other.retiredReasonId,
+                  retiredReasonId,
+                )) &&
             (identical(other.retiredReason, retiredReason) ||
-                const DeepCollectionEquality()
-                    .equals(other.retiredReason, retiredReason)));
+                const DeepCollectionEquality().equals(
+                  other.retiredReason,
+                  retiredReason,
+                )));
   }
 
   @override
@@ -6054,23 +8670,29 @@ class WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse {
 
 extension $WebApiModulesMobileAssetDispositionLookupRetiredReasonResponseExtension
     on WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse {
-  WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse copyWith(
-      {String? retiredReasonId, String? retiredReason}) {
+  WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse copyWith({
+    String? retiredReasonId,
+    String? retiredReason,
+  }) {
     return WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse(
-        retiredReasonId: retiredReasonId ?? this.retiredReasonId,
-        retiredReason: retiredReason ?? this.retiredReason);
+      retiredReasonId: retiredReasonId ?? this.retiredReasonId,
+      retiredReason: retiredReason ?? this.retiredReason,
+    );
   }
 
   WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse
-      copyWithWrapped(
-          {Wrapped<String?>? retiredReasonId,
-          Wrapped<String?>? retiredReason}) {
+  copyWithWrapped({
+    Wrapped<String?>? retiredReasonId,
+    Wrapped<String?>? retiredReason,
+  }) {
     return WebApiModulesMobileAssetDispositionLookupRetiredReasonResponse(
-        retiredReasonId: (retiredReasonId != null
-            ? retiredReasonId.value
-            : this.retiredReasonId),
-        retiredReason:
-            (retiredReason != null ? retiredReason.value : this.retiredReason));
+      retiredReasonId: (retiredReasonId != null
+          ? retiredReasonId.value
+          : this.retiredReasonId),
+      retiredReason: (retiredReason != null
+          ? retiredReason.value
+          : this.retiredReason),
+    );
   }
 }
 
@@ -6081,9 +8703,10 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest {
   });
 
   factory WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestFromJson(
-          json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestFromJson(
+    json,
+  );
 
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestToJson;
@@ -6100,8 +8723,10 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest {
     return identical(this, other) ||
         (other is WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest &&
             (identical(other.appImageId, appImageId) ||
-                const DeepCollectionEquality()
-                    .equals(other.appImageId, appImageId)));
+                const DeepCollectionEquality().equals(
+                  other.appImageId,
+                  appImageId,
+                )));
   }
 
   @override
@@ -6114,16 +8739,20 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest {
 
 extension $WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequestExtension
     on WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest {
-  WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest copyWith(
-      {String? appImageId}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest copyWith({
+    String? appImageId,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest(
-        appImageId: appImageId ?? this.appImageId);
+      appImageId: appImageId ?? this.appImageId,
+    );
   }
 
-  WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest copyWithWrapped(
-      {Wrapped<String?>? appImageId}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest copyWithWrapped({
+    Wrapped<String?>? appImageId,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncDeleteImageRequest(
-        appImageId: (appImageId != null ? appImageId.value : this.appImageId));
+      appImageId: (appImageId != null ? appImageId.value : this.appImageId),
+    );
   }
 }
 
@@ -6134,9 +8763,10 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest {
   });
 
   factory WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestFromJson(
-          json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestFromJson(
+    json,
+  );
 
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestToJson;
@@ -6154,7 +8784,9 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest {
         (other is WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest &&
             (identical(other.inventoryDepartmentId, inventoryDepartmentId) ||
                 const DeepCollectionEquality().equals(
-                    other.inventoryDepartmentId, inventoryDepartmentId)));
+                  other.inventoryDepartmentId,
+                  inventoryDepartmentId,
+                )));
   }
 
   @override
@@ -6168,19 +8800,23 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest {
 
 extension $WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequestExtension
     on WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest {
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest copyWith(
-      {String? inventoryDepartmentId}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest copyWith({
+    String? inventoryDepartmentId,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest(
-        inventoryDepartmentId:
-            inventoryDepartmentId ?? this.inventoryDepartmentId);
+      inventoryDepartmentId:
+          inventoryDepartmentId ?? this.inventoryDepartmentId,
+    );
   }
 
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest copyWithWrapped(
-      {Wrapped<String?>? inventoryDepartmentId}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest copyWithWrapped({
+    Wrapped<String?>? inventoryDepartmentId,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncGetCategoryRequest(
-        inventoryDepartmentId: (inventoryDepartmentId != null
-            ? inventoryDepartmentId.value
-            : this.inventoryDepartmentId));
+      inventoryDepartmentId: (inventoryDepartmentId != null
+          ? inventoryDepartmentId.value
+          : this.inventoryDepartmentId),
+    );
   }
 }
 
@@ -6194,8 +8830,8 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel {
   });
 
   factory WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelFromJson(json);
 
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelToJson;
@@ -6220,11 +8856,15 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel {
             (identical(other.image, image) ||
                 const DeepCollectionEquality().equals(other.image, image)) &&
             (identical(other.appImageId, appImageId) ||
-                const DeepCollectionEquality()
-                    .equals(other.appImageId, appImageId)) &&
+                const DeepCollectionEquality().equals(
+                  other.appImageId,
+                  appImageId,
+                )) &&
             (identical(other.imageDesc, imageDesc) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageDesc, imageDesc)) &&
+                const DeepCollectionEquality().equals(
+                  other.imageDesc,
+                  imageDesc,
+                )) &&
             (identical(other.imageNo, imageNo) ||
                 const DeepCollectionEquality().equals(other.imageNo, imageNo)));
   }
@@ -6243,25 +8883,32 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel {
 
 extension $WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModelExtension
     on WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel {
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel copyWith(
-      {String? image, String? appImageId, String? imageDesc, String? imageNo}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel copyWith({
+    String? image,
+    String? appImageId,
+    String? imageDesc,
+    String? imageNo,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel(
-        image: image ?? this.image,
-        appImageId: appImageId ?? this.appImageId,
-        imageDesc: imageDesc ?? this.imageDesc,
-        imageNo: imageNo ?? this.imageNo);
+      image: image ?? this.image,
+      appImageId: appImageId ?? this.appImageId,
+      imageDesc: imageDesc ?? this.imageDesc,
+      imageNo: imageNo ?? this.imageNo,
+    );
   }
 
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel copyWithWrapped(
-      {Wrapped<String?>? image,
-      Wrapped<String?>? appImageId,
-      Wrapped<String?>? imageDesc,
-      Wrapped<String?>? imageNo}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel copyWithWrapped({
+    Wrapped<String?>? image,
+    Wrapped<String?>? appImageId,
+    Wrapped<String?>? imageDesc,
+    Wrapped<String?>? imageNo,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel(
-        image: (image != null ? image.value : this.image),
-        appImageId: (appImageId != null ? appImageId.value : this.appImageId),
-        imageDesc: (imageDesc != null ? imageDesc.value : this.imageDesc),
-        imageNo: (imageNo != null ? imageNo.value : this.imageNo));
+      image: (image != null ? image.value : this.image),
+      appImageId: (appImageId != null ? appImageId.value : this.appImageId),
+      imageDesc: (imageDesc != null ? imageDesc.value : this.imageDesc),
+      imageNo: (imageNo != null ? imageNo.value : this.imageNo),
+    );
   }
 }
 
@@ -6272,7 +8919,8 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest {
   });
 
   factory WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestFromJson(json);
 
   static const toJsonFactory =
@@ -6290,8 +8938,10 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest {
     return identical(this, other) ||
         (other is WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest &&
             (identical(other.uniqueId1, uniqueId1) ||
-                const DeepCollectionEquality()
-                    .equals(other.uniqueId1, uniqueId1)));
+                const DeepCollectionEquality().equals(
+                  other.uniqueId1,
+                  uniqueId1,
+                )));
   }
 
   @override
@@ -6304,16 +8954,20 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest {
 
 extension $WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequestExtension
     on WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest {
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest copyWith(
-      {String? uniqueId1}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest copyWith({
+    String? uniqueId1,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest(
-        uniqueId1: uniqueId1 ?? this.uniqueId1);
+      uniqueId1: uniqueId1 ?? this.uniqueId1,
+    );
   }
 
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest copyWithWrapped(
-      {Wrapped<String?>? uniqueId1}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest copyWithWrapped({
+    Wrapped<String?>? uniqueId1,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesRequest(
-        uniqueId1: (uniqueId1 != null ? uniqueId1.value : this.uniqueId1));
+      uniqueId1: (uniqueId1 != null ? uniqueId1.value : this.uniqueId1),
+    );
   }
 }
 
@@ -6324,9 +8978,10 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse {
   });
 
   factory WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseFromJson(
-          json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseFromJson(
+    json,
+  );
 
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseToJson;
@@ -6334,9 +8989,10 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse {
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseToJson(this);
 
   @JsonKey(
-      name: 'Images',
-      includeIfNull: false,
-      defaultValue: <WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel>[])
+    name: 'Images',
+    includeIfNull: false,
+    defaultValue: <WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel>[],
+  )
   final List<WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel>? images;
   static const fromJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseFromJson;
@@ -6359,17 +9015,21 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse {
 
 extension $WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponseExtension
     on WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse {
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse copyWith(
-      {List<WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel>? images}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse copyWith({
+    List<WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel>? images,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse(
-        images: images ?? this.images);
+      images: images ?? this.images,
+    );
   }
 
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse copyWithWrapped(
-      {Wrapped<List<WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel>?>?
-          images}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse copyWithWrapped({
+    Wrapped<List<WebApiModulesMobileQuikAssetQuikAssetFuncGetImageModel>?>?
+    images,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncGetImagesResponse(
-        images: (images != null ? images.value : this.images));
+      images: (images != null ? images.value : this.images),
+    );
   }
 }
 
@@ -6380,15 +9040,17 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest {
   });
 
   factory WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestFromJson(
-          json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestFromJson(
+    json,
+  );
 
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'CategoryId', includeIfNull: false)
   final String? categoryId;
@@ -6398,10 +9060,13 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest &&
+        (other
+                is WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest &&
             (identical(other.categoryId, categoryId) ||
-                const DeepCollectionEquality()
-                    .equals(other.categoryId, categoryId)));
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )));
   }
 
   @override
@@ -6414,16 +9079,19 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest {
 
 extension $WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequestExtension
     on WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest {
-  WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest copyWith(
-      {String? categoryId}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest copyWith({
+    String? categoryId,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest(
-        categoryId: categoryId ?? this.categoryId);
+      categoryId: categoryId ?? this.categoryId,
+    );
   }
 
   WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest
-      copyWithWrapped({Wrapped<String?>? categoryId}) {
+  copyWithWrapped({Wrapped<String?>? categoryId}) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncGetSubCategoryRequest(
-        categoryId: (categoryId != null ? categoryId.value : this.categoryId));
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+    );
   }
 }
 
@@ -6437,15 +9105,18 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse {
   });
 
   factory WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
@@ -6461,17 +9132,22 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse &&
+        (other
+                is WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
-                const DeepCollectionEquality()
-                    .equals(other.success, success)) &&
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
             (identical(other.msg, msg) ||
                 const DeepCollectionEquality().equals(other.msg, msg)) &&
             (identical(other.appimageid, appimageid) ||
-                const DeepCollectionEquality()
-                    .equals(other.appimageid, appimageid)));
+                const DeepCollectionEquality().equals(
+                  other.appimageid,
+                  appimageid,
+                )));
   }
 
   @override
@@ -6489,25 +9165,28 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse {
 extension $WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponseExtension
     on WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse {
   WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
-      copyWith({int? status, bool? success, String? msg, String? appimageid}) {
+  copyWith({int? status, bool? success, String? msg, String? appimageid}) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse(
-        status: status ?? this.status,
-        success: success ?? this.success,
-        msg: msg ?? this.msg,
-        appimageid: appimageid ?? this.appimageid);
+      status: status ?? this.status,
+      success: success ?? this.success,
+      msg: msg ?? this.msg,
+      appimageid: appimageid ?? this.appimageid,
+    );
   }
 
   WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse
-      copyWithWrapped(
-          {Wrapped<int?>? status,
-          Wrapped<bool?>? success,
-          Wrapped<String?>? msg,
-          Wrapped<String?>? appimageid}) {
+  copyWithWrapped({
+    Wrapped<int?>? status,
+    Wrapped<bool?>? success,
+    Wrapped<String?>? msg,
+    Wrapped<String?>? appimageid,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImageResponse(
-        status: (status != null ? status.value : this.status),
-        success: (success != null ? success.value : this.success),
-        msg: (msg != null ? msg.value : this.msg),
-        appimageid: (appimageid != null ? appimageid.value : this.appimageid));
+      status: (status != null ? status.value : this.status),
+      success: (success != null ? success.value : this.success),
+      msg: (msg != null ? msg.value : this.msg),
+      appimageid: (appimageid != null ? appimageid.value : this.appimageid),
+    );
   }
 }
 
@@ -6522,15 +9201,18 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
   });
 
   factory WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'IsWall', includeIfNull: false)
   final bool? isWall;
@@ -6548,17 +9230,22 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest &&
+        (other
+                is WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest &&
             (identical(other.isWall, isWall) ||
                 const DeepCollectionEquality().equals(other.isWall, isWall)) &&
             (identical(other.inventoryId, inventoryId) ||
-                const DeepCollectionEquality()
-                    .equals(other.inventoryId, inventoryId)) &&
+                const DeepCollectionEquality().equals(
+                  other.inventoryId,
+                  inventoryId,
+                )) &&
             (identical(other.image, image) ||
                 const DeepCollectionEquality().equals(other.image, image)) &&
             (identical(other.imageDesc, imageDesc) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageDesc, imageDesc)) &&
+                const DeepCollectionEquality().equals(
+                  other.imageDesc,
+                  imageDesc,
+                )) &&
             (identical(other.imageNo, imageNo) ||
                 const DeepCollectionEquality().equals(other.imageNo, imageNo)));
   }
@@ -6579,34 +9266,37 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
 extension $WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequestExtension
     on WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
   WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest
-      copyWith(
-          {bool? isWall,
-          String? inventoryId,
-          String? image,
-          String? imageDesc,
-          String? imageNo}) {
+  copyWith({
+    bool? isWall,
+    String? inventoryId,
+    String? image,
+    String? imageDesc,
+    String? imageNo,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest(
-        isWall: isWall ?? this.isWall,
-        inventoryId: inventoryId ?? this.inventoryId,
-        image: image ?? this.image,
-        imageDesc: imageDesc ?? this.imageDesc,
-        imageNo: imageNo ?? this.imageNo);
+      isWall: isWall ?? this.isWall,
+      inventoryId: inventoryId ?? this.inventoryId,
+      image: image ?? this.image,
+      imageDesc: imageDesc ?? this.imageDesc,
+      imageNo: imageNo ?? this.imageNo,
+    );
   }
 
   WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest
-      copyWithWrapped(
-          {Wrapped<bool?>? isWall,
-          Wrapped<String?>? inventoryId,
-          Wrapped<String?>? image,
-          Wrapped<String?>? imageDesc,
-          Wrapped<String?>? imageNo}) {
+  copyWithWrapped({
+    Wrapped<bool?>? isWall,
+    Wrapped<String?>? inventoryId,
+    Wrapped<String?>? image,
+    Wrapped<String?>? imageDesc,
+    Wrapped<String?>? imageNo,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest(
-        isWall: (isWall != null ? isWall.value : this.isWall),
-        inventoryId:
-            (inventoryId != null ? inventoryId.value : this.inventoryId),
-        image: (image != null ? image.value : this.image),
-        imageDesc: (imageDesc != null ? imageDesc.value : this.imageDesc),
-        imageNo: (imageNo != null ? imageNo.value : this.imageNo));
+      isWall: (isWall != null ? isWall.value : this.isWall),
+      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
+      image: (image != null ? image.value : this.image),
+      imageDesc: (imageDesc != null ? imageDesc.value : this.imageDesc),
+      imageNo: (imageNo != null ? imageNo.value : this.imageNo),
+    );
   }
 }
 
@@ -6619,15 +9309,18 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
   });
 
   factory WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'SearchValue', includeIfNull: false)
   final String? searchValue;
@@ -6641,16 +9334,23 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest &&
+        (other
+                is WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest &&
             (identical(other.searchValue, searchValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchValue, searchValue)) &&
+                const DeepCollectionEquality().equals(
+                  other.searchValue,
+                  searchValue,
+                )) &&
             (identical(other.warehouseId, warehouseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.warehouseId, warehouseId)) &&
+                const DeepCollectionEquality().equals(
+                  other.warehouseId,
+                  warehouseId,
+                )) &&
             (identical(other.departmentId, departmentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.departmentId, departmentId)));
+                const DeepCollectionEquality().equals(
+                  other.departmentId,
+                  departmentId,
+                )));
   }
 
   @override
@@ -6667,26 +9367,27 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
 extension $WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequestExtension
     on WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest {
   WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest
-      copyWith(
-          {String? searchValue, String? warehouseId, String? departmentId}) {
+  copyWith({String? searchValue, String? warehouseId, String? departmentId}) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest(
-        searchValue: searchValue ?? this.searchValue,
-        warehouseId: warehouseId ?? this.warehouseId,
-        departmentId: departmentId ?? this.departmentId);
+      searchValue: searchValue ?? this.searchValue,
+      warehouseId: warehouseId ?? this.warehouseId,
+      departmentId: departmentId ?? this.departmentId,
+    );
   }
 
   WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest
-      copyWithWrapped(
-          {Wrapped<String?>? searchValue,
-          Wrapped<String?>? warehouseId,
-          Wrapped<String?>? departmentId}) {
+  copyWithWrapped({
+    Wrapped<String?>? searchValue,
+    Wrapped<String?>? warehouseId,
+    Wrapped<String?>? departmentId,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncSearchItemsByDescriptionRequest(
-        searchValue:
-            (searchValue != null ? searchValue.value : this.searchValue),
-        warehouseId:
-            (warehouseId != null ? warehouseId.value : this.warehouseId),
-        departmentId:
-            (departmentId != null ? departmentId.value : this.departmentId));
+      searchValue: (searchValue != null ? searchValue.value : this.searchValue),
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      departmentId: (departmentId != null
+          ? departmentId.value
+          : this.departmentId),
+    );
   }
 }
 
@@ -6699,15 +9400,18 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest {
   });
 
   factory WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
@@ -6721,16 +9425,23 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest &&
+        (other
+                is WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest &&
             (identical(other.warehouseId, warehouseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.warehouseId, warehouseId)) &&
+                const DeepCollectionEquality().equals(
+                  other.warehouseId,
+                  warehouseId,
+                )) &&
             (identical(other.inventoryId, inventoryId) ||
-                const DeepCollectionEquality()
-                    .equals(other.inventoryId, inventoryId)) &&
+                const DeepCollectionEquality().equals(
+                  other.inventoryId,
+                  inventoryId,
+                )) &&
             (identical(other.unitValue, unitValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.unitValue, unitValue)));
+                const DeepCollectionEquality().equals(
+                  other.unitValue,
+                  unitValue,
+                )));
   }
 
   @override
@@ -6746,25 +9457,29 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest {
 
 extension $WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestExtension
     on WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest {
-  WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest copyWith(
-      {String? warehouseId, String? inventoryId, double? unitValue}) {
+  WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest copyWith({
+    String? warehouseId,
+    String? inventoryId,
+    double? unitValue,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest(
-        warehouseId: warehouseId ?? this.warehouseId,
-        inventoryId: inventoryId ?? this.inventoryId,
-        unitValue: unitValue ?? this.unitValue);
+      warehouseId: warehouseId ?? this.warehouseId,
+      inventoryId: inventoryId ?? this.inventoryId,
+      unitValue: unitValue ?? this.unitValue,
+    );
   }
 
   WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest
-      copyWithWrapped(
-          {Wrapped<String?>? warehouseId,
-          Wrapped<String?>? inventoryId,
-          Wrapped<double?>? unitValue}) {
+  copyWithWrapped({
+    Wrapped<String?>? warehouseId,
+    Wrapped<String?>? inventoryId,
+    Wrapped<double?>? unitValue,
+  }) {
     return WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequest(
-        warehouseId:
-            (warehouseId != null ? warehouseId.value : this.warehouseId),
-        inventoryId:
-            (inventoryId != null ? inventoryId.value : this.inventoryId),
-        unitValue: (unitValue != null ? unitValue.value : this.unitValue));
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
+      unitValue: (unitValue != null ? unitValue.value : this.unitValue),
+    );
   }
 }
 
@@ -6798,15 +9513,18 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
   });
 
   factory WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
@@ -6862,60 +9580,125 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest &&
+        (other
+                is WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
-                const DeepCollectionEquality()
-                    .equals(other.success, success)) &&
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
             (identical(other.msg, msg) ||
                 const DeepCollectionEquality().equals(other.msg, msg)) &&
             (identical(other.sessionId, sessionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.sessionId, sessionId)) &&
+                const DeepCollectionEquality().equals(
+                  other.sessionId,
+                  sessionId,
+                )) &&
             (identical(other.inventoryId, inventoryId) ||
-                const DeepCollectionEquality()
-                    .equals(other.inventoryId, inventoryId)) &&
+                const DeepCollectionEquality().equals(
+                  other.inventoryId,
+                  inventoryId,
+                )) &&
             (identical(other.quantity, quantity) ||
-                const DeepCollectionEquality()
-                    .equals(other.quantity, quantity)) &&
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
             (identical(other.warehouseId, warehouseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.warehouseId, warehouseId)) &&
+                const DeepCollectionEquality().equals(
+                  other.warehouseId,
+                  warehouseId,
+                )) &&
             (identical(other.aisleLocation, aisleLocation) ||
-                const DeepCollectionEquality()
-                    .equals(other.aisleLocation, aisleLocation)) &&
+                const DeepCollectionEquality().equals(
+                  other.aisleLocation,
+                  aisleLocation,
+                )) &&
             (identical(other.shelfLocation, shelfLocation) ||
-                const DeepCollectionEquality()
-                    .equals(other.shelfLocation, shelfLocation)) &&
+                const DeepCollectionEquality().equals(
+                  other.shelfLocation,
+                  shelfLocation,
+                )) &&
             (identical(other.manufacturerVendorId, manufacturerVendorId) ||
                 const DeepCollectionEquality().equals(
-                    other.manufacturerVendorId, manufacturerVendorId)) &&
-            (identical(other.manufacturerModelNumber, manufacturerModelNumber) ||
+                  other.manufacturerVendorId,
+                  manufacturerVendorId,
+                )) &&
+            (identical(
+                  other.manufacturerModelNumber,
+                  manufacturerModelNumber,
+                ) ||
                 const DeepCollectionEquality().equals(
-                    other.manufacturerModelNumber, manufacturerModelNumber)) &&
+                  other.manufacturerModelNumber,
+                  manufacturerModelNumber,
+                )) &&
             (identical(other.manufacturerPartNumber, manufacturerPartNumber) ||
                 const DeepCollectionEquality().equals(
-                    other.manufacturerPartNumber, manufacturerPartNumber)) &&
+                  other.manufacturerPartNumber,
+                  manufacturerPartNumber,
+                )) &&
             (identical(other.countryId, countryId) ||
-                const DeepCollectionEquality()
-                    .equals(other.countryId, countryId)) &&
+                const DeepCollectionEquality().equals(
+                  other.countryId,
+                  countryId,
+                )) &&
             (identical(other.warrantyDays, warrantyDays) ||
-                const DeepCollectionEquality()
-                    .equals(other.warrantyDays, warrantyDays)) &&
+                const DeepCollectionEquality().equals(
+                  other.warrantyDays,
+                  warrantyDays,
+                )) &&
             (identical(other.warrantyExpiration, warrantyExpiration) ||
-                const DeepCollectionEquality()
-                    .equals(other.warrantyExpiration, warrantyExpiration)) &&
+                const DeepCollectionEquality().equals(
+                  other.warrantyExpiration,
+                  warrantyExpiration,
+                )) &&
             (identical(other.purchaseVendorId, purchaseVendorId) ||
-                const DeepCollectionEquality().equals(other.purchaseVendorId, purchaseVendorId)) &&
-            (identical(other.outsidePoNumber, outsidePoNumber) || const DeepCollectionEquality().equals(other.outsidePoNumber, outsidePoNumber)) &&
-            (identical(other.purchaseDate, purchaseDate) || const DeepCollectionEquality().equals(other.purchaseDate, purchaseDate)) &&
-            (identical(other.receiveDate, receiveDate) || const DeepCollectionEquality().equals(other.receiveDate, receiveDate)) &&
-            (identical(other.receiveTime, receiveTime) || const DeepCollectionEquality().equals(other.receiveTime, receiveTime)) &&
-            (identical(other.vendorPartNumber, vendorPartNumber) || const DeepCollectionEquality().equals(other.vendorPartNumber, vendorPartNumber)) &&
-            (identical(other.currencyId, currencyId) || const DeepCollectionEquality().equals(other.currencyId, currencyId)) &&
-            (identical(other.unitCost, unitCost) || const DeepCollectionEquality().equals(other.unitCost, unitCost)) &&
-            (identical(other.originalShowId, originalShowId) || const DeepCollectionEquality().equals(other.originalShowId, originalShowId)));
+                const DeepCollectionEquality().equals(
+                  other.purchaseVendorId,
+                  purchaseVendorId,
+                )) &&
+            (identical(other.outsidePoNumber, outsidePoNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.outsidePoNumber,
+                  outsidePoNumber,
+                )) &&
+            (identical(other.purchaseDate, purchaseDate) ||
+                const DeepCollectionEquality().equals(
+                  other.purchaseDate,
+                  purchaseDate,
+                )) &&
+            (identical(other.receiveDate, receiveDate) ||
+                const DeepCollectionEquality().equals(
+                  other.receiveDate,
+                  receiveDate,
+                )) &&
+            (identical(other.receiveTime, receiveTime) ||
+                const DeepCollectionEquality().equals(
+                  other.receiveTime,
+                  receiveTime,
+                )) &&
+            (identical(other.vendorPartNumber, vendorPartNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.vendorPartNumber,
+                  vendorPartNumber,
+                )) &&
+            (identical(other.currencyId, currencyId) ||
+                const DeepCollectionEquality().equals(
+                  other.currencyId,
+                  currencyId,
+                )) &&
+            (identical(other.unitCost, unitCost) ||
+                const DeepCollectionEquality().equals(
+                  other.unitCost,
+                  unitCost,
+                )) &&
+            (identical(other.originalShowId, originalShowId) ||
+                const DeepCollectionEquality().equals(
+                  other.originalShowId,
+                  originalShowId,
+                )));
   }
 
   @override
@@ -6951,137 +9734,142 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
 }
 
 extension $WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequestExtension
-    on WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest {
+    on
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest {
   WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest
-      copyWith(
-          {int? status,
-          bool? success,
-          String? msg,
-          String? sessionId,
-          String? inventoryId,
-          int? quantity,
-          String? warehouseId,
-          String? aisleLocation,
-          String? shelfLocation,
-          String? manufacturerVendorId,
-          String? manufacturerModelNumber,
-          String? manufacturerPartNumber,
-          String? countryId,
-          int? warrantyDays,
-          String? warrantyExpiration,
-          String? purchaseVendorId,
-          String? outsidePoNumber,
-          DateTime? purchaseDate,
-          DateTime? receiveDate,
-          String? receiveTime,
-          String? vendorPartNumber,
-          String? currencyId,
-          double? unitCost,
-          String? originalShowId}) {
+  copyWith({
+    int? status,
+    bool? success,
+    String? msg,
+    String? sessionId,
+    String? inventoryId,
+    int? quantity,
+    String? warehouseId,
+    String? aisleLocation,
+    String? shelfLocation,
+    String? manufacturerVendorId,
+    String? manufacturerModelNumber,
+    String? manufacturerPartNumber,
+    String? countryId,
+    int? warrantyDays,
+    String? warrantyExpiration,
+    String? purchaseVendorId,
+    String? outsidePoNumber,
+    DateTime? purchaseDate,
+    DateTime? receiveDate,
+    String? receiveTime,
+    String? vendorPartNumber,
+    String? currencyId,
+    double? unitCost,
+    String? originalShowId,
+  }) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest(
-        status: status ?? this.status,
-        success: success ?? this.success,
-        msg: msg ?? this.msg,
-        sessionId: sessionId ?? this.sessionId,
-        inventoryId: inventoryId ?? this.inventoryId,
-        quantity: quantity ?? this.quantity,
-        warehouseId: warehouseId ?? this.warehouseId,
-        aisleLocation: aisleLocation ?? this.aisleLocation,
-        shelfLocation: shelfLocation ?? this.shelfLocation,
-        manufacturerVendorId: manufacturerVendorId ?? this.manufacturerVendorId,
-        manufacturerModelNumber:
-            manufacturerModelNumber ?? this.manufacturerModelNumber,
-        manufacturerPartNumber:
-            manufacturerPartNumber ?? this.manufacturerPartNumber,
-        countryId: countryId ?? this.countryId,
-        warrantyDays: warrantyDays ?? this.warrantyDays,
-        warrantyExpiration: warrantyExpiration ?? this.warrantyExpiration,
-        purchaseVendorId: purchaseVendorId ?? this.purchaseVendorId,
-        outsidePoNumber: outsidePoNumber ?? this.outsidePoNumber,
-        purchaseDate: purchaseDate ?? this.purchaseDate,
-        receiveDate: receiveDate ?? this.receiveDate,
-        receiveTime: receiveTime ?? this.receiveTime,
-        vendorPartNumber: vendorPartNumber ?? this.vendorPartNumber,
-        currencyId: currencyId ?? this.currencyId,
-        unitCost: unitCost ?? this.unitCost,
-        originalShowId: originalShowId ?? this.originalShowId);
+      status: status ?? this.status,
+      success: success ?? this.success,
+      msg: msg ?? this.msg,
+      sessionId: sessionId ?? this.sessionId,
+      inventoryId: inventoryId ?? this.inventoryId,
+      quantity: quantity ?? this.quantity,
+      warehouseId: warehouseId ?? this.warehouseId,
+      aisleLocation: aisleLocation ?? this.aisleLocation,
+      shelfLocation: shelfLocation ?? this.shelfLocation,
+      manufacturerVendorId: manufacturerVendorId ?? this.manufacturerVendorId,
+      manufacturerModelNumber:
+          manufacturerModelNumber ?? this.manufacturerModelNumber,
+      manufacturerPartNumber:
+          manufacturerPartNumber ?? this.manufacturerPartNumber,
+      countryId: countryId ?? this.countryId,
+      warrantyDays: warrantyDays ?? this.warrantyDays,
+      warrantyExpiration: warrantyExpiration ?? this.warrantyExpiration,
+      purchaseVendorId: purchaseVendorId ?? this.purchaseVendorId,
+      outsidePoNumber: outsidePoNumber ?? this.outsidePoNumber,
+      purchaseDate: purchaseDate ?? this.purchaseDate,
+      receiveDate: receiveDate ?? this.receiveDate,
+      receiveTime: receiveTime ?? this.receiveTime,
+      vendorPartNumber: vendorPartNumber ?? this.vendorPartNumber,
+      currencyId: currencyId ?? this.currencyId,
+      unitCost: unitCost ?? this.unitCost,
+      originalShowId: originalShowId ?? this.originalShowId,
+    );
   }
 
   WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest
-      copyWithWrapped(
-          {Wrapped<int?>? status,
-          Wrapped<bool?>? success,
-          Wrapped<String?>? msg,
-          Wrapped<String?>? sessionId,
-          Wrapped<String?>? inventoryId,
-          Wrapped<int?>? quantity,
-          Wrapped<String?>? warehouseId,
-          Wrapped<String?>? aisleLocation,
-          Wrapped<String?>? shelfLocation,
-          Wrapped<String?>? manufacturerVendorId,
-          Wrapped<String?>? manufacturerModelNumber,
-          Wrapped<String?>? manufacturerPartNumber,
-          Wrapped<String?>? countryId,
-          Wrapped<int?>? warrantyDays,
-          Wrapped<String?>? warrantyExpiration,
-          Wrapped<String?>? purchaseVendorId,
-          Wrapped<String?>? outsidePoNumber,
-          Wrapped<DateTime?>? purchaseDate,
-          Wrapped<DateTime?>? receiveDate,
-          Wrapped<String?>? receiveTime,
-          Wrapped<String?>? vendorPartNumber,
-          Wrapped<String?>? currencyId,
-          Wrapped<double?>? unitCost,
-          Wrapped<String?>? originalShowId}) {
+  copyWithWrapped({
+    Wrapped<int?>? status,
+    Wrapped<bool?>? success,
+    Wrapped<String?>? msg,
+    Wrapped<String?>? sessionId,
+    Wrapped<String?>? inventoryId,
+    Wrapped<int?>? quantity,
+    Wrapped<String?>? warehouseId,
+    Wrapped<String?>? aisleLocation,
+    Wrapped<String?>? shelfLocation,
+    Wrapped<String?>? manufacturerVendorId,
+    Wrapped<String?>? manufacturerModelNumber,
+    Wrapped<String?>? manufacturerPartNumber,
+    Wrapped<String?>? countryId,
+    Wrapped<int?>? warrantyDays,
+    Wrapped<String?>? warrantyExpiration,
+    Wrapped<String?>? purchaseVendorId,
+    Wrapped<String?>? outsidePoNumber,
+    Wrapped<DateTime?>? purchaseDate,
+    Wrapped<DateTime?>? receiveDate,
+    Wrapped<String?>? receiveTime,
+    Wrapped<String?>? vendorPartNumber,
+    Wrapped<String?>? currencyId,
+    Wrapped<double?>? unitCost,
+    Wrapped<String?>? originalShowId,
+  }) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionRequest(
-        status: (status != null ? status.value : this.status),
-        success: (success != null ? success.value : this.success),
-        msg: (msg != null ? msg.value : this.msg),
-        sessionId: (sessionId != null ? sessionId.value : this.sessionId),
-        inventoryId:
-            (inventoryId != null ? inventoryId.value : this.inventoryId),
-        quantity: (quantity != null ? quantity.value : this.quantity),
-        warehouseId:
-            (warehouseId != null ? warehouseId.value : this.warehouseId),
-        aisleLocation:
-            (aisleLocation != null ? aisleLocation.value : this.aisleLocation),
-        shelfLocation:
-            (shelfLocation != null ? shelfLocation.value : this.shelfLocation),
-        manufacturerVendorId: (manufacturerVendorId != null
-            ? manufacturerVendorId.value
-            : this.manufacturerVendorId),
-        manufacturerModelNumber: (manufacturerModelNumber != null
-            ? manufacturerModelNumber.value
-            : this.manufacturerModelNumber),
-        manufacturerPartNumber: (manufacturerPartNumber != null
-            ? manufacturerPartNumber.value
-            : this.manufacturerPartNumber),
-        countryId: (countryId != null ? countryId.value : this.countryId),
-        warrantyDays:
-            (warrantyDays != null ? warrantyDays.value : this.warrantyDays),
-        warrantyExpiration: (warrantyExpiration != null
-            ? warrantyExpiration.value
-            : this.warrantyExpiration),
-        purchaseVendorId: (purchaseVendorId != null
-            ? purchaseVendorId.value
-            : this.purchaseVendorId),
-        outsidePoNumber: (outsidePoNumber != null
-            ? outsidePoNumber.value
-            : this.outsidePoNumber),
-        purchaseDate:
-            (purchaseDate != null ? purchaseDate.value : this.purchaseDate),
-        receiveDate:
-            (receiveDate != null ? receiveDate.value : this.receiveDate),
-        receiveTime:
-            (receiveTime != null ? receiveTime.value : this.receiveTime),
-        vendorPartNumber: (vendorPartNumber != null
-            ? vendorPartNumber.value
-            : this.vendorPartNumber),
-        currencyId: (currencyId != null ? currencyId.value : this.currencyId),
-        unitCost: (unitCost != null ? unitCost.value : this.unitCost),
-        originalShowId: (originalShowId != null
-            ? originalShowId.value
-            : this.originalShowId));
+      status: (status != null ? status.value : this.status),
+      success: (success != null ? success.value : this.success),
+      msg: (msg != null ? msg.value : this.msg),
+      sessionId: (sessionId != null ? sessionId.value : this.sessionId),
+      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      aisleLocation: (aisleLocation != null
+          ? aisleLocation.value
+          : this.aisleLocation),
+      shelfLocation: (shelfLocation != null
+          ? shelfLocation.value
+          : this.shelfLocation),
+      manufacturerVendorId: (manufacturerVendorId != null
+          ? manufacturerVendorId.value
+          : this.manufacturerVendorId),
+      manufacturerModelNumber: (manufacturerModelNumber != null
+          ? manufacturerModelNumber.value
+          : this.manufacturerModelNumber),
+      manufacturerPartNumber: (manufacturerPartNumber != null
+          ? manufacturerPartNumber.value
+          : this.manufacturerPartNumber),
+      countryId: (countryId != null ? countryId.value : this.countryId),
+      warrantyDays: (warrantyDays != null
+          ? warrantyDays.value
+          : this.warrantyDays),
+      warrantyExpiration: (warrantyExpiration != null
+          ? warrantyExpiration.value
+          : this.warrantyExpiration),
+      purchaseVendorId: (purchaseVendorId != null
+          ? purchaseVendorId.value
+          : this.purchaseVendorId),
+      outsidePoNumber: (outsidePoNumber != null
+          ? outsidePoNumber.value
+          : this.outsidePoNumber),
+      purchaseDate: (purchaseDate != null
+          ? purchaseDate.value
+          : this.purchaseDate),
+      receiveDate: (receiveDate != null ? receiveDate.value : this.receiveDate),
+      receiveTime: (receiveTime != null ? receiveTime.value : this.receiveTime),
+      vendorPartNumber: (vendorPartNumber != null
+          ? vendorPartNumber.value
+          : this.vendorPartNumber),
+      currencyId: (currencyId != null ? currencyId.value : this.currencyId),
+      unitCost: (unitCost != null ? unitCost.value : this.unitCost),
+      originalShowId: (originalShowId != null
+          ? originalShowId.value
+          : this.originalShowId),
+    );
   }
 }
 
@@ -7097,15 +9885,18 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
   });
 
   factory WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
@@ -7125,22 +9916,29 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse &&
+        (other
+                is WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
-                const DeepCollectionEquality()
-                    .equals(other.success, success)) &&
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
             (identical(other.msg, msg) ||
                 const DeepCollectionEquality().equals(other.msg, msg)) &&
             (identical(other.purchaseId, purchaseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.purchaseId, purchaseId)) &&
+                const DeepCollectionEquality().equals(
+                  other.purchaseId,
+                  purchaseId,
+                )) &&
             (identical(other.itemId, itemId) ||
                 const DeepCollectionEquality().equals(other.itemId, itemId)) &&
             (identical(other.quantityAdded, quantityAdded) ||
-                const DeepCollectionEquality()
-                    .equals(other.quantityAdded, quantityAdded)));
+                const DeepCollectionEquality().equals(
+                  other.quantityAdded,
+                  quantityAdded,
+                )));
   }
 
   @override
@@ -7158,40 +9956,46 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSes
 }
 
 extension $WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponseExtension
-    on WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse {
+    on
+        WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse {
   WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
-      copyWith(
-          {int? status,
-          bool? success,
-          String? msg,
-          List<String>? purchaseId,
-          List<String>? itemId,
-          int? quantityAdded}) {
+  copyWith({
+    int? status,
+    bool? success,
+    String? msg,
+    List<String>? purchaseId,
+    List<String>? itemId,
+    int? quantityAdded,
+  }) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse(
-        status: status ?? this.status,
-        success: success ?? this.success,
-        msg: msg ?? this.msg,
-        purchaseId: purchaseId ?? this.purchaseId,
-        itemId: itemId ?? this.itemId,
-        quantityAdded: quantityAdded ?? this.quantityAdded);
+      status: status ?? this.status,
+      success: success ?? this.success,
+      msg: msg ?? this.msg,
+      purchaseId: purchaseId ?? this.purchaseId,
+      itemId: itemId ?? this.itemId,
+      quantityAdded: quantityAdded ?? this.quantityAdded,
+    );
   }
 
   WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse
-      copyWithWrapped(
-          {Wrapped<int?>? status,
-          Wrapped<bool?>? success,
-          Wrapped<String?>? msg,
-          Wrapped<List<String>?>? purchaseId,
-          Wrapped<List<String>?>? itemId,
-          Wrapped<int?>? quantityAdded}) {
+  copyWithWrapped({
+    Wrapped<int?>? status,
+    Wrapped<bool?>? success,
+    Wrapped<String?>? msg,
+    Wrapped<List<String>?>? purchaseId,
+    Wrapped<List<String>?>? itemId,
+    Wrapped<int?>? quantityAdded,
+  }) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSessionResponse(
-        status: (status != null ? status.value : this.status),
-        success: (success != null ? success.value : this.success),
-        msg: (msg != null ? msg.value : this.msg),
-        purchaseId: (purchaseId != null ? purchaseId.value : this.purchaseId),
-        itemId: (itemId != null ? itemId.value : this.itemId),
-        quantityAdded:
-            (quantityAdded != null ? quantityAdded.value : this.quantityAdded));
+      status: (status != null ? status.value : this.status),
+      success: (success != null ? success.value : this.success),
+      msg: (msg != null ? msg.value : this.msg),
+      purchaseId: (purchaseId != null ? purchaseId.value : this.purchaseId),
+      itemId: (itemId != null ? itemId.value : this.itemId),
+      quantityAdded: (quantityAdded != null
+          ? quantityAdded.value
+          : this.quantityAdded),
+    );
   }
 }
 
@@ -7225,15 +10029,18 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem {
   });
 
   factory WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'InventoryPurchaseItemId', includeIfNull: false)
   final int? inventoryPurchaseItemId;
@@ -7260,26 +10067,30 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem {
   @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
   final dynamic urlIdentifier;
   @JsonKey(
-      name: '_Fields',
-      includeIfNull: false,
-      defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[])
+    name: '_Fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+  )
   final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
   @JsonKey(
-      name: '_Custom',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwCustomValue>[])
+    name: '_Custom',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwCustomValue>[],
+  )
   final List<FwStandardDataFwCustomValue>? custom;
   @JsonKey(
-      name: '_DefaultFieldAttributes',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwDefaultAttribute>[])
+    name: '_DefaultFieldAttributes',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwDefaultAttribute>[],
+  )
   final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
   @JsonKey(name: '_Original', includeIfNull: false)
   final FwStandardBusinessLogicFwBusinessLogic? original;
   @JsonKey(
-      name: '_Translation',
-      includeIfNull: false,
-      defaultValue: <FwStandardDataFwTranslatedValue>[])
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
@@ -7301,57 +10112,125 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem &&
-            (identical(other.inventoryPurchaseItemId, inventoryPurchaseItemId) ||
+        (other
+                is WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem &&
+            (identical(
+                  other.inventoryPurchaseItemId,
+                  inventoryPurchaseItemId,
+                ) ||
                 const DeepCollectionEquality().equals(
-                    other.inventoryPurchaseItemId, inventoryPurchaseItemId)) &&
+                  other.inventoryPurchaseItemId,
+                  inventoryPurchaseItemId,
+                )) &&
             (identical(other.sessionId, sessionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.sessionId, sessionId)) &&
+                const DeepCollectionEquality().equals(
+                  other.sessionId,
+                  sessionId,
+                )) &&
             (identical(other.barCode, barCode) ||
-                const DeepCollectionEquality()
-                    .equals(other.barCode, barCode)) &&
+                const DeepCollectionEquality().equals(
+                  other.barCode,
+                  barCode,
+                )) &&
             (identical(other.manufactureDate, manufactureDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.manufactureDate, manufactureDate)) &&
+                const DeepCollectionEquality().equals(
+                  other.manufactureDate,
+                  manufactureDate,
+                )) &&
             (identical(other.printQuantity, printQuantity) ||
-                const DeepCollectionEquality()
-                    .equals(other.printQuantity, printQuantity)) &&
+                const DeepCollectionEquality().equals(
+                  other.printQuantity,
+                  printQuantity,
+                )) &&
             (identical(other.serialNumber, serialNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.serialNumber, serialNumber)) &&
+                const DeepCollectionEquality().equals(
+                  other.serialNumber,
+                  serialNumber,
+                )) &&
             (identical(other.rfId, rfId) ||
                 const DeepCollectionEquality().equals(other.rfId, rfId)) &&
-            (identical(other.serialNumberIsMixedCase, serialNumberIsMixedCase) ||
+            (identical(
+                  other.serialNumberIsMixedCase,
+                  serialNumberIsMixedCase,
+                ) ||
                 const DeepCollectionEquality().equals(
-                    other.serialNumberIsMixedCase, serialNumberIsMixedCase)) &&
+                  other.serialNumberIsMixedCase,
+                  serialNumberIsMixedCase,
+                )) &&
             (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality()
-                    .equals(other.dateStamp, dateStamp)) &&
+                const DeepCollectionEquality().equals(
+                  other.dateStamp,
+                  dateStamp,
+                )) &&
             (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality()
-                    .equals(other.auditNote, auditNote)) &&
+                const DeepCollectionEquality().equals(
+                  other.auditNote,
+                  auditNote,
+                )) &&
             (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality()
-                    .equals(other.recordTitle, recordTitle)) &&
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )) &&
             (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality()
-                    .equals(other.urlIdentifier, urlIdentifier)) &&
+                const DeepCollectionEquality().equals(
+                  other.urlIdentifier,
+                  urlIdentifier,
+                )) &&
             (identical(other.fields, fields) ||
                 const DeepCollectionEquality().equals(other.fields, fields)) &&
             (identical(other.custom, custom) ||
                 const DeepCollectionEquality().equals(other.custom, custom)) &&
             (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(other.defaultFieldAttributes, defaultFieldAttributes)) &&
-            (identical(other.original, original) || const DeepCollectionEquality().equals(other.original, original)) &&
-            (identical(other.translation, translation) || const DeepCollectionEquality().equals(other.translation, translation)) &&
-            (identical(other.hasImport, hasImport) || const DeepCollectionEquality().equals(other.hasImport, hasImport)) &&
-            (identical(other.createdByUserId, createdByUserId) || const DeepCollectionEquality().equals(other.createdByUserId, createdByUserId)) &&
-            (identical(other.createdByUserName, createdByUserName) || const DeepCollectionEquality().equals(other.createdByUserName, createdByUserName)) &&
-            (identical(other.createdDateTime, createdDateTime) || const DeepCollectionEquality().equals(other.createdDateTime, createdDateTime)) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) || const DeepCollectionEquality().equals(other.modifiedByUserId, modifiedByUserId)) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) || const DeepCollectionEquality().equals(other.modifiedByUserName, modifiedByUserName)) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) || const DeepCollectionEquality().equals(other.modifiedDateTime, modifiedDateTime)));
+                const DeepCollectionEquality().equals(
+                  other.defaultFieldAttributes,
+                  defaultFieldAttributes,
+                )) &&
+            (identical(other.original, original) ||
+                const DeepCollectionEquality().equals(
+                  other.original,
+                  original,
+                )) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )) &&
+            (identical(other.hasImport, hasImport) ||
+                const DeepCollectionEquality().equals(
+                  other.hasImport,
+                  hasImport,
+                )) &&
+            (identical(other.createdByUserId, createdByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserId,
+                  createdByUserId,
+                )) &&
+            (identical(other.createdByUserName, createdByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserName,
+                  createdByUserName,
+                )) &&
+            (identical(other.createdDateTime, createdDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.createdDateTime,
+                  createdDateTime,
+                )) &&
+            (identical(other.modifiedByUserId, modifiedByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserId,
+                  modifiedByUserId,
+                )) &&
+            (identical(other.modifiedByUserName, modifiedByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserName,
+                  modifiedByUserName,
+                )) &&
+            (identical(other.modifiedDateTime, modifiedDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedDateTime,
+                  modifiedDateTime,
+                )));
   }
 
   @override
@@ -7388,139 +10267,143 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem {
 
 extension $WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemExtension
     on WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem {
-  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem copyWith(
-      {int? inventoryPurchaseItemId,
-      String? sessionId,
-      String? barCode,
-      String? manufactureDate,
-      int? printQuantity,
-      String? serialNumber,
-      String? rfId,
-      bool? serialNumberIsMixedCase,
-      String? dateStamp,
-      String? auditNote,
-      String? recordTitle,
-      dynamic urlIdentifier,
-      List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-      List<FwStandardDataFwCustomValue>? custom,
-      List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-      FwStandardBusinessLogicFwBusinessLogic? original,
-      List<FwStandardDataFwTranslatedValue>? translation,
-      bool? hasImport,
-      String? createdByUserId,
-      String? createdByUserName,
-      String? createdDateTime,
-      String? modifiedByUserId,
-      String? modifiedByUserName,
-      String? modifiedDateTime}) {
+  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem copyWith({
+    int? inventoryPurchaseItemId,
+    String? sessionId,
+    String? barCode,
+    String? manufactureDate,
+    int? printQuantity,
+    String? serialNumber,
+    String? rfId,
+    bool? serialNumberIsMixedCase,
+    String? dateStamp,
+    String? auditNote,
+    String? recordTitle,
+    dynamic urlIdentifier,
+    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+    List<FwStandardDataFwCustomValue>? custom,
+    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+    FwStandardBusinessLogicFwBusinessLogic? original,
+    List<FwStandardDataFwTranslatedValue>? translation,
+    bool? hasImport,
+    String? createdByUserId,
+    String? createdByUserName,
+    String? createdDateTime,
+    String? modifiedByUserId,
+    String? modifiedByUserName,
+    String? modifiedDateTime,
+  }) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem(
-        inventoryPurchaseItemId:
-            inventoryPurchaseItemId ?? this.inventoryPurchaseItemId,
-        sessionId: sessionId ?? this.sessionId,
-        barCode: barCode ?? this.barCode,
-        manufactureDate: manufactureDate ?? this.manufactureDate,
-        printQuantity: printQuantity ?? this.printQuantity,
-        serialNumber: serialNumber ?? this.serialNumber,
-        rfId: rfId ?? this.rfId,
-        serialNumberIsMixedCase:
-            serialNumberIsMixedCase ?? this.serialNumberIsMixedCase,
-        dateStamp: dateStamp ?? this.dateStamp,
-        auditNote: auditNote ?? this.auditNote,
-        recordTitle: recordTitle ?? this.recordTitle,
-        urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-        fields: fields ?? this.fields,
-        custom: custom ?? this.custom,
-        defaultFieldAttributes:
-            defaultFieldAttributes ?? this.defaultFieldAttributes,
-        original: original ?? this.original,
-        translation: translation ?? this.translation,
-        hasImport: hasImport ?? this.hasImport,
-        createdByUserId: createdByUserId ?? this.createdByUserId,
-        createdByUserName: createdByUserName ?? this.createdByUserName,
-        createdDateTime: createdDateTime ?? this.createdDateTime,
-        modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-        modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-        modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime);
+      inventoryPurchaseItemId:
+          inventoryPurchaseItemId ?? this.inventoryPurchaseItemId,
+      sessionId: sessionId ?? this.sessionId,
+      barCode: barCode ?? this.barCode,
+      manufactureDate: manufactureDate ?? this.manufactureDate,
+      printQuantity: printQuantity ?? this.printQuantity,
+      serialNumber: serialNumber ?? this.serialNumber,
+      rfId: rfId ?? this.rfId,
+      serialNumberIsMixedCase:
+          serialNumberIsMixedCase ?? this.serialNumberIsMixedCase,
+      dateStamp: dateStamp ?? this.dateStamp,
+      auditNote: auditNote ?? this.auditNote,
+      recordTitle: recordTitle ?? this.recordTitle,
+      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
+      fields: fields ?? this.fields,
+      custom: custom ?? this.custom,
+      defaultFieldAttributes:
+          defaultFieldAttributes ?? this.defaultFieldAttributes,
+      original: original ?? this.original,
+      translation: translation ?? this.translation,
+      hasImport: hasImport ?? this.hasImport,
+      createdByUserId: createdByUserId ?? this.createdByUserId,
+      createdByUserName: createdByUserName ?? this.createdByUserName,
+      createdDateTime: createdDateTime ?? this.createdDateTime,
+      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
+      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
+      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    );
   }
 
   WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
-      copyWithWrapped(
-          {Wrapped<int?>? inventoryPurchaseItemId,
-          Wrapped<String?>? sessionId,
-          Wrapped<String?>? barCode,
-          Wrapped<String?>? manufactureDate,
-          Wrapped<int?>? printQuantity,
-          Wrapped<String?>? serialNumber,
-          Wrapped<String?>? rfId,
-          Wrapped<bool?>? serialNumberIsMixedCase,
-          Wrapped<String?>? dateStamp,
-          Wrapped<String?>? auditNote,
-          Wrapped<String?>? recordTitle,
-          Wrapped<dynamic>? urlIdentifier,
-          Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-              fields,
-          Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-          Wrapped<List<FwStandardDataFwDefaultAttribute>?>?
-              defaultFieldAttributes,
-          Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-          Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-          Wrapped<bool?>? hasImport,
-          Wrapped<String?>? createdByUserId,
-          Wrapped<String?>? createdByUserName,
-          Wrapped<String?>? createdDateTime,
-          Wrapped<String?>? modifiedByUserId,
-          Wrapped<String?>? modifiedByUserName,
-          Wrapped<String?>? modifiedDateTime}) {
+  copyWithWrapped({
+    Wrapped<int?>? inventoryPurchaseItemId,
+    Wrapped<String?>? sessionId,
+    Wrapped<String?>? barCode,
+    Wrapped<String?>? manufactureDate,
+    Wrapped<int?>? printQuantity,
+    Wrapped<String?>? serialNumber,
+    Wrapped<String?>? rfId,
+    Wrapped<bool?>? serialNumberIsMixedCase,
+    Wrapped<String?>? dateStamp,
+    Wrapped<String?>? auditNote,
+    Wrapped<String?>? recordTitle,
+    Wrapped<dynamic>? urlIdentifier,
+    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+    fields,
+    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+    Wrapped<bool?>? hasImport,
+    Wrapped<String?>? createdByUserId,
+    Wrapped<String?>? createdByUserName,
+    Wrapped<String?>? createdDateTime,
+    Wrapped<String?>? modifiedByUserId,
+    Wrapped<String?>? modifiedByUserName,
+    Wrapped<String?>? modifiedDateTime,
+  }) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem(
-        inventoryPurchaseItemId: (inventoryPurchaseItemId != null
-            ? inventoryPurchaseItemId.value
-            : this.inventoryPurchaseItemId),
-        sessionId: (sessionId != null ? sessionId.value : this.sessionId),
-        barCode: (barCode != null ? barCode.value : this.barCode),
-        manufactureDate: (manufactureDate != null
-            ? manufactureDate.value
-            : this.manufactureDate),
-        printQuantity:
-            (printQuantity != null ? printQuantity.value : this.printQuantity),
-        serialNumber:
-            (serialNumber != null ? serialNumber.value : this.serialNumber),
-        rfId: (rfId != null ? rfId.value : this.rfId),
-        serialNumberIsMixedCase: (serialNumberIsMixedCase != null
-            ? serialNumberIsMixedCase.value
-            : this.serialNumberIsMixedCase),
-        dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-        auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-        recordTitle:
-            (recordTitle != null ? recordTitle.value : this.recordTitle),
-        urlIdentifier:
-            (urlIdentifier != null ? urlIdentifier.value : this.urlIdentifier),
-        fields: (fields != null ? fields.value : this.fields),
-        custom: (custom != null ? custom.value : this.custom),
-        defaultFieldAttributes: (defaultFieldAttributes != null
-            ? defaultFieldAttributes.value
-            : this.defaultFieldAttributes),
-        original: (original != null ? original.value : this.original),
-        translation:
-            (translation != null ? translation.value : this.translation),
-        hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-        createdByUserId: (createdByUserId != null
-            ? createdByUserId.value
-            : this.createdByUserId),
-        createdByUserName: (createdByUserName != null
-            ? createdByUserName.value
-            : this.createdByUserName),
-        createdDateTime: (createdDateTime != null
-            ? createdDateTime.value
-            : this.createdDateTime),
-        modifiedByUserId: (modifiedByUserId != null
-            ? modifiedByUserId.value
-            : this.modifiedByUserId),
-        modifiedByUserName: (modifiedByUserName != null
-            ? modifiedByUserName.value
-            : this.modifiedByUserName),
-        modifiedDateTime: (modifiedDateTime != null
-            ? modifiedDateTime.value
-            : this.modifiedDateTime));
+      inventoryPurchaseItemId: (inventoryPurchaseItemId != null
+          ? inventoryPurchaseItemId.value
+          : this.inventoryPurchaseItemId),
+      sessionId: (sessionId != null ? sessionId.value : this.sessionId),
+      barCode: (barCode != null ? barCode.value : this.barCode),
+      manufactureDate: (manufactureDate != null
+          ? manufactureDate.value
+          : this.manufactureDate),
+      printQuantity: (printQuantity != null
+          ? printQuantity.value
+          : this.printQuantity),
+      serialNumber: (serialNumber != null
+          ? serialNumber.value
+          : this.serialNumber),
+      rfId: (rfId != null ? rfId.value : this.rfId),
+      serialNumberIsMixedCase: (serialNumberIsMixedCase != null
+          ? serialNumberIsMixedCase.value
+          : this.serialNumberIsMixedCase),
+      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+      urlIdentifier: (urlIdentifier != null
+          ? urlIdentifier.value
+          : this.urlIdentifier),
+      fields: (fields != null ? fields.value : this.fields),
+      custom: (custom != null ? custom.value : this.custom),
+      defaultFieldAttributes: (defaultFieldAttributes != null
+          ? defaultFieldAttributes.value
+          : this.defaultFieldAttributes),
+      original: (original != null ? original.value : this.original),
+      translation: (translation != null ? translation.value : this.translation),
+      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      createdByUserId: (createdByUserId != null
+          ? createdByUserId.value
+          : this.createdByUserId),
+      createdByUserName: (createdByUserName != null
+          ? createdByUserName.value
+          : this.createdByUserName),
+      createdDateTime: (createdDateTime != null
+          ? createdDateTime.value
+          : this.createdDateTime),
+      modifiedByUserId: (modifiedByUserId != null
+          ? modifiedByUserId.value
+          : this.modifiedByUserId),
+      modifiedByUserName: (modifiedByUserName != null
+          ? modifiedByUserName.value
+          : this.modifiedByUserName),
+      modifiedDateTime: (modifiedDateTime != null
+          ? modifiedDateTime.value
+          : this.modifiedDateTime),
+    );
   }
 }
 
@@ -7532,15 +10415,18 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
   });
 
   factory WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'InventoryId', includeIfNull: false)
   final String? inventoryId;
@@ -7552,13 +10438,18 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest &&
+        (other
+                is WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest &&
             (identical(other.inventoryId, inventoryId) ||
-                const DeepCollectionEquality()
-                    .equals(other.inventoryId, inventoryId)) &&
+                const DeepCollectionEquality().equals(
+                  other.inventoryId,
+                  inventoryId,
+                )) &&
             (identical(other.quantity, quantity) ||
-                const DeepCollectionEquality()
-                    .equals(other.quantity, quantity)));
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )));
   }
 
   @override
@@ -7572,21 +10463,22 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
 }
 
 extension $WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestExtension
-    on WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest {
+    on
+        WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest {
   WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest
-      copyWith({String? inventoryId, int? quantity}) {
+  copyWith({String? inventoryId, int? quantity}) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest(
-        inventoryId: inventoryId ?? this.inventoryId,
-        quantity: quantity ?? this.quantity);
+      inventoryId: inventoryId ?? this.inventoryId,
+      quantity: quantity ?? this.quantity,
+    );
   }
 
   WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest
-      copyWithWrapped(
-          {Wrapped<String?>? inventoryId, Wrapped<int?>? quantity}) {
+  copyWithWrapped({Wrapped<String?>? inventoryId, Wrapped<int?>? quantity}) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest(
-        inventoryId:
-            (inventoryId != null ? inventoryId.value : this.inventoryId),
-        quantity: (quantity != null ? quantity.value : this.quantity));
+      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+    );
   }
 }
 
@@ -7597,15 +10489,18 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
   });
 
   factory WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'SessionId', includeIfNull: false)
   final String? sessionId;
@@ -7615,10 +10510,13 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse &&
+        (other
+                is WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse &&
             (identical(other.sessionId, sessionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.sessionId, sessionId)));
+                const DeepCollectionEquality().equals(
+                  other.sessionId,
+                  sessionId,
+                )));
   }
 
   @override
@@ -7630,17 +10528,20 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessio
 }
 
 extension $WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponseExtension
-    on WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse {
+    on
+        WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse {
   WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
-      copyWith({String? sessionId}) {
+  copyWith({String? sessionId}) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse(
-        sessionId: sessionId ?? this.sessionId);
+      sessionId: sessionId ?? this.sessionId,
+    );
   }
 
   WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse
-      copyWithWrapped({Wrapped<String?>? sessionId}) {
+  copyWithWrapped({Wrapped<String?>? sessionId}) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionResponse(
-        sessionId: (sessionId != null ? sessionId.value : this.sessionId));
+      sessionId: (sessionId != null ? sessionId.value : this.sessionId),
+    );
   }
 }
 
@@ -7653,15 +10554,18 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
   });
 
   factory WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'SessionId', includeIfNull: false)
   final String? sessionId;
@@ -7675,16 +10579,23 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest &&
+        (other
+                is WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest &&
             (identical(other.sessionId, sessionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.sessionId, sessionId)) &&
+                const DeepCollectionEquality().equals(
+                  other.sessionId,
+                  sessionId,
+                )) &&
             (identical(other.inventoryId, inventoryId) ||
-                const DeepCollectionEquality()
-                    .equals(other.inventoryId, inventoryId)) &&
+                const DeepCollectionEquality().equals(
+                  other.inventoryId,
+                  inventoryId,
+                )) &&
             (identical(other.quantity, quantity) ||
-                const DeepCollectionEquality()
-                    .equals(other.quantity, quantity)));
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )));
   }
 
   @override
@@ -7699,25 +10610,28 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
 }
 
 extension $WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequestExtension
-    on WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest {
+    on
+        WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest {
   WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest
-      copyWith({String? sessionId, String? inventoryId, int? quantity}) {
+  copyWith({String? sessionId, String? inventoryId, int? quantity}) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest(
-        sessionId: sessionId ?? this.sessionId,
-        inventoryId: inventoryId ?? this.inventoryId,
-        quantity: quantity ?? this.quantity);
+      sessionId: sessionId ?? this.sessionId,
+      inventoryId: inventoryId ?? this.inventoryId,
+      quantity: quantity ?? this.quantity,
+    );
   }
 
   WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest
-      copyWithWrapped(
-          {Wrapped<String?>? sessionId,
-          Wrapped<String?>? inventoryId,
-          Wrapped<int?>? quantity}) {
+  copyWithWrapped({
+    Wrapped<String?>? sessionId,
+    Wrapped<String?>? inventoryId,
+    Wrapped<int?>? quantity,
+  }) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRequest(
-        sessionId: (sessionId != null ? sessionId.value : this.sessionId),
-        inventoryId:
-            (inventoryId != null ? inventoryId.value : this.inventoryId),
-        quantity: (quantity != null ? quantity.value : this.quantity));
+      sessionId: (sessionId != null ? sessionId.value : this.sessionId),
+      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+    );
   }
 }
 
@@ -7730,15 +10644,18 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
   });
 
   factory WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseFromJson(
-          json);
+        json,
+      );
 
   static const toJsonFactory =
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'status', includeIfNull: false)
   final int? status;
@@ -7752,12 +10669,15 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse &&
+        (other
+                is WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
-                const DeepCollectionEquality()
-                    .equals(other.success, success)) &&
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
             (identical(other.msg, msg) ||
                 const DeepCollectionEquality().equals(other.msg, msg)));
   }
@@ -7774,24 +10694,28 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessi
 }
 
 extension $WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponseExtension
-    on WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse {
+    on
+        WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse {
   WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
-      copyWith({int? status, bool? success, String? msg}) {
+  copyWith({int? status, bool? success, String? msg}) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse(
-        status: status ?? this.status,
-        success: success ?? this.success,
-        msg: msg ?? this.msg);
+      status: status ?? this.status,
+      success: success ?? this.success,
+      msg: msg ?? this.msg,
+    );
   }
 
   WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse
-      copyWithWrapped(
-          {Wrapped<int?>? status,
-          Wrapped<bool?>? success,
-          Wrapped<String?>? msg}) {
+  copyWithWrapped({
+    Wrapped<int?>? status,
+    Wrapped<bool?>? success,
+    Wrapped<String?>? msg,
+  }) {
     return WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionResponse(
-        status: (status != null ? status.value : this.status),
-        success: (success != null ? success.value : this.success),
-        msg: (msg != null ? msg.value : this.msg));
+      status: (status != null ? status.value : this.status),
+      success: (success != null ? success.value : this.success),
+      msg: (msg != null ? msg.value : this.msg),
+    );
   }
 }
 
@@ -7802,15 +10726,17 @@ class WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest {
   });
 
   factory WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequestFromJson(
-          json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequestFromJson(
+    json,
+  );
 
   static const toJsonFactory =
       _$WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequestToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequestToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
@@ -7835,16 +10761,19 @@ class WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest {
 
 extension $WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequestExtension
     on WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest {
-  WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest copyWith(
-      {String? orderId}) {
+  WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest copyWith({
+    String? orderId,
+  }) {
     return WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest(
-        orderId: orderId ?? this.orderId);
+      orderId: orderId ?? this.orderId,
+    );
   }
 
-  WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest copyWithWrapped(
-      {Wrapped<String?>? orderId}) {
+  WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest
+  copyWithWrapped({Wrapped<String?>? orderId}) {
     return WebApiModulesWarehouseCheckOutOrderHasStorageContainerRequest(
-        orderId: (orderId != null ? orderId.value : this.orderId));
+      orderId: (orderId != null ? orderId.value : this.orderId),
+    );
   }
 }
 
@@ -7855,15 +10784,17 @@ class WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse {
   });
 
   factory WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponseFromJson(
-          json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponseFromJson(
+    json,
+  );
 
   static const toJsonFactory =
       _$WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponseToJson;
   Map<String, dynamic> toJson() =>
       _$WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponseToJson(
-          this);
+        this,
+      );
 
   @JsonKey(name: 'OrderHasStorageContainer', includeIfNull: false)
   final bool? orderHasStorageContainer;
@@ -7873,11 +10804,16 @@ class WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse &&
+        (other
+                is WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse &&
             (identical(
-                    other.orderHasStorageContainer, orderHasStorageContainer) ||
+                  other.orderHasStorageContainer,
+                  orderHasStorageContainer,
+                ) ||
                 const DeepCollectionEquality().equals(
-                    other.orderHasStorageContainer, orderHasStorageContainer)));
+                  other.orderHasStorageContainer,
+                  orderHasStorageContainer,
+                )));
   }
 
   @override
@@ -7891,19 +10827,22 @@ class WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse {
 
 extension $WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponseExtension
     on WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse {
-  WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse copyWith(
-      {bool? orderHasStorageContainer}) {
+  WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse copyWith({
+    bool? orderHasStorageContainer,
+  }) {
     return WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse(
-        orderHasStorageContainer:
-            orderHasStorageContainer ?? this.orderHasStorageContainer);
+      orderHasStorageContainer:
+          orderHasStorageContainer ?? this.orderHasStorageContainer,
+    );
   }
 
   WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse
-      copyWithWrapped({Wrapped<bool?>? orderHasStorageContainer}) {
+  copyWithWrapped({Wrapped<bool?>? orderHasStorageContainer}) {
     return WebApiModulesWarehouseCheckOutOrderHasStorageContainerResponse(
-        orderHasStorageContainer: (orderHasStorageContainer != null
-            ? orderHasStorageContainer.value
-            : this.orderHasStorageContainer));
+      orderHasStorageContainer: (orderHasStorageContainer != null
+          ? orderHasStorageContainer.value
+          : this.orderHasStorageContainer),
+    );
   }
 }
 
@@ -7921,8 +10860,8 @@ class WebApiModulesWarehouseCheckOutStagingTabsResponse {
   });
 
   factory WebApiModulesWarehouseCheckOutStagingTabsResponse.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesWarehouseCheckOutStagingTabsResponseFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesWarehouseCheckOutStagingTabsResponseFromJson(json);
 
   static const toJsonFactory =
       _$WebApiModulesWarehouseCheckOutStagingTabsResponseToJson;
@@ -7955,25 +10894,37 @@ class WebApiModulesWarehouseCheckOutStagingTabsResponse {
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
-                const DeepCollectionEquality()
-                    .equals(other.success, success)) &&
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
             (identical(other.msg, msg) ||
                 const DeepCollectionEquality().equals(other.msg, msg)) &&
             (identical(other.quantityTab, quantityTab) ||
-                const DeepCollectionEquality()
-                    .equals(other.quantityTab, quantityTab)) &&
+                const DeepCollectionEquality().equals(
+                  other.quantityTab,
+                  quantityTab,
+                )) &&
             (identical(other.holdingTab, holdingTab) ||
-                const DeepCollectionEquality()
-                    .equals(other.holdingTab, holdingTab)) &&
+                const DeepCollectionEquality().equals(
+                  other.holdingTab,
+                  holdingTab,
+                )) &&
             (identical(other.serialTab, serialTab) ||
-                const DeepCollectionEquality()
-                    .equals(other.serialTab, serialTab)) &&
+                const DeepCollectionEquality().equals(
+                  other.serialTab,
+                  serialTab,
+                )) &&
             (identical(other.usageTab, usageTab) ||
-                const DeepCollectionEquality()
-                    .equals(other.usageTab, usageTab)) &&
+                const DeepCollectionEquality().equals(
+                  other.usageTab,
+                  usageTab,
+                )) &&
             (identical(other.consignmentTab, consignmentTab) ||
-                const DeepCollectionEquality()
-                    .equals(other.consignmentTab, consignmentTab)));
+                const DeepCollectionEquality().equals(
+                  other.consignmentTab,
+                  consignmentTab,
+                )));
   }
 
   @override
@@ -7994,59 +10945,60 @@ class WebApiModulesWarehouseCheckOutStagingTabsResponse {
 
 extension $WebApiModulesWarehouseCheckOutStagingTabsResponseExtension
     on WebApiModulesWarehouseCheckOutStagingTabsResponse {
-  WebApiModulesWarehouseCheckOutStagingTabsResponse copyWith(
-      {int? status,
-      bool? success,
-      String? msg,
-      bool? quantityTab,
-      bool? holdingTab,
-      bool? serialTab,
-      bool? usageTab,
-      bool? consignmentTab}) {
+  WebApiModulesWarehouseCheckOutStagingTabsResponse copyWith({
+    int? status,
+    bool? success,
+    String? msg,
+    bool? quantityTab,
+    bool? holdingTab,
+    bool? serialTab,
+    bool? usageTab,
+    bool? consignmentTab,
+  }) {
     return WebApiModulesWarehouseCheckOutStagingTabsResponse(
-        status: status ?? this.status,
-        success: success ?? this.success,
-        msg: msg ?? this.msg,
-        quantityTab: quantityTab ?? this.quantityTab,
-        holdingTab: holdingTab ?? this.holdingTab,
-        serialTab: serialTab ?? this.serialTab,
-        usageTab: usageTab ?? this.usageTab,
-        consignmentTab: consignmentTab ?? this.consignmentTab);
+      status: status ?? this.status,
+      success: success ?? this.success,
+      msg: msg ?? this.msg,
+      quantityTab: quantityTab ?? this.quantityTab,
+      holdingTab: holdingTab ?? this.holdingTab,
+      serialTab: serialTab ?? this.serialTab,
+      usageTab: usageTab ?? this.usageTab,
+      consignmentTab: consignmentTab ?? this.consignmentTab,
+    );
   }
 
-  WebApiModulesWarehouseCheckOutStagingTabsResponse copyWithWrapped(
-      {Wrapped<int?>? status,
-      Wrapped<bool?>? success,
-      Wrapped<String?>? msg,
-      Wrapped<bool?>? quantityTab,
-      Wrapped<bool?>? holdingTab,
-      Wrapped<bool?>? serialTab,
-      Wrapped<bool?>? usageTab,
-      Wrapped<bool?>? consignmentTab}) {
+  WebApiModulesWarehouseCheckOutStagingTabsResponse copyWithWrapped({
+    Wrapped<int?>? status,
+    Wrapped<bool?>? success,
+    Wrapped<String?>? msg,
+    Wrapped<bool?>? quantityTab,
+    Wrapped<bool?>? holdingTab,
+    Wrapped<bool?>? serialTab,
+    Wrapped<bool?>? usageTab,
+    Wrapped<bool?>? consignmentTab,
+  }) {
     return WebApiModulesWarehouseCheckOutStagingTabsResponse(
-        status: (status != null ? status.value : this.status),
-        success: (success != null ? success.value : this.success),
-        msg: (msg != null ? msg.value : this.msg),
-        quantityTab:
-            (quantityTab != null ? quantityTab.value : this.quantityTab),
-        holdingTab: (holdingTab != null ? holdingTab.value : this.holdingTab),
-        serialTab: (serialTab != null ? serialTab.value : this.serialTab),
-        usageTab: (usageTab != null ? usageTab.value : this.usageTab),
-        consignmentTab: (consignmentTab != null
-            ? consignmentTab.value
-            : this.consignmentTab));
+      status: (status != null ? status.value : this.status),
+      success: (success != null ? success.value : this.success),
+      msg: (msg != null ? msg.value : this.msg),
+      quantityTab: (quantityTab != null ? quantityTab.value : this.quantityTab),
+      holdingTab: (holdingTab != null ? holdingTab.value : this.holdingTab),
+      serialTab: (serialTab != null ? serialTab.value : this.serialTab),
+      usageTab: (usageTab != null ? usageTab.value : this.usageTab),
+      consignmentTab: (consignmentTab != null
+          ? consignmentTab.value
+          : this.consignmentTab),
+    );
   }
 }
 
 @JsonSerializable(explicitToJson: true)
 class WebApiModulesWarehouseContractCancelContractRequest {
-  const WebApiModulesWarehouseContractCancelContractRequest({
-    this.contractId,
-  });
+  const WebApiModulesWarehouseContractCancelContractRequest({this.contractId});
 
   factory WebApiModulesWarehouseContractCancelContractRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$WebApiModulesWarehouseContractCancelContractRequestFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesWarehouseContractCancelContractRequestFromJson(json);
 
   static const toJsonFactory =
       _$WebApiModulesWarehouseContractCancelContractRequestToJson;
@@ -8063,8 +11015,10 @@ class WebApiModulesWarehouseContractCancelContractRequest {
     return identical(this, other) ||
         (other is WebApiModulesWarehouseContractCancelContractRequest &&
             (identical(other.contractId, contractId) ||
-                const DeepCollectionEquality()
-                    .equals(other.contractId, contractId)));
+                const DeepCollectionEquality().equals(
+                  other.contractId,
+                  contractId,
+                )));
   }
 
   @override
@@ -8077,45 +11031,52 @@ class WebApiModulesWarehouseContractCancelContractRequest {
 
 extension $WebApiModulesWarehouseContractCancelContractRequestExtension
     on WebApiModulesWarehouseContractCancelContractRequest {
-  WebApiModulesWarehouseContractCancelContractRequest copyWith(
-      {String? contractId}) {
+  WebApiModulesWarehouseContractCancelContractRequest copyWith({
+    String? contractId,
+  }) {
     return WebApiModulesWarehouseContractCancelContractRequest(
-        contractId: contractId ?? this.contractId);
+      contractId: contractId ?? this.contractId,
+    );
   }
 
-  WebApiModulesWarehouseContractCancelContractRequest copyWithWrapped(
-      {Wrapped<String?>? contractId}) {
+  WebApiModulesWarehouseContractCancelContractRequest copyWithWrapped({
+    Wrapped<String?>? contractId,
+  }) {
     return WebApiModulesWarehouseContractCancelContractRequest(
-        contractId: (contractId != null ? contractId.value : this.contractId));
+      contractId: (contractId != null ? contractId.value : this.contractId),
+    );
   }
 }
 
 String? fwStandardSqlServerAttributesFwExcelOptionsNullableToJson(
-    enums.FwStandardSqlServerAttributesFwExcelOptions?
-        fwStandardSqlServerAttributesFwExcelOptions) {
+  enums.FwStandardSqlServerAttributesFwExcelOptions?
+  fwStandardSqlServerAttributesFwExcelOptions,
+) {
   return fwStandardSqlServerAttributesFwExcelOptions?.value;
 }
 
 String? fwStandardSqlServerAttributesFwExcelOptionsToJson(
-    enums.FwStandardSqlServerAttributesFwExcelOptions
-        fwStandardSqlServerAttributesFwExcelOptions) {
+  enums.FwStandardSqlServerAttributesFwExcelOptions
+  fwStandardSqlServerAttributesFwExcelOptions,
+) {
   return fwStandardSqlServerAttributesFwExcelOptions.value;
 }
 
 enums.FwStandardSqlServerAttributesFwExcelOptions
-    fwStandardSqlServerAttributesFwExcelOptionsFromJson(
+fwStandardSqlServerAttributesFwExcelOptionsFromJson(
   Object? fwStandardSqlServerAttributesFwExcelOptions, [
   enums.FwStandardSqlServerAttributesFwExcelOptions? defaultValue,
 ]) {
   return enums.FwStandardSqlServerAttributesFwExcelOptions.values
           .firstWhereOrNull(
-              (e) => e.value == fwStandardSqlServerAttributesFwExcelOptions) ??
+            (e) => e.value == fwStandardSqlServerAttributesFwExcelOptions,
+          ) ??
       defaultValue ??
       enums.FwStandardSqlServerAttributesFwExcelOptions.swaggerGeneratedUnknown;
 }
 
 enums.FwStandardSqlServerAttributesFwExcelOptions?
-    fwStandardSqlServerAttributesFwExcelOptionsNullableFromJson(
+fwStandardSqlServerAttributesFwExcelOptionsNullableFromJson(
   Object? fwStandardSqlServerAttributesFwExcelOptions, [
   enums.FwStandardSqlServerAttributesFwExcelOptions? defaultValue,
 ]) {
@@ -8124,13 +11085,15 @@ enums.FwStandardSqlServerAttributesFwExcelOptions?
   }
   return enums.FwStandardSqlServerAttributesFwExcelOptions.values
           .firstWhereOrNull(
-              (e) => e.value == fwStandardSqlServerAttributesFwExcelOptions) ??
+            (e) => e.value == fwStandardSqlServerAttributesFwExcelOptions,
+          ) ??
       defaultValue;
 }
 
 String fwStandardSqlServerAttributesFwExcelOptionsExplodedListToJson(
-    List<enums.FwStandardSqlServerAttributesFwExcelOptions>?
-        fwStandardSqlServerAttributesFwExcelOptions) {
+  List<enums.FwStandardSqlServerAttributesFwExcelOptions>?
+  fwStandardSqlServerAttributesFwExcelOptions,
+) {
   return fwStandardSqlServerAttributesFwExcelOptions
           ?.map((e) => e.value!)
           .join(',') ??
@@ -8138,8 +11101,9 @@ String fwStandardSqlServerAttributesFwExcelOptionsExplodedListToJson(
 }
 
 List<String> fwStandardSqlServerAttributesFwExcelOptionsListToJson(
-    List<enums.FwStandardSqlServerAttributesFwExcelOptions>?
-        fwStandardSqlServerAttributesFwExcelOptions) {
+  List<enums.FwStandardSqlServerAttributesFwExcelOptions>?
+  fwStandardSqlServerAttributesFwExcelOptions,
+) {
   if (fwStandardSqlServerAttributesFwExcelOptions == null) {
     return [];
   }
@@ -8150,7 +11114,7 @@ List<String> fwStandardSqlServerAttributesFwExcelOptionsListToJson(
 }
 
 List<enums.FwStandardSqlServerAttributesFwExcelOptions>
-    fwStandardSqlServerAttributesFwExcelOptionsListFromJson(
+fwStandardSqlServerAttributesFwExcelOptionsListFromJson(
   List? fwStandardSqlServerAttributesFwExcelOptions, [
   List<enums.FwStandardSqlServerAttributesFwExcelOptions>? defaultValue,
 ]) {
@@ -8159,13 +11123,15 @@ List<enums.FwStandardSqlServerAttributesFwExcelOptions>
   }
 
   return fwStandardSqlServerAttributesFwExcelOptions
-      .map((e) =>
-          fwStandardSqlServerAttributesFwExcelOptionsFromJson(e.toString()))
+      .map(
+        (e) =>
+            fwStandardSqlServerAttributesFwExcelOptionsFromJson(e.toString()),
+      )
       .toList();
 }
 
 List<enums.FwStandardSqlServerAttributesFwExcelOptions>?
-    fwStandardSqlServerAttributesFwExcelOptionsNullableListFromJson(
+fwStandardSqlServerAttributesFwExcelOptionsNullableListFromJson(
   List? fwStandardSqlServerAttributesFwExcelOptions, [
   List<enums.FwStandardSqlServerAttributesFwExcelOptions>? defaultValue,
 ]) {
@@ -8174,18 +11140,22 @@ List<enums.FwStandardSqlServerAttributesFwExcelOptions>?
   }
 
   return fwStandardSqlServerAttributesFwExcelOptions
-      .map((e) =>
-          fwStandardSqlServerAttributesFwExcelOptionsFromJson(e.toString()))
+      .map(
+        (e) =>
+            fwStandardSqlServerAttributesFwExcelOptionsFromJson(e.toString()),
+      )
       .toList();
 }
 
 String? fwStandardSqlServerFwDataTypesNullableToJson(
-    enums.FwStandardSqlServerFwDataTypes? fwStandardSqlServerFwDataTypes) {
+  enums.FwStandardSqlServerFwDataTypes? fwStandardSqlServerFwDataTypes,
+) {
   return fwStandardSqlServerFwDataTypes?.value;
 }
 
 String? fwStandardSqlServerFwDataTypesToJson(
-    enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypes) {
+  enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypes,
+) {
   return fwStandardSqlServerFwDataTypes.value;
 }
 
@@ -8193,34 +11163,36 @@ enums.FwStandardSqlServerFwDataTypes fwStandardSqlServerFwDataTypesFromJson(
   Object? fwStandardSqlServerFwDataTypes, [
   enums.FwStandardSqlServerFwDataTypes? defaultValue,
 ]) {
-  return enums.FwStandardSqlServerFwDataTypes.values
-          .firstWhereOrNull((e) => e.value == fwStandardSqlServerFwDataTypes) ??
+  return enums.FwStandardSqlServerFwDataTypes.values.firstWhereOrNull(
+        (e) => e.value == fwStandardSqlServerFwDataTypes,
+      ) ??
       defaultValue ??
       enums.FwStandardSqlServerFwDataTypes.swaggerGeneratedUnknown;
 }
 
 enums.FwStandardSqlServerFwDataTypes?
-    fwStandardSqlServerFwDataTypesNullableFromJson(
+fwStandardSqlServerFwDataTypesNullableFromJson(
   Object? fwStandardSqlServerFwDataTypes, [
   enums.FwStandardSqlServerFwDataTypes? defaultValue,
 ]) {
   if (fwStandardSqlServerFwDataTypes == null) {
     return null;
   }
-  return enums.FwStandardSqlServerFwDataTypes.values
-          .firstWhereOrNull((e) => e.value == fwStandardSqlServerFwDataTypes) ??
+  return enums.FwStandardSqlServerFwDataTypes.values.firstWhereOrNull(
+        (e) => e.value == fwStandardSqlServerFwDataTypes,
+      ) ??
       defaultValue;
 }
 
 String fwStandardSqlServerFwDataTypesExplodedListToJson(
-    List<enums.FwStandardSqlServerFwDataTypes>?
-        fwStandardSqlServerFwDataTypes) {
+  List<enums.FwStandardSqlServerFwDataTypes>? fwStandardSqlServerFwDataTypes,
+) {
   return fwStandardSqlServerFwDataTypes?.map((e) => e.value!).join(',') ?? '';
 }
 
 List<String> fwStandardSqlServerFwDataTypesListToJson(
-    List<enums.FwStandardSqlServerFwDataTypes>?
-        fwStandardSqlServerFwDataTypes) {
+  List<enums.FwStandardSqlServerFwDataTypes>? fwStandardSqlServerFwDataTypes,
+) {
   if (fwStandardSqlServerFwDataTypes == null) {
     return [];
   }
@@ -8229,7 +11201,7 @@ List<String> fwStandardSqlServerFwDataTypesListToJson(
 }
 
 List<enums.FwStandardSqlServerFwDataTypes>
-    fwStandardSqlServerFwDataTypesListFromJson(
+fwStandardSqlServerFwDataTypesListFromJson(
   List? fwStandardSqlServerFwDataTypes, [
   List<enums.FwStandardSqlServerFwDataTypes>? defaultValue,
 ]) {
@@ -8243,7 +11215,7 @@ List<enums.FwStandardSqlServerFwDataTypes>
 }
 
 List<enums.FwStandardSqlServerFwDataTypes>?
-    fwStandardSqlServerFwDataTypesNullableListFromJson(
+fwStandardSqlServerFwDataTypesNullableListFromJson(
   List? fwStandardSqlServerFwDataTypes, [
   List<enums.FwStandardSqlServerFwDataTypes>? defaultValue,
 ]) {
@@ -8303,7 +11275,8 @@ class $CustomJsonDecoder {
 class $JsonSerializableConverter extends chopper.JsonConverter {
   @override
   FutureOr<chopper.Response<ResultType>> convertResponse<ResultType, Item>(
-      chopper.Response response) async {
+    chopper.Response response,
+  ) async {
     if (response.bodyString.isEmpty) {
       // In rare cases, when let's say 204 (no content) is returned -
       // we cannot decode the missing json with the result type specified
@@ -8316,13 +11289,16 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
 
     if (ResultType == DateTime) {
       return response.copyWith(
-          body: DateTime.parse((response.body as String).replaceAll('"', ''))
-              as ResultType);
+        body:
+            DateTime.parse((response.body as String).replaceAll('"', ''))
+                as ResultType,
+      );
     }
 
     final jsonRes = await super.convertResponse(response);
     return jsonRes.copyWith<ResultType>(
-        body: $jsonDecoder.decode<Item>(jsonRes.body) as ResultType);
+      body: $jsonDecoder.decode<Item>(jsonRes.body) as ResultType,
+    );
   }
 }
 

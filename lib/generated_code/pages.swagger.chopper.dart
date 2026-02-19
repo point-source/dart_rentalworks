@@ -20,46 +20,86 @@ final class _$Pages extends Pages {
 
   @override
   Future<
-          Response<
-              WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse>>
-      _cardpointepaymentactivelinkGet({required String? activeLinkToken}) {
+    Response<
+      WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse
+    >
+  >
+  _cardpointepaymentactivelinkGet({
+    required String? activeLinkToken,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CardPointePaymentActiveLink"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/cardpointepaymentactivelink');
     final Map<String, dynamic> $params = <String, dynamic>{
-      'ActiveLinkToken': activeLinkToken
+      'ActiveLinkToken': activeLinkToken,
     };
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
     );
     return client.send<
-            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse,
-            WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse>(
-        $request);
+      WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse,
+      WebApiModulesPagesActiveLinkCardPointePaymentPaymentActiveLinkGetActiveLinkDetailsResponse
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse>>
-      _cardpointetokenizerGet() {
+    Response<
+      WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
+    >
+  >
+  _cardpointetokenizerGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CardPointeTokenizer"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/cardpointetokenizer');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
     return client.send<
-            WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse,
-            WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse>(
-        $request);
+      WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse,
+      WebApiModulesPagesPluginsCardPointeTokenizerGetCardPointeTokenizerResponse
+    >($request);
   }
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _taskschedulerTaskstepsBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
+  _taskschedulerTaskstepsBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
     final $body = body;
     final Request $request = Request(
@@ -67,17 +107,33 @@ final class _$Pages extends Pages {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _taskschedulerTaskstepsExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _taskschedulerTaskstepsExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
@@ -85,22 +141,35 @@ final class _$Pages extends Pages {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
-        $request);
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
-      _taskschedulerTaskstepsGet({
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+    >
+  >
+  _taskschedulerTaskstepsGet({
     int? pageno,
     int? pagesize,
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps');
     final Map<String, dynamic> $params = <String, dynamic>{
@@ -114,17 +183,29 @@ final class _$Pages extends Pages {
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>(
-        $request);
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsPost(
-          {required WebApiModulesAdministratorTaskSchedulerTaskSteps? body}) {
+  _taskschedulerTaskstepsPost({
+    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps');
     final $body = body;
     final Request $request = Request(
@@ -132,29 +213,57 @@ final class _$Pages extends Pages {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+    return client.send<
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      WebApiModulesAdministratorTaskSchedulerTaskSteps
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsIdGet({required String? id}) {
+  _taskschedulerTaskstepsIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+    return client.send<
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      WebApiModulesAdministratorTaskSchedulerTaskSteps
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsIdPut({
+  _taskschedulerTaskstepsIdPut({
     required String? id,
     required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
     final $body = body;
@@ -163,19 +272,34 @@ final class _$Pages extends Pages {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+    return client.send<
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      WebApiModulesAdministratorTaskSchedulerTaskSteps
+    >($request);
   }
 
   @override
-  Future<Response<bool>> _taskschedulerTaskstepsIdDelete(
-      {required String? id}) {
+  Future<Response<bool>> _taskschedulerTaskstepsIdDelete({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
   }

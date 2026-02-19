@@ -20,35 +20,66 @@ final class _$Integrations extends Integrations {
 
   @override
   Future<Response<List<WebApiModulesIntegrationsStorefrontWebCatalog>>>
-      _boxedupCatalogGet() {
+  _boxedupCatalogGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get catalogs.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["BoxedUp"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/boxedup/catalog');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<List<WebApiModulesIntegrationsStorefrontWebCatalog>,
-        WebApiModulesIntegrationsStorefrontWebCatalog>($request);
+    return client.send<
+      List<WebApiModulesIntegrationsStorefrontWebCatalog>,
+      WebApiModulesIntegrationsStorefrontWebCatalog
+    >($request);
   }
 
   @override
   Future<Response<List<WebApiModulesIntegrationsStorefrontWebCatalog>>>
-      _boxedupCatalogCatalogidGet({required String? catalogid}) {
+  _boxedupCatalogCatalogidGet({
+    required String? catalogid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["BoxedUp"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/boxedup/catalog/${catalogid}');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<List<WebApiModulesIntegrationsStorefrontWebCatalog>,
-        WebApiModulesIntegrationsStorefrontWebCatalog>($request);
+    return client.send<
+      List<WebApiModulesIntegrationsStorefrontWebCatalog>,
+      WebApiModulesIntegrationsStorefrontWebCatalog
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader>>
-      _boxedupCatalogCatalogidProductsLocationidLocationidWarehouseidWarehouseidGet({
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >
+  >
+  _boxedupCatalogCatalogidProductsLocationidLocationidWarehouseidWarehouseidGet({
     required String? catalogid,
     required String? locationid,
     required String? warehouseid,
@@ -59,9 +90,20 @@ final class _$Integrations extends Integrations {
     String? inventorydepartmentid,
     String? categoryid,
     String? subcategoryid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get products in a catalog with availability.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["BoxedUp"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse(
-        '/boxedup/catalog/${catalogid}/products/locationid/${locationid}/warehouseid/${warehouseid}');
+      '/boxedup/catalog/${catalogid}/products/locationid/${locationid}/warehouseid/${warehouseid}',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -76,76 +118,138 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader,
-            FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader>(
-        $request);
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader,
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >($request);
   }
 
   @override
   Future<Response<dynamic>> _shopifyCreateOrderWebhookLocationLocationidPost({
     required String? locationid,
     required ShopifySharpOrder? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Shopify"],
+      deprecated: false,
+    ),
   }) {
-    final Uri $url =
-        Uri.parse('/shopify/create_order_webhook/location/${locationid}');
+    final Uri $url = Uri.parse(
+      '/shopify/create_order_webhook/location/${locationid}',
+    );
     final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> _shopifyThemeInstallInstructionsGet() {
+  Future<Response<dynamic>> _shopifyThemeInstallInstructionsGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Shopify"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/shopify/theme-install-instructions');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
   Future<
-          Response<
-              List<
-                  WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema>>>
-      _storefrontSettingsSchemaGet() {
+    Response<
+      List<WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema>
+    >
+  >
+  _storefrontSettingsSchemaGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns storefront settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/settings/schema');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
     return client.send<
-            List<
-                WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema>,
-            WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema>(
-        $request);
+      List<WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema>,
+      WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesIntegrationsStorefrontStorefrontSettings>>
-      _storefrontSettingsGet() {
+  _storefrontSettingsGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns storefront settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/settings');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesIntegrationsStorefrontStorefrontSettings,
-        WebApiModulesIntegrationsStorefrontStorefrontSettings>($request);
+    return client.send<
+      WebApiModulesIntegrationsStorefrontStorefrontSettings,
+      WebApiModulesIntegrationsStorefrontStorefrontSettings
+    >($request);
   }
 
   @override
-  Future<Response<dynamic>> _storefrontSettingsPut(
-      {required WebApiModulesIntegrationsStorefrontStorefrontSettings? body}) {
+  Future<Response<dynamic>> _storefrontSettingsPut({
+    required WebApiModulesIntegrationsStorefrontStorefrontSettings? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Update storefront settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/settings');
     final $body = body;
     final Request $request = Request(
@@ -153,54 +257,101 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
   Future<Response<List<WebApiModulesIntegrationsStorefrontWebCatalog>>>
-      _storefrontCatalogGet() {
+  _storefrontCatalogGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get catalogs.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/catalog');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<List<WebApiModulesIntegrationsStorefrontWebCatalog>,
-        WebApiModulesIntegrationsStorefrontWebCatalog>($request);
+    return client.send<
+      List<WebApiModulesIntegrationsStorefrontWebCatalog>,
+      WebApiModulesIntegrationsStorefrontWebCatalog
+    >($request);
   }
 
   @override
   Future<Response<List<WebApiModulesIntegrationsStorefrontWebCatalog>>>
-      _storefrontCatalogCatalogidGet({required String? catalogid}) {
+  _storefrontCatalogCatalogidGet({
+    required String? catalogid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get catalog by id.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/catalog/${catalogid}');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<List<WebApiModulesIntegrationsStorefrontWebCatalog>,
-        WebApiModulesIntegrationsStorefrontWebCatalog>($request);
+    return client.send<
+      List<WebApiModulesIntegrationsStorefrontWebCatalog>,
+      WebApiModulesIntegrationsStorefrontWebCatalog
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesIntegrationsStorefrontWebCatalog>>
-      _storefrontCatalogCatalogidCategorytreeGet({required String? catalogid}) {
+  _storefrontCatalogCatalogidCategorytreeGet({
+    required String? catalogid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get categorytree for a catalog.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/catalog/${catalogid}/categorytree');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesIntegrationsStorefrontWebCatalog,
-        WebApiModulesIntegrationsStorefrontWebCatalog>($request);
+    return client.send<
+      WebApiModulesIntegrationsStorefrontWebCatalog,
+      WebApiModulesIntegrationsStorefrontWebCatalog
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader>>
-      _storefrontCatalogCatalogidProductsLocationidLocationidWarehouseidWarehouseidFromdateFromdateTodateTodateGet({
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >
+  >
+  _storefrontCatalogCatalogidProductsLocationidLocationidWarehouseidWarehouseidFromdateFromdateTodateTodateGet({
     required String? catalogid,
     required String? locationid,
     required String? warehouseid,
@@ -213,9 +364,20 @@ final class _$Integrations extends Integrations {
     String? inventorydepartmentid,
     String? categoryid,
     String? subcategoryid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get products in a catalog with availability.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse(
-        '/storefront/catalog/${catalogid}/products/locationid/${locationid}/warehouseid/${warehouseid}/fromdate/${fromdate}/todate/${todate}');
+      '/storefront/catalog/${catalogid}/products/locationid/${locationid}/warehouseid/${warehouseid}/fromdate/${fromdate}/todate/${todate}',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -230,18 +392,21 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader,
-            FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader>(
-        $request);
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader,
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader>>
-      _storefrontProductsProductidsLocationidLocationidWarehouseidWarehouseidFromdateFromdateTodateTodateGet({
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >
+  >
+  _storefrontProductsProductidsLocationidLocationidWarehouseidWarehouseidFromdateFromdateTodateTodateGet({
     required String? productids,
     required String? locationid,
     required String? warehouseid,
@@ -251,9 +416,21 @@ final class _$Integrations extends Integrations {
     int? pagesize,
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary:
+          'Get products by id with availability.  (for revalidating shopping cart)',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse(
-        '/storefront/products/${productids}/locationid/${locationid}/warehouseid/${warehouseid}/fromdate/${fromdate}/todate/${todate}');
+      '/storefront/products/${productids}/locationid/${locationid}/warehouseid/${warehouseid}/fromdate/${fromdate}/todate/${todate}',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -265,18 +442,21 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader,
-            FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader>(
-        $request);
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader,
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader>>
-      _storefrontProductsInventoryidsInventoryidsLocationidLocationidWarehouseidWarehouseidFromdateFromdateTodateTodateGet({
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >
+  >
+  _storefrontProductsInventoryidsInventoryidsLocationidLocationidWarehouseidWarehouseidFromdateFromdateTodateTodateGet({
     required String? inventoryids,
     required String? locationid,
     required String? warehouseid,
@@ -286,9 +466,22 @@ final class _$Integrations extends Integrations {
     int? pagesize,
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary:
+          '''Get products by comma separated list of InventoryIds with availability. 
+(When a product is removed from a catalog the catalog\'s product id will change, so we can query this endpoint to update the product ids in a users shopping cart if we can find the same InventoryId on a different catalog listing.''',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse(
-        '/storefront/products/inventoryids/${inventoryids}/locationid/${locationid}/warehouseid/${warehouseid}/fromdate/${fromdate}/todate/${todate}');
+      '/storefront/products/inventoryids/${inventoryids}/locationid/${locationid}/warehouseid/${warehouseid}/fromdate/${fromdate}/todate/${todate}',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -300,16 +493,17 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader,
-            FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader>(
-        $request);
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader,
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesIntegrationsStorefrontStorefrontProductL>>
-      _storefrontProductProductidWarehouseidWarehouseidLocationidLocationidFromdateFromdateTodateTodateGet({
+  _storefrontProductProductidWarehouseidWarehouseidLocationidLocationidFromdateFromdateTodateTodateGet({
     required String? productid,
     required String? warehouseid,
     required String? locationid,
@@ -319,9 +513,21 @@ final class _$Integrations extends Integrations {
     int? pagesize,
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary:
+          'Get product details of a single product, availability will be defaulted to today + 6 days and use the location/warehouse from the product\'s catalog.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse(
-        '/storefront/product/${productid}/warehouseid/${warehouseid}/locationid/${locationid}/fromdate/${fromdate}/todate/${todate}');
+      '/storefront/product/${productid}/warehouseid/${warehouseid}/locationid/${locationid}/fromdate/${fromdate}/todate/${todate}',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageno': pageno,
       'pagesize': pagesize,
@@ -333,54 +539,110 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesIntegrationsStorefrontStorefrontProductL,
-        WebApiModulesIntegrationsStorefrontStorefrontProductL>($request);
+    return client.send<
+      WebApiModulesIntegrationsStorefrontStorefrontProductL,
+      WebApiModulesIntegrationsStorefrontStorefrontProductL
+    >($request);
   }
 
   @override
   Future<Response<List<WebApiModulesIntegrationsStorefrontLocationModel>>>
-      _storefrontLookupwarehouseGet() {
+  _storefrontLookupwarehouseGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Lookup warehouses',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/lookupwarehouse');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<List<WebApiModulesIntegrationsStorefrontLocationModel>,
-        WebApiModulesIntegrationsStorefrontLocationModel>($request);
+    return client.send<
+      List<WebApiModulesIntegrationsStorefrontLocationModel>,
+      WebApiModulesIntegrationsStorefrontLocationModel
+    >($request);
   }
 
   @override
   Future<Response<List<WebApiModulesIntegrationsStorefrontLocationModel>>>
-      _storefrontLookuplocationGet() {
+  _storefrontLookuplocationGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Lookup locations for a warehouse',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/lookuplocation');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<List<WebApiModulesIntegrationsStorefrontLocationModel>,
-        WebApiModulesIntegrationsStorefrontLocationModel>($request);
+    return client.send<
+      List<WebApiModulesIntegrationsStorefrontLocationModel>,
+      WebApiModulesIntegrationsStorefrontLocationModel
+    >($request);
   }
 
   @override
   Future<Response<List<WebApiModulesIntegrationsStorefrontDealModel>>>
-      _storefrontLookupdealGet() {
+  _storefrontLookupdealGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Lookup a list of valid deals for submitting quote requests',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/lookupdeal');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<List<WebApiModulesIntegrationsStorefrontDealModel>,
-        WebApiModulesIntegrationsStorefrontDealModel>($request);
+    return client.send<
+      List<WebApiModulesIntegrationsStorefrontDealModel>,
+      WebApiModulesIntegrationsStorefrontDealModel
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesIntegrationsStorefrontLoginResponse>>
-      _storefrontLoginPost(
-          {required WebApiModulesIntegrationsStorefrontLoginRequest? body}) {
+  _storefrontLoginPost({
+    required WebApiModulesIntegrationsStorefrontLoginRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Login (for Contacts)',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/login');
     final $body = body;
     final Request $request = Request(
@@ -388,15 +650,29 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesIntegrationsStorefrontLoginResponse,
-        WebApiModulesIntegrationsStorefrontLoginResponse>($request);
+    return client.send<
+      WebApiModulesIntegrationsStorefrontLoginResponse,
+      WebApiModulesIntegrationsStorefrontLoginResponse
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesIntegrationsStorefrontLoginResponse>>
-      _storefrontLoginAzurePost(
-          {required WebApiModulesAccountServicesJwtAzureADRequest? body}) {
+  _storefrontLoginAzurePost({
+    required WebApiModulesAccountServicesJwtAzureADRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Login (for Contacts)',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/login/azure');
     final $body = body;
     final Request $request = Request(
@@ -404,15 +680,29 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesIntegrationsStorefrontLoginResponse,
-        WebApiModulesIntegrationsStorefrontLoginResponse>($request);
+    return client.send<
+      WebApiModulesIntegrationsStorefrontLoginResponse,
+      WebApiModulesIntegrationsStorefrontLoginResponse
+    >($request);
   }
 
   @override
-  Future<Response<dynamic>> _storefrontSendresetpasswordemailPost(
-      {required WebApiModulesIntegrationsStorefrontSendResetPasswordEmailRequest?
-          body}) {
+  Future<Response<dynamic>> _storefrontSendresetpasswordemailPost({
+    required WebApiModulesIntegrationsStorefrontSendResetPasswordEmailRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Send email to Reset Password (for Contacts)',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/sendresetpasswordemail');
     final $body = body;
     final Request $request = Request(
@@ -420,14 +710,26 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
-  Future<Response<dynamic>> _storefrontSendchangepasswordemailPost(
-      {required WebApiModulesIntegrationsStorefrontSendResetPasswordEmailRequest?
-          body}) {
+  Future<Response<dynamic>> _storefrontSendchangepasswordemailPost({
+    required WebApiModulesIntegrationsStorefrontSendResetPasswordEmailRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Send email to Reset Password (for Contacts)',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/sendchangepasswordemail');
     final $body = body;
     final Request $request = Request(
@@ -435,15 +737,27 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<dynamic, dynamic>($request);
   }
 
   @override
   Future<Response<WebApiModulesIntegrationsStorefrontLoginResponse>>
-      _storefrontResetpasswordfromemailPost(
-          {required WebApiModulesIntegrationsStorefrontResetPasswordFromEmailRequest?
-              body}) {
+  _storefrontResetpasswordfromemailPost({
+    required WebApiModulesIntegrationsStorefrontResetPasswordFromEmailRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Send email to Reset Password (for Contacts)',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/resetpasswordfromemail');
     final $body = body;
     final Request $request = Request(
@@ -451,18 +765,32 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesIntegrationsStorefrontLoginResponse,
-        WebApiModulesIntegrationsStorefrontLoginResponse>($request);
+    return client.send<
+      WebApiModulesIntegrationsStorefrontLoginResponse,
+      WebApiModulesIntegrationsStorefrontLoginResponse
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              WebApiModulesIntegrationsStorefrontContactRegistrationResponse>>
-      _storefrontRegisterPost(
-          {required WebApiModulesIntegrationsStorefrontContactRegistrationRequest?
-              body}) {
+    Response<WebApiModulesIntegrationsStorefrontContactRegistrationResponse>
+  >
+  _storefrontRegisterPost({
+    required WebApiModulesIntegrationsStorefrontContactRegistrationRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Register a new account (Contact)',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/register');
     final $body = body;
     final Request $request = Request(
@@ -470,62 +798,102 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<
-            WebApiModulesIntegrationsStorefrontContactRegistrationResponse,
-            WebApiModulesIntegrationsStorefrontContactRegistrationResponse>(
-        $request);
+      WebApiModulesIntegrationsStorefrontContactRegistrationResponse,
+      WebApiModulesIntegrationsStorefrontContactRegistrationResponse
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesIntegrationsStorefrontProductAvailability>>
-      _storefrontProductavailabilityInventoryidInventoryidWarehouseidWarehouseidFromdateFromdateTodateTodateGet({
+  _storefrontProductavailabilityInventoryidInventoryidWarehouseidWarehouseidFromdateFromdateTodateTodateGet({
     required String? inventoryid,
     required String? warehouseid,
     required DateTime? fromdate,
     required DateTime? todate,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse(
-        '/storefront/productavailability/inventoryid/${inventoryid}/warehouseid/${warehouseid}/fromdate/${fromdate}/todate/${todate}');
+      '/storefront/productavailability/inventoryid/${inventoryid}/warehouseid/${warehouseid}/fromdate/${fromdate}/todate/${todate}',
+    );
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesIntegrationsStorefrontProductAvailability,
-        WebApiModulesIntegrationsStorefrontProductAvailability>($request);
+    return client.send<
+      WebApiModulesIntegrationsStorefrontProductAvailability,
+      WebApiModulesIntegrationsStorefrontProductAvailability
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              WebApiModulesIntegrationsStorefrontGetProductWarehouseDetailsResponse>>
-      _storefrontProductdetailsProductidProductidLocationidLocationidWarehouseidWarehouseidFromdateFromdateTodateTodateGet({
+    Response<
+      WebApiModulesIntegrationsStorefrontGetProductWarehouseDetailsResponse
+    >
+  >
+  _storefrontProductdetailsProductidProductidLocationidLocationidWarehouseidWarehouseidFromdateFromdateTodateTodateGet({
     required String? productid,
     required String? locationid,
     required String? warehouseid,
     required DateTime? fromdate,
     required DateTime? todate,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get extended product details with availability and rates',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse(
-        '/storefront/productdetails/productid/${productid}/locationid/${locationid}/warehouseid/${warehouseid}/fromdate/${fromdate}/todate/${todate}');
+      '/storefront/productdetails/productid/${productid}/locationid/${locationid}/warehouseid/${warehouseid}/fromdate/${fromdate}/todate/${todate}',
+    );
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
     return client.send<
-            WebApiModulesIntegrationsStorefrontGetProductWarehouseDetailsResponse,
-            WebApiModulesIntegrationsStorefrontGetProductWarehouseDetailsResponse>(
-        $request);
+      WebApiModulesIntegrationsStorefrontGetProductWarehouseDetailsResponse,
+      WebApiModulesIntegrationsStorefrontGetProductWarehouseDetailsResponse
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              WebApiModulesIntegrationsStorefrontSubmitQuoteRequestResponse>>
-      _storefrontSubmitquoterequestPost(
-          {required WebApiModulesIntegrationsStorefrontQuoteRequest? body}) {
+    Response<WebApiModulesIntegrationsStorefrontSubmitQuoteRequestResponse>
+  >
+  _storefrontSubmitquoterequestPost({
+    required WebApiModulesIntegrationsStorefrontQuoteRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Submit a Quote Request',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/submitquoterequest');
     final $body = body;
     final Request $request = Request(
@@ -533,18 +901,29 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<
-            WebApiModulesIntegrationsStorefrontSubmitQuoteRequestResponse,
-            WebApiModulesIntegrationsStorefrontSubmitQuoteRequestResponse>(
-        $request);
+      WebApiModulesIntegrationsStorefrontSubmitQuoteRequestResponse,
+      WebApiModulesIntegrationsStorefrontSubmitQuoteRequestResponse
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesIntegrationsStorefrontSendInquiryEmailResponse>>
-      _storefrontSendinquiryemailPost(
-          {required WebApiModulesIntegrationsStorefrontSendInquiryEmailRequest?
-              body}) {
+  _storefrontSendinquiryemailPost({
+    required WebApiModulesIntegrationsStorefrontSendInquiryEmailRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Send an inquiry email about an item.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/sendinquiryemail');
     final $body = body;
     final Request $request = Request(
@@ -552,40 +931,80 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<
-        WebApiModulesIntegrationsStorefrontSendInquiryEmailResponse,
-        WebApiModulesIntegrationsStorefrontSendInquiryEmailResponse>($request);
+      WebApiModulesIntegrationsStorefrontSendInquiryEmailResponse,
+      WebApiModulesIntegrationsStorefrontSendInquiryEmailResponse
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesIntegrationsStorefrontStorefrontProgress>>
-      _storefrontProgressmeterIdGet({required String? id}) {
+  _storefrontProgressmeterIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns the current status from a progress meter session.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/progressmeter/${id}');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesIntegrationsStorefrontStorefrontProgress,
-        WebApiModulesIntegrationsStorefrontStorefrontProgress>($request);
+    return client.send<
+      WebApiModulesIntegrationsStorefrontStorefrontProgress,
+      WebApiModulesIntegrationsStorefrontStorefrontProgress
+    >($request);
   }
 
   @override
-  Future<Response<String>> _storefrontVersionGet() {
+  Future<Response<String>> _storefrontVersionGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns the storefront api version.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/storefront/version');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
     return client.send<String, String>($request);
   }
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _taskschedulerTaskstepsBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
+  _taskschedulerTaskstepsBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
     final $body = body;
     final Request $request = Request(
@@ -593,17 +1012,33 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _taskschedulerTaskstepsExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _taskschedulerTaskstepsExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
@@ -611,22 +1046,35 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
-        $request);
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
-      _taskschedulerTaskstepsGet({
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+    >
+  >
+  _taskschedulerTaskstepsGet({
     int? pageno,
     int? pagesize,
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps');
     final Map<String, dynamic> $params = <String, dynamic>{
@@ -640,17 +1088,29 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>(
-        $request);
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsPost(
-          {required WebApiModulesAdministratorTaskSchedulerTaskSteps? body}) {
+  _taskschedulerTaskstepsPost({
+    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps');
     final $body = body;
     final Request $request = Request(
@@ -658,29 +1118,57 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+    return client.send<
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      WebApiModulesAdministratorTaskSchedulerTaskSteps
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsIdGet({required String? id}) {
+  _taskschedulerTaskstepsIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+    return client.send<
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      WebApiModulesAdministratorTaskSchedulerTaskSteps
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsIdPut({
+  _taskschedulerTaskstepsIdPut({
     required String? id,
     required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
     final $body = body;
@@ -689,19 +1177,34 @@ final class _$Integrations extends Integrations {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+    return client.send<
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      WebApiModulesAdministratorTaskSchedulerTaskSteps
+    >($request);
   }
 
   @override
-  Future<Response<bool>> _taskschedulerTaskstepsIdDelete(
-      {required String? id}) {
+  Future<Response<bool>> _taskschedulerTaskstepsIdDelete({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
   }

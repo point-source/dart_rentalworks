@@ -1,3 +1,6 @@
+// coverage:ignore-file
+// ignore_for_file: type=lint
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
@@ -61,7 +64,8 @@ enum FwStandardSqlServerFwDataTypes {
   currencystringnodollarsign('CurrencyStringNoDollarSign'),
   @JsonValue('CurrencyStringNoDollarSignNoDecimalPlaces')
   currencystringnodollarsignnodecimalplaces(
-      'CurrencyStringNoDollarSignNoDecimalPlaces'),
+    'CurrencyStringNoDollarSignNoDecimalPlaces',
+  ),
   @JsonValue('PhoneUS')
   phoneus('PhoneUS'),
   @JsonValue('ZipcodeUS')

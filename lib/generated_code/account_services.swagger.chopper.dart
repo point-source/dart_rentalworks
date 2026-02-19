@@ -20,33 +20,60 @@ final class _$AccountServices extends AccountServices {
 
   @override
   Future<
-          Response<
-              WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse>>
-      _accountSessionGet({String? applicationId}) {
+    Response<
+      WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
+    >
+  >
+  _accountSessionGet({
+    String? applicationId,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Account"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/account/session');
     final Map<String, dynamic> $params = <String, dynamic>{
-      'applicationId': applicationId
+      'applicationId': applicationId,
     };
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
     );
     return client.send<
-            WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse,
-            WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse>(
-        $request);
+      WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse,
+      WebApiModulesAccountServicesAccountAccountControllerGetSessionResponse
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse>>
-      _accountOfficelocationGet({
+    Response<
+      WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
+    >
+  >
+  _accountOfficelocationGet({
     String? locationid,
     String? warehouseid,
     String? departmentid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Account"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse('/account/officelocation');
     final Map<String, dynamic> $params = <String, dynamic>{
@@ -59,18 +86,29 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
     );
     return client.send<
-            WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse,
-            WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse>(
-        $request);
+      WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse,
+      WebApiModulesAccountServicesAccountAccountControllerGetOfficeLocationResponse
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesAccountServicesAccountResetPasswordResponse>>
-      _accountResetpasswordPost(
-          {required WebApiModulesAccountServicesAccountResetPasswordRequest?
-              body}) {
+  _accountResetpasswordPost({
+    required WebApiModulesAccountServicesAccountResetPasswordRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Account"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/account/resetpassword');
     final $body = body;
     final Request $request = Request(
@@ -78,16 +116,29 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesAccountServicesAccountResetPasswordResponse,
-        WebApiModulesAccountServicesAccountResetPasswordResponse>($request);
+    return client.send<
+      WebApiModulesAccountServicesAccountResetPasswordResponse,
+      WebApiModulesAccountServicesAccountResetPasswordResponse
+    >($request);
   }
 
   @override
   Future<Response<WebApiLogicAppFuncGetSettingsResponse>>
-      _accountGetsettingsPost(
-          {required WebApiModulesAccountServicesAccountGetSettingsRequest?
-              body}) {
+  _accountGetsettingsPost({
+    required WebApiModulesAccountServicesAccountGetSettingsRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Account"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/account/getsettings');
     final $body = body;
     final Request $request = Request(
@@ -95,16 +146,29 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiLogicAppFuncGetSettingsResponse,
-        WebApiLogicAppFuncGetSettingsResponse>($request);
+    return client.send<
+      WebApiLogicAppFuncGetSettingsResponse,
+      WebApiLogicAppFuncGetSettingsResponse
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesAccountServicesAccountForgotPasswordResponse>>
-      _accountForgotpasswordPost(
-          {required WebApiModulesAccountServicesAccountForgotPasswordRequest?
-              body}) {
+  _accountForgotpasswordPost({
+    required WebApiModulesAccountServicesAccountForgotPasswordRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Account"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/account/forgotpassword');
     final $body = body;
     final Request $request = Request(
@@ -112,19 +176,32 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<
-        WebApiModulesAccountServicesAccountForgotPasswordResponse,
-        WebApiModulesAccountServicesAccountForgotPasswordResponse>($request);
+      WebApiModulesAccountServicesAccountForgotPasswordResponse,
+      WebApiModulesAccountServicesAccountForgotPasswordResponse
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              WebApiModulesAccountServicesAccountResetPasswordExternalResponse>>
-      _accountResetpasswordexternalPost(
-          {required WebApiModulesAccountServicesAccountResetPasswordExternalRequest?
-              body}) {
+    Response<WebApiModulesAccountServicesAccountResetPasswordExternalResponse>
+  >
+  _accountResetpasswordexternalPost({
+    required WebApiModulesAccountServicesAccountResetPasswordExternalRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Account"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/account/resetpasswordexternal');
     final $body = body;
     final Request $request = Request(
@@ -132,16 +209,28 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<
-            WebApiModulesAccountServicesAccountResetPasswordExternalResponse,
-            WebApiModulesAccountServicesAccountResetPasswordExternalResponse>(
-        $request);
+      WebApiModulesAccountServicesAccountResetPasswordExternalResponse,
+      WebApiModulesAccountServicesAccountResetPasswordExternalResponse
+    >($request);
   }
 
   @override
-  Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>> _jwtPost(
-      {required FwStandardModelsFwApplicationUser? body}) {
+  Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>> _jwtPost({
+    required FwStandardModelsFwApplicationUser? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Jwt"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/jwt');
     final $body = body;
     final Request $request = Request(
@@ -149,15 +238,29 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<FwCoreControllersFwJwtControllerJwtResponseModel,
-        FwCoreControllersFwJwtControllerJwtResponseModel>($request);
+    return client.send<
+      FwCoreControllersFwJwtControllerJwtResponseModel,
+      FwCoreControllersFwJwtControllerJwtResponseModel
+    >($request);
   }
 
   @override
   Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
-      _jwtOktaPost(
-          {required WebApiModulesAccountServicesJwtOktaRequest? body}) {
+  _jwtOktaPost({
+    required WebApiModulesAccountServicesJwtOktaRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Jwt"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/jwt/okta');
     final $body = body;
     final Request $request = Request(
@@ -165,15 +268,29 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<FwCoreControllersFwJwtControllerJwtResponseModel,
-        FwCoreControllersFwJwtControllerJwtResponseModel>($request);
+    return client.send<
+      FwCoreControllersFwJwtControllerJwtResponseModel,
+      FwCoreControllersFwJwtControllerJwtResponseModel
+    >($request);
   }
 
   @override
   Future<Response<FwCoreControllersFwJwtControllerJwtResponseModel>>
-      _jwtAzureadPost(
-          {required WebApiModulesAccountServicesJwtAzureADRequest? body}) {
+  _jwtAzureadPost({
+    required WebApiModulesAccountServicesJwtAzureADRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Jwt"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/jwt/azuread');
     final $body = body;
     final Request $request = Request(
@@ -181,15 +298,29 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<FwCoreControllersFwJwtControllerJwtResponseModel,
-        FwCoreControllersFwJwtControllerJwtResponseModel>($request);
+    return client.send<
+      FwCoreControllersFwJwtControllerJwtResponseModel,
+      FwCoreControllersFwJwtControllerJwtResponseModel
+    >($request);
   }
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-      _taskschedulerTaskstepsBrowsePost(
-          {required FwStandardModelsBrowseRequest? body}) {
+  _taskschedulerTaskstepsBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
     final $body = body;
     final Request $request = Request(
@@ -197,17 +328,33 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<FwStandardSqlServerFwJsonDataTable,
-        FwStandardSqlServerFwJsonDataTable>($request);
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>>
-      _taskschedulerTaskstepsExportexcelxlsxPost(
-          {required FwStandardModelsBrowseRequest? body}) {
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _taskschedulerTaskstepsExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
     final $body = body;
     final Request $request = Request(
@@ -215,22 +362,35 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
     return client.send<
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-            FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult>(
-        $request);
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
   }
 
   @override
   Future<
-          Response<
-              FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>>
-      _taskschedulerTaskstepsGet({
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+    >
+  >
+  _taskschedulerTaskstepsGet({
     int? pageno,
     int? pagesize,
     String? sort,
     List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps');
     final Map<String, dynamic> $params = <String, dynamic>{
@@ -244,17 +404,29 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
     );
     return client.send<
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-            FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic>(
-        $request);
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsPost(
-          {required WebApiModulesAdministratorTaskSchedulerTaskSteps? body}) {
+  _taskschedulerTaskstepsPost({
+    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps');
     final $body = body;
     final Request $request = Request(
@@ -262,29 +434,57 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+    return client.send<
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      WebApiModulesAdministratorTaskSchedulerTaskSteps
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsIdGet({required String? id}) {
+  _taskschedulerTaskstepsIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+    return client.send<
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      WebApiModulesAdministratorTaskSchedulerTaskSteps
+    >($request);
   }
 
   @override
   Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-      _taskschedulerTaskstepsIdPut({
+  _taskschedulerTaskstepsIdPut({
     required String? id,
     required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
   }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
     final $body = body;
@@ -293,19 +493,34 @@ final class _$AccountServices extends AccountServices {
       $url,
       client.baseUrl,
       body: $body,
+      tag: swaggerMetaData,
     );
-    return client.send<WebApiModulesAdministratorTaskSchedulerTaskSteps,
-        WebApiModulesAdministratorTaskSchedulerTaskSteps>($request);
+    return client.send<
+      WebApiModulesAdministratorTaskSchedulerTaskSteps,
+      WebApiModulesAdministratorTaskSchedulerTaskSteps
+    >($request);
   }
 
   @override
-  Future<Response<bool>> _taskschedulerTaskstepsIdDelete(
-      {required String? id}) {
+  Future<Response<bool>> _taskschedulerTaskstepsIdDelete({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TaskScheduler"],
+      deprecated: false,
+    ),
+  }) {
     final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
       client.baseUrl,
+      tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
   }

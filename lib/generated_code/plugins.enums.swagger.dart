@@ -1,3 +1,6 @@
+// coverage:ignore-file
+// ignore_for_file: type=lint
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
@@ -61,7 +64,8 @@ enum FwStandardSqlServerFwDataTypes {
   currencystringnodollarsign('CurrencyStringNoDollarSign'),
   @JsonValue('CurrencyStringNoDollarSignNoDecimalPlaces')
   currencystringnodollarsignnodecimalplaces(
-      'CurrencyStringNoDollarSignNoDecimalPlaces'),
+    'CurrencyStringNoDollarSignNoDecimalPlaces',
+  ),
   @JsonValue('PhoneUS')
   phoneus('PhoneUS'),
   @JsonValue('ZipcodeUS')
@@ -110,7 +114,8 @@ enum WebApiModulesPluginsCreditCardCreditCardOrderDepositRequestPayWithTypes {
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardOrderDepositRequestPayWithTypes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes {
@@ -133,7 +138,8 @@ enum WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes 
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardPluginAuthorizeResponseStatusCodes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginBinResponseStatusCodes {
@@ -148,7 +154,8 @@ enum WebApiModulesPluginsCreditCardCreditCardPluginBinResponseStatusCodes {
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardPluginBinResponseStatusCodes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes {
@@ -177,7 +184,8 @@ enum WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes {
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardPluginCaptureResponseStatusCodes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateProfileResponseStatusCodes {
@@ -196,7 +204,8 @@ enum WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateProfileResponse
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateProfileResponseStatusCodes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginDeleteProfileResponseStatusCodes {
@@ -211,7 +220,8 @@ enum WebApiModulesPluginsCreditCardCreditCardPluginDeleteProfileResponseStatusCo
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardPluginDeleteProfileResponseStatusCodes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponseStatusCodes {
@@ -226,7 +236,8 @@ enum WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResp
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardPluginGetDefaultSurchargeAmountResponseStatusCodes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes {
@@ -245,7 +256,8 @@ enum WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes {
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardPluginRefundResponseStatusCodes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes {
@@ -264,7 +276,8 @@ enum WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes {
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardPluginVoidResponseStatusCodes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes {
@@ -289,7 +302,8 @@ enum WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes
   final String? value;
 
   const WebApiModulesPluginsCreditCardCreditCardPreAuthorizationRequestPaymentTypes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardProcessCreditCardCardUsageTypes {
@@ -304,7 +318,8 @@ enum WebApiModulesPluginsCreditCardProcessCreditCardCardUsageTypes {
   final String? value;
 
   const WebApiModulesPluginsCreditCardProcessCreditCardCardUsageTypes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes {
@@ -325,7 +340,8 @@ enum WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes {
   final String? value;
 
   const WebApiModulesPluginsCreditCardProcessCreditCardPaymentCardTypes(
-      this.value);
+    this.value,
+  );
 }
 
 enum WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes {
@@ -346,5 +362,6 @@ enum WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes {
   final String? value;
 
   const WebApiModulesPluginsCreditCardUpdatePreAuthorizationStatusCodes(
-      this.value);
+    this.value,
+  );
 }

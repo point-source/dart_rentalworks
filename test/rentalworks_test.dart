@@ -84,7 +84,7 @@ void main() {
           FwStandardModelsFwQueryFilter(
             field: 'Status',
             op: '<>',
-            $Value: 'COMPLETE',
+            value: 'COMPLETE',
           ),
         ],
       );
@@ -111,6 +111,11 @@ void main() {
     WebApiModulesTransfersTransferOrderTransferOrder? transfer;
     String contractId = '';
 
+    test('authenticate', () async {
+      rw = RentalWorks.withCredentials(baseUrl, username, password);
+      expect(await rw?.jwt ?? '', isNotEmpty);
+    });
+
     test('get item', () async {
       final items = await rw!.home.itemGet(
         pageno: 1,
@@ -119,37 +124,37 @@ void main() {
           FwStandardModelsFwQueryFilter(
             field: 'StatusType',
             op: '=',
-            $Value: 'RETIRED',
+            value: 'RETIRED',
           ),
           //FwStandardModelsFwQueryFilter(
           //  field: 'BarCode',
           //  op: '=',
-          //  $Value: '000052',
+          //  value: '000052',
           //), // Intel NUC
           //FwStandardModelsFwQueryFilter(
           //  field: 'StatusType',
           //  op: '==',
-          //  $Value: 'RETIRED',
+          //  value: 'RETIRED',
           //),
           //FwStandardModelsFwQueryFilter(
           //  field: 'StatusType',
           //  op: '<>',
-          //  $Value: 'OUT',
+          //  value: 'OUT',
           //),
           //FwStandardModelsFwQueryFilter(
           //  field: 'StatusType',
           //  op: '<>',
-          //  $Value: 'INTRANSIT',
+          //  value: 'INTRANSIT',
           //),
           //FwStandardModelsFwQueryFilter(
           //  field: 'StatusType',
           //  op: '<>',
-          //  $Value: 'STAGED',
+          //  value: 'STAGED',
           //),
           //FwStandardModelsFwQueryFilter(
           //  field: 'StatusType',
           //  op: '<>',
-          //  $Value: 'INCONTAINER',
+          //  value: 'INCONTAINER',
           //),
         ],
       );
@@ -182,22 +187,22 @@ void main() {
           FwStandardModelsFwQueryFilter(
             field: 'FromWarehouseId',
             op: '=',
-            $Value: warehouse!.warehouseId,
+            value: warehouse!.warehouseId,
           ),
           FwStandardModelsFwQueryFilter(
             field: 'Description',
             op: 'contains',
-            $Value: 'inventory',
+            value: 'inventory',
           ),
           FwStandardModelsFwQueryFilter(
             field: 'Description',
             op: 'contains',
-            $Value: 'virtual',
+            value: 'virtual',
           ),
           FwStandardModelsFwQueryFilter(
             field: 'Status',
             op: '<>',
-            $Value: 'CANCELLED',
+            value: 'CANCELLED',
           ),
         ],
       );
@@ -324,7 +329,7 @@ void main() {
               searchcondition: ['and'],
               fields: [
                 u.FwStandardModelsCheckBoxListItem(
-                  $value: "InventoryId",
+                  value: "InventoryId",
                   text: "InventoryId",
                   selected: true,
                 ),
