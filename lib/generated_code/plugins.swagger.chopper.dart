@@ -1961,36 +1961,6 @@ final class _$Plugins extends Plugins {
 
   @override
   Future<Response<FwStandardSqlServerTSpStatusResponse>>
-  _freightpoppluginPostshipmentdataPost({
-    required WebApiModulesPluginsFreightPopFreightPopPayload? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FreightPopPlugin"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/freightpopplugin/postshipmentdata');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerTSpStatusResponse,
-      FwStandardSqlServerTSpStatusResponse
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerTSpStatusResponse>>
   _freightpoppluginGettrackingnumberPost({
     required WebApiModulesPluginsFreightPopFreightPopShipmentRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -2016,6 +1986,132 @@ final class _$Plugins extends Plugins {
     return client.send<
       FwStandardSqlServerTSpStatusResponse,
       FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsKissFlowProjectResponse>>
+  _kissflowpluginProjectGet({
+    String? quoteOrderProjectNo,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["KissFlowPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/kissflowplugin/project');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'QuoteOrderProjectNo': quoteOrderProjectNo,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesPluginsKissFlowProjectResponse,
+      WebApiModulesPluginsKissFlowProjectResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsKissFlowOrderResponse>>
+  _kissflowpluginOrderGet({
+    String? quoteOrderProjectNo,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["KissFlowPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/kissflowplugin/order');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'QuoteOrderProjectNo': quoteOrderProjectNo,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesPluginsKissFlowOrderResponse,
+      WebApiModulesPluginsKissFlowOrderResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsKissFlowQuoteResponse>>
+  _kissflowpluginQuoteGet({
+    String? quoteOrderProjectNo,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["KissFlowPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/kissflowplugin/quote');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'QuoteOrderProjectNo': quoteOrderProjectNo,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesPluginsKissFlowQuoteResponse,
+      WebApiModulesPluginsKissFlowQuoteResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsOpenAIOpenAISettingsTestResponse>>
+  _openaipluginTestsettingsPost({
+    required WebApiModulesPluginsOpenAIOpenAISettingsTestRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OpenAIPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/openaiplugin/testsettings');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesPluginsOpenAIOpenAISettingsTestResponse,
+      WebApiModulesPluginsOpenAIOpenAISettingsTestResponse
     >($request);
   }
 
@@ -2615,5 +2711,59 @@ final class _$Plugins extends Plugins {
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<List<WebApiModulesPluginsTeamupTeamupPluginLocation>>>
+  _teamuppluginLocationsGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TeamupPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/teamupplugin/locations');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<WebApiModulesPluginsTeamupTeamupPluginLocation>,
+      WebApiModulesPluginsTeamupTeamupPluginLocation
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsTeamupTeamupPlugin>>
+  _teamuppluginLoadteamuppluginGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TeamupPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/teamupplugin/loadteamupplugin');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesPluginsTeamupTeamupPlugin,
+      WebApiModulesPluginsTeamupTeamupPlugin
+    >($request);
   }
 }

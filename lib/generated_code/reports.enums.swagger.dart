@@ -83,7 +83,9 @@ enum FwStandardSqlServerFwDataTypes {
   @JsonValue('JpgDataUrl')
   jpgdataurl('JpgDataUrl'),
   @JsonValue('UTCDateTime')
-  utcdatetime('UTCDateTime');
+  utcdatetime('UTCDateTime'),
+  @JsonValue('Email')
+  email('Email');
 
   final String? value;
 

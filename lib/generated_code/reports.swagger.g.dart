@@ -76,6 +76,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -98,6 +99,7 @@ Map<String, dynamic> _$FwStandardBusinessLogicFwBusinessLogicToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -122,6 +124,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
   displayFieldName: json['DisplayFieldName'] as String?,
   allowedValues: json['AllowedValues'] as String?,
   templateSequence: (json['TemplateSequence'] as num?)?.toInt(),
+  isEmail: json['IsEmail'] as bool?,
 );
 
 Map<String, dynamic>
@@ -140,6 +143,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
   'DisplayFieldName': ?instance.displayFieldName,
   'AllowedValues': ?instance.allowedValues,
   'TemplateSequence': ?instance.templateSequence,
+  'IsEmail': ?instance.isEmail,
 };
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
@@ -151,6 +155,8 @@ FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
   fieldType: json['FieldType'] as String?,
   validationModule: json['ValidationModule'] as String?,
   validationFieldName: json['ValidationFieldName'] as String?,
+  validationFieldId: json['ValidationFieldId'] as String?,
+  listFieldAllowedValues: json['ListFieldAllowedValues'] as String?,
 );
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
@@ -162,6 +168,8 @@ Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
   'FieldType': ?instance.fieldType,
   'ValidationModule': ?instance.validationModule,
   'ValidationFieldName': ?instance.validationFieldName,
+  'ValidationFieldId': ?instance.validationFieldId,
+  'ListFieldAllowedValues': ?instance.listFieldAllowedValues,
 };
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
@@ -218,6 +226,7 @@ FwStandardDataFwReportLoader _$FwStandardDataFwReportLoaderFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   original: json['_Original'] == null
       ? null
       : FwStandardBusinessLogicFwBusinessLogic.fromJson(
@@ -244,6 +253,7 @@ Map<String, dynamic> _$FwStandardDataFwReportLoaderToJson(
       .toList(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   '_Original': ?instance.original?.toJson(),
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
@@ -346,6 +356,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -377,6 +388,7 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   'fields': ?instance.fields?.map((e) => e.toJson()).toList(),
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
+  'timezoneOffset': ?instance.timezoneOffset,
 };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
@@ -537,6 +549,7 @@ _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   original: json['_Original'] == null
       ? null
       : FwStandardBusinessLogicFwBusinessLogic.fromJson(
@@ -566,6 +579,7 @@ _$FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderToJson(
       .toList(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   '_Original': ?instance.original?.toJson(),
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
@@ -858,6 +872,7 @@ _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -899,6 +914,7 @@ Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -1272,6 +1288,124 @@ _$WebApiModulesReportsAccountingReportsPurchaseGlDetailReportPurchaseGlDetailRep
   'UseEmailTemplate': ?instance.useEmailTemplate,
 };
 
+WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest
+_$WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequestFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest(
+      shelfLifeExpired: json['ShelfLifeExpired'] as bool?,
+      shelfLifeWillExpire: json['ShelfLifeWillExpire'] as bool?,
+      numberOfDays: (json['NumberOfDays'] as num?)?.toInt(),
+      warehouseId: json['WarehouseId'] as String?,
+      inventoryTypeId: json['InventoryTypeId'] as String?,
+      categoryId: json['CategoryId'] as String?,
+      inventoryId: json['InventoryId'] as String?,
+      userDepartmentId: json['UserDepartmentId'] as String?,
+      userLocationId: json['UserLocationId'] as String?,
+      userWarehouseId: json['UserWarehouseId'] as String?,
+      customReportLayoutId: json['CustomReportLayoutId'] as String?,
+      isSummary: json['IsSummary'] as bool?,
+      includeSubHeadingsAndSubTotals:
+          json['IncludeSubHeadingsAndSubTotals'] as bool?,
+      includeIdColumns: json['IncludeIdColumns'] as bool?,
+      locale: json['Locale'] as String?,
+      excelfields:
+          (json['excelfields'] as List<dynamic>?)
+              ?.map(
+                (e) => FwStandardModelsCheckBoxListItem.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList() ??
+          [],
+      reportName: json['ReportName'] as String?,
+      useEmailTemplate: json['UseEmailTemplate'] as bool?,
+    );
+
+Map<String, dynamic>
+_$WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequestToJson(
+  WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest
+  instance,
+) => <String, dynamic>{
+  'ShelfLifeExpired': ?instance.shelfLifeExpired,
+  'ShelfLifeWillExpire': ?instance.shelfLifeWillExpire,
+  'NumberOfDays': ?instance.numberOfDays,
+  'WarehouseId': ?instance.warehouseId,
+  'InventoryTypeId': ?instance.inventoryTypeId,
+  'CategoryId': ?instance.categoryId,
+  'InventoryId': ?instance.inventoryId,
+  'UserDepartmentId': ?instance.userDepartmentId,
+  'UserLocationId': ?instance.userLocationId,
+  'UserWarehouseId': ?instance.userWarehouseId,
+  'CustomReportLayoutId': ?instance.customReportLayoutId,
+  'IsSummary': ?instance.isSummary,
+  'IncludeSubHeadingsAndSubTotals': ?instance.includeSubHeadingsAndSubTotals,
+  'IncludeIdColumns': ?instance.includeIdColumns,
+  'Locale': ?instance.locale,
+  'excelfields': ?instance.excelfields?.map((e) => e.toJson()).toList(),
+  'ReportName': ?instance.reportName,
+  'UseEmailTemplate': ?instance.useEmailTemplate,
+};
+
+WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest
+_$WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequestFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest(
+      warrantyExpired: json['WarrantyExpired'] as bool?,
+      warrantyWillExpire: json['WarrantyWillExpire'] as bool?,
+      numberOfDays: (json['NumberOfDays'] as num?)?.toInt(),
+      warehouseId: json['WarehouseId'] as String?,
+      inventoryTypeId: json['InventoryTypeId'] as String?,
+      categoryId: json['CategoryId'] as String?,
+      inventoryId: json['InventoryId'] as String?,
+      userDepartmentId: json['UserDepartmentId'] as String?,
+      userLocationId: json['UserLocationId'] as String?,
+      userWarehouseId: json['UserWarehouseId'] as String?,
+      customReportLayoutId: json['CustomReportLayoutId'] as String?,
+      isSummary: json['IsSummary'] as bool?,
+      includeSubHeadingsAndSubTotals:
+          json['IncludeSubHeadingsAndSubTotals'] as bool?,
+      includeIdColumns: json['IncludeIdColumns'] as bool?,
+      locale: json['Locale'] as String?,
+      excelfields:
+          (json['excelfields'] as List<dynamic>?)
+              ?.map(
+                (e) => FwStandardModelsCheckBoxListItem.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList() ??
+          [],
+      reportName: json['ReportName'] as String?,
+      useEmailTemplate: json['UseEmailTemplate'] as bool?,
+    );
+
+Map<String, dynamic>
+_$WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequestToJson(
+  WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest
+  instance,
+) => <String, dynamic>{
+  'WarrantyExpired': ?instance.warrantyExpired,
+  'WarrantyWillExpire': ?instance.warrantyWillExpire,
+  'NumberOfDays': ?instance.numberOfDays,
+  'WarehouseId': ?instance.warehouseId,
+  'InventoryTypeId': ?instance.inventoryTypeId,
+  'CategoryId': ?instance.categoryId,
+  'InventoryId': ?instance.inventoryId,
+  'UserDepartmentId': ?instance.userDepartmentId,
+  'UserLocationId': ?instance.userLocationId,
+  'UserWarehouseId': ?instance.userWarehouseId,
+  'CustomReportLayoutId': ?instance.customReportLayoutId,
+  'IsSummary': ?instance.isSummary,
+  'IncludeSubHeadingsAndSubTotals': ?instance.includeSubHeadingsAndSubTotals,
+  'IncludeIdColumns': ?instance.includeIdColumns,
+  'Locale': ?instance.locale,
+  'excelfields': ?instance.excelfields?.map((e) => e.toJson()).toList(),
+  'ReportName': ?instance.reportName,
+  'UseEmailTemplate': ?instance.useEmailTemplate,
+};
+
 WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest
 _$WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequestFromJson(
   Map<String, dynamic> json,
@@ -1466,11 +1600,11 @@ _$WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequestFr
       excludeBilled100: json['ExcludeBilled100'] as bool?,
       officeLocationId: json['OfficeLocationId'] as String?,
       departmentId: json['DepartmentId'] as String?,
-      dealCsrId: json['DealCsrId'] as String?,
       customerId: json['CustomerId'] as String?,
       dealTypeId: json['DealTypeId'] as String?,
       dealId: json['DealId'] as String?,
       agentId: json['AgentId'] as String?,
+      csrId: json['CsrId'] as String?,
       userDepartmentId: json['UserDepartmentId'] as String?,
       userLocationId: json['UserLocationId'] as String?,
       userWarehouseId: json['UserWarehouseId'] as String?,
@@ -1504,11 +1638,11 @@ _$WebApiModulesReportsBillingBillingProgressReportBillingProgressReportRequestTo
   'ExcludeBilled100': ?instance.excludeBilled100,
   'OfficeLocationId': ?instance.officeLocationId,
   'DepartmentId': ?instance.departmentId,
-  'DealCsrId': ?instance.dealCsrId,
   'CustomerId': ?instance.customerId,
   'DealTypeId': ?instance.dealTypeId,
   'DealId': ?instance.dealId,
   'AgentId': ?instance.agentId,
+  'CsrId': ?instance.csrId,
   'UserDepartmentId': ?instance.userDepartmentId,
   'UserLocationId': ?instance.userLocationId,
   'UserWarehouseId': ?instance.userWarehouseId,
@@ -1582,7 +1716,6 @@ _$WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest
           : DateTime.parse(json['ToDate'] as String),
       includeNoCharge: json['IncludeNoCharge'] as bool?,
       includePaidInvoices: json['IncludePaidInvoices'] as bool?,
-      includeZeroBalance: json['IncludeZeroBalance'] as bool?,
       paymentsThroughToday: json['PaymentsThroughToday'] as bool?,
       hidePaymentDetails: json['HidePaymentDetails'] as bool?,
       officeLocationId: json['OfficeLocationId'] as String?,
@@ -1621,7 +1754,6 @@ _$WebApiModulesReportsBillingBillingStatementReportBillingStatementReportRequest
   'ToDate': ?instance.toDate?.toIso8601String(),
   'IncludeNoCharge': ?instance.includeNoCharge,
   'IncludePaidInvoices': ?instance.includePaidInvoices,
-  'IncludeZeroBalance': ?instance.includeZeroBalance,
   'PaymentsThroughToday': ?instance.paymentsThroughToday,
   'HidePaymentDetails': ?instance.hidePaymentDetails,
   'OfficeLocationId': ?instance.officeLocationId,
@@ -1897,6 +2029,7 @@ _$WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestFromJson(
   agentId: json['AgentId'] as String?,
   customerId: json['CustomerId'] as String?,
   dealId: json['DealId'] as String?,
+  dealTypeId: json['DealTypeId'] as String?,
   orderId: json['OrderId'] as String?,
   statuses:
       (json['Statuses'] as List<dynamic>?)
@@ -1941,6 +2074,7 @@ _$WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestToJson(
   'AgentId': ?instance.agentId,
   'CustomerId': ?instance.customerId,
   'DealId': ?instance.dealId,
+  'DealTypeId': ?instance.dealTypeId,
   'OrderId': ?instance.orderId,
   'Statuses': ?instance.statuses?.map((e) => e.toJson()).toList(),
   'UserDepartmentId': ?instance.userDepartmentId,
@@ -5272,7 +5406,8 @@ _$WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBanners
       toDate: json['ToDate'] == null
           ? null
           : DateTime.parse(json['ToDate'] as String),
-      filterDates: json['FilterDates'] as bool?,
+      filterByPickDate: json['FilterByPickDate'] as bool?,
+      filterByEstimatedStartDate: json['FilterByEstimatedStartDate'] as bool?,
       userDepartmentId: json['UserDepartmentId'] as String?,
       userLocationId: json['UserLocationId'] as String?,
       userWarehouseId: json['UserWarehouseId'] as String?,
@@ -5315,7 +5450,8 @@ _$WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBanners
   'PrintAlertBannerMessage': ?instance.printAlertBannerMessage,
   'FromDate': ?instance.fromDate?.toIso8601String(),
   'ToDate': ?instance.toDate?.toIso8601String(),
-  'FilterDates': ?instance.filterDates,
+  'FilterByPickDate': ?instance.filterByPickDate,
+  'FilterByEstimatedStartDate': ?instance.filterByEstimatedStartDate,
   'UserDepartmentId': ?instance.userDepartmentId,
   'UserLocationId': ?instance.userLocationId,
   'UserWarehouseId': ?instance.userWarehouseId,
@@ -5361,6 +5497,7 @@ _$WebApiModulesReportsOrderReportsOrderReportOrderReportRequestFromJson(
   languageId: json['LanguageId'] as String?,
   filterRentalAndSaleItems: json['FilterRentalAndSaleItems'] as bool?,
   rentalAndSaleItemsToInclude: json['RentalAndSaleItemsToInclude'] as String?,
+  filterOrderQuote: json['FilterOrderQuote'] as String?,
   userDepartmentId: json['UserDepartmentId'] as String?,
   userLocationId: json['UserLocationId'] as String?,
   userWarehouseId: json['UserWarehouseId'] as String?,
@@ -5415,6 +5552,7 @@ _$WebApiModulesReportsOrderReportsOrderReportOrderReportRequestToJson(
   'LanguageId': ?instance.languageId,
   'FilterRentalAndSaleItems': ?instance.filterRentalAndSaleItems,
   'RentalAndSaleItemsToInclude': ?instance.rentalAndSaleItemsToInclude,
+  'FilterOrderQuote': ?instance.filterOrderQuote,
   'UserDepartmentId': ?instance.userDepartmentId,
   'UserLocationId': ?instance.userLocationId,
   'UserWarehouseId': ?instance.userWarehouseId,
@@ -5532,7 +5670,8 @@ _$WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequ
 ) =>
     WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest(
       orderId: json['OrderId'] as String?,
-      shippingCaseId: json['ShippingCaseId'] as String?,
+      transferId: json['TransferId'] as String?,
+      itemId: json['ItemId'] as String?,
       weightInCase: json['WeightInCase'] as String?,
       groupByShippingCase: json['GroupByShippingCase'] as bool?,
       userDepartmentId: json['UserDepartmentId'] as String?,
@@ -5563,7 +5702,8 @@ _$WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequ
   instance,
 ) => <String, dynamic>{
   'OrderId': ?instance.orderId,
-  'ShippingCaseId': ?instance.shippingCaseId,
+  'TransferId': ?instance.transferId,
+  'ItemId': ?instance.itemId,
   'WeightInCase': ?instance.weightInCase,
   'GroupByShippingCase': ?instance.groupByShippingCase,
   'UserDepartmentId': ?instance.userDepartmentId,
@@ -5731,6 +5871,7 @@ _$WebApiModulesReportsOrderReportsProjectReportProjectReportRequestFromJson(
   languageId: json['LanguageId'] as String?,
   filterRentalAndSaleItems: json['FilterRentalAndSaleItems'] as bool?,
   rentalAndSaleItemsToInclude: json['RentalAndSaleItemsToInclude'] as String?,
+  filterOrderQuote: json['FilterOrderQuote'] as String?,
   userDepartmentId: json['UserDepartmentId'] as String?,
   userLocationId: json['UserLocationId'] as String?,
   userWarehouseId: json['UserWarehouseId'] as String?,
@@ -5785,6 +5926,7 @@ _$WebApiModulesReportsOrderReportsProjectReportProjectReportRequestToJson(
   'LanguageId': ?instance.languageId,
   'FilterRentalAndSaleItems': ?instance.filterRentalAndSaleItems,
   'RentalAndSaleItemsToInclude': ?instance.rentalAndSaleItemsToInclude,
+  'FilterOrderQuote': ?instance.filterOrderQuote,
   'UserDepartmentId': ?instance.userDepartmentId,
   'UserLocationId': ?instance.userLocationId,
   'UserWarehouseId': ?instance.userWarehouseId,
@@ -6018,6 +6160,7 @@ _$WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestFromJson(
   languageId: json['LanguageId'] as String?,
   filterRentalAndSaleItems: json['FilterRentalAndSaleItems'] as bool?,
   rentalAndSaleItemsToInclude: json['RentalAndSaleItemsToInclude'] as String?,
+  filterOrderQuote: json['FilterOrderQuote'] as String?,
   userDepartmentId: json['UserDepartmentId'] as String?,
   userLocationId: json['UserLocationId'] as String?,
   userWarehouseId: json['UserWarehouseId'] as String?,
@@ -6072,6 +6215,7 @@ _$WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestToJson(
   'LanguageId': ?instance.languageId,
   'FilterRentalAndSaleItems': ?instance.filterRentalAndSaleItems,
   'RentalAndSaleItemsToInclude': ?instance.rentalAndSaleItemsToInclude,
+  'FilterOrderQuote': ?instance.filterOrderQuote,
   'UserDepartmentId': ?instance.userDepartmentId,
   'UserLocationId': ?instance.userLocationId,
   'UserWarehouseId': ?instance.userWarehouseId,
@@ -6091,6 +6235,7 @@ _$WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePacki
 ) =>
     WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest(
       orderId: json['OrderId'] as String?,
+      transferId: json['TransferId'] as String?,
       itemId: json['ItemId'] as String?,
       userDepartmentId: json['UserDepartmentId'] as String?,
       userLocationId: json['UserLocationId'] as String?,
@@ -6120,7 +6265,67 @@ _$WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePacki
   instance,
 ) => <String, dynamic>{
   'OrderId': ?instance.orderId,
+  'TransferId': ?instance.transferId,
   'ItemId': ?instance.itemId,
+  'UserDepartmentId': ?instance.userDepartmentId,
+  'UserLocationId': ?instance.userLocationId,
+  'UserWarehouseId': ?instance.userWarehouseId,
+  'CustomReportLayoutId': ?instance.customReportLayoutId,
+  'IsSummary': ?instance.isSummary,
+  'IncludeSubHeadingsAndSubTotals': ?instance.includeSubHeadingsAndSubTotals,
+  'IncludeIdColumns': ?instance.includeIdColumns,
+  'Locale': ?instance.locale,
+  'excelfields': ?instance.excelfields?.map((e) => e.toJson()).toList(),
+  'ReportName': ?instance.reportName,
+  'UseEmailTemplate': ?instance.useEmailTemplate,
+};
+
+WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest
+_$WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequestFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest(
+      orderId: json['OrderId'] as String?,
+      projectId: json['ProjectId'] as String?,
+      sortBy:
+          (json['SortBy'] as List<dynamic>?)
+              ?.map(
+                (e) => FwStandardModelsCheckBoxListItem.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList() ??
+          [],
+      userDepartmentId: json['UserDepartmentId'] as String?,
+      userLocationId: json['UserLocationId'] as String?,
+      userWarehouseId: json['UserWarehouseId'] as String?,
+      customReportLayoutId: json['CustomReportLayoutId'] as String?,
+      isSummary: json['IsSummary'] as bool?,
+      includeSubHeadingsAndSubTotals:
+          json['IncludeSubHeadingsAndSubTotals'] as bool?,
+      includeIdColumns: json['IncludeIdColumns'] as bool?,
+      locale: json['Locale'] as String?,
+      excelfields:
+          (json['excelfields'] as List<dynamic>?)
+              ?.map(
+                (e) => FwStandardModelsCheckBoxListItem.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList() ??
+          [],
+      reportName: json['ReportName'] as String?,
+      useEmailTemplate: json['UseEmailTemplate'] as bool?,
+    );
+
+Map<String, dynamic>
+_$WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequestToJson(
+  WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest
+  instance,
+) => <String, dynamic>{
+  'OrderId': ?instance.orderId,
+  'ProjectId': ?instance.projectId,
+  'SortBy': ?instance.sortBy?.map((e) => e.toJson()).toList(),
   'UserDepartmentId': ?instance.userDepartmentId,
   'UserLocationId': ?instance.userLocationId,
   'UserWarehouseId': ?instance.userWarehouseId,
@@ -6230,13 +6435,16 @@ _$WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequestFromJson(
   orderId: json['OrderId'] as String?,
   quoteId: json['QuoteId'] as String?,
   projectId: json['ProjectId'] as String?,
+  transferId: json['TransferId'] as String?,
   rentalValue: json['RentalValue'] as String?,
   weightInCase: json['WeightInCase'] as bool?,
   excludeZeroValueItems: json['ExcludeZeroValueItems'] as bool?,
   filterBy: json['FilterBy'] as String?,
   groupByShippingCase: json['GroupByShippingCase'] as bool?,
   outContractId: json['OutContractId'] as String?,
+  manifestId: json['ManifestId'] as String?,
   orderType: json['OrderType'] as String?,
+  recType: json['RecType'] as String?,
   userDepartmentId: json['UserDepartmentId'] as String?,
   userLocationId: json['UserLocationId'] as String?,
   userWarehouseId: json['UserWarehouseId'] as String?,
@@ -6267,13 +6475,16 @@ _$WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequestToJson(
   'OrderId': ?instance.orderId,
   'QuoteId': ?instance.quoteId,
   'ProjectId': ?instance.projectId,
+  'TransferId': ?instance.transferId,
   'RentalValue': ?instance.rentalValue,
   'WeightInCase': ?instance.weightInCase,
   'ExcludeZeroValueItems': ?instance.excludeZeroValueItems,
   'FilterBy': ?instance.filterBy,
   'GroupByShippingCase': ?instance.groupByShippingCase,
   'OutContractId': ?instance.outContractId,
+  'ManifestId': ?instance.manifestId,
   'OrderType': ?instance.orderType,
+  'RecType': ?instance.recType,
   'UserDepartmentId': ?instance.userDepartmentId,
   'UserLocationId': ?instance.userLocationId,
   'UserWarehouseId': ?instance.userWarehouseId,
@@ -7746,6 +7957,71 @@ _$WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailabilityReportRen
   'UseEmailTemplate': ?instance.useEmailTemplate,
 };
 
+WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest
+_$WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequestFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest(
+      asOfDate: json['AsOfDate'] == null
+          ? null
+          : DateTime.parse(json['AsOfDate'] as String),
+      warehouseId: json['WarehouseId'] as String?,
+      ranks: json['Ranks'] as String?,
+      inventoryTypeId: json['InventoryTypeId'] as String?,
+      categoryId: json['CategoryId'] as String?,
+      subCategoryId: json['SubCategoryId'] as String?,
+      inventoryId: json['InventoryId'] as String?,
+      excludeZeroActualValue: json['ExcludeZeroActualValue'] as bool?,
+      excludeZeroReplacementCost: json['ExcludeZeroReplacementCost'] as bool?,
+      userDepartmentId: json['UserDepartmentId'] as String?,
+      userLocationId: json['UserLocationId'] as String?,
+      userWarehouseId: json['UserWarehouseId'] as String?,
+      customReportLayoutId: json['CustomReportLayoutId'] as String?,
+      isSummary: json['IsSummary'] as bool?,
+      includeSubHeadingsAndSubTotals:
+          json['IncludeSubHeadingsAndSubTotals'] as bool?,
+      includeIdColumns: json['IncludeIdColumns'] as bool?,
+      locale: json['Locale'] as String?,
+      excelfields:
+          (json['excelfields'] as List<dynamic>?)
+              ?.map(
+                (e) => FwStandardModelsCheckBoxListItem.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList() ??
+          [],
+      reportName: json['ReportName'] as String?,
+      useEmailTemplate: json['UseEmailTemplate'] as bool?,
+    );
+
+Map<String, dynamic>
+_$WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequestToJson(
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest
+  instance,
+) => <String, dynamic>{
+  'AsOfDate': ?instance.asOfDate?.toIso8601String(),
+  'WarehouseId': ?instance.warehouseId,
+  'Ranks': ?instance.ranks,
+  'InventoryTypeId': ?instance.inventoryTypeId,
+  'CategoryId': ?instance.categoryId,
+  'SubCategoryId': ?instance.subCategoryId,
+  'InventoryId': ?instance.inventoryId,
+  'ExcludeZeroActualValue': ?instance.excludeZeroActualValue,
+  'ExcludeZeroReplacementCost': ?instance.excludeZeroReplacementCost,
+  'UserDepartmentId': ?instance.userDepartmentId,
+  'UserLocationId': ?instance.userLocationId,
+  'UserWarehouseId': ?instance.userWarehouseId,
+  'CustomReportLayoutId': ?instance.customReportLayoutId,
+  'IsSummary': ?instance.isSummary,
+  'IncludeSubHeadingsAndSubTotals': ?instance.includeSubHeadingsAndSubTotals,
+  'IncludeIdColumns': ?instance.includeIdColumns,
+  'Locale': ?instance.locale,
+  'excelfields': ?instance.excelfields?.map((e) => e.toJson()).toList(),
+  'ReportName': ?instance.reportName,
+  'UseEmailTemplate': ?instance.useEmailTemplate,
+};
+
 WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest
 _$WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequestFromJson(
   Map<String, dynamic> json,
@@ -8797,6 +9073,83 @@ _$WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryReportRetiredR
   'CustomerId': ?instance.customerId,
   'DealId': ?instance.dealId,
   'RetiredReasonId': ?instance.retiredReasonId,
+  'UserDepartmentId': ?instance.userDepartmentId,
+  'UserLocationId': ?instance.userLocationId,
+  'UserWarehouseId': ?instance.userWarehouseId,
+  'CustomReportLayoutId': ?instance.customReportLayoutId,
+  'IsSummary': ?instance.isSummary,
+  'IncludeSubHeadingsAndSubTotals': ?instance.includeSubHeadingsAndSubTotals,
+  'IncludeIdColumns': ?instance.includeIdColumns,
+  'Locale': ?instance.locale,
+  'excelfields': ?instance.excelfields?.map((e) => e.toJson()).toList(),
+  'ReportName': ?instance.reportName,
+  'UseEmailTemplate': ?instance.useEmailTemplate,
+};
+
+WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest
+_$WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequestFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest(
+      usePeriodSelector: json['UsePeriodSelector'] as bool?,
+      reportYear: json['ReportYear'] as String?,
+      reportPeriod: json['ReportPeriod'] as String?,
+      useDateRange: json['UseDateRange'] as bool?,
+      fromDate: json['FromDate'] == null
+          ? null
+          : DateTime.parse(json['FromDate'] as String),
+      toDate: json['ToDate'] == null
+          ? null
+          : DateTime.parse(json['ToDate'] as String),
+      excludeRetiredItems: json['ExcludeRetiredItems'] as bool?,
+      warehouseId: json['WarehouseId'] as String?,
+      inventoryTypeId: json['InventoryTypeId'] as String?,
+      categoryId: json['CategoryId'] as String?,
+      subCategoryId: json['SubCategoryId'] as String?,
+      ranks: json['Ranks'] as String?,
+      inventoryId: json['InventoryId'] as String?,
+      itemId: json['ItemId'] as String?,
+      userDepartmentId: json['UserDepartmentId'] as String?,
+      userLocationId: json['UserLocationId'] as String?,
+      userWarehouseId: json['UserWarehouseId'] as String?,
+      customReportLayoutId: json['CustomReportLayoutId'] as String?,
+      isSummary: json['IsSummary'] as bool?,
+      includeSubHeadingsAndSubTotals:
+          json['IncludeSubHeadingsAndSubTotals'] as bool?,
+      includeIdColumns: json['IncludeIdColumns'] as bool?,
+      locale: json['Locale'] as String?,
+      excelfields:
+          (json['excelfields'] as List<dynamic>?)
+              ?.map(
+                (e) => FwStandardModelsCheckBoxListItem.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+              )
+              .toList() ??
+          [],
+      reportName: json['ReportName'] as String?,
+      useEmailTemplate: json['UseEmailTemplate'] as bool?,
+    );
+
+Map<String, dynamic>
+_$WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequestToJson(
+  WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest
+  instance,
+) => <String, dynamic>{
+  'UsePeriodSelector': ?instance.usePeriodSelector,
+  'ReportYear': ?instance.reportYear,
+  'ReportPeriod': ?instance.reportPeriod,
+  'UseDateRange': ?instance.useDateRange,
+  'FromDate': ?instance.fromDate?.toIso8601String(),
+  'ToDate': ?instance.toDate?.toIso8601String(),
+  'ExcludeRetiredItems': ?instance.excludeRetiredItems,
+  'WarehouseId': ?instance.warehouseId,
+  'InventoryTypeId': ?instance.inventoryTypeId,
+  'CategoryId': ?instance.categoryId,
+  'SubCategoryId': ?instance.subCategoryId,
+  'Ranks': ?instance.ranks,
+  'InventoryId': ?instance.inventoryId,
+  'ItemId': ?instance.itemId,
   'UserDepartmentId': ?instance.userDepartmentId,
   'UserLocationId': ?instance.userLocationId,
   'UserWarehouseId': ?instance.userWarehouseId,
@@ -10045,6 +10398,7 @@ _$WebApiModulesReportsSharedReportSettingsReportSettingsFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -10075,6 +10429,7 @@ _$WebApiModulesReportsSharedReportSettingsReportSettingsToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -11470,6 +11825,7 @@ _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemLFro
               .toList() ??
           [],
       hasImport: json['_HasImport'] as bool?,
+      hasDocuments: json['_HasDocuments'] as bool?,
       original: json['_Original'] == null
           ? null
           : FwStandardBusinessLogicFwBusinessLogic.fromJson(
@@ -11501,6 +11857,7 @@ _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItemLToJ
       .toList(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   '_Original': ?instance.original?.toJson(),
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
@@ -11664,6 +12021,7 @@ _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportLFromJso
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   original: json['_Original'] == null
       ? null
       : FwStandardBusinessLogicFwBusinessLogic.fromJson(
@@ -11793,6 +12151,7 @@ _$WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportLToJson(
       .toList(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   '_Original': ?instance.original?.toJson(),
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,

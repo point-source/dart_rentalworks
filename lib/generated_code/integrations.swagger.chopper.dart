@@ -351,6 +351,59 @@ final class _$Integrations extends Integrations {
       FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
     >
   >
+  _storefrontCatalogCatalogidProductsWarehouseidWarehouseidLocationidLocationidGet({
+    required String? catalogid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    required String? warehouseid,
+    required String? locationid,
+    String? inventorydepartmentid,
+    String? categoryid,
+    String? subcategoryid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get products in a catalog.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/storefront/catalog/${catalogid}/products/warehouseid/${warehouseid}/locationid/${locationid}',
+    );
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+      'inventorydepartmentid': inventorydepartmentid,
+      'categoryid': categoryid,
+      'subcategoryid': subcategoryid,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader,
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >
+  >
   _storefrontCatalogCatalogidProductsLocationidLocationidWarehouseidWarehouseidFromdateFromdateTodateTodateGet({
     required String? catalogid,
     required String? locationid,
@@ -721,7 +774,7 @@ final class _$Integrations extends Integrations {
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Send email to Reset Password (for Contacts)',
+      summary: 'Send email to Change Password (for Contacts)',
       operationId: '',
       consumes: [],
       produces: [],

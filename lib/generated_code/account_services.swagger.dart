@@ -1248,6 +1248,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
     this.displayFieldName,
     this.allowedValues,
     this.templateSequence,
+    this.isEmail,
   });
 
   factory FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
@@ -1289,6 +1290,8 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
   final String? allowedValues;
   @JsonKey(name: 'TemplateSequence', includeIfNull: false)
   final int? templateSequence;
+  @JsonKey(name: 'IsEmail', includeIfNull: false)
+  final bool? isEmail;
   static const fromJsonFactory =
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson;
 
@@ -1342,7 +1345,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
                 const DeepCollectionEquality().equals(
                   other.templateSequence,
                   templateSequence,
-                )));
+                )) &&
+            (identical(other.isEmail, isEmail) ||
+                const DeepCollectionEquality().equals(other.isEmail, isEmail)));
   }
 
   @override
@@ -1360,6 +1365,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       const DeepCollectionEquality().hash(displayFieldName) ^
       const DeepCollectionEquality().hash(allowedValues) ^
       const DeepCollectionEquality().hash(templateSequence) ^
+      const DeepCollectionEquality().hash(isEmail) ^
       runtimeType.hashCode;
 }
 
@@ -1376,6 +1382,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     String? displayFieldName,
     String? allowedValues,
     int? templateSequence,
+    bool? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: name ?? this.name,
@@ -1388,6 +1395,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       displayFieldName: displayFieldName ?? this.displayFieldName,
       allowedValues: allowedValues ?? this.allowedValues,
       templateSequence: templateSequence ?? this.templateSequence,
+      isEmail: isEmail ?? this.isEmail,
     );
   }
 
@@ -1402,6 +1410,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     Wrapped<String?>? displayFieldName,
     Wrapped<String?>? allowedValues,
     Wrapped<int?>? templateSequence,
+    Wrapped<bool?>? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: (name != null ? name.value : this.name),
@@ -1424,6 +1433,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       templateSequence: (templateSequence != null
           ? templateSequence.value
           : this.templateSequence),
+      isEmail: (isEmail != null ? isEmail.value : this.isEmail),
     );
   }
 }
@@ -1437,6 +1447,8 @@ class FwStandardDataFwCustomValue {
     this.fieldType,
     this.validationModule,
     this.validationFieldName,
+    this.validationFieldId,
+    this.listFieldAllowedValues,
   });
 
   factory FwStandardDataFwCustomValue.fromJson(Map<String, dynamic> json) =>
@@ -1457,6 +1469,10 @@ class FwStandardDataFwCustomValue {
   final String? validationModule;
   @JsonKey(name: 'ValidationFieldName', includeIfNull: false)
   final String? validationFieldName;
+  @JsonKey(name: 'ValidationFieldId', includeIfNull: false)
+  final String? validationFieldId;
+  @JsonKey(name: 'ListFieldAllowedValues', includeIfNull: false)
+  final String? listFieldAllowedValues;
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
 
   @override
@@ -1492,6 +1508,16 @@ class FwStandardDataFwCustomValue {
                 const DeepCollectionEquality().equals(
                   other.validationFieldName,
                   validationFieldName,
+                )) &&
+            (identical(other.validationFieldId, validationFieldId) ||
+                const DeepCollectionEquality().equals(
+                  other.validationFieldId,
+                  validationFieldId,
+                )) &&
+            (identical(other.listFieldAllowedValues, listFieldAllowedValues) ||
+                const DeepCollectionEquality().equals(
+                  other.listFieldAllowedValues,
+                  listFieldAllowedValues,
                 )));
   }
 
@@ -1506,6 +1532,8 @@ class FwStandardDataFwCustomValue {
       const DeepCollectionEquality().hash(fieldType) ^
       const DeepCollectionEquality().hash(validationModule) ^
       const DeepCollectionEquality().hash(validationFieldName) ^
+      const DeepCollectionEquality().hash(validationFieldId) ^
+      const DeepCollectionEquality().hash(listFieldAllowedValues) ^
       runtimeType.hashCode;
 }
 
@@ -1517,6 +1545,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     String? fieldType,
     String? validationModule,
     String? validationFieldName,
+    String? validationFieldId,
+    String? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: moduleName ?? this.moduleName,
@@ -1525,6 +1555,9 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       fieldType: fieldType ?? this.fieldType,
       validationModule: validationModule ?? this.validationModule,
       validationFieldName: validationFieldName ?? this.validationFieldName,
+      validationFieldId: validationFieldId ?? this.validationFieldId,
+      listFieldAllowedValues:
+          listFieldAllowedValues ?? this.listFieldAllowedValues,
     );
   }
 
@@ -1535,6 +1568,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     Wrapped<String?>? fieldType,
     Wrapped<String?>? validationModule,
     Wrapped<String?>? validationFieldName,
+    Wrapped<String?>? validationFieldId,
+    Wrapped<String?>? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: (moduleName != null ? moduleName.value : this.moduleName),
@@ -1547,6 +1582,12 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       validationFieldName: (validationFieldName != null
           ? validationFieldName.value
           : this.validationFieldName),
+      validationFieldId: (validationFieldId != null
+          ? validationFieldId.value
+          : this.validationFieldId),
+      listFieldAllowedValues: (listFieldAllowedValues != null
+          ? listFieldAllowedValues.value
+          : this.listFieldAllowedValues),
     );
   }
 }
@@ -1783,6 +1824,7 @@ class FwStandardModelsBrowseRequest {
     this.fields,
     this.totalfields,
     this.activeviewfields,
+    this.timezoneOffset,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -1871,6 +1913,8 @@ class FwStandardModelsBrowseRequest {
   final List<String>? totalfields;
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
+  @JsonKey(name: 'timezoneOffset', includeIfNull: false)
+  final int? timezoneOffset;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -1994,6 +2038,11 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.activeviewfields,
                   activeviewfields,
+                )) &&
+            (identical(other.timezoneOffset, timezoneOffset) ||
+                const DeepCollectionEquality().equals(
+                  other.timezoneOffset,
+                  timezoneOffset,
                 )));
   }
 
@@ -2028,6 +2077,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
+      const DeepCollectionEquality().hash(timezoneOffset) ^
       runtimeType.hashCode;
 }
 
@@ -2060,6 +2110,7 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
+    int? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -2088,6 +2139,7 @@ extension $FwStandardModelsBrowseRequestExtension
       fields: fields ?? this.fields,
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
+      timezoneOffset: timezoneOffset ?? this.timezoneOffset,
     );
   }
 
@@ -2118,6 +2170,7 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
+    Wrapped<int?>? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -2170,6 +2223,9 @@ extension $FwStandardModelsBrowseRequestExtension
       activeviewfields: (activeviewfields != null
           ? activeviewfields.value
           : this.activeviewfields),
+      timezoneOffset: (timezoneOffset != null
+          ? timezoneOffset.value
+          : this.timezoneOffset),
     );
   }
 }
@@ -4450,6 +4506,7 @@ class WebApiLogicAppFuncGetSettingsResponse {
     this.inventorySettings,
     this.consignmentSettings,
     this.systemSettings,
+    this.securitySettings,
     this.department,
     this.documentBarcodeSettings,
     this.systemNumbers,
@@ -4481,6 +4538,8 @@ class WebApiLogicAppFuncGetSettingsResponse {
   final WebApiLogicAppFuncConsignmentSettingsResponse? consignmentSettings;
   @JsonKey(name: 'systemSettings', includeIfNull: false)
   final WebApiLogicAppFuncSystemSettingsResponse? systemSettings;
+  @JsonKey(name: 'securitySettings', includeIfNull: false)
+  final WebApiLogicAppFuncSecuritySettingsResponse? securitySettings;
   @JsonKey(name: 'department', includeIfNull: false)
   final WebApiLogicAppFuncDepartmentSettingsResponse? department;
   @JsonKey(name: 'documentBarcodeSettings', includeIfNull: false)
@@ -4538,6 +4597,11 @@ class WebApiLogicAppFuncGetSettingsResponse {
                   other.systemSettings,
                   systemSettings,
                 )) &&
+            (identical(other.securitySettings, securitySettings) ||
+                const DeepCollectionEquality().equals(
+                  other.securitySettings,
+                  securitySettings,
+                )) &&
             (identical(other.department, department) ||
                 const DeepCollectionEquality().equals(
                   other.department,
@@ -4587,6 +4651,7 @@ class WebApiLogicAppFuncGetSettingsResponse {
       const DeepCollectionEquality().hash(inventorySettings) ^
       const DeepCollectionEquality().hash(consignmentSettings) ^
       const DeepCollectionEquality().hash(systemSettings) ^
+      const DeepCollectionEquality().hash(securitySettings) ^
       const DeepCollectionEquality().hash(department) ^
       const DeepCollectionEquality().hash(documentBarcodeSettings) ^
       const DeepCollectionEquality().hash(systemNumbers) ^
@@ -4607,6 +4672,7 @@ extension $WebApiLogicAppFuncGetSettingsResponseExtension
     WebApiLogicAppFuncInventorySettingsResponse? inventorySettings,
     WebApiLogicAppFuncConsignmentSettingsResponse? consignmentSettings,
     WebApiLogicAppFuncSystemSettingsResponse? systemSettings,
+    WebApiLogicAppFuncSecuritySettingsResponse? securitySettings,
     WebApiLogicAppFuncDepartmentSettingsResponse? department,
     WebApiLogicAppFuncDocumentBarcodeSettingsResponse? documentBarcodeSettings,
     WebApiLogicAppFuncSystemNumbersResponse? systemNumbers,
@@ -4623,6 +4689,7 @@ extension $WebApiLogicAppFuncGetSettingsResponseExtension
       inventorySettings: inventorySettings ?? this.inventorySettings,
       consignmentSettings: consignmentSettings ?? this.consignmentSettings,
       systemSettings: systemSettings ?? this.systemSettings,
+      securitySettings: securitySettings ?? this.securitySettings,
       department: department ?? this.department,
       documentBarcodeSettings:
           documentBarcodeSettings ?? this.documentBarcodeSettings,
@@ -4643,6 +4710,7 @@ extension $WebApiLogicAppFuncGetSettingsResponseExtension
     Wrapped<WebApiLogicAppFuncConsignmentSettingsResponse?>?
     consignmentSettings,
     Wrapped<WebApiLogicAppFuncSystemSettingsResponse?>? systemSettings,
+    Wrapped<WebApiLogicAppFuncSecuritySettingsResponse?>? securitySettings,
     Wrapped<WebApiLogicAppFuncDepartmentSettingsResponse?>? department,
     Wrapped<WebApiLogicAppFuncDocumentBarcodeSettingsResponse?>?
     documentBarcodeSettings,
@@ -4672,6 +4740,9 @@ extension $WebApiLogicAppFuncGetSettingsResponseExtension
       systemSettings: (systemSettings != null
           ? systemSettings.value
           : this.systemSettings),
+      securitySettings: (securitySettings != null
+          ? securitySettings.value
+          : this.securitySettings),
       department: (department != null ? department.value : this.department),
       documentBarcodeSettings: (documentBarcodeSettings != null
           ? documentBarcodeSettings.value
@@ -5177,6 +5248,191 @@ extension $WebApiLogicAppFuncInventorySettingsResponseExtension
       trackItemsInRooms: (trackItemsInRooms != null
           ? trackItemsInRooms.value
           : this.trackItemsInRooms),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiLogicAppFuncSecuritySettingsResponse {
+  const WebApiLogicAppFuncSecuritySettingsResponse({
+    this.requireDigitInPassword,
+    this.requireSymbolInPassword,
+    this.requireMinLengthPassword,
+    this.minLengthPassword,
+    this.autoLogoutUser,
+    this.autoLogoutMinutes,
+    this.lockUserAfterFailedAttempts,
+    this.lockUserAfterFailedAttemptsNumber,
+  });
+
+  factory WebApiLogicAppFuncSecuritySettingsResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiLogicAppFuncSecuritySettingsResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiLogicAppFuncSecuritySettingsResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiLogicAppFuncSecuritySettingsResponseToJson(this);
+
+  @JsonKey(name: 'RequireDigitInPassword', includeIfNull: false)
+  final bool? requireDigitInPassword;
+  @JsonKey(name: 'RequireSymbolInPassword', includeIfNull: false)
+  final bool? requireSymbolInPassword;
+  @JsonKey(name: 'RequireMinLengthPassword', includeIfNull: false)
+  final bool? requireMinLengthPassword;
+  @JsonKey(name: 'MinLengthPassword', includeIfNull: false)
+  final int? minLengthPassword;
+  @JsonKey(name: 'AutoLogoutUser', includeIfNull: false)
+  final bool? autoLogoutUser;
+  @JsonKey(name: 'AutoLogoutMinutes', includeIfNull: false)
+  final int? autoLogoutMinutes;
+  @JsonKey(name: 'LockUserAfterFailedAttempts', includeIfNull: false)
+  final bool? lockUserAfterFailedAttempts;
+  @JsonKey(name: 'LockUserAfterFailedAttemptsNumber', includeIfNull: false)
+  final int? lockUserAfterFailedAttemptsNumber;
+  static const fromJsonFactory =
+      _$WebApiLogicAppFuncSecuritySettingsResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiLogicAppFuncSecuritySettingsResponse &&
+            (identical(other.requireDigitInPassword, requireDigitInPassword) ||
+                const DeepCollectionEquality().equals(
+                  other.requireDigitInPassword,
+                  requireDigitInPassword,
+                )) &&
+            (identical(
+                  other.requireSymbolInPassword,
+                  requireSymbolInPassword,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.requireSymbolInPassword,
+                  requireSymbolInPassword,
+                )) &&
+            (identical(
+                  other.requireMinLengthPassword,
+                  requireMinLengthPassword,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.requireMinLengthPassword,
+                  requireMinLengthPassword,
+                )) &&
+            (identical(other.minLengthPassword, minLengthPassword) ||
+                const DeepCollectionEquality().equals(
+                  other.minLengthPassword,
+                  minLengthPassword,
+                )) &&
+            (identical(other.autoLogoutUser, autoLogoutUser) ||
+                const DeepCollectionEquality().equals(
+                  other.autoLogoutUser,
+                  autoLogoutUser,
+                )) &&
+            (identical(other.autoLogoutMinutes, autoLogoutMinutes) ||
+                const DeepCollectionEquality().equals(
+                  other.autoLogoutMinutes,
+                  autoLogoutMinutes,
+                )) &&
+            (identical(
+                  other.lockUserAfterFailedAttempts,
+                  lockUserAfterFailedAttempts,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.lockUserAfterFailedAttempts,
+                  lockUserAfterFailedAttempts,
+                )) &&
+            (identical(
+                  other.lockUserAfterFailedAttemptsNumber,
+                  lockUserAfterFailedAttemptsNumber,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.lockUserAfterFailedAttemptsNumber,
+                  lockUserAfterFailedAttemptsNumber,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(requireDigitInPassword) ^
+      const DeepCollectionEquality().hash(requireSymbolInPassword) ^
+      const DeepCollectionEquality().hash(requireMinLengthPassword) ^
+      const DeepCollectionEquality().hash(minLengthPassword) ^
+      const DeepCollectionEquality().hash(autoLogoutUser) ^
+      const DeepCollectionEquality().hash(autoLogoutMinutes) ^
+      const DeepCollectionEquality().hash(lockUserAfterFailedAttempts) ^
+      const DeepCollectionEquality().hash(lockUserAfterFailedAttemptsNumber) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiLogicAppFuncSecuritySettingsResponseExtension
+    on WebApiLogicAppFuncSecuritySettingsResponse {
+  WebApiLogicAppFuncSecuritySettingsResponse copyWith({
+    bool? requireDigitInPassword,
+    bool? requireSymbolInPassword,
+    bool? requireMinLengthPassword,
+    int? minLengthPassword,
+    bool? autoLogoutUser,
+    int? autoLogoutMinutes,
+    bool? lockUserAfterFailedAttempts,
+    int? lockUserAfterFailedAttemptsNumber,
+  }) {
+    return WebApiLogicAppFuncSecuritySettingsResponse(
+      requireDigitInPassword:
+          requireDigitInPassword ?? this.requireDigitInPassword,
+      requireSymbolInPassword:
+          requireSymbolInPassword ?? this.requireSymbolInPassword,
+      requireMinLengthPassword:
+          requireMinLengthPassword ?? this.requireMinLengthPassword,
+      minLengthPassword: minLengthPassword ?? this.minLengthPassword,
+      autoLogoutUser: autoLogoutUser ?? this.autoLogoutUser,
+      autoLogoutMinutes: autoLogoutMinutes ?? this.autoLogoutMinutes,
+      lockUserAfterFailedAttempts:
+          lockUserAfterFailedAttempts ?? this.lockUserAfterFailedAttempts,
+      lockUserAfterFailedAttemptsNumber:
+          lockUserAfterFailedAttemptsNumber ??
+          this.lockUserAfterFailedAttemptsNumber,
+    );
+  }
+
+  WebApiLogicAppFuncSecuritySettingsResponse copyWithWrapped({
+    Wrapped<bool?>? requireDigitInPassword,
+    Wrapped<bool?>? requireSymbolInPassword,
+    Wrapped<bool?>? requireMinLengthPassword,
+    Wrapped<int?>? minLengthPassword,
+    Wrapped<bool?>? autoLogoutUser,
+    Wrapped<int?>? autoLogoutMinutes,
+    Wrapped<bool?>? lockUserAfterFailedAttempts,
+    Wrapped<int?>? lockUserAfterFailedAttemptsNumber,
+  }) {
+    return WebApiLogicAppFuncSecuritySettingsResponse(
+      requireDigitInPassword: (requireDigitInPassword != null
+          ? requireDigitInPassword.value
+          : this.requireDigitInPassword),
+      requireSymbolInPassword: (requireSymbolInPassword != null
+          ? requireSymbolInPassword.value
+          : this.requireSymbolInPassword),
+      requireMinLengthPassword: (requireMinLengthPassword != null
+          ? requireMinLengthPassword.value
+          : this.requireMinLengthPassword),
+      minLengthPassword: (minLengthPassword != null
+          ? minLengthPassword.value
+          : this.minLengthPassword),
+      autoLogoutUser: (autoLogoutUser != null
+          ? autoLogoutUser.value
+          : this.autoLogoutUser),
+      autoLogoutMinutes: (autoLogoutMinutes != null
+          ? autoLogoutMinutes.value
+          : this.autoLogoutMinutes),
+      lockUserAfterFailedAttempts: (lockUserAfterFailedAttempts != null
+          ? lockUserAfterFailedAttempts.value
+          : this.lockUserAfterFailedAttempts),
+      lockUserAfterFailedAttemptsNumber:
+          (lockUserAfterFailedAttemptsNumber != null
+          ? lockUserAfterFailedAttemptsNumber.value
+          : this.lockUserAfterFailedAttemptsNumber),
     );
   }
 }
@@ -6003,6 +6259,8 @@ class WebApiLogicAppFuncSessionUser {
     this.qsallowapplyallqtyitems,
     this.allowcontractwithexceptions,
     this.allowswapitems,
+    this.stagingallowdecreaseqty,
+    this.stagemiscitems,
     this.canInsertIntoActiveOrder,
     this.creditCardPinPadId,
     this.creditCardPinPad,
@@ -6098,6 +6356,10 @@ class WebApiLogicAppFuncSessionUser {
   final bool? allowcontractwithexceptions;
   @JsonKey(name: 'allowswapitems', includeIfNull: false)
   final bool? allowswapitems;
+  @JsonKey(name: 'stagingallowdecreaseqty', includeIfNull: false)
+  final bool? stagingallowdecreaseqty;
+  @JsonKey(name: 'stagemiscitems', includeIfNull: false)
+  final bool? stagemiscitems;
   @JsonKey(name: 'CanInsertIntoActiveOrder', includeIfNull: false)
   final bool? canInsertIntoActiveOrder;
   @JsonKey(name: 'CreditCardPinPadId', includeIfNull: false)
@@ -6357,6 +6619,19 @@ class WebApiLogicAppFuncSessionUser {
                   allowswapitems,
                 )) &&
             (identical(
+                  other.stagingallowdecreaseqty,
+                  stagingallowdecreaseqty,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.stagingallowdecreaseqty,
+                  stagingallowdecreaseqty,
+                )) &&
+            (identical(other.stagemiscitems, stagemiscitems) ||
+                const DeepCollectionEquality().equals(
+                  other.stagemiscitems,
+                  stagemiscitems,
+                )) &&
+            (identical(
                   other.canInsertIntoActiveOrder,
                   canInsertIntoActiveOrder,
                 ) ||
@@ -6423,6 +6698,8 @@ class WebApiLogicAppFuncSessionUser {
       const DeepCollectionEquality().hash(qsallowapplyallqtyitems) ^
       const DeepCollectionEquality().hash(allowcontractwithexceptions) ^
       const DeepCollectionEquality().hash(allowswapitems) ^
+      const DeepCollectionEquality().hash(stagingallowdecreaseqty) ^
+      const DeepCollectionEquality().hash(stagemiscitems) ^
       const DeepCollectionEquality().hash(canInsertIntoActiveOrder) ^
       const DeepCollectionEquality().hash(creditCardPinPadId) ^
       const DeepCollectionEquality().hash(creditCardPinPad) ^
@@ -6474,6 +6751,8 @@ extension $WebApiLogicAppFuncSessionUserExtension
     bool? qsallowapplyallqtyitems,
     bool? allowcontractwithexceptions,
     bool? allowswapitems,
+    bool? stagingallowdecreaseqty,
+    bool? stagemiscitems,
     bool? canInsertIntoActiveOrder,
     int? creditCardPinPadId,
     String? creditCardPinPad,
@@ -6537,6 +6816,9 @@ extension $WebApiLogicAppFuncSessionUserExtension
       allowcontractwithexceptions:
           allowcontractwithexceptions ?? this.allowcontractwithexceptions,
       allowswapitems: allowswapitems ?? this.allowswapitems,
+      stagingallowdecreaseqty:
+          stagingallowdecreaseqty ?? this.stagingallowdecreaseqty,
+      stagemiscitems: stagemiscitems ?? this.stagemiscitems,
       canInsertIntoActiveOrder:
           canInsertIntoActiveOrder ?? this.canInsertIntoActiveOrder,
       creditCardPinPadId: creditCardPinPadId ?? this.creditCardPinPadId,
@@ -6587,6 +6869,8 @@ extension $WebApiLogicAppFuncSessionUserExtension
     Wrapped<bool?>? qsallowapplyallqtyitems,
     Wrapped<bool?>? allowcontractwithexceptions,
     Wrapped<bool?>? allowswapitems,
+    Wrapped<bool?>? stagingallowdecreaseqty,
+    Wrapped<bool?>? stagemiscitems,
     Wrapped<bool?>? canInsertIntoActiveOrder,
     Wrapped<int?>? creditCardPinPadId,
     Wrapped<String?>? creditCardPinPad,
@@ -6684,6 +6968,12 @@ extension $WebApiLogicAppFuncSessionUserExtension
       allowswapitems: (allowswapitems != null
           ? allowswapitems.value
           : this.allowswapitems),
+      stagingallowdecreaseqty: (stagingallowdecreaseqty != null
+          ? stagingallowdecreaseqty.value
+          : this.stagingallowdecreaseqty),
+      stagemiscitems: (stagemiscitems != null
+          ? stagemiscitems.value
+          : this.stagemiscitems),
       canInsertIntoActiveOrder: (canInsertIntoActiveOrder != null
           ? canInsertIntoActiveOrder.value
           : this.canInsertIntoActiveOrder),
@@ -6714,6 +7004,7 @@ class WebApiLogicAppFuncSessionWarehouse {
     this.regionwarehouseids,
     this.regionwarehouses,
     this.internalorderdealid,
+    this.checkinenablescanningtoaisleshelf,
   });
 
   factory WebApiLogicAppFuncSessionWarehouse.fromJson(
@@ -6752,6 +7043,8 @@ class WebApiLogicAppFuncSessionWarehouse {
   final String? regionwarehouses;
   @JsonKey(name: 'internalorderdealid', includeIfNull: false)
   final String? internalorderdealid;
+  @JsonKey(name: 'checkinenablescanningtoaisleshelf', includeIfNull: false)
+  final bool? checkinenablescanningtoaisleshelf;
   static const fromJsonFactory = _$WebApiLogicAppFuncSessionWarehouseFromJson;
 
   @override
@@ -6839,6 +7132,14 @@ class WebApiLogicAppFuncSessionWarehouse {
                 const DeepCollectionEquality().equals(
                   other.internalorderdealid,
                   internalorderdealid,
+                )) &&
+            (identical(
+                  other.checkinenablescanningtoaisleshelf,
+                  checkinenablescanningtoaisleshelf,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.checkinenablescanningtoaisleshelf,
+                  checkinenablescanningtoaisleshelf,
                 )));
   }
 
@@ -6861,6 +7162,7 @@ class WebApiLogicAppFuncSessionWarehouse {
       const DeepCollectionEquality().hash(regionwarehouseids) ^
       const DeepCollectionEquality().hash(regionwarehouses) ^
       const DeepCollectionEquality().hash(internalorderdealid) ^
+      const DeepCollectionEquality().hash(checkinenablescanningtoaisleshelf) ^
       runtimeType.hashCode;
 }
 
@@ -6881,6 +7183,7 @@ extension $WebApiLogicAppFuncSessionWarehouseExtension
     String? regionwarehouseids,
     String? regionwarehouses,
     String? internalorderdealid,
+    bool? checkinenablescanningtoaisleshelf,
   }) {
     return WebApiLogicAppFuncSessionWarehouse(
       warehouseid: warehouseid ?? this.warehouseid,
@@ -6902,6 +7205,9 @@ extension $WebApiLogicAppFuncSessionWarehouseExtension
       regionwarehouseids: regionwarehouseids ?? this.regionwarehouseids,
       regionwarehouses: regionwarehouses ?? this.regionwarehouses,
       internalorderdealid: internalorderdealid ?? this.internalorderdealid,
+      checkinenablescanningtoaisleshelf:
+          checkinenablescanningtoaisleshelf ??
+          this.checkinenablescanningtoaisleshelf,
     );
   }
 
@@ -6920,6 +7226,7 @@ extension $WebApiLogicAppFuncSessionWarehouseExtension
     Wrapped<String?>? regionwarehouseids,
     Wrapped<String?>? regionwarehouses,
     Wrapped<String?>? internalorderdealid,
+    Wrapped<bool?>? checkinenablescanningtoaisleshelf,
   }) {
     return WebApiLogicAppFuncSessionWarehouse(
       warehouseid: (warehouseid != null ? warehouseid.value : this.warehouseid),
@@ -6956,6 +7263,10 @@ extension $WebApiLogicAppFuncSessionWarehouseExtension
       internalorderdealid: (internalorderdealid != null
           ? internalorderdealid.value
           : this.internalorderdealid),
+      checkinenablescanningtoaisleshelf:
+          (checkinenablescanningtoaisleshelf != null
+          ? checkinenablescanningtoaisleshelf.value
+          : this.checkinenablescanningtoaisleshelf),
     );
   }
 }
@@ -7121,6 +7432,7 @@ class WebApiLogicAppFuncSystemSettingsResponse {
     this.setSubQuantityToZero,
     this.promptUserOnPasteLineItems,
     this.overrideHelpURL,
+    this.defaultSalesRepresentativeFilter,
   });
 
   factory WebApiLogicAppFuncSystemSettingsResponse.fromJson(
@@ -7193,6 +7505,8 @@ class WebApiLogicAppFuncSystemSettingsResponse {
   final bool? promptUserOnPasteLineItems;
   @JsonKey(name: 'OverrideHelpURL', includeIfNull: false)
   final String? overrideHelpURL;
+  @JsonKey(name: 'DefaultSalesRepresentativeFilter', includeIfNull: false)
+  final String? defaultSalesRepresentativeFilter;
   static const fromJsonFactory =
       _$WebApiLogicAppFuncSystemSettingsResponseFromJson;
 
@@ -7366,6 +7680,14 @@ class WebApiLogicAppFuncSystemSettingsResponse {
                 const DeepCollectionEquality().equals(
                   other.overrideHelpURL,
                   overrideHelpURL,
+                )) &&
+            (identical(
+                  other.defaultSalesRepresentativeFilter,
+                  defaultSalesRepresentativeFilter,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultSalesRepresentativeFilter,
+                  defaultSalesRepresentativeFilter,
                 )));
   }
 
@@ -7408,6 +7730,7 @@ class WebApiLogicAppFuncSystemSettingsResponse {
       const DeepCollectionEquality().hash(setSubQuantityToZero) ^
       const DeepCollectionEquality().hash(promptUserOnPasteLineItems) ^
       const DeepCollectionEquality().hash(overrideHelpURL) ^
+      const DeepCollectionEquality().hash(defaultSalesRepresentativeFilter) ^
       runtimeType.hashCode;
 }
 
@@ -7442,6 +7765,7 @@ extension $WebApiLogicAppFuncSystemSettingsResponseExtension
     bool? setSubQuantityToZero,
     bool? promptUserOnPasteLineItems,
     String? overrideHelpURL,
+    String? defaultSalesRepresentativeFilter,
   }) {
     return WebApiLogicAppFuncSystemSettingsResponse(
       allowDeleteInvoices: allowDeleteInvoices ?? this.allowDeleteInvoices,
@@ -7487,6 +7811,9 @@ extension $WebApiLogicAppFuncSystemSettingsResponseExtension
       promptUserOnPasteLineItems:
           promptUserOnPasteLineItems ?? this.promptUserOnPasteLineItems,
       overrideHelpURL: overrideHelpURL ?? this.overrideHelpURL,
+      defaultSalesRepresentativeFilter:
+          defaultSalesRepresentativeFilter ??
+          this.defaultSalesRepresentativeFilter,
     );
   }
 
@@ -7519,6 +7846,7 @@ extension $WebApiLogicAppFuncSystemSettingsResponseExtension
     Wrapped<bool?>? setSubQuantityToZero,
     Wrapped<bool?>? promptUserOnPasteLineItems,
     Wrapped<String?>? overrideHelpURL,
+    Wrapped<String?>? defaultSalesRepresentativeFilter,
   }) {
     return WebApiLogicAppFuncSystemSettingsResponse(
       allowDeleteInvoices: (allowDeleteInvoices != null
@@ -7601,6 +7929,10 @@ extension $WebApiLogicAppFuncSystemSettingsResponseExtension
       overrideHelpURL: (overrideHelpURL != null
           ? overrideHelpURL.value
           : this.overrideHelpURL),
+      defaultSalesRepresentativeFilter:
+          (defaultSalesRepresentativeFilter != null
+          ? defaultSalesRepresentativeFilter.value
+          : this.defaultSalesRepresentativeFilter),
     );
   }
 }

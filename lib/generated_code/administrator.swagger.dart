@@ -2043,6 +2043,41 @@ abstract class Administrator extends ChopperService {
   });
 
   ///
+  ///@param id
+  Future<chopper.Response<FwStandardModelsCopyLogicResponse>>
+  customformIdCopyPost({
+    required String? id,
+    required FwStandardModelsCopyLogicRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardModelsCopyLogicResponse,
+      () => FwStandardModelsCopyLogicResponse.fromJsonFactory,
+    );
+
+    return _customformIdCopyPost(id: id, body: body);
+  }
+
+  ///
+  ///@param id
+  @POST(path: '/customform/{id}/copy', optionalBody: true)
+  Future<chopper.Response<FwStandardModelsCopyLogicResponse>>
+  _customformIdCopyPost({
+    @Path('id') required String? id,
+    @Body() required FwStandardModelsCopyLogicRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CustomForm"],
+      deprecated: false,
+    ),
+  });
+
+  ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   customformgroupBrowsePost({required FwStandardModelsBrowseRequest? body}) {
     generatedMapping.putIfAbsent(
@@ -4732,7 +4767,7 @@ abstract class Administrator extends ChopperService {
   ///@param filter
   Future<
     chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic
     >
   >
   duplicaterulefieldGet({
@@ -4742,9 +4777,9 @@ abstract class Administrator extends ChopperService {
     List<FwStandardModelsFwQueryFilter>? filter,
   }) {
     generatedMapping.putIfAbsent(
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic,
       () =>
-          FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
+          FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic
               .fromJsonFactory,
     );
 
@@ -4764,7 +4799,7 @@ abstract class Administrator extends ChopperService {
   @GET(path: '/duplicaterulefield')
   Future<
     chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic
     >
   >
   _duplicaterulefieldGet({
@@ -4788,18 +4823,17 @@ abstract class Administrator extends ChopperService {
   ///
   Future<
     chopper.Response<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
     >
   >
   duplicaterulefieldPost({
-    required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
+    required WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField?
     body,
   }) {
     generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField,
-      () =>
-          WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-              .fromJsonFactory,
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField,
+      () => WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
+          .fromJsonFactory,
     );
 
     return _duplicaterulefieldPost(body: body);
@@ -4809,12 +4843,12 @@ abstract class Administrator extends ChopperService {
   @POST(path: '/duplicaterulefield', optionalBody: true)
   Future<
     chopper.Response<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
     >
   >
   _duplicaterulefieldPost({
     @Body()
-    required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
+    required WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField?
     body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -4833,15 +4867,14 @@ abstract class Administrator extends ChopperService {
   ///@param id
   Future<
     chopper.Response<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
     >
   >
   duplicaterulefieldIdGet({required String? id}) {
     generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField,
-      () =>
-          WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-              .fromJsonFactory,
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField,
+      () => WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
+          .fromJsonFactory,
     );
 
     return _duplicaterulefieldIdGet(id: id);
@@ -4852,7 +4885,7 @@ abstract class Administrator extends ChopperService {
   @GET(path: '/duplicaterulefield/{id}')
   Future<
     chopper.Response<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
     >
   >
   _duplicaterulefieldIdGet({
@@ -4874,19 +4907,18 @@ abstract class Administrator extends ChopperService {
   ///@param id
   Future<
     chopper.Response<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
     >
   >
   duplicaterulefieldIdPut({
     required String? id,
-    required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
+    required WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField?
     body,
   }) {
     generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField,
-      () =>
-          WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-              .fromJsonFactory,
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField,
+      () => WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
+          .fromJsonFactory,
     );
 
     return _duplicaterulefieldIdPut(id: id, body: body);
@@ -4897,13 +4929,13 @@ abstract class Administrator extends ChopperService {
   @PUT(path: '/duplicaterulefield/{id}', optionalBody: true)
   Future<
     chopper.Response<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
     >
   >
   _duplicaterulefieldIdPut({
     @Path('id') required String? id,
     @Body()
-    required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
+    required WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField?
     body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -5743,7 +5775,7 @@ abstract class Administrator extends ChopperService {
   ///
   Future<chopper.Response<FwStandardAppManagerFwAmSecurityTreeNode>>
   groupCopysecuritynodePost({
-    required FwCoreModulesAdministratorGroupCopySecurityNodeRequest? body,
+    required FwStandardModulesAdministratorGroupCopySecurityNodeRequest? body,
   }) {
     generatedMapping.putIfAbsent(
       FwStandardAppManagerFwAmSecurityTreeNode,
@@ -5758,7 +5790,7 @@ abstract class Administrator extends ChopperService {
   Future<chopper.Response<FwStandardAppManagerFwAmSecurityTreeNode>>
   _groupCopysecuritynodePost({
     @Body()
-    required FwCoreModulesAdministratorGroupCopySecurityNodeRequest? body,
+    required FwStandardModulesAdministratorGroupCopySecurityNodeRequest? body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -5780,7 +5812,7 @@ abstract class Administrator extends ChopperService {
   ///@param Sort A sort expression to use of the form: Field1:asc,Field2:desc
   Future<
     chopper.Response<
-      FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
+      FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse
     >
   >
   groupLookupgroupGet({
@@ -5791,9 +5823,9 @@ abstract class Administrator extends ChopperService {
     String? sort,
   }) {
     generatedMapping.putIfAbsent(
-      FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse,
+      FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse,
       () =>
-          FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
+          FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse
               .fromJsonFactory,
     );
 
@@ -5815,7 +5847,7 @@ abstract class Administrator extends ChopperService {
   @GET(path: '/group/lookupgroup')
   Future<
     chopper.Response<
-      FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
+      FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse
     >
   >
   _groupLookupgroupGet({
@@ -6678,6 +6710,77 @@ abstract class Administrator extends ChopperService {
       produces: [],
       security: [],
       tags: ["QuikScanSetup"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  ///@param controlid
+  Future<
+    chopper.Response<
+      FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
+    >
+  >
+  securitysettingsControlidGet({required String? controlid}) {
+    generatedMapping.putIfAbsent(
+      FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader,
+      () => FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
+          .fromJsonFactory,
+    );
+
+    return _securitysettingsControlidGet(controlid: controlid);
+  }
+
+  ///
+  ///@param controlid
+  @GET(path: '/securitysettings/{controlid}')
+  Future<
+    chopper.Response<
+      FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
+    >
+  >
+  _securitysettingsControlidGet({
+    @Path('controlid') required String? controlid,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SecuritySettings"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  ///@param id
+  Future<chopper.Response> securitysettingsIdPut({
+    required String? id,
+    required FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader?
+    body,
+  }) {
+    return _securitysettingsIdPut(id: id, body: body);
+  }
+
+  ///
+  ///@param id
+  @PUT(path: '/securitysettings/{id}', optionalBody: true)
+  Future<chopper.Response> _securitysettingsIdPut({
+    @Path('id') required String? id,
+    @Body()
+    required FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SecuritySettings"],
       deprecated: false,
     ),
   });
@@ -8034,50 +8137,6 @@ abstract class Administrator extends ChopperService {
   });
 
   ///
-  ///@param id
-  Future<
-    chopper.Response<
-      WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
-    >
-  >
-  userCreateusersalesrepresentativecontactIdPost({required String? id}) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse,
-      () =>
-          WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
-              .fromJsonFactory,
-    );
-
-    return _userCreateusersalesrepresentativecontactIdPost(id: id);
-  }
-
-  ///
-  ///@param id
-  @POST(
-    path: '/user/createusersalesrepresentativecontact/{id}',
-    optionalBody: true,
-  )
-  Future<
-    chopper.Response<
-      WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
-    >
-  >
-  _userCreateusersalesrepresentativecontactIdPost({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["User"],
-      deprecated: false,
-    ),
-  });
-
-  ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   userValidategroupBrowsePost({required FwStandardModelsBrowseRequest? body}) {
     generatedMapping.putIfAbsent(
@@ -8416,37 +8475,6 @@ abstract class Administrator extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  userValidatefacilitydepartmentBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardSqlServerFwJsonDataTable,
-      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-    );
-
-    return _userValidatefacilitydepartmentBrowsePost(body: body);
-  }
-
-  ///
-  @POST(path: '/user/validatefacilitydepartment/browse', optionalBody: true)
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  _userValidatefacilitydepartmentBrowsePost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["User"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   userValidatetransportationdepartmentBrowsePost({
     required FwStandardModelsBrowseRequest? body,
   }) {
@@ -8667,37 +8695,6 @@ abstract class Administrator extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  userValidatefacilitytypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardSqlServerFwJsonDataTable,
-      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-    );
-
-    return _userValidatefacilitytypeBrowsePost(body: body);
-  }
-
-  ///
-  @POST(path: '/user/validatefacilitytype/browse', optionalBody: true)
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  _userValidatefacilitytypeBrowsePost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["User"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   userValidatesuccesssoundBrowsePost({
     required FwStandardModelsBrowseRequest? body,
   }) {
@@ -8841,6 +8838,167 @@ abstract class Administrator extends ChopperService {
       produces: [],
       security: [],
       tags: ["User"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  usercontactBrowsePost({required FwStandardModelsBrowseRequest? body}) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _usercontactBrowsePost(body: body);
+  }
+
+  ///
+  @POST(path: '/usercontact/browse', optionalBody: true)
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _usercontactBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["UserContact"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  usercontactExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      () =>
+          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+              .fromJsonFactory,
+    );
+
+    return _usercontactExportexcelxlsxPost(body: body);
+  }
+
+  ///
+  @POST(path: '/usercontact/exportexcelxlsx', optionalBody: true)
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _usercontactExportexcelxlsxPost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["UserContact"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic
+    >
+  >
+  usercontactGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic,
+      () =>
+          FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic
+              .fromJsonFactory,
+    );
+
+    return _usercontactGet(
+      pageno: pageno,
+      pagesize: pagesize,
+      sort: sort,
+      filter: filter,
+    );
+  }
+
+  ///
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  @GET(path: '/usercontact')
+  Future<
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic
+    >
+  >
+  _usercontactGet({
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["UserContact"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  ///@param id
+  Future<chopper.Response<WebApiModulesAdministratorUserContactUserContact>>
+  usercontactIdGet({required String? id}) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesAdministratorUserContactUserContact,
+      () => WebApiModulesAdministratorUserContactUserContact.fromJsonFactory,
+    );
+
+    return _usercontactIdGet(id: id);
+  }
+
+  ///
+  ///@param id
+  @GET(path: '/usercontact/{id}')
+  Future<chopper.Response<WebApiModulesAdministratorUserContactUserContact>>
+  _usercontactIdGet({
+    @Path('id') required String? id,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["UserContact"],
       deprecated: false,
     ),
   });
@@ -9926,160 +10084,6 @@ extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResu
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwCoreModulesAdministratorGroupCopySecurityNodeRequest {
-  const FwCoreModulesAdministratorGroupCopySecurityNodeRequest({
-    this.fromGroupId,
-    this.toGroupIds,
-    this.securityId,
-  });
-
-  factory FwCoreModulesAdministratorGroupCopySecurityNodeRequest.fromJson(
-    Map<String, dynamic> json,
-  ) => _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestFromJson(json);
-
-  static const toJsonFactory =
-      _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestToJson(this);
-
-  @JsonKey(name: 'FromGroupId', includeIfNull: false)
-  final String? fromGroupId;
-  @JsonKey(name: 'ToGroupIds', includeIfNull: false)
-  final String? toGroupIds;
-  @JsonKey(name: 'SecurityId', includeIfNull: false)
-  final String? securityId;
-  static const fromJsonFactory =
-      _$FwCoreModulesAdministratorGroupCopySecurityNodeRequestFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is FwCoreModulesAdministratorGroupCopySecurityNodeRequest &&
-            (identical(other.fromGroupId, fromGroupId) ||
-                const DeepCollectionEquality().equals(
-                  other.fromGroupId,
-                  fromGroupId,
-                )) &&
-            (identical(other.toGroupIds, toGroupIds) ||
-                const DeepCollectionEquality().equals(
-                  other.toGroupIds,
-                  toGroupIds,
-                )) &&
-            (identical(other.securityId, securityId) ||
-                const DeepCollectionEquality().equals(
-                  other.securityId,
-                  securityId,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(fromGroupId) ^
-      const DeepCollectionEquality().hash(toGroupIds) ^
-      const DeepCollectionEquality().hash(securityId) ^
-      runtimeType.hashCode;
-}
-
-extension $FwCoreModulesAdministratorGroupCopySecurityNodeRequestExtension
-    on FwCoreModulesAdministratorGroupCopySecurityNodeRequest {
-  FwCoreModulesAdministratorGroupCopySecurityNodeRequest copyWith({
-    String? fromGroupId,
-    String? toGroupIds,
-    String? securityId,
-  }) {
-    return FwCoreModulesAdministratorGroupCopySecurityNodeRequest(
-      fromGroupId: fromGroupId ?? this.fromGroupId,
-      toGroupIds: toGroupIds ?? this.toGroupIds,
-      securityId: securityId ?? this.securityId,
-    );
-  }
-
-  FwCoreModulesAdministratorGroupCopySecurityNodeRequest copyWithWrapped({
-    Wrapped<String?>? fromGroupId,
-    Wrapped<String?>? toGroupIds,
-    Wrapped<String?>? securityId,
-  }) {
-    return FwCoreModulesAdministratorGroupCopySecurityNodeRequest(
-      fromGroupId: (fromGroupId != null ? fromGroupId.value : this.fromGroupId),
-      toGroupIds: (toGroupIds != null ? toGroupIds.value : this.toGroupIds),
-      securityId: (securityId != null ? securityId.value : this.securityId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class FwCoreModulesAdministratorGroupLookupGroupResponse {
-  const FwCoreModulesAdministratorGroupLookupGroupResponse({
-    this.groupId,
-    this.name,
-  });
-
-  factory FwCoreModulesAdministratorGroupLookupGroupResponse.fromJson(
-    Map<String, dynamic> json,
-  ) => _$FwCoreModulesAdministratorGroupLookupGroupResponseFromJson(json);
-
-  static const toJsonFactory =
-      _$FwCoreModulesAdministratorGroupLookupGroupResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwCoreModulesAdministratorGroupLookupGroupResponseToJson(this);
-
-  @JsonKey(name: 'GroupId', includeIfNull: false)
-  final String? groupId;
-  @JsonKey(name: 'Name', includeIfNull: false)
-  final String? name;
-  static const fromJsonFactory =
-      _$FwCoreModulesAdministratorGroupLookupGroupResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is FwCoreModulesAdministratorGroupLookupGroupResponse &&
-            (identical(other.groupId, groupId) ||
-                const DeepCollectionEquality().equals(
-                  other.groupId,
-                  groupId,
-                )) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(groupId) ^
-      const DeepCollectionEquality().hash(name) ^
-      runtimeType.hashCode;
-}
-
-extension $FwCoreModulesAdministratorGroupLookupGroupResponseExtension
-    on FwCoreModulesAdministratorGroupLookupGroupResponse {
-  FwCoreModulesAdministratorGroupLookupGroupResponse copyWith({
-    String? groupId,
-    String? name,
-  }) {
-    return FwCoreModulesAdministratorGroupLookupGroupResponse(
-      groupId: groupId ?? this.groupId,
-      name: name ?? this.name,
-    );
-  }
-
-  FwCoreModulesAdministratorGroupLookupGroupResponse copyWithWrapped({
-    Wrapped<String?>? groupId,
-    Wrapped<String?>? name,
-  }) {
-    return FwCoreModulesAdministratorGroupLookupGroupResponse(
-      groupId: (groupId != null ? groupId.value : this.groupId),
-      name: (name != null ? name.value : this.name),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class FwStandardAppManagerFwAmSecurityTreeNode {
   const FwStandardAppManagerFwAmSecurityTreeNode({
     this.id,
@@ -10202,6 +10206,7 @@ class FwStandardBusinessLogicFwBusinessLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -10252,6 +10257,8 @@ class FwStandardBusinessLogicFwBusinessLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -10310,6 +10317,11 @@ class FwStandardBusinessLogicFwBusinessLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -10356,6 +10368,7 @@ class FwStandardBusinessLogicFwBusinessLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -10377,6 +10390,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -10395,6 +10409,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -10415,6 +10430,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -10436,6 +10452,9 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -10471,6 +10490,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
     this.displayFieldName,
     this.allowedValues,
     this.templateSequence,
+    this.isEmail,
   });
 
   factory FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
@@ -10512,6 +10532,8 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
   final String? allowedValues;
   @JsonKey(name: 'TemplateSequence', includeIfNull: false)
   final int? templateSequence;
+  @JsonKey(name: 'IsEmail', includeIfNull: false)
+  final bool? isEmail;
   static const fromJsonFactory =
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson;
 
@@ -10565,7 +10587,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
                 const DeepCollectionEquality().equals(
                   other.templateSequence,
                   templateSequence,
-                )));
+                )) &&
+            (identical(other.isEmail, isEmail) ||
+                const DeepCollectionEquality().equals(other.isEmail, isEmail)));
   }
 
   @override
@@ -10583,6 +10607,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       const DeepCollectionEquality().hash(displayFieldName) ^
       const DeepCollectionEquality().hash(allowedValues) ^
       const DeepCollectionEquality().hash(templateSequence) ^
+      const DeepCollectionEquality().hash(isEmail) ^
       runtimeType.hashCode;
 }
 
@@ -10599,6 +10624,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     String? displayFieldName,
     String? allowedValues,
     int? templateSequence,
+    bool? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: name ?? this.name,
@@ -10611,6 +10637,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       displayFieldName: displayFieldName ?? this.displayFieldName,
       allowedValues: allowedValues ?? this.allowedValues,
       templateSequence: templateSequence ?? this.templateSequence,
+      isEmail: isEmail ?? this.isEmail,
     );
   }
 
@@ -10625,6 +10652,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     Wrapped<String?>? displayFieldName,
     Wrapped<String?>? allowedValues,
     Wrapped<int?>? templateSequence,
+    Wrapped<bool?>? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: (name != null ? name.value : this.name),
@@ -10647,6 +10675,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       templateSequence: (templateSequence != null
           ? templateSequence.value
           : this.templateSequence),
+      isEmail: (isEmail != null ? isEmail.value : this.isEmail),
     );
   }
 }
@@ -10660,6 +10689,8 @@ class FwStandardDataFwCustomValue {
     this.fieldType,
     this.validationModule,
     this.validationFieldName,
+    this.validationFieldId,
+    this.listFieldAllowedValues,
   });
 
   factory FwStandardDataFwCustomValue.fromJson(Map<String, dynamic> json) =>
@@ -10680,6 +10711,10 @@ class FwStandardDataFwCustomValue {
   final String? validationModule;
   @JsonKey(name: 'ValidationFieldName', includeIfNull: false)
   final String? validationFieldName;
+  @JsonKey(name: 'ValidationFieldId', includeIfNull: false)
+  final String? validationFieldId;
+  @JsonKey(name: 'ListFieldAllowedValues', includeIfNull: false)
+  final String? listFieldAllowedValues;
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
 
   @override
@@ -10715,6 +10750,16 @@ class FwStandardDataFwCustomValue {
                 const DeepCollectionEquality().equals(
                   other.validationFieldName,
                   validationFieldName,
+                )) &&
+            (identical(other.validationFieldId, validationFieldId) ||
+                const DeepCollectionEquality().equals(
+                  other.validationFieldId,
+                  validationFieldId,
+                )) &&
+            (identical(other.listFieldAllowedValues, listFieldAllowedValues) ||
+                const DeepCollectionEquality().equals(
+                  other.listFieldAllowedValues,
+                  listFieldAllowedValues,
                 )));
   }
 
@@ -10729,6 +10774,8 @@ class FwStandardDataFwCustomValue {
       const DeepCollectionEquality().hash(fieldType) ^
       const DeepCollectionEquality().hash(validationModule) ^
       const DeepCollectionEquality().hash(validationFieldName) ^
+      const DeepCollectionEquality().hash(validationFieldId) ^
+      const DeepCollectionEquality().hash(listFieldAllowedValues) ^
       runtimeType.hashCode;
 }
 
@@ -10740,6 +10787,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     String? fieldType,
     String? validationModule,
     String? validationFieldName,
+    String? validationFieldId,
+    String? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: moduleName ?? this.moduleName,
@@ -10748,6 +10797,9 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       fieldType: fieldType ?? this.fieldType,
       validationModule: validationModule ?? this.validationModule,
       validationFieldName: validationFieldName ?? this.validationFieldName,
+      validationFieldId: validationFieldId ?? this.validationFieldId,
+      listFieldAllowedValues:
+          listFieldAllowedValues ?? this.listFieldAllowedValues,
     );
   }
 
@@ -10758,6 +10810,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     Wrapped<String?>? fieldType,
     Wrapped<String?>? validationModule,
     Wrapped<String?>? validationFieldName,
+    Wrapped<String?>? validationFieldId,
+    Wrapped<String?>? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: (moduleName != null ? moduleName.value : this.moduleName),
@@ -10770,6 +10824,12 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       validationFieldName: (validationFieldName != null
           ? validationFieldName.value
           : this.validationFieldName),
+      validationFieldId: (validationFieldId != null
+          ? validationFieldId.value
+          : this.validationFieldId),
+      listFieldAllowedValues: (listFieldAllowedValues != null
+          ? listFieldAllowedValues.value
+          : this.listFieldAllowedValues),
     );
   }
 }
@@ -11006,6 +11066,7 @@ class FwStandardModelsBrowseRequest {
     this.fields,
     this.totalfields,
     this.activeviewfields,
+    this.timezoneOffset,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -11094,6 +11155,8 @@ class FwStandardModelsBrowseRequest {
   final List<String>? totalfields;
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
+  @JsonKey(name: 'timezoneOffset', includeIfNull: false)
+  final int? timezoneOffset;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -11217,6 +11280,11 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.activeviewfields,
                   activeviewfields,
+                )) &&
+            (identical(other.timezoneOffset, timezoneOffset) ||
+                const DeepCollectionEquality().equals(
+                  other.timezoneOffset,
+                  timezoneOffset,
                 )));
   }
 
@@ -11251,6 +11319,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
+      const DeepCollectionEquality().hash(timezoneOffset) ^
       runtimeType.hashCode;
 }
 
@@ -11283,6 +11352,7 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
+    int? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -11311,6 +11381,7 @@ extension $FwStandardModelsBrowseRequestExtension
       fields: fields ?? this.fields,
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
+      timezoneOffset: timezoneOffset ?? this.timezoneOffset,
     );
   }
 
@@ -11341,6 +11412,7 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
+    Wrapped<int?>? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -11393,6 +11465,9 @@ extension $FwStandardModelsBrowseRequestExtension
       activeviewfields: (activeviewfields != null
           ? activeviewfields.value
           : this.activeviewfields),
+      timezoneOffset: (timezoneOffset != null
+          ? timezoneOffset.value
+          : this.timezoneOffset),
     );
   }
 }
@@ -13756,6 +13831,126 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDa
 }
 
 @JsonSerializable(explicitToJson: true)
+class FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic {
+  const FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic({
+    this.items,
+    this.pageNo,
+    this.pageSize,
+    this.totalItems,
+    this.sort,
+  });
+
+  factory FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogicFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogicToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogicToJson(
+        this,
+      );
+
+  @JsonKey(
+    name: 'Items',
+    includeIfNull: false,
+    defaultValue:
+        <WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField>[],
+  )
+  final List<WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField>?
+  items;
+  @JsonKey(name: 'PageNo', includeIfNull: false)
+  final int? pageNo;
+  @JsonKey(name: 'PageSize', includeIfNull: false)
+  final int? pageSize;
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
+  final int? totalItems;
+  @JsonKey(name: 'Sort', includeIfNull: false)
+  final String? sort;
+  static const fromJsonFactory =
+      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogicFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic &&
+            (identical(other.items, items) ||
+                const DeepCollectionEquality().equals(other.items, items)) &&
+            (identical(other.pageNo, pageNo) ||
+                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
+            (identical(other.totalItems, totalItems) ||
+                const DeepCollectionEquality().equals(
+                  other.totalItems,
+                  totalItems,
+                )) &&
+            (identical(other.sort, sort) ||
+                const DeepCollectionEquality().equals(other.sort, sort)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
+}
+
+extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogicExtension
+    on
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic {
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic
+  copyWith({
+    List<WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField>? items,
+    int? pageNo,
+    int? pageSize,
+    int? totalItems,
+    String? sort,
+  }) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic(
+      items: items ?? this.items,
+      pageNo: pageNo ?? this.pageNo,
+      pageSize: pageSize ?? this.pageSize,
+      totalItems: totalItems ?? this.totalItems,
+      sort: sort ?? this.sort,
+    );
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic
+  copyWithWrapped({
+    Wrapped<
+      List<WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField>?
+    >?
+    items,
+    Wrapped<int?>? pageNo,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalItems,
+    Wrapped<String?>? sort,
+  }) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic(
+      items: (items != null ? items.value : this.items),
+      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+      sort: (sort != null ? sort.value : this.sort),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic {
   const FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic({
     this.items,
@@ -14692,6 +14887,121 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogi
 }
 
 @JsonSerializable(explicitToJson: true)
+class FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic {
+  const FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic({
+    this.items,
+    this.pageNo,
+    this.pageSize,
+    this.totalItems,
+    this.sort,
+  });
+
+  factory FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogicFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogicToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogicToJson(
+        this,
+      );
+
+  @JsonKey(
+    name: 'Items',
+    includeIfNull: false,
+    defaultValue: <WebApiModulesAdministratorUserContactUserContact>[],
+  )
+  final List<WebApiModulesAdministratorUserContactUserContact>? items;
+  @JsonKey(name: 'PageNo', includeIfNull: false)
+  final int? pageNo;
+  @JsonKey(name: 'PageSize', includeIfNull: false)
+  final int? pageSize;
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
+  final int? totalItems;
+  @JsonKey(name: 'Sort', includeIfNull: false)
+  final String? sort;
+  static const fromJsonFactory =
+      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogicFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic &&
+            (identical(other.items, items) ||
+                const DeepCollectionEquality().equals(other.items, items)) &&
+            (identical(other.pageNo, pageNo) ||
+                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
+            (identical(other.totalItems, totalItems) ||
+                const DeepCollectionEquality().equals(
+                  other.totalItems,
+                  totalItems,
+                )) &&
+            (identical(other.sort, sort) ||
+                const DeepCollectionEquality().equals(other.sort, sort)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(items) ^
+      const DeepCollectionEquality().hash(pageNo) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      const DeepCollectionEquality().hash(sort) ^
+      runtimeType.hashCode;
+}
+
+extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogicExtension
+    on
+        FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic {
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic
+  copyWith({
+    List<WebApiModulesAdministratorUserContactUserContact>? items,
+    int? pageNo,
+    int? pageSize,
+    int? totalItems,
+    String? sort,
+  }) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic(
+      items: items ?? this.items,
+      pageNo: pageNo ?? this.pageNo,
+      pageSize: pageSize ?? this.pageSize,
+      totalItems: totalItems ?? this.totalItems,
+      sort: sort ?? this.sort,
+    );
+  }
+
+  FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic
+  copyWithWrapped({
+    Wrapped<List<WebApiModulesAdministratorUserContactUserContact>?>? items,
+    Wrapped<int?>? pageNo,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalItems,
+    Wrapped<String?>? sort,
+  }) {
+    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic(
+      items: (items != null ? items.value : this.items),
+      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
+      sort: (sort != null ? sort.value : this.sort),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic {
   const FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic({
     this.items,
@@ -14938,135 +15248,6 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCust
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic {
-  const FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic({
-    this.items,
-    this.pageNo,
-    this.pageSize,
-    this.totalItems,
-    this.sort,
-  });
-
-  factory FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicToJson(
-        this,
-      );
-
-  @JsonKey(
-    name: 'Items',
-    includeIfNull: false,
-    defaultValue:
-        <
-          WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-        >[],
-  )
-  final List<
-    WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-  >?
-  items;
-  @JsonKey(name: 'PageNo', includeIfNull: false)
-  final int? pageNo;
-  @JsonKey(name: 'PageSize', includeIfNull: false)
-  final int? pageSize;
-  @JsonKey(name: 'TotalItems', includeIfNull: false)
-  final int? totalItems;
-  @JsonKey(name: 'Sort', includeIfNull: false)
-  final String? sort;
-  static const fromJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic &&
-            (identical(other.items, items) ||
-                const DeepCollectionEquality().equals(other.items, items)) &&
-            (identical(other.pageNo, pageNo) ||
-                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
-            (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality().equals(
-                  other.pageSize,
-                  pageSize,
-                )) &&
-            (identical(other.totalItems, totalItems) ||
-                const DeepCollectionEquality().equals(
-                  other.totalItems,
-                  totalItems,
-                )) &&
-            (identical(other.sort, sort) ||
-                const DeepCollectionEquality().equals(other.sort, sort)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(items) ^
-      const DeepCollectionEquality().hash(pageNo) ^
-      const DeepCollectionEquality().hash(pageSize) ^
-      const DeepCollectionEquality().hash(totalItems) ^
-      const DeepCollectionEquality().hash(sort) ^
-      runtimeType.hashCode;
-}
-
-extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogicExtension
-    on
-        FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic {
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
-  copyWith({
-    List<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-    >?
-    items,
-    int? pageNo,
-    int? pageSize,
-    int? totalItems,
-    String? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic(
-      items: items ?? this.items,
-      pageNo: pageNo ?? this.pageNo,
-      pageSize: pageSize ?? this.pageSize,
-      totalItems: totalItems ?? this.totalItems,
-      sort: sort ?? this.sort,
-    );
-  }
-
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
-  copyWithWrapped({
-    Wrapped<
-      List<
-        WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-      >?
-    >?
-    items,
-    Wrapped<int?>? pageNo,
-    Wrapped<int?>? pageSize,
-    Wrapped<int?>? totalItems,
-    Wrapped<String?>? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic(
-      items: (items != null ? items.value : this.items),
-      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
-      sort: (sort != null ? sort.value : this.sort),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic {
   const FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic({
     this.items,
@@ -15196,8 +15377,8 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomRepor
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse {
-  const FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse({
+class FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse {
+  const FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse({
     this.items,
     this.pageNo,
     this.pageSize,
@@ -15205,26 +15386,26 @@ class FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupRespo
     this.sort,
   });
 
-  factory FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse.fromJson(
+  factory FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponseFromJson(
+      _$FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponseFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponseToJson;
+      _$FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponseToJson(
+      _$FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponseToJson(
         this,
       );
 
   @JsonKey(
     name: 'Items',
     includeIfNull: false,
-    defaultValue: <FwCoreModulesAdministratorGroupLookupGroupResponse>[],
+    defaultValue: <FwStandardModulesAdministratorGroupLookupGroupResponse>[],
   )
-  final List<FwCoreModulesAdministratorGroupLookupGroupResponse>? items;
+  final List<FwStandardModulesAdministratorGroupLookupGroupResponse>? items;
   @JsonKey(name: 'PageNo', includeIfNull: false)
   final int? pageNo;
   @JsonKey(name: 'PageSize', includeIfNull: false)
@@ -15234,13 +15415,13 @@ class FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupRespo
   @JsonKey(name: 'Sort', includeIfNull: false)
   final String? sort;
   static const fromJsonFactory =
-      _$FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponseFromJson;
+      _$FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse &&
+                is FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -15272,17 +15453,18 @@ class FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupRespo
       runtimeType.hashCode;
 }
 
-extension $FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponseExtension
-    on FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse {
-  FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
+extension $FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponseExtension
+    on
+        FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse {
+  FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse
   copyWith({
-    List<FwCoreModulesAdministratorGroupLookupGroupResponse>? items,
+    List<FwStandardModulesAdministratorGroupLookupGroupResponse>? items,
     int? pageNo,
     int? pageSize,
     int? totalRows,
     String? sort,
   }) {
-    return FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse(
+    return FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse(
       items: items ?? this.items,
       pageNo: pageNo ?? this.pageNo,
       pageSize: pageSize ?? this.pageSize,
@@ -15291,15 +15473,16 @@ extension $FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroup
     );
   }
 
-  FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
+  FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse
   copyWithWrapped({
-    Wrapped<List<FwCoreModulesAdministratorGroupLookupGroupResponse>?>? items,
+    Wrapped<List<FwStandardModulesAdministratorGroupLookupGroupResponse>?>?
+    items,
     Wrapped<int?>? pageNo,
     Wrapped<int?>? pageSize,
     Wrapped<int?>? totalRows,
     Wrapped<String?>? sort,
   }) {
-    return FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse(
+    return FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse(
       items: (items != null ? items.value : this.items),
       pageNo: (pageNo != null ? pageNo.value : this.pageNo),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
@@ -15443,6 +15626,7 @@ class FwStandardModulesAdministratorAlertAlertLogic {
     this.actionDelete,
     this.alertSubject,
     this.alertBody,
+    this.recipientsJson,
     this.inactive,
     this.alertConditionList,
     this.dateStamp,
@@ -15455,6 +15639,7 @@ class FwStandardModulesAdministratorAlertAlertLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -15488,6 +15673,8 @@ class FwStandardModulesAdministratorAlertAlertLogic {
   final String? alertSubject;
   @JsonKey(name: 'AlertBody', includeIfNull: false)
   final String? alertBody;
+  @JsonKey(name: 'RecipientsJson', includeIfNull: false)
+  final String? recipientsJson;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(
@@ -15533,6 +15720,8 @@ class FwStandardModulesAdministratorAlertAlertLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -15592,6 +15781,11 @@ class FwStandardModulesAdministratorAlertAlertLogic {
                   other.alertBody,
                   alertBody,
                 )) &&
+            (identical(other.recipientsJson, recipientsJson) ||
+                const DeepCollectionEquality().equals(
+                  other.recipientsJson,
+                  recipientsJson,
+                )) &&
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality().equals(
                   other.inactive,
@@ -15646,6 +15840,11 @@ class FwStandardModulesAdministratorAlertAlertLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -15691,6 +15890,7 @@ class FwStandardModulesAdministratorAlertAlertLogic {
       const DeepCollectionEquality().hash(actionDelete) ^
       const DeepCollectionEquality().hash(alertSubject) ^
       const DeepCollectionEquality().hash(alertBody) ^
+      const DeepCollectionEquality().hash(recipientsJson) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(alertConditionList) ^
       const DeepCollectionEquality().hash(dateStamp) ^
@@ -15703,6 +15903,7 @@ class FwStandardModulesAdministratorAlertAlertLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -15723,6 +15924,7 @@ extension $FwStandardModulesAdministratorAlertAlertLogicExtension
     bool? actionDelete,
     String? alertSubject,
     String? alertBody,
+    String? recipientsJson,
     bool? inactive,
     List<FwStandardModulesAdministratorAlertAlertCondition>? alertConditionList,
     String? dateStamp,
@@ -15735,6 +15937,7 @@ extension $FwStandardModulesAdministratorAlertAlertLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -15751,6 +15954,7 @@ extension $FwStandardModulesAdministratorAlertAlertLogicExtension
       actionDelete: actionDelete ?? this.actionDelete,
       alertSubject: alertSubject ?? this.alertSubject,
       alertBody: alertBody ?? this.alertBody,
+      recipientsJson: recipientsJson ?? this.recipientsJson,
       inactive: inactive ?? this.inactive,
       alertConditionList: alertConditionList ?? this.alertConditionList,
       dateStamp: dateStamp ?? this.dateStamp,
@@ -15764,6 +15968,7 @@ extension $FwStandardModulesAdministratorAlertAlertLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -15782,6 +15987,7 @@ extension $FwStandardModulesAdministratorAlertAlertLogicExtension
     Wrapped<bool?>? actionDelete,
     Wrapped<String?>? alertSubject,
     Wrapped<String?>? alertBody,
+    Wrapped<String?>? recipientsJson,
     Wrapped<bool?>? inactive,
     Wrapped<List<FwStandardModulesAdministratorAlertAlertCondition>?>?
     alertConditionList,
@@ -15796,6 +16002,7 @@ extension $FwStandardModulesAdministratorAlertAlertLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -15816,6 +16023,9 @@ extension $FwStandardModulesAdministratorAlertAlertLogicExtension
           ? alertSubject.value
           : this.alertSubject),
       alertBody: (alertBody != null ? alertBody.value : this.alertBody),
+      recipientsJson: (recipientsJson != null
+          ? recipientsJson.value
+          : this.recipientsJson),
       inactive: (inactive != null ? inactive.value : this.inactive),
       alertConditionList: (alertConditionList != null
           ? alertConditionList.value
@@ -15834,6 +16044,9 @@ extension $FwStandardModulesAdministratorAlertAlertLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -15875,6 +16088,7 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -15945,6 +16159,8 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -16036,6 +16252,11 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -16089,6 +16310,7 @@ class FwStandardModulesAdministratorAlertConditionAlertConditionLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -16117,6 +16339,7 @@ extension $FwStandardModulesAdministratorAlertConditionAlertConditionLogicExtens
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -16142,6 +16365,7 @@ extension $FwStandardModulesAdministratorAlertConditionAlertConditionLogicExtens
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -16170,6 +16394,7 @@ extension $FwStandardModulesAdministratorAlertConditionAlertConditionLogicExtens
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -16200,6 +16425,9 @@ extension $FwStandardModulesAdministratorAlertConditionAlertConditionLogicExtens
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -16242,6 +16470,7 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -16313,6 +16542,8 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -16406,6 +16637,11 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -16460,6 +16696,7 @@ class FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -16489,6 +16726,7 @@ extension $FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicExtensio
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -16515,6 +16753,7 @@ extension $FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicExtensio
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -16544,6 +16783,7 @@ extension $FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicExtensio
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -16575,6 +16815,9 @@ extension $FwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogicExtensio
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -17107,6 +17350,7 @@ class FwStandardModulesAdministratorCustomFormCustomFormLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -17180,6 +17424,8 @@ class FwStandardModulesAdministratorCustomFormCustomFormLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -17287,6 +17533,11 @@ class FwStandardModulesAdministratorCustomFormCustomFormLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -17344,6 +17595,7 @@ class FwStandardModulesAdministratorCustomFormCustomFormLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -17376,6 +17628,7 @@ extension $FwStandardModulesAdministratorCustomFormCustomFormLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -17405,6 +17658,7 @@ extension $FwStandardModulesAdministratorCustomFormCustomFormLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -17436,6 +17690,7 @@ extension $FwStandardModulesAdministratorCustomFormCustomFormLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -17470,6 +17725,9 @@ extension $FwStandardModulesAdministratorCustomFormCustomFormLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -17510,6 +17768,7 @@ class FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -17578,6 +17837,8 @@ class FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -17667,6 +17928,11 @@ class FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -17719,6 +17985,7 @@ class FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -17746,6 +18013,7 @@ extension $FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogicExte
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -17771,6 +18039,7 @@ extension $FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogicExte
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -17798,6 +18067,7 @@ extension $FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogicExte
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -17831,6 +18101,9 @@ extension $FwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogicExte
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -17872,6 +18145,7 @@ class FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -17942,6 +18216,8 @@ class FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -18033,6 +18309,11 @@ class FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -18086,6 +18367,7 @@ class FwStandardModulesAdministratorCustomFormUserCustomFormUserLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -18114,6 +18396,7 @@ extension $FwStandardModulesAdministratorCustomFormUserCustomFormUserLogicExtens
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -18140,6 +18423,7 @@ extension $FwStandardModulesAdministratorCustomFormUserCustomFormUserLogicExtens
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -18168,6 +18452,7 @@ extension $FwStandardModulesAdministratorCustomFormUserCustomFormUserLogicExtens
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -18202,6 +18487,9 @@ extension $FwStandardModulesAdministratorCustomFormUserCustomFormUserLogicExtens
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -18243,6 +18531,7 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -18313,6 +18602,8 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -18401,6 +18692,11 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -18454,6 +18750,7 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -18482,6 +18779,7 @@ extension $FwStandardModulesAdministratorCustomReportCssCustomReportCssLogicExte
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -18507,6 +18805,7 @@ extension $FwStandardModulesAdministratorCustomReportCssCustomReportCssLogicExte
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -18535,6 +18834,7 @@ extension $FwStandardModulesAdministratorCustomReportCssCustomReportCssLogicExte
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -18565,6 +18865,9 @@ extension $FwStandardModulesAdministratorCustomReportCssCustomReportCssLogicExte
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -18614,6 +18917,7 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -18700,6 +19004,8 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -18834,6 +19140,11 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -18895,6 +19206,7 @@ class FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -18932,6 +19244,7 @@ extension $FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLog
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -18967,6 +19280,7 @@ extension $FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLog
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -19003,6 +19317,7 @@ extension $FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLog
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -19049,6 +19364,9 @@ extension $FwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLog
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -19093,6 +19411,7 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -19168,6 +19487,8 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -19277,6 +19598,11 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -19333,6 +19659,7 @@ class FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -19364,6 +19691,7 @@ extension $FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicExtensio
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -19392,6 +19720,7 @@ extension $FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicExtensio
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -19423,6 +19752,7 @@ extension $FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicExtensio
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -19462,6 +19792,9 @@ extension $FwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogicExtensio
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -19626,6 +19959,7 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -19699,6 +20033,8 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -19803,6 +20139,11 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -19858,6 +20199,7 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -19888,6 +20230,7 @@ extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicExtensio
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -19915,6 +20258,7 @@ extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicExtensio
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -19945,6 +20289,7 @@ extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicExtensio
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -19975,6 +20320,9 @@ extension $FwStandardModulesAdministratorEmailTemplateEmailTemplateLogicExtensio
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -20060,6 +20408,162 @@ extension $FwStandardModulesAdministratorEmailTemplateGetEmailTemplateFieldsRequ
 }
 
 @JsonSerializable(explicitToJson: true)
+class FwStandardModulesAdministratorGroupCopySecurityNodeRequest {
+  const FwStandardModulesAdministratorGroupCopySecurityNodeRequest({
+    this.fromGroupId,
+    this.toGroupIds,
+    this.securityId,
+  });
+
+  factory FwStandardModulesAdministratorGroupCopySecurityNodeRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$FwStandardModulesAdministratorGroupCopySecurityNodeRequestFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$FwStandardModulesAdministratorGroupCopySecurityNodeRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardModulesAdministratorGroupCopySecurityNodeRequestToJson(this);
+
+  @JsonKey(name: 'FromGroupId', includeIfNull: false)
+  final String? fromGroupId;
+  @JsonKey(name: 'ToGroupIds', includeIfNull: false)
+  final String? toGroupIds;
+  @JsonKey(name: 'SecurityId', includeIfNull: false)
+  final String? securityId;
+  static const fromJsonFactory =
+      _$FwStandardModulesAdministratorGroupCopySecurityNodeRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is FwStandardModulesAdministratorGroupCopySecurityNodeRequest &&
+            (identical(other.fromGroupId, fromGroupId) ||
+                const DeepCollectionEquality().equals(
+                  other.fromGroupId,
+                  fromGroupId,
+                )) &&
+            (identical(other.toGroupIds, toGroupIds) ||
+                const DeepCollectionEquality().equals(
+                  other.toGroupIds,
+                  toGroupIds,
+                )) &&
+            (identical(other.securityId, securityId) ||
+                const DeepCollectionEquality().equals(
+                  other.securityId,
+                  securityId,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(fromGroupId) ^
+      const DeepCollectionEquality().hash(toGroupIds) ^
+      const DeepCollectionEquality().hash(securityId) ^
+      runtimeType.hashCode;
+}
+
+extension $FwStandardModulesAdministratorGroupCopySecurityNodeRequestExtension
+    on FwStandardModulesAdministratorGroupCopySecurityNodeRequest {
+  FwStandardModulesAdministratorGroupCopySecurityNodeRequest copyWith({
+    String? fromGroupId,
+    String? toGroupIds,
+    String? securityId,
+  }) {
+    return FwStandardModulesAdministratorGroupCopySecurityNodeRequest(
+      fromGroupId: fromGroupId ?? this.fromGroupId,
+      toGroupIds: toGroupIds ?? this.toGroupIds,
+      securityId: securityId ?? this.securityId,
+    );
+  }
+
+  FwStandardModulesAdministratorGroupCopySecurityNodeRequest copyWithWrapped({
+    Wrapped<String?>? fromGroupId,
+    Wrapped<String?>? toGroupIds,
+    Wrapped<String?>? securityId,
+  }) {
+    return FwStandardModulesAdministratorGroupCopySecurityNodeRequest(
+      fromGroupId: (fromGroupId != null ? fromGroupId.value : this.fromGroupId),
+      toGroupIds: (toGroupIds != null ? toGroupIds.value : this.toGroupIds),
+      securityId: (securityId != null ? securityId.value : this.securityId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwStandardModulesAdministratorGroupLookupGroupResponse {
+  const FwStandardModulesAdministratorGroupLookupGroupResponse({
+    this.groupId,
+    this.name,
+  });
+
+  factory FwStandardModulesAdministratorGroupLookupGroupResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$FwStandardModulesAdministratorGroupLookupGroupResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$FwStandardModulesAdministratorGroupLookupGroupResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardModulesAdministratorGroupLookupGroupResponseToJson(this);
+
+  @JsonKey(name: 'GroupId', includeIfNull: false)
+  final String? groupId;
+  @JsonKey(name: 'Name', includeIfNull: false)
+  final String? name;
+  static const fromJsonFactory =
+      _$FwStandardModulesAdministratorGroupLookupGroupResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is FwStandardModulesAdministratorGroupLookupGroupResponse &&
+            (identical(other.groupId, groupId) ||
+                const DeepCollectionEquality().equals(
+                  other.groupId,
+                  groupId,
+                )) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(groupId) ^
+      const DeepCollectionEquality().hash(name) ^
+      runtimeType.hashCode;
+}
+
+extension $FwStandardModulesAdministratorGroupLookupGroupResponseExtension
+    on FwStandardModulesAdministratorGroupLookupGroupResponse {
+  FwStandardModulesAdministratorGroupLookupGroupResponse copyWith({
+    String? groupId,
+    String? name,
+  }) {
+    return FwStandardModulesAdministratorGroupLookupGroupResponse(
+      groupId: groupId ?? this.groupId,
+      name: name ?? this.name,
+    );
+  }
+
+  FwStandardModulesAdministratorGroupLookupGroupResponse copyWithWrapped({
+    Wrapped<String?>? groupId,
+    Wrapped<String?>? name,
+  }) {
+    return FwStandardModulesAdministratorGroupLookupGroupResponse(
+      groupId: (groupId != null ? groupId.value : this.groupId),
+      name: (name != null ? name.value : this.name),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic {
   const FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic({
     this.handlebarsTemplateId,
@@ -20078,6 +20582,7 @@ class FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -20148,6 +20653,8 @@ class FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -20242,6 +20749,11 @@ class FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -20295,6 +20807,7 @@ class FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -20324,6 +20837,7 @@ extension $FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLog
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -20349,6 +20863,7 @@ extension $FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLog
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -20377,6 +20892,7 @@ extension $FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLog
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -20409,6 +20925,9 @@ extension $FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLog
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -20427,6 +20946,227 @@ extension $FwStandardModulesAdministratorHandlebarsTemplateHandlebarsTemplateLog
       modifiedDateTime: (modifiedDateTime != null
           ? modifiedDateTime.value
           : this.modifiedDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader {
+  const FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader({
+    this.requireminlengthpassword,
+    this.minlengthpassword,
+    this.requiredigitinpassword,
+    this.requiresymbolinpassword,
+    this.autologoutuser,
+    this.autologoutminutes,
+    this.lockuserafterfailedattempts,
+    this.lockuserafterfailedattemptsnumber,
+    this.epochlastsynced,
+    this.recordTitle,
+  });
+
+  factory FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoaderFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoaderToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoaderToJson(
+        this,
+      );
+
+  @JsonKey(name: 'requireminlengthpassword', includeIfNull: false)
+  final String? requireminlengthpassword;
+  @JsonKey(name: 'minlengthpassword', includeIfNull: false)
+  final int? minlengthpassword;
+  @JsonKey(name: 'requiredigitinpassword', includeIfNull: false)
+  final String? requiredigitinpassword;
+  @JsonKey(name: 'requiresymbolinpassword', includeIfNull: false)
+  final String? requiresymbolinpassword;
+  @JsonKey(name: 'autologoutuser', includeIfNull: false)
+  final String? autologoutuser;
+  @JsonKey(name: 'autologoutminutes', includeIfNull: false)
+  final int? autologoutminutes;
+  @JsonKey(name: 'lockuserafterfailedattempts', includeIfNull: false)
+  final String? lockuserafterfailedattempts;
+  @JsonKey(name: 'lockuserafterfailedattemptsnumber', includeIfNull: false)
+  final int? lockuserafterfailedattemptsnumber;
+  @JsonKey(name: 'epochlastsynced', includeIfNull: false)
+  final int? epochlastsynced;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  static const fromJsonFactory =
+      _$FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoaderFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader &&
+            (identical(
+                  other.requireminlengthpassword,
+                  requireminlengthpassword,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.requireminlengthpassword,
+                  requireminlengthpassword,
+                )) &&
+            (identical(other.minlengthpassword, minlengthpassword) ||
+                const DeepCollectionEquality().equals(
+                  other.minlengthpassword,
+                  minlengthpassword,
+                )) &&
+            (identical(other.requiredigitinpassword, requiredigitinpassword) ||
+                const DeepCollectionEquality().equals(
+                  other.requiredigitinpassword,
+                  requiredigitinpassword,
+                )) &&
+            (identical(
+                  other.requiresymbolinpassword,
+                  requiresymbolinpassword,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.requiresymbolinpassword,
+                  requiresymbolinpassword,
+                )) &&
+            (identical(other.autologoutuser, autologoutuser) ||
+                const DeepCollectionEquality().equals(
+                  other.autologoutuser,
+                  autologoutuser,
+                )) &&
+            (identical(other.autologoutminutes, autologoutminutes) ||
+                const DeepCollectionEquality().equals(
+                  other.autologoutminutes,
+                  autologoutminutes,
+                )) &&
+            (identical(
+                  other.lockuserafterfailedattempts,
+                  lockuserafterfailedattempts,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.lockuserafterfailedattempts,
+                  lockuserafterfailedattempts,
+                )) &&
+            (identical(
+                  other.lockuserafterfailedattemptsnumber,
+                  lockuserafterfailedattemptsnumber,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.lockuserafterfailedattemptsnumber,
+                  lockuserafterfailedattemptsnumber,
+                )) &&
+            (identical(other.epochlastsynced, epochlastsynced) ||
+                const DeepCollectionEquality().equals(
+                  other.epochlastsynced,
+                  epochlastsynced,
+                )) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(requireminlengthpassword) ^
+      const DeepCollectionEquality().hash(minlengthpassword) ^
+      const DeepCollectionEquality().hash(requiredigitinpassword) ^
+      const DeepCollectionEquality().hash(requiresymbolinpassword) ^
+      const DeepCollectionEquality().hash(autologoutuser) ^
+      const DeepCollectionEquality().hash(autologoutminutes) ^
+      const DeepCollectionEquality().hash(lockuserafterfailedattempts) ^
+      const DeepCollectionEquality().hash(lockuserafterfailedattemptsnumber) ^
+      const DeepCollectionEquality().hash(epochlastsynced) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      runtimeType.hashCode;
+}
+
+extension $FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoaderExtension
+    on FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader {
+  FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
+  copyWith({
+    String? requireminlengthpassword,
+    int? minlengthpassword,
+    String? requiredigitinpassword,
+    String? requiresymbolinpassword,
+    String? autologoutuser,
+    int? autologoutminutes,
+    String? lockuserafterfailedattempts,
+    int? lockuserafterfailedattemptsnumber,
+    int? epochlastsynced,
+    String? recordTitle,
+  }) {
+    return FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader(
+      requireminlengthpassword:
+          requireminlengthpassword ?? this.requireminlengthpassword,
+      minlengthpassword: minlengthpassword ?? this.minlengthpassword,
+      requiredigitinpassword:
+          requiredigitinpassword ?? this.requiredigitinpassword,
+      requiresymbolinpassword:
+          requiresymbolinpassword ?? this.requiresymbolinpassword,
+      autologoutuser: autologoutuser ?? this.autologoutuser,
+      autologoutminutes: autologoutminutes ?? this.autologoutminutes,
+      lockuserafterfailedattempts:
+          lockuserafterfailedattempts ?? this.lockuserafterfailedattempts,
+      lockuserafterfailedattemptsnumber:
+          lockuserafterfailedattemptsnumber ??
+          this.lockuserafterfailedattemptsnumber,
+      epochlastsynced: epochlastsynced ?? this.epochlastsynced,
+      recordTitle: recordTitle ?? this.recordTitle,
+    );
+  }
+
+  FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
+  copyWithWrapped({
+    Wrapped<String?>? requireminlengthpassword,
+    Wrapped<int?>? minlengthpassword,
+    Wrapped<String?>? requiredigitinpassword,
+    Wrapped<String?>? requiresymbolinpassword,
+    Wrapped<String?>? autologoutuser,
+    Wrapped<int?>? autologoutminutes,
+    Wrapped<String?>? lockuserafterfailedattempts,
+    Wrapped<int?>? lockuserafterfailedattemptsnumber,
+    Wrapped<int?>? epochlastsynced,
+    Wrapped<String?>? recordTitle,
+  }) {
+    return FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader(
+      requireminlengthpassword: (requireminlengthpassword != null
+          ? requireminlengthpassword.value
+          : this.requireminlengthpassword),
+      minlengthpassword: (minlengthpassword != null
+          ? minlengthpassword.value
+          : this.minlengthpassword),
+      requiredigitinpassword: (requiredigitinpassword != null
+          ? requiredigitinpassword.value
+          : this.requiredigitinpassword),
+      requiresymbolinpassword: (requiresymbolinpassword != null
+          ? requiresymbolinpassword.value
+          : this.requiresymbolinpassword),
+      autologoutuser: (autologoutuser != null
+          ? autologoutuser.value
+          : this.autologoutuser),
+      autologoutminutes: (autologoutminutes != null
+          ? autologoutminutes.value
+          : this.autologoutminutes),
+      lockuserafterfailedattempts: (lockuserafterfailedattempts != null
+          ? lockuserafterfailedattempts.value
+          : this.lockuserafterfailedattempts),
+      lockuserafterfailedattemptsnumber:
+          (lockuserafterfailedattemptsnumber != null
+          ? lockuserafterfailedattemptsnumber.value
+          : this.lockuserafterfailedattemptsnumber),
+      epochlastsynced: (epochlastsynced != null
+          ? epochlastsynced.value
+          : this.epochlastsynced),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
     );
   }
 }
@@ -21817,6 +22557,7 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -21889,6 +22630,8 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -21994,6 +22737,11 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -22050,6 +22798,7 @@ class FwStandardModulesAdministratorWebAlertLogWebAlertLogLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -22081,6 +22830,7 @@ extension $FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -22109,6 +22859,7 @@ extension $FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -22139,6 +22890,7 @@ extension $FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -22178,6 +22930,9 @@ extension $FwStandardModulesAdministratorWebAlertLogWebAlertLogLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -22227,6 +22982,7 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -22310,6 +23066,8 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -22434,6 +23192,11 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -22495,6 +23258,7 @@ class FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -22531,6 +23295,7 @@ extension $FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -22564,6 +23329,7 @@ extension $FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -22599,6 +23365,7 @@ extension $FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -22635,6 +23402,9 @@ extension $FwStandardModulesAdministratorWebAuditJsonWebAuditJsonLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -22672,6 +23442,9 @@ class FwStandardModulesAdministratorWebEventLogWebEventLogLogic {
     this.totalMemoryUsageKiloBytes,
     this.totalMemoryUsageMegaBytes,
     this.totalMemoryUsageGigaBytes,
+    this.hourStr,
+    this.dateStr,
+    this.activityDate,
     this.dateStamp,
     this.auditNote,
     this.recordTitle,
@@ -22682,6 +23455,7 @@ class FwStandardModulesAdministratorWebEventLogWebEventLogLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -22724,6 +23498,12 @@ class FwStandardModulesAdministratorWebEventLogWebEventLogLogic {
   final String? totalMemoryUsageMegaBytes;
   @JsonKey(name: 'TotalMemoryUsageGigaBytes', includeIfNull: false)
   final String? totalMemoryUsageGigaBytes;
+  @JsonKey(name: 'HourStr', includeIfNull: false)
+  final String? hourStr;
+  @JsonKey(name: 'DateStr', includeIfNull: false)
+  final String? dateStr;
+  @JsonKey(name: 'ActivityDate', includeIfNull: false)
+  final String? activityDate;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
@@ -22760,6 +23540,8 @@ class FwStandardModulesAdministratorWebEventLogWebEventLogLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -22839,6 +23621,21 @@ class FwStandardModulesAdministratorWebEventLogWebEventLogLogic {
                   other.totalMemoryUsageGigaBytes,
                   totalMemoryUsageGigaBytes,
                 )) &&
+            (identical(other.hourStr, hourStr) ||
+                const DeepCollectionEquality().equals(
+                  other.hourStr,
+                  hourStr,
+                )) &&
+            (identical(other.dateStr, dateStr) ||
+                const DeepCollectionEquality().equals(
+                  other.dateStr,
+                  dateStr,
+                )) &&
+            (identical(other.activityDate, activityDate) ||
+                const DeepCollectionEquality().equals(
+                  other.activityDate,
+                  activityDate,
+                )) &&
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality().equals(
                   other.dateStamp,
@@ -22882,6 +23679,11 @@ class FwStandardModulesAdministratorWebEventLogWebEventLogLogic {
                 const DeepCollectionEquality().equals(
                   other.hasImport,
                   hasImport,
+                )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
                 )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
@@ -22932,6 +23734,9 @@ class FwStandardModulesAdministratorWebEventLogWebEventLogLogic {
       const DeepCollectionEquality().hash(totalMemoryUsageKiloBytes) ^
       const DeepCollectionEquality().hash(totalMemoryUsageMegaBytes) ^
       const DeepCollectionEquality().hash(totalMemoryUsageGigaBytes) ^
+      const DeepCollectionEquality().hash(hourStr) ^
+      const DeepCollectionEquality().hash(dateStr) ^
+      const DeepCollectionEquality().hash(activityDate) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
@@ -22942,6 +23747,7 @@ class FwStandardModulesAdministratorWebEventLogWebEventLogLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -22966,6 +23772,9 @@ extension $FwStandardModulesAdministratorWebEventLogWebEventLogLogicExtension
     String? totalMemoryUsageKiloBytes,
     String? totalMemoryUsageMegaBytes,
     String? totalMemoryUsageGigaBytes,
+    String? hourStr,
+    String? dateStr,
+    String? activityDate,
     String? dateStamp,
     String? auditNote,
     String? recordTitle,
@@ -22976,6 +23785,7 @@ extension $FwStandardModulesAdministratorWebEventLogWebEventLogLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -23000,6 +23810,9 @@ extension $FwStandardModulesAdministratorWebEventLogWebEventLogLogicExtension
           totalMemoryUsageMegaBytes ?? this.totalMemoryUsageMegaBytes,
       totalMemoryUsageGigaBytes:
           totalMemoryUsageGigaBytes ?? this.totalMemoryUsageGigaBytes,
+      hourStr: hourStr ?? this.hourStr,
+      dateStr: dateStr ?? this.dateStr,
+      activityDate: activityDate ?? this.activityDate,
       dateStamp: dateStamp ?? this.dateStamp,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
@@ -23011,6 +23824,7 @@ extension $FwStandardModulesAdministratorWebEventLogWebEventLogLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -23033,6 +23847,9 @@ extension $FwStandardModulesAdministratorWebEventLogWebEventLogLogicExtension
     Wrapped<String?>? totalMemoryUsageKiloBytes,
     Wrapped<String?>? totalMemoryUsageMegaBytes,
     Wrapped<String?>? totalMemoryUsageGigaBytes,
+    Wrapped<String?>? hourStr,
+    Wrapped<String?>? dateStr,
+    Wrapped<String?>? activityDate,
     Wrapped<String?>? dateStamp,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
@@ -23044,6 +23861,7 @@ extension $FwStandardModulesAdministratorWebEventLogWebEventLogLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -23072,6 +23890,11 @@ extension $FwStandardModulesAdministratorWebEventLogWebEventLogLogicExtension
       totalMemoryUsageGigaBytes: (totalMemoryUsageGigaBytes != null
           ? totalMemoryUsageGigaBytes.value
           : this.totalMemoryUsageGigaBytes),
+      hourStr: (hourStr != null ? hourStr.value : this.hourStr),
+      dateStr: (dateStr != null ? dateStr.value : this.dateStr),
+      activityDate: (activityDate != null
+          ? activityDate.value
+          : this.activityDate),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
@@ -23086,6 +23909,9 @@ extension $FwStandardModulesAdministratorWebEventLogWebEventLogLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -23126,6 +23952,7 @@ class FwStandardModulesSettingsWidgetGroupWidgetGroupLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -23189,6 +24016,8 @@ class FwStandardModulesSettingsWidgetGroupWidgetGroupLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -23277,6 +24106,11 @@ class FwStandardModulesSettingsWidgetGroupWidgetGroupLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -23329,6 +24163,7 @@ class FwStandardModulesSettingsWidgetGroupWidgetGroupLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -23356,6 +24191,7 @@ extension $FwStandardModulesSettingsWidgetGroupWidgetGroupLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -23380,6 +24216,7 @@ extension $FwStandardModulesSettingsWidgetGroupWidgetGroupLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -23406,6 +24243,7 @@ extension $FwStandardModulesSettingsWidgetGroupWidgetGroupLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -23437,6 +24275,9 @@ extension $FwStandardModulesSettingsWidgetGroupWidgetGroupLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -23478,6 +24319,7 @@ class FwStandardModulesSettingsWidgetUserWidgetUserLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -23543,6 +24385,8 @@ class FwStandardModulesSettingsWidgetUserWidgetUserLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -23633,6 +24477,11 @@ class FwStandardModulesSettingsWidgetUserWidgetUserLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -23686,6 +24535,7 @@ class FwStandardModulesSettingsWidgetUserWidgetUserLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -23714,6 +24564,7 @@ extension $FwStandardModulesSettingsWidgetUserWidgetUserLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -23739,6 +24590,7 @@ extension $FwStandardModulesSettingsWidgetUserWidgetUserLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -23766,6 +24618,7 @@ extension $FwStandardModulesSettingsWidgetUserWidgetUserLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -23798,6 +24651,9 @@ extension $FwStandardModulesSettingsWidgetUserWidgetUserLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -24233,6 +25089,7 @@ class WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -24307,6 +25164,8 @@ class WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -24411,6 +25270,11 @@ class WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -24466,6 +25330,7 @@ class WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -24497,6 +25362,7 @@ extension $WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistor
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -24525,6 +25391,7 @@ extension $WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistor
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -24555,6 +25422,7 @@ extension $WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistor
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -24593,6 +25461,9 @@ extension $WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistor
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -24631,6 +25502,7 @@ class WebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryL
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -24695,6 +25567,8 @@ class WebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryL
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -24780,6 +25654,11 @@ class WebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryL
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -24830,6 +25709,7 @@ class WebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryL
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -24856,6 +25736,7 @@ extension $WebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHis
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -24880,6 +25761,7 @@ extension $WebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHis
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -24905,6 +25787,7 @@ extension $WebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHis
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -24934,6 +25817,9 @@ extension $WebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHis
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -24971,6 +25857,7 @@ class WebApiModulesAdministratorCustomFieldCustomField {
     this.validationModule,
     this.validationFieldId,
     this.validationFieldName,
+    this.listFieldAllowedValues,
     this.dateStamp,
     this.auditNote,
     this.recordTitle,
@@ -24981,6 +25868,7 @@ class WebApiModulesAdministratorCustomFieldCustomField {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -25022,6 +25910,8 @@ class WebApiModulesAdministratorCustomFieldCustomField {
   final String? validationFieldId;
   @JsonKey(name: 'ValidationFieldName', includeIfNull: false)
   final String? validationFieldName;
+  @JsonKey(name: 'ListFieldAllowedValues', includeIfNull: false)
+  final String? listFieldAllowedValues;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
@@ -25058,6 +25948,8 @@ class WebApiModulesAdministratorCustomFieldCustomField {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -25137,6 +26029,11 @@ class WebApiModulesAdministratorCustomFieldCustomField {
                   other.validationFieldName,
                   validationFieldName,
                 )) &&
+            (identical(other.listFieldAllowedValues, listFieldAllowedValues) ||
+                const DeepCollectionEquality().equals(
+                  other.listFieldAllowedValues,
+                  listFieldAllowedValues,
+                )) &&
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality().equals(
                   other.dateStamp,
@@ -25180,6 +26077,11 @@ class WebApiModulesAdministratorCustomFieldCustomField {
                 const DeepCollectionEquality().equals(
                   other.hasImport,
                   hasImport,
+                )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
                 )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
@@ -25230,6 +26132,7 @@ class WebApiModulesAdministratorCustomFieldCustomField {
       const DeepCollectionEquality().hash(validationModule) ^
       const DeepCollectionEquality().hash(validationFieldId) ^
       const DeepCollectionEquality().hash(validationFieldName) ^
+      const DeepCollectionEquality().hash(listFieldAllowedValues) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
@@ -25240,6 +26143,7 @@ class WebApiModulesAdministratorCustomFieldCustomField {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -25264,6 +26168,7 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
     String? validationModule,
     String? validationFieldId,
     String? validationFieldName,
+    String? listFieldAllowedValues,
     String? dateStamp,
     String? auditNote,
     String? recordTitle,
@@ -25274,6 +26179,7 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -25294,6 +26200,8 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
       validationModule: validationModule ?? this.validationModule,
       validationFieldId: validationFieldId ?? this.validationFieldId,
       validationFieldName: validationFieldName ?? this.validationFieldName,
+      listFieldAllowedValues:
+          listFieldAllowedValues ?? this.listFieldAllowedValues,
       dateStamp: dateStamp ?? this.dateStamp,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
@@ -25305,6 +26213,7 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -25327,6 +26236,7 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
     Wrapped<String?>? validationModule,
     Wrapped<String?>? validationFieldId,
     Wrapped<String?>? validationFieldName,
+    Wrapped<String?>? listFieldAllowedValues,
     Wrapped<String?>? dateStamp,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
@@ -25338,6 +26248,7 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -25374,6 +26285,9 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
       validationFieldName: (validationFieldName != null
           ? validationFieldName.value
           : this.validationFieldName),
+      listFieldAllowedValues: (listFieldAllowedValues != null
+          ? listFieldAllowedValues.value
+          : this.listFieldAllowedValues),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
@@ -25388,6 +26302,9 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -25593,6 +26510,7 @@ class WebApiModulesAdministratorDataHealthDataHealth {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -25670,6 +26588,8 @@ class WebApiModulesAdministratorDataHealthDataHealth {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -25790,6 +26710,11 @@ class WebApiModulesAdministratorDataHealthDataHealth {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -25849,6 +26774,7 @@ class WebApiModulesAdministratorDataHealthDataHealth {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -25883,6 +26809,7 @@ extension $WebApiModulesAdministratorDataHealthDataHealthExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -25916,6 +26843,7 @@ extension $WebApiModulesAdministratorDataHealthDataHealthExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -25949,6 +26877,7 @@ extension $WebApiModulesAdministratorDataHealthDataHealthExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -25995,6 +26924,355 @@ extension $WebApiModulesAdministratorDataHealthDataHealthExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
+      createdByUserId: (createdByUserId != null
+          ? createdByUserId.value
+          : this.createdByUserId),
+      createdByUserName: (createdByUserName != null
+          ? createdByUserName.value
+          : this.createdByUserName),
+      createdDateTime: (createdDateTime != null
+          ? createdDateTime.value
+          : this.createdDateTime),
+      modifiedByUserId: (modifiedByUserId != null
+          ? modifiedByUserId.value
+          : this.modifiedByUserId),
+      modifiedByUserName: (modifiedByUserName != null
+          ? modifiedByUserName.value
+          : this.modifiedByUserName),
+      modifiedDateTime: (modifiedDateTime != null
+          ? modifiedDateTime.value
+          : this.modifiedDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField {
+  const WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField({
+    this.duplicateRuleFieldId,
+    this.duplicateRuleId,
+    this.fieldName,
+    this.dateStamp,
+    this.auditNote,
+    this.recordTitle,
+    this.urlIdentifier,
+    this.fields,
+    this.custom,
+    this.defaultFieldAttributes,
+    this.original,
+    this.translation,
+    this.hasImport,
+    this.hasDocuments,
+    this.createdByUserId,
+    this.createdByUserName,
+    this.createdDateTime,
+    this.modifiedByUserId,
+    this.modifiedByUserName,
+    this.modifiedDateTime,
+  });
+
+  factory WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldToJson(
+        this,
+      );
+
+  @JsonKey(name: 'DuplicateRuleFieldId', includeIfNull: false)
+  final String? duplicateRuleFieldId;
+  @JsonKey(name: 'DuplicateRuleId', includeIfNull: false)
+  final String? duplicateRuleId;
+  @JsonKey(name: 'FieldName', includeIfNull: false)
+  final String? fieldName;
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
+  final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
+  final dynamic urlIdentifier;
+  @JsonKey(
+    name: '_Fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+  )
+  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  @JsonKey(
+    name: '_Custom',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwCustomValue>[],
+  )
+  final List<FwStandardDataFwCustomValue>? custom;
+  @JsonKey(
+    name: '_DefaultFieldAttributes',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwDefaultAttribute>[],
+  )
+  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  @JsonKey(name: '_Original', includeIfNull: false)
+  final FwStandardBusinessLogicFwBusinessLogic? original;
+  @JsonKey(
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
+  final List<FwStandardDataFwTranslatedValue>? translation;
+  @JsonKey(name: '_HasImport', includeIfNull: false)
+  final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
+  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
+  final String? createdByUserId;
+  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
+  final String? createdByUserName;
+  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
+  final String? createdDateTime;
+  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
+  final String? modifiedByUserId;
+  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
+  final String? modifiedByUserName;
+  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
+  final String? modifiedDateTime;
+  static const fromJsonFactory =
+      _$WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField &&
+            (identical(other.duplicateRuleFieldId, duplicateRuleFieldId) ||
+                const DeepCollectionEquality().equals(
+                  other.duplicateRuleFieldId,
+                  duplicateRuleFieldId,
+                )) &&
+            (identical(other.duplicateRuleId, duplicateRuleId) ||
+                const DeepCollectionEquality().equals(
+                  other.duplicateRuleId,
+                  duplicateRuleId,
+                )) &&
+            (identical(other.fieldName, fieldName) ||
+                const DeepCollectionEquality().equals(
+                  other.fieldName,
+                  fieldName,
+                )) &&
+            (identical(other.dateStamp, dateStamp) ||
+                const DeepCollectionEquality().equals(
+                  other.dateStamp,
+                  dateStamp,
+                )) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality().equals(
+                  other.auditNote,
+                  auditNote,
+                )) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )) &&
+            (identical(other.urlIdentifier, urlIdentifier) ||
+                const DeepCollectionEquality().equals(
+                  other.urlIdentifier,
+                  urlIdentifier,
+                )) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultFieldAttributes,
+                  defaultFieldAttributes,
+                )) &&
+            (identical(other.original, original) ||
+                const DeepCollectionEquality().equals(
+                  other.original,
+                  original,
+                )) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )) &&
+            (identical(other.hasImport, hasImport) ||
+                const DeepCollectionEquality().equals(
+                  other.hasImport,
+                  hasImport,
+                )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
+            (identical(other.createdByUserId, createdByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserId,
+                  createdByUserId,
+                )) &&
+            (identical(other.createdByUserName, createdByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserName,
+                  createdByUserName,
+                )) &&
+            (identical(other.createdDateTime, createdDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.createdDateTime,
+                  createdDateTime,
+                )) &&
+            (identical(other.modifiedByUserId, modifiedByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserId,
+                  modifiedByUserId,
+                )) &&
+            (identical(other.modifiedByUserName, modifiedByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserName,
+                  modifiedByUserName,
+                )) &&
+            (identical(other.modifiedDateTime, modifiedDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedDateTime,
+                  modifiedDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(duplicateRuleFieldId) ^
+      const DeepCollectionEquality().hash(duplicateRuleId) ^
+      const DeepCollectionEquality().hash(fieldName) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(urlIdentifier) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      const DeepCollectionEquality().hash(original) ^
+      const DeepCollectionEquality().hash(translation) ^
+      const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
+      const DeepCollectionEquality().hash(createdByUserId) ^
+      const DeepCollectionEquality().hash(createdByUserName) ^
+      const DeepCollectionEquality().hash(createdDateTime) ^
+      const DeepCollectionEquality().hash(modifiedByUserId) ^
+      const DeepCollectionEquality().hash(modifiedByUserName) ^
+      const DeepCollectionEquality().hash(modifiedDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldExtension
+    on WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField {
+  WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField copyWith({
+    String? duplicateRuleFieldId,
+    String? duplicateRuleId,
+    String? fieldName,
+    String? dateStamp,
+    String? auditNote,
+    String? recordTitle,
+    dynamic urlIdentifier,
+    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+    List<FwStandardDataFwCustomValue>? custom,
+    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+    FwStandardBusinessLogicFwBusinessLogic? original,
+    List<FwStandardDataFwTranslatedValue>? translation,
+    bool? hasImport,
+    bool? hasDocuments,
+    String? createdByUserId,
+    String? createdByUserName,
+    String? createdDateTime,
+    String? modifiedByUserId,
+    String? modifiedByUserName,
+    String? modifiedDateTime,
+  }) {
+    return WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField(
+      duplicateRuleFieldId: duplicateRuleFieldId ?? this.duplicateRuleFieldId,
+      duplicateRuleId: duplicateRuleId ?? this.duplicateRuleId,
+      fieldName: fieldName ?? this.fieldName,
+      dateStamp: dateStamp ?? this.dateStamp,
+      auditNote: auditNote ?? this.auditNote,
+      recordTitle: recordTitle ?? this.recordTitle,
+      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
+      fields: fields ?? this.fields,
+      custom: custom ?? this.custom,
+      defaultFieldAttributes:
+          defaultFieldAttributes ?? this.defaultFieldAttributes,
+      original: original ?? this.original,
+      translation: translation ?? this.translation,
+      hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
+      createdByUserId: createdByUserId ?? this.createdByUserId,
+      createdByUserName: createdByUserName ?? this.createdByUserName,
+      createdDateTime: createdDateTime ?? this.createdDateTime,
+      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
+      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
+      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    );
+  }
+
+  WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
+  copyWithWrapped({
+    Wrapped<String?>? duplicateRuleFieldId,
+    Wrapped<String?>? duplicateRuleId,
+    Wrapped<String?>? fieldName,
+    Wrapped<String?>? dateStamp,
+    Wrapped<String?>? auditNote,
+    Wrapped<String?>? recordTitle,
+    Wrapped<dynamic>? urlIdentifier,
+    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+    fields,
+    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+    Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
+    Wrapped<String?>? createdByUserId,
+    Wrapped<String?>? createdByUserName,
+    Wrapped<String?>? createdDateTime,
+    Wrapped<String?>? modifiedByUserId,
+    Wrapped<String?>? modifiedByUserName,
+    Wrapped<String?>? modifiedDateTime,
+  }) {
+    return WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField(
+      duplicateRuleFieldId: (duplicateRuleFieldId != null
+          ? duplicateRuleFieldId.value
+          : this.duplicateRuleFieldId),
+      duplicateRuleId: (duplicateRuleId != null
+          ? duplicateRuleId.value
+          : this.duplicateRuleId),
+      fieldName: (fieldName != null ? fieldName.value : this.fieldName),
+      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+      urlIdentifier: (urlIdentifier != null
+          ? urlIdentifier.value
+          : this.urlIdentifier),
+      fields: (fields != null ? fields.value : this.fields),
+      custom: (custom != null ? custom.value : this.custom),
+      defaultFieldAttributes: (defaultFieldAttributes != null
+          ? defaultFieldAttributes.value
+          : this.defaultFieldAttributes),
+      original: (original != null ? original.value : this.original),
+      translation: (translation != null ? translation.value : this.translation),
+      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -26043,6 +27321,7 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -26122,6 +27401,8 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -26244,6 +27525,11 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -26304,6 +27590,7 @@ class WebApiModulesAdministratorEmailHistoryEmailHistory {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -26339,6 +27626,7 @@ extension $WebApiModulesAdministratorEmailHistoryEmailHistoryExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -26371,6 +27659,7 @@ extension $WebApiModulesAdministratorEmailHistoryEmailHistoryExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -26405,6 +27694,7 @@ extension $WebApiModulesAdministratorEmailHistoryEmailHistoryExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -26446,6 +27736,9 @@ extension $WebApiModulesAdministratorEmailHistoryEmailHistoryExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -26478,6 +27771,7 @@ class WebApiModulesAdministratorGroupGroup {
     this.hideNewMenuOptionsByDefault,
     this.isMyGroup,
     this.groupColor,
+    this.securityVersion,
     this.dateStamp,
     this.auditNote,
     this.recordTitle,
@@ -26488,6 +27782,7 @@ class WebApiModulesAdministratorGroupGroup {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -26518,6 +27813,8 @@ class WebApiModulesAdministratorGroupGroup {
   final bool? isMyGroup;
   @JsonKey(name: 'GroupColor', includeIfNull: false)
   final String? groupColor;
+  @JsonKey(name: 'SecurityVersion', includeIfNull: false)
+  final int? securityVersion;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
@@ -26554,6 +27851,8 @@ class WebApiModulesAdministratorGroupGroup {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -26604,6 +27903,11 @@ class WebApiModulesAdministratorGroupGroup {
                   other.groupColor,
                   groupColor,
                 )) &&
+            (identical(other.securityVersion, securityVersion) ||
+                const DeepCollectionEquality().equals(
+                  other.securityVersion,
+                  securityVersion,
+                )) &&
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality().equals(
                   other.dateStamp,
@@ -26647,6 +27951,11 @@ class WebApiModulesAdministratorGroupGroup {
                 const DeepCollectionEquality().equals(
                   other.hasImport,
                   hasImport,
+                )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
                 )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
@@ -26692,6 +28001,7 @@ class WebApiModulesAdministratorGroupGroup {
       const DeepCollectionEquality().hash(hideNewMenuOptionsByDefault) ^
       const DeepCollectionEquality().hash(isMyGroup) ^
       const DeepCollectionEquality().hash(groupColor) ^
+      const DeepCollectionEquality().hash(securityVersion) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
@@ -26702,6 +28012,7 @@ class WebApiModulesAdministratorGroupGroup {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -26721,6 +28032,7 @@ extension $WebApiModulesAdministratorGroupGroupExtension
     bool? hideNewMenuOptionsByDefault,
     bool? isMyGroup,
     String? groupColor,
+    int? securityVersion,
     String? dateStamp,
     String? auditNote,
     String? recordTitle,
@@ -26731,6 +28043,7 @@ extension $WebApiModulesAdministratorGroupGroupExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -26747,6 +28060,7 @@ extension $WebApiModulesAdministratorGroupGroupExtension
           hideNewMenuOptionsByDefault ?? this.hideNewMenuOptionsByDefault,
       isMyGroup: isMyGroup ?? this.isMyGroup,
       groupColor: groupColor ?? this.groupColor,
+      securityVersion: securityVersion ?? this.securityVersion,
       dateStamp: dateStamp ?? this.dateStamp,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
@@ -26758,6 +28072,7 @@ extension $WebApiModulesAdministratorGroupGroupExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -26775,6 +28090,7 @@ extension $WebApiModulesAdministratorGroupGroupExtension
     Wrapped<bool?>? hideNewMenuOptionsByDefault,
     Wrapped<bool?>? isMyGroup,
     Wrapped<String?>? groupColor,
+    Wrapped<int?>? securityVersion,
     Wrapped<String?>? dateStamp,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
@@ -26786,6 +28102,7 @@ extension $WebApiModulesAdministratorGroupGroupExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -26803,6 +28120,9 @@ extension $WebApiModulesAdministratorGroupGroupExtension
           : this.hideNewMenuOptionsByDefault),
       isMyGroup: (isMyGroup != null ? isMyGroup.value : this.isMyGroup),
       groupColor: (groupColor != null ? groupColor.value : this.groupColor),
+      securityVersion: (securityVersion != null
+          ? securityVersion.value
+          : this.securityVersion),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
@@ -26817,6 +28137,9 @@ extension $WebApiModulesAdministratorGroupGroupExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -26857,6 +28180,7 @@ class WebApiModulesAdministratorHotfixHotfix {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -26919,6 +28243,8 @@ class WebApiModulesAdministratorHotfixHotfix {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -27007,6 +28333,11 @@ class WebApiModulesAdministratorHotfixHotfix {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -27059,6 +28390,7 @@ class WebApiModulesAdministratorHotfixHotfix {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -27086,6 +28418,7 @@ extension $WebApiModulesAdministratorHotfixHotfixExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -27110,6 +28443,7 @@ extension $WebApiModulesAdministratorHotfixHotfixExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -27136,6 +28470,7 @@ extension $WebApiModulesAdministratorHotfixHotfixExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -27165,6 +28500,9 @@ extension $WebApiModulesAdministratorHotfixHotfixExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -27205,6 +28543,7 @@ class WebApiModulesAdministratorPluginPlugin {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -27267,6 +28606,8 @@ class WebApiModulesAdministratorPluginPlugin {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -27355,6 +28696,11 @@ class WebApiModulesAdministratorPluginPlugin {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -27407,6 +28753,7 @@ class WebApiModulesAdministratorPluginPlugin {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -27434,6 +28781,7 @@ extension $WebApiModulesAdministratorPluginPluginExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -27458,6 +28806,7 @@ extension $WebApiModulesAdministratorPluginPluginExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -27484,6 +28833,7 @@ extension $WebApiModulesAdministratorPluginPluginExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -27511,6 +28861,9 @@ extension $WebApiModulesAdministratorPluginPluginExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -27614,6 +28967,7 @@ class WebApiModulesAdministratorQuikScanSetupQuikScanSettings {
     this.closeStatuPopupAfterSecondsCheckOut,
     this.closeStatusPopupAfterScanningCheckIn,
     this.closeStatuPopupAfterSecondsCheckIn,
+    this.enableAisleShelfAssignmentMode,
   });
 
   factory WebApiModulesAdministratorQuikScanSetupQuikScanSettings.fromJson(
@@ -27633,6 +28987,8 @@ class WebApiModulesAdministratorQuikScanSetupQuikScanSettings {
   final bool? closeStatusPopupAfterScanningCheckIn;
   @JsonKey(name: 'CloseStatuPopupAfterSecondsCheckIn', includeIfNull: false)
   final int? closeStatuPopupAfterSecondsCheckIn;
+  @JsonKey(name: 'EnableAisleShelfAssignmentMode', includeIfNull: false)
+  final bool? enableAisleShelfAssignmentMode;
   static const fromJsonFactory =
       _$WebApiModulesAdministratorQuikScanSetupQuikScanSettingsFromJson;
 
@@ -27671,6 +29027,14 @@ class WebApiModulesAdministratorQuikScanSetupQuikScanSettings {
                 const DeepCollectionEquality().equals(
                   other.closeStatuPopupAfterSecondsCheckIn,
                   closeStatuPopupAfterSecondsCheckIn,
+                )) &&
+            (identical(
+                  other.enableAisleShelfAssignmentMode,
+                  enableAisleShelfAssignmentMode,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.enableAisleShelfAssignmentMode,
+                  enableAisleShelfAssignmentMode,
                 )));
   }
 
@@ -27687,6 +29051,7 @@ class WebApiModulesAdministratorQuikScanSetupQuikScanSettings {
         closeStatusPopupAfterScanningCheckIn,
       ) ^
       const DeepCollectionEquality().hash(closeStatuPopupAfterSecondsCheckIn) ^
+      const DeepCollectionEquality().hash(enableAisleShelfAssignmentMode) ^
       runtimeType.hashCode;
 }
 
@@ -27697,6 +29062,7 @@ extension $WebApiModulesAdministratorQuikScanSetupQuikScanSettingsExtension
     int? closeStatuPopupAfterSecondsCheckOut,
     bool? closeStatusPopupAfterScanningCheckIn,
     int? closeStatuPopupAfterSecondsCheckIn,
+    bool? enableAisleShelfAssignmentMode,
   }) {
     return WebApiModulesAdministratorQuikScanSetupQuikScanSettings(
       closeStatusPopupAfterScanningCheckOut:
@@ -27711,6 +29077,8 @@ extension $WebApiModulesAdministratorQuikScanSetupQuikScanSettingsExtension
       closeStatuPopupAfterSecondsCheckIn:
           closeStatuPopupAfterSecondsCheckIn ??
           this.closeStatuPopupAfterSecondsCheckIn,
+      enableAisleShelfAssignmentMode:
+          enableAisleShelfAssignmentMode ?? this.enableAisleShelfAssignmentMode,
     );
   }
 
@@ -27719,6 +29087,7 @@ extension $WebApiModulesAdministratorQuikScanSetupQuikScanSettingsExtension
     Wrapped<int?>? closeStatuPopupAfterSecondsCheckOut,
     Wrapped<bool?>? closeStatusPopupAfterScanningCheckIn,
     Wrapped<int?>? closeStatuPopupAfterSecondsCheckIn,
+    Wrapped<bool?>? enableAisleShelfAssignmentMode,
   }) {
     return WebApiModulesAdministratorQuikScanSetupQuikScanSettings(
       closeStatusPopupAfterScanningCheckOut:
@@ -27737,6 +29106,9 @@ extension $WebApiModulesAdministratorQuikScanSetupQuikScanSettingsExtension
           (closeStatuPopupAfterSecondsCheckIn != null
           ? closeStatuPopupAfterSecondsCheckIn.value
           : this.closeStatuPopupAfterSecondsCheckIn),
+      enableAisleShelfAssignmentMode: (enableAisleShelfAssignmentMode != null
+          ? enableAisleShelfAssignmentMode.value
+          : this.enableAisleShelfAssignmentMode),
     );
   }
 }
@@ -28036,6 +29408,7 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
     this.systemUpdateHistoryId,
     this.usersId,
     this.userName,
+    this.userEmail,
     this.updateDateTime,
     this.fromVersion,
     this.toVersion,
@@ -28050,6 +29423,7 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -28078,6 +29452,8 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
   final String? usersId;
   @JsonKey(name: 'UserName', includeIfNull: false)
   final String? userName;
+  @JsonKey(name: 'UserEmail', includeIfNull: false)
+  final String? userEmail;
   @JsonKey(name: 'UpdateDateTime', includeIfNull: false)
   final DateTime? updateDateTime;
   @JsonKey(name: 'FromVersion', includeIfNull: false)
@@ -28122,6 +29498,8 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -28156,6 +29534,11 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
                 const DeepCollectionEquality().equals(
                   other.userName,
                   userName,
+                )) &&
+            (identical(other.userEmail, userEmail) ||
+                const DeepCollectionEquality().equals(
+                  other.userEmail,
+                  userEmail,
                 )) &&
             (identical(other.updateDateTime, updateDateTime) ||
                 const DeepCollectionEquality().equals(
@@ -28221,6 +29604,11 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -28261,6 +29649,7 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
       const DeepCollectionEquality().hash(systemUpdateHistoryId) ^
       const DeepCollectionEquality().hash(usersId) ^
       const DeepCollectionEquality().hash(userName) ^
+      const DeepCollectionEquality().hash(userEmail) ^
       const DeepCollectionEquality().hash(updateDateTime) ^
       const DeepCollectionEquality().hash(fromVersion) ^
       const DeepCollectionEquality().hash(toVersion) ^
@@ -28275,6 +29664,7 @@ class WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistory {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -28290,6 +29680,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExten
     int? systemUpdateHistoryId,
     String? usersId,
     String? userName,
+    String? userEmail,
     DateTime? updateDateTime,
     String? fromVersion,
     String? toVersion,
@@ -28304,6 +29695,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExten
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -28316,6 +29708,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExten
           systemUpdateHistoryId ?? this.systemUpdateHistoryId,
       usersId: usersId ?? this.usersId,
       userName: userName ?? this.userName,
+      userEmail: userEmail ?? this.userEmail,
       updateDateTime: updateDateTime ?? this.updateDateTime,
       fromVersion: fromVersion ?? this.fromVersion,
       toVersion: toVersion ?? this.toVersion,
@@ -28331,6 +29724,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExten
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -28345,6 +29739,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExten
     Wrapped<int?>? systemUpdateHistoryId,
     Wrapped<String?>? usersId,
     Wrapped<String?>? userName,
+    Wrapped<String?>? userEmail,
     Wrapped<DateTime?>? updateDateTime,
     Wrapped<String?>? fromVersion,
     Wrapped<String?>? toVersion,
@@ -28360,6 +29755,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExten
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -28373,6 +29769,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExten
           : this.systemUpdateHistoryId),
       usersId: (usersId != null ? usersId.value : this.usersId),
       userName: (userName != null ? userName.value : this.userName),
+      userEmail: (userEmail != null ? userEmail.value : this.userEmail),
       updateDateTime: (updateDateTime != null
           ? updateDateTime.value
           : this.updateDateTime),
@@ -28395,6 +29792,9 @@ extension $WebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryExten
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -28433,6 +29833,7 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -28497,6 +29898,8 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -28579,6 +29982,11 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -28629,6 +30037,7 @@ class WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -28655,6 +30064,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLo
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -28679,6 +30089,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLo
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -28704,6 +30115,7 @@ extension $WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLo
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -28733,6 +30145,9 @@ extension $WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLo
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -28786,6 +30201,7 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -28875,6 +30291,8 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -29019,6 +30437,11 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -29084,6 +30507,7 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -29124,6 +30548,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -29163,6 +30588,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -29202,6 +30628,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -29266,6 +30693,9 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -29284,101 +30714,6 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
       modifiedDateTime: (modifiedDateTime != null
           ? modifiedDateTime.value
           : this.modifiedDateTime),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse {
-  const WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse({
-    this.contactId,
-    this.status,
-    this.success,
-    this.msg,
-  });
-
-  factory WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponseFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponseToJson(
-        this,
-      );
-
-  @JsonKey(name: 'ContactId', includeIfNull: false)
-  final String? contactId;
-  @JsonKey(name: 'status', includeIfNull: false)
-  final int? status;
-  @JsonKey(name: 'success', includeIfNull: false)
-  final bool? success;
-  @JsonKey(name: 'msg', includeIfNull: false)
-  final String? msg;
-  static const fromJsonFactory =
-      _$WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse &&
-            (identical(other.contactId, contactId) ||
-                const DeepCollectionEquality().equals(
-                  other.contactId,
-                  contactId,
-                )) &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(
-                  other.success,
-                  success,
-                )) &&
-            (identical(other.msg, msg) ||
-                const DeepCollectionEquality().equals(other.msg, msg)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(contactId) ^
-      const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(success) ^
-      const DeepCollectionEquality().hash(msg) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponseExtension
-    on WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse {
-  WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
-  copyWith({String? contactId, int? status, bool? success, String? msg}) {
-    return WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse(
-      contactId: contactId ?? this.contactId,
-      status: status ?? this.status,
-      success: success ?? this.success,
-      msg: msg ?? this.msg,
-    );
-  }
-
-  WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
-  copyWithWrapped({
-    Wrapped<String?>? contactId,
-    Wrapped<int?>? status,
-    Wrapped<bool?>? success,
-    Wrapped<String?>? msg,
-  }) {
-    return WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse(
-      contactId: (contactId != null ? contactId.value : this.contactId),
-      status: (status != null ? status.value : this.status),
-      success: (success != null ? success.value : this.success),
-      msg: (msg != null ? msg.value : this.msg),
     );
   }
 }
@@ -29682,7 +31017,9 @@ class WebApiModulesAdministratorUserUser {
     this.limitSubDiscount,
     this.maximumSubDiscount,
     this.discountRule,
-    this.stagingAllowIncreaseDecreaseOrderQuantity,
+    this.stagingAllowIncreaseOrderQuantity,
+    this.stagingAllowAddMiscItem,
+    this.stagingAllowDecreaseOrderQuantity,
     this.stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
     this.allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
     this.allowContractIfDealRequiresPOAndOrderHasPendingPO,
@@ -29746,6 +31083,7 @@ class WebApiModulesAdministratorUserUser {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -29934,11 +31272,12 @@ class WebApiModulesAdministratorUserUser {
   final double? maximumSubDiscount;
   @JsonKey(name: 'DiscountRule', includeIfNull: false)
   final String? discountRule;
-  @JsonKey(
-    name: 'StagingAllowIncreaseDecreaseOrderQuantity',
-    includeIfNull: false,
-  )
-  final bool? stagingAllowIncreaseDecreaseOrderQuantity;
+  @JsonKey(name: 'StagingAllowIncreaseOrderQuantity', includeIfNull: false)
+  final bool? stagingAllowIncreaseOrderQuantity;
+  @JsonKey(name: 'StagingAllowAddMiscItem', includeIfNull: false)
+  final bool? stagingAllowAddMiscItem;
+  @JsonKey(name: 'StagingAllowDecreaseOrderQuantity', includeIfNull: false)
+  final bool? stagingAllowDecreaseOrderQuantity;
   @JsonKey(
     name: 'StagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt',
     includeIfNull: false,
@@ -30108,6 +31447,8 @@ class WebApiModulesAdministratorUserUser {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -30557,12 +31898,28 @@ class WebApiModulesAdministratorUserUser {
                   discountRule,
                 )) &&
             (identical(
-                  other.stagingAllowIncreaseDecreaseOrderQuantity,
-                  stagingAllowIncreaseDecreaseOrderQuantity,
+                  other.stagingAllowIncreaseOrderQuantity,
+                  stagingAllowIncreaseOrderQuantity,
                 ) ||
                 const DeepCollectionEquality().equals(
-                  other.stagingAllowIncreaseDecreaseOrderQuantity,
-                  stagingAllowIncreaseDecreaseOrderQuantity,
+                  other.stagingAllowIncreaseOrderQuantity,
+                  stagingAllowIncreaseOrderQuantity,
+                )) &&
+            (identical(
+                  other.stagingAllowAddMiscItem,
+                  stagingAllowAddMiscItem,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.stagingAllowAddMiscItem,
+                  stagingAllowAddMiscItem,
+                )) &&
+            (identical(
+                  other.stagingAllowDecreaseOrderQuantity,
+                  stagingAllowDecreaseOrderQuantity,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.stagingAllowDecreaseOrderQuantity,
+                  stagingAllowDecreaseOrderQuantity,
                 )) &&
             (identical(
                   other.stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
@@ -30946,6 +32303,11 @@ class WebApiModulesAdministratorUserUser {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -31069,9 +32431,9 @@ class WebApiModulesAdministratorUserUser {
       const DeepCollectionEquality().hash(limitSubDiscount) ^
       const DeepCollectionEquality().hash(maximumSubDiscount) ^
       const DeepCollectionEquality().hash(discountRule) ^
-      const DeepCollectionEquality().hash(
-        stagingAllowIncreaseDecreaseOrderQuantity,
-      ) ^
+      const DeepCollectionEquality().hash(stagingAllowIncreaseOrderQuantity) ^
+      const DeepCollectionEquality().hash(stagingAllowAddMiscItem) ^
+      const DeepCollectionEquality().hash(stagingAllowDecreaseOrderQuantity) ^
       const DeepCollectionEquality().hash(
         stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
       ) ^
@@ -31155,6 +32517,7 @@ class WebApiModulesAdministratorUserUser {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -31253,7 +32616,9 @@ extension $WebApiModulesAdministratorUserUserExtension
     bool? limitSubDiscount,
     double? maximumSubDiscount,
     String? discountRule,
-    bool? stagingAllowIncreaseDecreaseOrderQuantity,
+    bool? stagingAllowIncreaseOrderQuantity,
+    bool? stagingAllowAddMiscItem,
+    bool? stagingAllowDecreaseOrderQuantity,
     bool? stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
     bool? allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
     bool? allowContractIfDealRequiresPOAndOrderHasPendingPO,
@@ -31317,6 +32682,7 @@ extension $WebApiModulesAdministratorUserUserExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -31421,9 +32787,14 @@ extension $WebApiModulesAdministratorUserUserExtension
       limitSubDiscount: limitSubDiscount ?? this.limitSubDiscount,
       maximumSubDiscount: maximumSubDiscount ?? this.maximumSubDiscount,
       discountRule: discountRule ?? this.discountRule,
-      stagingAllowIncreaseDecreaseOrderQuantity:
-          stagingAllowIncreaseDecreaseOrderQuantity ??
-          this.stagingAllowIncreaseDecreaseOrderQuantity,
+      stagingAllowIncreaseOrderQuantity:
+          stagingAllowIncreaseOrderQuantity ??
+          this.stagingAllowIncreaseOrderQuantity,
+      stagingAllowAddMiscItem:
+          stagingAllowAddMiscItem ?? this.stagingAllowAddMiscItem,
+      stagingAllowDecreaseOrderQuantity:
+          stagingAllowDecreaseOrderQuantity ??
+          this.stagingAllowDecreaseOrderQuantity,
       stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt:
           stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt ??
           this.stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
@@ -31531,6 +32902,7 @@ extension $WebApiModulesAdministratorUserUserExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -31627,7 +32999,9 @@ extension $WebApiModulesAdministratorUserUserExtension
     Wrapped<bool?>? limitSubDiscount,
     Wrapped<double?>? maximumSubDiscount,
     Wrapped<String?>? discountRule,
-    Wrapped<bool?>? stagingAllowIncreaseDecreaseOrderQuantity,
+    Wrapped<bool?>? stagingAllowIncreaseOrderQuantity,
+    Wrapped<bool?>? stagingAllowAddMiscItem,
+    Wrapped<bool?>? stagingAllowDecreaseOrderQuantity,
     Wrapped<bool?>? stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
     Wrapped<bool?>? allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
     Wrapped<bool?>? allowContractIfDealRequiresPOAndOrderHasPendingPO,
@@ -31694,6 +33068,7 @@ extension $WebApiModulesAdministratorUserUserExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -31882,10 +33257,17 @@ extension $WebApiModulesAdministratorUserUserExtension
       discountRule: (discountRule != null
           ? discountRule.value
           : this.discountRule),
-      stagingAllowIncreaseDecreaseOrderQuantity:
-          (stagingAllowIncreaseDecreaseOrderQuantity != null
-          ? stagingAllowIncreaseDecreaseOrderQuantity.value
-          : this.stagingAllowIncreaseDecreaseOrderQuantity),
+      stagingAllowIncreaseOrderQuantity:
+          (stagingAllowIncreaseOrderQuantity != null
+          ? stagingAllowIncreaseOrderQuantity.value
+          : this.stagingAllowIncreaseOrderQuantity),
+      stagingAllowAddMiscItem: (stagingAllowAddMiscItem != null
+          ? stagingAllowAddMiscItem.value
+          : this.stagingAllowAddMiscItem),
+      stagingAllowDecreaseOrderQuantity:
+          (stagingAllowDecreaseOrderQuantity != null
+          ? stagingAllowDecreaseOrderQuantity.value
+          : this.stagingAllowDecreaseOrderQuantity),
       stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt:
           (stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt != null
           ? stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt.value
@@ -32059,6 +33441,9 @@ extension $WebApiModulesAdministratorUserUserExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -32156,6 +33541,2531 @@ extension $WebApiModulesAdministratorUserUserCountResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+class WebApiModulesAdministratorUserContactUserContact {
+  const WebApiModulesAdministratorUserContactUserContact({
+    this.webUserId,
+    this.userId,
+    this.contactId,
+    this.name,
+    this.loginName,
+    this.fullName,
+    this.firstName,
+    this.middleInitial,
+    this.lastName,
+    this.barCode,
+    this.groupId,
+    this.groupName,
+    this.scheduleColor,
+    this.userTitleId,
+    this.userTitle,
+    this.email,
+    this.emailApp,
+    this.addRentalWorksUserSignature,
+    this.officeLocationId,
+    this.officeLocation,
+    this.warehouseId,
+    this.warehouse,
+    this.address1,
+    this.address2,
+    this.city,
+    this.stateId,
+    this.stateCode,
+    this.state,
+    this.zipCode,
+    this.countryId,
+    this.country,
+    this.countryCodeIsoAlpha2,
+    this.countryCodePhone,
+    this.officePhone,
+    this.officeExtension,
+    this.fax,
+    this.directPhone,
+    this.pager,
+    this.pagerPin,
+    this.cellular,
+    this.homePhone,
+    this.defaultDepartmentType,
+    this.primaryDepartmentId,
+    this.primaryDepartment,
+    this.languageId,
+    this.language,
+    this.rentalDepartmentId,
+    this.rentalDepartment,
+    this.salesDepartmentId,
+    this.salesDepartment,
+    this.partsDepartmentId,
+    this.partsDepartment,
+    this.miscDepartmentId,
+    this.miscDepartment,
+    this.laborDepartmentId,
+    this.laborDepartment,
+    this.facilityDepartmentId,
+    this.facilityDepartment,
+    this.transportationDepartmentId,
+    this.transportationDepartment,
+    this.rentalInventoryTypeId,
+    this.rentalInventoryType,
+    this.salesInventoryTypeId,
+    this.salesInventoryType,
+    this.partsInventoryTypeId,
+    this.partsInventoryType,
+    this.miscTypeId,
+    this.miscType,
+    this.laborTypeId,
+    this.laborType,
+    this.facilityTypeId,
+    this.facilityType,
+    this.transportationTypeId,
+    this.transportationType,
+    this.noMiscellaneousOnQuotes,
+    this.noMiscellaneousOnOrders,
+    this.noMiscellaneousOnPurchaseOrders,
+    this.limitDaysPerWeek,
+    this.minimumDaysPerWeek,
+    this.allowCreditLimitOverride,
+    this.limitDiscount,
+    this.maximumDiscount,
+    this.limitSubDiscount,
+    this.maximumSubDiscount,
+    this.discountRule,
+    this.stagingAllowIncreaseOrderQuantity,
+    this.stagingAllowAddMiscItem,
+    this.stagingAllowDecreaseOrderQuantity,
+    this.stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
+    this.allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
+    this.allowContractIfDealRequiresPOAndOrderHasPendingPO,
+    this.allowContractIfPendingItemsExist,
+    this.allowContractIfCustomerDealDoesNotHaveApprovedCredit,
+    this.allowContractIfCustomerDealIsOverTheirCreditLimit,
+    this.allowContractIfCustomerDealInsuranceCoverageIsLess,
+    this.allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate,
+    this.allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate,
+    this.allowReceiveSubsWhenPositiveConflictExists,
+    this.allowStagingOfUnreservedConsignedItems,
+    this.allowStagingOfUnapprovedItems,
+    this.allowSubstitutesAtStaging,
+    this.deleteOriginalOnSubstitution,
+    this.quikActivityAllowPrintDollarAmounts,
+    this.quikScanAllowCreateContract,
+    this.quikScanAllowApplyAll,
+    this.allowCrossICodeExchange,
+    this.allowCrossICodePendingExchange,
+    this.allowChangeAvailabilityPriority,
+    this.allowSwapItems,
+    this.userMustChangePassword,
+    this.passwordExpires,
+    this.passwordExpireDays,
+    this.passwordUpdatedDateTime,
+    this.lockAccount,
+    this.memo,
+    this.allowCrossLocationEditAndDelete,
+    this.lastLoggedOn,
+    this.disableInsertIntoActiveOrder,
+    this.autoPrintContract,
+    this.inactive,
+    this.dateStamp,
+    this.webAdministrator,
+    this.browseDefaultRows,
+    this.gridDefaultRows,
+    this.applicationTheme,
+    this.homeMenuGuid,
+    this.homeMenuPath,
+    this.soundProfileId,
+    this.soundProfileName,
+    this.firstDayOfWeek,
+    this.settingsNavigationMenuVisible,
+    this.reportsNavigationMenuVisible,
+    this.userType,
+    this.emailSignature,
+    this.locale,
+    this.availabilityPreference,
+    this.availabilityAllWarehouses,
+    this.sourceId,
+    this.quikSearchMode,
+    this.showRentalItemsOutOnly,
+    this.creditCardPinPadId,
+    this.exportCode,
+    this.auditNote,
+    this.recordTitle,
+    this.urlIdentifier,
+    this.fields,
+    this.custom,
+    this.defaultFieldAttributes,
+    this.original,
+    this.translation,
+    this.hasImport,
+    this.hasDocuments,
+    this.createdByUserId,
+    this.createdByUserName,
+    this.createdDateTime,
+    this.modifiedByUserId,
+    this.modifiedByUserName,
+    this.modifiedDateTime,
+  });
+
+  factory WebApiModulesAdministratorUserContactUserContact.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesAdministratorUserContactUserContactFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesAdministratorUserContactUserContactToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAdministratorUserContactUserContactToJson(this);
+
+  @JsonKey(name: 'WebUserId', includeIfNull: false)
+  final String? webUserId;
+  @JsonKey(name: 'UserId', includeIfNull: false)
+  final String? userId;
+  @JsonKey(name: 'ContactId', includeIfNull: false)
+  final String? contactId;
+  @JsonKey(name: 'Name', includeIfNull: false)
+  final String? name;
+  @JsonKey(name: 'LoginName', includeIfNull: false)
+  final String? loginName;
+  @JsonKey(name: 'FullName', includeIfNull: false)
+  final String? fullName;
+  @JsonKey(name: 'FirstName', includeIfNull: false)
+  final String? firstName;
+  @JsonKey(name: 'MiddleInitial', includeIfNull: false)
+  final String? middleInitial;
+  @JsonKey(name: 'LastName', includeIfNull: false)
+  final String? lastName;
+  @JsonKey(name: 'BarCode', includeIfNull: false)
+  final String? barCode;
+  @JsonKey(name: 'GroupId', includeIfNull: false)
+  final String? groupId;
+  @JsonKey(name: 'GroupName', includeIfNull: false)
+  final String? groupName;
+  @JsonKey(name: 'ScheduleColor', includeIfNull: false)
+  final String? scheduleColor;
+  @JsonKey(name: 'UserTitleId', includeIfNull: false)
+  final String? userTitleId;
+  @JsonKey(name: 'UserTitle', includeIfNull: false)
+  final String? userTitle;
+  @JsonKey(name: 'Email', includeIfNull: false)
+  final String? email;
+  @JsonKey(name: 'EmailApp', includeIfNull: false)
+  final String? emailApp;
+  @JsonKey(name: 'AddRentalWorksUserSignature', includeIfNull: false)
+  final bool? addRentalWorksUserSignature;
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
+  final String? officeLocationId;
+  @JsonKey(name: 'OfficeLocation', includeIfNull: false)
+  final String? officeLocation;
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
+  final String? warehouseId;
+  @JsonKey(name: 'Warehouse', includeIfNull: false)
+  final String? warehouse;
+  @JsonKey(name: 'Address1', includeIfNull: false)
+  final String? address1;
+  @JsonKey(name: 'Address2', includeIfNull: false)
+  final String? address2;
+  @JsonKey(name: 'City', includeIfNull: false)
+  final String? city;
+  @JsonKey(name: 'StateId', includeIfNull: false)
+  final String? stateId;
+  @JsonKey(name: 'StateCode', includeIfNull: false)
+  final String? stateCode;
+  @JsonKey(name: 'State', includeIfNull: false)
+  final String? state;
+  @JsonKey(name: 'ZipCode', includeIfNull: false)
+  final String? zipCode;
+  @JsonKey(name: 'CountryId', includeIfNull: false)
+  final String? countryId;
+  @JsonKey(name: 'Country', includeIfNull: false)
+  final String? country;
+  @JsonKey(name: 'CountryCodeIsoAlpha2', includeIfNull: false)
+  final String? countryCodeIsoAlpha2;
+  @JsonKey(name: 'CountryCodePhone', includeIfNull: false)
+  final int? countryCodePhone;
+  @JsonKey(name: 'OfficePhone', includeIfNull: false)
+  final String? officePhone;
+  @JsonKey(name: 'OfficeExtension', includeIfNull: false)
+  final String? officeExtension;
+  @JsonKey(name: 'Fax', includeIfNull: false)
+  final String? fax;
+  @JsonKey(name: 'DirectPhone', includeIfNull: false)
+  final String? directPhone;
+  @JsonKey(name: 'Pager', includeIfNull: false)
+  final String? pager;
+  @JsonKey(name: 'PagerPin', includeIfNull: false)
+  final String? pagerPin;
+  @JsonKey(name: 'Cellular', includeIfNull: false)
+  final String? cellular;
+  @JsonKey(name: 'HomePhone', includeIfNull: false)
+  final String? homePhone;
+  @JsonKey(name: 'DefaultDepartmentType', includeIfNull: false)
+  final String? defaultDepartmentType;
+  @JsonKey(name: 'PrimaryDepartmentId', includeIfNull: false)
+  final String? primaryDepartmentId;
+  @JsonKey(name: 'PrimaryDepartment', includeIfNull: false)
+  final String? primaryDepartment;
+  @JsonKey(name: 'LanguageId', includeIfNull: false)
+  final String? languageId;
+  @JsonKey(name: 'Language', includeIfNull: false)
+  final String? language;
+  @JsonKey(name: 'RentalDepartmentId', includeIfNull: false)
+  final String? rentalDepartmentId;
+  @JsonKey(name: 'RentalDepartment', includeIfNull: false)
+  final String? rentalDepartment;
+  @JsonKey(name: 'SalesDepartmentId', includeIfNull: false)
+  final String? salesDepartmentId;
+  @JsonKey(name: 'SalesDepartment', includeIfNull: false)
+  final String? salesDepartment;
+  @JsonKey(name: 'PartsDepartmentId', includeIfNull: false)
+  final String? partsDepartmentId;
+  @JsonKey(name: 'PartsDepartment', includeIfNull: false)
+  final String? partsDepartment;
+  @JsonKey(name: 'MiscDepartmentId', includeIfNull: false)
+  final String? miscDepartmentId;
+  @JsonKey(name: 'MiscDepartment', includeIfNull: false)
+  final String? miscDepartment;
+  @JsonKey(name: 'LaborDepartmentId', includeIfNull: false)
+  final String? laborDepartmentId;
+  @JsonKey(name: 'LaborDepartment', includeIfNull: false)
+  final String? laborDepartment;
+  @JsonKey(name: 'FacilityDepartmentId', includeIfNull: false)
+  final String? facilityDepartmentId;
+  @JsonKey(name: 'FacilityDepartment', includeIfNull: false)
+  final String? facilityDepartment;
+  @JsonKey(name: 'TransportationDepartmentId', includeIfNull: false)
+  final String? transportationDepartmentId;
+  @JsonKey(name: 'TransportationDepartment', includeIfNull: false)
+  final String? transportationDepartment;
+  @JsonKey(name: 'RentalInventoryTypeId', includeIfNull: false)
+  final String? rentalInventoryTypeId;
+  @JsonKey(name: 'RentalInventoryType', includeIfNull: false)
+  final String? rentalInventoryType;
+  @JsonKey(name: 'SalesInventoryTypeId', includeIfNull: false)
+  final String? salesInventoryTypeId;
+  @JsonKey(name: 'SalesInventoryType', includeIfNull: false)
+  final String? salesInventoryType;
+  @JsonKey(name: 'PartsInventoryTypeId', includeIfNull: false)
+  final String? partsInventoryTypeId;
+  @JsonKey(name: 'PartsInventoryType', includeIfNull: false)
+  final String? partsInventoryType;
+  @JsonKey(name: 'MiscTypeId', includeIfNull: false)
+  final String? miscTypeId;
+  @JsonKey(name: 'MiscType', includeIfNull: false)
+  final String? miscType;
+  @JsonKey(name: 'LaborTypeId', includeIfNull: false)
+  final String? laborTypeId;
+  @JsonKey(name: 'LaborType', includeIfNull: false)
+  final String? laborType;
+  @JsonKey(name: 'FacilityTypeId', includeIfNull: false)
+  final String? facilityTypeId;
+  @JsonKey(name: 'FacilityType', includeIfNull: false)
+  final String? facilityType;
+  @JsonKey(name: 'TransportationTypeId', includeIfNull: false)
+  final String? transportationTypeId;
+  @JsonKey(name: 'TransportationType', includeIfNull: false)
+  final String? transportationType;
+  @JsonKey(name: 'NoMiscellaneousOnQuotes', includeIfNull: false)
+  final bool? noMiscellaneousOnQuotes;
+  @JsonKey(name: 'NoMiscellaneousOnOrders', includeIfNull: false)
+  final bool? noMiscellaneousOnOrders;
+  @JsonKey(name: 'NoMiscellaneousOnPurchaseOrders', includeIfNull: false)
+  final bool? noMiscellaneousOnPurchaseOrders;
+  @JsonKey(name: 'LimitDaysPerWeek', includeIfNull: false)
+  final bool? limitDaysPerWeek;
+  @JsonKey(name: 'MinimumDaysPerWeek', includeIfNull: false)
+  final double? minimumDaysPerWeek;
+  @JsonKey(name: 'AllowCreditLimitOverride', includeIfNull: false)
+  final bool? allowCreditLimitOverride;
+  @JsonKey(name: 'LimitDiscount', includeIfNull: false)
+  final bool? limitDiscount;
+  @JsonKey(name: 'MaximumDiscount', includeIfNull: false)
+  final double? maximumDiscount;
+  @JsonKey(name: 'LimitSubDiscount', includeIfNull: false)
+  final bool? limitSubDiscount;
+  @JsonKey(name: 'MaximumSubDiscount', includeIfNull: false)
+  final double? maximumSubDiscount;
+  @JsonKey(name: 'DiscountRule', includeIfNull: false)
+  final String? discountRule;
+  @JsonKey(name: 'StagingAllowIncreaseOrderQuantity', includeIfNull: false)
+  final bool? stagingAllowIncreaseOrderQuantity;
+  @JsonKey(name: 'StagingAllowAddMiscItem', includeIfNull: false)
+  final bool? stagingAllowAddMiscItem;
+  @JsonKey(name: 'StagingAllowDecreaseOrderQuantity', includeIfNull: false)
+  final bool? stagingAllowDecreaseOrderQuantity;
+  @JsonKey(
+    name: 'StagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt',
+    includeIfNull: false,
+  )
+  final bool? stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt;
+  @JsonKey(
+    name: 'AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes',
+    includeIfNull: false,
+  )
+  final bool? allowStagingOfItemsWhenReservedOnOtherOrdersQuotes;
+  @JsonKey(
+    name: 'AllowContractIfDealRequiresPOAndOrderHasPendingPO',
+    includeIfNull: false,
+  )
+  final bool? allowContractIfDealRequiresPOAndOrderHasPendingPO;
+  @JsonKey(name: 'AllowContractIfPendingItemsExist', includeIfNull: false)
+  final bool? allowContractIfPendingItemsExist;
+  @JsonKey(
+    name: 'AllowContractIfCustomerDealDoesNotHaveApprovedCredit',
+    includeIfNull: false,
+  )
+  final bool? allowContractIfCustomerDealDoesNotHaveApprovedCredit;
+  @JsonKey(
+    name: 'AllowContractIfCustomerDealIsOverTheirCreditLimit',
+    includeIfNull: false,
+  )
+  final bool? allowContractIfCustomerDealIsOverTheirCreditLimit;
+  @JsonKey(
+    name: 'AllowContractIfCustomerDealInsuranceCoverageIsLess',
+    includeIfNull: false,
+  )
+  final bool? allowContractIfCustomerDealInsuranceCoverageIsLess;
+  @JsonKey(
+    name: 'AllowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate',
+    includeIfNull: false,
+  )
+  final bool? allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate;
+  @JsonKey(
+    name: 'AllowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate',
+    includeIfNull: false,
+  )
+  final bool? allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate;
+  @JsonKey(
+    name: 'AllowReceiveSubsWhenPositiveConflictExists',
+    includeIfNull: false,
+  )
+  final bool? allowReceiveSubsWhenPositiveConflictExists;
+  @JsonKey(name: 'AllowStagingOfUnreservedConsignedItems', includeIfNull: false)
+  final bool? allowStagingOfUnreservedConsignedItems;
+  @JsonKey(name: 'AllowStagingOfUnapprovedItems', includeIfNull: false)
+  final bool? allowStagingOfUnapprovedItems;
+  @JsonKey(name: 'AllowSubstitutesAtStaging', includeIfNull: false)
+  final bool? allowSubstitutesAtStaging;
+  @JsonKey(name: 'DeleteOriginalOnSubstitution', includeIfNull: false)
+  final bool? deleteOriginalOnSubstitution;
+  @JsonKey(name: 'QuikActivityAllowPrintDollarAmounts', includeIfNull: false)
+  final bool? quikActivityAllowPrintDollarAmounts;
+  @JsonKey(name: 'QuikScanAllowCreateContract', includeIfNull: false)
+  final bool? quikScanAllowCreateContract;
+  @JsonKey(name: 'QuikScanAllowApplyAll', includeIfNull: false)
+  final bool? quikScanAllowApplyAll;
+  @JsonKey(name: 'AllowCrossICodeExchange', includeIfNull: false)
+  final bool? allowCrossICodeExchange;
+  @JsonKey(name: 'AllowCrossICodePendingExchange', includeIfNull: false)
+  final bool? allowCrossICodePendingExchange;
+  @JsonKey(name: 'AllowChangeAvailabilityPriority', includeIfNull: false)
+  final bool? allowChangeAvailabilityPriority;
+  @JsonKey(name: 'AllowSwapItems', includeIfNull: false)
+  final bool? allowSwapItems;
+  @JsonKey(name: 'UserMustChangePassword', includeIfNull: false)
+  final bool? userMustChangePassword;
+  @JsonKey(name: 'PasswordExpires', includeIfNull: false)
+  final bool? passwordExpires;
+  @JsonKey(name: 'PasswordExpireDays', includeIfNull: false)
+  final int? passwordExpireDays;
+  @JsonKey(name: 'PasswordUpdatedDateTime', includeIfNull: false)
+  final String? passwordUpdatedDateTime;
+  @JsonKey(name: 'LockAccount', includeIfNull: false)
+  final bool? lockAccount;
+  @JsonKey(name: 'Memo', includeIfNull: false)
+  final String? memo;
+  @JsonKey(name: 'AllowCrossLocationEditAndDelete', includeIfNull: false)
+  final bool? allowCrossLocationEditAndDelete;
+  @JsonKey(name: 'LastLoggedOn', includeIfNull: false)
+  final String? lastLoggedOn;
+  @JsonKey(name: 'DisableInsertIntoActiveOrder', includeIfNull: false)
+  final bool? disableInsertIntoActiveOrder;
+  @JsonKey(name: 'AutoPrintContract', includeIfNull: false)
+  final bool? autoPrintContract;
+  @JsonKey(name: 'Inactive', includeIfNull: false)
+  final bool? inactive;
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
+  final String? dateStamp;
+  @JsonKey(name: 'WebAdministrator', includeIfNull: false)
+  final bool? webAdministrator;
+  @JsonKey(name: 'BrowseDefaultRows', includeIfNull: false)
+  final int? browseDefaultRows;
+  @JsonKey(name: 'GridDefaultRows', includeIfNull: false)
+  final int? gridDefaultRows;
+  @JsonKey(name: 'ApplicationTheme', includeIfNull: false)
+  final String? applicationTheme;
+  @JsonKey(name: 'HomeMenuGuid', includeIfNull: false)
+  final String? homeMenuGuid;
+  @JsonKey(name: 'HomeMenuPath', includeIfNull: false)
+  final String? homeMenuPath;
+  @JsonKey(name: 'SoundProfileId', includeIfNull: false)
+  final int? soundProfileId;
+  @JsonKey(name: 'SoundProfileName', includeIfNull: false)
+  final String? soundProfileName;
+  @JsonKey(name: 'FirstDayOfWeek', includeIfNull: false)
+  final int? firstDayOfWeek;
+  @JsonKey(name: 'SettingsNavigationMenuVisible', includeIfNull: false)
+  final bool? settingsNavigationMenuVisible;
+  @JsonKey(name: 'ReportsNavigationMenuVisible', includeIfNull: false)
+  final bool? reportsNavigationMenuVisible;
+  @JsonKey(name: 'UserType', includeIfNull: false)
+  final String? userType;
+  @JsonKey(name: 'EmailSignature', includeIfNull: false)
+  final String? emailSignature;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
+  @JsonKey(name: 'AvailabilityPreference', includeIfNull: false)
+  final String? availabilityPreference;
+  @JsonKey(name: 'AvailabilityAllWarehouses', includeIfNull: false)
+  final bool? availabilityAllWarehouses;
+  @JsonKey(name: 'SourceId', includeIfNull: false)
+  final String? sourceId;
+  @JsonKey(name: 'QuikSearchMode', includeIfNull: false)
+  final String? quikSearchMode;
+  @JsonKey(name: 'ShowRentalItemsOutOnly', includeIfNull: false)
+  final bool? showRentalItemsOutOnly;
+  @JsonKey(name: 'CreditCardPinPadId', includeIfNull: false)
+  final int? creditCardPinPadId;
+  @JsonKey(name: 'ExportCode', includeIfNull: false)
+  final String? exportCode;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
+  final dynamic urlIdentifier;
+  @JsonKey(
+    name: '_Fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+  )
+  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  @JsonKey(
+    name: '_Custom',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwCustomValue>[],
+  )
+  final List<FwStandardDataFwCustomValue>? custom;
+  @JsonKey(
+    name: '_DefaultFieldAttributes',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwDefaultAttribute>[],
+  )
+  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  @JsonKey(name: '_Original', includeIfNull: false)
+  final FwStandardBusinessLogicFwBusinessLogic? original;
+  @JsonKey(
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
+  final List<FwStandardDataFwTranslatedValue>? translation;
+  @JsonKey(name: '_HasImport', includeIfNull: false)
+  final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
+  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
+  final String? createdByUserId;
+  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
+  final String? createdByUserName;
+  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
+  final String? createdDateTime;
+  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
+  final String? modifiedByUserId;
+  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
+  final String? modifiedByUserName;
+  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
+  final String? modifiedDateTime;
+  static const fromJsonFactory =
+      _$WebApiModulesAdministratorUserContactUserContactFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAdministratorUserContactUserContact &&
+            (identical(other.webUserId, webUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.webUserId,
+                  webUserId,
+                )) &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.contactId, contactId) ||
+                const DeepCollectionEquality().equals(
+                  other.contactId,
+                  contactId,
+                )) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.loginName, loginName) ||
+                const DeepCollectionEquality().equals(
+                  other.loginName,
+                  loginName,
+                )) &&
+            (identical(other.fullName, fullName) ||
+                const DeepCollectionEquality().equals(
+                  other.fullName,
+                  fullName,
+                )) &&
+            (identical(other.firstName, firstName) ||
+                const DeepCollectionEquality().equals(
+                  other.firstName,
+                  firstName,
+                )) &&
+            (identical(other.middleInitial, middleInitial) ||
+                const DeepCollectionEquality().equals(
+                  other.middleInitial,
+                  middleInitial,
+                )) &&
+            (identical(other.lastName, lastName) ||
+                const DeepCollectionEquality().equals(
+                  other.lastName,
+                  lastName,
+                )) &&
+            (identical(other.barCode, barCode) ||
+                const DeepCollectionEquality().equals(
+                  other.barCode,
+                  barCode,
+                )) &&
+            (identical(other.groupId, groupId) ||
+                const DeepCollectionEquality().equals(
+                  other.groupId,
+                  groupId,
+                )) &&
+            (identical(other.groupName, groupName) ||
+                const DeepCollectionEquality().equals(
+                  other.groupName,
+                  groupName,
+                )) &&
+            (identical(other.scheduleColor, scheduleColor) ||
+                const DeepCollectionEquality().equals(
+                  other.scheduleColor,
+                  scheduleColor,
+                )) &&
+            (identical(other.userTitleId, userTitleId) ||
+                const DeepCollectionEquality().equals(
+                  other.userTitleId,
+                  userTitleId,
+                )) &&
+            (identical(other.userTitle, userTitle) ||
+                const DeepCollectionEquality().equals(
+                  other.userTitle,
+                  userTitle,
+                )) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.emailApp, emailApp) ||
+                const DeepCollectionEquality().equals(
+                  other.emailApp,
+                  emailApp,
+                )) &&
+            (identical(
+                  other.addRentalWorksUserSignature,
+                  addRentalWorksUserSignature,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.addRentalWorksUserSignature,
+                  addRentalWorksUserSignature,
+                )) &&
+            (identical(other.officeLocationId, officeLocationId) ||
+                const DeepCollectionEquality().equals(
+                  other.officeLocationId,
+                  officeLocationId,
+                )) &&
+            (identical(other.officeLocation, officeLocation) ||
+                const DeepCollectionEquality().equals(
+                  other.officeLocation,
+                  officeLocation,
+                )) &&
+            (identical(other.warehouseId, warehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.warehouseId,
+                  warehouseId,
+                )) &&
+            (identical(other.warehouse, warehouse) ||
+                const DeepCollectionEquality().equals(
+                  other.warehouse,
+                  warehouse,
+                )) &&
+            (identical(other.address1, address1) ||
+                const DeepCollectionEquality().equals(
+                  other.address1,
+                  address1,
+                )) &&
+            (identical(other.address2, address2) ||
+                const DeepCollectionEquality().equals(
+                  other.address2,
+                  address2,
+                )) &&
+            (identical(other.city, city) ||
+                const DeepCollectionEquality().equals(other.city, city)) &&
+            (identical(other.stateId, stateId) ||
+                const DeepCollectionEquality().equals(
+                  other.stateId,
+                  stateId,
+                )) &&
+            (identical(other.stateCode, stateCode) ||
+                const DeepCollectionEquality().equals(
+                  other.stateCode,
+                  stateCode,
+                )) &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)) &&
+            (identical(other.zipCode, zipCode) ||
+                const DeepCollectionEquality().equals(
+                  other.zipCode,
+                  zipCode,
+                )) &&
+            (identical(other.countryId, countryId) ||
+                const DeepCollectionEquality().equals(
+                  other.countryId,
+                  countryId,
+                )) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(
+                  other.country,
+                  country,
+                )) &&
+            (identical(other.countryCodeIsoAlpha2, countryCodeIsoAlpha2) ||
+                const DeepCollectionEquality().equals(
+                  other.countryCodeIsoAlpha2,
+                  countryCodeIsoAlpha2,
+                )) &&
+            (identical(other.countryCodePhone, countryCodePhone) ||
+                const DeepCollectionEquality().equals(
+                  other.countryCodePhone,
+                  countryCodePhone,
+                )) &&
+            (identical(other.officePhone, officePhone) ||
+                const DeepCollectionEquality().equals(
+                  other.officePhone,
+                  officePhone,
+                )) &&
+            (identical(other.officeExtension, officeExtension) ||
+                const DeepCollectionEquality().equals(
+                  other.officeExtension,
+                  officeExtension,
+                )) &&
+            (identical(other.fax, fax) ||
+                const DeepCollectionEquality().equals(other.fax, fax)) &&
+            (identical(other.directPhone, directPhone) ||
+                const DeepCollectionEquality().equals(
+                  other.directPhone,
+                  directPhone,
+                )) &&
+            (identical(other.pager, pager) ||
+                const DeepCollectionEquality().equals(other.pager, pager)) &&
+            (identical(other.pagerPin, pagerPin) ||
+                const DeepCollectionEquality().equals(
+                  other.pagerPin,
+                  pagerPin,
+                )) &&
+            (identical(other.cellular, cellular) ||
+                const DeepCollectionEquality().equals(
+                  other.cellular,
+                  cellular,
+                )) &&
+            (identical(other.homePhone, homePhone) ||
+                const DeepCollectionEquality().equals(
+                  other.homePhone,
+                  homePhone,
+                )) &&
+            (identical(other.defaultDepartmentType, defaultDepartmentType) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultDepartmentType,
+                  defaultDepartmentType,
+                )) &&
+            (identical(other.primaryDepartmentId, primaryDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDepartmentId,
+                  primaryDepartmentId,
+                )) &&
+            (identical(other.primaryDepartment, primaryDepartment) ||
+                const DeepCollectionEquality().equals(
+                  other.primaryDepartment,
+                  primaryDepartment,
+                )) &&
+            (identical(other.languageId, languageId) ||
+                const DeepCollectionEquality().equals(
+                  other.languageId,
+                  languageId,
+                )) &&
+            (identical(other.language, language) ||
+                const DeepCollectionEquality().equals(
+                  other.language,
+                  language,
+                )) &&
+            (identical(other.rentalDepartmentId, rentalDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.rentalDepartmentId,
+                  rentalDepartmentId,
+                )) &&
+            (identical(other.rentalDepartment, rentalDepartment) ||
+                const DeepCollectionEquality().equals(
+                  other.rentalDepartment,
+                  rentalDepartment,
+                )) &&
+            (identical(other.salesDepartmentId, salesDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.salesDepartmentId,
+                  salesDepartmentId,
+                )) &&
+            (identical(other.salesDepartment, salesDepartment) ||
+                const DeepCollectionEquality().equals(
+                  other.salesDepartment,
+                  salesDepartment,
+                )) &&
+            (identical(other.partsDepartmentId, partsDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.partsDepartmentId,
+                  partsDepartmentId,
+                )) &&
+            (identical(other.partsDepartment, partsDepartment) ||
+                const DeepCollectionEquality().equals(
+                  other.partsDepartment,
+                  partsDepartment,
+                )) &&
+            (identical(other.miscDepartmentId, miscDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.miscDepartmentId,
+                  miscDepartmentId,
+                )) &&
+            (identical(other.miscDepartment, miscDepartment) ||
+                const DeepCollectionEquality().equals(
+                  other.miscDepartment,
+                  miscDepartment,
+                )) &&
+            (identical(other.laborDepartmentId, laborDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.laborDepartmentId,
+                  laborDepartmentId,
+                )) &&
+            (identical(other.laborDepartment, laborDepartment) ||
+                const DeepCollectionEquality().equals(
+                  other.laborDepartment,
+                  laborDepartment,
+                )) &&
+            (identical(other.facilityDepartmentId, facilityDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.facilityDepartmentId,
+                  facilityDepartmentId,
+                )) &&
+            (identical(other.facilityDepartment, facilityDepartment) ||
+                const DeepCollectionEquality().equals(
+                  other.facilityDepartment,
+                  facilityDepartment,
+                )) &&
+            (identical(
+                  other.transportationDepartmentId,
+                  transportationDepartmentId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.transportationDepartmentId,
+                  transportationDepartmentId,
+                )) &&
+            (identical(
+                  other.transportationDepartment,
+                  transportationDepartment,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.transportationDepartment,
+                  transportationDepartment,
+                )) &&
+            (identical(other.rentalInventoryTypeId, rentalInventoryTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.rentalInventoryTypeId,
+                  rentalInventoryTypeId,
+                )) &&
+            (identical(other.rentalInventoryType, rentalInventoryType) ||
+                const DeepCollectionEquality().equals(
+                  other.rentalInventoryType,
+                  rentalInventoryType,
+                )) &&
+            (identical(other.salesInventoryTypeId, salesInventoryTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.salesInventoryTypeId,
+                  salesInventoryTypeId,
+                )) &&
+            (identical(other.salesInventoryType, salesInventoryType) ||
+                const DeepCollectionEquality().equals(
+                  other.salesInventoryType,
+                  salesInventoryType,
+                )) &&
+            (identical(other.partsInventoryTypeId, partsInventoryTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.partsInventoryTypeId,
+                  partsInventoryTypeId,
+                )) &&
+            (identical(other.partsInventoryType, partsInventoryType) ||
+                const DeepCollectionEquality().equals(
+                  other.partsInventoryType,
+                  partsInventoryType,
+                )) &&
+            (identical(other.miscTypeId, miscTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTypeId,
+                  miscTypeId,
+                )) &&
+            (identical(other.miscType, miscType) ||
+                const DeepCollectionEquality().equals(
+                  other.miscType,
+                  miscType,
+                )) &&
+            (identical(other.laborTypeId, laborTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.laborTypeId,
+                  laborTypeId,
+                )) &&
+            (identical(other.laborType, laborType) ||
+                const DeepCollectionEquality().equals(
+                  other.laborType,
+                  laborType,
+                )) &&
+            (identical(other.facilityTypeId, facilityTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.facilityTypeId,
+                  facilityTypeId,
+                )) &&
+            (identical(other.facilityType, facilityType) ||
+                const DeepCollectionEquality().equals(
+                  other.facilityType,
+                  facilityType,
+                )) &&
+            (identical(other.transportationTypeId, transportationTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.transportationTypeId,
+                  transportationTypeId,
+                )) &&
+            (identical(other.transportationType, transportationType) ||
+                const DeepCollectionEquality().equals(
+                  other.transportationType,
+                  transportationType,
+                )) &&
+            (identical(
+                  other.noMiscellaneousOnQuotes,
+                  noMiscellaneousOnQuotes,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.noMiscellaneousOnQuotes,
+                  noMiscellaneousOnQuotes,
+                )) &&
+            (identical(
+                  other.noMiscellaneousOnOrders,
+                  noMiscellaneousOnOrders,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.noMiscellaneousOnOrders,
+                  noMiscellaneousOnOrders,
+                )) &&
+            (identical(
+                  other.noMiscellaneousOnPurchaseOrders,
+                  noMiscellaneousOnPurchaseOrders,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.noMiscellaneousOnPurchaseOrders,
+                  noMiscellaneousOnPurchaseOrders,
+                )) &&
+            (identical(other.limitDaysPerWeek, limitDaysPerWeek) ||
+                const DeepCollectionEquality().equals(
+                  other.limitDaysPerWeek,
+                  limitDaysPerWeek,
+                )) &&
+            (identical(other.minimumDaysPerWeek, minimumDaysPerWeek) ||
+                const DeepCollectionEquality().equals(
+                  other.minimumDaysPerWeek,
+                  minimumDaysPerWeek,
+                )) &&
+            (identical(
+                  other.allowCreditLimitOverride,
+                  allowCreditLimitOverride,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowCreditLimitOverride,
+                  allowCreditLimitOverride,
+                )) &&
+            (identical(other.limitDiscount, limitDiscount) ||
+                const DeepCollectionEquality().equals(
+                  other.limitDiscount,
+                  limitDiscount,
+                )) &&
+            (identical(other.maximumDiscount, maximumDiscount) ||
+                const DeepCollectionEquality().equals(
+                  other.maximumDiscount,
+                  maximumDiscount,
+                )) &&
+            (identical(other.limitSubDiscount, limitSubDiscount) ||
+                const DeepCollectionEquality().equals(
+                  other.limitSubDiscount,
+                  limitSubDiscount,
+                )) &&
+            (identical(other.maximumSubDiscount, maximumSubDiscount) ||
+                const DeepCollectionEquality().equals(
+                  other.maximumSubDiscount,
+                  maximumSubDiscount,
+                )) &&
+            (identical(other.discountRule, discountRule) ||
+                const DeepCollectionEquality().equals(
+                  other.discountRule,
+                  discountRule,
+                )) &&
+            (identical(
+                  other.stagingAllowIncreaseOrderQuantity,
+                  stagingAllowIncreaseOrderQuantity,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.stagingAllowIncreaseOrderQuantity,
+                  stagingAllowIncreaseOrderQuantity,
+                )) &&
+            (identical(
+                  other.stagingAllowAddMiscItem,
+                  stagingAllowAddMiscItem,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.stagingAllowAddMiscItem,
+                  stagingAllowAddMiscItem,
+                )) &&
+            (identical(
+                  other.stagingAllowDecreaseOrderQuantity,
+                  stagingAllowDecreaseOrderQuantity,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.stagingAllowDecreaseOrderQuantity,
+                  stagingAllowDecreaseOrderQuantity,
+                )) &&
+            (identical(
+                  other.stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
+                  stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
+                  stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
+                )) &&
+            (identical(
+                  other.allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
+                  allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
+                  allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
+                )) &&
+            (identical(
+                  other.allowContractIfDealRequiresPOAndOrderHasPendingPO,
+                  allowContractIfDealRequiresPOAndOrderHasPendingPO,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowContractIfDealRequiresPOAndOrderHasPendingPO,
+                  allowContractIfDealRequiresPOAndOrderHasPendingPO,
+                )) &&
+            (identical(
+                  other.allowContractIfPendingItemsExist,
+                  allowContractIfPendingItemsExist,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowContractIfPendingItemsExist,
+                  allowContractIfPendingItemsExist,
+                )) &&
+            (identical(
+                  other.allowContractIfCustomerDealDoesNotHaveApprovedCredit,
+                  allowContractIfCustomerDealDoesNotHaveApprovedCredit,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowContractIfCustomerDealDoesNotHaveApprovedCredit,
+                  allowContractIfCustomerDealDoesNotHaveApprovedCredit,
+                )) &&
+            (identical(
+                  other.allowContractIfCustomerDealIsOverTheirCreditLimit,
+                  allowContractIfCustomerDealIsOverTheirCreditLimit,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowContractIfCustomerDealIsOverTheirCreditLimit,
+                  allowContractIfCustomerDealIsOverTheirCreditLimit,
+                )) &&
+            (identical(
+                  other.allowContractIfCustomerDealInsuranceCoverageIsLess,
+                  allowContractIfCustomerDealInsuranceCoverageIsLess,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowContractIfCustomerDealInsuranceCoverageIsLess,
+                  allowContractIfCustomerDealInsuranceCoverageIsLess,
+                )) &&
+            (identical(
+                  other
+                      .allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate,
+                  allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other
+                      .allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate,
+                  allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate,
+                )) &&
+            (identical(
+                  other
+                      .allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate,
+                  allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other
+                      .allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate,
+                  allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate,
+                )) &&
+            (identical(
+                  other.allowReceiveSubsWhenPositiveConflictExists,
+                  allowReceiveSubsWhenPositiveConflictExists,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowReceiveSubsWhenPositiveConflictExists,
+                  allowReceiveSubsWhenPositiveConflictExists,
+                )) &&
+            (identical(
+                  other.allowStagingOfUnreservedConsignedItems,
+                  allowStagingOfUnreservedConsignedItems,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowStagingOfUnreservedConsignedItems,
+                  allowStagingOfUnreservedConsignedItems,
+                )) &&
+            (identical(
+                  other.allowStagingOfUnapprovedItems,
+                  allowStagingOfUnapprovedItems,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowStagingOfUnapprovedItems,
+                  allowStagingOfUnapprovedItems,
+                )) &&
+            (identical(
+                  other.allowSubstitutesAtStaging,
+                  allowSubstitutesAtStaging,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowSubstitutesAtStaging,
+                  allowSubstitutesAtStaging,
+                )) &&
+            (identical(
+                  other.deleteOriginalOnSubstitution,
+                  deleteOriginalOnSubstitution,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.deleteOriginalOnSubstitution,
+                  deleteOriginalOnSubstitution,
+                )) &&
+            (identical(
+                  other.quikActivityAllowPrintDollarAmounts,
+                  quikActivityAllowPrintDollarAmounts,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.quikActivityAllowPrintDollarAmounts,
+                  quikActivityAllowPrintDollarAmounts,
+                )) &&
+            (identical(
+                  other.quikScanAllowCreateContract,
+                  quikScanAllowCreateContract,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.quikScanAllowCreateContract,
+                  quikScanAllowCreateContract,
+                )) &&
+            (identical(other.quikScanAllowApplyAll, quikScanAllowApplyAll) ||
+                const DeepCollectionEquality().equals(
+                  other.quikScanAllowApplyAll,
+                  quikScanAllowApplyAll,
+                )) &&
+            (identical(
+                  other.allowCrossICodeExchange,
+                  allowCrossICodeExchange,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowCrossICodeExchange,
+                  allowCrossICodeExchange,
+                )) &&
+            (identical(
+                  other.allowCrossICodePendingExchange,
+                  allowCrossICodePendingExchange,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowCrossICodePendingExchange,
+                  allowCrossICodePendingExchange,
+                )) &&
+            (identical(
+                  other.allowChangeAvailabilityPriority,
+                  allowChangeAvailabilityPriority,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowChangeAvailabilityPriority,
+                  allowChangeAvailabilityPriority,
+                )) &&
+            (identical(other.allowSwapItems, allowSwapItems) ||
+                const DeepCollectionEquality().equals(
+                  other.allowSwapItems,
+                  allowSwapItems,
+                )) &&
+            (identical(other.userMustChangePassword, userMustChangePassword) ||
+                const DeepCollectionEquality().equals(
+                  other.userMustChangePassword,
+                  userMustChangePassword,
+                )) &&
+            (identical(other.passwordExpires, passwordExpires) ||
+                const DeepCollectionEquality().equals(
+                  other.passwordExpires,
+                  passwordExpires,
+                )) &&
+            (identical(other.passwordExpireDays, passwordExpireDays) ||
+                const DeepCollectionEquality().equals(
+                  other.passwordExpireDays,
+                  passwordExpireDays,
+                )) &&
+            (identical(
+                  other.passwordUpdatedDateTime,
+                  passwordUpdatedDateTime,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.passwordUpdatedDateTime,
+                  passwordUpdatedDateTime,
+                )) &&
+            (identical(other.lockAccount, lockAccount) ||
+                const DeepCollectionEquality().equals(
+                  other.lockAccount,
+                  lockAccount,
+                )) &&
+            (identical(other.memo, memo) ||
+                const DeepCollectionEquality().equals(other.memo, memo)) &&
+            (identical(
+                  other.allowCrossLocationEditAndDelete,
+                  allowCrossLocationEditAndDelete,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowCrossLocationEditAndDelete,
+                  allowCrossLocationEditAndDelete,
+                )) &&
+            (identical(other.lastLoggedOn, lastLoggedOn) ||
+                const DeepCollectionEquality().equals(
+                  other.lastLoggedOn,
+                  lastLoggedOn,
+                )) &&
+            (identical(
+                  other.disableInsertIntoActiveOrder,
+                  disableInsertIntoActiveOrder,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.disableInsertIntoActiveOrder,
+                  disableInsertIntoActiveOrder,
+                )) &&
+            (identical(other.autoPrintContract, autoPrintContract) ||
+                const DeepCollectionEquality().equals(
+                  other.autoPrintContract,
+                  autoPrintContract,
+                )) &&
+            (identical(other.inactive, inactive) ||
+                const DeepCollectionEquality().equals(
+                  other.inactive,
+                  inactive,
+                )) &&
+            (identical(other.dateStamp, dateStamp) ||
+                const DeepCollectionEquality().equals(
+                  other.dateStamp,
+                  dateStamp,
+                )) &&
+            (identical(other.webAdministrator, webAdministrator) ||
+                const DeepCollectionEquality().equals(
+                  other.webAdministrator,
+                  webAdministrator,
+                )) &&
+            (identical(other.browseDefaultRows, browseDefaultRows) ||
+                const DeepCollectionEquality().equals(
+                  other.browseDefaultRows,
+                  browseDefaultRows,
+                )) &&
+            (identical(other.gridDefaultRows, gridDefaultRows) ||
+                const DeepCollectionEquality().equals(
+                  other.gridDefaultRows,
+                  gridDefaultRows,
+                )) &&
+            (identical(other.applicationTheme, applicationTheme) ||
+                const DeepCollectionEquality().equals(
+                  other.applicationTheme,
+                  applicationTheme,
+                )) &&
+            (identical(other.homeMenuGuid, homeMenuGuid) ||
+                const DeepCollectionEquality().equals(
+                  other.homeMenuGuid,
+                  homeMenuGuid,
+                )) &&
+            (identical(other.homeMenuPath, homeMenuPath) ||
+                const DeepCollectionEquality().equals(
+                  other.homeMenuPath,
+                  homeMenuPath,
+                )) &&
+            (identical(other.soundProfileId, soundProfileId) ||
+                const DeepCollectionEquality().equals(
+                  other.soundProfileId,
+                  soundProfileId,
+                )) &&
+            (identical(other.soundProfileName, soundProfileName) ||
+                const DeepCollectionEquality().equals(
+                  other.soundProfileName,
+                  soundProfileName,
+                )) &&
+            (identical(other.firstDayOfWeek, firstDayOfWeek) ||
+                const DeepCollectionEquality().equals(
+                  other.firstDayOfWeek,
+                  firstDayOfWeek,
+                )) &&
+            (identical(
+                  other.settingsNavigationMenuVisible,
+                  settingsNavigationMenuVisible,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.settingsNavigationMenuVisible,
+                  settingsNavigationMenuVisible,
+                )) &&
+            (identical(
+                  other.reportsNavigationMenuVisible,
+                  reportsNavigationMenuVisible,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.reportsNavigationMenuVisible,
+                  reportsNavigationMenuVisible,
+                )) &&
+            (identical(other.userType, userType) ||
+                const DeepCollectionEquality().equals(
+                  other.userType,
+                  userType,
+                )) &&
+            (identical(other.emailSignature, emailSignature) ||
+                const DeepCollectionEquality().equals(
+                  other.emailSignature,
+                  emailSignature,
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)) &&
+            (identical(other.availabilityPreference, availabilityPreference) ||
+                const DeepCollectionEquality().equals(
+                  other.availabilityPreference,
+                  availabilityPreference,
+                )) &&
+            (identical(
+                  other.availabilityAllWarehouses,
+                  availabilityAllWarehouses,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.availabilityAllWarehouses,
+                  availabilityAllWarehouses,
+                )) &&
+            (identical(other.sourceId, sourceId) ||
+                const DeepCollectionEquality().equals(
+                  other.sourceId,
+                  sourceId,
+                )) &&
+            (identical(other.quikSearchMode, quikSearchMode) ||
+                const DeepCollectionEquality().equals(
+                  other.quikSearchMode,
+                  quikSearchMode,
+                )) &&
+            (identical(other.showRentalItemsOutOnly, showRentalItemsOutOnly) ||
+                const DeepCollectionEquality().equals(
+                  other.showRentalItemsOutOnly,
+                  showRentalItemsOutOnly,
+                )) &&
+            (identical(other.creditCardPinPadId, creditCardPinPadId) ||
+                const DeepCollectionEquality().equals(
+                  other.creditCardPinPadId,
+                  creditCardPinPadId,
+                )) &&
+            (identical(other.exportCode, exportCode) ||
+                const DeepCollectionEquality().equals(
+                  other.exportCode,
+                  exportCode,
+                )) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality().equals(
+                  other.auditNote,
+                  auditNote,
+                )) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )) &&
+            (identical(other.urlIdentifier, urlIdentifier) ||
+                const DeepCollectionEquality().equals(
+                  other.urlIdentifier,
+                  urlIdentifier,
+                )) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultFieldAttributes,
+                  defaultFieldAttributes,
+                )) &&
+            (identical(other.original, original) ||
+                const DeepCollectionEquality().equals(
+                  other.original,
+                  original,
+                )) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )) &&
+            (identical(other.hasImport, hasImport) ||
+                const DeepCollectionEquality().equals(
+                  other.hasImport,
+                  hasImport,
+                )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
+            (identical(other.createdByUserId, createdByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserId,
+                  createdByUserId,
+                )) &&
+            (identical(other.createdByUserName, createdByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserName,
+                  createdByUserName,
+                )) &&
+            (identical(other.createdDateTime, createdDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.createdDateTime,
+                  createdDateTime,
+                )) &&
+            (identical(other.modifiedByUserId, modifiedByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserId,
+                  modifiedByUserId,
+                )) &&
+            (identical(other.modifiedByUserName, modifiedByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserName,
+                  modifiedByUserName,
+                )) &&
+            (identical(other.modifiedDateTime, modifiedDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedDateTime,
+                  modifiedDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(webUserId) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(contactId) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(loginName) ^
+      const DeepCollectionEquality().hash(fullName) ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(middleInitial) ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(barCode) ^
+      const DeepCollectionEquality().hash(groupId) ^
+      const DeepCollectionEquality().hash(groupName) ^
+      const DeepCollectionEquality().hash(scheduleColor) ^
+      const DeepCollectionEquality().hash(userTitleId) ^
+      const DeepCollectionEquality().hash(userTitle) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(emailApp) ^
+      const DeepCollectionEquality().hash(addRentalWorksUserSignature) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(officeLocation) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(warehouse) ^
+      const DeepCollectionEquality().hash(address1) ^
+      const DeepCollectionEquality().hash(address2) ^
+      const DeepCollectionEquality().hash(city) ^
+      const DeepCollectionEquality().hash(stateId) ^
+      const DeepCollectionEquality().hash(stateCode) ^
+      const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(zipCode) ^
+      const DeepCollectionEquality().hash(countryId) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(countryCodeIsoAlpha2) ^
+      const DeepCollectionEquality().hash(countryCodePhone) ^
+      const DeepCollectionEquality().hash(officePhone) ^
+      const DeepCollectionEquality().hash(officeExtension) ^
+      const DeepCollectionEquality().hash(fax) ^
+      const DeepCollectionEquality().hash(directPhone) ^
+      const DeepCollectionEquality().hash(pager) ^
+      const DeepCollectionEquality().hash(pagerPin) ^
+      const DeepCollectionEquality().hash(cellular) ^
+      const DeepCollectionEquality().hash(homePhone) ^
+      const DeepCollectionEquality().hash(defaultDepartmentType) ^
+      const DeepCollectionEquality().hash(primaryDepartmentId) ^
+      const DeepCollectionEquality().hash(primaryDepartment) ^
+      const DeepCollectionEquality().hash(languageId) ^
+      const DeepCollectionEquality().hash(language) ^
+      const DeepCollectionEquality().hash(rentalDepartmentId) ^
+      const DeepCollectionEquality().hash(rentalDepartment) ^
+      const DeepCollectionEquality().hash(salesDepartmentId) ^
+      const DeepCollectionEquality().hash(salesDepartment) ^
+      const DeepCollectionEquality().hash(partsDepartmentId) ^
+      const DeepCollectionEquality().hash(partsDepartment) ^
+      const DeepCollectionEquality().hash(miscDepartmentId) ^
+      const DeepCollectionEquality().hash(miscDepartment) ^
+      const DeepCollectionEquality().hash(laborDepartmentId) ^
+      const DeepCollectionEquality().hash(laborDepartment) ^
+      const DeepCollectionEquality().hash(facilityDepartmentId) ^
+      const DeepCollectionEquality().hash(facilityDepartment) ^
+      const DeepCollectionEquality().hash(transportationDepartmentId) ^
+      const DeepCollectionEquality().hash(transportationDepartment) ^
+      const DeepCollectionEquality().hash(rentalInventoryTypeId) ^
+      const DeepCollectionEquality().hash(rentalInventoryType) ^
+      const DeepCollectionEquality().hash(salesInventoryTypeId) ^
+      const DeepCollectionEquality().hash(salesInventoryType) ^
+      const DeepCollectionEquality().hash(partsInventoryTypeId) ^
+      const DeepCollectionEquality().hash(partsInventoryType) ^
+      const DeepCollectionEquality().hash(miscTypeId) ^
+      const DeepCollectionEquality().hash(miscType) ^
+      const DeepCollectionEquality().hash(laborTypeId) ^
+      const DeepCollectionEquality().hash(laborType) ^
+      const DeepCollectionEquality().hash(facilityTypeId) ^
+      const DeepCollectionEquality().hash(facilityType) ^
+      const DeepCollectionEquality().hash(transportationTypeId) ^
+      const DeepCollectionEquality().hash(transportationType) ^
+      const DeepCollectionEquality().hash(noMiscellaneousOnQuotes) ^
+      const DeepCollectionEquality().hash(noMiscellaneousOnOrders) ^
+      const DeepCollectionEquality().hash(noMiscellaneousOnPurchaseOrders) ^
+      const DeepCollectionEquality().hash(limitDaysPerWeek) ^
+      const DeepCollectionEquality().hash(minimumDaysPerWeek) ^
+      const DeepCollectionEquality().hash(allowCreditLimitOverride) ^
+      const DeepCollectionEquality().hash(limitDiscount) ^
+      const DeepCollectionEquality().hash(maximumDiscount) ^
+      const DeepCollectionEquality().hash(limitSubDiscount) ^
+      const DeepCollectionEquality().hash(maximumSubDiscount) ^
+      const DeepCollectionEquality().hash(discountRule) ^
+      const DeepCollectionEquality().hash(stagingAllowIncreaseOrderQuantity) ^
+      const DeepCollectionEquality().hash(stagingAllowAddMiscItem) ^
+      const DeepCollectionEquality().hash(stagingAllowDecreaseOrderQuantity) ^
+      const DeepCollectionEquality().hash(
+        stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
+      ) ^
+      const DeepCollectionEquality().hash(
+        allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
+      ) ^
+      const DeepCollectionEquality().hash(
+        allowContractIfDealRequiresPOAndOrderHasPendingPO,
+      ) ^
+      const DeepCollectionEquality().hash(allowContractIfPendingItemsExist) ^
+      const DeepCollectionEquality().hash(
+        allowContractIfCustomerDealDoesNotHaveApprovedCredit,
+      ) ^
+      const DeepCollectionEquality().hash(
+        allowContractIfCustomerDealIsOverTheirCreditLimit,
+      ) ^
+      const DeepCollectionEquality().hash(
+        allowContractIfCustomerDealInsuranceCoverageIsLess,
+      ) ^
+      const DeepCollectionEquality().hash(
+        allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate,
+      ) ^
+      const DeepCollectionEquality().hash(
+        allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate,
+      ) ^
+      const DeepCollectionEquality().hash(
+        allowReceiveSubsWhenPositiveConflictExists,
+      ) ^
+      const DeepCollectionEquality().hash(
+        allowStagingOfUnreservedConsignedItems,
+      ) ^
+      const DeepCollectionEquality().hash(allowStagingOfUnapprovedItems) ^
+      const DeepCollectionEquality().hash(allowSubstitutesAtStaging) ^
+      const DeepCollectionEquality().hash(deleteOriginalOnSubstitution) ^
+      const DeepCollectionEquality().hash(quikActivityAllowPrintDollarAmounts) ^
+      const DeepCollectionEquality().hash(quikScanAllowCreateContract) ^
+      const DeepCollectionEquality().hash(quikScanAllowApplyAll) ^
+      const DeepCollectionEquality().hash(allowCrossICodeExchange) ^
+      const DeepCollectionEquality().hash(allowCrossICodePendingExchange) ^
+      const DeepCollectionEquality().hash(allowChangeAvailabilityPriority) ^
+      const DeepCollectionEquality().hash(allowSwapItems) ^
+      const DeepCollectionEquality().hash(userMustChangePassword) ^
+      const DeepCollectionEquality().hash(passwordExpires) ^
+      const DeepCollectionEquality().hash(passwordExpireDays) ^
+      const DeepCollectionEquality().hash(passwordUpdatedDateTime) ^
+      const DeepCollectionEquality().hash(lockAccount) ^
+      const DeepCollectionEquality().hash(memo) ^
+      const DeepCollectionEquality().hash(allowCrossLocationEditAndDelete) ^
+      const DeepCollectionEquality().hash(lastLoggedOn) ^
+      const DeepCollectionEquality().hash(disableInsertIntoActiveOrder) ^
+      const DeepCollectionEquality().hash(autoPrintContract) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(webAdministrator) ^
+      const DeepCollectionEquality().hash(browseDefaultRows) ^
+      const DeepCollectionEquality().hash(gridDefaultRows) ^
+      const DeepCollectionEquality().hash(applicationTheme) ^
+      const DeepCollectionEquality().hash(homeMenuGuid) ^
+      const DeepCollectionEquality().hash(homeMenuPath) ^
+      const DeepCollectionEquality().hash(soundProfileId) ^
+      const DeepCollectionEquality().hash(soundProfileName) ^
+      const DeepCollectionEquality().hash(firstDayOfWeek) ^
+      const DeepCollectionEquality().hash(settingsNavigationMenuVisible) ^
+      const DeepCollectionEquality().hash(reportsNavigationMenuVisible) ^
+      const DeepCollectionEquality().hash(userType) ^
+      const DeepCollectionEquality().hash(emailSignature) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(availabilityPreference) ^
+      const DeepCollectionEquality().hash(availabilityAllWarehouses) ^
+      const DeepCollectionEquality().hash(sourceId) ^
+      const DeepCollectionEquality().hash(quikSearchMode) ^
+      const DeepCollectionEquality().hash(showRentalItemsOutOnly) ^
+      const DeepCollectionEquality().hash(creditCardPinPadId) ^
+      const DeepCollectionEquality().hash(exportCode) ^
+      const DeepCollectionEquality().hash(auditNote) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(urlIdentifier) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      const DeepCollectionEquality().hash(original) ^
+      const DeepCollectionEquality().hash(translation) ^
+      const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
+      const DeepCollectionEquality().hash(createdByUserId) ^
+      const DeepCollectionEquality().hash(createdByUserName) ^
+      const DeepCollectionEquality().hash(createdDateTime) ^
+      const DeepCollectionEquality().hash(modifiedByUserId) ^
+      const DeepCollectionEquality().hash(modifiedByUserName) ^
+      const DeepCollectionEquality().hash(modifiedDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesAdministratorUserContactUserContactExtension
+    on WebApiModulesAdministratorUserContactUserContact {
+  WebApiModulesAdministratorUserContactUserContact copyWith({
+    String? webUserId,
+    String? userId,
+    String? contactId,
+    String? name,
+    String? loginName,
+    String? fullName,
+    String? firstName,
+    String? middleInitial,
+    String? lastName,
+    String? barCode,
+    String? groupId,
+    String? groupName,
+    String? scheduleColor,
+    String? userTitleId,
+    String? userTitle,
+    String? email,
+    String? emailApp,
+    bool? addRentalWorksUserSignature,
+    String? officeLocationId,
+    String? officeLocation,
+    String? warehouseId,
+    String? warehouse,
+    String? address1,
+    String? address2,
+    String? city,
+    String? stateId,
+    String? stateCode,
+    String? state,
+    String? zipCode,
+    String? countryId,
+    String? country,
+    String? countryCodeIsoAlpha2,
+    int? countryCodePhone,
+    String? officePhone,
+    String? officeExtension,
+    String? fax,
+    String? directPhone,
+    String? pager,
+    String? pagerPin,
+    String? cellular,
+    String? homePhone,
+    String? defaultDepartmentType,
+    String? primaryDepartmentId,
+    String? primaryDepartment,
+    String? languageId,
+    String? language,
+    String? rentalDepartmentId,
+    String? rentalDepartment,
+    String? salesDepartmentId,
+    String? salesDepartment,
+    String? partsDepartmentId,
+    String? partsDepartment,
+    String? miscDepartmentId,
+    String? miscDepartment,
+    String? laborDepartmentId,
+    String? laborDepartment,
+    String? facilityDepartmentId,
+    String? facilityDepartment,
+    String? transportationDepartmentId,
+    String? transportationDepartment,
+    String? rentalInventoryTypeId,
+    String? rentalInventoryType,
+    String? salesInventoryTypeId,
+    String? salesInventoryType,
+    String? partsInventoryTypeId,
+    String? partsInventoryType,
+    String? miscTypeId,
+    String? miscType,
+    String? laborTypeId,
+    String? laborType,
+    String? facilityTypeId,
+    String? facilityType,
+    String? transportationTypeId,
+    String? transportationType,
+    bool? noMiscellaneousOnQuotes,
+    bool? noMiscellaneousOnOrders,
+    bool? noMiscellaneousOnPurchaseOrders,
+    bool? limitDaysPerWeek,
+    double? minimumDaysPerWeek,
+    bool? allowCreditLimitOverride,
+    bool? limitDiscount,
+    double? maximumDiscount,
+    bool? limitSubDiscount,
+    double? maximumSubDiscount,
+    String? discountRule,
+    bool? stagingAllowIncreaseOrderQuantity,
+    bool? stagingAllowAddMiscItem,
+    bool? stagingAllowDecreaseOrderQuantity,
+    bool? stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
+    bool? allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
+    bool? allowContractIfDealRequiresPOAndOrderHasPendingPO,
+    bool? allowContractIfPendingItemsExist,
+    bool? allowContractIfCustomerDealDoesNotHaveApprovedCredit,
+    bool? allowContractIfCustomerDealIsOverTheirCreditLimit,
+    bool? allowContractIfCustomerDealInsuranceCoverageIsLess,
+    bool? allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate,
+    bool? allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate,
+    bool? allowReceiveSubsWhenPositiveConflictExists,
+    bool? allowStagingOfUnreservedConsignedItems,
+    bool? allowStagingOfUnapprovedItems,
+    bool? allowSubstitutesAtStaging,
+    bool? deleteOriginalOnSubstitution,
+    bool? quikActivityAllowPrintDollarAmounts,
+    bool? quikScanAllowCreateContract,
+    bool? quikScanAllowApplyAll,
+    bool? allowCrossICodeExchange,
+    bool? allowCrossICodePendingExchange,
+    bool? allowChangeAvailabilityPriority,
+    bool? allowSwapItems,
+    bool? userMustChangePassword,
+    bool? passwordExpires,
+    int? passwordExpireDays,
+    String? passwordUpdatedDateTime,
+    bool? lockAccount,
+    String? memo,
+    bool? allowCrossLocationEditAndDelete,
+    String? lastLoggedOn,
+    bool? disableInsertIntoActiveOrder,
+    bool? autoPrintContract,
+    bool? inactive,
+    String? dateStamp,
+    bool? webAdministrator,
+    int? browseDefaultRows,
+    int? gridDefaultRows,
+    String? applicationTheme,
+    String? homeMenuGuid,
+    String? homeMenuPath,
+    int? soundProfileId,
+    String? soundProfileName,
+    int? firstDayOfWeek,
+    bool? settingsNavigationMenuVisible,
+    bool? reportsNavigationMenuVisible,
+    String? userType,
+    String? emailSignature,
+    String? locale,
+    String? availabilityPreference,
+    bool? availabilityAllWarehouses,
+    String? sourceId,
+    String? quikSearchMode,
+    bool? showRentalItemsOutOnly,
+    int? creditCardPinPadId,
+    String? exportCode,
+    String? auditNote,
+    String? recordTitle,
+    dynamic urlIdentifier,
+    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+    List<FwStandardDataFwCustomValue>? custom,
+    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+    FwStandardBusinessLogicFwBusinessLogic? original,
+    List<FwStandardDataFwTranslatedValue>? translation,
+    bool? hasImport,
+    bool? hasDocuments,
+    String? createdByUserId,
+    String? createdByUserName,
+    String? createdDateTime,
+    String? modifiedByUserId,
+    String? modifiedByUserName,
+    String? modifiedDateTime,
+  }) {
+    return WebApiModulesAdministratorUserContactUserContact(
+      webUserId: webUserId ?? this.webUserId,
+      userId: userId ?? this.userId,
+      contactId: contactId ?? this.contactId,
+      name: name ?? this.name,
+      loginName: loginName ?? this.loginName,
+      fullName: fullName ?? this.fullName,
+      firstName: firstName ?? this.firstName,
+      middleInitial: middleInitial ?? this.middleInitial,
+      lastName: lastName ?? this.lastName,
+      barCode: barCode ?? this.barCode,
+      groupId: groupId ?? this.groupId,
+      groupName: groupName ?? this.groupName,
+      scheduleColor: scheduleColor ?? this.scheduleColor,
+      userTitleId: userTitleId ?? this.userTitleId,
+      userTitle: userTitle ?? this.userTitle,
+      email: email ?? this.email,
+      emailApp: emailApp ?? this.emailApp,
+      addRentalWorksUserSignature:
+          addRentalWorksUserSignature ?? this.addRentalWorksUserSignature,
+      officeLocationId: officeLocationId ?? this.officeLocationId,
+      officeLocation: officeLocation ?? this.officeLocation,
+      warehouseId: warehouseId ?? this.warehouseId,
+      warehouse: warehouse ?? this.warehouse,
+      address1: address1 ?? this.address1,
+      address2: address2 ?? this.address2,
+      city: city ?? this.city,
+      stateId: stateId ?? this.stateId,
+      stateCode: stateCode ?? this.stateCode,
+      state: state ?? this.state,
+      zipCode: zipCode ?? this.zipCode,
+      countryId: countryId ?? this.countryId,
+      country: country ?? this.country,
+      countryCodeIsoAlpha2: countryCodeIsoAlpha2 ?? this.countryCodeIsoAlpha2,
+      countryCodePhone: countryCodePhone ?? this.countryCodePhone,
+      officePhone: officePhone ?? this.officePhone,
+      officeExtension: officeExtension ?? this.officeExtension,
+      fax: fax ?? this.fax,
+      directPhone: directPhone ?? this.directPhone,
+      pager: pager ?? this.pager,
+      pagerPin: pagerPin ?? this.pagerPin,
+      cellular: cellular ?? this.cellular,
+      homePhone: homePhone ?? this.homePhone,
+      defaultDepartmentType:
+          defaultDepartmentType ?? this.defaultDepartmentType,
+      primaryDepartmentId: primaryDepartmentId ?? this.primaryDepartmentId,
+      primaryDepartment: primaryDepartment ?? this.primaryDepartment,
+      languageId: languageId ?? this.languageId,
+      language: language ?? this.language,
+      rentalDepartmentId: rentalDepartmentId ?? this.rentalDepartmentId,
+      rentalDepartment: rentalDepartment ?? this.rentalDepartment,
+      salesDepartmentId: salesDepartmentId ?? this.salesDepartmentId,
+      salesDepartment: salesDepartment ?? this.salesDepartment,
+      partsDepartmentId: partsDepartmentId ?? this.partsDepartmentId,
+      partsDepartment: partsDepartment ?? this.partsDepartment,
+      miscDepartmentId: miscDepartmentId ?? this.miscDepartmentId,
+      miscDepartment: miscDepartment ?? this.miscDepartment,
+      laborDepartmentId: laborDepartmentId ?? this.laborDepartmentId,
+      laborDepartment: laborDepartment ?? this.laborDepartment,
+      facilityDepartmentId: facilityDepartmentId ?? this.facilityDepartmentId,
+      facilityDepartment: facilityDepartment ?? this.facilityDepartment,
+      transportationDepartmentId:
+          transportationDepartmentId ?? this.transportationDepartmentId,
+      transportationDepartment:
+          transportationDepartment ?? this.transportationDepartment,
+      rentalInventoryTypeId:
+          rentalInventoryTypeId ?? this.rentalInventoryTypeId,
+      rentalInventoryType: rentalInventoryType ?? this.rentalInventoryType,
+      salesInventoryTypeId: salesInventoryTypeId ?? this.salesInventoryTypeId,
+      salesInventoryType: salesInventoryType ?? this.salesInventoryType,
+      partsInventoryTypeId: partsInventoryTypeId ?? this.partsInventoryTypeId,
+      partsInventoryType: partsInventoryType ?? this.partsInventoryType,
+      miscTypeId: miscTypeId ?? this.miscTypeId,
+      miscType: miscType ?? this.miscType,
+      laborTypeId: laborTypeId ?? this.laborTypeId,
+      laborType: laborType ?? this.laborType,
+      facilityTypeId: facilityTypeId ?? this.facilityTypeId,
+      facilityType: facilityType ?? this.facilityType,
+      transportationTypeId: transportationTypeId ?? this.transportationTypeId,
+      transportationType: transportationType ?? this.transportationType,
+      noMiscellaneousOnQuotes:
+          noMiscellaneousOnQuotes ?? this.noMiscellaneousOnQuotes,
+      noMiscellaneousOnOrders:
+          noMiscellaneousOnOrders ?? this.noMiscellaneousOnOrders,
+      noMiscellaneousOnPurchaseOrders:
+          noMiscellaneousOnPurchaseOrders ??
+          this.noMiscellaneousOnPurchaseOrders,
+      limitDaysPerWeek: limitDaysPerWeek ?? this.limitDaysPerWeek,
+      minimumDaysPerWeek: minimumDaysPerWeek ?? this.minimumDaysPerWeek,
+      allowCreditLimitOverride:
+          allowCreditLimitOverride ?? this.allowCreditLimitOverride,
+      limitDiscount: limitDiscount ?? this.limitDiscount,
+      maximumDiscount: maximumDiscount ?? this.maximumDiscount,
+      limitSubDiscount: limitSubDiscount ?? this.limitSubDiscount,
+      maximumSubDiscount: maximumSubDiscount ?? this.maximumSubDiscount,
+      discountRule: discountRule ?? this.discountRule,
+      stagingAllowIncreaseOrderQuantity:
+          stagingAllowIncreaseOrderQuantity ??
+          this.stagingAllowIncreaseOrderQuantity,
+      stagingAllowAddMiscItem:
+          stagingAllowAddMiscItem ?? this.stagingAllowAddMiscItem,
+      stagingAllowDecreaseOrderQuantity:
+          stagingAllowDecreaseOrderQuantity ??
+          this.stagingAllowDecreaseOrderQuantity,
+      stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt:
+          stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt ??
+          this.stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
+      allowStagingOfItemsWhenReservedOnOtherOrdersQuotes:
+          allowStagingOfItemsWhenReservedOnOtherOrdersQuotes ??
+          this.allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
+      allowContractIfDealRequiresPOAndOrderHasPendingPO:
+          allowContractIfDealRequiresPOAndOrderHasPendingPO ??
+          this.allowContractIfDealRequiresPOAndOrderHasPendingPO,
+      allowContractIfPendingItemsExist:
+          allowContractIfPendingItemsExist ??
+          this.allowContractIfPendingItemsExist,
+      allowContractIfCustomerDealDoesNotHaveApprovedCredit:
+          allowContractIfCustomerDealDoesNotHaveApprovedCredit ??
+          this.allowContractIfCustomerDealDoesNotHaveApprovedCredit,
+      allowContractIfCustomerDealIsOverTheirCreditLimit:
+          allowContractIfCustomerDealIsOverTheirCreditLimit ??
+          this.allowContractIfCustomerDealIsOverTheirCreditLimit,
+      allowContractIfCustomerDealInsuranceCoverageIsLess:
+          allowContractIfCustomerDealInsuranceCoverageIsLess ??
+          this.allowContractIfCustomerDealInsuranceCoverageIsLess,
+      allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate:
+          allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate ??
+          this.allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate,
+      allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate:
+          allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate ??
+          this.allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate,
+      allowReceiveSubsWhenPositiveConflictExists:
+          allowReceiveSubsWhenPositiveConflictExists ??
+          this.allowReceiveSubsWhenPositiveConflictExists,
+      allowStagingOfUnreservedConsignedItems:
+          allowStagingOfUnreservedConsignedItems ??
+          this.allowStagingOfUnreservedConsignedItems,
+      allowStagingOfUnapprovedItems:
+          allowStagingOfUnapprovedItems ?? this.allowStagingOfUnapprovedItems,
+      allowSubstitutesAtStaging:
+          allowSubstitutesAtStaging ?? this.allowSubstitutesAtStaging,
+      deleteOriginalOnSubstitution:
+          deleteOriginalOnSubstitution ?? this.deleteOriginalOnSubstitution,
+      quikActivityAllowPrintDollarAmounts:
+          quikActivityAllowPrintDollarAmounts ??
+          this.quikActivityAllowPrintDollarAmounts,
+      quikScanAllowCreateContract:
+          quikScanAllowCreateContract ?? this.quikScanAllowCreateContract,
+      quikScanAllowApplyAll:
+          quikScanAllowApplyAll ?? this.quikScanAllowApplyAll,
+      allowCrossICodeExchange:
+          allowCrossICodeExchange ?? this.allowCrossICodeExchange,
+      allowCrossICodePendingExchange:
+          allowCrossICodePendingExchange ?? this.allowCrossICodePendingExchange,
+      allowChangeAvailabilityPriority:
+          allowChangeAvailabilityPriority ??
+          this.allowChangeAvailabilityPriority,
+      allowSwapItems: allowSwapItems ?? this.allowSwapItems,
+      userMustChangePassword:
+          userMustChangePassword ?? this.userMustChangePassword,
+      passwordExpires: passwordExpires ?? this.passwordExpires,
+      passwordExpireDays: passwordExpireDays ?? this.passwordExpireDays,
+      passwordUpdatedDateTime:
+          passwordUpdatedDateTime ?? this.passwordUpdatedDateTime,
+      lockAccount: lockAccount ?? this.lockAccount,
+      memo: memo ?? this.memo,
+      allowCrossLocationEditAndDelete:
+          allowCrossLocationEditAndDelete ??
+          this.allowCrossLocationEditAndDelete,
+      lastLoggedOn: lastLoggedOn ?? this.lastLoggedOn,
+      disableInsertIntoActiveOrder:
+          disableInsertIntoActiveOrder ?? this.disableInsertIntoActiveOrder,
+      autoPrintContract: autoPrintContract ?? this.autoPrintContract,
+      inactive: inactive ?? this.inactive,
+      dateStamp: dateStamp ?? this.dateStamp,
+      webAdministrator: webAdministrator ?? this.webAdministrator,
+      browseDefaultRows: browseDefaultRows ?? this.browseDefaultRows,
+      gridDefaultRows: gridDefaultRows ?? this.gridDefaultRows,
+      applicationTheme: applicationTheme ?? this.applicationTheme,
+      homeMenuGuid: homeMenuGuid ?? this.homeMenuGuid,
+      homeMenuPath: homeMenuPath ?? this.homeMenuPath,
+      soundProfileId: soundProfileId ?? this.soundProfileId,
+      soundProfileName: soundProfileName ?? this.soundProfileName,
+      firstDayOfWeek: firstDayOfWeek ?? this.firstDayOfWeek,
+      settingsNavigationMenuVisible:
+          settingsNavigationMenuVisible ?? this.settingsNavigationMenuVisible,
+      reportsNavigationMenuVisible:
+          reportsNavigationMenuVisible ?? this.reportsNavigationMenuVisible,
+      userType: userType ?? this.userType,
+      emailSignature: emailSignature ?? this.emailSignature,
+      locale: locale ?? this.locale,
+      availabilityPreference:
+          availabilityPreference ?? this.availabilityPreference,
+      availabilityAllWarehouses:
+          availabilityAllWarehouses ?? this.availabilityAllWarehouses,
+      sourceId: sourceId ?? this.sourceId,
+      quikSearchMode: quikSearchMode ?? this.quikSearchMode,
+      showRentalItemsOutOnly:
+          showRentalItemsOutOnly ?? this.showRentalItemsOutOnly,
+      creditCardPinPadId: creditCardPinPadId ?? this.creditCardPinPadId,
+      exportCode: exportCode ?? this.exportCode,
+      auditNote: auditNote ?? this.auditNote,
+      recordTitle: recordTitle ?? this.recordTitle,
+      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
+      fields: fields ?? this.fields,
+      custom: custom ?? this.custom,
+      defaultFieldAttributes:
+          defaultFieldAttributes ?? this.defaultFieldAttributes,
+      original: original ?? this.original,
+      translation: translation ?? this.translation,
+      hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
+      createdByUserId: createdByUserId ?? this.createdByUserId,
+      createdByUserName: createdByUserName ?? this.createdByUserName,
+      createdDateTime: createdDateTime ?? this.createdDateTime,
+      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
+      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
+      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    );
+  }
+
+  WebApiModulesAdministratorUserContactUserContact copyWithWrapped({
+    Wrapped<String?>? webUserId,
+    Wrapped<String?>? userId,
+    Wrapped<String?>? contactId,
+    Wrapped<String?>? name,
+    Wrapped<String?>? loginName,
+    Wrapped<String?>? fullName,
+    Wrapped<String?>? firstName,
+    Wrapped<String?>? middleInitial,
+    Wrapped<String?>? lastName,
+    Wrapped<String?>? barCode,
+    Wrapped<String?>? groupId,
+    Wrapped<String?>? groupName,
+    Wrapped<String?>? scheduleColor,
+    Wrapped<String?>? userTitleId,
+    Wrapped<String?>? userTitle,
+    Wrapped<String?>? email,
+    Wrapped<String?>? emailApp,
+    Wrapped<bool?>? addRentalWorksUserSignature,
+    Wrapped<String?>? officeLocationId,
+    Wrapped<String?>? officeLocation,
+    Wrapped<String?>? warehouseId,
+    Wrapped<String?>? warehouse,
+    Wrapped<String?>? address1,
+    Wrapped<String?>? address2,
+    Wrapped<String?>? city,
+    Wrapped<String?>? stateId,
+    Wrapped<String?>? stateCode,
+    Wrapped<String?>? state,
+    Wrapped<String?>? zipCode,
+    Wrapped<String?>? countryId,
+    Wrapped<String?>? country,
+    Wrapped<String?>? countryCodeIsoAlpha2,
+    Wrapped<int?>? countryCodePhone,
+    Wrapped<String?>? officePhone,
+    Wrapped<String?>? officeExtension,
+    Wrapped<String?>? fax,
+    Wrapped<String?>? directPhone,
+    Wrapped<String?>? pager,
+    Wrapped<String?>? pagerPin,
+    Wrapped<String?>? cellular,
+    Wrapped<String?>? homePhone,
+    Wrapped<String?>? defaultDepartmentType,
+    Wrapped<String?>? primaryDepartmentId,
+    Wrapped<String?>? primaryDepartment,
+    Wrapped<String?>? languageId,
+    Wrapped<String?>? language,
+    Wrapped<String?>? rentalDepartmentId,
+    Wrapped<String?>? rentalDepartment,
+    Wrapped<String?>? salesDepartmentId,
+    Wrapped<String?>? salesDepartment,
+    Wrapped<String?>? partsDepartmentId,
+    Wrapped<String?>? partsDepartment,
+    Wrapped<String?>? miscDepartmentId,
+    Wrapped<String?>? miscDepartment,
+    Wrapped<String?>? laborDepartmentId,
+    Wrapped<String?>? laborDepartment,
+    Wrapped<String?>? facilityDepartmentId,
+    Wrapped<String?>? facilityDepartment,
+    Wrapped<String?>? transportationDepartmentId,
+    Wrapped<String?>? transportationDepartment,
+    Wrapped<String?>? rentalInventoryTypeId,
+    Wrapped<String?>? rentalInventoryType,
+    Wrapped<String?>? salesInventoryTypeId,
+    Wrapped<String?>? salesInventoryType,
+    Wrapped<String?>? partsInventoryTypeId,
+    Wrapped<String?>? partsInventoryType,
+    Wrapped<String?>? miscTypeId,
+    Wrapped<String?>? miscType,
+    Wrapped<String?>? laborTypeId,
+    Wrapped<String?>? laborType,
+    Wrapped<String?>? facilityTypeId,
+    Wrapped<String?>? facilityType,
+    Wrapped<String?>? transportationTypeId,
+    Wrapped<String?>? transportationType,
+    Wrapped<bool?>? noMiscellaneousOnQuotes,
+    Wrapped<bool?>? noMiscellaneousOnOrders,
+    Wrapped<bool?>? noMiscellaneousOnPurchaseOrders,
+    Wrapped<bool?>? limitDaysPerWeek,
+    Wrapped<double?>? minimumDaysPerWeek,
+    Wrapped<bool?>? allowCreditLimitOverride,
+    Wrapped<bool?>? limitDiscount,
+    Wrapped<double?>? maximumDiscount,
+    Wrapped<bool?>? limitSubDiscount,
+    Wrapped<double?>? maximumSubDiscount,
+    Wrapped<String?>? discountRule,
+    Wrapped<bool?>? stagingAllowIncreaseOrderQuantity,
+    Wrapped<bool?>? stagingAllowAddMiscItem,
+    Wrapped<bool?>? stagingAllowDecreaseOrderQuantity,
+    Wrapped<bool?>? stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt,
+    Wrapped<bool?>? allowStagingOfItemsWhenReservedOnOtherOrdersQuotes,
+    Wrapped<bool?>? allowContractIfDealRequiresPOAndOrderHasPendingPO,
+    Wrapped<bool?>? allowContractIfPendingItemsExist,
+    Wrapped<bool?>? allowContractIfCustomerDealDoesNotHaveApprovedCredit,
+    Wrapped<bool?>? allowContractIfCustomerDealIsOverTheirCreditLimit,
+    Wrapped<bool?>? allowContractIfCustomerDealInsuranceCoverageIsLess,
+    Wrapped<bool?>?
+    allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate,
+    Wrapped<bool?>?
+    allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate,
+    Wrapped<bool?>? allowReceiveSubsWhenPositiveConflictExists,
+    Wrapped<bool?>? allowStagingOfUnreservedConsignedItems,
+    Wrapped<bool?>? allowStagingOfUnapprovedItems,
+    Wrapped<bool?>? allowSubstitutesAtStaging,
+    Wrapped<bool?>? deleteOriginalOnSubstitution,
+    Wrapped<bool?>? quikActivityAllowPrintDollarAmounts,
+    Wrapped<bool?>? quikScanAllowCreateContract,
+    Wrapped<bool?>? quikScanAllowApplyAll,
+    Wrapped<bool?>? allowCrossICodeExchange,
+    Wrapped<bool?>? allowCrossICodePendingExchange,
+    Wrapped<bool?>? allowChangeAvailabilityPriority,
+    Wrapped<bool?>? allowSwapItems,
+    Wrapped<bool?>? userMustChangePassword,
+    Wrapped<bool?>? passwordExpires,
+    Wrapped<int?>? passwordExpireDays,
+    Wrapped<String?>? passwordUpdatedDateTime,
+    Wrapped<bool?>? lockAccount,
+    Wrapped<String?>? memo,
+    Wrapped<bool?>? allowCrossLocationEditAndDelete,
+    Wrapped<String?>? lastLoggedOn,
+    Wrapped<bool?>? disableInsertIntoActiveOrder,
+    Wrapped<bool?>? autoPrintContract,
+    Wrapped<bool?>? inactive,
+    Wrapped<String?>? dateStamp,
+    Wrapped<bool?>? webAdministrator,
+    Wrapped<int?>? browseDefaultRows,
+    Wrapped<int?>? gridDefaultRows,
+    Wrapped<String?>? applicationTheme,
+    Wrapped<String?>? homeMenuGuid,
+    Wrapped<String?>? homeMenuPath,
+    Wrapped<int?>? soundProfileId,
+    Wrapped<String?>? soundProfileName,
+    Wrapped<int?>? firstDayOfWeek,
+    Wrapped<bool?>? settingsNavigationMenuVisible,
+    Wrapped<bool?>? reportsNavigationMenuVisible,
+    Wrapped<String?>? userType,
+    Wrapped<String?>? emailSignature,
+    Wrapped<String?>? locale,
+    Wrapped<String?>? availabilityPreference,
+    Wrapped<bool?>? availabilityAllWarehouses,
+    Wrapped<String?>? sourceId,
+    Wrapped<String?>? quikSearchMode,
+    Wrapped<bool?>? showRentalItemsOutOnly,
+    Wrapped<int?>? creditCardPinPadId,
+    Wrapped<String?>? exportCode,
+    Wrapped<String?>? auditNote,
+    Wrapped<String?>? recordTitle,
+    Wrapped<dynamic>? urlIdentifier,
+    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+    fields,
+    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+    Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
+    Wrapped<String?>? createdByUserId,
+    Wrapped<String?>? createdByUserName,
+    Wrapped<String?>? createdDateTime,
+    Wrapped<String?>? modifiedByUserId,
+    Wrapped<String?>? modifiedByUserName,
+    Wrapped<String?>? modifiedDateTime,
+  }) {
+    return WebApiModulesAdministratorUserContactUserContact(
+      webUserId: (webUserId != null ? webUserId.value : this.webUserId),
+      userId: (userId != null ? userId.value : this.userId),
+      contactId: (contactId != null ? contactId.value : this.contactId),
+      name: (name != null ? name.value : this.name),
+      loginName: (loginName != null ? loginName.value : this.loginName),
+      fullName: (fullName != null ? fullName.value : this.fullName),
+      firstName: (firstName != null ? firstName.value : this.firstName),
+      middleInitial: (middleInitial != null
+          ? middleInitial.value
+          : this.middleInitial),
+      lastName: (lastName != null ? lastName.value : this.lastName),
+      barCode: (barCode != null ? barCode.value : this.barCode),
+      groupId: (groupId != null ? groupId.value : this.groupId),
+      groupName: (groupName != null ? groupName.value : this.groupName),
+      scheduleColor: (scheduleColor != null
+          ? scheduleColor.value
+          : this.scheduleColor),
+      userTitleId: (userTitleId != null ? userTitleId.value : this.userTitleId),
+      userTitle: (userTitle != null ? userTitle.value : this.userTitle),
+      email: (email != null ? email.value : this.email),
+      emailApp: (emailApp != null ? emailApp.value : this.emailApp),
+      addRentalWorksUserSignature: (addRentalWorksUserSignature != null
+          ? addRentalWorksUserSignature.value
+          : this.addRentalWorksUserSignature),
+      officeLocationId: (officeLocationId != null
+          ? officeLocationId.value
+          : this.officeLocationId),
+      officeLocation: (officeLocation != null
+          ? officeLocation.value
+          : this.officeLocation),
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      warehouse: (warehouse != null ? warehouse.value : this.warehouse),
+      address1: (address1 != null ? address1.value : this.address1),
+      address2: (address2 != null ? address2.value : this.address2),
+      city: (city != null ? city.value : this.city),
+      stateId: (stateId != null ? stateId.value : this.stateId),
+      stateCode: (stateCode != null ? stateCode.value : this.stateCode),
+      state: (state != null ? state.value : this.state),
+      zipCode: (zipCode != null ? zipCode.value : this.zipCode),
+      countryId: (countryId != null ? countryId.value : this.countryId),
+      country: (country != null ? country.value : this.country),
+      countryCodeIsoAlpha2: (countryCodeIsoAlpha2 != null
+          ? countryCodeIsoAlpha2.value
+          : this.countryCodeIsoAlpha2),
+      countryCodePhone: (countryCodePhone != null
+          ? countryCodePhone.value
+          : this.countryCodePhone),
+      officePhone: (officePhone != null ? officePhone.value : this.officePhone),
+      officeExtension: (officeExtension != null
+          ? officeExtension.value
+          : this.officeExtension),
+      fax: (fax != null ? fax.value : this.fax),
+      directPhone: (directPhone != null ? directPhone.value : this.directPhone),
+      pager: (pager != null ? pager.value : this.pager),
+      pagerPin: (pagerPin != null ? pagerPin.value : this.pagerPin),
+      cellular: (cellular != null ? cellular.value : this.cellular),
+      homePhone: (homePhone != null ? homePhone.value : this.homePhone),
+      defaultDepartmentType: (defaultDepartmentType != null
+          ? defaultDepartmentType.value
+          : this.defaultDepartmentType),
+      primaryDepartmentId: (primaryDepartmentId != null
+          ? primaryDepartmentId.value
+          : this.primaryDepartmentId),
+      primaryDepartment: (primaryDepartment != null
+          ? primaryDepartment.value
+          : this.primaryDepartment),
+      languageId: (languageId != null ? languageId.value : this.languageId),
+      language: (language != null ? language.value : this.language),
+      rentalDepartmentId: (rentalDepartmentId != null
+          ? rentalDepartmentId.value
+          : this.rentalDepartmentId),
+      rentalDepartment: (rentalDepartment != null
+          ? rentalDepartment.value
+          : this.rentalDepartment),
+      salesDepartmentId: (salesDepartmentId != null
+          ? salesDepartmentId.value
+          : this.salesDepartmentId),
+      salesDepartment: (salesDepartment != null
+          ? salesDepartment.value
+          : this.salesDepartment),
+      partsDepartmentId: (partsDepartmentId != null
+          ? partsDepartmentId.value
+          : this.partsDepartmentId),
+      partsDepartment: (partsDepartment != null
+          ? partsDepartment.value
+          : this.partsDepartment),
+      miscDepartmentId: (miscDepartmentId != null
+          ? miscDepartmentId.value
+          : this.miscDepartmentId),
+      miscDepartment: (miscDepartment != null
+          ? miscDepartment.value
+          : this.miscDepartment),
+      laborDepartmentId: (laborDepartmentId != null
+          ? laborDepartmentId.value
+          : this.laborDepartmentId),
+      laborDepartment: (laborDepartment != null
+          ? laborDepartment.value
+          : this.laborDepartment),
+      facilityDepartmentId: (facilityDepartmentId != null
+          ? facilityDepartmentId.value
+          : this.facilityDepartmentId),
+      facilityDepartment: (facilityDepartment != null
+          ? facilityDepartment.value
+          : this.facilityDepartment),
+      transportationDepartmentId: (transportationDepartmentId != null
+          ? transportationDepartmentId.value
+          : this.transportationDepartmentId),
+      transportationDepartment: (transportationDepartment != null
+          ? transportationDepartment.value
+          : this.transportationDepartment),
+      rentalInventoryTypeId: (rentalInventoryTypeId != null
+          ? rentalInventoryTypeId.value
+          : this.rentalInventoryTypeId),
+      rentalInventoryType: (rentalInventoryType != null
+          ? rentalInventoryType.value
+          : this.rentalInventoryType),
+      salesInventoryTypeId: (salesInventoryTypeId != null
+          ? salesInventoryTypeId.value
+          : this.salesInventoryTypeId),
+      salesInventoryType: (salesInventoryType != null
+          ? salesInventoryType.value
+          : this.salesInventoryType),
+      partsInventoryTypeId: (partsInventoryTypeId != null
+          ? partsInventoryTypeId.value
+          : this.partsInventoryTypeId),
+      partsInventoryType: (partsInventoryType != null
+          ? partsInventoryType.value
+          : this.partsInventoryType),
+      miscTypeId: (miscTypeId != null ? miscTypeId.value : this.miscTypeId),
+      miscType: (miscType != null ? miscType.value : this.miscType),
+      laborTypeId: (laborTypeId != null ? laborTypeId.value : this.laborTypeId),
+      laborType: (laborType != null ? laborType.value : this.laborType),
+      facilityTypeId: (facilityTypeId != null
+          ? facilityTypeId.value
+          : this.facilityTypeId),
+      facilityType: (facilityType != null
+          ? facilityType.value
+          : this.facilityType),
+      transportationTypeId: (transportationTypeId != null
+          ? transportationTypeId.value
+          : this.transportationTypeId),
+      transportationType: (transportationType != null
+          ? transportationType.value
+          : this.transportationType),
+      noMiscellaneousOnQuotes: (noMiscellaneousOnQuotes != null
+          ? noMiscellaneousOnQuotes.value
+          : this.noMiscellaneousOnQuotes),
+      noMiscellaneousOnOrders: (noMiscellaneousOnOrders != null
+          ? noMiscellaneousOnOrders.value
+          : this.noMiscellaneousOnOrders),
+      noMiscellaneousOnPurchaseOrders: (noMiscellaneousOnPurchaseOrders != null
+          ? noMiscellaneousOnPurchaseOrders.value
+          : this.noMiscellaneousOnPurchaseOrders),
+      limitDaysPerWeek: (limitDaysPerWeek != null
+          ? limitDaysPerWeek.value
+          : this.limitDaysPerWeek),
+      minimumDaysPerWeek: (minimumDaysPerWeek != null
+          ? minimumDaysPerWeek.value
+          : this.minimumDaysPerWeek),
+      allowCreditLimitOverride: (allowCreditLimitOverride != null
+          ? allowCreditLimitOverride.value
+          : this.allowCreditLimitOverride),
+      limitDiscount: (limitDiscount != null
+          ? limitDiscount.value
+          : this.limitDiscount),
+      maximumDiscount: (maximumDiscount != null
+          ? maximumDiscount.value
+          : this.maximumDiscount),
+      limitSubDiscount: (limitSubDiscount != null
+          ? limitSubDiscount.value
+          : this.limitSubDiscount),
+      maximumSubDiscount: (maximumSubDiscount != null
+          ? maximumSubDiscount.value
+          : this.maximumSubDiscount),
+      discountRule: (discountRule != null
+          ? discountRule.value
+          : this.discountRule),
+      stagingAllowIncreaseOrderQuantity:
+          (stagingAllowIncreaseOrderQuantity != null
+          ? stagingAllowIncreaseOrderQuantity.value
+          : this.stagingAllowIncreaseOrderQuantity),
+      stagingAllowAddMiscItem: (stagingAllowAddMiscItem != null
+          ? stagingAllowAddMiscItem.value
+          : this.stagingAllowAddMiscItem),
+      stagingAllowDecreaseOrderQuantity:
+          (stagingAllowDecreaseOrderQuantity != null
+          ? stagingAllowDecreaseOrderQuantity.value
+          : this.stagingAllowDecreaseOrderQuantity),
+      stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt:
+          (stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt != null
+          ? stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt.value
+          : this.stagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt),
+      allowStagingOfItemsWhenReservedOnOtherOrdersQuotes:
+          (allowStagingOfItemsWhenReservedOnOtherOrdersQuotes != null
+          ? allowStagingOfItemsWhenReservedOnOtherOrdersQuotes.value
+          : this.allowStagingOfItemsWhenReservedOnOtherOrdersQuotes),
+      allowContractIfDealRequiresPOAndOrderHasPendingPO:
+          (allowContractIfDealRequiresPOAndOrderHasPendingPO != null
+          ? allowContractIfDealRequiresPOAndOrderHasPendingPO.value
+          : this.allowContractIfDealRequiresPOAndOrderHasPendingPO),
+      allowContractIfPendingItemsExist:
+          (allowContractIfPendingItemsExist != null
+          ? allowContractIfPendingItemsExist.value
+          : this.allowContractIfPendingItemsExist),
+      allowContractIfCustomerDealDoesNotHaveApprovedCredit:
+          (allowContractIfCustomerDealDoesNotHaveApprovedCredit != null
+          ? allowContractIfCustomerDealDoesNotHaveApprovedCredit.value
+          : this.allowContractIfCustomerDealDoesNotHaveApprovedCredit),
+      allowContractIfCustomerDealIsOverTheirCreditLimit:
+          (allowContractIfCustomerDealIsOverTheirCreditLimit != null
+          ? allowContractIfCustomerDealIsOverTheirCreditLimit.value
+          : this.allowContractIfCustomerDealIsOverTheirCreditLimit),
+      allowContractIfCustomerDealInsuranceCoverageIsLess:
+          (allowContractIfCustomerDealInsuranceCoverageIsLess != null
+          ? allowContractIfCustomerDealInsuranceCoverageIsLess.value
+          : this.allowContractIfCustomerDealInsuranceCoverageIsLess),
+      allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate:
+          (allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate !=
+              null
+          ? allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate
+                .value
+          : this.allowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate),
+      allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate:
+          (allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate != null
+          ? allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate.value
+          : this.allowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate),
+      allowReceiveSubsWhenPositiveConflictExists:
+          (allowReceiveSubsWhenPositiveConflictExists != null
+          ? allowReceiveSubsWhenPositiveConflictExists.value
+          : this.allowReceiveSubsWhenPositiveConflictExists),
+      allowStagingOfUnreservedConsignedItems:
+          (allowStagingOfUnreservedConsignedItems != null
+          ? allowStagingOfUnreservedConsignedItems.value
+          : this.allowStagingOfUnreservedConsignedItems),
+      allowStagingOfUnapprovedItems: (allowStagingOfUnapprovedItems != null
+          ? allowStagingOfUnapprovedItems.value
+          : this.allowStagingOfUnapprovedItems),
+      allowSubstitutesAtStaging: (allowSubstitutesAtStaging != null
+          ? allowSubstitutesAtStaging.value
+          : this.allowSubstitutesAtStaging),
+      deleteOriginalOnSubstitution: (deleteOriginalOnSubstitution != null
+          ? deleteOriginalOnSubstitution.value
+          : this.deleteOriginalOnSubstitution),
+      quikActivityAllowPrintDollarAmounts:
+          (quikActivityAllowPrintDollarAmounts != null
+          ? quikActivityAllowPrintDollarAmounts.value
+          : this.quikActivityAllowPrintDollarAmounts),
+      quikScanAllowCreateContract: (quikScanAllowCreateContract != null
+          ? quikScanAllowCreateContract.value
+          : this.quikScanAllowCreateContract),
+      quikScanAllowApplyAll: (quikScanAllowApplyAll != null
+          ? quikScanAllowApplyAll.value
+          : this.quikScanAllowApplyAll),
+      allowCrossICodeExchange: (allowCrossICodeExchange != null
+          ? allowCrossICodeExchange.value
+          : this.allowCrossICodeExchange),
+      allowCrossICodePendingExchange: (allowCrossICodePendingExchange != null
+          ? allowCrossICodePendingExchange.value
+          : this.allowCrossICodePendingExchange),
+      allowChangeAvailabilityPriority: (allowChangeAvailabilityPriority != null
+          ? allowChangeAvailabilityPriority.value
+          : this.allowChangeAvailabilityPriority),
+      allowSwapItems: (allowSwapItems != null
+          ? allowSwapItems.value
+          : this.allowSwapItems),
+      userMustChangePassword: (userMustChangePassword != null
+          ? userMustChangePassword.value
+          : this.userMustChangePassword),
+      passwordExpires: (passwordExpires != null
+          ? passwordExpires.value
+          : this.passwordExpires),
+      passwordExpireDays: (passwordExpireDays != null
+          ? passwordExpireDays.value
+          : this.passwordExpireDays),
+      passwordUpdatedDateTime: (passwordUpdatedDateTime != null
+          ? passwordUpdatedDateTime.value
+          : this.passwordUpdatedDateTime),
+      lockAccount: (lockAccount != null ? lockAccount.value : this.lockAccount),
+      memo: (memo != null ? memo.value : this.memo),
+      allowCrossLocationEditAndDelete: (allowCrossLocationEditAndDelete != null
+          ? allowCrossLocationEditAndDelete.value
+          : this.allowCrossLocationEditAndDelete),
+      lastLoggedOn: (lastLoggedOn != null
+          ? lastLoggedOn.value
+          : this.lastLoggedOn),
+      disableInsertIntoActiveOrder: (disableInsertIntoActiveOrder != null
+          ? disableInsertIntoActiveOrder.value
+          : this.disableInsertIntoActiveOrder),
+      autoPrintContract: (autoPrintContract != null
+          ? autoPrintContract.value
+          : this.autoPrintContract),
+      inactive: (inactive != null ? inactive.value : this.inactive),
+      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+      webAdministrator: (webAdministrator != null
+          ? webAdministrator.value
+          : this.webAdministrator),
+      browseDefaultRows: (browseDefaultRows != null
+          ? browseDefaultRows.value
+          : this.browseDefaultRows),
+      gridDefaultRows: (gridDefaultRows != null
+          ? gridDefaultRows.value
+          : this.gridDefaultRows),
+      applicationTheme: (applicationTheme != null
+          ? applicationTheme.value
+          : this.applicationTheme),
+      homeMenuGuid: (homeMenuGuid != null
+          ? homeMenuGuid.value
+          : this.homeMenuGuid),
+      homeMenuPath: (homeMenuPath != null
+          ? homeMenuPath.value
+          : this.homeMenuPath),
+      soundProfileId: (soundProfileId != null
+          ? soundProfileId.value
+          : this.soundProfileId),
+      soundProfileName: (soundProfileName != null
+          ? soundProfileName.value
+          : this.soundProfileName),
+      firstDayOfWeek: (firstDayOfWeek != null
+          ? firstDayOfWeek.value
+          : this.firstDayOfWeek),
+      settingsNavigationMenuVisible: (settingsNavigationMenuVisible != null
+          ? settingsNavigationMenuVisible.value
+          : this.settingsNavigationMenuVisible),
+      reportsNavigationMenuVisible: (reportsNavigationMenuVisible != null
+          ? reportsNavigationMenuVisible.value
+          : this.reportsNavigationMenuVisible),
+      userType: (userType != null ? userType.value : this.userType),
+      emailSignature: (emailSignature != null
+          ? emailSignature.value
+          : this.emailSignature),
+      locale: (locale != null ? locale.value : this.locale),
+      availabilityPreference: (availabilityPreference != null
+          ? availabilityPreference.value
+          : this.availabilityPreference),
+      availabilityAllWarehouses: (availabilityAllWarehouses != null
+          ? availabilityAllWarehouses.value
+          : this.availabilityAllWarehouses),
+      sourceId: (sourceId != null ? sourceId.value : this.sourceId),
+      quikSearchMode: (quikSearchMode != null
+          ? quikSearchMode.value
+          : this.quikSearchMode),
+      showRentalItemsOutOnly: (showRentalItemsOutOnly != null
+          ? showRentalItemsOutOnly.value
+          : this.showRentalItemsOutOnly),
+      creditCardPinPadId: (creditCardPinPadId != null
+          ? creditCardPinPadId.value
+          : this.creditCardPinPadId),
+      exportCode: (exportCode != null ? exportCode.value : this.exportCode),
+      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+      urlIdentifier: (urlIdentifier != null
+          ? urlIdentifier.value
+          : this.urlIdentifier),
+      fields: (fields != null ? fields.value : this.fields),
+      custom: (custom != null ? custom.value : this.custom),
+      defaultFieldAttributes: (defaultFieldAttributes != null
+          ? defaultFieldAttributes.value
+          : this.defaultFieldAttributes),
+      original: (original != null ? original.value : this.original),
+      translation: (translation != null ? translation.value : this.translation),
+      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
+      createdByUserId: (createdByUserId != null
+          ? createdByUserId.value
+          : this.createdByUserId),
+      createdByUserName: (createdByUserName != null
+          ? createdByUserName.value
+          : this.createdByUserName),
+      createdDateTime: (createdDateTime != null
+          ? createdDateTime.value
+          : this.createdDateTime),
+      modifiedByUserId: (modifiedByUserId != null
+          ? modifiedByUserId.value
+          : this.modifiedByUserId),
+      modifiedByUserName: (modifiedByUserName != null
+          ? modifiedByUserName.value
+          : this.modifiedByUserName),
+      modifiedDateTime: (modifiedDateTime != null
+          ? modifiedDateTime.value
+          : this.modifiedDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class WebApiModulesAdministratorControlsCustomModuleCustomModule {
   const WebApiModulesAdministratorControlsCustomModuleCustomModule({
     this.moduleName,
@@ -32168,6 +36078,7 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -32223,6 +36134,8 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -32286,6 +36199,11 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -32333,6 +36251,7 @@ class WebApiModulesAdministratorControlsCustomModuleCustomModule {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -32355,6 +36274,7 @@ extension $WebApiModulesAdministratorControlsCustomModuleCustomModuleExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -32374,6 +36294,7 @@ extension $WebApiModulesAdministratorControlsCustomModuleCustomModuleExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -32395,6 +36316,7 @@ extension $WebApiModulesAdministratorControlsCustomModuleCustomModuleExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -32417,6 +36339,9 @@ extension $WebApiModulesAdministratorControlsCustomModuleCustomModuleExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -32457,6 +36382,7 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -32525,6 +36451,8 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -32620,6 +36548,11 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -32672,6 +36605,7 @@ class WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayou
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -32701,6 +36635,7 @@ extension $WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReport
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -32727,6 +36662,7 @@ extension $WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReport
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -32754,6 +36690,7 @@ extension $WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReport
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -32787,339 +36724,9 @@ extension $WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReport
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-      createdByUserId: (createdByUserId != null
-          ? createdByUserId.value
-          : this.createdByUserId),
-      createdByUserName: (createdByUserName != null
-          ? createdByUserName.value
-          : this.createdByUserName),
-      createdDateTime: (createdDateTime != null
-          ? createdDateTime.value
-          : this.createdDateTime),
-      modifiedByUserId: (modifiedByUserId != null
-          ? modifiedByUserId.value
-          : this.modifiedByUserId),
-      modifiedByUserName: (modifiedByUserName != null
-          ? modifiedByUserName.value
-          : this.modifiedByUserName),
-      modifiedDateTime: (modifiedDateTime != null
-          ? modifiedDateTime.value
-          : this.modifiedDateTime),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField {
-  const WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField({
-    this.duplicateRuleFieldId,
-    this.duplicateRuleId,
-    this.fieldName,
-    this.dateStamp,
-    this.auditNote,
-    this.recordTitle,
-    this.urlIdentifier,
-    this.fields,
-    this.custom,
-    this.defaultFieldAttributes,
-    this.original,
-    this.translation,
-    this.hasImport,
-    this.createdByUserId,
-    this.createdByUserName,
-    this.createdDateTime,
-    this.modifiedByUserId,
-    this.modifiedByUserName,
-    this.modifiedDateTime,
-  });
-
-  factory WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldToJson(
-        this,
-      );
-
-  @JsonKey(name: 'DuplicateRuleFieldId', includeIfNull: false)
-  final String? duplicateRuleFieldId;
-  @JsonKey(name: 'DuplicateRuleId', includeIfNull: false)
-  final String? duplicateRuleId;
-  @JsonKey(name: 'FieldName', includeIfNull: false)
-  final String? fieldName;
-  @JsonKey(name: 'DateStamp', includeIfNull: false)
-  final String? dateStamp;
-  @JsonKey(name: 'AuditNote', includeIfNull: false)
-  final String? auditNote;
-  @JsonKey(name: 'RecordTitle', includeIfNull: false)
-  final String? recordTitle;
-  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
-  final dynamic urlIdentifier;
-  @JsonKey(
-    name: '_Fields',
-    includeIfNull: false,
-    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
-  )
-  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(
-    name: '_Custom',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwCustomValue>[],
-  )
-  final List<FwStandardDataFwCustomValue>? custom;
-  @JsonKey(
-    name: '_DefaultFieldAttributes',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwDefaultAttribute>[],
-  )
-  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
-  @JsonKey(name: '_Original', includeIfNull: false)
-  final FwStandardBusinessLogicFwBusinessLogic? original;
-  @JsonKey(
-    name: '_Translation',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwTranslatedValue>[],
-  )
-  final List<FwStandardDataFwTranslatedValue>? translation;
-  @JsonKey(name: '_HasImport', includeIfNull: false)
-  final bool? hasImport;
-  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
-  final String? createdByUserId;
-  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
-  final String? createdByUserName;
-  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
-  final String? createdDateTime;
-  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
-  final String? modifiedByUserId;
-  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
-  final String? modifiedByUserName;
-  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
-  final String? modifiedDateTime;
-  static const fromJsonFactory =
-      _$WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField &&
-            (identical(other.duplicateRuleFieldId, duplicateRuleFieldId) ||
-                const DeepCollectionEquality().equals(
-                  other.duplicateRuleFieldId,
-                  duplicateRuleFieldId,
-                )) &&
-            (identical(other.duplicateRuleId, duplicateRuleId) ||
-                const DeepCollectionEquality().equals(
-                  other.duplicateRuleId,
-                  duplicateRuleId,
-                )) &&
-            (identical(other.fieldName, fieldName) ||
-                const DeepCollectionEquality().equals(
-                  other.fieldName,
-                  fieldName,
-                )) &&
-            (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality().equals(
-                  other.dateStamp,
-                  dateStamp,
-                )) &&
-            (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality().equals(
-                  other.auditNote,
-                  auditNote,
-                )) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality().equals(
-                  other.recordTitle,
-                  recordTitle,
-                )) &&
-            (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality().equals(
-                  other.urlIdentifier,
-                  urlIdentifier,
-                )) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                  other.defaultFieldAttributes,
-                  defaultFieldAttributes,
-                )) &&
-            (identical(other.original, original) ||
-                const DeepCollectionEquality().equals(
-                  other.original,
-                  original,
-                )) &&
-            (identical(other.translation, translation) ||
-                const DeepCollectionEquality().equals(
-                  other.translation,
-                  translation,
-                )) &&
-            (identical(other.hasImport, hasImport) ||
-                const DeepCollectionEquality().equals(
-                  other.hasImport,
-                  hasImport,
-                )) &&
-            (identical(other.createdByUserId, createdByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserId,
-                  createdByUserId,
-                )) &&
-            (identical(other.createdByUserName, createdByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserName,
-                  createdByUserName,
-                )) &&
-            (identical(other.createdDateTime, createdDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.createdDateTime,
-                  createdDateTime,
-                )) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserId,
-                  modifiedByUserId,
-                )) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserName,
-                  modifiedByUserName,
-                )) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedDateTime,
-                  modifiedDateTime,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(duplicateRuleFieldId) ^
-      const DeepCollectionEquality().hash(duplicateRuleId) ^
-      const DeepCollectionEquality().hash(fieldName) ^
-      const DeepCollectionEquality().hash(dateStamp) ^
-      const DeepCollectionEquality().hash(auditNote) ^
-      const DeepCollectionEquality().hash(recordTitle) ^
-      const DeepCollectionEquality().hash(urlIdentifier) ^
-      const DeepCollectionEquality().hash(fields) ^
-      const DeepCollectionEquality().hash(custom) ^
-      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
-      const DeepCollectionEquality().hash(original) ^
-      const DeepCollectionEquality().hash(translation) ^
-      const DeepCollectionEquality().hash(hasImport) ^
-      const DeepCollectionEquality().hash(createdByUserId) ^
-      const DeepCollectionEquality().hash(createdByUserName) ^
-      const DeepCollectionEquality().hash(createdDateTime) ^
-      const DeepCollectionEquality().hash(modifiedByUserId) ^
-      const DeepCollectionEquality().hash(modifiedByUserName) ^
-      const DeepCollectionEquality().hash(modifiedDateTime) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldExtension
-    on WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField {
-  WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-  copyWith({
-    String? duplicateRuleFieldId,
-    String? duplicateRuleId,
-    String? fieldName,
-    String? dateStamp,
-    String? auditNote,
-    String? recordTitle,
-    dynamic urlIdentifier,
-    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-    List<FwStandardDataFwCustomValue>? custom,
-    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-    FwStandardBusinessLogicFwBusinessLogic? original,
-    List<FwStandardDataFwTranslatedValue>? translation,
-    bool? hasImport,
-    String? createdByUserId,
-    String? createdByUserName,
-    String? createdDateTime,
-    String? modifiedByUserId,
-    String? modifiedByUserName,
-    String? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField(
-      duplicateRuleFieldId: duplicateRuleFieldId ?? this.duplicateRuleFieldId,
-      duplicateRuleId: duplicateRuleId ?? this.duplicateRuleId,
-      fieldName: fieldName ?? this.fieldName,
-      dateStamp: dateStamp ?? this.dateStamp,
-      auditNote: auditNote ?? this.auditNote,
-      recordTitle: recordTitle ?? this.recordTitle,
-      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-      fields: fields ?? this.fields,
-      custom: custom ?? this.custom,
-      defaultFieldAttributes:
-          defaultFieldAttributes ?? this.defaultFieldAttributes,
-      original: original ?? this.original,
-      translation: translation ?? this.translation,
-      hasImport: hasImport ?? this.hasImport,
-      createdByUserId: createdByUserId ?? this.createdByUserId,
-      createdByUserName: createdByUserName ?? this.createdByUserName,
-      createdDateTime: createdDateTime ?? this.createdDateTime,
-      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
-    );
-  }
-
-  WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-  copyWithWrapped({
-    Wrapped<String?>? duplicateRuleFieldId,
-    Wrapped<String?>? duplicateRuleId,
-    Wrapped<String?>? fieldName,
-    Wrapped<String?>? dateStamp,
-    Wrapped<String?>? auditNote,
-    Wrapped<String?>? recordTitle,
-    Wrapped<dynamic>? urlIdentifier,
-    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-    fields,
-    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-    Wrapped<bool?>? hasImport,
-    Wrapped<String?>? createdByUserId,
-    Wrapped<String?>? createdByUserName,
-    Wrapped<String?>? createdDateTime,
-    Wrapped<String?>? modifiedByUserId,
-    Wrapped<String?>? modifiedByUserName,
-    Wrapped<String?>? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField(
-      duplicateRuleFieldId: (duplicateRuleFieldId != null
-          ? duplicateRuleFieldId.value
-          : this.duplicateRuleFieldId),
-      duplicateRuleId: (duplicateRuleId != null
-          ? duplicateRuleId.value
-          : this.duplicateRuleId),
-      fieldName: (fieldName != null ? fieldName.value : this.fieldName),
-      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
-      urlIdentifier: (urlIdentifier != null
-          ? urlIdentifier.value
-          : this.urlIdentifier),
-      fields: (fields != null ? fields.value : this.fields),
-      custom: (custom != null ? custom.value : this.custom),
-      defaultFieldAttributes: (defaultFieldAttributes != null
-          ? defaultFieldAttributes.value
-          : this.defaultFieldAttributes),
-      original: (original != null ? original.value : this.original),
-      translation: (translation != null ? translation.value : this.translation),
-      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -33161,6 +36768,7 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -33231,6 +36839,8 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -33328,6 +36938,11 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -33381,6 +36996,7 @@ class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -33410,6 +37026,7 @@ extension $WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUs
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -33437,6 +37054,7 @@ extension $WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUs
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -33465,6 +37083,7 @@ extension $WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUs
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -33499,6 +37118,9 @@ extension $WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUs
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),

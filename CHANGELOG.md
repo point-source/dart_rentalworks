@@ -1,3 +1,19 @@
+## 7.0.0
+
+- Update swagger specs for RW v2026.1.002
+
+## 6.1.0
+
+- Update SDK constraints and dependencies
+
+## 6.0.0
+
+- Fix auth token interceptor
+- Accept baseURL as String
+- Refactor interceptors
+- Update SDK and swaggers
+- Update dependencies, resolve analysis errors
+
 ## 5.0.1
 
 - Remove 'meta' dependency

@@ -19,6 +19,197 @@ final class _$Utilities extends Utilities {
   final Type definitionType = Utilities;
 
   @override
+  Future<
+    Response<WebApiModulesUtilitiesAIAssistantUtilityChatHistoryUpdateResponse>
+  >
+  _aiassistantutilityChathistoryChatidPut({
+    required String? chatid,
+    required WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIAssistantUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiassistantutility/chathistory/${chatid}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesAIAssistantUtilityChatHistoryUpdateResponse,
+      WebApiModulesUtilitiesAIAssistantUtilityChatHistoryUpdateResponse
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<WebApiModulesUtilitiesAIAssistantUtilityChatHistoryDeleteResponse>
+  >
+  _aiassistantutilityChathistoryChatidDelete({
+    required String? chatid,
+    String? userid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIAssistantUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiassistantutility/chathistory/${chatid}');
+    final Map<String, dynamic> $params = <String, dynamic>{'userid': userid};
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesAIAssistantUtilityChatHistoryDeleteResponse,
+      WebApiModulesUtilitiesAIAssistantUtilityChatHistoryDeleteResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesUtilitiesAIAssistantUtilityAIAssistantResponse>>
+  _aiassistantutilityAskPost({
+    required WebApiModulesUtilitiesAIAssistantUtilityAIAssistantRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIAssistantUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiassistantutility/ask');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesAIAssistantUtilityAIAssistantResponse,
+      WebApiModulesUtilitiesAIAssistantUtilityAIAssistantResponse
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<List<WebApiModulesUtilitiesAIAssistantUtilityChatHistoryItem>>
+  >
+  _aiassistantutilityChathistoryUseridGet({
+    required String? userid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIAssistantUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiassistantutility/chathistory/${userid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<WebApiModulesUtilitiesAIAssistantUtilityChatHistoryItem>,
+      WebApiModulesUtilitiesAIAssistantUtilityChatHistoryItem
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveResponse>
+  >
+  _aiassistantutilityChathistoryPost({
+    required WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIAssistantUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiassistantutility/chathistory');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveResponse,
+      WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesUtilitiesAIAssistantUtilityChatHistoryItem>>
+  _aiassistantutilityChathistoryChatidUseridGet({
+    required String? chatid,
+    required String? userid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIAssistantUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/aiassistantutility/chathistory/${chatid}/${userid}',
+    );
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesAIAssistantUtilityChatHistoryItem,
+      WebApiModulesUtilitiesAIAssistantUtilityChatHistoryItem
+    >($request);
+  }
+
+  @override
   Future<Response<List<FwStandardModelsFwAppImageModel>>>
   _appimageGetimagesGet({
     String? uniqueid1,
@@ -141,7 +332,7 @@ final class _$Utilities extends Utilities {
 
   @override
   Future<Response<dynamic>> _appimageRepositionimagePost({
-    required WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest?
+    required WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerRepositionAsyncRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -168,7 +359,7 @@ final class _$Utilities extends Utilities {
 
   @override
   Future<Response<dynamic>> _appimagePost({
-    required WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest?
+    required WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerAddAsyncRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -195,7 +386,7 @@ final class _$Utilities extends Utilities {
 
   @override
   Future<Response<dynamic>> _appimageDelete({
-    required WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest?
+    required WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerDeleteAsyncRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -511,7 +702,7 @@ final class _$Utilities extends Utilities {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _changeicodeutilityValidaterentalinventoryBrowsePost({
+  _changeicodeutilityValidateinventoryBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -524,41 +715,7 @@ final class _$Utilities extends Utilities {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse(
-      '/changeicodeutility/validaterentalinventory/browse',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _changeicodeutilityValidatesalesinventoryBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["ChangeICodeUtility"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/changeicodeutility/validatesalesinventory/browse',
-    );
+    final Uri $url = Uri.parse('/changeicodeutility/validateinventory/browse');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -773,6 +930,7 @@ final class _$Utilities extends Utilities {
     DateTime? toDate,
     bool? stacked,
     bool? displayNumbers,
+    int? timezoneOffset,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -796,6 +954,7 @@ final class _$Utilities extends Utilities {
       'toDate': toDate,
       'stacked': stacked,
       'displayNumbers': displayNumbers,
+      'timezoneOffset': timezoneOffset,
     };
     final Request $request = Request(
       'GET',
@@ -807,6 +966,216 @@ final class _$Utilities extends Utilities {
     return client.send<
       FwStandardModulesSettingsWidgetSettingsWidgetWidget,
       FwStandardModulesSettingsWidgetSettingsWidgetWidget
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogic>
+  >
+  _dashboardIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Dashboard"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/dashboard/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogic,
+      FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogic
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardModulesUtilitiesDashboardDashboardLogic>>
+  _dashboardIdPut({
+    required String? id,
+    required FwStandardModulesUtilitiesDashboardDashboardLogic? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Dashboard"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/dashboard/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModulesUtilitiesDashboardDashboardLogic,
+      FwStandardModulesUtilitiesDashboardDashboardLogic
+    >($request);
+  }
+
+  @override
+  Future<Response<bool>> _dashboardIdDelete({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Dashboard"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/dashboard/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardModulesUtilitiesDashboardDashboardLogic>>
+  _dashboardPost({
+    required FwStandardModulesUtilitiesDashboardDashboardLogic? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Dashboard"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/dashboard');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModulesUtilitiesDashboardDashboardLogic,
+      FwStandardModulesUtilitiesDashboardDashboardLogic
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>> _dashboardBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Dashboard"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/dashboard/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardModulesUtilitiesDashboardDashboardLogic>>
+  _dashboardDuplicateIdPost({
+    required int? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Dashboard"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/dashboard/duplicate/${id}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModulesUtilitiesDashboardDashboardLogic,
+      FwStandardModulesUtilitiesDashboardDashboardLogic
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      List<
+        MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogic
+      >
+    >
+  >
+  _dashboardManyPost({
+    required List<FwStandardModulesUtilitiesDashboardDashboardLogic>? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Dashboard"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/dashboard/many');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<
+        MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogic
+      >,
+      MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogic
     >($request);
   }
 
@@ -2165,223 +2534,6 @@ final class _$Utilities extends Utilities {
   }
 
   @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _inventorypurchaseutilityItemsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["InventoryPurchaseUtility"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/inventorypurchaseutility/items/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _inventorypurchaseutilityItemsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["InventoryPurchaseUtility"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/inventorypurchaseutility/items/exportexcelxlsx',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
-    >
-  >
-  _inventorypurchaseutilityItemsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["InventoryPurchaseUtility"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/inventorypurchaseutility/items');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
-    >
-  >
-  _inventorypurchaseutilityItemsIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["InventoryPurchaseUtility"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/inventorypurchaseutility/items/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem,
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
-    >
-  >
-  _inventorypurchaseutilityItemsIdPut({
-    required String? id,
-    required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["InventoryPurchaseUtility"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/inventorypurchaseutility/items/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem,
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
-      >
-    >
-  >
-  _inventorypurchaseutilityItemsManyPost({
-    required List<
-      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
-    >?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["InventoryPurchaseUtility"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/inventorypurchaseutility/items/many');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
-      >,
-      MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
-    >($request);
-  }
-
-  @override
   Future<Response<WebApiModulesInventoryInventoryRetireInventoryResponse>>
   _inventoryretireutilityRetireinventoryPost({
     required WebApiModulesInventoryInventoryRetireInventoryRequest? body,
@@ -2506,7 +2658,8 @@ final class _$Utilities extends Utilities {
   }
 
   @override
-  Future<Response<bool>> _inventorysequenceutilityDonothingPost({
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _inventorysequenceutilityApplysortingPost({
     required Object? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -2519,7 +2672,7 @@ final class _$Utilities extends Utilities {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/inventorysequenceutility/donothing');
+    final Uri $url = Uri.parse('/inventorysequenceutility/applysorting');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -2528,7 +2681,107 @@ final class _$Utilities extends Utilities {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<bool, bool>($request);
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryResponse
+    >
+  >
+  _inventorytransferutilityTransferPost({
+    required WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InventoryTransferUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/inventorytransferutility/transfer');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryResponse,
+      WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _inventorytransferutilityValidaterentalinventoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InventoryTransferUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/inventorytransferutility/validaterentalinventory/browse',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _inventorytransferutilityValidateitemBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InventoryTransferUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/inventorytransferutility/validateitem/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
   }
 
   @override
@@ -4150,73 +4403,6 @@ final class _$Utilities extends Utilities {
   }
 
   @override
-  Future<
-    Response<
-      WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse
-    >
-  >
-  _orderlocationscheduleScheduledataPost({
-    required WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["OrderLocationSchedule"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/orderlocationschedule/scheduledata');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse,
-      WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _orderlocationscheduleValidateofficelocationBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["OrderLocationSchedule"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/orderlocationschedule/validateofficelocation/browse',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
   Future<Response<WebApiModulesUtilitiesProgressMeterProgressMeter>>
   _progressmeterIdGet({
     required String? id,
@@ -5647,13 +5833,9 @@ final class _$Utilities extends Utilities {
   }
 
   @override
-  Future<
-    Response<
-      FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
-    >
-  >
-  _securitysettingsControlidGet({
-    required String? controlid,
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _splitquantityinventoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -5661,27 +5843,33 @@ final class _$Utilities extends Utilities {
       consumes: [],
       produces: [],
       security: [],
-      tags: ["SecuritySettings"],
+      tags: ["SplitQuantityInventory"],
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/securitysettings/${controlid}');
+    final Uri $url = Uri.parse('/splitquantityinventory/browse');
+    final $body = body;
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader,
-      FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
     >($request);
   }
 
   @override
-  Future<Response<dynamic>> _securitysettingsIdPut({
-    required String? id,
-    required FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader?
+  Future<
+    Response<
+      WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryResponse
+    >
+  >
+  _splitquantityinventorySplitPost({
+    required WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -5690,11 +5878,172 @@ final class _$Utilities extends Utilities {
       consumes: [],
       produces: [],
       security: [],
-      tags: ["SecuritySettings"],
+      tags: ["SplitQuantityInventory"],
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/securitysettings/${id}');
+    final Uri $url = Uri.parse('/splitquantityinventory/split');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryResponse,
+      WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryResponse
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _splitquantityinventoryExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SplitQuantityInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/splitquantityinventory/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _splitquantityinventoryValidateicodeBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SplitQuantityInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/splitquantityinventory/validateicode/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory>
+  >
+  _splitquantityinventoryPost({
+    required WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SplitQuantityInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/splitquantityinventory');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory,
+      WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory>
+  >
+  _splitquantityinventoryIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SplitQuantityInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/splitquantityinventory/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory,
+      WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory>
+  >
+  _splitquantityinventoryIdPut({
+    required String? id,
+    required WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SplitQuantityInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/splitquantityinventory/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -5703,7 +6052,34 @@ final class _$Utilities extends Utilities {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<dynamic, dynamic>($request);
+    return client.send<
+      WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory,
+      WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory
+    >($request);
+  }
+
+  @override
+  Future<Response<bool>> _splitquantityinventoryIdDelete({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SplitQuantityInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/splitquantityinventory/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override

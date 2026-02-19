@@ -4,11 +4,6 @@
     "title": "RentalWorks  Pages API v1",
     "version": "v1"
   },
-  "servers": [
-    {
-      "url": "/training"
-    }
-  ],
   "paths": {
     "/cardpointepaymentactivelink": {
       "get": {
@@ -593,6 +588,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -657,6 +655,9 @@
           "TemplateSequence": {
             "type": "integer",
             "format": "int32"
+          },
+          "IsEmail": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -685,6 +686,14 @@
             "nullable": true
           },
           "ValidationFieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationFieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ListFieldAllowedValues": {
             "type": "string",
             "nullable": true
           }
@@ -874,6 +883,11 @@
               "nullable": true
             },
             "nullable": true
+          },
+          "timezoneOffset": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -1003,7 +1017,8 @@
           "OleToHtmlColor",
           "Integer",
           "JpgDataUrl",
-          "UTCDateTime"
+          "UTCDateTime",
+          "Email"
         ],
         "type": "string"
       },
@@ -1249,6 +1264,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {

@@ -76,6 +76,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -98,6 +99,7 @@ Map<String, dynamic> _$FwStandardBusinessLogicFwBusinessLogicToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -122,6 +124,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
   displayFieldName: json['DisplayFieldName'] as String?,
   allowedValues: json['AllowedValues'] as String?,
   templateSequence: (json['TemplateSequence'] as num?)?.toInt(),
+  isEmail: json['IsEmail'] as bool?,
 );
 
 Map<String, dynamic>
@@ -140,6 +143,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
   'DisplayFieldName': ?instance.displayFieldName,
   'AllowedValues': ?instance.allowedValues,
   'TemplateSequence': ?instance.templateSequence,
+  'IsEmail': ?instance.isEmail,
 };
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
@@ -151,6 +155,8 @@ FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
   fieldType: json['FieldType'] as String?,
   validationModule: json['ValidationModule'] as String?,
   validationFieldName: json['ValidationFieldName'] as String?,
+  validationFieldId: json['ValidationFieldId'] as String?,
+  listFieldAllowedValues: json['ListFieldAllowedValues'] as String?,
 );
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
@@ -162,6 +168,8 @@ Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
   'FieldType': ?instance.fieldType,
   'ValidationModule': ?instance.validationModule,
   'ValidationFieldName': ?instance.validationFieldName,
+  'ValidationFieldId': ?instance.validationFieldId,
+  'ListFieldAllowedValues': ?instance.listFieldAllowedValues,
 };
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
@@ -273,6 +281,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -304,6 +313,7 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   'fields': ?instance.fields?.map((e) => e.toJson()).toList(),
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
+  'timezoneOffset': ?instance.timezoneOffset,
 };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
@@ -535,6 +545,7 @@ _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -576,6 +587,7 @@ Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,

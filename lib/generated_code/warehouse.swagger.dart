@@ -789,6 +789,7 @@ class FwStandardBusinessLogicFwBusinessLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -839,6 +840,8 @@ class FwStandardBusinessLogicFwBusinessLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -897,6 +900,11 @@ class FwStandardBusinessLogicFwBusinessLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -943,6 +951,7 @@ class FwStandardBusinessLogicFwBusinessLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -964,6 +973,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -982,6 +992,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -1002,6 +1013,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -1023,6 +1035,9 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -1058,6 +1073,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
     this.displayFieldName,
     this.allowedValues,
     this.templateSequence,
+    this.isEmail,
   });
 
   factory FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
@@ -1099,6 +1115,8 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
   final String? allowedValues;
   @JsonKey(name: 'TemplateSequence', includeIfNull: false)
   final int? templateSequence;
+  @JsonKey(name: 'IsEmail', includeIfNull: false)
+  final bool? isEmail;
   static const fromJsonFactory =
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson;
 
@@ -1152,7 +1170,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
                 const DeepCollectionEquality().equals(
                   other.templateSequence,
                   templateSequence,
-                )));
+                )) &&
+            (identical(other.isEmail, isEmail) ||
+                const DeepCollectionEquality().equals(other.isEmail, isEmail)));
   }
 
   @override
@@ -1170,6 +1190,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       const DeepCollectionEquality().hash(displayFieldName) ^
       const DeepCollectionEquality().hash(allowedValues) ^
       const DeepCollectionEquality().hash(templateSequence) ^
+      const DeepCollectionEquality().hash(isEmail) ^
       runtimeType.hashCode;
 }
 
@@ -1186,6 +1207,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     String? displayFieldName,
     String? allowedValues,
     int? templateSequence,
+    bool? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: name ?? this.name,
@@ -1198,6 +1220,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       displayFieldName: displayFieldName ?? this.displayFieldName,
       allowedValues: allowedValues ?? this.allowedValues,
       templateSequence: templateSequence ?? this.templateSequence,
+      isEmail: isEmail ?? this.isEmail,
     );
   }
 
@@ -1212,6 +1235,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     Wrapped<String?>? displayFieldName,
     Wrapped<String?>? allowedValues,
     Wrapped<int?>? templateSequence,
+    Wrapped<bool?>? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: (name != null ? name.value : this.name),
@@ -1234,6 +1258,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       templateSequence: (templateSequence != null
           ? templateSequence.value
           : this.templateSequence),
+      isEmail: (isEmail != null ? isEmail.value : this.isEmail),
     );
   }
 }
@@ -1247,6 +1272,8 @@ class FwStandardDataFwCustomValue {
     this.fieldType,
     this.validationModule,
     this.validationFieldName,
+    this.validationFieldId,
+    this.listFieldAllowedValues,
   });
 
   factory FwStandardDataFwCustomValue.fromJson(Map<String, dynamic> json) =>
@@ -1267,6 +1294,10 @@ class FwStandardDataFwCustomValue {
   final String? validationModule;
   @JsonKey(name: 'ValidationFieldName', includeIfNull: false)
   final String? validationFieldName;
+  @JsonKey(name: 'ValidationFieldId', includeIfNull: false)
+  final String? validationFieldId;
+  @JsonKey(name: 'ListFieldAllowedValues', includeIfNull: false)
+  final String? listFieldAllowedValues;
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
 
   @override
@@ -1302,6 +1333,16 @@ class FwStandardDataFwCustomValue {
                 const DeepCollectionEquality().equals(
                   other.validationFieldName,
                   validationFieldName,
+                )) &&
+            (identical(other.validationFieldId, validationFieldId) ||
+                const DeepCollectionEquality().equals(
+                  other.validationFieldId,
+                  validationFieldId,
+                )) &&
+            (identical(other.listFieldAllowedValues, listFieldAllowedValues) ||
+                const DeepCollectionEquality().equals(
+                  other.listFieldAllowedValues,
+                  listFieldAllowedValues,
                 )));
   }
 
@@ -1316,6 +1357,8 @@ class FwStandardDataFwCustomValue {
       const DeepCollectionEquality().hash(fieldType) ^
       const DeepCollectionEquality().hash(validationModule) ^
       const DeepCollectionEquality().hash(validationFieldName) ^
+      const DeepCollectionEquality().hash(validationFieldId) ^
+      const DeepCollectionEquality().hash(listFieldAllowedValues) ^
       runtimeType.hashCode;
 }
 
@@ -1327,6 +1370,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     String? fieldType,
     String? validationModule,
     String? validationFieldName,
+    String? validationFieldId,
+    String? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: moduleName ?? this.moduleName,
@@ -1335,6 +1380,9 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       fieldType: fieldType ?? this.fieldType,
       validationModule: validationModule ?? this.validationModule,
       validationFieldName: validationFieldName ?? this.validationFieldName,
+      validationFieldId: validationFieldId ?? this.validationFieldId,
+      listFieldAllowedValues:
+          listFieldAllowedValues ?? this.listFieldAllowedValues,
     );
   }
 
@@ -1345,6 +1393,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     Wrapped<String?>? fieldType,
     Wrapped<String?>? validationModule,
     Wrapped<String?>? validationFieldName,
+    Wrapped<String?>? validationFieldId,
+    Wrapped<String?>? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: (moduleName != null ? moduleName.value : this.moduleName),
@@ -1357,6 +1407,12 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       validationFieldName: (validationFieldName != null
           ? validationFieldName.value
           : this.validationFieldName),
+      validationFieldId: (validationFieldId != null
+          ? validationFieldId.value
+          : this.validationFieldId),
+      listFieldAllowedValues: (listFieldAllowedValues != null
+          ? listFieldAllowedValues.value
+          : this.listFieldAllowedValues),
     );
   }
 }
@@ -1593,6 +1649,7 @@ class FwStandardModelsBrowseRequest {
     this.fields,
     this.totalfields,
     this.activeviewfields,
+    this.timezoneOffset,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -1681,6 +1738,8 @@ class FwStandardModelsBrowseRequest {
   final List<String>? totalfields;
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
+  @JsonKey(name: 'timezoneOffset', includeIfNull: false)
+  final int? timezoneOffset;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -1804,6 +1863,11 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.activeviewfields,
                   activeviewfields,
+                )) &&
+            (identical(other.timezoneOffset, timezoneOffset) ||
+                const DeepCollectionEquality().equals(
+                  other.timezoneOffset,
+                  timezoneOffset,
                 )));
   }
 
@@ -1838,6 +1902,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
+      const DeepCollectionEquality().hash(timezoneOffset) ^
       runtimeType.hashCode;
 }
 
@@ -1870,6 +1935,7 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
+    int? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -1898,6 +1964,7 @@ extension $FwStandardModelsBrowseRequestExtension
       fields: fields ?? this.fields,
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
+      timezoneOffset: timezoneOffset ?? this.timezoneOffset,
     );
   }
 
@@ -1928,6 +1995,7 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
+    Wrapped<int?>? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -1980,6 +2048,9 @@ extension $FwStandardModelsBrowseRequestExtension
       activeviewfields: (activeviewfields != null
           ? activeviewfields.value
           : this.activeviewfields),
+      timezoneOffset: (timezoneOffset != null
+          ? timezoneOffset.value
+          : this.timezoneOffset),
     );
   }
 }
@@ -2884,6 +2955,7 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -2973,6 +3045,8 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -3117,6 +3191,11 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -3182,6 +3261,7 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -3222,6 +3302,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -3261,6 +3342,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -3300,6 +3382,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -3364,6 +3447,9 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -3433,6 +3519,7 @@ class WebApiModulesWarehouseActivityActivity {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -3553,6 +3640,8 @@ class WebApiModulesWarehouseActivityActivity {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -3792,6 +3881,11 @@ class WebApiModulesWarehouseActivityActivity {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -3873,6 +3967,7 @@ class WebApiModulesWarehouseActivityActivity {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -3929,6 +4024,7 @@ extension $WebApiModulesWarehouseActivityActivityExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -3986,6 +4082,7 @@ extension $WebApiModulesWarehouseActivityActivityExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -4041,6 +4138,7 @@ extension $WebApiModulesWarehouseActivityActivityExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -4145,6 +4243,9 @@ extension $WebApiModulesWarehouseActivityActivityExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),

@@ -83,7 +83,9 @@ enum FwStandardSqlServerFwDataTypes {
   @JsonValue('JpgDataUrl')
   jpgdataurl('JpgDataUrl'),
   @JsonValue('UTCDateTime')
-  utcdatetime('UTCDateTime');
+  utcdatetime('UTCDateTime'),
+  @JsonValue('Email')
+  email('Email');
 
   final String? value;
 
@@ -98,6 +100,10 @@ enum WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes {
   boolean('Boolean'),
   @JsonValue('Text')
   text('Text'),
+  @JsonValue('TranslatedText')
+  translatedtext('TranslatedText'),
+  @JsonValue('DropDown')
+  dropdown('DropDown'),
   @JsonValue('Number')
   number('Number');
 

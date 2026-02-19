@@ -19,6 +19,140 @@ final class _$Home extends Home {
   final Type definitionType = Home;
 
   @override
+  Future<
+    Response<
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalActiveLinkPurchaseOrderApprovalResponse
+    >
+  >
+  _activelinkpurchaseorderapprovalGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ActiveLinkPurchaseOrderApproval"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/activelinkpurchaseorderapproval');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalActiveLinkPurchaseOrderApprovalResponse,
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalActiveLinkPurchaseOrderApprovalResponse
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalRejectReasonsResponse
+    >
+  >
+  _activelinkpurchaseorderapprovalRejectreasonsGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ActiveLinkPurchaseOrderApproval"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/activelinkpurchaseorderapproval/rejectreasons',
+    );
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalRejectReasonsResponse,
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalRejectReasonsResponse
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalActiveLinkPurchaseOrderApprovalResponse
+    >
+  >
+  _activelinkpurchaseorderapprovalApprovePost({
+    required WebApiModulesHomeActiveLinkPurchaseOrderApprovalApproveRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ActiveLinkPurchaseOrderApproval"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/activelinkpurchaseorderapproval/approve');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalActiveLinkPurchaseOrderApprovalResponse,
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalActiveLinkPurchaseOrderApprovalResponse
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalActiveLinkPurchaseOrderApprovalResponse
+    >
+  >
+  _activelinkpurchaseorderapprovalRejectPost({
+    required WebApiModulesHomeActiveLinkPurchaseOrderApprovalRejectRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ActiveLinkPurchaseOrderApproval"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/activelinkpurchaseorderapproval/reject');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalActiveLinkPurchaseOrderApprovalResponse,
+      WebApiModulesHomeActiveLinkPurchaseOrderApprovalActiveLinkPurchaseOrderApprovalResponse
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _addressBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -84,7 +218,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsAddressAddressLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeAddressAddressLogic
     >
   >
   _addressGet({
@@ -118,14 +252,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsAddressAddressLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsAddressAddressLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeAddressAddressLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeAddressAddressLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsAddressAddress>> _addressPost({
-    required WebApiModulesHomeControlsAddressAddress? body,
+  Future<Response<WebApiModulesHomeAddressAddress>> _addressPost({
+    required WebApiModulesHomeAddressAddress? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -146,14 +280,14 @@ final class _$Home extends Home {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<
-      WebApiModulesHomeControlsAddressAddress,
-      WebApiModulesHomeControlsAddressAddress
-    >($request);
+    return client
+        .send<WebApiModulesHomeAddressAddress, WebApiModulesHomeAddressAddress>(
+          $request,
+        );
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsAddressAddress>> _addressIdGet({
+  Future<Response<WebApiModulesHomeAddressAddress>> _addressIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -173,16 +307,16 @@ final class _$Home extends Home {
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client.send<
-      WebApiModulesHomeControlsAddressAddress,
-      WebApiModulesHomeControlsAddressAddress
-    >($request);
+    return client
+        .send<WebApiModulesHomeAddressAddress, WebApiModulesHomeAddressAddress>(
+          $request,
+        );
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsAddressAddress>> _addressIdPut({
+  Future<Response<WebApiModulesHomeAddressAddress>> _addressIdPut({
     required String? id,
-    required WebApiModulesHomeControlsAddressAddress? body,
+    required WebApiModulesHomeAddressAddress? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -203,10 +337,10 @@ final class _$Home extends Home {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<
-      WebApiModulesHomeControlsAddressAddress,
-      WebApiModulesHomeControlsAddressAddress
-    >($request);
+    return client
+        .send<WebApiModulesHomeAddressAddress, WebApiModulesHomeAddressAddress>(
+          $request,
+        );
   }
 
   @override
@@ -300,7 +434,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsAlternativeDescriptionAlternativeDescriptionLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeAlternativeDescriptionAlternativeDescriptionLogic
     >
   >
   _alternativedescriptionGet({
@@ -334,19 +468,17 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsAlternativeDescriptionAlternativeDescriptionLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsAlternativeDescriptionAlternativeDescriptionLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeAlternativeDescriptionAlternativeDescriptionLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeAlternativeDescriptionAlternativeDescriptionLogic
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription
-    >
+    Response<WebApiModulesHomeAlternativeDescriptionAlternativeDescription>
   >
   _alternativedescriptionPost({
-    required WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription?
+    required WebApiModulesHomeAlternativeDescriptionAlternativeDescription?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -369,16 +501,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription,
-      WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription
+      WebApiModulesHomeAlternativeDescriptionAlternativeDescription,
+      WebApiModulesHomeAlternativeDescriptionAlternativeDescription
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription
-    >
+    Response<WebApiModulesHomeAlternativeDescriptionAlternativeDescription>
   >
   _alternativedescriptionIdGet({
     required String? id,
@@ -401,20 +531,18 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription,
-      WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription
+      WebApiModulesHomeAlternativeDescriptionAlternativeDescription,
+      WebApiModulesHomeAlternativeDescriptionAlternativeDescription
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription
-    >
+    Response<WebApiModulesHomeAlternativeDescriptionAlternativeDescription>
   >
   _alternativedescriptionIdPut({
     required String? id,
-    required WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription?
+    required WebApiModulesHomeAlternativeDescriptionAlternativeDescription?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -437,8 +565,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription,
-      WebApiModulesHomeControlsAlternativeDescriptionAlternativeDescription
+      WebApiModulesHomeAlternativeDescriptionAlternativeDescription,
+      WebApiModulesHomeAlternativeDescriptionAlternativeDescription
     >($request);
   }
 
@@ -924,6 +1052,70 @@ final class _$Home extends Home {
   }) {
     final Uri $url = Uri.parse(
       '/availabilityconflicts/validatesubcategory/browse',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _availabilityconflictsValidaterentalinventoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AvailabilityConflicts"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/availabilityconflicts/validaterentalinventory/browse',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _availabilityconflictsValidatesalesinventoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AvailabilityConflicts"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/availabilityconflicts/validatesalesinventory/browse',
     );
     final $body = body;
     final Request $request = Request(
@@ -3324,6 +3516,29 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<dynamic>> _checkinOrderstatusGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckIn"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkin/orderstatus');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _checkinItemsBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -3350,6 +3565,29 @@ final class _$Home extends Home {
       FwStandardSqlServerFwJsonDataTable,
       FwStandardSqlServerFwJsonDataTable
     >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _checkinItemsEmptyobjectGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckIn"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkin/items/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -5266,7 +5504,7 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsContainerItemContainerItem>>
+  Future<Response<WebApiModulesInventoryContainerItemContainerItem>>
   _checkoutContaineritemIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -5288,8 +5526,69 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContainerItemContainerItem,
-      WebApiModulesHomeControlsContainerItemContainerItem
+      WebApiModulesInventoryContainerItemContainerItem,
+      WebApiModulesInventoryContainerItemContainerItem
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _checkoutAddmiscitemPost({
+    required WebApiModulesWarehouseCheckOutAddMiscItemRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/addmiscitem');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _checkoutUpdatemiscitemdescriptionPost({
+    required WebApiModulesWarehouseCheckOutUpdateMiscItemDescriptionRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/updatemiscitemdescription');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
     >($request);
   }
 
@@ -6585,7 +6884,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyCompanyLogic
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyCompanyLogic
     >
   >
   _companyGet({
@@ -6619,13 +6918,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyCompanyLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyCompanyLogic
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyCompanyLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyCompanyLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCompanyCompany>> _companyIdGet({
+  Future<Response<WebApiModulesCompanyCompanyCompany>> _companyIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -6646,8 +6945,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCompanyCompany,
-      WebApiModulesHomeControlsCompanyCompany
+      WebApiModulesCompanyCompanyCompany,
+      WebApiModulesCompanyCompanyCompany
     >($request);
   }
 
@@ -6741,7 +7040,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyContactCompanyContactLogic
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyContactCompanyContactLogic
     >
   >
   _companycontactGet({
@@ -6775,15 +7074,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyContactCompanyContactLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyContactCompanyContactLogic
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyContactCompanyContactLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyContactCompanyContactLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCompanyContactCompanyContact>>
+  Future<Response<WebApiModulesCompanyCompanyContactCompanyContact>>
   _companycontactPost({
-    required WebApiModulesHomeControlsCompanyContactCompanyContact? body,
+    required WebApiModulesCompanyCompanyContactCompanyContact? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -6805,13 +7104,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCompanyContactCompanyContact,
-      WebApiModulesHomeControlsCompanyContactCompanyContact
+      WebApiModulesCompanyCompanyContactCompanyContact,
+      WebApiModulesCompanyCompanyContactCompanyContact
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCompanyContactCompanyContact>>
+  Future<Response<WebApiModulesCompanyCompanyContactCompanyContact>>
   _companycontactIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -6833,16 +7132,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCompanyContactCompanyContact,
-      WebApiModulesHomeControlsCompanyContactCompanyContact
+      WebApiModulesCompanyCompanyContactCompanyContact,
+      WebApiModulesCompanyCompanyContactCompanyContact
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCompanyContactCompanyContact>>
+  Future<Response<WebApiModulesCompanyCompanyContactCompanyContact>>
   _companycontactIdPut({
     required String? id,
-    required WebApiModulesHomeControlsCompanyContactCompanyContact? body,
+    required WebApiModulesCompanyCompanyContactCompanyContact? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -6864,8 +7163,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCompanyContactCompanyContact,
-      WebApiModulesHomeControlsCompanyContactCompanyContact
+      WebApiModulesCompanyCompanyContactCompanyContact,
+      WebApiModulesCompanyCompanyContactCompanyContact
     >($request);
   }
 
@@ -6985,8 +7284,7 @@ final class _$Home extends Home {
 
   @override
   Future<Response<WebApiLogicSortItemsResponse>> _companycontactSortPost({
-    required WebApiModulesHomeControlsCompanyContactSortCompanyContactRequest?
-    body,
+    required WebApiModulesCompanyCompanyContactSortCompanyContactRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -7016,7 +7314,7 @@ final class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerTSpStatusResponse>>
   _companycontactRestorealphabeticalsortPost({
-    required WebApiModulesHomeControlsCompanyContactRestoreAlphabeticalSortRequest?
+    required WebApiModulesCompanyCompanyContactRestoreAlphabeticalSortRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -7111,7 +7409,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOptionLogic
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxOptionCompanyTaxOptionLogic
     >
   >
   _companytaxoptionGet({
@@ -7145,15 +7443,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOptionLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOptionLogic
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxOptionCompanyTaxOptionLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxOptionCompanyTaxOptionLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption>>
+  Future<Response<WebApiModulesCompanyCompanyTaxOptionCompanyTaxOption>>
   _companytaxoptionPost({
-    required WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption? body,
+    required WebApiModulesCompanyCompanyTaxOptionCompanyTaxOption? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -7175,13 +7473,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption,
-      WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption
+      WebApiModulesCompanyCompanyTaxOptionCompanyTaxOption,
+      WebApiModulesCompanyCompanyTaxOptionCompanyTaxOption
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption>>
+  Future<Response<WebApiModulesCompanyCompanyTaxOptionCompanyTaxOption>>
   _companytaxoptionIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -7203,16 +7501,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption,
-      WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption
+      WebApiModulesCompanyCompanyTaxOptionCompanyTaxOption,
+      WebApiModulesCompanyCompanyTaxOptionCompanyTaxOption
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption>>
+  Future<Response<WebApiModulesCompanyCompanyTaxOptionCompanyTaxOption>>
   _companytaxoptionIdPut({
     required String? id,
-    required WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption? body,
+    required WebApiModulesCompanyCompanyTaxOptionCompanyTaxOption? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -7234,8 +7532,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption,
-      WebApiModulesHomeControlsCompanyTaxOptionCompanyTaxOption
+      WebApiModulesCompanyCompanyTaxOptionCompanyTaxOption,
+      WebApiModulesCompanyCompanyTaxOptionCompanyTaxOption
     >($request);
   }
 
@@ -7360,7 +7658,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResaleLogic
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxResaleCompanyTaxResaleLogic
     >
   >
   _companytaxresaleGet({
@@ -7394,15 +7692,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResaleLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResaleLogic
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxResaleCompanyTaxResaleLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxResaleCompanyTaxResaleLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale>>
+  Future<Response<WebApiModulesCompanyCompanyTaxResaleCompanyTaxResale>>
   _companytaxresalePost({
-    required WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale? body,
+    required WebApiModulesCompanyCompanyTaxResaleCompanyTaxResale? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -7424,13 +7722,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale,
-      WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale
+      WebApiModulesCompanyCompanyTaxResaleCompanyTaxResale,
+      WebApiModulesCompanyCompanyTaxResaleCompanyTaxResale
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale>>
+  Future<Response<WebApiModulesCompanyCompanyTaxResaleCompanyTaxResale>>
   _companytaxresaleIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -7452,16 +7750,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale,
-      WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale
+      WebApiModulesCompanyCompanyTaxResaleCompanyTaxResale,
+      WebApiModulesCompanyCompanyTaxResaleCompanyTaxResale
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale>>
+  Future<Response<WebApiModulesCompanyCompanyTaxResaleCompanyTaxResale>>
   _companytaxresaleIdPut({
     required String? id,
-    required WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale? body,
+    required WebApiModulesCompanyCompanyTaxResaleCompanyTaxResale? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -7483,8 +7781,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale,
-      WebApiModulesHomeControlsCompanyTaxResaleCompanyTaxResale
+      WebApiModulesCompanyCompanyTaxResaleCompanyTaxResale,
+      WebApiModulesCompanyCompanyTaxResaleCompanyTaxResale
     >($request);
   }
 
@@ -8668,7 +8966,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContactNoteContactNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentContactNoteContactNoteLogic
     >
   >
   _contactnoteGet({
@@ -8702,15 +9000,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContactNoteContactNoteLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContactNoteContactNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentContactNoteContactNoteLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentContactNoteContactNoteLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsContactNoteContactNote>>
-  _contactnotePost({
-    required WebApiModulesHomeControlsContactNoteContactNote? body,
+  Future<Response<WebApiModulesAgentContactNoteContactNote>> _contactnotePost({
+    required WebApiModulesAgentContactNoteContactNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -8732,14 +9029,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContactNoteContactNote,
-      WebApiModulesHomeControlsContactNoteContactNote
+      WebApiModulesAgentContactNoteContactNote,
+      WebApiModulesAgentContactNoteContactNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsContactNoteContactNote>>
-  _contactnoteIdGet({
+  Future<Response<WebApiModulesAgentContactNoteContactNote>> _contactnoteIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -8760,16 +9056,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContactNoteContactNote,
-      WebApiModulesHomeControlsContactNoteContactNote
+      WebApiModulesAgentContactNoteContactNote,
+      WebApiModulesAgentContactNoteContactNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsContactNoteContactNote>>
-  _contactnoteIdPut({
+  Future<Response<WebApiModulesAgentContactNoteContactNote>> _contactnoteIdPut({
     required String? id,
-    required WebApiModulesHomeControlsContactNoteContactNote? body,
+    required WebApiModulesAgentContactNoteContactNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -8791,8 +9086,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContactNoteContactNote,
-      WebApiModulesHomeControlsContactNoteContactNote
+      WebApiModulesAgentContactNoteContactNote,
+      WebApiModulesAgentContactNoteContactNote
     >($request);
   }
 
@@ -9070,7 +9365,7 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsContainerItemContainerItem>>
+  Future<Response<WebApiModulesInventoryContainerItemContainerItem>>
   _containeritemIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -9092,16 +9387,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContainerItemContainerItem,
-      WebApiModulesHomeControlsContainerItemContainerItem
+      WebApiModulesInventoryContainerItemContainerItem,
+      WebApiModulesInventoryContainerItemContainerItem
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsContainerItemContainerItem>>
+  Future<Response<WebApiModulesInventoryContainerItemContainerItem>>
   _containeritemIdPut({
     required String? id,
-    required WebApiModulesHomeControlsContainerItemContainerItem? body,
+    required WebApiModulesInventoryContainerItemContainerItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -9123,15 +9418,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContainerItemContainerItem,
-      WebApiModulesHomeControlsContainerItemContainerItem
+      WebApiModulesInventoryContainerItemContainerItem,
+      WebApiModulesInventoryContainerItemContainerItem
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsContainerItemContainerItem>>
+  Future<Response<WebApiModulesInventoryContainerItemContainerItem>>
   _containeritemPost({
-    required WebApiModulesHomeControlsContainerItemContainerItem? body,
+    required WebApiModulesInventoryContainerItemContainerItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -9153,19 +9448,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContainerItemContainerItem,
-      WebApiModulesHomeControlsContainerItemContainerItem
+      WebApiModulesInventoryContainerItemContainerItem,
+      WebApiModulesInventoryContainerItemContainerItem
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsContainerItemInstantiateContainerItemResponse
+      WebApiModulesInventoryContainerItemInstantiateContainerItemResponse
     >
   >
   _containeritemInstantiatecontainerPost({
-    required WebApiModulesHomeControlsContainerItemInstantiateContainerRequest?
+    required WebApiModulesInventoryContainerItemInstantiateContainerRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -9188,17 +9483,17 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContainerItemInstantiateContainerItemResponse,
-      WebApiModulesHomeControlsContainerItemInstantiateContainerItemResponse
+      WebApiModulesInventoryContainerItemInstantiateContainerItemResponse,
+      WebApiModulesInventoryContainerItemInstantiateContainerItemResponse
     >($request);
   }
 
   @override
   Future<
-    Response<WebApiModulesHomeControlsContainerItemEmptyContainerItemResponse>
+    Response<WebApiModulesInventoryContainerItemEmptyContainerItemResponse>
   >
   _containeritemEmptycontainerPost({
-    required WebApiModulesHomeControlsContainerItemEmptyContainerRequest? body,
+    required WebApiModulesInventoryContainerItemEmptyContainerRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -9220,17 +9515,17 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContainerItemEmptyContainerItemResponse,
-      WebApiModulesHomeControlsContainerItemEmptyContainerItemResponse
+      WebApiModulesInventoryContainerItemEmptyContainerItemResponse,
+      WebApiModulesInventoryContainerItemEmptyContainerItemResponse
     >($request);
   }
 
   @override
   Future<
-    Response<WebApiModulesHomeControlsContainerItemRemoveFromContainerResponse>
+    Response<WebApiModulesInventoryContainerItemRemoveFromContainerResponse>
   >
   _containeritemRemovefromcontainerPost({
-    required WebApiModulesHomeControlsContainerItemRemoveFromContainerRequest?
+    required WebApiModulesInventoryContainerItemRemoveFromContainerRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -9253,15 +9548,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContainerItemRemoveFromContainerResponse,
-      WebApiModulesHomeControlsContainerItemRemoveFromContainerResponse
+      WebApiModulesInventoryContainerItemRemoveFromContainerResponse,
+      WebApiModulesInventoryContainerItemRemoveFromContainerResponse
     >($request);
   }
 
   @override
   Future<Response<FwStandardSqlServerTSpStatusResponse>>
   _containeritemCancelfillcontainerPost({
-    required WebApiModulesHomeControlsContainerItemCancelFillContainerRequest?
+    required WebApiModulesInventoryContainerItemCancelFillContainerRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -9506,7 +9801,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContainerWarehouseContainerWarehouseLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryContainerWarehouseContainerWarehouseLogic
     >
   >
   _containerwarehouseGet({
@@ -9540,18 +9835,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContainerWarehouseContainerWarehouseLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContainerWarehouseContainerWarehouseLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryContainerWarehouseContainerWarehouseLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryContainerWarehouseContainerWarehouseLogic
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsContainerWarehouseContainerWarehouse>
-  >
+  Future<Response<WebApiModulesInventoryContainerWarehouseContainerWarehouse>>
   _containerwarehousePost({
-    required WebApiModulesHomeControlsContainerWarehouseContainerWarehouse?
-    body,
+    required WebApiModulesInventoryContainerWarehouseContainerWarehouse? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -9573,15 +9865,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContainerWarehouseContainerWarehouse,
-      WebApiModulesHomeControlsContainerWarehouseContainerWarehouse
+      WebApiModulesInventoryContainerWarehouseContainerWarehouse,
+      WebApiModulesInventoryContainerWarehouseContainerWarehouse
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsContainerWarehouseContainerWarehouse>
-  >
+  Future<Response<WebApiModulesInventoryContainerWarehouseContainerWarehouse>>
   _containerwarehouseIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -9603,19 +9893,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContainerWarehouseContainerWarehouse,
-      WebApiModulesHomeControlsContainerWarehouseContainerWarehouse
+      WebApiModulesInventoryContainerWarehouseContainerWarehouse,
+      WebApiModulesInventoryContainerWarehouseContainerWarehouse
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsContainerWarehouseContainerWarehouse>
-  >
+  Future<Response<WebApiModulesInventoryContainerWarehouseContainerWarehouse>>
   _containerwarehouseIdPut({
     required String? id,
-    required WebApiModulesHomeControlsContainerWarehouseContainerWarehouse?
-    body,
+    required WebApiModulesInventoryContainerWarehouseContainerWarehouse? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -9637,8 +9924,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContainerWarehouseContainerWarehouse,
-      WebApiModulesHomeControlsContainerWarehouseContainerWarehouse
+      WebApiModulesInventoryContainerWarehouseContainerWarehouse,
+      WebApiModulesInventoryContainerWarehouseContainerWarehouse
     >($request);
   }
 
@@ -9878,6 +10165,36 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _contractCancelsessionifemptyPost({
+    required WebApiModulesWarehouseContractCancelContractRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contract/cancelsessionifempty');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
   }
 
   @override
@@ -10657,7 +10974,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContractItemDetailContractItemDetailLogic
+      FwStandardModelsFwQueryResponseWebApiModulesWarehouseContractItemDetailContractItemDetailLogic
     >
   >
   _contractitemdetailContractidGet({
@@ -10692,8 +11009,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContractItemDetailContractItemDetailLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsContractItemDetailContractItemDetailLogic
+      FwStandardModelsFwQueryResponseWebApiModulesWarehouseContractItemDetailContractItemDetailLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesWarehouseContractItemDetailContractItemDetailLogic
     >($request);
   }
 
@@ -10755,9 +11072,9 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsContractItemDetailVoidItemsResponse>>
+  Future<Response<WebApiModulesWarehouseContractItemDetailVoidItemsResponse>>
   _contractitemdetailVoiditemsPost({
-    required WebApiModulesHomeControlsContractItemDetailVoidItemsRequest? body,
+    required WebApiModulesWarehouseContractItemDetailVoidItemsRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -10779,8 +11096,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsContractItemDetailVoidItemsResponse,
-      WebApiModulesHomeControlsContractItemDetailVoidItemsResponse
+      WebApiModulesWarehouseContractItemDetailVoidItemsResponse,
+      WebApiModulesWarehouseContractItemDetailVoidItemsResponse
     >($request);
   }
 
@@ -12208,7 +12525,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCustomerNoteCustomerNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerNoteCustomerNoteLogic
     >
   >
   _customernoteGet({
@@ -12242,15 +12559,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCustomerNoteCustomerNoteLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCustomerNoteCustomerNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerNoteCustomerNoteLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerNoteCustomerNoteLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCustomerNoteCustomerNote>>
+  Future<Response<WebApiModulesAgentCustomerNoteCustomerNote>>
   _customernotePost({
-    required WebApiModulesHomeControlsCustomerNoteCustomerNote? body,
+    required WebApiModulesAgentCustomerNoteCustomerNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -12272,13 +12589,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCustomerNoteCustomerNote,
-      WebApiModulesHomeControlsCustomerNoteCustomerNote
+      WebApiModulesAgentCustomerNoteCustomerNote,
+      WebApiModulesAgentCustomerNoteCustomerNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCustomerNoteCustomerNote>>
+  Future<Response<WebApiModulesAgentCustomerNoteCustomerNote>>
   _customernoteIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -12300,16 +12617,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCustomerNoteCustomerNote,
-      WebApiModulesHomeControlsCustomerNoteCustomerNote
+      WebApiModulesAgentCustomerNoteCustomerNote,
+      WebApiModulesAgentCustomerNoteCustomerNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsCustomerNoteCustomerNote>>
+  Future<Response<WebApiModulesAgentCustomerNoteCustomerNote>>
   _customernoteIdPut({
     required String? id,
-    required WebApiModulesHomeControlsCustomerNoteCustomerNote? body,
+    required WebApiModulesAgentCustomerNoteCustomerNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -12331,8 +12648,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsCustomerNoteCustomerNote,
-      WebApiModulesHomeControlsCustomerNoteCustomerNote
+      WebApiModulesAgentCustomerNoteCustomerNote,
+      WebApiModulesAgentCustomerNoteCustomerNote
     >($request);
   }
 
@@ -14021,7 +14338,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDealNoteDealNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentDealNoteDealNoteLogic
     >
   >
   _dealnoteGet({
@@ -14055,14 +14372,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDealNoteDealNoteLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDealNoteDealNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentDealNoteDealNoteLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentDealNoteDealNoteLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDealNoteDealNote>> _dealnotePost({
-    required WebApiModulesHomeControlsDealNoteDealNote? body,
+  Future<Response<WebApiModulesAgentDealNoteDealNote>> _dealnotePost({
+    required WebApiModulesAgentDealNoteDealNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -14084,13 +14401,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDealNoteDealNote,
-      WebApiModulesHomeControlsDealNoteDealNote
+      WebApiModulesAgentDealNoteDealNote,
+      WebApiModulesAgentDealNoteDealNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDealNoteDealNote>> _dealnoteIdGet({
+  Future<Response<WebApiModulesAgentDealNoteDealNote>> _dealnoteIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -14111,15 +14428,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDealNoteDealNote,
-      WebApiModulesHomeControlsDealNoteDealNote
+      WebApiModulesAgentDealNoteDealNote,
+      WebApiModulesAgentDealNoteDealNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDealNoteDealNote>> _dealnoteIdPut({
+  Future<Response<WebApiModulesAgentDealNoteDealNote>> _dealnoteIdPut({
     required String? id,
-    required WebApiModulesHomeControlsDealNoteDealNote? body,
+    required WebApiModulesAgentDealNoteDealNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -14141,8 +14458,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDealNoteDealNote,
-      WebApiModulesHomeControlsDealNoteDealNote
+      WebApiModulesAgentDealNoteDealNote,
+      WebApiModulesAgentDealNoteDealNote
     >($request);
   }
 
@@ -14267,7 +14584,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricingLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricingLogic
     >
   >
   _dealordertieredpricingGet({
@@ -14307,19 +14624,17 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricingLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricingLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricingLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricingLogic
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricing
-    >
+    Response<WebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricing>
   >
   _dealordertieredpricingPost({
-    required WebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricing?
+    required WebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricing?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -14342,16 +14657,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricing,
-      WebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricing
+      WebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricing,
+      WebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricing
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricing
-    >
+    Response<WebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricing>
   >
   _dealordertieredpricingIdGet({
     required String? id,
@@ -14374,20 +14687,18 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricing,
-      WebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricing
+      WebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricing,
+      WebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricing
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricing
-    >
+    Response<WebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricing>
   >
   _dealordertieredpricingIdPut({
     required String? id,
-    required WebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricing?
+    required WebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricing?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -14410,8 +14721,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricing,
-      WebApiModulesHomeControlsDealOrderTieredPricingDealOrderTieredPricing
+      WebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricing,
+      WebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricing
     >($request);
   }
 
@@ -14505,7 +14816,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDealShipperDealShipperLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDealShipperDealShipperLogic
     >
   >
   _dealshipperGet({
@@ -14539,15 +14850,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDealShipperDealShipperLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDealShipperDealShipperLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDealShipperDealShipperLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDealShipperDealShipperLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDealShipperDealShipper>>
-  _dealshipperPost({
-    required WebApiModulesHomeControlsDealShipperDealShipper? body,
+  Future<Response<WebApiModulesHomeDealShipperDealShipper>> _dealshipperPost({
+    required WebApiModulesHomeDealShipperDealShipper? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -14569,14 +14879,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDealShipperDealShipper,
-      WebApiModulesHomeControlsDealShipperDealShipper
+      WebApiModulesHomeDealShipperDealShipper,
+      WebApiModulesHomeDealShipperDealShipper
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDealShipperDealShipper>>
-  _dealshipperIdGet({
+  Future<Response<WebApiModulesHomeDealShipperDealShipper>> _dealshipperIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -14597,16 +14906,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDealShipperDealShipper,
-      WebApiModulesHomeControlsDealShipperDealShipper
+      WebApiModulesHomeDealShipperDealShipper,
+      WebApiModulesHomeDealShipperDealShipper
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDealShipperDealShipper>>
-  _dealshipperIdPut({
+  Future<Response<WebApiModulesHomeDealShipperDealShipper>> _dealshipperIdPut({
     required String? id,
-    required WebApiModulesHomeControlsDealShipperDealShipper? body,
+    required WebApiModulesHomeDealShipperDealShipper? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -14628,8 +14936,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDealShipperDealShipper,
-      WebApiModulesHomeControlsDealShipperDealShipper
+      WebApiModulesHomeDealShipperDealShipper,
+      WebApiModulesHomeDealShipperDealShipper
     >($request);
   }
 
@@ -14783,7 +15091,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDeliveryDeliveryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDeliveryDeliveryLogic
     >
   >
   _deliveryGet({
@@ -14817,14 +15125,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDeliveryDeliveryLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDeliveryDeliveryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDeliveryDeliveryLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDeliveryDeliveryLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDeliveryDelivery>> _deliveryPost({
-    required WebApiModulesHomeControlsDeliveryDelivery? body,
+  Future<Response<WebApiModulesHomeDeliveryDelivery>> _deliveryPost({
+    required WebApiModulesHomeDeliveryDelivery? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -14846,13 +15154,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDeliveryDelivery,
-      WebApiModulesHomeControlsDeliveryDelivery
+      WebApiModulesHomeDeliveryDelivery,
+      WebApiModulesHomeDeliveryDelivery
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDeliveryDelivery>> _deliveryIdGet({
+  Future<Response<WebApiModulesHomeDeliveryDelivery>> _deliveryIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -14873,15 +15181,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDeliveryDelivery,
-      WebApiModulesHomeControlsDeliveryDelivery
+      WebApiModulesHomeDeliveryDelivery,
+      WebApiModulesHomeDeliveryDelivery
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDeliveryDelivery>> _deliveryIdPut({
+  Future<Response<WebApiModulesHomeDeliveryDelivery>> _deliveryIdPut({
     required String? id,
-    required WebApiModulesHomeControlsDeliveryDelivery? body,
+    required WebApiModulesHomeDeliveryDelivery? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -14903,8 +15211,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDeliveryDelivery,
-      WebApiModulesHomeControlsDeliveryDelivery
+      WebApiModulesHomeDeliveryDelivery,
+      WebApiModulesHomeDeliveryDelivery
     >($request);
   }
 
@@ -14999,7 +15307,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDepositPaymentDepositPaymentLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDepositPaymentDepositPaymentLogic
     >
   >
   _depositpaymentGet({
@@ -15033,13 +15341,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDepositPaymentDepositPaymentLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDepositPaymentDepositPaymentLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDepositPaymentDepositPaymentLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDepositPaymentDepositPaymentLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDepositPaymentDepositPayment>>
+  Future<Response<WebApiModulesHomeDepositPaymentDepositPayment>>
   _depositpaymentIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -15061,8 +15369,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDepositPaymentDepositPayment,
-      WebApiModulesHomeControlsDepositPaymentDepositPayment
+      WebApiModulesHomeDepositPaymentDepositPayment,
+      WebApiModulesHomeDepositPaymentDepositPayment
     >($request);
   }
 
@@ -15155,7 +15463,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDepreciationDepreciationLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDepreciationDepreciationLogic
     >
   >
   _depreciationGet({
@@ -15189,15 +15497,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDepreciationDepreciationLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsDepreciationDepreciationLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDepreciationDepreciationLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeDepreciationDepreciationLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDepreciationDepreciation>>
+  Future<Response<WebApiModulesHomeDepreciationDepreciation>>
   _depreciationPost({
-    required WebApiModulesHomeControlsDepreciationDepreciation? body,
+    required WebApiModulesHomeDepreciationDepreciation? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -15219,13 +15527,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDepreciationDepreciation,
-      WebApiModulesHomeControlsDepreciationDepreciation
+      WebApiModulesHomeDepreciationDepreciation,
+      WebApiModulesHomeDepreciationDepreciation
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDepreciationDepreciation>>
+  Future<Response<WebApiModulesHomeDepreciationDepreciation>>
   _depreciationIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -15247,16 +15555,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDepreciationDepreciation,
-      WebApiModulesHomeControlsDepreciationDepreciation
+      WebApiModulesHomeDepreciationDepreciation,
+      WebApiModulesHomeDepreciationDepreciation
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsDepreciationDepreciation>>
+  Future<Response<WebApiModulesHomeDepreciationDepreciation>>
   _depreciationIdPut({
     required String? id,
-    required WebApiModulesHomeControlsDepreciationDepreciation? body,
+    required WebApiModulesHomeDepreciationDepreciation? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -15278,8 +15586,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsDepreciationDepreciation,
-      WebApiModulesHomeControlsDepreciationDepreciation
+      WebApiModulesHomeDepreciationDepreciation,
+      WebApiModulesHomeDepreciationDepreciation
     >($request);
   }
 
@@ -15373,7 +15681,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsEmailRecipientEmailRecipientLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeEmailRecipientEmailRecipientLogic
     >
   >
   _emailrecipientGet({
@@ -15407,15 +15715,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsEmailRecipientEmailRecipientLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsEmailRecipientEmailRecipientLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeEmailRecipientEmailRecipientLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeEmailRecipientEmailRecipientLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsEmailRecipientEmailRecipient>>
+  Future<Response<WebApiModulesHomeEmailRecipientEmailRecipient>>
   _emailrecipientPost({
-    required WebApiModulesHomeControlsEmailRecipientEmailRecipient? body,
+    required WebApiModulesHomeEmailRecipientEmailRecipient? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -15437,13 +15745,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsEmailRecipientEmailRecipient,
-      WebApiModulesHomeControlsEmailRecipientEmailRecipient
+      WebApiModulesHomeEmailRecipientEmailRecipient,
+      WebApiModulesHomeEmailRecipientEmailRecipient
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsEmailRecipientEmailRecipient>>
+  Future<Response<WebApiModulesHomeEmailRecipientEmailRecipient>>
   _emailrecipientIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -15465,8 +15773,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsEmailRecipientEmailRecipient,
-      WebApiModulesHomeControlsEmailRecipientEmailRecipient
+      WebApiModulesHomeEmailRecipientEmailRecipient,
+      WebApiModulesHomeEmailRecipientEmailRecipient
     >($request);
   }
 
@@ -15887,7 +16195,7 @@ final class _$Home extends Home {
 
   @override
   Future<Response<WebApiLogicSortItemsResponse>> _generalitemSortPost({
-    required WebApiModulesHomeControlsGeneralItemSortGeneralItemRequest? body,
+    required WebApiModulesInventoryGeneralItemSortGeneralItemRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -16116,7 +16424,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsGlManualGlManualLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeGlManualGlManualLogic
     >
   >
   _glmanualGet({
@@ -16150,14 +16458,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsGlManualGlManualLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsGlManualGlManualLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeGlManualGlManualLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeGlManualGlManualLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsGlManualGlManual>> _glmanualPost({
-    required WebApiModulesHomeControlsGlManualGlManual? body,
+  Future<Response<WebApiModulesHomeGlManualGlManual>> _glmanualPost({
+    required WebApiModulesHomeGlManualGlManual? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -16179,13 +16487,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsGlManualGlManual,
-      WebApiModulesHomeControlsGlManualGlManual
+      WebApiModulesHomeGlManualGlManual,
+      WebApiModulesHomeGlManualGlManual
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsGlManualGlManual>> _glmanualIdGet({
+  Future<Response<WebApiModulesHomeGlManualGlManual>> _glmanualIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -16206,15 +16514,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsGlManualGlManual,
-      WebApiModulesHomeControlsGlManualGlManual
+      WebApiModulesHomeGlManualGlManual,
+      WebApiModulesHomeGlManualGlManual
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsGlManualGlManual>> _glmanualIdPut({
+  Future<Response<WebApiModulesHomeGlManualGlManual>> _glmanualIdPut({
     required String? id,
-    required WebApiModulesHomeControlsGlManualGlManual? body,
+    required WebApiModulesHomeGlManualGlManual? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -16236,8 +16544,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsGlManualGlManual,
-      WebApiModulesHomeControlsGlManualGlManual
+      WebApiModulesHomeGlManualGlManual,
+      WebApiModulesHomeGlManualGlManual
     >($request);
   }
 
@@ -16456,7 +16764,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValueLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryAttributeValueInventoryAttributeValueLogic
     >
   >
   _inventoryattributevalueGet({
@@ -16490,19 +16798,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValueLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValueLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryAttributeValueInventoryAttributeValueLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryAttributeValueInventoryAttributeValueLogic
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue
+      WebApiModulesInventoryInventoryAttributeValueInventoryAttributeValue
     >
   >
   _inventoryattributevaluePost({
-    required WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue?
+    required WebApiModulesInventoryInventoryAttributeValueInventoryAttributeValue?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -16525,15 +16833,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue,
-      WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue
+      WebApiModulesInventoryInventoryAttributeValueInventoryAttributeValue,
+      WebApiModulesInventoryInventoryAttributeValueInventoryAttributeValue
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue
+      WebApiModulesInventoryInventoryAttributeValueInventoryAttributeValue
     >
   >
   _inventoryattributevalueIdGet({
@@ -16557,20 +16865,20 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue,
-      WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue
+      WebApiModulesInventoryInventoryAttributeValueInventoryAttributeValue,
+      WebApiModulesInventoryInventoryAttributeValueInventoryAttributeValue
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue
+      WebApiModulesInventoryInventoryAttributeValueInventoryAttributeValue
     >
   >
   _inventoryattributevalueIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue?
+    required WebApiModulesInventoryInventoryAttributeValueInventoryAttributeValue?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -16593,8 +16901,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue,
-      WebApiModulesHomeControlsInventoryAttributeValueInventoryAttributeValue
+      WebApiModulesInventoryInventoryAttributeValueInventoryAttributeValue,
+      WebApiModulesInventoryInventoryAttributeValueInventoryAttributeValue
     >($request);
   }
 
@@ -17145,7 +17453,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryColorInventoryColorLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryColorInventoryColorLogic
     >
   >
   _inventorycolorGet({
@@ -17179,15 +17487,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryColorInventoryColorLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryColorInventoryColorLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryColorInventoryColorLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryColorInventoryColorLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryColorInventoryColor>>
+  Future<Response<WebApiModulesInventoryInventoryColorInventoryColor>>
   _inventorycolorPost({
-    required WebApiModulesHomeControlsInventoryColorInventoryColor? body,
+    required WebApiModulesInventoryInventoryColorInventoryColor? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -17209,13 +17517,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryColorInventoryColor,
-      WebApiModulesHomeControlsInventoryColorInventoryColor
+      WebApiModulesInventoryInventoryColorInventoryColor,
+      WebApiModulesInventoryInventoryColorInventoryColor
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryColorInventoryColor>>
+  Future<Response<WebApiModulesInventoryInventoryColorInventoryColor>>
   _inventorycolorIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -17237,16 +17545,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryColorInventoryColor,
-      WebApiModulesHomeControlsInventoryColorInventoryColor
+      WebApiModulesInventoryInventoryColorInventoryColor,
+      WebApiModulesInventoryInventoryColorInventoryColor
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryColorInventoryColor>>
+  Future<Response<WebApiModulesInventoryInventoryColorInventoryColor>>
   _inventorycolorIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryColorInventoryColor? body,
+    required WebApiModulesInventoryInventoryColorInventoryColor? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -17268,8 +17576,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryColorInventoryColor,
-      WebApiModulesHomeControlsInventoryColorInventoryColor
+      WebApiModulesInventoryInventoryColorInventoryColor,
+      WebApiModulesInventoryInventoryColorInventoryColor
     >($request);
   }
 
@@ -17364,7 +17672,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryCompatibleInventoryCompatibleLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompatibleInventoryCompatibleLogic
     >
   >
   _inventorycompatibleGet({
@@ -17398,18 +17706,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryCompatibleInventoryCompatibleLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryCompatibleInventoryCompatibleLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompatibleInventoryCompatibleLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompatibleInventoryCompatibleLogic
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible>
-  >
+  Future<Response<WebApiModulesInventoryInventoryCompatibleInventoryCompatible>>
   _inventorycompatiblePost({
-    required WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible?
-    body,
+    required WebApiModulesInventoryInventoryCompatibleInventoryCompatible? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -17431,15 +17736,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible,
-      WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible
+      WebApiModulesInventoryInventoryCompatibleInventoryCompatible,
+      WebApiModulesInventoryInventoryCompatibleInventoryCompatible
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible>
-  >
+  Future<Response<WebApiModulesInventoryInventoryCompatibleInventoryCompatible>>
   _inventorycompatibleIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -17461,19 +17764,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible,
-      WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible
+      WebApiModulesInventoryInventoryCompatibleInventoryCompatible,
+      WebApiModulesInventoryInventoryCompatibleInventoryCompatible
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible>
-  >
+  Future<Response<WebApiModulesInventoryInventoryCompatibleInventoryCompatible>>
   _inventorycompatibleIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible?
-    body,
+    required WebApiModulesInventoryInventoryCompatibleInventoryCompatible? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -17495,8 +17795,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible,
-      WebApiModulesHomeControlsInventoryCompatibleInventoryCompatible
+      WebApiModulesInventoryInventoryCompatibleInventoryCompatible,
+      WebApiModulesInventoryInventoryCompatibleInventoryCompatible
     >($request);
   }
 
@@ -17678,7 +17978,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryCompleteKitInventoryCompleteKitLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompleteKitInventoryCompleteKitLogic
     >
   >
   _inventorycompletekitGet({
@@ -17712,14 +18012,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryCompleteKitInventoryCompleteKitLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryCompleteKitInventoryCompleteKitLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompleteKitInventoryCompleteKitLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompleteKitInventoryCompleteKitLogic
     >($request);
   }
 
   @override
   Future<
-    Response<WebApiModulesHomeControlsInventoryCompleteKitInventoryCompleteKit>
+    Response<WebApiModulesInventoryInventoryCompleteKitInventoryCompleteKit>
   >
   _inventorycompletekitIdGet({
     required String? id,
@@ -17742,8 +18042,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryCompleteKitInventoryCompleteKit,
-      WebApiModulesHomeControlsInventoryCompleteKitInventoryCompleteKit
+      WebApiModulesInventoryInventoryCompleteKitInventoryCompleteKit,
+      WebApiModulesInventoryInventoryCompleteKitInventoryCompleteKit
     >($request);
   }
 
@@ -17865,7 +18165,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryConsignorInventoryConsignorLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryConsignorInventoryConsignorLogic
     >
   >
   _inventoryconsignorGet({
@@ -17899,15 +18199,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryConsignorInventoryConsignorLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryConsignorInventoryConsignorLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryConsignorInventoryConsignorLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryConsignorInventoryConsignorLogic
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsInventoryConsignorInventoryConsignor>
-  >
+  Future<Response<WebApiModulesInventoryInventoryConsignorInventoryConsignor>>
   _inventoryconsignorIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -17929,8 +18227,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryConsignorInventoryConsignor,
-      WebApiModulesHomeControlsInventoryConsignorInventoryConsignor
+      WebApiModulesInventoryInventoryConsignorInventoryConsignor,
+      WebApiModulesInventoryInventoryConsignorInventoryConsignor
     >($request);
   }
 
@@ -18001,7 +18299,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryContainerItemInventoryContainerItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic
     >
   >
   _inventorycontaineritemGet({
@@ -18035,19 +18333,17 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryContainerItemInventoryContainerItemLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryContainerItemInventoryContainerItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem
-    >
+    Response<WebApiModulesInventoryInventoryContainerItemInventoryContainerItem>
   >
   _inventorycontaineritemPost({
-    required WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem?
+    required WebApiModulesInventoryInventoryContainerItemInventoryContainerItem?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -18070,16 +18366,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem,
-      WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem
+      WebApiModulesInventoryInventoryContainerItemInventoryContainerItem,
+      WebApiModulesInventoryInventoryContainerItemInventoryContainerItem
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem
-    >
+    Response<WebApiModulesInventoryInventoryContainerItemInventoryContainerItem>
   >
   _inventorycontaineritemIdGet({
     required String? id,
@@ -18102,20 +18396,18 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem,
-      WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem
+      WebApiModulesInventoryInventoryContainerItemInventoryContainerItem,
+      WebApiModulesInventoryInventoryContainerItemInventoryContainerItem
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem
-    >
+    Response<WebApiModulesInventoryInventoryContainerItemInventoryContainerItem>
   >
   _inventorycontaineritemIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem?
+    required WebApiModulesInventoryInventoryContainerItemInventoryContainerItem?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -18138,8 +18430,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem,
-      WebApiModulesHomeControlsInventoryContainerItemInventoryContainerItem
+      WebApiModulesInventoryInventoryContainerItemInventoryContainerItem,
+      WebApiModulesInventoryInventoryContainerItemInventoryContainerItem
     >($request);
   }
 
@@ -18170,7 +18462,7 @@ final class _$Home extends Home {
   @override
   Future<Response<WebApiLogicSortItemsResponse>>
   _inventorycontaineritemSortPost({
-    required WebApiModulesHomeControlsInventoryContainerItemSortContainerItemsRequest?
+    required WebApiModulesInventoryInventoryContainerItemSortContainerItemsRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -18265,7 +18557,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTaxLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryLocationTaxInventoryLocationTaxLogic
     >
   >
   _inventorylocationtaxGet({
@@ -18299,17 +18591,17 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTaxLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTaxLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryLocationTaxInventoryLocationTaxLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryLocationTaxInventoryLocationTaxLogic
     >($request);
   }
 
   @override
   Future<
-    Response<WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax>
+    Response<WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax>
   >
   _inventorylocationtaxPost({
-    required WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax?
+    required WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -18332,14 +18624,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax,
-      WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax
+      WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax,
+      WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax
     >($request);
   }
 
   @override
   Future<
-    Response<WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax>
+    Response<WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax>
   >
   _inventorylocationtaxIdGet({
     required String? id,
@@ -18362,18 +18654,18 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax,
-      WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax
+      WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax,
+      WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax
     >($request);
   }
 
   @override
   Future<
-    Response<WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax>
+    Response<WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax>
   >
   _inventorylocationtaxIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax?
+    required WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -18396,8 +18688,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax,
-      WebApiModulesHomeControlsInventoryLocationTaxInventoryLocationTax
+      WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax,
+      WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax
     >($request);
   }
 
@@ -18748,7 +19040,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryMaterialInventoryMaterialLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryMaterialInventoryMaterialLogic
     >
   >
   _inventorymaterialGet({
@@ -18782,15 +19074,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryMaterialInventoryMaterialLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryMaterialInventoryMaterialLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryMaterialInventoryMaterialLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryMaterialInventoryMaterialLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryMaterialInventoryMaterial>>
+  Future<Response<WebApiModulesInventoryInventoryMaterialInventoryMaterial>>
   _inventorymaterialPost({
-    required WebApiModulesHomeControlsInventoryMaterialInventoryMaterial? body,
+    required WebApiModulesInventoryInventoryMaterialInventoryMaterial? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -18812,13 +19104,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryMaterialInventoryMaterial,
-      WebApiModulesHomeControlsInventoryMaterialInventoryMaterial
+      WebApiModulesInventoryInventoryMaterialInventoryMaterial,
+      WebApiModulesInventoryInventoryMaterialInventoryMaterial
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryMaterialInventoryMaterial>>
+  Future<Response<WebApiModulesInventoryInventoryMaterialInventoryMaterial>>
   _inventorymaterialIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -18840,16 +19132,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryMaterialInventoryMaterial,
-      WebApiModulesHomeControlsInventoryMaterialInventoryMaterial
+      WebApiModulesInventoryInventoryMaterialInventoryMaterial,
+      WebApiModulesInventoryInventoryMaterialInventoryMaterial
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryMaterialInventoryMaterial>>
+  Future<Response<WebApiModulesInventoryInventoryMaterialInventoryMaterial>>
   _inventorymaterialIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryMaterialInventoryMaterial? body,
+    required WebApiModulesInventoryInventoryMaterialInventoryMaterial? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -18871,8 +19163,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryMaterialInventoryMaterial,
-      WebApiModulesHomeControlsInventoryMaterialInventoryMaterial
+      WebApiModulesInventoryInventoryMaterialInventoryMaterial,
+      WebApiModulesInventoryInventoryMaterialInventoryMaterial
     >($request);
   }
 
@@ -18990,7 +19282,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventoryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic
     >
   >
   _inventorypackageinventoryPackageidPackageidWarehouseidWarehouseidGet({
@@ -19028,15 +19320,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventoryLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventoryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic
     >($request);
   }
 
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventoryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic
     >
   >
   _inventorypackageinventoryPackageidPackageidWarehouseidWarehouseidCurrencyidCurrencyidGet({
@@ -19075,15 +19367,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventoryLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventoryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory
     >
   >
   _inventorypackageinventoryPackageidPackageidWarehouseidWarehouseidInventorypackageinventoryidInventorypackageinventoryidGet({
@@ -19111,15 +19403,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory,
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory,
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory
     >
   >
   _inventorypackageinventoryPackageidPackageidWarehouseidWarehouseidCurrencyidCurrencyidInventorypackageinventoryidInventorypackageinventoryidGet({
@@ -19148,19 +19440,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory,
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory,
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory
     >
   >
   _inventorypackageinventoryPost({
-    required WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory?
+    required WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -19183,20 +19475,20 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory,
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory,
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory
     >
   >
   _inventorypackageinventoryIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory?
+    required WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -19219,8 +19511,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory,
-      WebApiModulesHomeControlsInventoryPackageInventoryInventoryPackageInventory
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory,
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory
     >($request);
   }
 
@@ -19251,7 +19543,7 @@ final class _$Home extends Home {
   @override
   Future<Response<WebApiLogicSortItemsResponse>>
   _inventorypackageinventorySortPost({
-    required WebApiModulesHomeControlsInventoryPackageInventorySortInventoryPackageInventorysRequest?
+    required WebApiModulesInventoryInventoryPackageInventorySortInventoryPackageInventorysRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -19346,7 +19638,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPrepInventoryPrepLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPrepInventoryPrepLogic
     >
   >
   _inventoryprepGet({
@@ -19380,15 +19672,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPrepInventoryPrepLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryPrepInventoryPrepLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPrepInventoryPrepLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPrepInventoryPrepLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryPrepInventoryPrep>>
+  Future<Response<WebApiModulesInventoryInventoryPrepInventoryPrep>>
   _inventoryprepPost({
-    required WebApiModulesHomeControlsInventoryPrepInventoryPrep? body,
+    required WebApiModulesInventoryInventoryPrepInventoryPrep? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -19410,13 +19702,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryPrepInventoryPrep,
-      WebApiModulesHomeControlsInventoryPrepInventoryPrep
+      WebApiModulesInventoryInventoryPrepInventoryPrep,
+      WebApiModulesInventoryInventoryPrepInventoryPrep
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryPrepInventoryPrep>>
+  Future<Response<WebApiModulesInventoryInventoryPrepInventoryPrep>>
   _inventoryprepIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -19438,16 +19730,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryPrepInventoryPrep,
-      WebApiModulesHomeControlsInventoryPrepInventoryPrep
+      WebApiModulesInventoryInventoryPrepInventoryPrep,
+      WebApiModulesInventoryInventoryPrepInventoryPrep
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryPrepInventoryPrep>>
+  Future<Response<WebApiModulesInventoryInventoryPrepInventoryPrep>>
   _inventoryprepIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryPrepInventoryPrep? body,
+    required WebApiModulesInventoryInventoryPrepInventoryPrep? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -19469,8 +19761,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryPrepInventoryPrep,
-      WebApiModulesHomeControlsInventoryPrepInventoryPrep
+      WebApiModulesInventoryInventoryPrepInventoryPrep,
+      WebApiModulesInventoryInventoryPrepInventoryPrep
     >($request);
   }
 
@@ -19525,6 +19817,221 @@ final class _$Home extends Home {
     return client.send<
       FwStandardSqlServerFwJsonDataTable,
       FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _inventorypurchaseitemBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InventoryPurchaseItem"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/inventorypurchaseitem/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _inventorypurchaseitemExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InventoryPurchaseItem"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/inventorypurchaseitem/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
+    >
+  >
+  _inventorypurchaseitemGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InventoryPurchaseItem"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/inventorypurchaseitem');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
+    >
+  >
+  _inventorypurchaseitemIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InventoryPurchaseItem"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/inventorypurchaseitem/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem,
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
+    >
+  >
+  _inventorypurchaseitemIdPut({
+    required String? id,
+    required WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InventoryPurchaseItem"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/inventorypurchaseitem/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem,
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      List<
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
+      >
+    >
+  >
+  _inventorypurchaseitemManyPost({
+    required List<
+      WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
+    >?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InventoryPurchaseItem"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/inventorypurchaseitem/many');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
+      >,
+      MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
     >($request);
   }
 
@@ -21766,10 +22273,9 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  Future<Response<WebApiModulesInventoryInventorySearchInventorySearchResponse>>
   _inventorysearchSearchPost({
-    required WebApiModulesHomeControlsInventorySearchInventorySearchRequest?
-    body,
+    required WebApiModulesInventoryInventorySearchInventorySearchRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -21791,15 +22297,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
+      WebApiModulesInventoryInventorySearchInventorySearchResponse,
+      WebApiModulesInventoryInventorySearchInventorySearchResponse
     >($request);
   }
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _inventorysearchAccessoriesPost({
-    required WebApiModulesHomeControlsInventorySearchInventorySearchAccessoriesRequest?
+    required WebApiModulesInventoryInventorySearchInventorySearchAccessoriesRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -21828,9 +22334,9 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventorySearchInventorySearch>>
+  Future<Response<WebApiModulesInventoryInventorySearchInventorySearch>>
   _inventorysearchPost({
-    required WebApiModulesHomeControlsInventorySearchInventorySearch? body,
+    required WebApiModulesInventoryInventorySearchInventorySearch? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -21852,15 +22358,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventorySearchInventorySearch,
-      WebApiModulesHomeControlsInventorySearchInventorySearch
+      WebApiModulesInventoryInventorySearchInventorySearch,
+      WebApiModulesInventoryInventorySearchInventorySearch
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsInventorySearchInventorySearchGetTotalResponse
+      WebApiModulesInventoryInventorySearchInventorySearchGetTotalResponse
     >
   >
   _inventorysearchGettotalSessionidGet({
@@ -21884,14 +22390,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventorySearchInventorySearchGetTotalResponse,
-      WebApiModulesHomeControlsInventorySearchInventorySearchGetTotalResponse
+      WebApiModulesInventoryInventorySearchInventorySearchGetTotalResponse,
+      WebApiModulesInventoryInventorySearchInventorySearchGetTotalResponse
     >($request);
   }
 
   @override
   Future<Response<bool>> _inventorysearchAddtoorderPost({
-    required WebApiModulesHomeControlsInventorySearchInventorySearchAddToOrderRequest?
+    required WebApiModulesInventoryInventorySearchInventorySearchAddToOrderRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -21918,7 +22424,7 @@ final class _$Home extends Home {
 
   @override
   Future<Response<bool>> _inventorysearchAddtopackagePost({
-    required WebApiModulesHomeControlsInventorySearchInventorySearchAddToCompleteKitContainerRequest?
+    required WebApiModulesInventoryInventorySearchInventorySearchAddToCompleteKitContainerRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -21944,8 +22450,13 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<bool>> _inventorysearchSavenotePost({
-    required WebApiModulesHomeControlsInventorySearchInventorySearchSaveNoteRequest?
+  Future<
+    Response<
+      WebApiModulesInventoryInventorySearchInventorySearchSaveNoteResponse
+    >
+  >
+  _inventorysearchSavenotePost({
+    required WebApiModulesInventoryInventorySearchInventorySearchSaveNoteRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -21967,7 +22478,10 @@ final class _$Home extends Home {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<bool, bool>($request);
+    return client.send<
+      WebApiModulesInventoryInventorySearchInventorySearchSaveNoteResponse,
+      WebApiModulesInventoryInventorySearchInventorySearchSaveNoteResponse
+    >($request);
   }
 
   @override
@@ -21977,8 +22491,7 @@ final class _$Home extends Home {
     >
   >
   _inventorysearchExportexcelxlsxPost({
-    required WebApiModulesHomeControlsInventorySearchInventorySearchRequest?
-    body,
+    required WebApiModulesInventoryInventorySearchInventorySearchRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -22037,12 +22550,10 @@ final class _$Home extends Home {
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsInventorySearchPreviewInventorySearchPreview
-    >
+    Response<WebApiModulesInventoryInventorySearchPreviewInventorySearchPreview>
   >
   _inventorysearchpreviewPost({
-    required WebApiModulesHomeControlsInventorySearchPreviewInventorySearchPreview?
+    required WebApiModulesInventoryInventorySearchPreviewInventorySearchPreview?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -22065,20 +22576,18 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventorySearchPreviewInventorySearchPreview,
-      WebApiModulesHomeControlsInventorySearchPreviewInventorySearchPreview
+      WebApiModulesInventoryInventorySearchPreviewInventorySearchPreview,
+      WebApiModulesInventoryInventorySearchPreviewInventorySearchPreview
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsInventorySearchPreviewInventorySearchPreview
-    >
+    Response<WebApiModulesInventoryInventorySearchPreviewInventorySearchPreview>
   >
   _inventorysearchpreviewIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventorySearchPreviewInventorySearchPreview?
+    required WebApiModulesInventoryInventorySearchPreviewInventorySearchPreview?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -22101,8 +22610,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventorySearchPreviewInventorySearchPreview,
-      WebApiModulesHomeControlsInventorySearchPreviewInventorySearchPreview
+      WebApiModulesInventoryInventorySearchPreviewInventorySearchPreview,
+      WebApiModulesInventoryInventorySearchPreviewInventorySearchPreview
     >($request);
   }
 
@@ -22197,7 +22706,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventorySubstituteInventorySubstituteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventorySubstituteInventorySubstituteLogic
     >
   >
   _inventorysubstituteGet({
@@ -22231,18 +22740,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventorySubstituteInventorySubstituteLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventorySubstituteInventorySubstituteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventorySubstituteInventorySubstituteLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventorySubstituteInventorySubstituteLogic
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsInventorySubstituteInventorySubstitute>
-  >
+  Future<Response<WebApiModulesInventoryInventorySubstituteInventorySubstitute>>
   _inventorysubstitutePost({
-    required WebApiModulesHomeControlsInventorySubstituteInventorySubstitute?
-    body,
+    required WebApiModulesInventoryInventorySubstituteInventorySubstitute? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -22264,15 +22770,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventorySubstituteInventorySubstitute,
-      WebApiModulesHomeControlsInventorySubstituteInventorySubstitute
+      WebApiModulesInventoryInventorySubstituteInventorySubstitute,
+      WebApiModulesInventoryInventorySubstituteInventorySubstitute
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsInventorySubstituteInventorySubstitute>
-  >
+  Future<Response<WebApiModulesInventoryInventorySubstituteInventorySubstitute>>
   _inventorysubstituteIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -22294,19 +22798,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventorySubstituteInventorySubstitute,
-      WebApiModulesHomeControlsInventorySubstituteInventorySubstitute
+      WebApiModulesInventoryInventorySubstituteInventorySubstitute,
+      WebApiModulesInventoryInventorySubstituteInventorySubstitute
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsInventorySubstituteInventorySubstitute>
-  >
+  Future<Response<WebApiModulesInventoryInventorySubstituteInventorySubstitute>>
   _inventorysubstituteIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventorySubstituteInventorySubstitute?
-    body,
+    required WebApiModulesInventoryInventorySubstituteInventorySubstitute? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -22328,8 +22829,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventorySubstituteInventorySubstitute,
-      WebApiModulesHomeControlsInventorySubstituteInventorySubstitute
+      WebApiModulesInventoryInventorySubstituteInventorySubstitute,
+      WebApiModulesInventoryInventorySubstituteInventorySubstitute
     >($request);
   }
 
@@ -22739,7 +23240,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryVendorInventoryVendorLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryVendorInventoryVendorLogic
     >
   >
   _inventoryvendorGet({
@@ -22773,15 +23274,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryVendorInventoryVendorLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryVendorInventoryVendorLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryVendorInventoryVendorLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryVendorInventoryVendorLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryVendorInventoryVendor>>
+  Future<Response<WebApiModulesInventoryInventoryVendorInventoryVendor>>
   _inventoryvendorPost({
-    required WebApiModulesHomeControlsInventoryVendorInventoryVendor? body,
+    required WebApiModulesInventoryInventoryVendorInventoryVendor? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -22803,13 +23304,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryVendorInventoryVendor,
-      WebApiModulesHomeControlsInventoryVendorInventoryVendor
+      WebApiModulesInventoryInventoryVendorInventoryVendor,
+      WebApiModulesInventoryInventoryVendorInventoryVendor
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryVendorInventoryVendor>>
+  Future<Response<WebApiModulesInventoryInventoryVendorInventoryVendor>>
   _inventoryvendorIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -22831,16 +23332,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryVendorInventoryVendor,
-      WebApiModulesHomeControlsInventoryVendorInventoryVendor
+      WebApiModulesInventoryInventoryVendorInventoryVendor,
+      WebApiModulesInventoryInventoryVendorInventoryVendor
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInventoryVendorInventoryVendor>>
+  Future<Response<WebApiModulesInventoryInventoryVendorInventoryVendor>>
   _inventoryvendorIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryVendorInventoryVendor? body,
+    required WebApiModulesInventoryInventoryVendorInventoryVendor? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -22862,8 +23363,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryVendorInventoryVendor,
-      WebApiModulesHomeControlsInventoryVendorInventoryVendor
+      WebApiModulesInventoryInventoryVendorInventoryVendor,
+      WebApiModulesInventoryInventoryVendorInventoryVendor
     >($request);
   }
 
@@ -22988,7 +23489,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryWarehouseInventoryWarehouseLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseInventoryWarehouseLogic
     >
   >
   _inventorywarehouseGet({
@@ -23022,18 +23523,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryWarehouseInventoryWarehouseLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryWarehouseInventoryWarehouseLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseInventoryWarehouseLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseInventoryWarehouseLogic
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse>
-  >
+  Future<Response<WebApiModulesInventoryInventoryWarehouseInventoryWarehouse>>
   _inventorywarehousePost({
-    required WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse?
-    body,
+    required WebApiModulesInventoryInventoryWarehouseInventoryWarehouse? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -23055,15 +23553,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse,
-      WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse
+      WebApiModulesInventoryInventoryWarehouseInventoryWarehouse,
+      WebApiModulesInventoryInventoryWarehouseInventoryWarehouse
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse>
-  >
+  Future<Response<WebApiModulesInventoryInventoryWarehouseInventoryWarehouse>>
   _inventorywarehouseIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -23085,19 +23581,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse,
-      WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse
+      WebApiModulesInventoryInventoryWarehouseInventoryWarehouse,
+      WebApiModulesInventoryInventoryWarehouseInventoryWarehouse
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse>
-  >
+  Future<Response<WebApiModulesInventoryInventoryWarehouseInventoryWarehouse>>
   _inventorywarehouseIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse?
-    body,
+    required WebApiModulesInventoryInventoryWarehouseInventoryWarehouse? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -23119,8 +23612,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse,
-      WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse
+      WebApiModulesInventoryInventoryWarehouseInventoryWarehouse,
+      WebApiModulesInventoryInventoryWarehouseInventoryWarehouse
     >($request);
   }
 
@@ -23152,14 +23645,12 @@ final class _$Home extends Home {
   Future<
     Response<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryWarehouseInventoryWarehouseLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryWarehouseInventoryWarehouseLogic
       >
     >
   >
   _inventorywarehouseManyPost({
-    required List<
-      WebApiModulesHomeControlsInventoryWarehouseInventoryWarehouse
-    >?
+    required List<WebApiModulesInventoryInventoryWarehouseInventoryWarehouse>?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -23183,9 +23674,9 @@ final class _$Home extends Home {
     );
     return client.send<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryWarehouseInventoryWarehouseLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryWarehouseInventoryWarehouseLogic
       >,
-      MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsInventoryWarehouseInventoryWarehouseLogic
+      MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryWarehouseInventoryWarehouseLogic
     >($request);
   }
 
@@ -23256,7 +23747,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecificLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecificLogic
     >
   >
   _inventorywarehousespecificGet({
@@ -23290,19 +23781,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecificLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecificLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecificLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecificLogic
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific
+      WebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecific
     >
   >
   _inventorywarehousespecificPost({
-    required WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific?
+    required WebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecific?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -23325,15 +23816,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific,
-      WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific
+      WebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecific,
+      WebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecific
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific
+      WebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecific
     >
   >
   _inventorywarehousespecificIdGet({
@@ -23357,20 +23848,20 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific,
-      WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific
+      WebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecific,
+      WebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecific
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific
+      WebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecific
     >
   >
   _inventorywarehousespecificIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific?
+    required WebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecific?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -23393,8 +23884,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific,
-      WebApiModulesHomeControlsInventoryWarehouseSpecificInventoryWarehouseSpecific
+      WebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecific,
+      WebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecific
     >($request);
   }
 
@@ -24226,6 +24717,34 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesBillingInvoiceReprocessExpensesResponse>>
+  _invoiceIdReprocessexpensesPost({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Invoice"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/invoice/${id}/reprocessexpenses');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesBillingInvoiceReprocessExpensesResponse,
+      WebApiModulesBillingInvoiceReprocessExpensesResponse
+    >($request);
+  }
+
+  @override
   Future<
     Response<WebApiModulesPluginsQuickbooksOnlineRwToQBOLogicQBOSyncResponse>
   >
@@ -24723,6 +25242,36 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _invoiceValidateratetypeBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Invoice"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/invoice/validateratetype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
   }
 
   @override
@@ -25448,7 +25997,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceCreationBatchInvoiceCreationBatchLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceCreationBatchInvoiceCreationBatchLogic
     >
   >
   _invoicecreationbatchGet({
@@ -25482,15 +26031,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceCreationBatchInvoiceCreationBatchLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceCreationBatchInvoiceCreationBatchLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceCreationBatchInvoiceCreationBatchLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceCreationBatchInvoiceCreationBatchLogic
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsInvoiceCreationBatchInvoiceCreationBatch>
-  >
+  Future<Response<WebApiModulesBillingInvoiceCreationBatchInvoiceCreationBatch>>
   _invoicecreationbatchIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -25512,8 +26059,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInvoiceCreationBatchInvoiceCreationBatch,
-      WebApiModulesHomeControlsInvoiceCreationBatchInvoiceCreationBatch
+      WebApiModulesBillingInvoiceCreationBatchInvoiceCreationBatch,
+      WebApiModulesBillingInvoiceCreationBatchInvoiceCreationBatch
     >($request);
   }
 
@@ -25583,7 +26130,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceItemInvoiceItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceItemInvoiceItemLogic
     >
   >
   _invoiceitemGet({
@@ -25617,15 +26164,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceItemInvoiceItemLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceItemInvoiceItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceItemInvoiceItemLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceItemInvoiceItemLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInvoiceItemInvoiceItem>>
+  Future<Response<WebApiModulesBillingInvoiceItemInvoiceItem>>
   _invoiceitemPost({
-    required WebApiModulesHomeControlsInvoiceItemInvoiceItem? body,
+    required WebApiModulesBillingInvoiceItemInvoiceItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -25647,13 +26194,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInvoiceItemInvoiceItem,
-      WebApiModulesHomeControlsInvoiceItemInvoiceItem
+      WebApiModulesBillingInvoiceItemInvoiceItem,
+      WebApiModulesBillingInvoiceItemInvoiceItem
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInvoiceItemInvoiceItem>>
+  Future<Response<WebApiModulesBillingInvoiceItemInvoiceItem>>
   _invoiceitemIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -25675,16 +26222,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInvoiceItemInvoiceItem,
-      WebApiModulesHomeControlsInvoiceItemInvoiceItem
+      WebApiModulesBillingInvoiceItemInvoiceItem,
+      WebApiModulesBillingInvoiceItemInvoiceItem
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInvoiceItemInvoiceItem>>
+  Future<Response<WebApiModulesBillingInvoiceItemInvoiceItem>>
   _invoiceitemIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInvoiceItemInvoiceItem? body,
+    required WebApiModulesBillingInvoiceItemInvoiceItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -25706,8 +26253,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInvoiceItemInvoiceItem,
-      WebApiModulesHomeControlsInvoiceItemInvoiceItem
+      WebApiModulesBillingInvoiceItemInvoiceItem,
+      WebApiModulesBillingInvoiceItemInvoiceItem
     >($request);
   }
 
@@ -25861,7 +26408,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceNoteInvoiceNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceNoteInvoiceNoteLogic
     >
   >
   _invoicenoteGet({
@@ -25895,15 +26442,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceNoteInvoiceNoteLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsInvoiceNoteInvoiceNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceNoteInvoiceNoteLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceNoteInvoiceNoteLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInvoiceNoteInvoiceNote>>
+  Future<Response<WebApiModulesBillingInvoiceNoteInvoiceNote>>
   _invoicenotePost({
-    required WebApiModulesHomeControlsInvoiceNoteInvoiceNote? body,
+    required WebApiModulesBillingInvoiceNoteInvoiceNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -25925,13 +26472,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInvoiceNoteInvoiceNote,
-      WebApiModulesHomeControlsInvoiceNoteInvoiceNote
+      WebApiModulesBillingInvoiceNoteInvoiceNote,
+      WebApiModulesBillingInvoiceNoteInvoiceNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInvoiceNoteInvoiceNote>>
+  Future<Response<WebApiModulesBillingInvoiceNoteInvoiceNote>>
   _invoicenoteIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -25953,16 +26500,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInvoiceNoteInvoiceNote,
-      WebApiModulesHomeControlsInvoiceNoteInvoiceNote
+      WebApiModulesBillingInvoiceNoteInvoiceNote,
+      WebApiModulesBillingInvoiceNoteInvoiceNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInvoiceNoteInvoiceNote>>
+  Future<Response<WebApiModulesBillingInvoiceNoteInvoiceNote>>
   _invoicenoteIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInvoiceNoteInvoiceNote? body,
+    required WebApiModulesBillingInvoiceNoteInvoiceNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -25984,8 +26531,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInvoiceNoteInvoiceNote,
-      WebApiModulesHomeControlsInvoiceNoteInvoiceNote
+      WebApiModulesBillingInvoiceNoteInvoiceNote,
+      WebApiModulesBillingInvoiceNoteInvoiceNote
     >($request);
   }
 
@@ -26077,10 +26624,10 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsInvoiceOrderInvoiceOrder>>
+  Future<Response<WebApiModulesBillingInvoiceOrderInvoiceOrder>>
   _invoiceorderIdPut({
     required String? id,
-    required WebApiModulesHomeControlsInvoiceOrderInvoiceOrder? body,
+    required WebApiModulesBillingInvoiceOrderInvoiceOrder? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -26102,8 +26649,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsInvoiceOrderInvoiceOrder,
-      WebApiModulesHomeControlsInvoiceOrderInvoiceOrder
+      WebApiModulesBillingInvoiceOrderInvoiceOrder,
+      WebApiModulesBillingInvoiceOrderInvoiceOrder
     >($request);
   }
 
@@ -27515,6 +28062,30 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<String>> _itemDebugIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Item"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/item/debug/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<String, String>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _itemattributevalueBrowsePost({
     required FwStandardModelsBrowseRequest? body,
@@ -27581,7 +28152,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsItemAttributeValueItemAttributeValueLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryItemAttributeValueItemAttributeValueLogic
     >
   >
   _itemattributevalueGet({
@@ -27615,18 +28186,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsItemAttributeValueItemAttributeValueLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsItemAttributeValueItemAttributeValueLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryItemAttributeValueItemAttributeValueLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryItemAttributeValueItemAttributeValueLogic
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsItemAttributeValueItemAttributeValue>
-  >
+  Future<Response<WebApiModulesInventoryItemAttributeValueItemAttributeValue>>
   _itemattributevaluePost({
-    required WebApiModulesHomeControlsItemAttributeValueItemAttributeValue?
-    body,
+    required WebApiModulesInventoryItemAttributeValueItemAttributeValue? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -27648,15 +28216,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsItemAttributeValueItemAttributeValue,
-      WebApiModulesHomeControlsItemAttributeValueItemAttributeValue
+      WebApiModulesInventoryItemAttributeValueItemAttributeValue,
+      WebApiModulesInventoryItemAttributeValueItemAttributeValue
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsItemAttributeValueItemAttributeValue>
-  >
+  Future<Response<WebApiModulesInventoryItemAttributeValueItemAttributeValue>>
   _itemattributevalueIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -27678,19 +28244,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsItemAttributeValueItemAttributeValue,
-      WebApiModulesHomeControlsItemAttributeValueItemAttributeValue
+      WebApiModulesInventoryItemAttributeValueItemAttributeValue,
+      WebApiModulesInventoryItemAttributeValueItemAttributeValue
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsItemAttributeValueItemAttributeValue>
-  >
+  Future<Response<WebApiModulesInventoryItemAttributeValueItemAttributeValue>>
   _itemattributevalueIdPut({
     required String? id,
-    required WebApiModulesHomeControlsItemAttributeValueItemAttributeValue?
-    body,
+    required WebApiModulesInventoryItemAttributeValueItemAttributeValue? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -27712,8 +28275,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsItemAttributeValueItemAttributeValue,
-      WebApiModulesHomeControlsItemAttributeValueItemAttributeValue
+      WebApiModulesInventoryItemAttributeValueItemAttributeValue,
+      WebApiModulesInventoryItemAttributeValueItemAttributeValue
     >($request);
   }
 
@@ -27806,11 +28369,11 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsItemAttributeValueMassUpdateItemAttributesResponse
+      WebApiModulesInventoryItemAttributeValueMassUpdateItemAttributesResponse
     >
   >
   _itemattributevalueMassupdateitemattributesPost({
-    required WebApiModulesHomeControlsItemAttributeValueMassUpdateItemAttributesRequest?
+    required WebApiModulesInventoryItemAttributeValueMassUpdateItemAttributesRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -27833,8 +28396,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsItemAttributeValueMassUpdateItemAttributesResponse,
-      WebApiModulesHomeControlsItemAttributeValueMassUpdateItemAttributesResponse
+      WebApiModulesInventoryItemAttributeValueMassUpdateItemAttributesResponse,
+      WebApiModulesInventoryItemAttributeValueMassUpdateItemAttributesResponse
     >($request);
   }
 
@@ -28119,7 +28682,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsItemQcItemQcLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryItemQcItemQcLogic
     >
   >
   _itemqcGet({
@@ -28153,14 +28716,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsItemQcItemQcLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsItemQcItemQcLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryItemQcItemQcLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryItemQcItemQcLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsItemQcItemQc>> _itemqcPost({
-    required WebApiModulesHomeControlsItemQcItemQc? body,
+  Future<Response<WebApiModulesInventoryItemQcItemQc>> _itemqcPost({
+    required WebApiModulesInventoryItemQcItemQc? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -28182,13 +28745,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsItemQcItemQc,
-      WebApiModulesHomeControlsItemQcItemQc
+      WebApiModulesInventoryItemQcItemQc,
+      WebApiModulesInventoryItemQcItemQc
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsItemQcItemQc>> _itemqcIdGet({
+  Future<Response<WebApiModulesInventoryItemQcItemQc>> _itemqcIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -28209,15 +28772,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsItemQcItemQc,
-      WebApiModulesHomeControlsItemQcItemQc
+      WebApiModulesInventoryItemQcItemQc,
+      WebApiModulesInventoryItemQcItemQc
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsItemQcItemQc>> _itemqcIdPut({
+  Future<Response<WebApiModulesInventoryItemQcItemQc>> _itemqcIdPut({
     required String? id,
-    required WebApiModulesHomeControlsItemQcItemQc? body,
+    required WebApiModulesInventoryItemQcItemQc? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -28239,47 +28802,17 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsItemQcItemQc,
-      WebApiModulesHomeControlsItemQcItemQc
+      WebApiModulesInventoryItemQcItemQc,
+      WebApiModulesInventoryItemQcItemQc
     >($request);
   }
 
   @override
-  Future<Response<dynamic>> _jspmGet({
-    String? timestamp,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["JSPM"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/jspm');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'timestamp': timestamp,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
   Future<
-    Response<
-      WebApiModulesHomeControlsLossAndDamageStartLossAndDamageSessionResponse
-    >
+    Response<WebApiModulesAgentLossAndDamageStartLossAndDamageSessionResponse>
   >
   _lossanddamageStartsessionPost({
-    required WebApiModulesHomeControlsLossAndDamageStartLossAndDamageSessionRequest?
+    required WebApiModulesAgentLossAndDamageStartLossAndDamageSessionRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -28302,19 +28835,17 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsLossAndDamageStartLossAndDamageSessionResponse,
-      WebApiModulesHomeControlsLossAndDamageStartLossAndDamageSessionResponse
+      WebApiModulesAgentLossAndDamageStartLossAndDamageSessionResponse,
+      WebApiModulesAgentLossAndDamageStartLossAndDamageSessionResponse
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsLossAndDamageUpdateLossAndDamageItemResponse
-    >
+    Response<WebApiModulesAgentLossAndDamageUpdateLossAndDamageItemResponse>
   >
   _lossanddamageUpdateitemPost({
-    required WebApiModulesHomeControlsLossAndDamageUpdateLossAndDamageItemRequest?
+    required WebApiModulesAgentLossAndDamageUpdateLossAndDamageItemRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -28337,19 +28868,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsLossAndDamageUpdateLossAndDamageItemResponse,
-      WebApiModulesHomeControlsLossAndDamageUpdateLossAndDamageItemResponse
+      WebApiModulesAgentLossAndDamageUpdateLossAndDamageItemResponse,
+      WebApiModulesAgentLossAndDamageUpdateLossAndDamageItemResponse
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemResponse
+      WebApiModulesAgentLossAndDamageSelectAllNoneLossAndDamageItemResponse
     >
   >
   _lossanddamageSelectallPost({
-    required WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemRequest?
+    required WebApiModulesAgentLossAndDamageSelectAllNoneLossAndDamageItemRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -28372,19 +28903,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemResponse,
-      WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemResponse
+      WebApiModulesAgentLossAndDamageSelectAllNoneLossAndDamageItemResponse,
+      WebApiModulesAgentLossAndDamageSelectAllNoneLossAndDamageItemResponse
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemResponse
+      WebApiModulesAgentLossAndDamageSelectAllNoneLossAndDamageItemResponse
     >
   >
   _lossanddamageSelectnonePost({
-    required WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemRequest?
+    required WebApiModulesAgentLossAndDamageSelectAllNoneLossAndDamageItemRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -28407,19 +28938,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemResponse,
-      WebApiModulesHomeControlsLossAndDamageSelectAllNoneLossAndDamageItemResponse
+      WebApiModulesAgentLossAndDamageSelectAllNoneLossAndDamageItemResponse,
+      WebApiModulesAgentLossAndDamageSelectAllNoneLossAndDamageItemResponse
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsLossAndDamageCompleteLossAndDamageSessionResponse
+      WebApiModulesAgentLossAndDamageCompleteLossAndDamageSessionResponse
     >
   >
   _lossanddamageCompletesessionPost({
-    required WebApiModulesHomeControlsLossAndDamageCompleteLossAndDamageSessionRequest?
+    required WebApiModulesAgentLossAndDamageCompleteLossAndDamageSessionRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -28442,19 +28973,17 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsLossAndDamageCompleteLossAndDamageSessionResponse,
-      WebApiModulesHomeControlsLossAndDamageCompleteLossAndDamageSessionResponse
+      WebApiModulesAgentLossAndDamageCompleteLossAndDamageSessionResponse,
+      WebApiModulesAgentLossAndDamageCompleteLossAndDamageSessionResponse
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemResponse
-    >
+    Response<WebApiModulesAgentLossAndDamageRetireLossAndDamageItemResponse>
   >
   _lossanddamageRetirePost({
-    required WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemRequest?
+    required WebApiModulesAgentLossAndDamageRetireLossAndDamageItemRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -28477,8 +29006,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemResponse,
-      WebApiModulesHomeControlsLossAndDamageRetireLossAndDamageItemResponse
+      WebApiModulesAgentLossAndDamageRetireLossAndDamageItemResponse,
+      WebApiModulesAgentLossAndDamageRetireLossAndDamageItemResponse
     >($request);
   }
 
@@ -28635,7 +29164,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsManifestManifestLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic
     >
   >
   _manifestGet({
@@ -28669,14 +29198,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsManifestManifestLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsManifestManifestLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsManifestManifest>> _manifestPost({
-    required WebApiModulesHomeControlsManifestManifest? body,
+  Future<Response<WebApiModulesHomeManifestManifest>> _manifestPost({
+    required WebApiModulesHomeManifestManifest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -28698,13 +29227,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsManifestManifest,
-      WebApiModulesHomeControlsManifestManifest
+      WebApiModulesHomeManifestManifest,
+      WebApiModulesHomeManifestManifest
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsManifestManifest>> _manifestIdGet({
+  Future<Response<WebApiModulesHomeManifestManifest>> _manifestIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -28725,15 +29254,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsManifestManifest,
-      WebApiModulesHomeControlsManifestManifest
+      WebApiModulesHomeManifestManifest,
+      WebApiModulesHomeManifestManifest
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsManifestManifest>> _manifestIdPut({
+  Future<Response<WebApiModulesHomeManifestManifest>> _manifestIdPut({
     required String? id,
-    required WebApiModulesHomeControlsManifestManifest? body,
+    required WebApiModulesHomeManifestManifest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -28755,8 +29284,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsManifestManifest,
-      WebApiModulesHomeControlsManifestManifest
+      WebApiModulesHomeManifestManifest,
+      WebApiModulesHomeManifestManifest
     >($request);
   }
 
@@ -28848,116 +29377,6 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _orderManifestBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["Order"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/order/manifest/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _orderManifestExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["Order"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/order/manifest/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<Response<dynamic>> _orderManifestEmptyobjectGet({
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["Order"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/order/manifest/emptyobject');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<dynamic, dynamic>($request);
-  }
-
-  @override
-  Future<Response<Object>> _orderManifestLegendGet({
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["Order"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/order/manifest/legend');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<Object, Object>($request);
   }
 
   @override
@@ -29714,36 +30133,6 @@ final class _$Home extends Home {
     return client.send<
       WebApiModulesAgentOrderCreateLossAndDamageResponse,
       WebApiModulesAgentOrderCreateLossAndDamageResponse
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAgentOrderDuplicateOrderItemsResponse>>
-  _orderDuplicateorderitemsPost({
-    required WebApiModulesAgentOrderDuplicateOrderItemsRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["Order"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/order/duplicateorderitems');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAgentOrderDuplicateOrderItemsResponse,
-      WebApiModulesAgentOrderDuplicateOrderItemsResponse
     >($request);
   }
 
@@ -31363,6 +31752,36 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _orderValidatecsrBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Order"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/order/validatecsr/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
   Future<Response<WebApiModulesSettingsOrderSettingsOrderTypeOrderType>>
   _orderOrdertypeOrdertypeidGet({
     required String? ordertypeid,
@@ -31658,6 +32077,152 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _orderSubmittokissfloworderpartialreturnPost({
+    String? orderId,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Order"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/order/submittokissfloworderpartialreturn');
+    final Map<String, dynamic> $params = <String, dynamic>{'orderId': orderId};
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _orderSubmittokissflowordernoreturnPost({
+    String? orderId,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Order"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/order/submittokissflowordernoreturn');
+    final Map<String, dynamic> $params = <String, dynamic>{'orderId': orderId};
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _orderPosttoteamupdeliveryeventPost({
+    required WebApiModulesPluginsTeamupTeamupRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Order"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/order/posttoteamupdeliveryevent');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _orderPosttoteamuppickupeventPost({
+    required WebApiModulesPluginsTeamupTeamupRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Order"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/order/posttoteamuppickupevent');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _orderPostshipmentdataPost({
+    required WebApiModulesPluginsFreightPopFreightPopPayload? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Order"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/order/postshipmentdata');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
   }
 
   @override
@@ -32239,7 +32804,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsOrderContactOrderContactLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentOrderContactOrderContactLogic
     >
   >
   _ordercontactGet({
@@ -32273,15 +32838,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsOrderContactOrderContactLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsOrderContactOrderContactLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentOrderContactOrderContactLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentOrderContactOrderContactLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsOrderContactOrderContact>>
+  Future<Response<WebApiModulesAgentOrderContactOrderContact>>
   _ordercontactPost({
-    required WebApiModulesHomeControlsOrderContactOrderContact? body,
+    required WebApiModulesAgentOrderContactOrderContact? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -32303,16 +32868,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsOrderContactOrderContact,
-      WebApiModulesHomeControlsOrderContactOrderContact
+      WebApiModulesAgentOrderContactOrderContact,
+      WebApiModulesAgentOrderContactOrderContact
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsOrderContactOrderContact>>
+  Future<Response<WebApiModulesAgentOrderContactOrderContact>>
   _ordercontactPut({
     required String? id,
-    required WebApiModulesHomeControlsOrderContactOrderContact? body,
+    required WebApiModulesAgentOrderContactOrderContact? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -32334,13 +32899,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsOrderContactOrderContact,
-      WebApiModulesHomeControlsOrderContactOrderContact
+      WebApiModulesAgentOrderContactOrderContact,
+      WebApiModulesAgentOrderContactOrderContact
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsOrderContactOrderContact>>
+  Future<Response<WebApiModulesAgentOrderContactOrderContact>>
   _ordercontactIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -32362,16 +32927,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsOrderContactOrderContact,
-      WebApiModulesHomeControlsOrderContactOrderContact
+      WebApiModulesAgentOrderContactOrderContact,
+      WebApiModulesAgentOrderContactOrderContact
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsOrderContactOrderContact>>
+  Future<Response<WebApiModulesAgentOrderContactOrderContact>>
   _ordercontactIdPut({
     required String? id,
-    required WebApiModulesHomeControlsOrderContactOrderContact? body,
+    required WebApiModulesAgentOrderContactOrderContact? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -32393,8 +32958,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsOrderContactOrderContact,
-      WebApiModulesHomeControlsOrderContactOrderContact
+      WebApiModulesAgentOrderContactOrderContact,
+      WebApiModulesAgentOrderContactOrderContact
     >($request);
   }
 
@@ -32484,7 +33049,7 @@ final class _$Home extends Home {
 
   @override
   Future<Response<WebApiLogicSortItemsResponse>> _ordercontactSortPost({
-    required WebApiModulesHomeControlsOrderContactSortOrderContactRequest? body,
+    required WebApiModulesAgentOrderContactSortOrderContactRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -32514,8 +33079,7 @@ final class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerTSpStatusResponse>>
   _ordercontactRestorealphabeticalsortPost({
-    required WebApiModulesHomeControlsOrderContactRestoreAlphabeticalSortRequest?
-    body,
+    required WebApiModulesAgentOrderContactRestoreAlphabeticalSortRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -32545,8 +33109,7 @@ final class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerTSpStatusResponse>>
   _ordercontactCreateordercontactsPost({
-    required WebApiModulesHomeControlsOrderContactCreateOrderContactRequest?
-    body,
+    required WebApiModulesAgentOrderContactCreateOrderContactRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -33279,6 +33842,8 @@ final class _$Home extends Home {
     int? tier4Weeks,
     int? tier5Weeks,
     String? itemClass,
+    num? replacementCost,
+    bool? isRecurringRateType,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -33319,6 +33884,8 @@ final class _$Home extends Home {
       'Tier4Weeks': tier4Weeks,
       'Tier5Weeks': tier5Weeks,
       'itemClass': itemClass,
+      'replacementCost': replacementCost,
+      'isRecurringRateType': isRecurringRateType,
     };
     final Request $request = Request(
       'GET',
@@ -33367,6 +33934,7 @@ final class _$Home extends Home {
     int? tier3Weeks,
     int? tier4Weeks,
     int? tier5Weeks,
+    bool? isRecurringRateType,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -33415,6 +33983,7 @@ final class _$Home extends Home {
       'Tier3Weeks': tier3Weeks,
       'Tier4Weeks': tier4Weeks,
       'Tier5Weeks': tier5Weeks,
+      'isRecurringRateType': isRecurringRateType,
     };
     final Request $request = Request(
       'GET',
@@ -33611,6 +34180,36 @@ final class _$Home extends Home {
     return client.send<
       WebApiModulesAgentOrderItemPasteOrderItemsFromClipboardResponse,
       WebApiModulesAgentOrderItemPasteOrderItemsFromClipboardResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentOrderDuplicateOrderItemsResponse>>
+  _orderitemDuplicateorderitemsPost({
+    required WebApiModulesAgentOrderDuplicateOrderItemsRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderItem"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/orderitem/duplicateorderitems');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesAgentOrderDuplicateOrderItemsResponse,
+      WebApiModulesAgentOrderDuplicateOrderItemsResponse
     >($request);
   }
 
@@ -33930,6 +34529,38 @@ final class _$Home extends Home {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _orderitemValidateconsignorabbreviationBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderItem"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/orderitem/validateconsignorabbreviation/browse',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _orderitemValidatewarehouseBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -34231,6 +34862,120 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _orderitemShowfixedcontaineritemsPost({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderItem"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/orderitem/showfixedcontaineritems');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _ordermanifestBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderManifest"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/ordermanifest/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _ordermanifestExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderManifest"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/ordermanifest/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<Response<Object>> _ordermanifestLegendGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderManifest"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/ordermanifest/legend');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<Object, Object>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _ordernoteBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -34296,7 +35041,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsOrderNoteOrderNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentOrderNoteOrderNoteLogic
     >
   >
   _ordernoteGet({
@@ -34330,14 +35075,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsOrderNoteOrderNoteLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsOrderNoteOrderNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentOrderNoteOrderNoteLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentOrderNoteOrderNoteLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsOrderNoteOrderNote>> _ordernotePost({
-    required WebApiModulesHomeControlsOrderNoteOrderNote? body,
+  Future<Response<WebApiModulesAgentOrderNoteOrderNote>> _ordernotePost({
+    required WebApiModulesAgentOrderNoteOrderNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -34359,14 +35104,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsOrderNoteOrderNote,
-      WebApiModulesHomeControlsOrderNoteOrderNote
+      WebApiModulesAgentOrderNoteOrderNote,
+      WebApiModulesAgentOrderNoteOrderNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsOrderNoteOrderNote>>
-  _ordernoteIdGet({
+  Future<Response<WebApiModulesAgentOrderNoteOrderNote>> _ordernoteIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -34387,16 +35131,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsOrderNoteOrderNote,
-      WebApiModulesHomeControlsOrderNoteOrderNote
+      WebApiModulesAgentOrderNoteOrderNote,
+      WebApiModulesAgentOrderNoteOrderNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsOrderNoteOrderNote>>
-  _ordernoteIdPut({
+  Future<Response<WebApiModulesAgentOrderNoteOrderNote>> _ordernoteIdPut({
     required String? id,
-    required WebApiModulesHomeControlsOrderNoteOrderNote? body,
+    required WebApiModulesAgentOrderNoteOrderNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -34418,8 +35161,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsOrderNoteOrderNote,
-      WebApiModulesHomeControlsOrderNoteOrderNote
+      WebApiModulesAgentOrderNoteOrderNote,
+      WebApiModulesAgentOrderNoteOrderNote
     >($request);
   }
 
@@ -35171,7 +35914,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsOrderStatusHistoryOrderStatusHistoryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentOrderStatusHistoryOrderStatusHistoryLogic
     >
   >
   _orderstatushistoryGet({
@@ -35205,15 +35948,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsOrderStatusHistoryOrderStatusHistoryLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsOrderStatusHistoryOrderStatusHistoryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentOrderStatusHistoryOrderStatusHistoryLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentOrderStatusHistoryOrderStatusHistoryLogic
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsOrderStatusHistoryOrderStatusHistory>
-  >
+  Future<Response<WebApiModulesAgentOrderStatusHistoryOrderStatusHistory>>
   _orderstatushistoryIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -35235,8 +35976,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsOrderStatusHistoryOrderStatusHistory,
-      WebApiModulesHomeControlsOrderStatusHistoryOrderStatusHistory
+      WebApiModulesAgentOrderStatusHistoryOrderStatusHistory,
+      WebApiModulesAgentOrderStatusHistoryOrderStatusHistory
     >($request);
   }
 
@@ -35329,11 +36070,7 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<
-    Response<
-      List<WebApiModulesHomeControlsOrderStatusSummaryOrderStatusSummary>
-    >
-  >
+  Future<Response<List<WebApiModulesAgentOrderStatusSummaryOrderStatusSummary>>>
   _orderstatussummaryGet({
     String? orderId,
     String? orderItemId,
@@ -35361,13 +36098,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      List<WebApiModulesHomeControlsOrderStatusSummaryOrderStatusSummary>,
-      WebApiModulesHomeControlsOrderStatusSummaryOrderStatusSummary
+      List<WebApiModulesAgentOrderStatusSummaryOrderStatusSummary>,
+      WebApiModulesAgentOrderStatusSummaryOrderStatusSummary
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse>>
+  Future<Response<WebApiModulesAgentOrderSummaryOrderSummaryResponse>>
   _ordersummaryGet({
     String? orderid,
     String? totaltype,
@@ -35395,13 +36132,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse,
-      WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse
+      WebApiModulesAgentOrderSummaryOrderSummaryResponse,
+      WebApiModulesAgentOrderSummaryOrderSummaryResponse
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse>>
+  Future<Response<WebApiModulesAgentOrderSummaryOrderSummaryResponse>>
   _ordersummaryGetsummariesGet({
     String? projectid,
     String? totaltype,
@@ -35431,8 +36168,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse,
-      WebApiModulesHomeControlsOrderSummaryOrderSummaryResponse
+      WebApiModulesAgentOrderSummaryOrderSummaryResponse,
+      WebApiModulesAgentOrderSummaryOrderSummaryResponse
     >($request);
   }
 
@@ -37173,7 +37910,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPersonalEventPersonalEventLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomePersonalEventPersonalEventLogic
     >
   >
   _personaleventGet({
@@ -37207,15 +37944,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPersonalEventPersonalEventLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPersonalEventPersonalEventLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomePersonalEventPersonalEventLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomePersonalEventPersonalEventLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsPersonalEventPersonalEvent>>
+  Future<Response<WebApiModulesHomePersonalEventPersonalEvent>>
   _personaleventPost({
-    required WebApiModulesHomeControlsPersonalEventPersonalEvent? body,
+    required WebApiModulesHomePersonalEventPersonalEvent? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -37237,13 +37974,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPersonalEventPersonalEvent,
-      WebApiModulesHomeControlsPersonalEventPersonalEvent
+      WebApiModulesHomePersonalEventPersonalEvent,
+      WebApiModulesHomePersonalEventPersonalEvent
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsPersonalEventPersonalEvent>>
+  Future<Response<WebApiModulesHomePersonalEventPersonalEvent>>
   _personaleventIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -37265,16 +38002,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPersonalEventPersonalEvent,
-      WebApiModulesHomeControlsPersonalEventPersonalEvent
+      WebApiModulesHomePersonalEventPersonalEvent,
+      WebApiModulesHomePersonalEventPersonalEvent
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsPersonalEventPersonalEvent>>
+  Future<Response<WebApiModulesHomePersonalEventPersonalEvent>>
   _personaleventIdPut({
     required String? id,
-    required WebApiModulesHomeControlsPersonalEventPersonalEvent? body,
+    required WebApiModulesHomePersonalEventPersonalEvent? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -37296,8 +38033,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPersonalEventPersonalEvent,
-      WebApiModulesHomeControlsPersonalEventPersonalEvent
+      WebApiModulesHomePersonalEventPersonalEvent,
+      WebApiModulesHomePersonalEventPersonalEvent
     >($request);
   }
 
@@ -37679,6 +38416,33 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<bool>> _physicalinventoryPrescanprogressPost({
+    required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryPrescanRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/prescanprogress');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
   Future<
     Response<
       WebApiModulesInventoryPhysicalInventoryPhysicalInventoryInitiateResponse
@@ -37715,9 +38479,156 @@ final class _$Home extends Home {
 
   @override
   Future<Response<WebApiModulesInventoryPhysicalInventoryPhysicalInventory>>
-  _physicalinventoryIdUpdatestepStepnamePost({
-    required String? id,
-    required String? stepname,
+  _physicalinventorySkiprecountPost({
+    required WebApiModulesInventoryPhysicalInventoryPhysicalInventorySkipRecountRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/skiprecount');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesInventoryPhysicalInventoryPhysicalInventory,
+      WebApiModulesInventoryPhysicalInventoryPhysicalInventory
+    >($request);
+  }
+
+  @override
+  Future<Response<bool>> _physicalinventoryCountbarcodePost({
+    required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryCountBarcodeRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/countbarcode');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _physicalinventoryCountserialnumberPost({
+    required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryCountSerialNumberRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/countserialnumber');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _physicalinventoryItemsaddedPost({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/itemsadded');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryItemsAddedLogic
+    >
+  >
+  _physicalinventoryItemsaddedGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/itemsadded');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryItemsAddedLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryItemsAddedLogic
+    >($request);
+  }
+
+  @override
+  Future<Response<bool>> _physicalinventoryPrintphysicalinventoryreportPost({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -37730,7 +38641,7 @@ final class _$Home extends Home {
     ),
   }) {
     final Uri $url = Uri.parse(
-      '/physicalinventory/${id}/updatestep/${stepname}',
+      '/physicalinventory/printphysicalinventoryreport',
     );
     final Request $request = Request(
       'POST',
@@ -37738,10 +38649,198 @@ final class _$Home extends Home {
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client.send<
-      WebApiModulesInventoryPhysicalInventoryPhysicalInventory,
-      WebApiModulesInventoryPhysicalInventoryPhysicalInventory
-    >($request);
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _physicalinventoryRecountinventoryPost({
+    required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryRecountInventoryRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/recountinventory');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _physicalinventoryPrintrecountedanalysisreportPost({
+    required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryPrintRecountedAnalysisReportRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/physicalinventory/printrecountedanalysisreport',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _physicalinventoryPrintreconciliationreportPost({
+    required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryPrintReconciliationReportRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/printreconciliationreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _physicalinventoryPrintcountsheetsPost({
+    required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryPrintCountSheetsRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/printcountsheets');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _physicalinventoryQuantityinventoryPost({
+    required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryQuantityInventoryRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/quantityinventory');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _physicalinventoryPrintexceptionreportPost({
+    required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryPrintExceptionReportRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/printexceptionreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _physicalinventoryPrintdiscrepancyreportPost({
+    required WebApiModulesInventoryPhysicalInventoryPhysicalInventoryPrintDiscrepancyReportRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventory/printdiscrepancyreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override
@@ -38450,112 +39549,6 @@ final class _$Home extends Home {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _physicalinventoryExceptionsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["PhysicalInventory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/physicalinventory/exceptions/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _physicalinventoryExceptionsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["PhysicalInventory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/physicalinventory/exceptions/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryExceptionsLogic
-    >
-  >
-  _physicalinventoryExceptionsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["PhysicalInventory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/physicalinventory/exceptions');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryExceptionsLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryExceptionsLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _physicalinventoryItemsaddedBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -38615,48 +39608,6 @@ final class _$Home extends Home {
     return client.send<
       FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
       FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryItemsAddedLogic
-    >
-  >
-  _physicalinventoryItemsaddedGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["PhysicalInventory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/physicalinventory/itemsadded');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryItemsAddedLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryItemsAddedLogic
     >($request);
   }
 
@@ -38968,7 +39919,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventoryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventoryLogic
     >
   >
   _physicalinventorycycleinventoryGet({
@@ -39002,19 +39953,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventoryLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventoryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventoryLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventoryLogic
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
+      WebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
     >
   >
   _physicalinventorycycleinventoryPost({
-    required WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory?
+    required WebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -39037,15 +39988,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory,
-      WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
+      WebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory,
+      WebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
+      WebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
     >
   >
   _physicalinventorycycleinventoryIdGet({
@@ -39069,20 +40020,20 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory,
-      WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
+      WebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory,
+      WebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
+      WebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
     >
   >
   _physicalinventorycycleinventoryIdPut({
     required String? id,
-    required WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory?
+    required WebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -39105,8 +40056,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory,
-      WebApiModulesHomeControlsPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
+      WebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory,
+      WebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventory
     >($request);
   }
 
@@ -39264,6 +40215,112 @@ final class _$Home extends Home {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _physicalinventoryexceptionsBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventoryExceptions"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventoryexceptions/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _physicalinventoryexceptionsExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventoryExceptions"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventoryexceptions/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryExceptionsPhysicalInventoryExceptionsLogic
+    >
+  >
+  _physicalinventoryexceptionsExceptionsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PhysicalInventoryExceptions"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/physicalinventoryexceptions/exceptions');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryExceptionsPhysicalInventoryExceptionsLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryExceptionsPhysicalInventoryExceptionsLogic
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _physicalinventoryinventoryBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -39329,7 +40386,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventoryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventoryLogic
     >
   >
   _physicalinventoryinventoryGet({
@@ -39363,19 +40420,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventoryLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventoryLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventoryLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventoryLogic
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory
+      WebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventory
     >
   >
   _physicalinventoryinventoryPost({
-    required WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory?
+    required WebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventory?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -39398,15 +40455,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory,
-      WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory
+      WebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventory,
+      WebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventory
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory
+      WebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventory
     >
   >
   _physicalinventoryinventoryIdGet({
@@ -39430,20 +40487,20 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory,
-      WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory
+      WebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventory,
+      WebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventory
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory
+      WebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventory
     >
   >
   _physicalinventoryinventoryIdPut({
     required String? id,
-    required WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory?
+    required WebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventory?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -39466,8 +40523,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory,
-      WebApiModulesHomeControlsPhysicalInventoryInventoryPhysicalInventoryInventory
+      WebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventory,
+      WebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventory
     >($request);
   }
 
@@ -39889,7 +40946,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPickListItemPickListItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesWarehousePickListItemPickListItemLogic
     >
   >
   _picklistitemGet({
@@ -39923,15 +40980,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPickListItemPickListItemLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPickListItemPickListItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesWarehousePickListItemPickListItemLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesWarehousePickListItemPickListItemLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsPickListItemPickListItem>>
+  Future<Response<WebApiModulesWarehousePickListItemPickListItem>>
   _picklistitemPost({
-    required WebApiModulesHomeControlsPickListItemPickListItem? body,
+    required WebApiModulesWarehousePickListItemPickListItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -39953,13 +41010,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPickListItemPickListItem,
-      WebApiModulesHomeControlsPickListItemPickListItem
+      WebApiModulesWarehousePickListItemPickListItem,
+      WebApiModulesWarehousePickListItemPickListItem
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsPickListItemPickListItem>>
+  Future<Response<WebApiModulesWarehousePickListItemPickListItem>>
   _picklistitemIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -39981,16 +41038,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPickListItemPickListItem,
-      WebApiModulesHomeControlsPickListItemPickListItem
+      WebApiModulesWarehousePickListItemPickListItem,
+      WebApiModulesWarehousePickListItemPickListItem
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsPickListItemPickListItem>>
+  Future<Response<WebApiModulesWarehousePickListItemPickListItem>>
   _picklistitemIdPut({
     required String? id,
-    required WebApiModulesHomeControlsPickListItemPickListItem? body,
+    required WebApiModulesWarehousePickListItemPickListItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -40012,8 +41069,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPickListItemPickListItem,
-      WebApiModulesHomeControlsPickListItemPickListItem
+      WebApiModulesWarehousePickListItemPickListItem,
+      WebApiModulesWarehousePickListItemPickListItem
     >($request);
   }
 
@@ -40129,12 +41186,9 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem>
-  >
+  Future<Response<WebApiModulesWarehousePickListUtilityItemPickListUtilityItem>>
   _picklistutilityitemPost({
-    required WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem?
-    body,
+    required WebApiModulesWarehousePickListUtilityItemPickListUtilityItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -40156,8 +41210,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem,
-      WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem
+      WebApiModulesWarehousePickListUtilityItemPickListUtilityItem,
+      WebApiModulesWarehousePickListUtilityItemPickListUtilityItem
     >($request);
   }
 
@@ -40165,14 +41219,12 @@ final class _$Home extends Home {
   Future<
     Response<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPickListUtilityItemPickListUtilityItemLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesWarehousePickListUtilityItemPickListUtilityItemLogic
       >
     >
   >
   _picklistutilityitemManyPost({
-    required List<
-      WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem
-    >?
+    required List<WebApiModulesWarehousePickListUtilityItemPickListUtilityItem>?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -40196,20 +41248,17 @@ final class _$Home extends Home {
     );
     return client.send<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPickListUtilityItemPickListUtilityItemLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesWarehousePickListUtilityItemPickListUtilityItemLogic
       >,
-      MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPickListUtilityItemPickListUtilityItemLogic
+      MicrosoftAspNetCoreMvcActionResultWebApiModulesWarehousePickListUtilityItemPickListUtilityItemLogic
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem>
-  >
+  Future<Response<WebApiModulesWarehousePickListUtilityItemPickListUtilityItem>>
   _picklistutilityitemIdPut({
     required String? id,
-    required WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem?
-    body,
+    required WebApiModulesWarehousePickListUtilityItemPickListUtilityItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -40231,8 +41280,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem,
-      WebApiModulesHomeControlsPickListUtilityItemPickListUtilityItem
+      WebApiModulesWarehousePickListUtilityItemPickListUtilityItem,
+      WebApiModulesWarehousePickListUtilityItemPickListUtilityItem
     >($request);
   }
 
@@ -40322,11 +41371,10 @@ final class _$Home extends Home {
 
   @override
   Future<
-    Response<WebApiModulesHomeControlsPickListUtilityItemStartSessionResponse>
+    Response<WebApiModulesWarehousePickListUtilityItemStartSessionResponse>
   >
   _picklistutilityitemStartsessionPost({
-    required WebApiModulesHomeControlsPickListUtilityItemStartSessionRequest?
-    body,
+    required WebApiModulesWarehousePickListUtilityItemStartSessionRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -40348,15 +41396,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPickListUtilityItemStartSessionResponse,
-      WebApiModulesHomeControlsPickListUtilityItemStartSessionResponse
+      WebApiModulesWarehousePickListUtilityItemStartSessionResponse,
+      WebApiModulesWarehousePickListUtilityItemStartSessionResponse
     >($request);
   }
 
   @override
   Future<Response<FwStandardSqlServerTSpStatusResponse>>
   _picklistutilityitemApplypicklistsessionitemsPost({
-    required WebApiModulesHomeControlsPickListUtilityItemApplyPickListSessionItemsRequest?
+    required WebApiModulesWarehousePickListUtilityItemApplyPickListSessionItemsRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -40388,12 +41436,10 @@ final class _$Home extends Home {
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsPickListUtilityItemCompleteSessionResponse
-    >
+    Response<WebApiModulesWarehousePickListUtilityItemCompleteSessionResponse>
   >
   _picklistutilityitemCompletepicklistsessionPost({
-    required WebApiModulesHomeControlsPickListUtilityItemCompleteSessionRequest?
+    required WebApiModulesWarehousePickListUtilityItemCompleteSessionRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -40416,38 +41462,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPickListUtilityItemCompleteSessionResponse,
-      WebApiModulesHomeControlsPickListUtilityItemCompleteSessionResponse
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesWarehousePickListPickList>>
-  _picklistutilityitemCreatepicklistPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["PickListUtilityItem"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/picklistutilityitem/createpicklist');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesWarehousePickListPickList,
-      WebApiModulesWarehousePickListPickList
+      WebApiModulesWarehousePickListUtilityItemCompleteSessionResponse,
+      WebApiModulesWarehousePickListUtilityItemCompleteSessionResponse
     >($request);
   }
 
@@ -40515,7 +41531,7 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<List<WebApiModulesHomeControlsPricingPricing>>>
+  Future<Response<List<WebApiModulesInventoryPricingPricing>>>
   _pricingInventoryidWarehouseidCurrencyidGet({
     required String? inventoryid,
     required String? warehouseid,
@@ -40541,13 +41557,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      List<WebApiModulesHomeControlsPricingPricing>,
-      WebApiModulesHomeControlsPricingPricing
+      List<WebApiModulesInventoryPricingPricing>,
+      WebApiModulesInventoryPricingPricing
     >($request);
   }
 
   @override
-  Future<Response<List<WebApiModulesHomeControlsPricingPricing>>>
+  Future<Response<List<WebApiModulesInventoryPricingPricing>>>
   _pricingInventoryidWarehouseidGet({
     required String? inventoryid,
     required String? warehouseid,
@@ -40570,13 +41586,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      List<WebApiModulesHomeControlsPricingPricing>,
-      WebApiModulesHomeControlsPricingPricing
+      List<WebApiModulesInventoryPricingPricing>,
+      WebApiModulesInventoryPricingPricing
     >($request);
   }
 
   @override
-  Future<Response<List<WebApiModulesHomeControlsPricingPricing>>>
+  Future<Response<List<WebApiModulesInventoryPricingPricing>>>
   _pricingInventoryidGet({
     required String? inventoryid,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -40598,15 +41614,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      List<WebApiModulesHomeControlsPricingPricing>,
-      WebApiModulesHomeControlsPricingPricing
+      List<WebApiModulesInventoryPricingPricing>,
+      WebApiModulesInventoryPricingPricing
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsPricingPricing>> _pricingIdPut({
+  Future<Response<WebApiModulesInventoryPricingPricing>> _pricingIdPut({
     required String? id,
-    required WebApiModulesHomeControlsPricingPricing? body,
+    required WebApiModulesInventoryPricingPricing? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -40628,8 +41644,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPricingPricing,
-      WebApiModulesHomeControlsPricingPricing
+      WebApiModulesInventoryPricingPricing,
+      WebApiModulesInventoryPricingPricing
     >($request);
   }
 
@@ -40637,12 +41653,12 @@ final class _$Home extends Home {
   Future<
     Response<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPricingPricingLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPricingPricingLogic
       >
     >
   >
   _pricingManyPost({
-    required List<WebApiModulesHomeControlsPricingPricing>? body,
+    required List<WebApiModulesInventoryPricingPricing>? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -40665,9 +41681,9 @@ final class _$Home extends Home {
     );
     return client.send<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPricingPricingLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPricingPricingLogic
       >,
-      MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPricingPricingLogic
+      MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPricingPricingLogic
     >($request);
   }
 
@@ -41627,6 +42643,381 @@ final class _$Home extends Home {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _projectValidatemarkettypeBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Project"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/project/validatemarkettype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _projectValidatemarketsegmentBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Project"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/project/validatemarketsegment/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _projectValidatemarketsegmentjobBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Project"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/project/validatemarketsegmentjob/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _projectValidateratetypeBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Project"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/project/validateratetype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _projectApplybottomlinetotalPost({
+    required WebApiModulesAgentProjectProjectBottomLineTotalRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Project"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/project/applybottomlinetotal');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<bool>> _projectApplybottomlinediscountpercentPost({
+    required List<WebApiApplyBottomLineDiscountPercentRequest>? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Project"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/project/applybottomlinediscountpercent');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _projectactivitytotalsforpurchaseorderBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ProjectActivityTotalsForPurchaseOrder"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/projectactivitytotalsforpurchaseorder/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentPurchaseOrderPurchaseOrder>>
+  _projectactivitytotalsforpurchaseorderIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ProjectActivityTotalsForPurchaseOrder"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/projectactivitytotalsforpurchaseorder/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesAgentPurchaseOrderPurchaseOrder,
+      WebApiModulesAgentPurchaseOrderPurchaseOrder
+    >($request);
+  }
+
+  @override
+  Future<Response<Object>> _projectactivitytotalsforpurchaseorderLegendGet({
+    bool? fromOrder,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ProjectActivityTotalsForPurchaseOrder"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/projectactivitytotalsforpurchaseorder/legend');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'fromOrder': fromOrder,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<Object, Object>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _projectactivitytotalsforquoteorderBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ProjectActivityTotalsForQuoteOrder"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/projectactivitytotalsforquoteorder/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentOrderOrder>>
+  _projectactivitytotalsforquoteorderOrderIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ProjectActivityTotalsForQuoteOrder"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/projectactivitytotalsforquoteorder/order/${id}',
+    );
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client
+        .send<WebApiModulesAgentOrderOrder, WebApiModulesAgentOrderOrder>(
+          $request,
+        );
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentQuoteQuote>>
+  _projectactivitytotalsforquoteorderQuoteIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ProjectActivityTotalsForQuoteOrder"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/projectactivitytotalsforquoteorder/quote/${id}',
+    );
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client
+        .send<WebApiModulesAgentQuoteQuote, WebApiModulesAgentQuoteQuote>(
+          $request,
+        );
+  }
+
+  @override
+  Future<Response<Object>> _projectactivitytotalsforquoteorderLegendGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ProjectActivityTotalsForQuoteOrder"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/projectactivitytotalsforquoteorder/legend');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<Object, Object>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _projectcontactBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -41692,7 +43083,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsProjectContactProjectContactLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentProjectContactProjectContactLogic
     >
   >
   _projectcontactGet({
@@ -41726,15 +43117,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsProjectContactProjectContactLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsProjectContactProjectContactLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentProjectContactProjectContactLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentProjectContactProjectContactLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsProjectContactProjectContact>>
+  Future<Response<WebApiModulesAgentProjectContactProjectContact>>
   _projectcontactPost({
-    required WebApiModulesHomeControlsProjectContactProjectContact? body,
+    required WebApiModulesAgentProjectContactProjectContact? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -41756,13 +43147,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsProjectContactProjectContact,
-      WebApiModulesHomeControlsProjectContactProjectContact
+      WebApiModulesAgentProjectContactProjectContact,
+      WebApiModulesAgentProjectContactProjectContact
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsProjectContactProjectContact>>
+  Future<Response<WebApiModulesAgentProjectContactProjectContact>>
   _projectcontactIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -41784,16 +43175,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsProjectContactProjectContact,
-      WebApiModulesHomeControlsProjectContactProjectContact
+      WebApiModulesAgentProjectContactProjectContact,
+      WebApiModulesAgentProjectContactProjectContact
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsProjectContactProjectContact>>
+  Future<Response<WebApiModulesAgentProjectContactProjectContact>>
   _projectcontactIdPut({
     required String? id,
-    required WebApiModulesHomeControlsProjectContactProjectContact? body,
+    required WebApiModulesAgentProjectContactProjectContact? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -41815,8 +43206,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsProjectContactProjectContact,
-      WebApiModulesHomeControlsProjectContactProjectContact
+      WebApiModulesAgentProjectContactProjectContact,
+      WebApiModulesAgentProjectContactProjectContact
     >($request);
   }
 
@@ -41970,7 +43361,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsProjectNoteProjectNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentProjectNoteProjectNoteLogic
     >
   >
   _projectnoteGet({
@@ -42004,15 +43395,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsProjectNoteProjectNoteLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsProjectNoteProjectNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentProjectNoteProjectNoteLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentProjectNoteProjectNoteLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsProjectNoteProjectNote>>
-  _projectnotePost({
-    required WebApiModulesHomeControlsProjectNoteProjectNote? body,
+  Future<Response<WebApiModulesAgentProjectNoteProjectNote>> _projectnotePost({
+    required WebApiModulesAgentProjectNoteProjectNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -42034,14 +43424,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsProjectNoteProjectNote,
-      WebApiModulesHomeControlsProjectNoteProjectNote
+      WebApiModulesAgentProjectNoteProjectNote,
+      WebApiModulesAgentProjectNoteProjectNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsProjectNoteProjectNote>>
-  _projectnoteIdGet({
+  Future<Response<WebApiModulesAgentProjectNoteProjectNote>> _projectnoteIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -42062,16 +43451,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsProjectNoteProjectNote,
-      WebApiModulesHomeControlsProjectNoteProjectNote
+      WebApiModulesAgentProjectNoteProjectNote,
+      WebApiModulesAgentProjectNoteProjectNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsProjectNoteProjectNote>>
-  _projectnoteIdPut({
+  Future<Response<WebApiModulesAgentProjectNoteProjectNote>> _projectnoteIdPut({
     required String? id,
-    required WebApiModulesHomeControlsProjectNoteProjectNote? body,
+    required WebApiModulesAgentProjectNoteProjectNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -42093,8 +43481,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsProjectNoteProjectNote,
-      WebApiModulesHomeControlsProjectNoteProjectNote
+      WebApiModulesAgentProjectNoteProjectNote,
+      WebApiModulesAgentProjectNoteProjectNote
     >($request);
   }
 
@@ -44247,7 +45635,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
     >
   >
   _purchaseorderreceivebarcodeGet({
@@ -44281,19 +45669,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
+      WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
     >
   >
   _purchaseorderreceivebarcodePost({
-    required WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode?
+    required WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -44316,15 +45704,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode,
-      WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
+      WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode,
+      WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
+      WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
     >
   >
   _purchaseorderreceivebarcodeIdGet({
@@ -44348,20 +45736,20 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode,
-      WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
+      WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode,
+      WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
+      WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
     >
   >
   _purchaseorderreceivebarcodeIdPut({
     required String? id,
-    required WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode?
+    required WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -44384,8 +45772,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode,
-      WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
+      WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode,
+      WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
     >($request);
   }
 
@@ -44417,13 +45805,13 @@ final class _$Home extends Home {
   Future<
     Response<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
       >
     >
   >
   _purchaseorderreceivebarcodeManyPost({
     required List<
-      WebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
+      WebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCode
     >?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -44448,9 +45836,9 @@ final class _$Home extends Home {
     );
     return client.send<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
       >,
-      MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
+      MicrosoftAspNetCoreMvcActionResultWebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic
     >($request);
   }
 
@@ -44640,7 +46028,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPurchaseOrderReturnBarCodePurchaseOrderReturnBarCodeLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReturnBarCodePurchaseOrderReturnBarCodeLogic
     >
   >
   _purchaseorderreturnbarcodeGet({
@@ -44674,15 +46062,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPurchaseOrderReturnBarCodePurchaseOrderReturnBarCodeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPurchaseOrderReturnBarCodePurchaseOrderReturnBarCodeLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReturnBarCodePurchaseOrderReturnBarCodeLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReturnBarCodePurchaseOrderReturnBarCodeLogic
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsPurchaseOrderReturnBarCodePurchaseOrderReturnBarCode
+      WebApiModulesAgentPurchaseOrderReturnBarCodePurchaseOrderReturnBarCode
     >
   >
   _purchaseorderreturnbarcodeIdGet({
@@ -44706,8 +46094,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPurchaseOrderReturnBarCodePurchaseOrderReturnBarCode,
-      WebApiModulesHomeControlsPurchaseOrderReturnBarCodePurchaseOrderReturnBarCode
+      WebApiModulesAgentPurchaseOrderReturnBarCodePurchaseOrderReturnBarCode,
+      WebApiModulesAgentPurchaseOrderReturnBarCodePurchaseOrderReturnBarCode
     >($request);
   }
 
@@ -45092,7 +46480,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPurchaseVendorInvoiceItemPurchaseVendorInvoiceItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingPurchaseVendorInvoiceItemPurchaseVendorInvoiceItemLogic
     >
   >
   _purchasevendorinvoiceitemGet({
@@ -45126,15 +46514,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPurchaseVendorInvoiceItemPurchaseVendorInvoiceItemLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsPurchaseVendorInvoiceItemPurchaseVendorInvoiceItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingPurchaseVendorInvoiceItemPurchaseVendorInvoiceItemLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesBillingPurchaseVendorInvoiceItemPurchaseVendorInvoiceItemLogic
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsPurchaseVendorInvoiceItemPurchaseVendorInvoiceItem
+      WebApiModulesBillingPurchaseVendorInvoiceItemPurchaseVendorInvoiceItem
     >
   >
   _purchasevendorinvoiceitemIdGet({
@@ -45158,8 +46546,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsPurchaseVendorInvoiceItemPurchaseVendorInvoiceItem,
-      WebApiModulesHomeControlsPurchaseVendorInvoiceItemPurchaseVendorInvoiceItem
+      WebApiModulesBillingPurchaseVendorInvoiceItemPurchaseVendorInvoiceItem,
+      WebApiModulesBillingPurchaseVendorInvoiceItemPurchaseVendorInvoiceItem
     >($request);
   }
 
@@ -45190,6 +46578,29 @@ final class _$Home extends Home {
       FwStandardSqlServerFwJsonDataTable,
       FwStandardSqlServerFwJsonDataTable
     >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _quikinItemsEmptyobjectGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuikIn"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/quikin/items/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -48276,6 +49687,36 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _quoteValidatecsrBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Quote"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/quote/validatecsr/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
   Future<Response<WebApiModulesSettingsOrderSettingsOrderTypeOrderType>>
   _quoteOrdertypeOrdertypeidGet({
     required String? ordertypeid,
@@ -49173,7 +50614,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCustomerCreditCustomerCreditLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerCreditCustomerCreditLogic
     >
   >
   _receiptLookupcustomerdepositPost({
@@ -49207,8 +50648,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCustomerCreditCustomerCreditLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsCustomerCreditCustomerCreditLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerCreditCustomerCreditLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerCreditCustomerCreditLogic
     >($request);
   }
 
@@ -49373,7 +50814,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptCreditReceiptCreditLogic
     >
   >
   _receiptLocationLocationidCustomerCustomeridCurrencyCurrencyidCreditsGet({
@@ -49412,15 +50853,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptCreditReceiptCreditLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptCreditReceiptCreditLogic
     >($request);
   }
 
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptCreditReceiptCreditLogic
     >
   >
   _receiptLocationLocationidDealDealidCurrencyCurrencyidCreditsGet({
@@ -49459,8 +50900,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptCreditReceiptCreditLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptCreditReceiptCreditLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptCreditReceiptCreditLogic
     >($request);
   }
 
@@ -49769,7 +51210,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptInvoiceReceiptInvoiceLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptInvoiceReceiptInvoiceLogic
     >
   >
   _receiptinvoiceReceiptidGet({
@@ -49804,8 +51245,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptInvoiceReceiptInvoiceLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReceiptInvoiceReceiptInvoiceLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptInvoiceReceiptInvoiceLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptInvoiceReceiptInvoiceLogic
     >($request);
   }
 
@@ -54462,6 +55903,7 @@ final class _$Home extends Home {
   Future<Response<WebApiModulesInventoryRepairVoidRepairResponse>>
   _repairVoidIdPost({
     required String? id,
+    required WebApiModulesInventoryRepairVoidRepairRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -54474,10 +55916,12 @@ final class _$Home extends Home {
     ),
   }) {
     final Uri $url = Uri.parse('/repair/void/${id}');
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
+      body: $body,
       tag: swaggerMetaData,
     );
     return client.send<
@@ -54489,7 +55933,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsServiceOrderItemCreateServiceOrderFromRepairResponse
+      WebApiModulesHomeServiceOrderItemCreateServiceOrderFromRepairResponse
     >
   >
   _repairIdCreateserviceorderPost({
@@ -54513,15 +55957,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsServiceOrderItemCreateServiceOrderFromRepairResponse,
-      WebApiModulesHomeControlsServiceOrderItemCreateServiceOrderFromRepairResponse
+      WebApiModulesHomeServiceOrderItemCreateServiceOrderFromRepairResponse,
+      WebApiModulesHomeServiceOrderItemCreateServiceOrderFromRepairResponse
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsLossAndDamageCreateLossAndDamageOrderFromRepairResponse
+      WebApiModulesAgentLossAndDamageCreateLossAndDamageOrderFromRepairResponse
     >
   >
   _repairIdCreatelossanddamageorderPost({
@@ -54545,8 +55989,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsLossAndDamageCreateLossAndDamageOrderFromRepairResponse,
-      WebApiModulesHomeControlsLossAndDamageCreateLossAndDamageOrderFromRepairResponse
+      WebApiModulesAgentLossAndDamageCreateLossAndDamageOrderFromRepairResponse,
+      WebApiModulesAgentLossAndDamageCreateLossAndDamageOrderFromRepairResponse
     >($request);
   }
 
@@ -55041,7 +56485,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsRepairCostRepairCostLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairCostRepairCostLogic
     >
   >
   _repaircostGet({
@@ -55075,15 +56519,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsRepairCostRepairCostLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsRepairCostRepairCostLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairCostRepairCostLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairCostRepairCostLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsRepairCostRepairCost>>
-  _repaircostPost({
-    required WebApiModulesHomeControlsRepairCostRepairCost? body,
+  Future<Response<WebApiModulesInventoryRepairCostRepairCost>> _repaircostPost({
+    required WebApiModulesInventoryRepairCostRepairCost? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -55105,13 +56548,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsRepairCostRepairCost,
-      WebApiModulesHomeControlsRepairCostRepairCost
+      WebApiModulesInventoryRepairCostRepairCost,
+      WebApiModulesInventoryRepairCostRepairCost
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsRepairCostRepairCost>>
+  Future<Response<WebApiModulesInventoryRepairCostRepairCost>>
   _repaircostIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -55133,16 +56576,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsRepairCostRepairCost,
-      WebApiModulesHomeControlsRepairCostRepairCost
+      WebApiModulesInventoryRepairCostRepairCost,
+      WebApiModulesInventoryRepairCostRepairCost
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsRepairCostRepairCost>>
+  Future<Response<WebApiModulesInventoryRepairCostRepairCost>>
   _repaircostIdPut({
     required String? id,
-    required WebApiModulesHomeControlsRepairCostRepairCost? body,
+    required WebApiModulesInventoryRepairCostRepairCost? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -55164,8 +56607,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsRepairCostRepairCost,
-      WebApiModulesHomeControlsRepairCostRepairCost
+      WebApiModulesInventoryRepairCostRepairCost,
+      WebApiModulesInventoryRepairCostRepairCost
     >($request);
   }
 
@@ -55321,7 +56764,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsRepairPartRepairPartLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairPartRepairPartLogic
     >
   >
   _repairpartGet({
@@ -55355,15 +56798,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsRepairPartRepairPartLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsRepairPartRepairPartLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairPartRepairPartLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairPartRepairPartLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsRepairPartRepairPart>>
-  _repairpartPost({
-    required WebApiModulesHomeControlsRepairPartRepairPart? body,
+  Future<Response<WebApiModulesInventoryRepairPartRepairPart>> _repairpartPost({
+    required WebApiModulesInventoryRepairPartRepairPart? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -55385,13 +56827,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsRepairPartRepairPart,
-      WebApiModulesHomeControlsRepairPartRepairPart
+      WebApiModulesInventoryRepairPartRepairPart,
+      WebApiModulesInventoryRepairPartRepairPart
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsRepairPartRepairPart>>
+  Future<Response<WebApiModulesInventoryRepairPartRepairPart>>
   _repairpartIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -55413,16 +56855,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsRepairPartRepairPart,
-      WebApiModulesHomeControlsRepairPartRepairPart
+      WebApiModulesInventoryRepairPartRepairPart,
+      WebApiModulesInventoryRepairPartRepairPart
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsRepairPartRepairPart>>
+  Future<Response<WebApiModulesInventoryRepairPartRepairPart>>
   _repairpartIdPut({
     required String? id,
-    required WebApiModulesHomeControlsRepairPartRepairPart? body,
+    required WebApiModulesInventoryRepairPartRepairPart? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -55444,8 +56886,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsRepairPartRepairPart,
-      WebApiModulesHomeControlsRepairPartRepairPart
+      WebApiModulesInventoryRepairPartRepairPart,
+      WebApiModulesInventoryRepairPartRepairPart
     >($request);
   }
 
@@ -55632,7 +57074,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsRepairReleaseRepairReleaseLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairReleaseRepairReleaseLogic
     >
   >
   _repairreleaseGet({
@@ -55666,13 +57108,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsRepairReleaseRepairReleaseLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsRepairReleaseRepairReleaseLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairReleaseRepairReleaseLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairReleaseRepairReleaseLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsRepairReleaseRepairRelease>>
+  Future<Response<WebApiModulesInventoryRepairReleaseRepairRelease>>
   _repairreleaseIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -55694,8 +57136,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsRepairReleaseRepairRelease,
-      WebApiModulesHomeControlsRepairReleaseRepairRelease
+      WebApiModulesInventoryRepairReleaseRepairRelease,
+      WebApiModulesInventoryRepairReleaseRepairRelease
     >($request);
   }
 
@@ -55886,7 +57328,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemReservedRentalItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemReservedRentalItemLogic
     >
   >
   _reservedrentalitemGet({
@@ -55920,18 +57362,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemReservedRentalItemLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemReservedRentalItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemReservedRentalItemLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemReservedRentalItemLogic
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsReservedRentalItemReservedRentalItem>
-  >
+  Future<Response<WebApiModulesInventoryReservedRentalItemReservedRentalItem>>
   _reservedrentalitemPost({
-    required WebApiModulesHomeControlsReservedRentalItemReservedRentalItem?
-    body,
+    required WebApiModulesInventoryReservedRentalItemReservedRentalItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -55953,15 +57392,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsReservedRentalItemReservedRentalItem,
-      WebApiModulesHomeControlsReservedRentalItemReservedRentalItem
+      WebApiModulesInventoryReservedRentalItemReservedRentalItem,
+      WebApiModulesInventoryReservedRentalItemReservedRentalItem
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsReservedRentalItemReservedRentalItem>
-  >
+  Future<Response<WebApiModulesInventoryReservedRentalItemReservedRentalItem>>
   _reservedrentalitemIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -55983,19 +57420,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsReservedRentalItemReservedRentalItem,
-      WebApiModulesHomeControlsReservedRentalItemReservedRentalItem
+      WebApiModulesInventoryReservedRentalItemReservedRentalItem,
+      WebApiModulesInventoryReservedRentalItemReservedRentalItem
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsReservedRentalItemReservedRentalItem>
-  >
+  Future<Response<WebApiModulesInventoryReservedRentalItemReservedRentalItem>>
   _reservedrentalitemIdPut({
     required String? id,
-    required WebApiModulesHomeControlsReservedRentalItemReservedRentalItem?
-    body,
+    required WebApiModulesInventoryReservedRentalItemReservedRentalItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -56017,8 +57451,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsReservedRentalItemReservedRentalItem,
-      WebApiModulesHomeControlsReservedRentalItemReservedRentalItem
+      WebApiModulesInventoryReservedRentalItemReservedRentalItem,
+      WebApiModulesInventoryReservedRentalItemReservedRentalItem
     >($request);
   }
 
@@ -56113,7 +57547,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLogLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemLogReservedRentalItemLogLogic
     >
   >
   _reservedrentalitemlogGet({
@@ -56147,19 +57581,17 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLogLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLogLogic
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemLogReservedRentalItemLogLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemLogReservedRentalItemLogLogic
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog
-    >
+    Response<WebApiModulesInventoryReservedRentalItemLogReservedRentalItemLog>
   >
   _reservedrentalitemlogPost({
-    required WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog?
+    required WebApiModulesInventoryReservedRentalItemLogReservedRentalItemLog?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -56182,16 +57614,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog,
-      WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog
+      WebApiModulesInventoryReservedRentalItemLogReservedRentalItemLog,
+      WebApiModulesInventoryReservedRentalItemLogReservedRentalItemLog
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog
-    >
+    Response<WebApiModulesInventoryReservedRentalItemLogReservedRentalItemLog>
   >
   _reservedrentalitemlogIdGet({
     required String? id,
@@ -56214,20 +57644,18 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog,
-      WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog
+      WebApiModulesInventoryReservedRentalItemLogReservedRentalItemLog,
+      WebApiModulesInventoryReservedRentalItemLogReservedRentalItemLog
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog
-    >
+    Response<WebApiModulesInventoryReservedRentalItemLogReservedRentalItemLog>
   >
   _reservedrentalitemlogIdPut({
     required String? id,
-    required WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog?
+    required WebApiModulesInventoryReservedRentalItemLogReservedRentalItemLog?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -56250,8 +57678,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog,
-      WebApiModulesHomeControlsReservedRentalItemLogReservedRentalItemLog
+      WebApiModulesInventoryReservedRentalItemLogReservedRentalItemLog,
+      WebApiModulesInventoryReservedRentalItemLogReservedRentalItemLog
     >($request);
   }
 
@@ -58352,12 +59780,10 @@ final class _$Home extends Home {
 
   @override
   Future<
-    Response<
-      WebApiModulesHomeControlsServiceOrderItemStartServiceOrderSessionResponse
-    >
+    Response<WebApiModulesHomeServiceOrderItemStartServiceOrderSessionResponse>
   >
   _serviceorderitemStartsessionPost({
-    required WebApiModulesHomeControlsServiceOrderItemStartServiceOrderSessionRequest?
+    required WebApiModulesHomeServiceOrderItemStartServiceOrderSessionRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -58380,15 +59806,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsServiceOrderItemStartServiceOrderSessionResponse,
-      WebApiModulesHomeControlsServiceOrderItemStartServiceOrderSessionResponse
+      WebApiModulesHomeServiceOrderItemStartServiceOrderSessionResponse,
+      WebApiModulesHomeServiceOrderItemStartServiceOrderSessionResponse
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsServiceOrderItemServiceOrderItem>>
+  Future<Response<WebApiModulesHomeServiceOrderItemServiceOrderItem>>
   _serviceorderitemPost({
-    required WebApiModulesHomeControlsServiceOrderItemServiceOrderItem? body,
+    required WebApiModulesHomeServiceOrderItemServiceOrderItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -58410,16 +59836,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsServiceOrderItemServiceOrderItem,
-      WebApiModulesHomeControlsServiceOrderItemServiceOrderItem
+      WebApiModulesHomeServiceOrderItemServiceOrderItem,
+      WebApiModulesHomeServiceOrderItemServiceOrderItem
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsServiceOrderItemServiceOrderItem>>
+  Future<Response<WebApiModulesHomeServiceOrderItemServiceOrderItem>>
   _serviceorderitemIdPut({
     required String? id,
-    required WebApiModulesHomeControlsServiceOrderItemServiceOrderItem? body,
+    required WebApiModulesHomeServiceOrderItemServiceOrderItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -58441,19 +59867,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsServiceOrderItemServiceOrderItem,
-      WebApiModulesHomeControlsServiceOrderItemServiceOrderItem
+      WebApiModulesHomeServiceOrderItemServiceOrderItem,
+      WebApiModulesHomeServiceOrderItemServiceOrderItem
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsServiceOrderItemCompleteServiceOrderSessionResponse
+      WebApiModulesHomeServiceOrderItemCompleteServiceOrderSessionResponse
     >
   >
   _serviceorderitemCompletesessionPost({
-    required WebApiModulesHomeControlsServiceOrderItemCompleteServiceOrderSessionRequest?
+    required WebApiModulesHomeServiceOrderItemCompleteServiceOrderSessionRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -58476,8 +59902,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsServiceOrderItemCompleteServiceOrderSessionResponse,
-      WebApiModulesHomeControlsServiceOrderItemCompleteServiceOrderSessionResponse
+      WebApiModulesHomeServiceOrderItemCompleteServiceOrderSessionResponse,
+      WebApiModulesHomeServiceOrderItemCompleteServiceOrderSessionResponse
     >($request);
   }
 
@@ -59874,9 +61300,7 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem>
-  >
+  Future<Response<WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem>>
   _subpurchaseorderitemIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -59898,19 +61322,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem,
-      WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem
+      WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem,
+      WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem
     >($request);
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem>
-  >
+  Future<Response<WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem>>
   _subpurchaseorderitemIdPut({
     required String? id,
-    required WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem?
-    body,
+    required WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -59932,8 +61353,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem,
-      WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem
+      WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem,
+      WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem
     >($request);
   }
 
@@ -59962,12 +61383,9 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<
-    Response<WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem>
-  >
+  Future<Response<WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem>>
   _subpurchaseorderitemPost({
-    required WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem?
-    body,
+    required WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -59989,8 +61407,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem,
-      WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem
+      WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem,
+      WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem
     >($request);
   }
 
@@ -59998,14 +61416,12 @@ final class _$Home extends Home {
   Future<
     Response<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItemLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItemLogic
       >
     >
   >
   _subpurchaseorderitemManyPost({
-    required List<
-      WebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItem
-    >?
+    required List<WebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItem>?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -60029,20 +61445,20 @@ final class _$Home extends Home {
     );
     return client.send<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItemLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItemLogic
       >,
-      MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsSubPurchaseOrderItemSubPurchaseOrderItemLogic
+      MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItemLogic
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse
+      WebApiModulesHomeSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse
     >
   >
   _subpurchaseorderitemSelectallPost({
-    required WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequest?
+    required WebApiModulesHomeSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -60065,19 +61481,19 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse,
-      WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse
+      WebApiModulesHomeSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse,
+      WebApiModulesHomeSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse
     >($request);
   }
 
   @override
   Future<
     Response<
-      WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse
+      WebApiModulesHomeSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse
     >
   >
   _subpurchaseorderitemSelectnonePost({
-    required WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequest?
+    required WebApiModulesHomeSubPurchaseOrderItemSelectAllNonePoWorksheetItemRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -60100,13 +61516,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse,
-      WebApiModulesHomeControlsSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse
+      WebApiModulesHomeSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse,
+      WebApiModulesHomeSubPurchaseOrderItemSelectAllNonePoWorksheetItemResponse
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsSuspendedSessionSuspendedSession>>
+  Future<Response<WebApiModulesHomeSuspendedSessionSuspendedSession>>
   _suspendedsessionIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -60128,8 +61544,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsSuspendedSessionSuspendedSession,
-      WebApiModulesHomeControlsSuspendedSessionSuspendedSession
+      WebApiModulesHomeSuspendedSessionSuspendedSession,
+      WebApiModulesHomeSuspendedSessionSuspendedSession
     >($request);
   }
 
@@ -60480,7 +61896,7 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<List<WebApiModulesHomeControlsTaxableTaxable>>>
+  Future<Response<List<WebApiModulesBillingTaxableTaxable>>>
   _taxableMasteridLocationidGet({
     required String? masterid,
     required String? locationid,
@@ -60503,13 +61919,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      List<WebApiModulesHomeControlsTaxableTaxable>,
-      WebApiModulesHomeControlsTaxableTaxable
+      List<WebApiModulesBillingTaxableTaxable>,
+      WebApiModulesBillingTaxableTaxable
     >($request);
   }
 
   @override
-  Future<Response<List<WebApiModulesHomeControlsTaxableTaxable>>>
+  Future<Response<List<WebApiModulesBillingTaxableTaxable>>>
   _taxableMasteridGet({
     required String? masterid,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -60531,8 +61947,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      List<WebApiModulesHomeControlsTaxableTaxable>,
-      WebApiModulesHomeControlsTaxableTaxable
+      List<WebApiModulesBillingTaxableTaxable>,
+      WebApiModulesBillingTaxableTaxable
     >($request);
   }
 
@@ -60564,6 +61980,29 @@ final class _$Home extends Home {
       FwStandardSqlServerFwJsonDataTable,
       FwStandardSqlServerFwJsonDataTable
     >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _transferinItemsEmptyobjectGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TransferIn"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/transferin/items/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
   }
 
   @override
@@ -61443,7 +62882,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsManifestManifestLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic
     >
   >
   _transfermanifestGet({
@@ -61477,15 +62916,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsManifestManifestLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsManifestManifestLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsManifestManifest>>
-  _transfermanifestPost({
-    required WebApiModulesHomeControlsManifestManifest? body,
+  Future<Response<WebApiModulesHomeManifestManifest>> _transfermanifestPost({
+    required WebApiModulesHomeManifestManifest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -61507,14 +62945,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsManifestManifest,
-      WebApiModulesHomeControlsManifestManifest
+      WebApiModulesHomeManifestManifest,
+      WebApiModulesHomeManifestManifest
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsManifestManifest>>
-  _transfermanifestIdGet({
+  Future<Response<WebApiModulesHomeManifestManifest>> _transfermanifestIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -61535,16 +62972,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsManifestManifest,
-      WebApiModulesHomeControlsManifestManifest
+      WebApiModulesHomeManifestManifest,
+      WebApiModulesHomeManifestManifest
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsManifestManifest>>
-  _transfermanifestIdPut({
+  Future<Response<WebApiModulesHomeManifestManifest>> _transfermanifestIdPut({
     required String? id,
-    required WebApiModulesHomeControlsManifestManifest? body,
+    required WebApiModulesHomeManifestManifest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -61566,8 +63002,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsManifestManifest,
-      WebApiModulesHomeControlsManifestManifest
+      WebApiModulesHomeManifestManifest,
+      WebApiModulesHomeManifestManifest
     >($request);
   }
 
@@ -62752,6 +64188,36 @@ final class _$Home extends Home {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _transferorderValidatemanifestBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["TransferOrder"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/transferorder/validatemanifest/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _transferoutValidatetransferBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -62870,7 +64336,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsManifestManifestLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic
     >
   >
   _transferreceiptGet({
@@ -62904,14 +64370,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsManifestManifestLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsManifestManifestLogic
+      FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsManifestManifest>>
-  _transferreceiptPost({
+  Future<Response<WebApiModulesHomeManifestManifest>> _transferreceiptPost({
     required WebApiModulesWarehouseContractContract? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -62934,14 +64399,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsManifestManifest,
-      WebApiModulesHomeControlsManifestManifest
+      WebApiModulesHomeManifestManifest,
+      WebApiModulesHomeManifestManifest
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsManifestManifest>>
-  _transferreceiptIdGet({
+  Future<Response<WebApiModulesHomeManifestManifest>> _transferreceiptIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -62962,16 +64426,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsManifestManifest,
-      WebApiModulesHomeControlsManifestManifest
+      WebApiModulesHomeManifestManifest,
+      WebApiModulesHomeManifestManifest
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsManifestManifest>>
-  _transferreceiptIdPut({
+  Future<Response<WebApiModulesHomeManifestManifest>> _transferreceiptIdPut({
     required String? id,
-    required WebApiModulesHomeControlsManifestManifest? body,
+    required WebApiModulesHomeManifestManifest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -62993,8 +64456,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsManifestManifest,
-      WebApiModulesHomeControlsManifestManifest
+      WebApiModulesHomeManifestManifest,
+      WebApiModulesHomeManifestManifest
     >($request);
   }
 
@@ -65574,7 +67037,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceItemVendorInvoiceItemLogic
     >
   >
   _vendorinvoiceitemGet({
@@ -65608,15 +67071,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItemLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItemLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceItemVendorInvoiceItemLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceItemVendorInvoiceItemLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem>>
+  Future<Response<WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem>>
   _vendorinvoiceitemPost({
-    required WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem? body,
+    required WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -65638,13 +67101,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem,
-      WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem
+      WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem,
+      WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem>>
+  Future<Response<WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem>>
   _vendorinvoiceitemIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -65666,16 +67129,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem,
-      WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem
+      WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem,
+      WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem>>
+  Future<Response<WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem>>
   _vendorinvoiceitemIdPut({
     required String? id,
-    required WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem? body,
+    required WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -65697,8 +67160,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem,
-      WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem
+      WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem,
+      WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem
     >($request);
   }
 
@@ -65730,13 +67193,12 @@ final class _$Home extends Home {
   Future<
     Response<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItemLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesBillingVendorInvoiceItemVendorInvoiceItemLogic
       >
     >
   >
   _vendorinvoiceitemManyPost({
-    required List<WebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItem>?
-    body,
+    required List<WebApiModulesBillingVendorInvoiceItemVendorInvoiceItem>? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -65759,9 +67221,9 @@ final class _$Home extends Home {
     );
     return client.send<
       List<
-        MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItemLogic
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesBillingVendorInvoiceItemVendorInvoiceItemLogic
       >,
-      MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeControlsVendorInvoiceItemVendorInvoiceItemLogic
+      MicrosoftAspNetCoreMvcActionResultWebApiModulesBillingVendorInvoiceItemVendorInvoiceItemLogic
     >($request);
   }
 
@@ -65990,7 +67452,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceNoteVendorInvoiceNoteLogic
     >
   >
   _vendorinvoicenoteGet({
@@ -66024,15 +67486,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNoteLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceNoteVendorInvoiceNoteLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceNoteVendorInvoiceNoteLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote>>
+  Future<Response<WebApiModulesBillingVendorInvoiceNoteVendorInvoiceNote>>
   _vendorinvoicenotePost({
-    required WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote? body,
+    required WebApiModulesBillingVendorInvoiceNoteVendorInvoiceNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -66054,13 +67516,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote,
-      WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote
+      WebApiModulesBillingVendorInvoiceNoteVendorInvoiceNote,
+      WebApiModulesBillingVendorInvoiceNoteVendorInvoiceNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote>>
+  Future<Response<WebApiModulesBillingVendorInvoiceNoteVendorInvoiceNote>>
   _vendorinvoicenoteIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -66082,16 +67544,16 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote,
-      WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote
+      WebApiModulesBillingVendorInvoiceNoteVendorInvoiceNote,
+      WebApiModulesBillingVendorInvoiceNoteVendorInvoiceNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote>>
+  Future<Response<WebApiModulesBillingVendorInvoiceNoteVendorInvoiceNote>>
   _vendorinvoicenoteIdPut({
     required String? id,
-    required WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote? body,
+    required WebApiModulesBillingVendorInvoiceNoteVendorInvoiceNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -66113,8 +67575,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote,
-      WebApiModulesHomeControlsVendorInvoiceNoteVendorInvoiceNote
+      WebApiModulesBillingVendorInvoiceNoteVendorInvoiceNote,
+      WebApiModulesBillingVendorInvoiceNoteVendorInvoiceNote
     >($request);
   }
 
@@ -66366,7 +67828,7 @@ final class _$Home extends Home {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsVendorNoteVendorNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentVendorNoteVendorNoteLogic
     >
   >
   _vendornoteGet({
@@ -66400,15 +67862,14 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsVendorNoteVendorNoteLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesHomeControlsVendorNoteVendorNoteLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAgentVendorNoteVendorNoteLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAgentVendorNoteVendorNoteLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsVendorNoteVendorNote>>
-  _vendornotePost({
-    required WebApiModulesHomeControlsVendorNoteVendorNote? body,
+  Future<Response<WebApiModulesAgentVendorNoteVendorNote>> _vendornotePost({
+    required WebApiModulesAgentVendorNoteVendorNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -66430,14 +67891,13 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsVendorNoteVendorNote,
-      WebApiModulesHomeControlsVendorNoteVendorNote
+      WebApiModulesAgentVendorNoteVendorNote,
+      WebApiModulesAgentVendorNoteVendorNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsVendorNoteVendorNote>>
-  _vendornoteIdGet({
+  Future<Response<WebApiModulesAgentVendorNoteVendorNote>> _vendornoteIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -66458,16 +67918,15 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsVendorNoteVendorNote,
-      WebApiModulesHomeControlsVendorNoteVendorNote
+      WebApiModulesAgentVendorNoteVendorNote,
+      WebApiModulesAgentVendorNoteVendorNote
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesHomeControlsVendorNoteVendorNote>>
-  _vendornoteIdPut({
+  Future<Response<WebApiModulesAgentVendorNoteVendorNote>> _vendornoteIdPut({
     required String? id,
-    required WebApiModulesHomeControlsVendorNoteVendorNote? body,
+    required WebApiModulesAgentVendorNoteVendorNote? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -66489,8 +67948,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesHomeControlsVendorNoteVendorNote,
-      WebApiModulesHomeControlsVendorNoteVendorNote
+      WebApiModulesAgentVendorNoteVendorNote,
+      WebApiModulesAgentVendorNoteVendorNote
     >($request);
   }
 

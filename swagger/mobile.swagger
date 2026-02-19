@@ -4,11 +4,6 @@
     "title": "RentalWorks QuikScan API v1",
     "version": "v1"
   },
-  "servers": [
-    {
-      "url": "/training"
-    }
-  ],
   "paths": {
     "/quikscan/assetdisposition/lookupretiredreason": {
       "get": {
@@ -1317,6 +1312,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "ContractId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1842,6 +1844,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -1906,6 +1911,9 @@
           "TemplateSequence": {
             "type": "integer",
             "format": "int32"
+          },
+          "IsEmail": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -1934,6 +1942,14 @@
             "nullable": true
           },
           "ValidationFieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationFieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ListFieldAllowedValues": {
             "type": "string",
             "nullable": true
           }
@@ -2123,6 +2139,11 @@
               "nullable": true
             },
             "nullable": true
+          },
+          "timezoneOffset": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -2310,7 +2331,8 @@
           "OleToHtmlColor",
           "Integer",
           "JpgDataUrl",
-          "UTCDateTime"
+          "UTCDateTime",
+          "Email"
         ],
         "type": "string"
       },
@@ -2575,6 +2597,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -2829,6 +2854,14 @@
           "ReplacementCostForAllWarehouses": {
             "type": "number",
             "format": "double",
+            "nullable": true
+          },
+          "HourlyAvailabilityMyWarehouse": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HourlyAvailabilityAllWarehouses": {
+            "type": "boolean",
             "nullable": true
           },
           "InventoryTypeId": {
@@ -3213,6 +3246,14 @@
             "description": "Format: Boolean",
             "nullable": true
           },
+          "CompleteSeparatePackageOnQuoteOrder": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "KitSeparatePackageOnQuoteOrder": {
+            "type": "boolean",
+            "nullable": true
+          },
           "CompletePackagePrice": {
             "type": "string",
             "nullable": true
@@ -3221,9 +3262,28 @@
             "type": "string",
             "nullable": true
           },
-          "SeparatePackageOnQuoteOrder": {
+          "CompleteAllocateRevenueForAccessories": {
             "type": "boolean",
-            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "KitAllocateRevenueForAccessories": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ContainerAllocateRevenueForAccessories": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "CompletePackageRevenueCalculationFormula": {
+            "type": "string",
+            "nullable": true
+          },
+          "KitPackageRevenueCalculationFormula": {
+            "type": "string",
+            "nullable": true
+          },
+          "ContainerPackageRevenueCalculationFormula": {
+            "type": "string",
             "nullable": true
           },
           "ContainerId": {
@@ -3404,17 +3464,6 @@
             "type": "string",
             "nullable": true
           },
-          "AllocateRevenueForAccessories": {
-            "type": "boolean",
-            "description": "Format: Boolean",
-            "nullable": true
-          },
-          "PackageRevenueCalculationFormula": {
-            "maxLength": 20,
-            "type": "string",
-            "description": "Format: Text",
-            "nullable": true
-          },
           "IsHazardousMaterial": {
             "maxLength": 1,
             "type": "boolean",
@@ -3475,6 +3524,11 @@
             "format": "double",
             "nullable": true
           },
+          "QuantityOnPO": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
           "TotalQuantity": {
             "type": "number",
             "format": "double",
@@ -3517,6 +3571,10 @@
           "DisableMiscDescriptionChange": {
             "type": "boolean",
             "description": "Format: Boolean",
+            "nullable": true
+          },
+          "StandAloneItem": {
+            "type": "boolean",
             "nullable": true
           },
           "ICode": {
@@ -3951,6 +4009,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -4331,7 +4392,7 @@
             "nullable": true
           },
           "RfId": {
-            "maxLength": 50,
+            "maxLength": 40,
             "type": "string",
             "description": "Format: Text",
             "nullable": true
@@ -4391,6 +4452,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {

@@ -444,6 +444,99 @@ abstract class Integrations extends ChopperService {
     ),
   });
 
+  ///Get products in a catalog.
+  ///@param catalogid
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  ///@param warehouseid
+  ///@param locationid
+  ///@param inventorydepartmentid
+  ///@param categoryid
+  ///@param subcategoryid
+  Future<
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >
+  >
+  storefrontCatalogCatalogidProductsWarehouseidWarehouseidLocationidLocationidGet({
+    required String? catalogid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    required String? warehouseid,
+    required String? locationid,
+    String? inventorydepartmentid,
+    String? categoryid,
+    String? subcategoryid,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader,
+      () =>
+          FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+              .fromJsonFactory,
+    );
+
+    return _storefrontCatalogCatalogidProductsWarehouseidWarehouseidLocationidLocationidGet(
+      catalogid: catalogid,
+      pageno: pageno,
+      pagesize: pagesize,
+      sort: sort,
+      filter: filter,
+      warehouseid: warehouseid,
+      locationid: locationid,
+      inventorydepartmentid: inventorydepartmentid,
+      categoryid: categoryid,
+      subcategoryid: subcategoryid,
+    );
+  }
+
+  ///Get products in a catalog.
+  ///@param catalogid
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  ///@param warehouseid
+  ///@param locationid
+  ///@param inventorydepartmentid
+  ///@param categoryid
+  ///@param subcategoryid
+  @GET(
+    path:
+        '/storefront/catalog/{catalogid}/products/warehouseid/{warehouseid}/locationid/{locationid}',
+  )
+  Future<
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesIntegrationsStorefrontStorefrontProductLoader
+    >
+  >
+  _storefrontCatalogCatalogidProductsWarehouseidWarehouseidLocationidLocationidGet({
+    @Path('catalogid') required String? catalogid,
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+    @Path('warehouseid') required String? warehouseid,
+    @Path('locationid') required String? locationid,
+    @Query('inventorydepartmentid') String? inventorydepartmentid,
+    @Query('categoryid') String? categoryid,
+    @Query('subcategoryid') String? subcategoryid,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get products in a catalog.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Storefront"],
+      deprecated: false,
+    ),
+  });
+
   ///Get products in a catalog with availability.
   ///@param catalogid
   ///@param locationid
@@ -993,7 +1086,7 @@ abstract class Integrations extends ChopperService {
     ),
   });
 
-  ///Send email to Reset Password (for Contacts)
+  ///Send email to Change Password (for Contacts)
   Future<chopper.Response> storefrontSendchangepasswordemailPost({
     required WebApiModulesIntegrationsStorefrontSendResetPasswordEmailRequest?
     body,
@@ -1001,7 +1094,7 @@ abstract class Integrations extends ChopperService {
     return _storefrontSendchangepasswordemailPost(body: body);
   }
 
-  ///Send email to Reset Password (for Contacts)
+  ///Send email to Change Password (for Contacts)
   @POST(path: '/storefront/sendchangepasswordemail', optionalBody: true)
   Future<chopper.Response> _storefrontSendchangepasswordemailPost({
     @Body()
@@ -1010,7 +1103,7 @@ abstract class Integrations extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Send email to Reset Password (for Contacts)',
+      summary: 'Send email to Change Password (for Contacts)',
       operationId: '',
       consumes: [],
       produces: [],
@@ -1713,6 +1806,7 @@ class FwStandardBusinessLogicFwBusinessLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -1763,6 +1857,8 @@ class FwStandardBusinessLogicFwBusinessLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -1821,6 +1917,11 @@ class FwStandardBusinessLogicFwBusinessLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -1867,6 +1968,7 @@ class FwStandardBusinessLogicFwBusinessLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -1888,6 +1990,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -1906,6 +2009,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -1926,6 +2030,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -1947,6 +2052,9 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -1982,6 +2090,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
     this.displayFieldName,
     this.allowedValues,
     this.templateSequence,
+    this.isEmail,
   });
 
   factory FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
@@ -2023,6 +2132,8 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
   final String? allowedValues;
   @JsonKey(name: 'TemplateSequence', includeIfNull: false)
   final int? templateSequence;
+  @JsonKey(name: 'IsEmail', includeIfNull: false)
+  final bool? isEmail;
   static const fromJsonFactory =
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson;
 
@@ -2076,7 +2187,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
                 const DeepCollectionEquality().equals(
                   other.templateSequence,
                   templateSequence,
-                )));
+                )) &&
+            (identical(other.isEmail, isEmail) ||
+                const DeepCollectionEquality().equals(other.isEmail, isEmail)));
   }
 
   @override
@@ -2094,6 +2207,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       const DeepCollectionEquality().hash(displayFieldName) ^
       const DeepCollectionEquality().hash(allowedValues) ^
       const DeepCollectionEquality().hash(templateSequence) ^
+      const DeepCollectionEquality().hash(isEmail) ^
       runtimeType.hashCode;
 }
 
@@ -2110,6 +2224,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     String? displayFieldName,
     String? allowedValues,
     int? templateSequence,
+    bool? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: name ?? this.name,
@@ -2122,6 +2237,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       displayFieldName: displayFieldName ?? this.displayFieldName,
       allowedValues: allowedValues ?? this.allowedValues,
       templateSequence: templateSequence ?? this.templateSequence,
+      isEmail: isEmail ?? this.isEmail,
     );
   }
 
@@ -2136,6 +2252,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     Wrapped<String?>? displayFieldName,
     Wrapped<String?>? allowedValues,
     Wrapped<int?>? templateSequence,
+    Wrapped<bool?>? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: (name != null ? name.value : this.name),
@@ -2158,6 +2275,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       templateSequence: (templateSequence != null
           ? templateSequence.value
           : this.templateSequence),
+      isEmail: (isEmail != null ? isEmail.value : this.isEmail),
     );
   }
 }
@@ -2171,6 +2289,8 @@ class FwStandardDataFwCustomValue {
     this.fieldType,
     this.validationModule,
     this.validationFieldName,
+    this.validationFieldId,
+    this.listFieldAllowedValues,
   });
 
   factory FwStandardDataFwCustomValue.fromJson(Map<String, dynamic> json) =>
@@ -2191,6 +2311,10 @@ class FwStandardDataFwCustomValue {
   final String? validationModule;
   @JsonKey(name: 'ValidationFieldName', includeIfNull: false)
   final String? validationFieldName;
+  @JsonKey(name: 'ValidationFieldId', includeIfNull: false)
+  final String? validationFieldId;
+  @JsonKey(name: 'ListFieldAllowedValues', includeIfNull: false)
+  final String? listFieldAllowedValues;
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
 
   @override
@@ -2226,6 +2350,16 @@ class FwStandardDataFwCustomValue {
                 const DeepCollectionEquality().equals(
                   other.validationFieldName,
                   validationFieldName,
+                )) &&
+            (identical(other.validationFieldId, validationFieldId) ||
+                const DeepCollectionEquality().equals(
+                  other.validationFieldId,
+                  validationFieldId,
+                )) &&
+            (identical(other.listFieldAllowedValues, listFieldAllowedValues) ||
+                const DeepCollectionEquality().equals(
+                  other.listFieldAllowedValues,
+                  listFieldAllowedValues,
                 )));
   }
 
@@ -2240,6 +2374,8 @@ class FwStandardDataFwCustomValue {
       const DeepCollectionEquality().hash(fieldType) ^
       const DeepCollectionEquality().hash(validationModule) ^
       const DeepCollectionEquality().hash(validationFieldName) ^
+      const DeepCollectionEquality().hash(validationFieldId) ^
+      const DeepCollectionEquality().hash(listFieldAllowedValues) ^
       runtimeType.hashCode;
 }
 
@@ -2251,6 +2387,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     String? fieldType,
     String? validationModule,
     String? validationFieldName,
+    String? validationFieldId,
+    String? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: moduleName ?? this.moduleName,
@@ -2259,6 +2397,9 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       fieldType: fieldType ?? this.fieldType,
       validationModule: validationModule ?? this.validationModule,
       validationFieldName: validationFieldName ?? this.validationFieldName,
+      validationFieldId: validationFieldId ?? this.validationFieldId,
+      listFieldAllowedValues:
+          listFieldAllowedValues ?? this.listFieldAllowedValues,
     );
   }
 
@@ -2269,6 +2410,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     Wrapped<String?>? fieldType,
     Wrapped<String?>? validationModule,
     Wrapped<String?>? validationFieldName,
+    Wrapped<String?>? validationFieldId,
+    Wrapped<String?>? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: (moduleName != null ? moduleName.value : this.moduleName),
@@ -2281,6 +2424,12 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       validationFieldName: (validationFieldName != null
           ? validationFieldName.value
           : this.validationFieldName),
+      validationFieldId: (validationFieldId != null
+          ? validationFieldId.value
+          : this.validationFieldId),
+      listFieldAllowedValues: (listFieldAllowedValues != null
+          ? listFieldAllowedValues.value
+          : this.listFieldAllowedValues),
     );
   }
 }
@@ -2517,6 +2666,7 @@ class FwStandardModelsBrowseRequest {
     this.fields,
     this.totalfields,
     this.activeviewfields,
+    this.timezoneOffset,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -2605,6 +2755,8 @@ class FwStandardModelsBrowseRequest {
   final List<String>? totalfields;
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
+  @JsonKey(name: 'timezoneOffset', includeIfNull: false)
+  final int? timezoneOffset;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -2728,6 +2880,11 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.activeviewfields,
                   activeviewfields,
+                )) &&
+            (identical(other.timezoneOffset, timezoneOffset) ||
+                const DeepCollectionEquality().equals(
+                  other.timezoneOffset,
+                  timezoneOffset,
                 )));
   }
 
@@ -2762,6 +2919,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
+      const DeepCollectionEquality().hash(timezoneOffset) ^
       runtimeType.hashCode;
 }
 
@@ -2794,6 +2952,7 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
+    int? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -2822,6 +2981,7 @@ extension $FwStandardModelsBrowseRequestExtension
       fields: fields ?? this.fields,
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
+      timezoneOffset: timezoneOffset ?? this.timezoneOffset,
     );
   }
 
@@ -2852,6 +3012,7 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
+    Wrapped<int?>? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -2904,6 +3065,9 @@ extension $FwStandardModelsBrowseRequestExtension
       activeviewfields: (activeviewfields != null
           ? activeviewfields.value
           : this.activeviewfields),
+      timezoneOffset: (timezoneOffset != null
+          ? timezoneOffset.value
+          : this.timezoneOffset),
     );
   }
 }
@@ -10871,6 +11035,7 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -10960,6 +11125,8 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -11104,6 +11271,11 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -11169,6 +11341,7 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -11209,6 +11382,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -11248,6 +11422,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -11287,6 +11462,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -11351,6 +11527,9 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -11381,6 +11560,7 @@ class WebApiModulesIntegrationsStorefrontContactRegistrationRequest {
     required this.lastName,
     this.phone,
     required this.email,
+    this.studentId,
   });
 
   factory WebApiModulesIntegrationsStorefrontContactRegistrationRequest.fromJson(
@@ -11406,13 +11586,16 @@ class WebApiModulesIntegrationsStorefrontContactRegistrationRequest {
   final String? phone;
   @JsonKey(name: 'Email', includeIfNull: false)
   final String email;
+  @JsonKey(name: 'StudentId', includeIfNull: false)
+  final String? studentId;
   static const fromJsonFactory =
       _$WebApiModulesIntegrationsStorefrontContactRegistrationRequestFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesIntegrationsStorefrontContactRegistrationRequest &&
+        (other
+                is WebApiModulesIntegrationsStorefrontContactRegistrationRequest &&
             (identical(other.language, language) ||
                 const DeepCollectionEquality().equals(
                   other.language,
@@ -11431,7 +11614,12 @@ class WebApiModulesIntegrationsStorefrontContactRegistrationRequest {
             (identical(other.phone, phone) ||
                 const DeepCollectionEquality().equals(other.phone, phone)) &&
             (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.studentId, studentId) ||
+                const DeepCollectionEquality().equals(
+                  other.studentId,
+                  studentId,
+                )));
   }
 
   @override
@@ -11444,6 +11632,7 @@ class WebApiModulesIntegrationsStorefrontContactRegistrationRequest {
       const DeepCollectionEquality().hash(lastName) ^
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(studentId) ^
       runtimeType.hashCode;
 }
 
@@ -11455,6 +11644,7 @@ extension $WebApiModulesIntegrationsStorefrontContactRegistrationRequestExtensio
     String? lastName,
     String? phone,
     String? email,
+    String? studentId,
   }) {
     return WebApiModulesIntegrationsStorefrontContactRegistrationRequest(
       language: language ?? this.language,
@@ -11462,6 +11652,7 @@ extension $WebApiModulesIntegrationsStorefrontContactRegistrationRequestExtensio
       lastName: lastName ?? this.lastName,
       phone: phone ?? this.phone,
       email: email ?? this.email,
+      studentId: studentId ?? this.studentId,
     );
   }
 
@@ -11472,6 +11663,7 @@ extension $WebApiModulesIntegrationsStorefrontContactRegistrationRequestExtensio
     Wrapped<String>? lastName,
     Wrapped<String?>? phone,
     Wrapped<String>? email,
+    Wrapped<String?>? studentId,
   }) {
     return WebApiModulesIntegrationsStorefrontContactRegistrationRequest(
       language: (language != null ? language.value : this.language),
@@ -11479,6 +11671,7 @@ extension $WebApiModulesIntegrationsStorefrontContactRegistrationRequestExtensio
       lastName: (lastName != null ? lastName.value : this.lastName),
       phone: (phone != null ? phone.value : this.phone),
       email: (email != null ? email.value : this.email),
+      studentId: (studentId != null ? studentId.value : this.studentId),
     );
   }
 }
@@ -13208,6 +13401,7 @@ class WebApiModulesIntegrationsStorefrontStorefrontProductL {
     this.defaultFieldAttributes,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.id,
     this.warehouseId,
     this.inventoryId,
@@ -13294,6 +13488,8 @@ class WebApiModulesIntegrationsStorefrontStorefrontProductL {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'Id', includeIfNull: false)
   final int? id;
   @JsonKey(name: 'WarehouseId', includeIfNull: false)
@@ -13435,6 +13631,11 @@ class WebApiModulesIntegrationsStorefrontStorefrontProductL {
                 const DeepCollectionEquality().equals(
                   other.hasImport,
                   hasImport,
+                )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
                 )) &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
@@ -13713,6 +13914,7 @@ class WebApiModulesIntegrationsStorefrontStorefrontProductL {
       const DeepCollectionEquality().hash(defaultFieldAttributes) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(warehouseId) ^
       const DeepCollectionEquality().hash(inventoryId) ^
@@ -13778,6 +13980,7 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontProductLExtension
     List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     int? id,
     String? warehouseId,
     String? inventoryId,
@@ -13840,6 +14043,7 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontProductLExtension
           defaultFieldAttributes ?? this.defaultFieldAttributes,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       id: id ?? this.id,
       warehouseId: warehouseId ?? this.warehouseId,
       inventoryId: inventoryId ?? this.inventoryId,
@@ -13906,6 +14110,7 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontProductLExtension
     Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<int?>? id,
     Wrapped<String?>? warehouseId,
     Wrapped<String?>? inventoryId,
@@ -13970,6 +14175,9 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontProductLExtension
           : this.defaultFieldAttributes),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       id: (id != null ? id.value : this.id),
       warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
       inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
@@ -14267,15 +14475,30 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontProgressExtension
 class WebApiModulesIntegrationsStorefrontStorefrontSettings {
   const WebApiModulesIntegrationsStorefrontStorefrontSettings({
     this.isStorefrontEnabled,
-    this.isUniversity,
     this.isAnonymousAccessEnabled,
+    this.registerEnabled,
     this.separateQuoteRequestsByCatalog,
     this.makeQuoteRequestIntoOrderOnSubmission,
     this.filterCatalogsByLocation,
+    this.phoneNoRequiredOnRegistrationForm,
+    this.isUniversity,
+    this.studentIdRequiredOnRegistrationForm,
     this.autoplaySpeed,
     this.autoplayImagesOnLandingPage,
     this.autoplayImagesOnProductBrowser,
     this.autoplayImagesOnProductDetails,
+    this.imagesTransitionEffect,
+    this.imagesTransitionSpeed,
+    this.homepageShowHeroSection,
+    this.homepageHeroSectionHeading1,
+    this.homepageHeroSectionHeading2,
+    this.homepageHeroSectionHeading3,
+    this.homepageCatalogItemWidth,
+    this.homepageCatalogItemHeight,
+    this.homepageShowFooter,
+    this.homepageFooterText,
+    this.landingPageShowCategoryBrowser,
+    this.landingPageCategoryBrowserItemWidth,
   });
 
   factory WebApiModulesIntegrationsStorefrontStorefrontSettings.fromJson(
@@ -14289,16 +14512,22 @@ class WebApiModulesIntegrationsStorefrontStorefrontSettings {
 
   @JsonKey(name: 'IsStorefrontEnabled', includeIfNull: false)
   final bool? isStorefrontEnabled;
-  @JsonKey(name: 'IsUniversity', includeIfNull: false)
-  final bool? isUniversity;
   @JsonKey(name: 'IsAnonymousAccessEnabled', includeIfNull: false)
   final bool? isAnonymousAccessEnabled;
+  @JsonKey(name: 'RegisterEnabled', includeIfNull: false)
+  final bool? registerEnabled;
   @JsonKey(name: 'SeparateQuoteRequestsByCatalog', includeIfNull: false)
   final bool? separateQuoteRequestsByCatalog;
   @JsonKey(name: 'MakeQuoteRequestIntoOrderOnSubmission', includeIfNull: false)
   final bool? makeQuoteRequestIntoOrderOnSubmission;
   @JsonKey(name: 'FilterCatalogsByLocation', includeIfNull: false)
   final bool? filterCatalogsByLocation;
+  @JsonKey(name: 'PhoneNoRequiredOnRegistrationForm', includeIfNull: false)
+  final bool? phoneNoRequiredOnRegistrationForm;
+  @JsonKey(name: 'IsUniversity', includeIfNull: false)
+  final bool? isUniversity;
+  @JsonKey(name: 'StudentIdRequiredOnRegistrationForm', includeIfNull: false)
+  final bool? studentIdRequiredOnRegistrationForm;
   @JsonKey(name: 'AutoplaySpeed', includeIfNull: false)
   final double? autoplaySpeed;
   @JsonKey(name: 'AutoplayImagesOnLandingPage', includeIfNull: false)
@@ -14307,6 +14536,34 @@ class WebApiModulesIntegrationsStorefrontStorefrontSettings {
   final bool? autoplayImagesOnProductBrowser;
   @JsonKey(name: 'AutoplayImagesOnProductDetails', includeIfNull: false)
   final bool? autoplayImagesOnProductDetails;
+  @JsonKey(name: 'ImagesTransitionEffect', includeIfNull: false)
+  final String? imagesTransitionEffect;
+  @JsonKey(name: 'ImagesTransitionSpeed', includeIfNull: false)
+  final String? imagesTransitionSpeed;
+  @JsonKey(name: 'HomepageShowHeroSection', includeIfNull: false)
+  final bool? homepageShowHeroSection;
+  @JsonKey(name: 'HomepageHeroSectionHeading1', includeIfNull: false)
+  final WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+  homepageHeroSectionHeading1;
+  @JsonKey(name: 'HomepageHeroSectionHeading2', includeIfNull: false)
+  final WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+  homepageHeroSectionHeading2;
+  @JsonKey(name: 'HomepageHeroSectionHeading3', includeIfNull: false)
+  final WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+  homepageHeroSectionHeading3;
+  @JsonKey(name: 'HomepageCatalogItemWidth', includeIfNull: false)
+  final String? homepageCatalogItemWidth;
+  @JsonKey(name: 'HomepageCatalogItemHeight', includeIfNull: false)
+  final String? homepageCatalogItemHeight;
+  @JsonKey(name: 'HomepageShowFooter', includeIfNull: false)
+  final bool? homepageShowFooter;
+  @JsonKey(name: 'HomepageFooterText', includeIfNull: false)
+  final WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+  homepageFooterText;
+  @JsonKey(name: 'LandingPageShowCategoryBrowser', includeIfNull: false)
+  final bool? landingPageShowCategoryBrowser;
+  @JsonKey(name: 'LandingPageCategoryBrowserItemWidth', includeIfNull: false)
+  final String? landingPageCategoryBrowserItemWidth;
   static const fromJsonFactory =
       _$WebApiModulesIntegrationsStorefrontStorefrontSettingsFromJson;
 
@@ -14319,42 +14576,63 @@ class WebApiModulesIntegrationsStorefrontStorefrontSettings {
                   other.isStorefrontEnabled,
                   isStorefrontEnabled,
                 )) &&
+            (identical(
+                  other.isAnonymousAccessEnabled,
+                  isAnonymousAccessEnabled,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.isAnonymousAccessEnabled,
+                  isAnonymousAccessEnabled,
+                )) &&
+            (identical(other.registerEnabled, registerEnabled) ||
+                const DeepCollectionEquality().equals(
+                  other.registerEnabled,
+                  registerEnabled,
+                )) &&
+            (identical(
+                  other.separateQuoteRequestsByCatalog,
+                  separateQuoteRequestsByCatalog,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.separateQuoteRequestsByCatalog,
+                  separateQuoteRequestsByCatalog,
+                )) &&
+            (identical(
+                  other.makeQuoteRequestIntoOrderOnSubmission,
+                  makeQuoteRequestIntoOrderOnSubmission,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.makeQuoteRequestIntoOrderOnSubmission,
+                  makeQuoteRequestIntoOrderOnSubmission,
+                )) &&
+            (identical(
+                  other.filterCatalogsByLocation,
+                  filterCatalogsByLocation,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.filterCatalogsByLocation,
+                  filterCatalogsByLocation,
+                )) &&
+            (identical(
+                  other.phoneNoRequiredOnRegistrationForm,
+                  phoneNoRequiredOnRegistrationForm,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.phoneNoRequiredOnRegistrationForm,
+                  phoneNoRequiredOnRegistrationForm,
+                )) &&
             (identical(other.isUniversity, isUniversity) ||
                 const DeepCollectionEquality().equals(
                   other.isUniversity,
                   isUniversity,
                 )) &&
             (identical(
-                  other.isAnonymousAccessEnabled,
-                  isAnonymousAccessEnabled,
+                  other.studentIdRequiredOnRegistrationForm,
+                  studentIdRequiredOnRegistrationForm,
                 ) ||
                 const DeepCollectionEquality().equals(
-                  other.isAnonymousAccessEnabled,
-                  isAnonymousAccessEnabled,
-                )) &&
-            (identical(
-                  other.separateQuoteRequestsByCatalog,
-                  separateQuoteRequestsByCatalog,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.separateQuoteRequestsByCatalog,
-                  separateQuoteRequestsByCatalog,
-                )) &&
-            (identical(
-                  other.makeQuoteRequestIntoOrderOnSubmission,
-                  makeQuoteRequestIntoOrderOnSubmission,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.makeQuoteRequestIntoOrderOnSubmission,
-                  makeQuoteRequestIntoOrderOnSubmission,
-                )) &&
-            (identical(
-                  other.filterCatalogsByLocation,
-                  filterCatalogsByLocation,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.filterCatalogsByLocation,
-                  filterCatalogsByLocation,
+                  other.studentIdRequiredOnRegistrationForm,
+                  studentIdRequiredOnRegistrationForm,
                 )) &&
             (identical(other.autoplaySpeed, autoplaySpeed) ||
                 const DeepCollectionEquality().equals(
@@ -14384,6 +14662,90 @@ class WebApiModulesIntegrationsStorefrontStorefrontSettings {
                 const DeepCollectionEquality().equals(
                   other.autoplayImagesOnProductDetails,
                   autoplayImagesOnProductDetails,
+                )) &&
+            (identical(other.imagesTransitionEffect, imagesTransitionEffect) ||
+                const DeepCollectionEquality().equals(
+                  other.imagesTransitionEffect,
+                  imagesTransitionEffect,
+                )) &&
+            (identical(other.imagesTransitionSpeed, imagesTransitionSpeed) ||
+                const DeepCollectionEquality().equals(
+                  other.imagesTransitionSpeed,
+                  imagesTransitionSpeed,
+                )) &&
+            (identical(
+                  other.homepageShowHeroSection,
+                  homepageShowHeroSection,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageShowHeroSection,
+                  homepageShowHeroSection,
+                )) &&
+            (identical(
+                  other.homepageHeroSectionHeading1,
+                  homepageHeroSectionHeading1,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageHeroSectionHeading1,
+                  homepageHeroSectionHeading1,
+                )) &&
+            (identical(
+                  other.homepageHeroSectionHeading2,
+                  homepageHeroSectionHeading2,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageHeroSectionHeading2,
+                  homepageHeroSectionHeading2,
+                )) &&
+            (identical(
+                  other.homepageHeroSectionHeading3,
+                  homepageHeroSectionHeading3,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageHeroSectionHeading3,
+                  homepageHeroSectionHeading3,
+                )) &&
+            (identical(
+                  other.homepageCatalogItemWidth,
+                  homepageCatalogItemWidth,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageCatalogItemWidth,
+                  homepageCatalogItemWidth,
+                )) &&
+            (identical(
+                  other.homepageCatalogItemHeight,
+                  homepageCatalogItemHeight,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageCatalogItemHeight,
+                  homepageCatalogItemHeight,
+                )) &&
+            (identical(other.homepageShowFooter, homepageShowFooter) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageShowFooter,
+                  homepageShowFooter,
+                )) &&
+            (identical(other.homepageFooterText, homepageFooterText) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageFooterText,
+                  homepageFooterText,
+                )) &&
+            (identical(
+                  other.landingPageShowCategoryBrowser,
+                  landingPageShowCategoryBrowser,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.landingPageShowCategoryBrowser,
+                  landingPageShowCategoryBrowser,
+                )) &&
+            (identical(
+                  other.landingPageCategoryBrowserItemWidth,
+                  landingPageCategoryBrowserItemWidth,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.landingPageCategoryBrowserItemWidth,
+                  landingPageCategoryBrowserItemWidth,
                 )));
   }
 
@@ -14393,17 +14755,32 @@ class WebApiModulesIntegrationsStorefrontStorefrontSettings {
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(isStorefrontEnabled) ^
-      const DeepCollectionEquality().hash(isUniversity) ^
       const DeepCollectionEquality().hash(isAnonymousAccessEnabled) ^
+      const DeepCollectionEquality().hash(registerEnabled) ^
       const DeepCollectionEquality().hash(separateQuoteRequestsByCatalog) ^
       const DeepCollectionEquality().hash(
         makeQuoteRequestIntoOrderOnSubmission,
       ) ^
       const DeepCollectionEquality().hash(filterCatalogsByLocation) ^
+      const DeepCollectionEquality().hash(phoneNoRequiredOnRegistrationForm) ^
+      const DeepCollectionEquality().hash(isUniversity) ^
+      const DeepCollectionEquality().hash(studentIdRequiredOnRegistrationForm) ^
       const DeepCollectionEquality().hash(autoplaySpeed) ^
       const DeepCollectionEquality().hash(autoplayImagesOnLandingPage) ^
       const DeepCollectionEquality().hash(autoplayImagesOnProductBrowser) ^
       const DeepCollectionEquality().hash(autoplayImagesOnProductDetails) ^
+      const DeepCollectionEquality().hash(imagesTransitionEffect) ^
+      const DeepCollectionEquality().hash(imagesTransitionSpeed) ^
+      const DeepCollectionEquality().hash(homepageShowHeroSection) ^
+      const DeepCollectionEquality().hash(homepageHeroSectionHeading1) ^
+      const DeepCollectionEquality().hash(homepageHeroSectionHeading2) ^
+      const DeepCollectionEquality().hash(homepageHeroSectionHeading3) ^
+      const DeepCollectionEquality().hash(homepageCatalogItemWidth) ^
+      const DeepCollectionEquality().hash(homepageCatalogItemHeight) ^
+      const DeepCollectionEquality().hash(homepageShowFooter) ^
+      const DeepCollectionEquality().hash(homepageFooterText) ^
+      const DeepCollectionEquality().hash(landingPageShowCategoryBrowser) ^
+      const DeepCollectionEquality().hash(landingPageCategoryBrowserItemWidth) ^
       runtimeType.hashCode;
 }
 
@@ -14411,21 +14788,40 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsExtension
     on WebApiModulesIntegrationsStorefrontStorefrontSettings {
   WebApiModulesIntegrationsStorefrontStorefrontSettings copyWith({
     bool? isStorefrontEnabled,
-    bool? isUniversity,
     bool? isAnonymousAccessEnabled,
+    bool? registerEnabled,
     bool? separateQuoteRequestsByCatalog,
     bool? makeQuoteRequestIntoOrderOnSubmission,
     bool? filterCatalogsByLocation,
+    bool? phoneNoRequiredOnRegistrationForm,
+    bool? isUniversity,
+    bool? studentIdRequiredOnRegistrationForm,
     double? autoplaySpeed,
     bool? autoplayImagesOnLandingPage,
     bool? autoplayImagesOnProductBrowser,
     bool? autoplayImagesOnProductDetails,
+    String? imagesTransitionEffect,
+    String? imagesTransitionSpeed,
+    bool? homepageShowHeroSection,
+    WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+    homepageHeroSectionHeading1,
+    WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+    homepageHeroSectionHeading2,
+    WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+    homepageHeroSectionHeading3,
+    String? homepageCatalogItemWidth,
+    String? homepageCatalogItemHeight,
+    bool? homepageShowFooter,
+    WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+    homepageFooterText,
+    bool? landingPageShowCategoryBrowser,
+    String? landingPageCategoryBrowserItemWidth,
   }) {
     return WebApiModulesIntegrationsStorefrontStorefrontSettings(
       isStorefrontEnabled: isStorefrontEnabled ?? this.isStorefrontEnabled,
-      isUniversity: isUniversity ?? this.isUniversity,
       isAnonymousAccessEnabled:
           isAnonymousAccessEnabled ?? this.isAnonymousAccessEnabled,
+      registerEnabled: registerEnabled ?? this.registerEnabled,
       separateQuoteRequestsByCatalog:
           separateQuoteRequestsByCatalog ?? this.separateQuoteRequestsByCatalog,
       makeQuoteRequestIntoOrderOnSubmission:
@@ -14433,6 +14829,13 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsExtension
           this.makeQuoteRequestIntoOrderOnSubmission,
       filterCatalogsByLocation:
           filterCatalogsByLocation ?? this.filterCatalogsByLocation,
+      phoneNoRequiredOnRegistrationForm:
+          phoneNoRequiredOnRegistrationForm ??
+          this.phoneNoRequiredOnRegistrationForm,
+      isUniversity: isUniversity ?? this.isUniversity,
+      studentIdRequiredOnRegistrationForm:
+          studentIdRequiredOnRegistrationForm ??
+          this.studentIdRequiredOnRegistrationForm,
       autoplaySpeed: autoplaySpeed ?? this.autoplaySpeed,
       autoplayImagesOnLandingPage:
           autoplayImagesOnLandingPage ?? this.autoplayImagesOnLandingPage,
@@ -14440,31 +14843,73 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsExtension
           autoplayImagesOnProductBrowser ?? this.autoplayImagesOnProductBrowser,
       autoplayImagesOnProductDetails:
           autoplayImagesOnProductDetails ?? this.autoplayImagesOnProductDetails,
+      imagesTransitionEffect:
+          imagesTransitionEffect ?? this.imagesTransitionEffect,
+      imagesTransitionSpeed:
+          imagesTransitionSpeed ?? this.imagesTransitionSpeed,
+      homepageShowHeroSection:
+          homepageShowHeroSection ?? this.homepageShowHeroSection,
+      homepageHeroSectionHeading1:
+          homepageHeroSectionHeading1 ?? this.homepageHeroSectionHeading1,
+      homepageHeroSectionHeading2:
+          homepageHeroSectionHeading2 ?? this.homepageHeroSectionHeading2,
+      homepageHeroSectionHeading3:
+          homepageHeroSectionHeading3 ?? this.homepageHeroSectionHeading3,
+      homepageCatalogItemWidth:
+          homepageCatalogItemWidth ?? this.homepageCatalogItemWidth,
+      homepageCatalogItemHeight:
+          homepageCatalogItemHeight ?? this.homepageCatalogItemHeight,
+      homepageShowFooter: homepageShowFooter ?? this.homepageShowFooter,
+      homepageFooterText: homepageFooterText ?? this.homepageFooterText,
+      landingPageShowCategoryBrowser:
+          landingPageShowCategoryBrowser ?? this.landingPageShowCategoryBrowser,
+      landingPageCategoryBrowserItemWidth:
+          landingPageCategoryBrowserItemWidth ??
+          this.landingPageCategoryBrowserItemWidth,
     );
   }
 
   WebApiModulesIntegrationsStorefrontStorefrontSettings copyWithWrapped({
     Wrapped<bool?>? isStorefrontEnabled,
-    Wrapped<bool?>? isUniversity,
     Wrapped<bool?>? isAnonymousAccessEnabled,
+    Wrapped<bool?>? registerEnabled,
     Wrapped<bool?>? separateQuoteRequestsByCatalog,
     Wrapped<bool?>? makeQuoteRequestIntoOrderOnSubmission,
     Wrapped<bool?>? filterCatalogsByLocation,
+    Wrapped<bool?>? phoneNoRequiredOnRegistrationForm,
+    Wrapped<bool?>? isUniversity,
+    Wrapped<bool?>? studentIdRequiredOnRegistrationForm,
     Wrapped<double?>? autoplaySpeed,
     Wrapped<bool?>? autoplayImagesOnLandingPage,
     Wrapped<bool?>? autoplayImagesOnProductBrowser,
     Wrapped<bool?>? autoplayImagesOnProductDetails,
+    Wrapped<String?>? imagesTransitionEffect,
+    Wrapped<String?>? imagesTransitionSpeed,
+    Wrapped<bool?>? homepageShowHeroSection,
+    Wrapped<WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?>?
+    homepageHeroSectionHeading1,
+    Wrapped<WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?>?
+    homepageHeroSectionHeading2,
+    Wrapped<WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?>?
+    homepageHeroSectionHeading3,
+    Wrapped<String?>? homepageCatalogItemWidth,
+    Wrapped<String?>? homepageCatalogItemHeight,
+    Wrapped<bool?>? homepageShowFooter,
+    Wrapped<WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?>?
+    homepageFooterText,
+    Wrapped<bool?>? landingPageShowCategoryBrowser,
+    Wrapped<String?>? landingPageCategoryBrowserItemWidth,
   }) {
     return WebApiModulesIntegrationsStorefrontStorefrontSettings(
       isStorefrontEnabled: (isStorefrontEnabled != null
           ? isStorefrontEnabled.value
           : this.isStorefrontEnabled),
-      isUniversity: (isUniversity != null
-          ? isUniversity.value
-          : this.isUniversity),
       isAnonymousAccessEnabled: (isAnonymousAccessEnabled != null
           ? isAnonymousAccessEnabled.value
           : this.isAnonymousAccessEnabled),
+      registerEnabled: (registerEnabled != null
+          ? registerEnabled.value
+          : this.registerEnabled),
       separateQuoteRequestsByCatalog: (separateQuoteRequestsByCatalog != null
           ? separateQuoteRequestsByCatalog.value
           : this.separateQuoteRequestsByCatalog),
@@ -14475,6 +14920,17 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsExtension
       filterCatalogsByLocation: (filterCatalogsByLocation != null
           ? filterCatalogsByLocation.value
           : this.filterCatalogsByLocation),
+      phoneNoRequiredOnRegistrationForm:
+          (phoneNoRequiredOnRegistrationForm != null
+          ? phoneNoRequiredOnRegistrationForm.value
+          : this.phoneNoRequiredOnRegistrationForm),
+      isUniversity: (isUniversity != null
+          ? isUniversity.value
+          : this.isUniversity),
+      studentIdRequiredOnRegistrationForm:
+          (studentIdRequiredOnRegistrationForm != null
+          ? studentIdRequiredOnRegistrationForm.value
+          : this.studentIdRequiredOnRegistrationForm),
       autoplaySpeed: (autoplaySpeed != null
           ? autoplaySpeed.value
           : this.autoplaySpeed),
@@ -14487,6 +14943,43 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsExtension
       autoplayImagesOnProductDetails: (autoplayImagesOnProductDetails != null
           ? autoplayImagesOnProductDetails.value
           : this.autoplayImagesOnProductDetails),
+      imagesTransitionEffect: (imagesTransitionEffect != null
+          ? imagesTransitionEffect.value
+          : this.imagesTransitionEffect),
+      imagesTransitionSpeed: (imagesTransitionSpeed != null
+          ? imagesTransitionSpeed.value
+          : this.imagesTransitionSpeed),
+      homepageShowHeroSection: (homepageShowHeroSection != null
+          ? homepageShowHeroSection.value
+          : this.homepageShowHeroSection),
+      homepageHeroSectionHeading1: (homepageHeroSectionHeading1 != null
+          ? homepageHeroSectionHeading1.value
+          : this.homepageHeroSectionHeading1),
+      homepageHeroSectionHeading2: (homepageHeroSectionHeading2 != null
+          ? homepageHeroSectionHeading2.value
+          : this.homepageHeroSectionHeading2),
+      homepageHeroSectionHeading3: (homepageHeroSectionHeading3 != null
+          ? homepageHeroSectionHeading3.value
+          : this.homepageHeroSectionHeading3),
+      homepageCatalogItemWidth: (homepageCatalogItemWidth != null
+          ? homepageCatalogItemWidth.value
+          : this.homepageCatalogItemWidth),
+      homepageCatalogItemHeight: (homepageCatalogItemHeight != null
+          ? homepageCatalogItemHeight.value
+          : this.homepageCatalogItemHeight),
+      homepageShowFooter: (homepageShowFooter != null
+          ? homepageShowFooter.value
+          : this.homepageShowFooter),
+      homepageFooterText: (homepageFooterText != null
+          ? homepageFooterText.value
+          : this.homepageFooterText),
+      landingPageShowCategoryBrowser: (landingPageShowCategoryBrowser != null
+          ? landingPageShowCategoryBrowser.value
+          : this.landingPageShowCategoryBrowser),
+      landingPageCategoryBrowserItemWidth:
+          (landingPageCategoryBrowserItemWidth != null
+          ? landingPageCategoryBrowserItemWidth.value
+          : this.landingPageCategoryBrowserItemWidth),
     );
   }
 }
@@ -14499,6 +14992,7 @@ class WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema {
     this.propertyName,
     this.dataType,
     this.description,
+    this.validValues,
   });
 
   factory WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema.fromJson(
@@ -14533,6 +15027,18 @@ class WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema {
   dataType;
   @JsonKey(name: 'Description', includeIfNull: false)
   final String? description;
+  @JsonKey(
+    name: 'ValidValues',
+    includeIfNull: false,
+    defaultValue:
+        <
+          WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+        >[],
+  )
+  final List<
+    WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+  >?
+  validValues;
   static const fromJsonFactory =
       _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaFromJson;
 
@@ -14562,6 +15068,11 @@ class WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema {
                 const DeepCollectionEquality().equals(
                   other.description,
                   description,
+                )) &&
+            (identical(other.validValues, validValues) ||
+                const DeepCollectionEquality().equals(
+                  other.validValues,
+                  validValues,
                 )));
   }
 
@@ -14575,6 +15086,7 @@ class WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema {
       const DeepCollectionEquality().hash(propertyName) ^
       const DeepCollectionEquality().hash(dataType) ^
       const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(validValues) ^
       runtimeType.hashCode;
 }
 
@@ -14587,6 +15099,10 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaEx
     enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes?
     dataType,
     String? description,
+    List<
+      WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+    >?
+    validValues,
   }) {
     return WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema(
       group: group ?? this.group,
@@ -14594,6 +15110,7 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaEx
       propertyName: propertyName ?? this.propertyName,
       dataType: dataType ?? this.dataType,
       description: description ?? this.description,
+      validValues: validValues ?? this.validValues,
     );
   }
 
@@ -14607,6 +15124,12 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaEx
     >?
     dataType,
     Wrapped<String?>? description,
+    Wrapped<
+      List<
+        WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+      >?
+    >?
+    validValues,
   }) {
     return WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema(
       group: (group != null ? group.value : this.group),
@@ -14616,6 +15139,156 @@ extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaEx
           : this.propertyName),
       dataType: (dataType != null ? dataType.value : this.dataType),
       description: (description != null ? description.value : this.description),
+      validValues: (validValues != null ? validValues.value : this.validValues),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue {
+  const WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue({
+    this.caption,
+    this.value,
+  });
+
+  factory WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueToJson(
+        this,
+      );
+
+  @JsonKey(name: 'caption', includeIfNull: false)
+  final String? caption;
+  @JsonKey(name: 'value', includeIfNull: false)
+  final String? value;
+  static const fromJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue &&
+            (identical(other.caption, caption) ||
+                const DeepCollectionEquality().equals(
+                  other.caption,
+                  caption,
+                )) &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(caption) ^
+      const DeepCollectionEquality().hash(value) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueExtension
+    on WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue {
+  WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+  copyWith({String? caption, String? value}) {
+    return WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue(
+      caption: caption ?? this.caption,
+      value: value ?? this.value,
+    );
+  }
+
+  WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+  copyWithWrapped({Wrapped<String?>? caption, Wrapped<String?>? value}) {
+    return WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue(
+      caption: (caption != null ? caption.value : this.caption),
+      value: (value != null ? value.value : this.value),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesIntegrationsStorefrontStorefrontTranslatedText {
+  const WebApiModulesIntegrationsStorefrontStorefrontTranslatedText({
+    this.en,
+    this.es,
+    this.fr,
+  });
+
+  factory WebApiModulesIntegrationsStorefrontStorefrontTranslatedText.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextToJson(this);
+
+  @JsonKey(name: 'en', includeIfNull: false)
+  final String? en;
+  @JsonKey(name: 'es', includeIfNull: false)
+  final String? es;
+  @JsonKey(name: 'fr', includeIfNull: false)
+  final String? fr;
+  static const fromJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesIntegrationsStorefrontStorefrontTranslatedText &&
+            (identical(other.en, en) ||
+                const DeepCollectionEquality().equals(other.en, en)) &&
+            (identical(other.es, es) ||
+                const DeepCollectionEquality().equals(other.es, es)) &&
+            (identical(other.fr, fr) ||
+                const DeepCollectionEquality().equals(other.fr, fr)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(en) ^
+      const DeepCollectionEquality().hash(es) ^
+      const DeepCollectionEquality().hash(fr) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextExtension
+    on WebApiModulesIntegrationsStorefrontStorefrontTranslatedText {
+  WebApiModulesIntegrationsStorefrontStorefrontTranslatedText copyWith({
+    String? en,
+    String? es,
+    String? fr,
+  }) {
+    return WebApiModulesIntegrationsStorefrontStorefrontTranslatedText(
+      en: en ?? this.en,
+      es: es ?? this.es,
+      fr: fr ?? this.fr,
+    );
+  }
+
+  WebApiModulesIntegrationsStorefrontStorefrontTranslatedText copyWithWrapped({
+    Wrapped<String?>? en,
+    Wrapped<String?>? es,
+    Wrapped<String?>? fr,
+  }) {
+    return WebApiModulesIntegrationsStorefrontStorefrontTranslatedText(
+      en: (en != null ? en.value : this.en),
+      es: (es != null ? es.value : this.es),
+      fr: (fr != null ? fr.value : this.fr),
     );
   }
 }
@@ -14736,6 +15409,7 @@ class WebApiModulesIntegrationsStorefrontWebCatalog {
     this.images,
     this.landingPageHtml,
     this.departments,
+    this.warehousesQtys,
   });
 
   factory WebApiModulesIntegrationsStorefrontWebCatalog.fromJson(
@@ -14809,6 +15483,14 @@ class WebApiModulesIntegrationsStorefrontWebCatalog {
     defaultValue: <WebApiModulesIntegrationsStorefrontProductDepartment>[],
   )
   final List<WebApiModulesIntegrationsStorefrontProductDepartment>? departments;
+  @JsonKey(
+    name: 'WarehousesQtys',
+    includeIfNull: false,
+    defaultValue:
+        <WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto>[],
+  )
+  final List<WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto>?
+  warehousesQtys;
   static const fromJsonFactory =
       _$WebApiModulesIntegrationsStorefrontWebCatalogFromJson;
 
@@ -14891,6 +15573,11 @@ class WebApiModulesIntegrationsStorefrontWebCatalog {
                 const DeepCollectionEquality().equals(
                   other.departments,
                   departments,
+                )) &&
+            (identical(other.warehousesQtys, warehousesQtys) ||
+                const DeepCollectionEquality().equals(
+                  other.warehousesQtys,
+                  warehousesQtys,
                 )));
   }
 
@@ -14916,6 +15603,7 @@ class WebApiModulesIntegrationsStorefrontWebCatalog {
       const DeepCollectionEquality().hash(images) ^
       const DeepCollectionEquality().hash(landingPageHtml) ^
       const DeepCollectionEquality().hash(departments) ^
+      const DeepCollectionEquality().hash(warehousesQtys) ^
       runtimeType.hashCode;
 }
 
@@ -14943,6 +15631,8 @@ extension $WebApiModulesIntegrationsStorefrontWebCatalogExtension
     String? images,
     String? landingPageHtml,
     List<WebApiModulesIntegrationsStorefrontProductDepartment>? departments,
+    List<WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto>?
+    warehousesQtys,
   }) {
     return WebApiModulesIntegrationsStorefrontWebCatalog(
       id: id ?? this.id,
@@ -14963,6 +15653,7 @@ extension $WebApiModulesIntegrationsStorefrontWebCatalogExtension
       images: images ?? this.images,
       landingPageHtml: landingPageHtml ?? this.landingPageHtml,
       departments: departments ?? this.departments,
+      warehousesQtys: warehousesQtys ?? this.warehousesQtys,
     );
   }
 
@@ -14989,6 +15680,10 @@ extension $WebApiModulesIntegrationsStorefrontWebCatalogExtension
     Wrapped<String?>? landingPageHtml,
     Wrapped<List<WebApiModulesIntegrationsStorefrontProductDepartment>?>?
     departments,
+    Wrapped<
+      List<WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto>?
+    >?
+    warehousesQtys,
   }) {
     return WebApiModulesIntegrationsStorefrontWebCatalog(
       id: (id != null ? id.value : this.id),
@@ -15018,6 +15713,9 @@ extension $WebApiModulesIntegrationsStorefrontWebCatalogExtension
           ? landingPageHtml.value
           : this.landingPageHtml),
       departments: (departments != null ? departments.value : this.departments),
+      warehousesQtys: (warehousesQtys != null
+          ? warehousesQtys.value
+          : this.warehousesQtys),
     );
   }
 }
@@ -15099,6 +15797,83 @@ extension $WebApiModulesIntegrationsStorefrontWebCatalogResponseFieldExtension
       value: (value != null ? value.value : this.value),
       text: (text != null ? text.value : this.text),
       selected: (selected != null ? selected.value : this.selected),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto {
+  const WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto({
+    this.warehouseId,
+    this.totalItems,
+  });
+
+  factory WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDtoFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDtoToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDtoToJson(
+        this,
+      );
+
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
+  final String? warehouseId;
+  @JsonKey(name: 'TotalItems', includeIfNull: false)
+  final double? totalItems;
+  static const fromJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDtoFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto &&
+            (identical(other.warehouseId, warehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.warehouseId,
+                  warehouseId,
+                )) &&
+            (identical(other.totalItems, totalItems) ||
+                const DeepCollectionEquality().equals(
+                  other.totalItems,
+                  totalItems,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(totalItems) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDtoExtension
+    on WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto {
+  WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto copyWith({
+    String? warehouseId,
+    double? totalItems,
+  }) {
+    return WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto(
+      warehouseId: warehouseId ?? this.warehouseId,
+      totalItems: totalItems ?? this.totalItems,
+    );
+  }
+
+  WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto copyWithWrapped({
+    Wrapped<String?>? warehouseId,
+    Wrapped<double?>? totalItems,
+  }) {
+    return WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto(
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
     );
   }
 }

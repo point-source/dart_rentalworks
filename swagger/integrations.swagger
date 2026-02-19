@@ -4,11 +4,6 @@
     "title": "RentalWorksIntegrations API v1",
     "version": "v1"
   },
-  "servers": [
-    {
-      "url": "/training"
-    }
-  ],
   "paths": {
     "/boxedup/catalog": {
       "get": {
@@ -610,6 +605,132 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.WebCatalog"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefront/catalog/{catalogid}/products/warehouseid/{warehouseid}/locationid/{locationid}": {
+      "get": {
+        "tags": [
+          "Storefront"
+        ],
+        "summary": "Get products in a catalog.",
+        "parameters": [
+          {
+            "name": "catalogid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          },
+          {
+            "name": "warehouseid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "inventorydepartmentid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subcategoryid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Integrations.Storefront.StorefrontProductLoader"
                 }
               }
             }
@@ -1458,7 +1579,7 @@
         "tags": [
           "Storefront"
         ],
-        "summary": "Send email to Reset Password (for Contacts)",
+        "summary": "Send email to Change Password (for Contacts)",
         "requestBody": {
           "content": {
             "application/json": {
@@ -2482,6 +2603,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -2546,6 +2670,9 @@
           "TemplateSequence": {
             "type": "integer",
             "format": "int32"
+          },
+          "IsEmail": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2574,6 +2701,14 @@
             "nullable": true
           },
           "ValidationFieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationFieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ListFieldAllowedValues": {
             "type": "string",
             "nullable": true
           }
@@ -2763,6 +2898,11 @@
               "nullable": true
             },
             "nullable": true
+          },
+          "timezoneOffset": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -2921,7 +3061,8 @@
           "OleToHtmlColor",
           "Integer",
           "JpgDataUrl",
-          "UTCDateTime"
+          "UTCDateTime",
+          "Email"
         ],
         "type": "string"
       },
@@ -5232,6 +5373,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -5291,6 +5435,11 @@
             "maxLength": 255,
             "minLength": 1,
             "type": "string"
+          },
+          "StudentId": {
+            "maxLength": 255,
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -5781,6 +5930,10 @@
             "type": "boolean",
             "nullable": true
           },
+          "_HasDocuments": {
+            "type": "boolean",
+            "nullable": true
+          },
           "Id": {
             "type": "integer",
             "format": "int32"
@@ -6068,11 +6221,11 @@
             "type": "boolean",
             "nullable": true
           },
-          "IsUniversity": {
+          "IsAnonymousAccessEnabled": {
             "type": "boolean",
             "nullable": true
           },
-          "IsAnonymousAccessEnabled": {
+          "RegisterEnabled": {
             "type": "boolean",
             "nullable": true
           },
@@ -6085,6 +6238,18 @@
             "nullable": true
           },
           "FilterCatalogsByLocation": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "PhoneNoRequiredOnRegistrationForm": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "IsUniversity": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "StudentIdRequiredOnRegistrationForm": {
             "type": "boolean",
             "nullable": true
           },
@@ -6104,6 +6269,50 @@
           "AutoplayImagesOnProductDetails": {
             "type": "boolean",
             "nullable": true
+          },
+          "ImagesTransitionEffect": {
+            "type": "string",
+            "nullable": true
+          },
+          "ImagesTransitionSpeed": {
+            "type": "string",
+            "nullable": true
+          },
+          "HomepageShowHeroSection": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HomepageHeroSectionHeading1": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontTranslatedText"
+          },
+          "HomepageHeroSectionHeading2": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontTranslatedText"
+          },
+          "HomepageHeroSectionHeading3": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontTranslatedText"
+          },
+          "HomepageCatalogItemWidth": {
+            "type": "string",
+            "nullable": true
+          },
+          "HomepageCatalogItemHeight": {
+            "type": "string",
+            "nullable": true
+          },
+          "HomepageShowFooter": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HomepageFooterText": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontTranslatedText"
+          },
+          "LandingPageShowCategoryBrowser": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "LandingPageCategoryBrowserItemWidth": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -6112,6 +6321,8 @@
         "enum": [
           "Boolean",
           "Text",
+          "TranslatedText",
+          "DropDown",
           "Number"
         ],
         "type": "string"
@@ -6135,6 +6346,45 @@
             "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertyDataTypes"
           },
           "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertySchemaValidValue"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertySchemaValidValue": {
+        "type": "object",
+        "properties": {
+          "caption": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontTranslatedText": {
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string",
+            "nullable": true
+          },
+          "es": {
+            "type": "string",
+            "nullable": true
+          },
+          "fr": {
             "type": "string",
             "nullable": true
           }
@@ -6243,6 +6493,13 @@
               "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.ProductDepartment"
             },
             "nullable": true
+          },
+          "WarehousesQtys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.WebCatalogWarehouseQtyDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -6260,6 +6517,20 @@
           },
           "Selected": {
             "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.WebCatalogWarehouseQtyDto": {
+        "type": "object",
+        "properties": {
+          "WarehouseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TotalItems": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false

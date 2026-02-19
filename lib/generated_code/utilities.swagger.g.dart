@@ -105,6 +105,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -127,6 +128,7 @@ Map<String, dynamic> _$FwStandardBusinessLogicFwBusinessLogicToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -151,6 +153,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
   displayFieldName: json['DisplayFieldName'] as String?,
   allowedValues: json['AllowedValues'] as String?,
   templateSequence: (json['TemplateSequence'] as num?)?.toInt(),
+  isEmail: json['IsEmail'] as bool?,
 );
 
 Map<String, dynamic>
@@ -169,6 +172,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
   'DisplayFieldName': ?instance.displayFieldName,
   'AllowedValues': ?instance.allowedValues,
   'TemplateSequence': ?instance.templateSequence,
+  'IsEmail': ?instance.isEmail,
 };
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
@@ -180,6 +184,8 @@ FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
   fieldType: json['FieldType'] as String?,
   validationModule: json['ValidationModule'] as String?,
   validationFieldName: json['ValidationFieldName'] as String?,
+  validationFieldId: json['ValidationFieldId'] as String?,
+  listFieldAllowedValues: json['ListFieldAllowedValues'] as String?,
 );
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
@@ -191,6 +197,8 @@ Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
   'FieldType': ?instance.fieldType,
   'ValidationModule': ?instance.validationModule,
   'ValidationFieldName': ?instance.validationFieldName,
+  'ValidationFieldId': ?instance.validationFieldId,
+  'ListFieldAllowedValues': ?instance.listFieldAllowedValues,
 };
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
@@ -302,6 +310,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -333,6 +342,7 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   'fields': ?instance.fields?.map((e) => e.toJson()).toList(),
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
+  'timezoneOffset': ?instance.timezoneOffset,
 };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
@@ -668,38 +678,6 @@ _$FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsWarehouse
   'Sort': ?instance.sort,
 };
 
-FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
-_$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogicFromJson(
-  Map<String, dynamic> json,
-) => FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic(
-  items:
-      (json['Items'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  pageNo: (json['PageNo'] as num?)?.toInt(),
-  pageSize: (json['PageSize'] as num?)?.toInt(),
-  totalItems: (json['TotalItems'] as num?)?.toInt(),
-  sort: json['Sort'] as String?,
-);
-
-Map<String, dynamic>
-_$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogicToJson(
-  FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
-  instance,
-) => <String, dynamic>{
-  'Items': ?instance.items?.map((e) => e.toJson()).toList(),
-  'PageNo': ?instance.pageNo,
-  'PageSize': ?instance.pageSize,
-  'TotalItems': ?instance.totalItems,
-  'Sort': ?instance.sort,
-};
-
 FwStandardModelsFwQueryResponseWebApiModulesUtilitiesLabelDesignLabelDesignLogic
 _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesLabelDesignLabelDesignLogicFromJson(
   Map<String, dynamic> json,
@@ -989,46 +967,13 @@ _$FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySetti
   'Sort': ?instance.sort,
 };
 
-FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
-_$FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoaderFromJson(
-  Map<String, dynamic> json,
-) => FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader(
-  requireminlengthpassword: json['requireminlengthpassword'] as String?,
-  minlengthpassword: (json['minlengthpassword'] as num?)?.toInt(),
-  requiredigitinpassword: json['requiredigitinpassword'] as String?,
-  requiresymbolinpassword: json['requiresymbolinpassword'] as String?,
-  autologoutuser: json['autologoutuser'] as String?,
-  autologoutminutes: (json['autologoutminutes'] as num?)?.toInt(),
-  lockuserafterfailedattempts: json['lockuserafterfailedattempts'] as String?,
-  lockuserafterfailedattemptsnumber:
-      (json['lockuserafterfailedattemptsnumber'] as num?)?.toInt(),
-  epochlastsynced: (json['epochlastsynced'] as num?)?.toInt(),
-  recordTitle: json['RecordTitle'] as String?,
-);
-
-Map<String, dynamic>
-_$FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoaderToJson(
-  FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader instance,
-) => <String, dynamic>{
-  'requireminlengthpassword': ?instance.requireminlengthpassword,
-  'minlengthpassword': ?instance.minlengthpassword,
-  'requiredigitinpassword': ?instance.requiredigitinpassword,
-  'requiresymbolinpassword': ?instance.requiresymbolinpassword,
-  'autologoutuser': ?instance.autologoutuser,
-  'autologoutminutes': ?instance.autologoutminutes,
-  'lockuserafterfailedattempts': ?instance.lockuserafterfailedattempts,
-  'lockuserafterfailedattemptsnumber':
-      ?instance.lockuserafterfailedattemptsnumber,
-  'epochlastsynced': ?instance.epochlastsynced,
-  'RecordTitle': ?instance.recordTitle,
-};
-
 FwStandardModulesSettingsAvailableWidgetAvailableWidgetLogic
 _$FwStandardModulesSettingsAvailableWidgetAvailableWidgetLogicFromJson(
   Map<String, dynamic> json,
 ) => FwStandardModulesSettingsAvailableWidgetAvailableWidgetLogic(
   widgetId: json['WidgetId'] as String?,
   widget: json['Widget'] as String?,
+  widgetCategory: json['WidgetCategory'] as String?,
   value: json['value'] as String?,
   text: json['text'] as String?,
   auditNote: json['AuditNote'] as String?,
@@ -1076,6 +1021,7 @@ _$FwStandardModulesSettingsAvailableWidgetAvailableWidgetLogicFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -1090,6 +1036,7 @@ _$FwStandardModulesSettingsAvailableWidgetAvailableWidgetLogicToJson(
 ) => <String, dynamic>{
   'WidgetId': ?instance.widgetId,
   'Widget': ?instance.widget,
+  'WidgetCategory': ?instance.widgetCategory,
   'value': ?instance.value,
   'text': ?instance.text,
   'AuditNote': ?instance.auditNote,
@@ -1103,6 +1050,7 @@ _$FwStandardModulesSettingsAvailableWidgetAvailableWidgetLogicToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -1127,6 +1075,7 @@ _$FwStandardModulesSettingsWidgetSettingsWidgetWidgetFromJson(
   toDate: json['toDate'] == null
       ? null
       : DateTime.parse(json['toDate'] as String),
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
   type: json['type'] as String?,
   data: json['data'] == null
       ? null
@@ -1162,6 +1111,7 @@ _$FwStandardModulesSettingsWidgetSettingsWidgetWidgetToJson(
   'dateField': ?instance.dateField,
   'fromDate': ?instance.fromDate?.toIso8601String(),
   'toDate': ?instance.toDate?.toIso8601String(),
+  'timezoneOffset': ?instance.timezoneOffset,
   'type': ?instance.type,
   'data': ?instance.data?.toJson(),
   'options': ?instance.options?.toJson(),
@@ -1368,12 +1318,16 @@ _$FwStandardModulesSettingsWidgetSettingsWidgetWidgetTitleToJson(
   'text': ?instance.text,
 };
 
-FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogic
-_$FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogicFromJson(
+FwStandardModulesUtilitiesDashboardDashboardLogic
+_$FwStandardModulesUtilitiesDashboardDashboardLogicFromJson(
   Map<String, dynamic> json,
-) => FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogic(
-  userId: json['UserId'] as String?,
+) => FwStandardModulesUtilitiesDashboardDashboardLogic(
+  dashboardId: (json['DashboardId'] as num?)?.toInt(),
   widgetsPerRow: (json['WidgetsPerRow'] as num?)?.toInt(),
+  webUsersId: json['WebUsersId'] as String?,
+  dashboard: json['Dashboard'] as String?,
+  defaultDashboard: json['DefaultDashboard'] as bool?,
+  orderBy: (json['OrderBy'] as num?)?.toInt(),
   availableWidgets:
       (json['AvailableWidgets'] as List<dynamic>?)
           ?.map(
@@ -1439,6 +1393,7 @@ _$FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogicFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -1447,12 +1402,15 @@ _$FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogicFromJson(
   modifiedDateTime: json['ModifiedDateTime'] as String?,
 );
 
-Map<String, dynamic>
-_$FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogicToJson(
-  FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogic instance,
+Map<String, dynamic> _$FwStandardModulesUtilitiesDashboardDashboardLogicToJson(
+  FwStandardModulesUtilitiesDashboardDashboardLogic instance,
 ) => <String, dynamic>{
-  'UserId': ?instance.userId,
+  'DashboardId': ?instance.dashboardId,
   'WidgetsPerRow': ?instance.widgetsPerRow,
+  'WebUsersId': ?instance.webUsersId,
+  'Dashboard': ?instance.dashboard,
+  'DefaultDashboard': ?instance.defaultDashboard,
+  'OrderBy': ?instance.orderBy,
   'AvailableWidgets': ?instance.availableWidgets
       ?.map((e) => e.toJson())
       .toList(),
@@ -1468,6 +1426,129 @@ _$FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogicToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
+  'CreatedByUserId': ?instance.createdByUserId,
+  'CreatedByUserName': ?instance.createdByUserName,
+  'CreatedDateTime': ?instance.createdDateTime,
+  'ModifiedByUserId': ?instance.modifiedByUserId,
+  'ModifiedByUserName': ?instance.modifiedByUserName,
+  'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
+FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogic
+_$FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogicFromJson(
+  Map<String, dynamic> json,
+) => FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogic(
+  userId: json['UserId'] as String?,
+  widgetsPerRow: (json['WidgetsPerRow'] as num?)?.toInt(),
+  dashboardId: (json['DashboardId'] as num?)?.toInt(),
+  dashboards:
+      (json['Dashboards'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardModulesUtilitiesDashboardDashboardLogic.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  availableWidgets:
+      (json['AvailableWidgets'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardModulesSettingsAvailableWidgetAvailableWidgetLogic.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+  userWidgets:
+      (json['UserWidgets'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboardSetting.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+  auditNote: json['AuditNote'] as String?,
+  recordTitle: json['RecordTitle'] as String?,
+  urlIdentifier: json['UrlIdentifier'],
+  fields:
+      (json['_Fields'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+  custom:
+      (json['_Custom'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      [],
+  defaultFieldAttributes:
+      (json['_DefaultFieldAttributes'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwDefaultAttribute.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  original: json['_Original'] == null
+      ? null
+      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+          json['_Original'] as Map<String, dynamic>,
+        ),
+  translation:
+      (json['_Translation'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwTranslatedValue.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
+  createdByUserId: json['CreatedByUserId'] as String?,
+  createdByUserName: json['CreatedByUserName'] as String?,
+  createdDateTime: json['CreatedDateTime'] as String?,
+  modifiedByUserId: json['ModifiedByUserId'] as String?,
+  modifiedByUserName: json['ModifiedByUserName'] as String?,
+  modifiedDateTime: json['ModifiedDateTime'] as String?,
+);
+
+Map<String, dynamic>
+_$FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogicToJson(
+  FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogic instance,
+) => <String, dynamic>{
+  'UserId': ?instance.userId,
+  'WidgetsPerRow': ?instance.widgetsPerRow,
+  'DashboardId': ?instance.dashboardId,
+  'Dashboards': ?instance.dashboards?.map((e) => e.toJson()).toList(),
+  'AvailableWidgets': ?instance.availableWidgets
+      ?.map((e) => e.toJson())
+      .toList(),
+  'UserWidgets': ?instance.userWidgets?.map((e) => e.toJson()).toList(),
+  'AuditNote': ?instance.auditNote,
+  'RecordTitle': ?instance.recordTitle,
+  'UrlIdentifier': ?instance.urlIdentifier,
+  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
+  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
+  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
+      ?.map((e) => e.toJson())
+      .toList(),
+  '_Original': ?instance.original?.toJson(),
+  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
+  '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -1484,7 +1565,7 @@ _$FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboard
       userWidgetId: json['userWidgetId'] as String?,
       value: json['value'] as String?,
       text: json['text'] as String?,
-      selected: json['selected'] as bool?,
+      selected: json['selected'] as String?,
       apiname: json['apiname'] as String?,
       modulename: json['modulename'] as String?,
       clickpath: json['clickpath'] as String?,
@@ -1530,6 +1611,7 @@ _$FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboard
       filterValues: json['filterValues'] as String?,
       defaultStacked: json['defaultStacked'] as bool?,
       stacked: json['stacked'] as bool?,
+      stackable: json['stackable'] as bool?,
       defaultDisplayNumbers: json['defaultDisplayNumbers'] as bool?,
       displayNumbers: json['displayNumbers'] as bool?,
     );
@@ -1578,6 +1660,7 @@ _$FwStandardModulesUtilitiesDashboardSettingsDashboardSettingsLogicUserDashboard
   'filterValues': ?instance.filterValues,
   'defaultStacked': ?instance.defaultStacked,
   'stacked': ?instance.stacked,
+  'stackable': ?instance.stackable,
   'defaultDisplayNumbers': ?instance.defaultDisplayNumbers,
   'displayNumbers': ?instance.displayNumbers,
 };
@@ -1595,6 +1678,12 @@ _$FwStandardModulesUtilitiesWebImportImportExcelRequestFromJson(
           .toList() ??
       [],
   sessionId: json['SessionId'] as String?,
+  startIndex: (json['StartIndex'] as num?)?.toInt(),
+  totalSteps: (json['TotalSteps'] as num?)?.toInt(),
+  isFirstBatch: json['IsFirstBatch'] as bool?,
+  isLastBatch: json['IsLastBatch'] as bool?,
+  webImportId: json['WebImportId'] as String?,
+  fastMode: json['FastMode'] as bool?,
 );
 
 Map<String, dynamic>
@@ -1606,6 +1695,12 @@ _$FwStandardModulesUtilitiesWebImportImportExcelRequestToJson(
   'ImportDescription': ?instance.importDescription,
   'ExcelObjects': ?instance.excelObjects,
   'SessionId': ?instance.sessionId,
+  'StartIndex': ?instance.startIndex,
+  'TotalSteps': ?instance.totalSteps,
+  'IsFirstBatch': ?instance.isFirstBatch,
+  'IsLastBatch': ?instance.isLastBatch,
+  'WebImportId': ?instance.webImportId,
+  'FastMode': ?instance.fastMode,
 };
 
 FwStandardModulesUtilitiesWebImportImportExcelResponse
@@ -1738,6 +1833,32 @@ Map<String, dynamic> _$MicrosoftAspNetCoreMvcActionResultToJson(
   MicrosoftAspNetCoreMvcActionResult instance,
 ) => <String, dynamic>{};
 
+MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogic
+_$MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogicFromJson(
+  Map<String, dynamic> json,
+) =>
+    MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogic(
+      result: json['Result'] == null
+          ? null
+          : MicrosoftAspNetCoreMvcActionResult.fromJson(
+              json['Result'] as Map<String, dynamic>,
+            ),
+      value: json['Value'] == null
+          ? null
+          : FwStandardModulesUtilitiesDashboardDashboardLogic.fromJson(
+              json['Value'] as Map<String, dynamic>,
+            ),
+    );
+
+Map<String, dynamic>
+_$MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogicToJson(
+  MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogic
+  instance,
+) => <String, dynamic>{
+  'Result': ?instance.result?.toJson(),
+  'Value': ?instance.value?.toJson(),
+};
+
 MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic
 _$MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogicFromJson(
   Map<String, dynamic> json,
@@ -1757,31 +1878,6 @@ _$MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemI
 Map<String, dynamic>
 _$MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogicToJson(
   MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic
-  instance,
-) => <String, dynamic>{
-  'Result': ?instance.result?.toJson(),
-  'Value': ?instance.value?.toJson(),
-};
-
-MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
-_$MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogicFromJson(
-  Map<String, dynamic> json,
-) => MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic(
-  result: json['Result'] == null
-      ? null
-      : MicrosoftAspNetCoreMvcActionResult.fromJson(
-          json['Result'] as Map<String, dynamic>,
-        ),
-  value: json['Value'] == null
-      ? null
-      : WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem.fromJson(
-          json['Value'] as Map<String, dynamic>,
-        ),
-);
-
-Map<String, dynamic>
-_$MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogicToJson(
-  MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic
   instance,
 ) => <String, dynamic>{
   'Result': ?instance.result?.toJson(),
@@ -1838,67 +1934,6 @@ _$MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesWebImportRecordWebImpo
 ) => <String, dynamic>{
   'Result': ?instance.result?.toJson(),
   'Value': ?instance.value?.toJson(),
-};
-
-WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest
-_$WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequestFromJson(
-  Map<String, dynamic> json,
-) => WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest(
-  uniqueid1: json['Uniqueid1'] as String?,
-  uniqueid2: json['Uniqueid2'] as String?,
-  uniqueid3: json['Uniqueid3'] as String?,
-  uniqueId1Int: (json['UniqueId1Int'] as num?)?.toInt(),
-  description: json['Description'] as String?,
-  extension: json['Extension'] as String?,
-  recType: json['RecType'] as String?,
-  imageDataUrl: json['ImageDataUrl'] as String?,
-);
-
-Map<String, dynamic>
-_$WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequestToJson(
-  WebApiControllersSharedControlsAppImageAppImageControllerAddAsyncRequest
-  instance,
-) => <String, dynamic>{
-  'Uniqueid1': ?instance.uniqueid1,
-  'Uniqueid2': ?instance.uniqueid2,
-  'Uniqueid3': ?instance.uniqueid3,
-  'UniqueId1Int': ?instance.uniqueId1Int,
-  'Description': ?instance.description,
-  'Extension': ?instance.extension,
-  'RecType': ?instance.recType,
-  'ImageDataUrl': ?instance.imageDataUrl,
-};
-
-WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest
-_$WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequestFromJson(
-  Map<String, dynamic> json,
-) =>
-    WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest(
-      appImageId: json['AppImageId'] as String?,
-    );
-
-Map<String, dynamic>
-_$WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequestToJson(
-  WebApiControllersSharedControlsAppImageAppImageControllerDeleteAsyncRequest
-  instance,
-) => <String, dynamic>{'AppImageId': ?instance.appImageId};
-
-WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest
-_$WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequestFromJson(
-  Map<String, dynamic> json,
-) =>
-    WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest(
-      appImageId: json['AppImageId'] as String?,
-      orderBy: (json['OrderBy'] as num?)?.toInt(),
-    );
-
-Map<String, dynamic>
-_$WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequestToJson(
-  WebApiControllersSharedControlsAppImageAppImageControllerRepositionAsyncRequest
-  instance,
-) => <String, dynamic>{
-  'AppImageId': ?instance.appImageId,
-  'OrderBy': ?instance.orderBy,
 };
 
 WebApiModulesAdministratorTaskSchedulerTaskSteps
@@ -1969,6 +2004,7 @@ _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -2010,6 +2046,7 @@ Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -2077,6 +2114,7 @@ WebApiModulesAgentDealDeal _$WebApiModulesAgentDealDealFromJson(
   daysPerEpisode: (json['DaysPerEpisode'] as num?)?.toDouble(),
   paymentTermsId: json['PaymentTermsId'] as String?,
   paymentTerms: json['PaymentTerms'] as String?,
+  paymentTermsColor: json['PaymentTermsColor'] as String?,
   paymentTypeId: json['PaymentTypeId'] as String?,
   paymentType: json['PaymentType'] as String?,
   defaultRate: json['DefaultRate'] as String?,
@@ -2122,12 +2160,13 @@ WebApiModulesAgentDealDeal _$WebApiModulesAgentDealDealFromJson(
   creditStatusThrough: json['CreditStatusThrough'] as String?,
   creditApplicationOnFile: json['CreditApplicationOnFile'] as bool?,
   unlimitedCredit: json['UnlimitedCredit'] as bool?,
-  creditLimit: (json['CreditLimit'] as num?)?.toInt(),
-  creditBalance: (json['CreditBalance'] as num?)?.toInt(),
-  creditAvailable: (json['CreditAvailable'] as num?)?.toInt(),
-  customerCreditLimit: (json['CustomerCreditLimit'] as num?)?.toInt(),
-  customerCreditBalance: (json['CustomerCreditBalance'] as num?)?.toInt(),
-  customerCreditAvailable: (json['CustomerCreditAvailable'] as num?)?.toInt(),
+  creditLimit: (json['CreditLimit'] as num?)?.toDouble(),
+  creditBalance: (json['CreditBalance'] as num?)?.toDouble(),
+  creditAvailable: (json['CreditAvailable'] as num?)?.toDouble(),
+  customerCreditLimit: (json['CustomerCreditLimit'] as num?)?.toDouble(),
+  customerCreditBalance: (json['CustomerCreditBalance'] as num?)?.toDouble(),
+  customerCreditAvailable: (json['CustomerCreditAvailable'] as num?)
+      ?.toDouble(),
   creditResponsiblePartyOnFile: json['CreditResponsiblePartyOnFile'] as bool?,
   creditResponsibleParty: json['CreditResponsibleParty'] as String?,
   tradeReferencesVerified: json['TradeReferencesVerified'] as bool?,
@@ -2135,7 +2174,7 @@ WebApiModulesAgentDealDeal _$WebApiModulesAgentDealDealFromJson(
   tradeReferencesVerifiedOn: json['TradeReferencesVerifiedOn'] as String?,
   creditCardTypeId: json['CreditCardTypeId'] as String?,
   creditCardType: json['CreditCardType'] as String?,
-  creditCardLimit: (json['CreditCardLimit'] as num?)?.toInt(),
+  creditCardLimit: (json['CreditCardLimit'] as num?)?.toDouble(),
   creditCardNumber: json['CreditCardNumber'] as String?,
   creditCardCode: json['CreditCardCode'] as String?,
   creditCardName: json['CreditCardName'] as String?,
@@ -2158,13 +2197,13 @@ WebApiModulesAgentDealDeal _$WebApiModulesAgentDealDealFromJson(
   insuranceCertificationValidThrough:
       json['InsuranceCertificationValidThrough'] as String?,
   insuranceCoverageLiability: (json['InsuranceCoverageLiability'] as num?)
-      ?.toInt(),
+      ?.toDouble(),
   insuranceCoverageLiabilityDeductible:
-      (json['InsuranceCoverageLiabilityDeductible'] as num?)?.toInt(),
+      (json['InsuranceCoverageLiabilityDeductible'] as num?)?.toDouble(),
   insuranceCoverageProperty: (json['InsuranceCoverageProperty'] as num?)
-      ?.toInt(),
+      ?.toDouble(),
   insuranceCoveragePropertyDeductible:
-      (json['InsuranceCoveragePropertyDeductible'] as num?)?.toInt(),
+      (json['InsuranceCoveragePropertyDeductible'] as num?)?.toDouble(),
   securityDepositAmount: (json['SecurityDepositAmount'] as num?)?.toDouble(),
   insuranceCompanyId: json['InsuranceCompanyId'] as String?,
   insuranceCompany: json['InsuranceCompany'] as String?,
@@ -2276,6 +2315,7 @@ WebApiModulesAgentDealDeal _$WebApiModulesAgentDealDealFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -2343,6 +2383,7 @@ Map<String, dynamic> _$WebApiModulesAgentDealDealToJson(
   'DaysPerEpisode': ?instance.daysPerEpisode,
   'PaymentTermsId': ?instance.paymentTermsId,
   'PaymentTerms': ?instance.paymentTerms,
+  'PaymentTermsColor': ?instance.paymentTermsColor,
   'PaymentTypeId': ?instance.paymentTypeId,
   'PaymentType': ?instance.paymentType,
   'DefaultRate': ?instance.defaultRate,
@@ -2501,6 +2542,7 @@ Map<String, dynamic> _$WebApiModulesAgentDealDealToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -2599,6 +2641,7 @@ WebApiModulesAgentVendorVendor _$WebApiModulesAgentVendorVendorFromJson(
   billingCycle: json['BillingCycle'] as String?,
   paymentTermsId: json['PaymentTermsId'] as String?,
   paymentTerms: json['PaymentTerms'] as String?,
+  paymentTermsColor: json['PaymentTermsColor'] as String?,
   accountNumber: json['AccountNumber'] as String?,
   defaultPoClassificationId: json['DefaultPoClassificationId'] as String?,
   defaultPoClassification: json['DefaultPoClassification'] as String?,
@@ -2647,6 +2690,8 @@ WebApiModulesAgentVendorVendor _$WebApiModulesAgentVendorVendorFromJson(
   taxOption: json['TaxOption'] as String?,
   excludeItemsWithZero: json['ExcludeItemsWithZero'] as bool?,
   inactive: json['Inactive'] as bool?,
+  paymentTypeId: json['PaymentTypeId'] as String?,
+  paymentType: json['PaymentType'] as String?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -2693,6 +2738,7 @@ WebApiModulesAgentVendorVendor _$WebApiModulesAgentVendorVendorFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -2756,6 +2802,7 @@ Map<String, dynamic> _$WebApiModulesAgentVendorVendorToJson(
   'BillingCycle': ?instance.billingCycle,
   'PaymentTermsId': ?instance.paymentTermsId,
   'PaymentTerms': ?instance.paymentTerms,
+  'PaymentTermsColor': ?instance.paymentTermsColor,
   'AccountNumber': ?instance.accountNumber,
   'DefaultPoClassificationId': ?instance.defaultPoClassificationId,
   'DefaultPoClassification': ?instance.defaultPoClassification,
@@ -2804,6 +2851,8 @@ Map<String, dynamic> _$WebApiModulesAgentVendorVendorToJson(
   'TaxOption': ?instance.taxOption,
   'ExcludeItemsWithZero': ?instance.excludeItemsWithZero,
   'Inactive': ?instance.inactive,
+  'PaymentTypeId': ?instance.paymentTypeId,
+  'PaymentType': ?instance.paymentType,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -2816,6 +2865,7 @@ Map<String, dynamic> _$WebApiModulesAgentVendorVendorToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -2959,164 +3009,6 @@ Map<String, dynamic> _$WebApiModulesExportsOrderExportOrderExportResponseToJson(
   'downloadUrl': ?instance.downloadUrl,
   'success': ?instance.success,
   'message': ?instance.message,
-};
-
-WebApiModulesHomeControlsReservedRentalItemReservedRentalItem
-_$WebApiModulesHomeControlsReservedRentalItemReservedRentalItemFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesHomeControlsReservedRentalItemReservedRentalItem(
-  reservedRentalItemId: (json['ReservedRentalItemId'] as num?)?.toInt(),
-  orderId: json['OrderId'] as String?,
-  orderItemId: json['OrderItemId'] as String?,
-  rentalItemId: json['RentalItemId'] as String?,
-  inventoryId: json['InventoryId'] as String?,
-  iCode: json['ICode'] as String?,
-  description: json['Description'] as String?,
-  inventoryTypeId: json['InventoryTypeId'] as String?,
-  categoryId: json['CategoryId'] as String?,
-  subCategoryId: json['SubCategoryId'] as String?,
-  warehouseId: json['WarehouseId'] as String?,
-  returnToWarehouseId: json['ReturnToWarehouseId'] as String?,
-  usersId: json['UsersId'] as String?,
-  barCode: json['BarCode'] as String?,
-  serialNumber: json['SerialNumber'] as String?,
-  trackedByCode: json['TrackedByCode'] as String?,
-  ownership: json['Ownership'] as String?,
-  ownershipSort: json['OwnershipSort'] as String?,
-  consignorId: json['ConsignorId'] as String?,
-  consignor: json['Consignor'] as String?,
-  orderNumber: json['OrderNumber'] as String?,
-  orderDescription: json['OrderDescription'] as String?,
-  orderType: json['OrderType'] as String?,
-  orderStatus: json['OrderStatus'] as String?,
-  dealId: json['DealId'] as String?,
-  deal: json['Deal'] as String?,
-  nameFml: json['NameFml'] as String?,
-  fromDateTime: json['FromDateTime'] == null
-      ? null
-      : DateTime.parse(json['FromDateTime'] as String),
-  toDateTime: json['ToDateTime'] == null
-      ? null
-      : DateTime.parse(json['ToDateTime'] as String),
-  conflict: json['Conflict'] as String?,
-  forceConflict: json['ForceConflict'] as String?,
-  positiveConflict: json['PositiveConflict'] as String?,
-  availabilityColor: json['AvailabilityColor'] as String?,
-  availabilityOrderColor: json['AvailabilityOrderColor'] as String?,
-  availabilityOrderWhiteText: json['AvailabilityOrderWhiteText'] as String?,
-  availabilityByHour: json['AvailabilityByHour'] as String?,
-  itemStatus: json['ItemStatus'] as String?,
-  auditNote: json['AuditNote'] as String?,
-  recordTitle: json['RecordTitle'] as String?,
-  urlIdentifier: json['UrlIdentifier'],
-  fields:
-      (json['_Fields'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  custom:
-      (json['_Custom'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      [],
-  defaultFieldAttributes:
-      (json['_DefaultFieldAttributes'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwDefaultAttribute.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  original: json['_Original'] == null
-      ? null
-      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          json['_Original'] as Map<String, dynamic>,
-        ),
-  translation:
-      (json['_Translation'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwTranslatedValue.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  hasImport: json['_HasImport'] as bool?,
-  createdByUserId: json['CreatedByUserId'] as String?,
-  createdByUserName: json['CreatedByUserName'] as String?,
-  createdDateTime: json['CreatedDateTime'] as String?,
-  modifiedByUserId: json['ModifiedByUserId'] as String?,
-  modifiedByUserName: json['ModifiedByUserName'] as String?,
-  modifiedDateTime: json['ModifiedDateTime'] as String?,
-);
-
-Map<String, dynamic>
-_$WebApiModulesHomeControlsReservedRentalItemReservedRentalItemToJson(
-  WebApiModulesHomeControlsReservedRentalItemReservedRentalItem instance,
-) => <String, dynamic>{
-  'ReservedRentalItemId': ?instance.reservedRentalItemId,
-  'OrderId': ?instance.orderId,
-  'OrderItemId': ?instance.orderItemId,
-  'RentalItemId': ?instance.rentalItemId,
-  'InventoryId': ?instance.inventoryId,
-  'ICode': ?instance.iCode,
-  'Description': ?instance.description,
-  'InventoryTypeId': ?instance.inventoryTypeId,
-  'CategoryId': ?instance.categoryId,
-  'SubCategoryId': ?instance.subCategoryId,
-  'WarehouseId': ?instance.warehouseId,
-  'ReturnToWarehouseId': ?instance.returnToWarehouseId,
-  'UsersId': ?instance.usersId,
-  'BarCode': ?instance.barCode,
-  'SerialNumber': ?instance.serialNumber,
-  'TrackedByCode': ?instance.trackedByCode,
-  'Ownership': ?instance.ownership,
-  'OwnershipSort': ?instance.ownershipSort,
-  'ConsignorId': ?instance.consignorId,
-  'Consignor': ?instance.consignor,
-  'OrderNumber': ?instance.orderNumber,
-  'OrderDescription': ?instance.orderDescription,
-  'OrderType': ?instance.orderType,
-  'OrderStatus': ?instance.orderStatus,
-  'DealId': ?instance.dealId,
-  'Deal': ?instance.deal,
-  'NameFml': ?instance.nameFml,
-  'FromDateTime': ?instance.fromDateTime?.toIso8601String(),
-  'ToDateTime': ?instance.toDateTime?.toIso8601String(),
-  'Conflict': ?instance.conflict,
-  'ForceConflict': ?instance.forceConflict,
-  'PositiveConflict': ?instance.positiveConflict,
-  'AvailabilityColor': ?instance.availabilityColor,
-  'AvailabilityOrderColor': ?instance.availabilityOrderColor,
-  'AvailabilityOrderWhiteText': ?instance.availabilityOrderWhiteText,
-  'AvailabilityByHour': ?instance.availabilityByHour,
-  'ItemStatus': ?instance.itemStatus,
-  'AuditNote': ?instance.auditNote,
-  'RecordTitle': ?instance.recordTitle,
-  'UrlIdentifier': ?instance.urlIdentifier,
-  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
-  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
-      ?.map((e) => e.toJson())
-      .toList(),
-  '_Original': ?instance.original?.toJson(),
-  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
-  '_HasImport': ?instance.hasImport,
-  'CreatedByUserId': ?instance.createdByUserId,
-  'CreatedByUserName': ?instance.createdByUserName,
-  'CreatedDateTime': ?instance.createdDateTime,
-  'ModifiedByUserId': ?instance.modifiedByUserId,
-  'ModifiedByUserName': ?instance.modifiedByUserName,
-  'ModifiedDateTime': ?instance.modifiedDateTime,
 };
 
 WebApiModulesInventoryInventoryApplyPendingRateUpdateModificationsRequest
@@ -3371,6 +3263,9 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
       ?.toDouble(),
   replacementCostForAllWarehouses:
       (json['ReplacementCostForAllWarehouses'] as num?)?.toDouble(),
+  hourlyAvailabilityMyWarehouse: json['HourlyAvailabilityMyWarehouse'] as bool?,
+  hourlyAvailabilityAllWarehouses:
+      json['HourlyAvailabilityAllWarehouses'] as bool?,
   inventoryTypeId: json['InventoryTypeId'] as String?,
   inventoryType: json['InventoryType'] as String?,
   availableFrom: json['AvailableFrom'] as String?,
@@ -3478,9 +3373,24 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
   softwareVersion: json['SoftwareVersion'] as String?,
   softwareEffectiveDate: json['SoftwareEffectiveDate'] as String?,
   warehouseSpecificPackage: json['WarehouseSpecificPackage'] as bool?,
+  completeSeparatePackageOnQuoteOrder:
+      json['CompleteSeparatePackageOnQuoteOrder'] as bool?,
+  kitSeparatePackageOnQuoteOrder:
+      json['KitSeparatePackageOnQuoteOrder'] as bool?,
   completePackagePrice: json['CompletePackagePrice'] as String?,
   kitPackagePrice: json['KitPackagePrice'] as String?,
-  separatePackageOnQuoteOrder: json['SeparatePackageOnQuoteOrder'] as bool?,
+  completeAllocateRevenueForAccessories:
+      json['CompleteAllocateRevenueForAccessories'] as bool?,
+  kitAllocateRevenueForAccessories:
+      json['KitAllocateRevenueForAccessories'] as bool?,
+  containerAllocateRevenueForAccessories:
+      json['ContainerAllocateRevenueForAccessories'] as bool?,
+  completePackageRevenueCalculationFormula:
+      json['CompletePackageRevenueCalculationFormula'] as String?,
+  kitPackageRevenueCalculationFormula:
+      json['KitPackageRevenueCalculationFormula'] as String?,
+  containerPackageRevenueCalculationFormula:
+      json['ContainerPackageRevenueCalculationFormula'] as String?,
   containerId: json['ContainerId'] as String?,
   containerScannableInventoryId:
       json['ContainerScannableInventoryId'] as String?,
@@ -3525,9 +3435,6 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
   wardrobeDetailedDescription: json['WardrobeDetailedDescription'] as String?,
   webDetailedDescription: json['WebDetailedDescription'] as String?,
   technicalNotes: json['TechnicalNotes'] as String?,
-  allocateRevenueForAccessories: json['AllocateRevenueForAccessories'] as bool?,
-  packageRevenueCalculationFormula:
-      json['PackageRevenueCalculationFormula'] as String?,
   isHazardousMaterial: json['IsHazardousMaterial'] as bool?,
   descriptionWithAkas: json['DescriptionWithAkas'] as String?,
   costCalculation: json['CostCalculation'] as String?,
@@ -3540,6 +3447,7 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
   quantityInRepair: (json['QuantityInRepair'] as num?)?.toDouble(),
   quantityInTransit: (json['QuantityInTransit'] as num?)?.toDouble(),
   quantityOnTruck: (json['QuantityOnTruck'] as num?)?.toDouble(),
+  quantityOnPO: (json['QuantityOnPO'] as num?)?.toDouble(),
   totalQuantity: (json['TotalQuantity'] as num?)?.toDouble(),
   lastPurchasePrice: (json['LastPurchasePrice'] as num?)?.toDouble(),
   aisleLocation: json['AisleLocation'] as String?,
@@ -3550,6 +3458,7 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
   hasDimensionsImage: json['HasDimensionsImage'] as bool?,
   stagingUnreadyContainer: json['StagingUnreadyContainer'] as bool?,
   disableMiscDescriptionChange: json['DisableMiscDescriptionChange'] as bool?,
+  standAloneItem: json['StandAloneItem'] as bool?,
   iCode: json['ICode'] as String?,
   description: json['Description'] as String?,
   availFor: json['AvailFor'] as String?,
@@ -3685,6 +3594,7 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -3739,6 +3649,8 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'QcRequiredForAllWarehouses': ?instance.qcRequiredForAllWarehouses,
   'UnitValueForAllWarehouses': ?instance.unitValueForAllWarehouses,
   'ReplacementCostForAllWarehouses': ?instance.replacementCostForAllWarehouses,
+  'HourlyAvailabilityMyWarehouse': ?instance.hourlyAvailabilityMyWarehouse,
+  'HourlyAvailabilityAllWarehouses': ?instance.hourlyAvailabilityAllWarehouses,
   'InventoryTypeId': ?instance.inventoryTypeId,
   'InventoryType': ?instance.inventoryType,
   'AvailableFrom': ?instance.availableFrom,
@@ -3820,9 +3732,23 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'SoftwareVersion': ?instance.softwareVersion,
   'SoftwareEffectiveDate': ?instance.softwareEffectiveDate,
   'WarehouseSpecificPackage': ?instance.warehouseSpecificPackage,
+  'CompleteSeparatePackageOnQuoteOrder':
+      ?instance.completeSeparatePackageOnQuoteOrder,
+  'KitSeparatePackageOnQuoteOrder': ?instance.kitSeparatePackageOnQuoteOrder,
   'CompletePackagePrice': ?instance.completePackagePrice,
   'KitPackagePrice': ?instance.kitPackagePrice,
-  'SeparatePackageOnQuoteOrder': ?instance.separatePackageOnQuoteOrder,
+  'CompleteAllocateRevenueForAccessories':
+      ?instance.completeAllocateRevenueForAccessories,
+  'KitAllocateRevenueForAccessories':
+      ?instance.kitAllocateRevenueForAccessories,
+  'ContainerAllocateRevenueForAccessories':
+      ?instance.containerAllocateRevenueForAccessories,
+  'CompletePackageRevenueCalculationFormula':
+      ?instance.completePackageRevenueCalculationFormula,
+  'KitPackageRevenueCalculationFormula':
+      ?instance.kitPackageRevenueCalculationFormula,
+  'ContainerPackageRevenueCalculationFormula':
+      ?instance.containerPackageRevenueCalculationFormula,
   'ContainerId': ?instance.containerId,
   'ContainerScannableInventoryId': ?instance.containerScannableInventoryId,
   'ContainerScannableICode': ?instance.containerScannableICode,
@@ -3865,9 +3791,6 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'WardrobeDetailedDescription': ?instance.wardrobeDetailedDescription,
   'WebDetailedDescription': ?instance.webDetailedDescription,
   'TechnicalNotes': ?instance.technicalNotes,
-  'AllocateRevenueForAccessories': ?instance.allocateRevenueForAccessories,
-  'PackageRevenueCalculationFormula':
-      ?instance.packageRevenueCalculationFormula,
   'IsHazardousMaterial': ?instance.isHazardousMaterial,
   'DescriptionWithAkas': ?instance.descriptionWithAkas,
   'CostCalculation': ?instance.costCalculation,
@@ -3880,6 +3803,7 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'QuantityInRepair': ?instance.quantityInRepair,
   'QuantityInTransit': ?instance.quantityInTransit,
   'QuantityOnTruck': ?instance.quantityOnTruck,
+  'QuantityOnPO': ?instance.quantityOnPO,
   'TotalQuantity': ?instance.totalQuantity,
   'LastPurchasePrice': ?instance.lastPurchasePrice,
   'AisleLocation': ?instance.aisleLocation,
@@ -3890,6 +3814,7 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'HasDimensionsImage': ?instance.hasDimensionsImage,
   'StagingUnreadyContainer': ?instance.stagingUnreadyContainer,
   'DisableMiscDescriptionChange': ?instance.disableMiscDescriptionChange,
+  'StandAloneItem': ?instance.standAloneItem,
   'ICode': ?instance.iCode,
   'Description': ?instance.description,
   'AvailFor': ?instance.availFor,
@@ -3989,6 +3914,167 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
+  'CreatedByUserId': ?instance.createdByUserId,
+  'CreatedByUserName': ?instance.createdByUserName,
+  'CreatedDateTime': ?instance.createdDateTime,
+  'ModifiedByUserId': ?instance.modifiedByUserId,
+  'ModifiedByUserName': ?instance.modifiedByUserName,
+  'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
+WebApiModulesInventoryReservedRentalItemReservedRentalItem
+_$WebApiModulesInventoryReservedRentalItemReservedRentalItemFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesInventoryReservedRentalItemReservedRentalItem(
+  reservedRentalItemId: (json['ReservedRentalItemId'] as num?)?.toInt(),
+  orderId: json['OrderId'] as String?,
+  orderItemId: json['OrderItemId'] as String?,
+  rentalItemId: json['RentalItemId'] as String?,
+  inventoryId: json['InventoryId'] as String?,
+  iCode: json['ICode'] as String?,
+  description: json['Description'] as String?,
+  inventoryTypeId: json['InventoryTypeId'] as String?,
+  categoryId: json['CategoryId'] as String?,
+  subCategoryId: json['SubCategoryId'] as String?,
+  warehouseId: json['WarehouseId'] as String?,
+  returnToWarehouseId: json['ReturnToWarehouseId'] as String?,
+  usersId: json['UsersId'] as String?,
+  barCode: json['BarCode'] as String?,
+  serialNumber: json['SerialNumber'] as String?,
+  trackedByCode: json['TrackedByCode'] as String?,
+  ownership: json['Ownership'] as String?,
+  ownershipSort: json['OwnershipSort'] as String?,
+  consignorId: json['ConsignorId'] as String?,
+  consignor: json['Consignor'] as String?,
+  orderNumber: json['OrderNumber'] as String?,
+  orderDescription: json['OrderDescription'] as String?,
+  orderType: json['OrderType'] as String?,
+  orderStatus: json['OrderStatus'] as String?,
+  dealId: json['DealId'] as String?,
+  deal: json['Deal'] as String?,
+  nameFml: json['NameFml'] as String?,
+  fromDateTime: json['FromDateTime'] == null
+      ? null
+      : DateTime.parse(json['FromDateTime'] as String),
+  toDateTime: json['ToDateTime'] == null
+      ? null
+      : DateTime.parse(json['ToDateTime'] as String),
+  conflict: json['Conflict'] as String?,
+  forceConflict: json['ForceConflict'] as String?,
+  positiveConflict: json['PositiveConflict'] as String?,
+  availabilityColor: json['AvailabilityColor'] as String?,
+  availabilityOrderColor: json['AvailabilityOrderColor'] as String?,
+  availabilityOrderWhiteText: json['AvailabilityOrderWhiteText'] as String?,
+  availabilityByHour: json['AvailabilityByHour'] as String?,
+  itemStatus: json['ItemStatus'] as String?,
+  auditNote: json['AuditNote'] as String?,
+  recordTitle: json['RecordTitle'] as String?,
+  urlIdentifier: json['UrlIdentifier'],
+  fields:
+      (json['_Fields'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+  custom:
+      (json['_Custom'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      [],
+  defaultFieldAttributes:
+      (json['_DefaultFieldAttributes'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwDefaultAttribute.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  original: json['_Original'] == null
+      ? null
+      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+          json['_Original'] as Map<String, dynamic>,
+        ),
+  translation:
+      (json['_Translation'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwTranslatedValue.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
+  createdByUserId: json['CreatedByUserId'] as String?,
+  createdByUserName: json['CreatedByUserName'] as String?,
+  createdDateTime: json['CreatedDateTime'] as String?,
+  modifiedByUserId: json['ModifiedByUserId'] as String?,
+  modifiedByUserName: json['ModifiedByUserName'] as String?,
+  modifiedDateTime: json['ModifiedDateTime'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesInventoryReservedRentalItemReservedRentalItemToJson(
+  WebApiModulesInventoryReservedRentalItemReservedRentalItem instance,
+) => <String, dynamic>{
+  'ReservedRentalItemId': ?instance.reservedRentalItemId,
+  'OrderId': ?instance.orderId,
+  'OrderItemId': ?instance.orderItemId,
+  'RentalItemId': ?instance.rentalItemId,
+  'InventoryId': ?instance.inventoryId,
+  'ICode': ?instance.iCode,
+  'Description': ?instance.description,
+  'InventoryTypeId': ?instance.inventoryTypeId,
+  'CategoryId': ?instance.categoryId,
+  'SubCategoryId': ?instance.subCategoryId,
+  'WarehouseId': ?instance.warehouseId,
+  'ReturnToWarehouseId': ?instance.returnToWarehouseId,
+  'UsersId': ?instance.usersId,
+  'BarCode': ?instance.barCode,
+  'SerialNumber': ?instance.serialNumber,
+  'TrackedByCode': ?instance.trackedByCode,
+  'Ownership': ?instance.ownership,
+  'OwnershipSort': ?instance.ownershipSort,
+  'ConsignorId': ?instance.consignorId,
+  'Consignor': ?instance.consignor,
+  'OrderNumber': ?instance.orderNumber,
+  'OrderDescription': ?instance.orderDescription,
+  'OrderType': ?instance.orderType,
+  'OrderStatus': ?instance.orderStatus,
+  'DealId': ?instance.dealId,
+  'Deal': ?instance.deal,
+  'NameFml': ?instance.nameFml,
+  'FromDateTime': ?instance.fromDateTime?.toIso8601String(),
+  'ToDateTime': ?instance.toDateTime?.toIso8601String(),
+  'Conflict': ?instance.conflict,
+  'ForceConflict': ?instance.forceConflict,
+  'PositiveConflict': ?instance.positiveConflict,
+  'AvailabilityColor': ?instance.availabilityColor,
+  'AvailabilityOrderColor': ?instance.availabilityOrderColor,
+  'AvailabilityOrderWhiteText': ?instance.availabilityOrderWhiteText,
+  'AvailabilityByHour': ?instance.availabilityByHour,
+  'ItemStatus': ?instance.itemStatus,
+  'AuditNote': ?instance.auditNote,
+  'RecordTitle': ?instance.recordTitle,
+  'UrlIdentifier': ?instance.urlIdentifier,
+  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
+  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
+  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
+      ?.map((e) => e.toJson())
+      .toList(),
+  '_Original': ?instance.original?.toJson(),
+  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
+  '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -4067,6 +4153,7 @@ _$WebApiModulesInventoryUnretiredUnretiredFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -4110,6 +4197,7 @@ Map<String, dynamic> _$WebApiModulesInventoryUnretiredUnretiredToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -4181,6 +4269,7 @@ _$WebApiModulesSettingsAddressSettingsCountryCountryFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -4217,6 +4306,7 @@ Map<String, dynamic> _$WebApiModulesSettingsAddressSettingsCountryCountryToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -4282,6 +4372,7 @@ _$WebApiModulesSettingsCurrencySettingsCurrencyCurrencyFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -4313,6 +4404,7 @@ _$WebApiModulesSettingsCurrencySettingsCurrencyCurrencyToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -4481,6 +4573,8 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseFromJson(
   internalOrderOrderType: json['InternalOrderOrderType'] as String?,
   internalOrderDealId: json['InternalOrderDealId'] as String?,
   internalOrderDeal: json['InternalOrderDeal'] as String?,
+  flexibleContainerStagingRule: json['FlexibleContainerStagingRule'] as String?,
+  internalOrderGracePeriod: (json['InternalOrderGracePeriod'] as num?)?.toInt(),
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
   urlIdentifier: json['UrlIdentifier'],
@@ -4526,6 +4620,7 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -4686,6 +4781,8 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseToJson(
   'InternalOrderOrderType': ?instance.internalOrderOrderType,
   'InternalOrderDealId': ?instance.internalOrderDealId,
   'InternalOrderDeal': ?instance.internalOrderDeal,
+  'FlexibleContainerStagingRule': ?instance.flexibleContainerStagingRule,
+  'InternalOrderGracePeriod': ?instance.internalOrderGracePeriod,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
   'UrlIdentifier': ?instance.urlIdentifier,
@@ -4697,12 +4794,241 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
   'ModifiedByUserId': ?instance.modifiedByUserId,
   'ModifiedByUserName': ?instance.modifiedByUserName,
   'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
+WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerAddAsyncRequest
+_$WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerAddAsyncRequestFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerAddAsyncRequest(
+      uniqueid1: json['Uniqueid1'] as String?,
+      uniqueid2: json['Uniqueid2'] as String?,
+      uniqueid3: json['Uniqueid3'] as String?,
+      uniqueId1Int: (json['UniqueId1Int'] as num?)?.toInt(),
+      description: json['Description'] as String?,
+      extension: json['Extension'] as String?,
+      recType: json['RecType'] as String?,
+      imageDataUrl: json['ImageDataUrl'] as String?,
+    );
+
+Map<String, dynamic>
+_$WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerAddAsyncRequestToJson(
+  WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerAddAsyncRequest
+  instance,
+) => <String, dynamic>{
+  'Uniqueid1': ?instance.uniqueid1,
+  'Uniqueid2': ?instance.uniqueid2,
+  'Uniqueid3': ?instance.uniqueid3,
+  'UniqueId1Int': ?instance.uniqueId1Int,
+  'Description': ?instance.description,
+  'Extension': ?instance.extension,
+  'RecType': ?instance.recType,
+  'ImageDataUrl': ?instance.imageDataUrl,
+};
+
+WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerDeleteAsyncRequest
+_$WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerDeleteAsyncRequestFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerDeleteAsyncRequest(
+      appImageId: json['AppImageId'] as String?,
+    );
+
+Map<String, dynamic>
+_$WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerDeleteAsyncRequestToJson(
+  WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerDeleteAsyncRequest
+  instance,
+) => <String, dynamic>{'AppImageId': ?instance.appImageId};
+
+WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerRepositionAsyncRequest
+_$WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerRepositionAsyncRequestFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerRepositionAsyncRequest(
+      appImageId: json['AppImageId'] as String?,
+      orderBy: (json['OrderBy'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic>
+_$WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerRepositionAsyncRequestToJson(
+  WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerRepositionAsyncRequest
+  instance,
+) => <String, dynamic>{
+  'AppImageId': ?instance.appImageId,
+  'OrderBy': ?instance.orderBy,
+};
+
+WebApiModulesUtilitiesAIAssistantUtilityAIAssistantRequest
+_$WebApiModulesUtilitiesAIAssistantUtilityAIAssistantRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesAIAssistantUtilityAIAssistantRequest(
+  userInput: json['UserInput'] as String?,
+  contextType: json['ContextType'] as String?,
+  sessionId: json['SessionId'] as String?,
+  conversationHistory:
+      (json['ConversationHistory'] as List<dynamic>?)
+          ?.map(
+            (e) => WebApiModulesUtilitiesAIAssistantUtilityChatMessage.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesAIAssistantUtilityAIAssistantRequestToJson(
+  WebApiModulesUtilitiesAIAssistantUtilityAIAssistantRequest instance,
+) => <String, dynamic>{
+  'UserInput': ?instance.userInput,
+  'ContextType': ?instance.contextType,
+  'SessionId': ?instance.sessionId,
+  'ConversationHistory': ?instance.conversationHistory
+      ?.map((e) => e.toJson())
+      .toList(),
+};
+
+WebApiModulesUtilitiesAIAssistantUtilityAIAssistantResponse
+_$WebApiModulesUtilitiesAIAssistantUtilityAIAssistantResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesAIAssistantUtilityAIAssistantResponse(
+  success: json['Success'] as bool?,
+  response: json['Response'] as String?,
+  message: json['Message'] as String?,
+  sessionId: json['SessionId'] as String?,
+  tokensUsed: (json['TokensUsed'] as num?)?.toInt(),
+  responseTime: json['ResponseTime'] == null
+      ? null
+      : DateTime.parse(json['ResponseTime'] as String),
+  usedSupportArticles: json['UsedSupportArticles'] as bool?,
+  relevantArticles:
+      (json['RelevantArticles'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      [],
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesAIAssistantUtilityAIAssistantResponseToJson(
+  WebApiModulesUtilitiesAIAssistantUtilityAIAssistantResponse instance,
+) => <String, dynamic>{
+  'Success': ?instance.success,
+  'Response': ?instance.response,
+  'Message': ?instance.message,
+  'SessionId': ?instance.sessionId,
+  'TokensUsed': ?instance.tokensUsed,
+  'ResponseTime': ?instance.responseTime?.toIso8601String(),
+  'UsedSupportArticles': ?instance.usedSupportArticles,
+  'RelevantArticles': ?instance.relevantArticles,
+};
+
+WebApiModulesUtilitiesAIAssistantUtilityChatHistoryDeleteResponse
+_$WebApiModulesUtilitiesAIAssistantUtilityChatHistoryDeleteResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesAIAssistantUtilityChatHistoryDeleteResponse(
+  success: json['Success'] as bool?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesAIAssistantUtilityChatHistoryDeleteResponseToJson(
+  WebApiModulesUtilitiesAIAssistantUtilityChatHistoryDeleteResponse instance,
+) => <String, dynamic>{'Success': ?instance.success};
+
+WebApiModulesUtilitiesAIAssistantUtilityChatHistoryItem
+_$WebApiModulesUtilitiesAIAssistantUtilityChatHistoryItemFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesAIAssistantUtilityChatHistoryItem(
+  chatId: json['ChatId'] as String?,
+  title: json['Title'] as String?,
+  chatData: json['ChatData'] as String?,
+  createdAt: json['CreatedAt'] == null
+      ? null
+      : DateTime.parse(json['CreatedAt'] as String),
+  lastModified: json['LastModified'] == null
+      ? null
+      : DateTime.parse(json['LastModified'] as String),
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesAIAssistantUtilityChatHistoryItemToJson(
+  WebApiModulesUtilitiesAIAssistantUtilityChatHistoryItem instance,
+) => <String, dynamic>{
+  'ChatId': ?instance.chatId,
+  'Title': ?instance.title,
+  'ChatData': ?instance.chatData,
+  'CreatedAt': ?instance.createdAt?.toIso8601String(),
+  'LastModified': ?instance.lastModified?.toIso8601String(),
+};
+
+WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveRequest
+_$WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveRequest(
+  userId: json['UserId'] as String?,
+  title: json['Title'] as String?,
+  chatData: json['ChatData'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveRequestToJson(
+  WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveRequest instance,
+) => <String, dynamic>{
+  'UserId': ?instance.userId,
+  'Title': ?instance.title,
+  'ChatData': ?instance.chatData,
+};
+
+WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveResponse
+_$WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveResponse(
+  success: json['Success'] as bool?,
+  chatId: json['ChatId'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveResponseToJson(
+  WebApiModulesUtilitiesAIAssistantUtilityChatHistorySaveResponse instance,
+) => <String, dynamic>{
+  'Success': ?instance.success,
+  'ChatId': ?instance.chatId,
+};
+
+WebApiModulesUtilitiesAIAssistantUtilityChatHistoryUpdateResponse
+_$WebApiModulesUtilitiesAIAssistantUtilityChatHistoryUpdateResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesAIAssistantUtilityChatHistoryUpdateResponse(
+  success: json['Success'] as bool?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesAIAssistantUtilityChatHistoryUpdateResponseToJson(
+  WebApiModulesUtilitiesAIAssistantUtilityChatHistoryUpdateResponse instance,
+) => <String, dynamic>{'Success': ?instance.success};
+
+WebApiModulesUtilitiesAIAssistantUtilityChatMessage
+_$WebApiModulesUtilitiesAIAssistantUtilityChatMessageFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesAIAssistantUtilityChatMessage(
+  role: json['Role'] as String?,
+  message: json['Message'] as String?,
+  timestamp: json['Timestamp'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesAIAssistantUtilityChatMessageToJson(
+  WebApiModulesUtilitiesAIAssistantUtilityChatMessage instance,
+) => <String, dynamic>{
+  'Role': ?instance.role,
+  'Message': ?instance.message,
+  'Timestamp': ?instance.timestamp,
 };
 
 WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItem
@@ -4771,6 +5097,7 @@ _$WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -4811,6 +5138,7 @@ _$WebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -4828,9 +5156,11 @@ _$WebApiModulesUtilitiesInventoryMergeInventoryMergeFromJson(
   fromInventoryId: json['FromInventoryId'] as String?,
   fromICode: json['FromICode'] as String?,
   fromDescription: json['FromDescription'] as String?,
+  fromAvailFor: json['FromAvailFor'] as String?,
   toInventoryId: json['ToInventoryId'] as String?,
   toICode: json['ToICode'] as String?,
   toDescription: json['ToDescription'] as String?,
+  toAvailFor: json['ToAvailFor'] as String?,
   warehouseId: json['WarehouseId'] as String?,
   warehouse: json['Warehouse'] as String?,
   dateStamp: json['DateStamp'] as String?,
@@ -4879,6 +5209,7 @@ _$WebApiModulesUtilitiesInventoryMergeInventoryMergeFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -4895,9 +5226,11 @@ Map<String, dynamic> _$WebApiModulesUtilitiesInventoryMergeInventoryMergeToJson(
   'FromInventoryId': ?instance.fromInventoryId,
   'FromICode': ?instance.fromICode,
   'FromDescription': ?instance.fromDescription,
+  'FromAvailFor': ?instance.fromAvailFor,
   'ToInventoryId': ?instance.toInventoryId,
   'ToICode': ?instance.toICode,
   'ToDescription': ?instance.toDescription,
+  'ToAvailFor': ?instance.toAvailFor,
   'WarehouseId': ?instance.warehouseId,
   'Warehouse': ?instance.warehouse,
   'DateStamp': ?instance.dateStamp,
@@ -4912,6 +5245,7 @@ Map<String, dynamic> _$WebApiModulesUtilitiesInventoryMergeInventoryMergeToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -5082,104 +5416,6 @@ _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseCompleteSession
   'QuantityAdded': ?instance.quantityAdded,
 };
 
-WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem
-_$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem(
-  inventoryPurchaseItemId: (json['InventoryPurchaseItemId'] as num?)?.toInt(),
-  sessionId: json['SessionId'] as String?,
-  barCode: json['BarCode'] as String?,
-  manufactureDate: json['ManufactureDate'] as String?,
-  printQuantity: (json['PrintQuantity'] as num?)?.toInt(),
-  serialNumber: json['SerialNumber'] as String?,
-  rfId: json['RfId'] as String?,
-  serialNumberIsMixedCase: json['SerialNumberIsMixedCase'] as bool?,
-  dateStamp: json['DateStamp'] as String?,
-  auditNote: json['AuditNote'] as String?,
-  recordTitle: json['RecordTitle'] as String?,
-  urlIdentifier: json['UrlIdentifier'],
-  fields:
-      (json['_Fields'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  custom:
-      (json['_Custom'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      [],
-  defaultFieldAttributes:
-      (json['_DefaultFieldAttributes'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwDefaultAttribute.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  original: json['_Original'] == null
-      ? null
-      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          json['_Original'] as Map<String, dynamic>,
-        ),
-  translation:
-      (json['_Translation'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwTranslatedValue.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  hasImport: json['_HasImport'] as bool?,
-  createdByUserId: json['CreatedByUserId'] as String?,
-  createdByUserName: json['CreatedByUserName'] as String?,
-  createdDateTime: json['CreatedDateTime'] as String?,
-  modifiedByUserId: json['ModifiedByUserId'] as String?,
-  modifiedByUserName: json['ModifiedByUserName'] as String?,
-  modifiedDateTime: json['ModifiedDateTime'] as String?,
-);
-
-Map<String, dynamic>
-_$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemToJson(
-  WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem instance,
-) => <String, dynamic>{
-  'InventoryPurchaseItemId': ?instance.inventoryPurchaseItemId,
-  'SessionId': ?instance.sessionId,
-  'BarCode': ?instance.barCode,
-  'ManufactureDate': ?instance.manufactureDate,
-  'PrintQuantity': ?instance.printQuantity,
-  'SerialNumber': ?instance.serialNumber,
-  'RfId': ?instance.rfId,
-  'SerialNumberIsMixedCase': ?instance.serialNumberIsMixedCase,
-  'DateStamp': ?instance.dateStamp,
-  'AuditNote': ?instance.auditNote,
-  'RecordTitle': ?instance.recordTitle,
-  'UrlIdentifier': ?instance.urlIdentifier,
-  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
-  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
-      ?.map((e) => e.toJson())
-      .toList(),
-  '_Original': ?instance.original?.toJson(),
-  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
-  '_HasImport': ?instance.hasImport,
-  'CreatedByUserId': ?instance.createdByUserId,
-  'CreatedByUserName': ?instance.createdByUserName,
-  'CreatedDateTime': ?instance.createdDateTime,
-  'ModifiedByUserId': ?instance.modifiedByUserId,
-  'ModifiedByUserName': ?instance.modifiedByUserName,
-  'ModifiedDateTime': ?instance.modifiedDateTime,
-};
-
 WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequest
 _$WebApiModulesUtilitiesInventoryPurchaseUtilityStartInventoryPurchaseSessionRequestFromJson(
   Map<String, dynamic> json,
@@ -5252,6 +5488,50 @@ _$WebApiModulesUtilitiesInventoryPurchaseUtilityUpdateInventoryPurchaseSessionRe
   'msg': ?instance.msg,
 };
 
+WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryRequest
+_$WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryRequest(
+  fromWarehouseId: json['FromWarehouseId'] as String?,
+  toWarehouseId: json['ToWarehouseId'] as String?,
+  itemId: json['ItemId'] as String?,
+  locationId: json['LocationId'] as String?,
+  departmentId: json['DepartmentId'] as String?,
+  transferTypeId: json['TransferTypeId'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryRequestToJson(
+  WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryRequest
+  instance,
+) => <String, dynamic>{
+  'FromWarehouseId': ?instance.fromWarehouseId,
+  'ToWarehouseId': ?instance.toWarehouseId,
+  'ItemId': ?instance.itemId,
+  'LocationId': ?instance.locationId,
+  'DepartmentId': ?instance.departmentId,
+  'TransferTypeId': ?instance.transferTypeId,
+};
+
+WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryResponse
+_$WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryResponse(
+  status: (json['status'] as num?)?.toInt(),
+  success: json['success'] as bool?,
+  msg: json['msg'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryResponseToJson(
+  WebApiModulesUtilitiesInventoryTransferUtilityTransferInventoryResponse
+  instance,
+) => <String, dynamic>{
+  'status': ?instance.status,
+  'success': ?instance.success,
+  'msg': ?instance.msg,
+};
+
 WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatch
 _$WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchFromJson(
   Map<String, dynamic> json,
@@ -5313,6 +5593,7 @@ _$WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -5348,6 +5629,7 @@ _$WebApiModulesUtilitiesInvoiceProcessBatchInvoiceProcessBatchToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -5362,6 +5644,7 @@ _$WebApiModulesUtilitiesLabelDesignBarcodeLabelFromJson(
 ) => WebApiModulesUtilitiesLabelDesignBarcodeLabel(
   barcode: json['BARCODE'] as String?,
   icode: json['ICODE'] as String?,
+  serialno: json['SERIALNO'] as String?,
   description: json['DESCRIPTION'] as String?,
   inventorytype: json['INVENTORYTYPE'] as String?,
   category: json['CATEGORY'] as String?,
@@ -5376,6 +5659,7 @@ Map<String, dynamic> _$WebApiModulesUtilitiesLabelDesignBarcodeLabelToJson(
 ) => <String, dynamic>{
   'BARCODE': ?instance.barcode,
   'ICODE': ?instance.icode,
+  'SERIALNO': ?instance.serialno,
   'DESCRIPTION': ?instance.description,
   'INVENTORYTYPE': ?instance.inventorytype,
   'CATEGORY': ?instance.category,
@@ -5440,6 +5724,7 @@ _$WebApiModulesUtilitiesLabelDesignLabelDesignFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -5468,6 +5753,7 @@ Map<String, dynamic> _$WebApiModulesUtilitiesLabelDesignLabelDesignToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -5576,7 +5862,7 @@ _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponseFromJson(
       (json['ReservedRentalItems'] as List<dynamic>?)
           ?.map(
             (e) =>
-                WebApiModulesHomeControlsReservedRentalItemReservedRentalItem.fromJson(
+                WebApiModulesInventoryReservedRentalItemReservedRentalItem.fromJson(
                   e as Map<String, dynamic>,
                 ),
           )
@@ -5797,6 +6083,7 @@ _$WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -5840,154 +6127,13 @@ _$WebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
   'ModifiedByUserId': ?instance.modifiedByUserId,
   'ModifiedByUserName': ?instance.modifiedByUserName,
   'ModifiedDateTime': ?instance.modifiedDateTime,
-};
-
-WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent
-_$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEventFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent(
-  start: json['start'] as String?,
-  end: json['end'] as String?,
-  text: json['text'] as String?,
-  backColor: json['backColor'] as String?,
-  barColor: json['barColor'] as String?,
-  textColor: json['textColor'] as String?,
-  resource: json['resource'] as String?,
-  orderId: json['orderId'] as String?,
-  orderNumber: json['orderNumber'] as String?,
-  orderType: json['orderType'] as String?,
-  orderStatus: json['orderStatus'] as String?,
-  orderDescription: json['orderDescription'] as String?,
-  orderLocation: json['orderLocation'] as String?,
-  deal: json['deal'] as String?,
-  poNumber: json['poNumber'] as String?,
-  id: json['id'] as String?,
-  orderBy: json['orderBy'] as String?,
-);
-
-Map<String, dynamic>
-_$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEventToJson(
-  WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent
-  instance,
-) => <String, dynamic>{
-  'start': ?instance.start,
-  'end': ?instance.end,
-  'text': ?instance.text,
-  'backColor': ?instance.backColor,
-  'barColor': ?instance.barColor,
-  'textColor': ?instance.textColor,
-  'resource': ?instance.resource,
-  'orderId': ?instance.orderId,
-  'orderNumber': ?instance.orderNumber,
-  'orderType': ?instance.orderType,
-  'orderStatus': ?instance.orderStatus,
-  'orderDescription': ?instance.orderDescription,
-  'orderLocation': ?instance.orderLocation,
-  'deal': ?instance.deal,
-  'poNumber': ?instance.poNumber,
-  'id': ?instance.id,
-  'orderBy': ?instance.orderBy,
-};
-
-WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest
-_$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequestFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest(
-  fromDate: json['FromDate'] == null
-      ? null
-      : DateTime.parse(json['FromDate'] as String),
-  toDate: json['ToDate'] == null
-      ? null
-      : DateTime.parse(json['ToDate'] as String),
-  officeLocationId: json['OfficeLocationId'] as String?,
-  customerId: json['CustomerId'] as String?,
-  departmentId: json['DepartmentId'] as String?,
-  dealId: json['DealId'] as String?,
-  projectId: json['ProjectId'] as String?,
-  projectManagerId: json['ProjectManagerId'] as String?,
-  includeCompleted: json['IncludeCompleted'] as bool?,
-);
-
-Map<String, dynamic>
-_$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequestToJson(
-  WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleRequest
-  instance,
-) => <String, dynamic>{
-  'FromDate': ?instance.fromDate?.toIso8601String(),
-  'ToDate': ?instance.toDate?.toIso8601String(),
-  'OfficeLocationId': ?instance.officeLocationId,
-  'CustomerId': ?instance.customerId,
-  'DepartmentId': ?instance.departmentId,
-  'DealId': ?instance.dealId,
-  'ProjectId': ?instance.projectId,
-  'ProjectManagerId': ?instance.projectManagerId,
-  'IncludeCompleted': ?instance.includeCompleted,
-};
-
-WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource
-_$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResourceFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource(
-  name: json['name'] as String?,
-  id: json['id'] as String?,
-  backColor: json['backColor'] as String?,
-  orderBy: json['orderBy'] as String?,
-);
-
-Map<String, dynamic>
-_$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResourceToJson(
-  WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource
-  instance,
-) => <String, dynamic>{
-  'name': ?instance.name,
-  'id': ?instance.id,
-  'backColor': ?instance.backColor,
-  'orderBy': ?instance.orderBy,
-};
-
-WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse
-_$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponseFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse(
-  orderLocationScheduleResources:
-      (json['OrderLocationScheduleResources'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResource.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  orderLocationScheduleEvents:
-      (json['OrderLocationScheduleEvents'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleEvent.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-);
-
-Map<String, dynamic>
-_$WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponseToJson(
-  WebApiModulesUtilitiesOrderLocationScheduleOrderLocationScheduleResponse
-  instance,
-) => <String, dynamic>{
-  'OrderLocationScheduleResources': ?instance.orderLocationScheduleResources
-      ?.map((e) => e.toJson())
-      .toList(),
-  'OrderLocationScheduleEvents': ?instance.orderLocationScheduleEvents
-      ?.map((e) => e.toJson())
-      .toList(),
 };
 
 WebApiModulesUtilitiesProgressMeterProgressMeter
@@ -6044,6 +6190,7 @@ _$WebApiModulesUtilitiesProgressMeterProgressMeterFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -6071,6 +6218,7 @@ Map<String, dynamic> _$WebApiModulesUtilitiesProgressMeterProgressMeterToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -6119,6 +6267,10 @@ _$WebApiModulesUtilitiesQuikActivityQuikActivityFromJson(
   completePercent: (json['CompletePercent'] as num?)?.toDouble(),
   assignedToUserId: json['AssignedToUserId'] as String?,
   assignedToUserName: json['AssignedToUserName'] as String?,
+  customerServiceRepresentativeId:
+      json['CustomerServiceRepresentativeId'] as String?,
+  customerServiceRepresentative:
+      json['CustomerServiceRepresentative'] as String?,
   orderRentalActivity: json['OrderRentalActivity'] as bool?,
   orderSalesActivity: json['OrderSalesActivity'] as bool?,
   orderMiscellaneousActivity: json['OrderMiscellaneousActivity'] as bool?,
@@ -6171,6 +6323,7 @@ _$WebApiModulesUtilitiesQuikActivityQuikActivityFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -6218,6 +6371,8 @@ Map<String, dynamic> _$WebApiModulesUtilitiesQuikActivityQuikActivityToJson(
   'CompletePercent': ?instance.completePercent,
   'AssignedToUserId': ?instance.assignedToUserId,
   'AssignedToUserName': ?instance.assignedToUserName,
+  'CustomerServiceRepresentativeId': ?instance.customerServiceRepresentativeId,
+  'CustomerServiceRepresentative': ?instance.customerServiceRepresentative,
   'OrderRentalActivity': ?instance.orderRentalActivity,
   'OrderSalesActivity': ?instance.orderSalesActivity,
   'OrderMiscellaneousActivity': ?instance.orderMiscellaneousActivity,
@@ -6236,6 +6391,7 @@ Map<String, dynamic> _$WebApiModulesUtilitiesQuikActivityQuikActivityToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -6463,6 +6619,7 @@ _$WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -6492,6 +6649,7 @@ _$WebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -6612,6 +6770,7 @@ _$WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -6698,6 +6857,7 @@ _$WebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -6831,6 +6991,7 @@ _$WebApiModulesUtilitiesRateUpdateItemRateUpdateItemFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -6929,6 +7090,7 @@ Map<String, dynamic> _$WebApiModulesUtilitiesRateUpdateItemRateUpdateItemToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -6998,6 +7160,7 @@ _$WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -7033,6 +7196,7 @@ _$WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -7084,6 +7248,156 @@ _$WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponseToJson(
   WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse instance,
 ) => <String, dynamic>{
   'Batch': ?instance.batch?.toJson(),
+  'status': ?instance.status,
+  'success': ?instance.success,
+  'msg': ?instance.msg,
+};
+
+WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory
+_$WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory(
+  id: (json['Id'] as num?)?.toInt(),
+  sessionId: json['SessionId'] as String?,
+  inventoryId: json['InventoryId'] as String?,
+  description: json['Description'] as String?,
+  iCode: json['ICode'] as String?,
+  inventoryType: json['InventoryType'] as String?,
+  inventoryTypeId: json['InventoryTypeId'] as String?,
+  category: json['Category'] as String?,
+  categoryId: json['CategoryId'] as String?,
+  subCategory: json['SubCategory'] as String?,
+  subCategoryId: json['SubCategoryId'] as String?,
+  quantity: (json['Quantity'] as num?)?.toInt(),
+  unitValue: (json['UnitValue'] as num?)?.toDouble(),
+  extendedValue: (json['ExtendedValue'] as num?)?.toDouble(),
+  dateStamp: json['DateStamp'] as String?,
+  auditNote: json['AuditNote'] as String?,
+  recordTitle: json['RecordTitle'] as String?,
+  urlIdentifier: json['UrlIdentifier'],
+  fields:
+      (json['_Fields'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+  custom:
+      (json['_Custom'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      [],
+  defaultFieldAttributes:
+      (json['_DefaultFieldAttributes'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwDefaultAttribute.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  original: json['_Original'] == null
+      ? null
+      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+          json['_Original'] as Map<String, dynamic>,
+        ),
+  translation:
+      (json['_Translation'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwTranslatedValue.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
+  createdByUserId: json['CreatedByUserId'] as String?,
+  createdByUserName: json['CreatedByUserName'] as String?,
+  createdDateTime: json['CreatedDateTime'] as String?,
+  modifiedByUserId: json['ModifiedByUserId'] as String?,
+  modifiedByUserName: json['ModifiedByUserName'] as String?,
+  modifiedDateTime: json['ModifiedDateTime'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryToJson(
+  WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventory instance,
+) => <String, dynamic>{
+  'Id': ?instance.id,
+  'SessionId': ?instance.sessionId,
+  'InventoryId': ?instance.inventoryId,
+  'Description': ?instance.description,
+  'ICode': ?instance.iCode,
+  'InventoryType': ?instance.inventoryType,
+  'InventoryTypeId': ?instance.inventoryTypeId,
+  'Category': ?instance.category,
+  'CategoryId': ?instance.categoryId,
+  'SubCategory': ?instance.subCategory,
+  'SubCategoryId': ?instance.subCategoryId,
+  'Quantity': ?instance.quantity,
+  'UnitValue': ?instance.unitValue,
+  'ExtendedValue': ?instance.extendedValue,
+  'DateStamp': ?instance.dateStamp,
+  'AuditNote': ?instance.auditNote,
+  'RecordTitle': ?instance.recordTitle,
+  'UrlIdentifier': ?instance.urlIdentifier,
+  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
+  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
+  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
+      ?.map((e) => e.toJson())
+      .toList(),
+  '_Original': ?instance.original?.toJson(),
+  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
+  '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
+  'CreatedByUserId': ?instance.createdByUserId,
+  'CreatedByUserName': ?instance.createdByUserName,
+  'CreatedDateTime': ?instance.createdDateTime,
+  'ModifiedByUserId': ?instance.modifiedByUserId,
+  'ModifiedByUserName': ?instance.modifiedByUserName,
+  'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
+WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryRequest
+_$WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryRequest(
+  sessionId: json['SessionId'] as String?,
+  sourceInventoryId: json['SourceInventoryId'] as String?,
+  sourceQuantity: (json['SourceQuantity'] as num?)?.toInt(),
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryRequestToJson(
+  WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryRequest
+  instance,
+) => <String, dynamic>{
+  'SessionId': ?instance.sessionId,
+  'SourceInventoryId': ?instance.sourceInventoryId,
+  'SourceQuantity': ?instance.sourceQuantity,
+};
+
+WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryResponse
+_$WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryResponse(
+  status: (json['status'] as num?)?.toInt(),
+  success: json['success'] as bool?,
+  msg: json['msg'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryResponseToJson(
+  WebApiModulesUtilitiesSplitQuantityInventorySplitQuantityInventoryResponse
+  instance,
+) => <String, dynamic>{
   'status': ?instance.status,
   'success': ?instance.success,
   'msg': ?instance.msg,
@@ -7205,6 +7519,7 @@ _$WebApiModulesUtilitiesUserProfileUserProfileFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -7260,6 +7575,7 @@ Map<String, dynamic> _$WebApiModulesUtilitiesUserProfileUserProfileToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -7329,6 +7645,7 @@ _$WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchFromJs
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -7365,6 +7682,7 @@ _$WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchToJson
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -7475,6 +7793,7 @@ _$WebApiModulesUtilitiesWebImportWebImportFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -7507,6 +7826,7 @@ Map<String, dynamic> _$WebApiModulesUtilitiesWebImportWebImportToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -7577,6 +7897,7 @@ _$WebApiModulesUtilitiesWebImportRecordWebImportRecordFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -7613,6 +7934,7 @@ _$WebApiModulesUtilitiesWebImportRecordWebImportRecordToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -7677,6 +7999,7 @@ _$WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsFrom
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -7708,6 +8031,7 @@ _$WebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsToJs
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -7770,6 +8094,7 @@ _$WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsFromJson
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -7799,6 +8124,7 @@ _$WebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -7964,6 +8290,7 @@ _$WebApiModulesWarehouseContractContractFromJson(
   responsiblePersonOfficeExtension:
       json['ResponsiblePersonOfficeExtension'] as String?,
   hasPrintableBarCodes: json['HasPrintableBarCodes'] as bool?,
+  purchaseOrderAgentEmail: json['PurchaseOrderAgentEmail'] as String?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -8010,6 +8337,7 @@ _$WebApiModulesWarehouseContractContractFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -8155,6 +8483,7 @@ Map<String, dynamic> _$WebApiModulesWarehouseContractContractToJson(
   'ResponsiblePersonOfficeExtension':
       ?instance.responsiblePersonOfficeExtension,
   'HasPrintableBarCodes': ?instance.hasPrintableBarCodes,
+  'PurchaseOrderAgentEmail': ?instance.purchaseOrderAgentEmail,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -8167,6 +8496,7 @@ Map<String, dynamic> _$WebApiModulesWarehouseContractContractToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,

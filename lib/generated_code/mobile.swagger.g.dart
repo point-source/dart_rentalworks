@@ -76,6 +76,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -98,6 +99,7 @@ Map<String, dynamic> _$FwStandardBusinessLogicFwBusinessLogicToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -122,6 +124,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
   displayFieldName: json['DisplayFieldName'] as String?,
   allowedValues: json['AllowedValues'] as String?,
   templateSequence: (json['TemplateSequence'] as num?)?.toInt(),
+  isEmail: json['IsEmail'] as bool?,
 );
 
 Map<String, dynamic>
@@ -140,6 +143,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
   'DisplayFieldName': ?instance.displayFieldName,
   'AllowedValues': ?instance.allowedValues,
   'TemplateSequence': ?instance.templateSequence,
+  'IsEmail': ?instance.isEmail,
 };
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
@@ -151,6 +155,8 @@ FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
   fieldType: json['FieldType'] as String?,
   validationModule: json['ValidationModule'] as String?,
   validationFieldName: json['ValidationFieldName'] as String?,
+  validationFieldId: json['ValidationFieldId'] as String?,
+  listFieldAllowedValues: json['ListFieldAllowedValues'] as String?,
 );
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
@@ -162,6 +168,8 @@ Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
   'FieldType': ?instance.fieldType,
   'ValidationModule': ?instance.validationModule,
   'ValidationFieldName': ?instance.validationFieldName,
+  'ValidationFieldId': ?instance.validationFieldId,
+  'ListFieldAllowedValues': ?instance.listFieldAllowedValues,
 };
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
@@ -273,6 +281,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -304,6 +313,7 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   'fields': ?instance.fields?.map((e) => e.toJson()).toList(),
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
+  'timezoneOffset': ?instance.timezoneOffset,
 };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
@@ -615,6 +625,7 @@ _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -656,6 +667,7 @@ Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -730,6 +742,9 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
       ?.toDouble(),
   replacementCostForAllWarehouses:
       (json['ReplacementCostForAllWarehouses'] as num?)?.toDouble(),
+  hourlyAvailabilityMyWarehouse: json['HourlyAvailabilityMyWarehouse'] as bool?,
+  hourlyAvailabilityAllWarehouses:
+      json['HourlyAvailabilityAllWarehouses'] as bool?,
   inventoryTypeId: json['InventoryTypeId'] as String?,
   inventoryType: json['InventoryType'] as String?,
   availableFrom: json['AvailableFrom'] as String?,
@@ -837,9 +852,24 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
   softwareVersion: json['SoftwareVersion'] as String?,
   softwareEffectiveDate: json['SoftwareEffectiveDate'] as String?,
   warehouseSpecificPackage: json['WarehouseSpecificPackage'] as bool?,
+  completeSeparatePackageOnQuoteOrder:
+      json['CompleteSeparatePackageOnQuoteOrder'] as bool?,
+  kitSeparatePackageOnQuoteOrder:
+      json['KitSeparatePackageOnQuoteOrder'] as bool?,
   completePackagePrice: json['CompletePackagePrice'] as String?,
   kitPackagePrice: json['KitPackagePrice'] as String?,
-  separatePackageOnQuoteOrder: json['SeparatePackageOnQuoteOrder'] as bool?,
+  completeAllocateRevenueForAccessories:
+      json['CompleteAllocateRevenueForAccessories'] as bool?,
+  kitAllocateRevenueForAccessories:
+      json['KitAllocateRevenueForAccessories'] as bool?,
+  containerAllocateRevenueForAccessories:
+      json['ContainerAllocateRevenueForAccessories'] as bool?,
+  completePackageRevenueCalculationFormula:
+      json['CompletePackageRevenueCalculationFormula'] as String?,
+  kitPackageRevenueCalculationFormula:
+      json['KitPackageRevenueCalculationFormula'] as String?,
+  containerPackageRevenueCalculationFormula:
+      json['ContainerPackageRevenueCalculationFormula'] as String?,
   containerId: json['ContainerId'] as String?,
   containerScannableInventoryId:
       json['ContainerScannableInventoryId'] as String?,
@@ -884,9 +914,6 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
   wardrobeDetailedDescription: json['WardrobeDetailedDescription'] as String?,
   webDetailedDescription: json['WebDetailedDescription'] as String?,
   technicalNotes: json['TechnicalNotes'] as String?,
-  allocateRevenueForAccessories: json['AllocateRevenueForAccessories'] as bool?,
-  packageRevenueCalculationFormula:
-      json['PackageRevenueCalculationFormula'] as String?,
   isHazardousMaterial: json['IsHazardousMaterial'] as bool?,
   descriptionWithAkas: json['DescriptionWithAkas'] as String?,
   costCalculation: json['CostCalculation'] as String?,
@@ -899,6 +926,7 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
   quantityInRepair: (json['QuantityInRepair'] as num?)?.toDouble(),
   quantityInTransit: (json['QuantityInTransit'] as num?)?.toDouble(),
   quantityOnTruck: (json['QuantityOnTruck'] as num?)?.toDouble(),
+  quantityOnPO: (json['QuantityOnPO'] as num?)?.toDouble(),
   totalQuantity: (json['TotalQuantity'] as num?)?.toDouble(),
   lastPurchasePrice: (json['LastPurchasePrice'] as num?)?.toDouble(),
   aisleLocation: json['AisleLocation'] as String?,
@@ -909,6 +937,7 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
   hasDimensionsImage: json['HasDimensionsImage'] as bool?,
   stagingUnreadyContainer: json['StagingUnreadyContainer'] as bool?,
   disableMiscDescriptionChange: json['DisableMiscDescriptionChange'] as bool?,
+  standAloneItem: json['StandAloneItem'] as bool?,
   iCode: json['ICode'] as String?,
   description: json['Description'] as String?,
   availFor: json['AvailFor'] as String?,
@@ -1044,6 +1073,7 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -1098,6 +1128,8 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'QcRequiredForAllWarehouses': ?instance.qcRequiredForAllWarehouses,
   'UnitValueForAllWarehouses': ?instance.unitValueForAllWarehouses,
   'ReplacementCostForAllWarehouses': ?instance.replacementCostForAllWarehouses,
+  'HourlyAvailabilityMyWarehouse': ?instance.hourlyAvailabilityMyWarehouse,
+  'HourlyAvailabilityAllWarehouses': ?instance.hourlyAvailabilityAllWarehouses,
   'InventoryTypeId': ?instance.inventoryTypeId,
   'InventoryType': ?instance.inventoryType,
   'AvailableFrom': ?instance.availableFrom,
@@ -1179,9 +1211,23 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'SoftwareVersion': ?instance.softwareVersion,
   'SoftwareEffectiveDate': ?instance.softwareEffectiveDate,
   'WarehouseSpecificPackage': ?instance.warehouseSpecificPackage,
+  'CompleteSeparatePackageOnQuoteOrder':
+      ?instance.completeSeparatePackageOnQuoteOrder,
+  'KitSeparatePackageOnQuoteOrder': ?instance.kitSeparatePackageOnQuoteOrder,
   'CompletePackagePrice': ?instance.completePackagePrice,
   'KitPackagePrice': ?instance.kitPackagePrice,
-  'SeparatePackageOnQuoteOrder': ?instance.separatePackageOnQuoteOrder,
+  'CompleteAllocateRevenueForAccessories':
+      ?instance.completeAllocateRevenueForAccessories,
+  'KitAllocateRevenueForAccessories':
+      ?instance.kitAllocateRevenueForAccessories,
+  'ContainerAllocateRevenueForAccessories':
+      ?instance.containerAllocateRevenueForAccessories,
+  'CompletePackageRevenueCalculationFormula':
+      ?instance.completePackageRevenueCalculationFormula,
+  'KitPackageRevenueCalculationFormula':
+      ?instance.kitPackageRevenueCalculationFormula,
+  'ContainerPackageRevenueCalculationFormula':
+      ?instance.containerPackageRevenueCalculationFormula,
   'ContainerId': ?instance.containerId,
   'ContainerScannableInventoryId': ?instance.containerScannableInventoryId,
   'ContainerScannableICode': ?instance.containerScannableICode,
@@ -1224,9 +1270,6 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'WardrobeDetailedDescription': ?instance.wardrobeDetailedDescription,
   'WebDetailedDescription': ?instance.webDetailedDescription,
   'TechnicalNotes': ?instance.technicalNotes,
-  'AllocateRevenueForAccessories': ?instance.allocateRevenueForAccessories,
-  'PackageRevenueCalculationFormula':
-      ?instance.packageRevenueCalculationFormula,
   'IsHazardousMaterial': ?instance.isHazardousMaterial,
   'DescriptionWithAkas': ?instance.descriptionWithAkas,
   'CostCalculation': ?instance.costCalculation,
@@ -1239,6 +1282,7 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'QuantityInRepair': ?instance.quantityInRepair,
   'QuantityInTransit': ?instance.quantityInTransit,
   'QuantityOnTruck': ?instance.quantityOnTruck,
+  'QuantityOnPO': ?instance.quantityOnPO,
   'TotalQuantity': ?instance.totalQuantity,
   'LastPurchasePrice': ?instance.lastPurchasePrice,
   'AisleLocation': ?instance.aisleLocation,
@@ -1249,6 +1293,7 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'HasDimensionsImage': ?instance.hasDimensionsImage,
   'StagingUnreadyContainer': ?instance.stagingUnreadyContainer,
   'DisableMiscDescriptionChange': ?instance.disableMiscDescriptionChange,
+  'StandAloneItem': ?instance.standAloneItem,
   'ICode': ?instance.iCode,
   'Description': ?instance.description,
   'AvailFor': ?instance.availFor,
@@ -1348,6 +1393,7 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -1704,6 +1750,7 @@ _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -1736,6 +1783,7 @@ _$WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,

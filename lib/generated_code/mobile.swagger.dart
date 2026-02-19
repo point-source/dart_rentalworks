@@ -903,19 +903,26 @@ abstract class Mobile extends ChopperService {
 
   ///
   ///@param OrderId
+  ///@param ContractId
   Future<chopper.Response<bool>>
   quikscanStagingAllowCreateContractOrderOrderidGet({
     required String? orderId,
+    String? contractId,
   }) {
-    return _quikscanStagingAllowCreateContractOrderOrderidGet(orderId: orderId);
+    return _quikscanStagingAllowCreateContractOrderOrderidGet(
+      orderId: orderId,
+      contractId: contractId,
+    );
   }
 
   ///
   ///@param OrderId
+  ///@param ContractId
   @GET(path: '/quikscan/staging/allow-create-contract/order/{orderid}')
   Future<chopper.Response<bool>>
   _quikscanStagingAllowCreateContractOrderOrderidGet({
     @Path('OrderId') required String? orderId,
+    @Query('ContractId') String? contractId,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1281,6 +1288,7 @@ class FwStandardBusinessLogicFwBusinessLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -1331,6 +1339,8 @@ class FwStandardBusinessLogicFwBusinessLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -1389,6 +1399,11 @@ class FwStandardBusinessLogicFwBusinessLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -1435,6 +1450,7 @@ class FwStandardBusinessLogicFwBusinessLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -1456,6 +1472,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -1474,6 +1491,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -1494,6 +1512,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -1515,6 +1534,9 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -1550,6 +1572,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
     this.displayFieldName,
     this.allowedValues,
     this.templateSequence,
+    this.isEmail,
   });
 
   factory FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
@@ -1591,6 +1614,8 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
   final String? allowedValues;
   @JsonKey(name: 'TemplateSequence', includeIfNull: false)
   final int? templateSequence;
+  @JsonKey(name: 'IsEmail', includeIfNull: false)
+  final bool? isEmail;
   static const fromJsonFactory =
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson;
 
@@ -1644,7 +1669,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
                 const DeepCollectionEquality().equals(
                   other.templateSequence,
                   templateSequence,
-                )));
+                )) &&
+            (identical(other.isEmail, isEmail) ||
+                const DeepCollectionEquality().equals(other.isEmail, isEmail)));
   }
 
   @override
@@ -1662,6 +1689,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       const DeepCollectionEquality().hash(displayFieldName) ^
       const DeepCollectionEquality().hash(allowedValues) ^
       const DeepCollectionEquality().hash(templateSequence) ^
+      const DeepCollectionEquality().hash(isEmail) ^
       runtimeType.hashCode;
 }
 
@@ -1678,6 +1706,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     String? displayFieldName,
     String? allowedValues,
     int? templateSequence,
+    bool? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: name ?? this.name,
@@ -1690,6 +1719,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       displayFieldName: displayFieldName ?? this.displayFieldName,
       allowedValues: allowedValues ?? this.allowedValues,
       templateSequence: templateSequence ?? this.templateSequence,
+      isEmail: isEmail ?? this.isEmail,
     );
   }
 
@@ -1704,6 +1734,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     Wrapped<String?>? displayFieldName,
     Wrapped<String?>? allowedValues,
     Wrapped<int?>? templateSequence,
+    Wrapped<bool?>? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: (name != null ? name.value : this.name),
@@ -1726,6 +1757,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       templateSequence: (templateSequence != null
           ? templateSequence.value
           : this.templateSequence),
+      isEmail: (isEmail != null ? isEmail.value : this.isEmail),
     );
   }
 }
@@ -1739,6 +1771,8 @@ class FwStandardDataFwCustomValue {
     this.fieldType,
     this.validationModule,
     this.validationFieldName,
+    this.validationFieldId,
+    this.listFieldAllowedValues,
   });
 
   factory FwStandardDataFwCustomValue.fromJson(Map<String, dynamic> json) =>
@@ -1759,6 +1793,10 @@ class FwStandardDataFwCustomValue {
   final String? validationModule;
   @JsonKey(name: 'ValidationFieldName', includeIfNull: false)
   final String? validationFieldName;
+  @JsonKey(name: 'ValidationFieldId', includeIfNull: false)
+  final String? validationFieldId;
+  @JsonKey(name: 'ListFieldAllowedValues', includeIfNull: false)
+  final String? listFieldAllowedValues;
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
 
   @override
@@ -1794,6 +1832,16 @@ class FwStandardDataFwCustomValue {
                 const DeepCollectionEquality().equals(
                   other.validationFieldName,
                   validationFieldName,
+                )) &&
+            (identical(other.validationFieldId, validationFieldId) ||
+                const DeepCollectionEquality().equals(
+                  other.validationFieldId,
+                  validationFieldId,
+                )) &&
+            (identical(other.listFieldAllowedValues, listFieldAllowedValues) ||
+                const DeepCollectionEquality().equals(
+                  other.listFieldAllowedValues,
+                  listFieldAllowedValues,
                 )));
   }
 
@@ -1808,6 +1856,8 @@ class FwStandardDataFwCustomValue {
       const DeepCollectionEquality().hash(fieldType) ^
       const DeepCollectionEquality().hash(validationModule) ^
       const DeepCollectionEquality().hash(validationFieldName) ^
+      const DeepCollectionEquality().hash(validationFieldId) ^
+      const DeepCollectionEquality().hash(listFieldAllowedValues) ^
       runtimeType.hashCode;
 }
 
@@ -1819,6 +1869,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     String? fieldType,
     String? validationModule,
     String? validationFieldName,
+    String? validationFieldId,
+    String? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: moduleName ?? this.moduleName,
@@ -1827,6 +1879,9 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       fieldType: fieldType ?? this.fieldType,
       validationModule: validationModule ?? this.validationModule,
       validationFieldName: validationFieldName ?? this.validationFieldName,
+      validationFieldId: validationFieldId ?? this.validationFieldId,
+      listFieldAllowedValues:
+          listFieldAllowedValues ?? this.listFieldAllowedValues,
     );
   }
 
@@ -1837,6 +1892,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     Wrapped<String?>? fieldType,
     Wrapped<String?>? validationModule,
     Wrapped<String?>? validationFieldName,
+    Wrapped<String?>? validationFieldId,
+    Wrapped<String?>? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: (moduleName != null ? moduleName.value : this.moduleName),
@@ -1849,6 +1906,12 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       validationFieldName: (validationFieldName != null
           ? validationFieldName.value
           : this.validationFieldName),
+      validationFieldId: (validationFieldId != null
+          ? validationFieldId.value
+          : this.validationFieldId),
+      listFieldAllowedValues: (listFieldAllowedValues != null
+          ? listFieldAllowedValues.value
+          : this.listFieldAllowedValues),
     );
   }
 }
@@ -2085,6 +2148,7 @@ class FwStandardModelsBrowseRequest {
     this.fields,
     this.totalfields,
     this.activeviewfields,
+    this.timezoneOffset,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -2173,6 +2237,8 @@ class FwStandardModelsBrowseRequest {
   final List<String>? totalfields;
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
+  @JsonKey(name: 'timezoneOffset', includeIfNull: false)
+  final int? timezoneOffset;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -2296,6 +2362,11 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.activeviewfields,
                   activeviewfields,
+                )) &&
+            (identical(other.timezoneOffset, timezoneOffset) ||
+                const DeepCollectionEquality().equals(
+                  other.timezoneOffset,
+                  timezoneOffset,
                 )));
   }
 
@@ -2330,6 +2401,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
+      const DeepCollectionEquality().hash(timezoneOffset) ^
       runtimeType.hashCode;
 }
 
@@ -2362,6 +2434,7 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
+    int? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -2390,6 +2463,7 @@ extension $FwStandardModelsBrowseRequestExtension
       fields: fields ?? this.fields,
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
+      timezoneOffset: timezoneOffset ?? this.timezoneOffset,
     );
   }
 
@@ -2420,6 +2494,7 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
+    Wrapped<int?>? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -2472,6 +2547,9 @@ extension $FwStandardModelsBrowseRequestExtension
       activeviewfields: (activeviewfields != null
           ? activeviewfields.value
           : this.activeviewfields),
+      timezoneOffset: (timezoneOffset != null
+          ? timezoneOffset.value
+          : this.timezoneOffset),
     );
   }
 }
@@ -3493,6 +3571,7 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -3582,6 +3661,8 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -3726,6 +3807,11 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -3791,6 +3877,7 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -3831,6 +3918,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -3870,6 +3958,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -3909,6 +3998,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -3973,6 +4063,9 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -4117,6 +4210,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.qcRequiredForAllWarehouses,
     this.unitValueForAllWarehouses,
     this.replacementCostForAllWarehouses,
+    this.hourlyAvailabilityMyWarehouse,
+    this.hourlyAvailabilityAllWarehouses,
     this.inventoryTypeId,
     this.inventoryType,
     this.availableFrom,
@@ -4193,9 +4288,16 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.softwareVersion,
     this.softwareEffectiveDate,
     this.warehouseSpecificPackage,
+    this.completeSeparatePackageOnQuoteOrder,
+    this.kitSeparatePackageOnQuoteOrder,
     this.completePackagePrice,
     this.kitPackagePrice,
-    this.separatePackageOnQuoteOrder,
+    this.completeAllocateRevenueForAccessories,
+    this.kitAllocateRevenueForAccessories,
+    this.containerAllocateRevenueForAccessories,
+    this.completePackageRevenueCalculationFormula,
+    this.kitPackageRevenueCalculationFormula,
+    this.containerPackageRevenueCalculationFormula,
     this.containerId,
     this.containerScannableInventoryId,
     this.containerScannableICode,
@@ -4232,8 +4334,6 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.wardrobeDetailedDescription,
     this.webDetailedDescription,
     this.technicalNotes,
-    this.allocateRevenueForAccessories,
-    this.packageRevenueCalculationFormula,
     this.isHazardousMaterial,
     this.descriptionWithAkas,
     this.costCalculation,
@@ -4246,6 +4346,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.quantityInRepair,
     this.quantityInTransit,
     this.quantityOnTruck,
+    this.quantityOnPO,
     this.totalQuantity,
     this.lastPurchasePrice,
     this.aisleLocation,
@@ -4256,6 +4357,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.hasDimensionsImage,
     this.stagingUnreadyContainer,
     this.disableMiscDescriptionChange,
+    this.standAloneItem,
     this.iCode,
     this.description,
     this.availFor,
@@ -4343,6 +4445,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -4444,6 +4547,10 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final double? unitValueForAllWarehouses;
   @JsonKey(name: 'ReplacementCostForAllWarehouses', includeIfNull: false)
   final double? replacementCostForAllWarehouses;
+  @JsonKey(name: 'HourlyAvailabilityMyWarehouse', includeIfNull: false)
+  final bool? hourlyAvailabilityMyWarehouse;
+  @JsonKey(name: 'HourlyAvailabilityAllWarehouses', includeIfNull: false)
+  final bool? hourlyAvailabilityAllWarehouses;
   @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
   @JsonKey(name: 'InventoryType', includeIfNull: false)
@@ -4596,12 +4703,32 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final String? softwareEffectiveDate;
   @JsonKey(name: 'WarehouseSpecificPackage', includeIfNull: false)
   final bool? warehouseSpecificPackage;
+  @JsonKey(name: 'CompleteSeparatePackageOnQuoteOrder', includeIfNull: false)
+  final bool? completeSeparatePackageOnQuoteOrder;
+  @JsonKey(name: 'KitSeparatePackageOnQuoteOrder', includeIfNull: false)
+  final bool? kitSeparatePackageOnQuoteOrder;
   @JsonKey(name: 'CompletePackagePrice', includeIfNull: false)
   final String? completePackagePrice;
   @JsonKey(name: 'KitPackagePrice', includeIfNull: false)
   final String? kitPackagePrice;
-  @JsonKey(name: 'SeparatePackageOnQuoteOrder', includeIfNull: false)
-  final bool? separatePackageOnQuoteOrder;
+  @JsonKey(name: 'CompleteAllocateRevenueForAccessories', includeIfNull: false)
+  final bool? completeAllocateRevenueForAccessories;
+  @JsonKey(name: 'KitAllocateRevenueForAccessories', includeIfNull: false)
+  final bool? kitAllocateRevenueForAccessories;
+  @JsonKey(name: 'ContainerAllocateRevenueForAccessories', includeIfNull: false)
+  final bool? containerAllocateRevenueForAccessories;
+  @JsonKey(
+    name: 'CompletePackageRevenueCalculationFormula',
+    includeIfNull: false,
+  )
+  final String? completePackageRevenueCalculationFormula;
+  @JsonKey(name: 'KitPackageRevenueCalculationFormula', includeIfNull: false)
+  final String? kitPackageRevenueCalculationFormula;
+  @JsonKey(
+    name: 'ContainerPackageRevenueCalculationFormula',
+    includeIfNull: false,
+  )
+  final String? containerPackageRevenueCalculationFormula;
   @JsonKey(name: 'ContainerId', includeIfNull: false)
   final String? containerId;
   @JsonKey(name: 'ContainerScannableInventoryId', includeIfNull: false)
@@ -4686,10 +4813,6 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final String? webDetailedDescription;
   @JsonKey(name: 'TechnicalNotes', includeIfNull: false)
   final String? technicalNotes;
-  @JsonKey(name: 'AllocateRevenueForAccessories', includeIfNull: false)
-  final bool? allocateRevenueForAccessories;
-  @JsonKey(name: 'PackageRevenueCalculationFormula', includeIfNull: false)
-  final String? packageRevenueCalculationFormula;
   @JsonKey(name: 'IsHazardousMaterial', includeIfNull: false)
   final bool? isHazardousMaterial;
   @JsonKey(name: 'DescriptionWithAkas', includeIfNull: false)
@@ -4714,6 +4837,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final double? quantityInTransit;
   @JsonKey(name: 'QuantityOnTruck', includeIfNull: false)
   final double? quantityOnTruck;
+  @JsonKey(name: 'QuantityOnPO', includeIfNull: false)
+  final double? quantityOnPO;
   @JsonKey(name: 'TotalQuantity', includeIfNull: false)
   final double? totalQuantity;
   @JsonKey(name: 'LastPurchasePrice', includeIfNull: false)
@@ -4734,6 +4859,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final bool? stagingUnreadyContainer;
   @JsonKey(name: 'DisableMiscDescriptionChange', includeIfNull: false)
   final bool? disableMiscDescriptionChange;
+  @JsonKey(name: 'StandAloneItem', includeIfNull: false)
+  final bool? standAloneItem;
   @JsonKey(name: 'ICode', includeIfNull: false)
   final String? iCode;
   @JsonKey(name: 'Description', includeIfNull: false)
@@ -4939,6 +5066,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -5188,6 +5317,22 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
                 const DeepCollectionEquality().equals(
                   other.replacementCostForAllWarehouses,
                   replacementCostForAllWarehouses,
+                )) &&
+            (identical(
+                  other.hourlyAvailabilityMyWarehouse,
+                  hourlyAvailabilityMyWarehouse,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.hourlyAvailabilityMyWarehouse,
+                  hourlyAvailabilityMyWarehouse,
+                )) &&
+            (identical(
+                  other.hourlyAvailabilityAllWarehouses,
+                  hourlyAvailabilityAllWarehouses,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.hourlyAvailabilityAllWarehouses,
+                  hourlyAvailabilityAllWarehouses,
                 )) &&
             (identical(other.inventoryTypeId, inventoryTypeId) ||
                 const DeepCollectionEquality().equals(
@@ -5704,6 +5849,22 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
                   other.warehouseSpecificPackage,
                   warehouseSpecificPackage,
                 )) &&
+            (identical(
+                  other.completeSeparatePackageOnQuoteOrder,
+                  completeSeparatePackageOnQuoteOrder,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.completeSeparatePackageOnQuoteOrder,
+                  completeSeparatePackageOnQuoteOrder,
+                )) &&
+            (identical(
+                  other.kitSeparatePackageOnQuoteOrder,
+                  kitSeparatePackageOnQuoteOrder,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.kitSeparatePackageOnQuoteOrder,
+                  kitSeparatePackageOnQuoteOrder,
+                )) &&
             (identical(other.completePackagePrice, completePackagePrice) ||
                 const DeepCollectionEquality().equals(
                   other.completePackagePrice,
@@ -5715,12 +5876,52 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
                   kitPackagePrice,
                 )) &&
             (identical(
-                  other.separatePackageOnQuoteOrder,
-                  separatePackageOnQuoteOrder,
+                  other.completeAllocateRevenueForAccessories,
+                  completeAllocateRevenueForAccessories,
                 ) ||
                 const DeepCollectionEquality().equals(
-                  other.separatePackageOnQuoteOrder,
-                  separatePackageOnQuoteOrder,
+                  other.completeAllocateRevenueForAccessories,
+                  completeAllocateRevenueForAccessories,
+                )) &&
+            (identical(
+                  other.kitAllocateRevenueForAccessories,
+                  kitAllocateRevenueForAccessories,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.kitAllocateRevenueForAccessories,
+                  kitAllocateRevenueForAccessories,
+                )) &&
+            (identical(
+                  other.containerAllocateRevenueForAccessories,
+                  containerAllocateRevenueForAccessories,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.containerAllocateRevenueForAccessories,
+                  containerAllocateRevenueForAccessories,
+                )) &&
+            (identical(
+                  other.completePackageRevenueCalculationFormula,
+                  completePackageRevenueCalculationFormula,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.completePackageRevenueCalculationFormula,
+                  completePackageRevenueCalculationFormula,
+                )) &&
+            (identical(
+                  other.kitPackageRevenueCalculationFormula,
+                  kitPackageRevenueCalculationFormula,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.kitPackageRevenueCalculationFormula,
+                  kitPackageRevenueCalculationFormula,
+                )) &&
+            (identical(
+                  other.containerPackageRevenueCalculationFormula,
+                  containerPackageRevenueCalculationFormula,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.containerPackageRevenueCalculationFormula,
+                  containerPackageRevenueCalculationFormula,
                 )) &&
             (identical(other.containerId, containerId) ||
                 const DeepCollectionEquality().equals(
@@ -5928,22 +6129,6 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
                   other.technicalNotes,
                   technicalNotes,
                 )) &&
-            (identical(
-                  other.allocateRevenueForAccessories,
-                  allocateRevenueForAccessories,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.allocateRevenueForAccessories,
-                  allocateRevenueForAccessories,
-                )) &&
-            (identical(
-                  other.packageRevenueCalculationFormula,
-                  packageRevenueCalculationFormula,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.packageRevenueCalculationFormula,
-                  packageRevenueCalculationFormula,
-                )) &&
             (identical(other.isHazardousMaterial, isHazardousMaterial) ||
                 const DeepCollectionEquality().equals(
                   other.isHazardousMaterial,
@@ -6004,6 +6189,11 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
                   other.quantityOnTruck,
                   quantityOnTruck,
                 )) &&
+            (identical(other.quantityOnPO, quantityOnPO) ||
+                const DeepCollectionEquality().equals(
+                  other.quantityOnPO,
+                  quantityOnPO,
+                )) &&
             (identical(other.totalQuantity, totalQuantity) ||
                 const DeepCollectionEquality().equals(
                   other.totalQuantity,
@@ -6062,6 +6252,11 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
                 const DeepCollectionEquality().equals(
                   other.disableMiscDescriptionChange,
                   disableMiscDescriptionChange,
+                )) &&
+            (identical(other.standAloneItem, standAloneItem) ||
+                const DeepCollectionEquality().equals(
+                  other.standAloneItem,
+                  standAloneItem,
                 )) &&
             (identical(other.iCode, iCode) ||
                 const DeepCollectionEquality().equals(other.iCode, iCode)) &&
@@ -6573,6 +6768,11 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -6652,6 +6852,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(qcRequiredForAllWarehouses) ^
       const DeepCollectionEquality().hash(unitValueForAllWarehouses) ^
       const DeepCollectionEquality().hash(replacementCostForAllWarehouses) ^
+      const DeepCollectionEquality().hash(hourlyAvailabilityMyWarehouse) ^
+      const DeepCollectionEquality().hash(hourlyAvailabilityAllWarehouses) ^
       const DeepCollectionEquality().hash(inventoryTypeId) ^
       const DeepCollectionEquality().hash(inventoryType) ^
       const DeepCollectionEquality().hash(availableFrom) ^
@@ -6730,9 +6932,24 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(softwareVersion) ^
       const DeepCollectionEquality().hash(softwareEffectiveDate) ^
       const DeepCollectionEquality().hash(warehouseSpecificPackage) ^
+      const DeepCollectionEquality().hash(completeSeparatePackageOnQuoteOrder) ^
+      const DeepCollectionEquality().hash(kitSeparatePackageOnQuoteOrder) ^
       const DeepCollectionEquality().hash(completePackagePrice) ^
       const DeepCollectionEquality().hash(kitPackagePrice) ^
-      const DeepCollectionEquality().hash(separatePackageOnQuoteOrder) ^
+      const DeepCollectionEquality().hash(
+        completeAllocateRevenueForAccessories,
+      ) ^
+      const DeepCollectionEquality().hash(kitAllocateRevenueForAccessories) ^
+      const DeepCollectionEquality().hash(
+        containerAllocateRevenueForAccessories,
+      ) ^
+      const DeepCollectionEquality().hash(
+        completePackageRevenueCalculationFormula,
+      ) ^
+      const DeepCollectionEquality().hash(kitPackageRevenueCalculationFormula) ^
+      const DeepCollectionEquality().hash(
+        containerPackageRevenueCalculationFormula,
+      ) ^
       const DeepCollectionEquality().hash(containerId) ^
       const DeepCollectionEquality().hash(containerScannableInventoryId) ^
       const DeepCollectionEquality().hash(containerScannableICode) ^
@@ -6781,8 +6998,6 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(wardrobeDetailedDescription) ^
       const DeepCollectionEquality().hash(webDetailedDescription) ^
       const DeepCollectionEquality().hash(technicalNotes) ^
-      const DeepCollectionEquality().hash(allocateRevenueForAccessories) ^
-      const DeepCollectionEquality().hash(packageRevenueCalculationFormula) ^
       const DeepCollectionEquality().hash(isHazardousMaterial) ^
       const DeepCollectionEquality().hash(descriptionWithAkas) ^
       const DeepCollectionEquality().hash(costCalculation) ^
@@ -6795,6 +7010,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(quantityInRepair) ^
       const DeepCollectionEquality().hash(quantityInTransit) ^
       const DeepCollectionEquality().hash(quantityOnTruck) ^
+      const DeepCollectionEquality().hash(quantityOnPO) ^
       const DeepCollectionEquality().hash(totalQuantity) ^
       const DeepCollectionEquality().hash(lastPurchasePrice) ^
       const DeepCollectionEquality().hash(aisleLocation) ^
@@ -6805,6 +7021,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(hasDimensionsImage) ^
       const DeepCollectionEquality().hash(stagingUnreadyContainer) ^
       const DeepCollectionEquality().hash(disableMiscDescriptionChange) ^
+      const DeepCollectionEquality().hash(standAloneItem) ^
       const DeepCollectionEquality().hash(iCode) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(availFor) ^
@@ -6906,6 +7123,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -6960,6 +7178,8 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     bool? qcRequiredForAllWarehouses,
     double? unitValueForAllWarehouses,
     double? replacementCostForAllWarehouses,
+    bool? hourlyAvailabilityMyWarehouse,
+    bool? hourlyAvailabilityAllWarehouses,
     String? inventoryTypeId,
     String? inventoryType,
     String? availableFrom,
@@ -7036,9 +7256,16 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     String? softwareVersion,
     String? softwareEffectiveDate,
     bool? warehouseSpecificPackage,
+    bool? completeSeparatePackageOnQuoteOrder,
+    bool? kitSeparatePackageOnQuoteOrder,
     String? completePackagePrice,
     String? kitPackagePrice,
-    bool? separatePackageOnQuoteOrder,
+    bool? completeAllocateRevenueForAccessories,
+    bool? kitAllocateRevenueForAccessories,
+    bool? containerAllocateRevenueForAccessories,
+    String? completePackageRevenueCalculationFormula,
+    String? kitPackageRevenueCalculationFormula,
+    String? containerPackageRevenueCalculationFormula,
     String? containerId,
     String? containerScannableInventoryId,
     String? containerScannableICode,
@@ -7075,8 +7302,6 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     String? wardrobeDetailedDescription,
     String? webDetailedDescription,
     String? technicalNotes,
-    bool? allocateRevenueForAccessories,
-    String? packageRevenueCalculationFormula,
     bool? isHazardousMaterial,
     String? descriptionWithAkas,
     String? costCalculation,
@@ -7089,6 +7314,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     double? quantityInRepair,
     double? quantityInTransit,
     double? quantityOnTruck,
+    double? quantityOnPO,
     double? totalQuantity,
     double? lastPurchasePrice,
     String? aisleLocation,
@@ -7099,6 +7325,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     bool? hasDimensionsImage,
     bool? stagingUnreadyContainer,
     bool? disableMiscDescriptionChange,
+    bool? standAloneItem,
     String? iCode,
     String? description,
     String? availFor,
@@ -7186,6 +7413,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -7246,6 +7474,11 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       replacementCostForAllWarehouses:
           replacementCostForAllWarehouses ??
           this.replacementCostForAllWarehouses,
+      hourlyAvailabilityMyWarehouse:
+          hourlyAvailabilityMyWarehouse ?? this.hourlyAvailabilityMyWarehouse,
+      hourlyAvailabilityAllWarehouses:
+          hourlyAvailabilityAllWarehouses ??
+          this.hourlyAvailabilityAllWarehouses,
       inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
       inventoryType: inventoryType ?? this.inventoryType,
       availableFrom: availableFrom ?? this.availableFrom,
@@ -7384,10 +7617,31 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
           softwareEffectiveDate ?? this.softwareEffectiveDate,
       warehouseSpecificPackage:
           warehouseSpecificPackage ?? this.warehouseSpecificPackage,
+      completeSeparatePackageOnQuoteOrder:
+          completeSeparatePackageOnQuoteOrder ??
+          this.completeSeparatePackageOnQuoteOrder,
+      kitSeparatePackageOnQuoteOrder:
+          kitSeparatePackageOnQuoteOrder ?? this.kitSeparatePackageOnQuoteOrder,
       completePackagePrice: completePackagePrice ?? this.completePackagePrice,
       kitPackagePrice: kitPackagePrice ?? this.kitPackagePrice,
-      separatePackageOnQuoteOrder:
-          separatePackageOnQuoteOrder ?? this.separatePackageOnQuoteOrder,
+      completeAllocateRevenueForAccessories:
+          completeAllocateRevenueForAccessories ??
+          this.completeAllocateRevenueForAccessories,
+      kitAllocateRevenueForAccessories:
+          kitAllocateRevenueForAccessories ??
+          this.kitAllocateRevenueForAccessories,
+      containerAllocateRevenueForAccessories:
+          containerAllocateRevenueForAccessories ??
+          this.containerAllocateRevenueForAccessories,
+      completePackageRevenueCalculationFormula:
+          completePackageRevenueCalculationFormula ??
+          this.completePackageRevenueCalculationFormula,
+      kitPackageRevenueCalculationFormula:
+          kitPackageRevenueCalculationFormula ??
+          this.kitPackageRevenueCalculationFormula,
+      containerPackageRevenueCalculationFormula:
+          containerPackageRevenueCalculationFormula ??
+          this.containerPackageRevenueCalculationFormula,
       containerId: containerId ?? this.containerId,
       containerScannableInventoryId:
           containerScannableInventoryId ?? this.containerScannableInventoryId,
@@ -7443,11 +7697,6 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       webDetailedDescription:
           webDetailedDescription ?? this.webDetailedDescription,
       technicalNotes: technicalNotes ?? this.technicalNotes,
-      allocateRevenueForAccessories:
-          allocateRevenueForAccessories ?? this.allocateRevenueForAccessories,
-      packageRevenueCalculationFormula:
-          packageRevenueCalculationFormula ??
-          this.packageRevenueCalculationFormula,
       isHazardousMaterial: isHazardousMaterial ?? this.isHazardousMaterial,
       descriptionWithAkas: descriptionWithAkas ?? this.descriptionWithAkas,
       costCalculation: costCalculation ?? this.costCalculation,
@@ -7460,6 +7709,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       quantityInRepair: quantityInRepair ?? this.quantityInRepair,
       quantityInTransit: quantityInTransit ?? this.quantityInTransit,
       quantityOnTruck: quantityOnTruck ?? this.quantityOnTruck,
+      quantityOnPO: quantityOnPO ?? this.quantityOnPO,
       totalQuantity: totalQuantity ?? this.totalQuantity,
       lastPurchasePrice: lastPurchasePrice ?? this.lastPurchasePrice,
       aisleLocation: aisleLocation ?? this.aisleLocation,
@@ -7473,6 +7723,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
           stagingUnreadyContainer ?? this.stagingUnreadyContainer,
       disableMiscDescriptionChange:
           disableMiscDescriptionChange ?? this.disableMiscDescriptionChange,
+      standAloneItem: standAloneItem ?? this.standAloneItem,
       iCode: iCode ?? this.iCode,
       description: description ?? this.description,
       availFor: availFor ?? this.availFor,
@@ -7611,6 +7862,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -7663,6 +7915,8 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     Wrapped<bool?>? qcRequiredForAllWarehouses,
     Wrapped<double?>? unitValueForAllWarehouses,
     Wrapped<double?>? replacementCostForAllWarehouses,
+    Wrapped<bool?>? hourlyAvailabilityMyWarehouse,
+    Wrapped<bool?>? hourlyAvailabilityAllWarehouses,
     Wrapped<String?>? inventoryTypeId,
     Wrapped<String?>? inventoryType,
     Wrapped<String?>? availableFrom,
@@ -7739,9 +7993,16 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     Wrapped<String?>? softwareVersion,
     Wrapped<String?>? softwareEffectiveDate,
     Wrapped<bool?>? warehouseSpecificPackage,
+    Wrapped<bool?>? completeSeparatePackageOnQuoteOrder,
+    Wrapped<bool?>? kitSeparatePackageOnQuoteOrder,
     Wrapped<String?>? completePackagePrice,
     Wrapped<String?>? kitPackagePrice,
-    Wrapped<bool?>? separatePackageOnQuoteOrder,
+    Wrapped<bool?>? completeAllocateRevenueForAccessories,
+    Wrapped<bool?>? kitAllocateRevenueForAccessories,
+    Wrapped<bool?>? containerAllocateRevenueForAccessories,
+    Wrapped<String?>? completePackageRevenueCalculationFormula,
+    Wrapped<String?>? kitPackageRevenueCalculationFormula,
+    Wrapped<String?>? containerPackageRevenueCalculationFormula,
     Wrapped<String?>? containerId,
     Wrapped<String?>? containerScannableInventoryId,
     Wrapped<String?>? containerScannableICode,
@@ -7778,8 +8039,6 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     Wrapped<String?>? wardrobeDetailedDescription,
     Wrapped<String?>? webDetailedDescription,
     Wrapped<String?>? technicalNotes,
-    Wrapped<bool?>? allocateRevenueForAccessories,
-    Wrapped<String?>? packageRevenueCalculationFormula,
     Wrapped<bool?>? isHazardousMaterial,
     Wrapped<String?>? descriptionWithAkas,
     Wrapped<String?>? costCalculation,
@@ -7792,6 +8051,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     Wrapped<double?>? quantityInRepair,
     Wrapped<double?>? quantityInTransit,
     Wrapped<double?>? quantityOnTruck,
+    Wrapped<double?>? quantityOnPO,
     Wrapped<double?>? totalQuantity,
     Wrapped<double?>? lastPurchasePrice,
     Wrapped<String?>? aisleLocation,
@@ -7802,6 +8062,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     Wrapped<bool?>? hasDimensionsImage,
     Wrapped<bool?>? stagingUnreadyContainer,
     Wrapped<bool?>? disableMiscDescriptionChange,
+    Wrapped<bool?>? standAloneItem,
     Wrapped<String?>? iCode,
     Wrapped<String?>? description,
     Wrapped<String?>? availFor,
@@ -7890,6 +8151,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -7984,6 +8246,12 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       replacementCostForAllWarehouses: (replacementCostForAllWarehouses != null
           ? replacementCostForAllWarehouses.value
           : this.replacementCostForAllWarehouses),
+      hourlyAvailabilityMyWarehouse: (hourlyAvailabilityMyWarehouse != null
+          ? hourlyAvailabilityMyWarehouse.value
+          : this.hourlyAvailabilityMyWarehouse),
+      hourlyAvailabilityAllWarehouses: (hourlyAvailabilityAllWarehouses != null
+          ? hourlyAvailabilityAllWarehouses.value
+          : this.hourlyAvailabilityAllWarehouses),
       inventoryTypeId: (inventoryTypeId != null
           ? inventoryTypeId.value
           : this.inventoryTypeId),
@@ -8207,15 +8475,43 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       warehouseSpecificPackage: (warehouseSpecificPackage != null
           ? warehouseSpecificPackage.value
           : this.warehouseSpecificPackage),
+      completeSeparatePackageOnQuoteOrder:
+          (completeSeparatePackageOnQuoteOrder != null
+          ? completeSeparatePackageOnQuoteOrder.value
+          : this.completeSeparatePackageOnQuoteOrder),
+      kitSeparatePackageOnQuoteOrder: (kitSeparatePackageOnQuoteOrder != null
+          ? kitSeparatePackageOnQuoteOrder.value
+          : this.kitSeparatePackageOnQuoteOrder),
       completePackagePrice: (completePackagePrice != null
           ? completePackagePrice.value
           : this.completePackagePrice),
       kitPackagePrice: (kitPackagePrice != null
           ? kitPackagePrice.value
           : this.kitPackagePrice),
-      separatePackageOnQuoteOrder: (separatePackageOnQuoteOrder != null
-          ? separatePackageOnQuoteOrder.value
-          : this.separatePackageOnQuoteOrder),
+      completeAllocateRevenueForAccessories:
+          (completeAllocateRevenueForAccessories != null
+          ? completeAllocateRevenueForAccessories.value
+          : this.completeAllocateRevenueForAccessories),
+      kitAllocateRevenueForAccessories:
+          (kitAllocateRevenueForAccessories != null
+          ? kitAllocateRevenueForAccessories.value
+          : this.kitAllocateRevenueForAccessories),
+      containerAllocateRevenueForAccessories:
+          (containerAllocateRevenueForAccessories != null
+          ? containerAllocateRevenueForAccessories.value
+          : this.containerAllocateRevenueForAccessories),
+      completePackageRevenueCalculationFormula:
+          (completePackageRevenueCalculationFormula != null
+          ? completePackageRevenueCalculationFormula.value
+          : this.completePackageRevenueCalculationFormula),
+      kitPackageRevenueCalculationFormula:
+          (kitPackageRevenueCalculationFormula != null
+          ? kitPackageRevenueCalculationFormula.value
+          : this.kitPackageRevenueCalculationFormula),
+      containerPackageRevenueCalculationFormula:
+          (containerPackageRevenueCalculationFormula != null
+          ? containerPackageRevenueCalculationFormula.value
+          : this.containerPackageRevenueCalculationFormula),
       containerId: (containerId != null ? containerId.value : this.containerId),
       containerScannableInventoryId: (containerScannableInventoryId != null
           ? containerScannableInventoryId.value
@@ -8306,13 +8602,6 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       technicalNotes: (technicalNotes != null
           ? technicalNotes.value
           : this.technicalNotes),
-      allocateRevenueForAccessories: (allocateRevenueForAccessories != null
-          ? allocateRevenueForAccessories.value
-          : this.allocateRevenueForAccessories),
-      packageRevenueCalculationFormula:
-          (packageRevenueCalculationFormula != null
-          ? packageRevenueCalculationFormula.value
-          : this.packageRevenueCalculationFormula),
       isHazardousMaterial: (isHazardousMaterial != null
           ? isHazardousMaterial.value
           : this.isHazardousMaterial),
@@ -8343,6 +8632,9 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       quantityOnTruck: (quantityOnTruck != null
           ? quantityOnTruck.value
           : this.quantityOnTruck),
+      quantityOnPO: (quantityOnPO != null
+          ? quantityOnPO.value
+          : this.quantityOnPO),
       totalQuantity: (totalQuantity != null
           ? totalQuantity.value
           : this.totalQuantity),
@@ -8369,6 +8661,9 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       disableMiscDescriptionChange: (disableMiscDescriptionChange != null
           ? disableMiscDescriptionChange.value
           : this.disableMiscDescriptionChange),
+      standAloneItem: (standAloneItem != null
+          ? standAloneItem.value
+          : this.standAloneItem),
       iCode: (iCode != null ? iCode.value : this.iCode),
       description: (description != null ? description.value : this.description),
       availFor: (availFor != null ? availFor.value : this.availFor),
@@ -8592,6 +8887,9 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -10020,6 +10318,7 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -10094,6 +10393,8 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -10201,6 +10502,11 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -10256,6 +10562,7 @@ class WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItem {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -10286,6 +10593,7 @@ extension $WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemEx
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -10315,6 +10623,7 @@ extension $WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemEx
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -10345,6 +10654,7 @@ extension $WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemEx
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -10385,6 +10695,9 @@ extension $WebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemEx
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),

@@ -1658,6 +1658,36 @@ final class _$Administrator extends Administrator {
   }
 
   @override
+  Future<Response<FwStandardModelsCopyLogicResponse>> _customformIdCopyPost({
+    required String? id,
+    required FwStandardModelsCopyLogicRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CustomForm"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/customform/${id}/copy');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsCopyLogicResponse,
+      FwStandardModelsCopyLogicResponse
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _customformgroupBrowsePost({
     required FwStandardModelsBrowseRequest? body,
@@ -3866,7 +3896,7 @@ final class _$Administrator extends Administrator {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic
     >
   >
   _duplicaterulefieldGet({
@@ -3900,19 +3930,17 @@ final class _$Administrator extends Administrator {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleFieldLogic
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-    >
+    Response<WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField>
   >
   _duplicaterulefieldPost({
-    required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
+    required WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -3935,16 +3963,14 @@ final class _$Administrator extends Administrator {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField,
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField,
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-    >
+    Response<WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField>
   >
   _duplicaterulefieldIdGet({
     required String? id,
@@ -3967,20 +3993,18 @@ final class _$Administrator extends Administrator {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField,
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField,
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
     >($request);
   }
 
   @override
   Future<
-    Response<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
-    >
+    Response<WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField>
   >
   _duplicaterulefieldIdPut({
     required String? id,
-    required WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField?
+    required WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -4003,8 +4027,8 @@ final class _$Administrator extends Administrator {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField,
-      WebApiModulesAdministratorControlsDuplicateRuleFieldDuplicateRuleField
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField,
+      WebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleField
     >($request);
   }
 
@@ -4700,7 +4724,7 @@ final class _$Administrator extends Administrator {
   @override
   Future<Response<FwStandardAppManagerFwAmSecurityTreeNode>>
   _groupCopysecuritynodePost({
-    required FwCoreModulesAdministratorGroupCopySecurityNodeRequest? body,
+    required FwStandardModulesAdministratorGroupCopySecurityNodeRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -4730,7 +4754,7 @@ final class _$Administrator extends Administrator {
   @override
   Future<
     Response<
-      FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
+      FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse
     >
   >
   _groupLookupgroupGet({
@@ -4766,8 +4790,8 @@ final class _$Administrator extends Administrator {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse,
-      FwStandardModelsGetResponseFwCoreModulesAdministratorGroupLookupGroupResponse
+      FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse,
+      FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse
     >($request);
   }
 
@@ -5481,6 +5505,66 @@ final class _$Administrator extends Administrator {
     ),
   }) {
     final Uri $url = Uri.parse('/quikscansetup/settings');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
+    >
+  >
+  _securitysettingsControlidGet({
+    required String? controlid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SecuritySettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/securitysettings/${controlid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader,
+      FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader
+    >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _securitysettingsIdPut({
+    required String? id,
+    required FwStandardModulesAdministratorSecuritySettingsSecuritySettingsLoader?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SecuritySettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/securitysettings/${id}');
     final $body = body;
     final Request $request = Request(
       'PUT',
@@ -6640,40 +6724,6 @@ final class _$Administrator extends Administrator {
   }
 
   @override
-  Future<
-    Response<
-      WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
-    >
-  >
-  _userCreateusersalesrepresentativecontactIdPost({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["User"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/user/createusersalesrepresentativecontact/${id}',
-    );
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse,
-      WebApiModulesAdministratorUserCreateUserSalesRepresentativeContactResponse
-    >($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _userValidategroupBrowsePost({
     required FwStandardModelsBrowseRequest? body,
@@ -7005,36 +7055,6 @@ final class _$Administrator extends Administrator {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _userValidatefacilitydepartmentBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["User"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/user/validatefacilitydepartment/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _userValidatetransportationdepartmentBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -7245,36 +7265,6 @@ final class _$Administrator extends Administrator {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _userValidatefacilitytypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["User"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/user/validatefacilitytype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _userValidatesuccesssoundBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -7414,6 +7404,139 @@ final class _$Administrator extends Administrator {
     return client.send<
       List<WebApiModulesAdministratorUserKissFlowUser>,
       WebApiModulesAdministratorUserKissFlowUser
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>> _usercontactBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["UserContact"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/usercontact/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _usercontactExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["UserContact"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/usercontact/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic
+    >
+  >
+  _usercontactGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["UserContact"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/usercontact');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorUserContactUserContact>>
+  _usercontactIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["UserContact"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/usercontact/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesAdministratorUserContactUserContact,
+      WebApiModulesAdministratorUserContactUserContact
     >($request);
   }
 

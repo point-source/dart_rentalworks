@@ -76,6 +76,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -98,6 +99,7 @@ Map<String, dynamic> _$FwStandardBusinessLogicFwBusinessLogicToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -122,6 +124,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
   displayFieldName: json['DisplayFieldName'] as String?,
   allowedValues: json['AllowedValues'] as String?,
   templateSequence: (json['TemplateSequence'] as num?)?.toInt(),
+  isEmail: json['IsEmail'] as bool?,
 );
 
 Map<String, dynamic>
@@ -140,6 +143,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
   'DisplayFieldName': ?instance.displayFieldName,
   'AllowedValues': ?instance.allowedValues,
   'TemplateSequence': ?instance.templateSequence,
+  'IsEmail': ?instance.isEmail,
 };
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
@@ -151,6 +155,8 @@ FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
   fieldType: json['FieldType'] as String?,
   validationModule: json['ValidationModule'] as String?,
   validationFieldName: json['ValidationFieldName'] as String?,
+  validationFieldId: json['ValidationFieldId'] as String?,
+  listFieldAllowedValues: json['ListFieldAllowedValues'] as String?,
 );
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
@@ -162,6 +168,8 @@ Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
   'FieldType': ?instance.fieldType,
   'ValidationModule': ?instance.validationModule,
   'ValidationFieldName': ?instance.validationFieldName,
+  'ValidationFieldId': ?instance.validationFieldId,
+  'ListFieldAllowedValues': ?instance.listFieldAllowedValues,
 };
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
@@ -273,6 +281,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -304,6 +313,7 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   'fields': ?instance.fields?.map((e) => e.toJson()).toList(),
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
+  'timezoneOffset': ?instance.timezoneOffset,
 };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
@@ -2196,6 +2206,7 @@ _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   createdByUserId: json['CreatedByUserId'] as String?,
   createdByUserName: json['CreatedByUserName'] as String?,
   createdDateTime: json['CreatedDateTime'] as String?,
@@ -2237,6 +2248,7 @@ Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
   '_Original': ?instance.original?.toJson(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'CreatedByUserId': ?instance.createdByUserId,
   'CreatedByUserName': ?instance.createdByUserName,
   'CreatedDateTime': ?instance.createdDateTime,
@@ -2254,6 +2266,7 @@ _$WebApiModulesIntegrationsStorefrontContactRegistrationRequestFromJson(
   lastName: json['LastName'] as String,
   phone: json['Phone'] as String?,
   email: json['Email'] as String,
+  studentId: json['StudentId'] as String?,
 );
 
 Map<String, dynamic>
@@ -2265,6 +2278,7 @@ _$WebApiModulesIntegrationsStorefrontContactRegistrationRequestToJson(
   'LastName': instance.lastName,
   'Phone': ?instance.phone,
   'Email': instance.email,
+  'StudentId': ?instance.studentId,
 };
 
 WebApiModulesIntegrationsStorefrontContactRegistrationResponse
@@ -2668,6 +2682,7 @@ _$WebApiModulesIntegrationsStorefrontStorefrontProductLFromJson(
           .toList() ??
       [],
   hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
   id: (json['Id'] as num?)?.toInt(),
   warehouseId: json['WarehouseId'] as String?,
   inventoryId: json['InventoryId'] as String?,
@@ -2757,6 +2772,7 @@ _$WebApiModulesIntegrationsStorefrontStorefrontProductLToJson(
       .toList(),
   '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
   '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
   'Id': ?instance.id,
   'WarehouseId': ?instance.warehouseId,
   'InventoryId': ?instance.inventoryId,
@@ -2851,19 +2867,54 @@ _$WebApiModulesIntegrationsStorefrontStorefrontSettingsFromJson(
   Map<String, dynamic> json,
 ) => WebApiModulesIntegrationsStorefrontStorefrontSettings(
   isStorefrontEnabled: json['IsStorefrontEnabled'] as bool?,
-  isUniversity: json['IsUniversity'] as bool?,
   isAnonymousAccessEnabled: json['IsAnonymousAccessEnabled'] as bool?,
+  registerEnabled: json['RegisterEnabled'] as bool?,
   separateQuoteRequestsByCatalog:
       json['SeparateQuoteRequestsByCatalog'] as bool?,
   makeQuoteRequestIntoOrderOnSubmission:
       json['MakeQuoteRequestIntoOrderOnSubmission'] as bool?,
   filterCatalogsByLocation: json['FilterCatalogsByLocation'] as bool?,
+  phoneNoRequiredOnRegistrationForm:
+      json['PhoneNoRequiredOnRegistrationForm'] as bool?,
+  isUniversity: json['IsUniversity'] as bool?,
+  studentIdRequiredOnRegistrationForm:
+      json['StudentIdRequiredOnRegistrationForm'] as bool?,
   autoplaySpeed: (json['AutoplaySpeed'] as num?)?.toDouble(),
   autoplayImagesOnLandingPage: json['AutoplayImagesOnLandingPage'] as bool?,
   autoplayImagesOnProductBrowser:
       json['AutoplayImagesOnProductBrowser'] as bool?,
   autoplayImagesOnProductDetails:
       json['AutoplayImagesOnProductDetails'] as bool?,
+  imagesTransitionEffect: json['ImagesTransitionEffect'] as String?,
+  imagesTransitionSpeed: json['ImagesTransitionSpeed'] as String?,
+  homepageShowHeroSection: json['HomepageShowHeroSection'] as bool?,
+  homepageHeroSectionHeading1: json['HomepageHeroSectionHeading1'] == null
+      ? null
+      : WebApiModulesIntegrationsStorefrontStorefrontTranslatedText.fromJson(
+          json['HomepageHeroSectionHeading1'] as Map<String, dynamic>,
+        ),
+  homepageHeroSectionHeading2: json['HomepageHeroSectionHeading2'] == null
+      ? null
+      : WebApiModulesIntegrationsStorefrontStorefrontTranslatedText.fromJson(
+          json['HomepageHeroSectionHeading2'] as Map<String, dynamic>,
+        ),
+  homepageHeroSectionHeading3: json['HomepageHeroSectionHeading3'] == null
+      ? null
+      : WebApiModulesIntegrationsStorefrontStorefrontTranslatedText.fromJson(
+          json['HomepageHeroSectionHeading3'] as Map<String, dynamic>,
+        ),
+  homepageCatalogItemWidth: json['HomepageCatalogItemWidth'] as String?,
+  homepageCatalogItemHeight: json['HomepageCatalogItemHeight'] as String?,
+  homepageShowFooter: json['HomepageShowFooter'] as bool?,
+  homepageFooterText: json['HomepageFooterText'] == null
+      ? null
+      : WebApiModulesIntegrationsStorefrontStorefrontTranslatedText.fromJson(
+          json['HomepageFooterText'] as Map<String, dynamic>,
+        ),
+  landingPageShowCategoryBrowser:
+      json['LandingPageShowCategoryBrowser'] as bool?,
+  landingPageCategoryBrowserItemWidth:
+      json['LandingPageCategoryBrowserItemWidth'] as String?,
 );
 
 Map<String, dynamic>
@@ -2871,16 +2922,37 @@ _$WebApiModulesIntegrationsStorefrontStorefrontSettingsToJson(
   WebApiModulesIntegrationsStorefrontStorefrontSettings instance,
 ) => <String, dynamic>{
   'IsStorefrontEnabled': ?instance.isStorefrontEnabled,
-  'IsUniversity': ?instance.isUniversity,
   'IsAnonymousAccessEnabled': ?instance.isAnonymousAccessEnabled,
+  'RegisterEnabled': ?instance.registerEnabled,
   'SeparateQuoteRequestsByCatalog': ?instance.separateQuoteRequestsByCatalog,
   'MakeQuoteRequestIntoOrderOnSubmission':
       ?instance.makeQuoteRequestIntoOrderOnSubmission,
   'FilterCatalogsByLocation': ?instance.filterCatalogsByLocation,
+  'PhoneNoRequiredOnRegistrationForm':
+      ?instance.phoneNoRequiredOnRegistrationForm,
+  'IsUniversity': ?instance.isUniversity,
+  'StudentIdRequiredOnRegistrationForm':
+      ?instance.studentIdRequiredOnRegistrationForm,
   'AutoplaySpeed': ?instance.autoplaySpeed,
   'AutoplayImagesOnLandingPage': ?instance.autoplayImagesOnLandingPage,
   'AutoplayImagesOnProductBrowser': ?instance.autoplayImagesOnProductBrowser,
   'AutoplayImagesOnProductDetails': ?instance.autoplayImagesOnProductDetails,
+  'ImagesTransitionEffect': ?instance.imagesTransitionEffect,
+  'ImagesTransitionSpeed': ?instance.imagesTransitionSpeed,
+  'HomepageShowHeroSection': ?instance.homepageShowHeroSection,
+  'HomepageHeroSectionHeading1': ?instance.homepageHeroSectionHeading1
+      ?.toJson(),
+  'HomepageHeroSectionHeading2': ?instance.homepageHeroSectionHeading2
+      ?.toJson(),
+  'HomepageHeroSectionHeading3': ?instance.homepageHeroSectionHeading3
+      ?.toJson(),
+  'HomepageCatalogItemWidth': ?instance.homepageCatalogItemWidth,
+  'HomepageCatalogItemHeight': ?instance.homepageCatalogItemHeight,
+  'HomepageShowFooter': ?instance.homepageShowFooter,
+  'HomepageFooterText': ?instance.homepageFooterText?.toJson(),
+  'LandingPageShowCategoryBrowser': ?instance.landingPageShowCategoryBrowser,
+  'LandingPageCategoryBrowserItemWidth':
+      ?instance.landingPageCategoryBrowserItemWidth,
 };
 
 WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema
@@ -2895,6 +2967,16 @@ _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaFromJson(
         json['DataType'],
       ),
   description: json['Description'] as String?,
+  validValues:
+      (json['ValidValues'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
 );
 
 Map<String, dynamic>
@@ -2909,6 +2991,40 @@ _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaToJson(
         instance.dataType,
       ),
   'Description': ?instance.description,
+  'ValidValues': ?instance.validValues?.map((e) => e.toJson()).toList(),
+};
+
+WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+_$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue(
+      caption: json['caption'] as String?,
+      value: json['value'] as String?,
+    );
+
+Map<String, dynamic>
+_$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueToJson(
+  WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+  instance,
+) => <String, dynamic>{'caption': ?instance.caption, 'value': ?instance.value};
+
+WebApiModulesIntegrationsStorefrontStorefrontTranslatedText
+_$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesIntegrationsStorefrontStorefrontTranslatedText(
+  en: json['en'] as String?,
+  es: json['es'] as String?,
+  fr: json['fr'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextToJson(
+  WebApiModulesIntegrationsStorefrontStorefrontTranslatedText instance,
+) => <String, dynamic>{
+  'en': ?instance.en,
+  'es': ?instance.es,
+  'fr': ?instance.fr,
 };
 
 WebApiModulesIntegrationsStorefrontSubmitQuoteRequestResponse
@@ -2995,6 +3111,16 @@ _$WebApiModulesIntegrationsStorefrontWebCatalogFromJson(
           )
           .toList() ??
       [],
+  warehousesQtys:
+      (json['WarehousesQtys'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
 );
 
 Map<String, dynamic> _$WebApiModulesIntegrationsStorefrontWebCatalogToJson(
@@ -3019,6 +3145,7 @@ Map<String, dynamic> _$WebApiModulesIntegrationsStorefrontWebCatalogToJson(
   'Images': ?instance.images,
   'LandingPageHtml': ?instance.landingPageHtml,
   'Departments': ?instance.departments?.map((e) => e.toJson()).toList(),
+  'WarehousesQtys': ?instance.warehousesQtys?.map((e) => e.toJson()).toList(),
 };
 
 WebApiModulesIntegrationsStorefrontWebCatalogResponseField
@@ -3037,4 +3164,20 @@ _$WebApiModulesIntegrationsStorefrontWebCatalogResponseFieldToJson(
   'Value': ?instance.value,
   'Text': ?instance.text,
   'Selected': ?instance.selected,
+};
+
+WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto
+_$WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDtoFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto(
+  warehouseId: json['WarehouseId'] as String?,
+  totalItems: (json['TotalItems'] as num?)?.toDouble(),
+);
+
+Map<String, dynamic>
+_$WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDtoToJson(
+  WebApiModulesIntegrationsStorefrontWebCatalogWarehouseQtyDto instance,
+) => <String, dynamic>{
+  'WarehouseId': ?instance.warehouseId,
+  'TotalItems': ?instance.totalItems,
 };

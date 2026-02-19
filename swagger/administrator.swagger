@@ -4,11 +4,6 @@
     "title": "RentalWorks Administrator API v1",
     "version": "v1"
   },
-  "servers": [
-    {
-      "url": "/training"
-    }
-  ],
   "paths": {
     "/alert/browse": {
       "post": {
@@ -2953,6 +2948,70 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FwStandard.Modules.Administrator.CustomForm.CustomFormLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customform/{id}/copy": {
+      "post": {
+        "tags": [
+          "CustomForm"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.CopyLogicRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.CopyLogicResponse"
                 }
               }
             }
@@ -6987,7 +7046,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleFieldLogic"
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.DuplicateRuleField.DuplicateRuleFieldLogic"
                 }
               }
             }
@@ -7028,7 +7087,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleField"
+                "$ref": "#/components/schemas/WebApi.Modules.Administrator.DuplicateRuleField.DuplicateRuleField"
               }
             }
           }
@@ -7039,7 +7098,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleField"
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.DuplicateRuleField.DuplicateRuleField"
                 }
               }
             }
@@ -7094,7 +7153,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleField"
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.DuplicateRuleField.DuplicateRuleField"
                 }
               }
             }
@@ -7145,7 +7204,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleField"
+                "$ref": "#/components/schemas/WebApi.Modules.Administrator.DuplicateRuleField.DuplicateRuleField"
               }
             }
           }
@@ -7156,7 +7215,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleField"
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.DuplicateRuleField.DuplicateRuleField"
                 }
               }
             }
@@ -8479,7 +8538,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/FwCore.Modules.Administrator.Group.CopySecurityNodeRequest"
+                "$ref": "#/components/schemas/FwStandard.Modules.Administrator.Group.CopySecurityNodeRequest"
               }
             }
           }
@@ -8585,7 +8644,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.GetResponse_FwCore.Modules.Administrator.Group.LookupGroupResponse"
+                  "$ref": "#/components/schemas/FwStandard.Models.GetResponse_FwStandard.Modules.Administrator.Group.LookupGroupResponse"
                 }
               }
             }
@@ -9893,6 +9952,118 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/WebApi.Modules.Administrator.QuikScanSetup.QuikScanSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/securitysettings/{controlid}": {
+      "get": {
+        "tags": [
+          "SecuritySettings"
+        ],
+        "parameters": [
+          {
+            "name": "controlid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.SecuritySettings.SecuritySettingsLoader"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/securitysettings/{id}": {
+      "put": {
+        "tags": [
+          "SecuritySettings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Modules.Administrator.SecuritySettings.SecuritySettingsLoader"
               }
             }
           }
@@ -12024,61 +12195,6 @@
         }
       }
     },
-    "/user/createusersalesrepresentativecontact/{id}": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.User.CreateUserSalesRepresentativeContactResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/user/validategroup/browse": {
       "post": {
         "tags": [
@@ -12673,60 +12789,6 @@
         }
       }
     },
-    "/user/validatefacilitydepartment/browse": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/user/validatetransportationdepartment/browse": {
       "post": {
         "tags": [
@@ -13105,60 +13167,6 @@
         }
       }
     },
-    "/user/validatefacilitytype/browse": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/user/validatesuccesssound/browse": {
       "post": {
         "tags": [
@@ -13381,6 +13389,249 @@
                   "items": {
                     "$ref": "#/components/schemas/WebApi.Modules.Administrator.User.KissFlowUser"
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usercontact/browse": {
+      "post": {
+        "tags": [
+          "UserContact"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usercontact/exportexcelxlsx": {
+      "post": {
+        "tags": [
+          "UserContact"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usercontact": {
+      "get": {
+        "tags": [
+          "UserContact"
+        ],
+        "parameters": [
+          {
+            "name": "pageno",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.UserContact.UserContactLogic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usercontact/{id}": {
+      "get": {
+        "tags": [
+          "UserContact"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.UserContact.UserContact"
                 }
               }
             }
@@ -15006,46 +15257,6 @@
         },
         "additionalProperties": false
       },
-      "FwCore.Modules.Administrator.Group.CopySecurityNodeRequest": {
-        "type": "object",
-        "properties": {
-          "FromGroupId": {
-            "maxLength": 8,
-            "type": "string",
-            "description": "ID of Group to copy from",
-            "nullable": true
-          },
-          "ToGroupIds": {
-            "maxLength": 8,
-            "type": "string",
-            "description": "ID of Group to copy to",
-            "nullable": true
-          },
-          "SecurityId": {
-            "maxLength": 8,
-            "type": "string",
-            "description": "ID of security node to copy from the FromGroupId to the ToGroupId",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FwCore.Modules.Administrator.Group.LookupGroupResponse": {
-        "type": "object",
-        "properties": {
-          "GroupId": {
-            "type": "string",
-            "description": "Identifier",
-            "nullable": true
-          },
-          "Name": {
-            "type": "string",
-            "description": "Name of Group",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "FwStandard.AppManager.FwAmSecurityTreeNode": {
         "type": "object",
         "properties": {
@@ -15130,6 +15341,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -15194,6 +15408,9 @@
           "TemplateSequence": {
             "type": "integer",
             "format": "int32"
+          },
+          "IsEmail": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -15222,6 +15439,14 @@
             "nullable": true
           },
           "ValidationFieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationFieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ListFieldAllowedValues": {
             "type": "string",
             "nullable": true
           }
@@ -15410,6 +15635,11 @@
               },
               "nullable": true
             },
+            "nullable": true
+          },
+          "timezoneOffset": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         },
@@ -15988,6 +16218,35 @@
         },
         "additionalProperties": false
       },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.DuplicateRuleField.DuplicateRuleFieldLogic": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Administrator.DuplicateRuleField.DuplicateRuleField"
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.EmailHistory.EmailHistoryLogic": {
         "type": "object",
         "properties": {
@@ -16220,6 +16479,35 @@
         },
         "additionalProperties": false
       },
+      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.UserContact.UserContactLogic": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Administrator.UserContact.UserContact"
+            },
+            "nullable": true
+          },
+          "PageNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalItems": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Sort": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.CustomModule.CustomModuleLogic": {
         "type": "object",
         "properties": {
@@ -16278,35 +16566,6 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse_WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleFieldLogic": {
-        "type": "object",
-        "properties": {
-          "Items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleField"
-            },
-            "nullable": true
-          },
-          "PageNo": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "PageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalItems": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Sort": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "FwStandard.Models.FwQueryResponse_WebApi.Modules.SharedControls.CustomReportLayoutUser.CustomReportLayoutUserLogic": {
         "type": "object",
         "properties": {
@@ -16336,13 +16595,13 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.GetResponse_FwCore.Modules.Administrator.Group.LookupGroupResponse": {
+      "FwStandard.Models.GetResponse_FwStandard.Modules.Administrator.Group.LookupGroupResponse": {
         "type": "object",
         "properties": {
           "Items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/FwCore.Modules.Administrator.Group.LookupGroupResponse"
+              "$ref": "#/components/schemas/FwStandard.Modules.Administrator.Group.LookupGroupResponse"
             },
             "nullable": true
           },
@@ -16430,6 +16689,10 @@
             "type": "string",
             "nullable": true
           },
+          "RecipientsJson": {
+            "type": "string",
+            "nullable": true
+          },
           "Inactive": {
             "type": "boolean",
             "nullable": true
@@ -16491,6 +16754,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -16597,6 +16863,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -16707,6 +16976,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -16934,6 +17206,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -17034,6 +17309,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -17142,6 +17420,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -17247,6 +17528,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -17387,6 +17671,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -17503,6 +17790,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -17645,6 +17935,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -17677,6 +17970,46 @@
         "properties": {
           "category": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Modules.Administrator.Group.CopySecurityNodeRequest": {
+        "type": "object",
+        "properties": {
+          "FromGroupId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "ID of Group to copy from",
+            "nullable": true
+          },
+          "ToGroupIds": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "ID of Group to copy to",
+            "nullable": true
+          },
+          "SecurityId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "ID of security node to copy from the FromGroupId to the ToGroupId",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Modules.Administrator.Group.LookupGroupResponse": {
+        "type": "object",
+        "properties": {
+          "GroupId": {
+            "type": "string",
+            "description": "Identifier",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "description": "Name of Group",
             "nullable": true
           }
         },
@@ -17762,6 +18095,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -17783,6 +18119,52 @@
             "nullable": true
           },
           "ModifiedDateTime": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Modules.Administrator.SecuritySettings.SecuritySettingsLoader": {
+        "type": "object",
+        "properties": {
+          "requireminlengthpassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "minlengthpassword": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "requiredigitinpassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "requiresymbolinpassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "autologoutuser": {
+            "type": "string",
+            "nullable": true
+          },
+          "autologoutminutes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lockuserafterfailedattempts": {
+            "type": "string",
+            "nullable": true
+          },
+          "lockuserafterfailedattemptsnumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "epochlastsynced": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "RecordTitle": {
             "type": "string",
             "nullable": true
           }
@@ -18158,6 +18540,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -18297,6 +18682,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -18377,6 +18765,18 @@
             "type": "string",
             "nullable": true
           },
+          "HourStr": {
+            "type": "string",
+            "nullable": true
+          },
+          "DateStr": {
+            "type": "string",
+            "nullable": true
+          },
+          "ActivityDate": {
+            "type": "string",
+            "nullable": true
+          },
           "DateStamp": {
             "type": "string",
             "nullable": true
@@ -18427,6 +18827,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -18529,6 +18932,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -18637,6 +19043,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -18702,7 +19111,8 @@
           "OleToHtmlColor",
           "Integer",
           "JpgDataUrl",
-          "UTCDateTime"
+          "UTCDateTime",
+          "Email"
         ],
         "type": "string"
       },
@@ -18930,6 +19340,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -19030,6 +19443,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -19128,6 +19544,12 @@
             "description": "Format: Text",
             "nullable": true
           },
+          "ListFieldAllowedValues": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
           "DateStamp": {
             "type": "string",
             "description": "Format: UTCDateTime",
@@ -19179,6 +19601,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -19354,6 +19779,113 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
+          "CreatedByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedByUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedDateTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedByUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedDateTime": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Administrator.DuplicateRuleField.DuplicateRuleField": {
+        "type": "object",
+        "properties": {
+          "DuplicateRuleFieldId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
+            "nullable": true
+          },
+          "DuplicateRuleId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "FieldName": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "UrlIdentifier": {
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Original": {
+            "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogic"
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
+          },
+          "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -19509,6 +20041,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -19575,6 +20110,12 @@
             "type": "string",
             "nullable": true
           },
+          "SecurityVersion": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
           "DateStamp": {
             "type": "string",
             "description": "Format: UTCDateTime",
@@ -19626,6 +20167,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -19738,6 +20282,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -19847,6 +20394,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -19906,6 +20456,10 @@
           "CloseStatuPopupAfterSecondsCheckIn": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "EnableAisleShelfAssignmentMode": {
+            "type": "boolean",
             "nullable": true
           }
         },
@@ -19987,6 +20541,10 @@
             "type": "string",
             "nullable": true
           },
+          "UserEmail": {
+            "type": "string",
+            "nullable": true
+          },
           "UpdateDateTime": {
             "type": "string",
             "description": "Format: DateTime",
@@ -20061,6 +20619,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -20162,6 +20723,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -20330,6 +20894,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -20351,27 +20918,6 @@
             "nullable": true
           },
           "ModifiedDateTime": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WebApi.Modules.Administrator.User.CreateUserSalesRepresentativeContactResponse": {
-        "type": "object",
-        "properties": {
-          "ContactId": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "success": {
-            "type": "boolean"
-          },
-          "msg": {
             "type": "string",
             "nullable": true
           }
@@ -20888,7 +21434,17 @@
             "description": "Format: Text",
             "nullable": true
           },
-          "StagingAllowIncreaseDecreaseOrderQuantity": {
+          "StagingAllowIncreaseOrderQuantity": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "StagingAllowAddMiscItem": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "StagingAllowDecreaseOrderQuantity": {
             "type": "boolean",
             "description": "Format: Boolean",
             "nullable": true
@@ -21231,6 +21787,9 @@
           "_HasImport": {
             "type": "boolean"
           },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
           "CreatedByUserId": {
             "type": "string",
             "nullable": true
@@ -21268,6 +21827,670 @@
           "UserCount": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Administrator.UserContact.UserContact": {
+        "type": "object",
+        "properties": {
+          "WebUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
+            "nullable": true
+          },
+          "ContactId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "LoginName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FirstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "MiddleInitial": {
+            "type": "string",
+            "nullable": true
+          },
+          "LastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "BarCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupId": {
+            "type": "string",
+            "nullable": true
+          },
+          "GroupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ScheduleColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserTitleId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "Email": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailApp": {
+            "type": "string",
+            "nullable": true
+          },
+          "AddRentalWorksUserSignature": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "OfficeLocationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "OfficeLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "WarehouseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Warehouse": {
+            "type": "string",
+            "nullable": true
+          },
+          "Address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "Address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "City": {
+            "type": "string",
+            "nullable": true
+          },
+          "StateId": {
+            "type": "string",
+            "nullable": true
+          },
+          "StateCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "State": {
+            "type": "string",
+            "nullable": true
+          },
+          "ZipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Country": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountryCodeIsoAlpha2": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountryCodePhone": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "OfficePhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "OfficeExtension": {
+            "type": "string",
+            "nullable": true
+          },
+          "Fax": {
+            "type": "string",
+            "nullable": true
+          },
+          "DirectPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "Pager": {
+            "type": "string",
+            "nullable": true
+          },
+          "PagerPin": {
+            "type": "string",
+            "nullable": true
+          },
+          "Cellular": {
+            "type": "string",
+            "nullable": true
+          },
+          "HomePhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "DefaultDepartmentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "PrimaryDepartmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "PrimaryDepartment": {
+            "type": "string",
+            "nullable": true
+          },
+          "LanguageId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Language": {
+            "type": "string",
+            "nullable": true
+          },
+          "RentalDepartmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "RentalDepartment": {
+            "type": "string",
+            "nullable": true
+          },
+          "SalesDepartmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "SalesDepartment": {
+            "type": "string",
+            "nullable": true
+          },
+          "PartsDepartmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "PartsDepartment": {
+            "type": "string",
+            "nullable": true
+          },
+          "MiscDepartmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "MiscDepartment": {
+            "type": "string",
+            "nullable": true
+          },
+          "LaborDepartmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "LaborDepartment": {
+            "type": "string",
+            "nullable": true
+          },
+          "FacilityDepartmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "FacilityDepartment": {
+            "type": "string",
+            "nullable": true
+          },
+          "TransportationDepartmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TransportationDepartment": {
+            "type": "string",
+            "nullable": true
+          },
+          "RentalInventoryTypeId": {
+            "type": "string",
+            "nullable": true
+          },
+          "RentalInventoryType": {
+            "type": "string",
+            "nullable": true
+          },
+          "SalesInventoryTypeId": {
+            "type": "string",
+            "nullable": true
+          },
+          "SalesInventoryType": {
+            "type": "string",
+            "nullable": true
+          },
+          "PartsInventoryTypeId": {
+            "type": "string",
+            "nullable": true
+          },
+          "PartsInventoryType": {
+            "type": "string",
+            "nullable": true
+          },
+          "MiscTypeId": {
+            "type": "string",
+            "nullable": true
+          },
+          "MiscType": {
+            "type": "string",
+            "nullable": true
+          },
+          "LaborTypeId": {
+            "type": "string",
+            "nullable": true
+          },
+          "LaborType": {
+            "type": "string",
+            "nullable": true
+          },
+          "FacilityTypeId": {
+            "type": "string",
+            "nullable": true
+          },
+          "FacilityType": {
+            "type": "string",
+            "nullable": true
+          },
+          "TransportationTypeId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TransportationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "NoMiscellaneousOnQuotes": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "NoMiscellaneousOnOrders": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "NoMiscellaneousOnPurchaseOrders": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "LimitDaysPerWeek": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "MinimumDaysPerWeek": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "AllowCreditLimitOverride": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "LimitDiscount": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "MaximumDiscount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "LimitSubDiscount": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "MaximumSubDiscount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "DiscountRule": {
+            "type": "string",
+            "nullable": true
+          },
+          "StagingAllowIncreaseOrderQuantity": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "StagingAllowAddMiscItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "StagingAllowDecreaseOrderQuantity": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "StagingAllowIncreaseDecreaseOrderQuantityWithoutPrompt": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowStagingOfItemsWhenReservedOnOtherOrdersQuotes": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowContractIfDealRequiresPOAndOrderHasPendingPO": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowContractIfPendingItemsExist": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowContractIfCustomerDealDoesNotHaveApprovedCredit": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowContractIfCustomerDealIsOverTheirCreditLimit": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowContractIfCustomerDealInsuranceCoverageIsLess": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowContractIfCustomerDealDoesNotHaveValidInsuranceCertificate": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowContractIfCustomerDealDoesNotHaveValidNonTaxCertificate": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowReceiveSubsWhenPositiveConflictExists": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowStagingOfUnreservedConsignedItems": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowStagingOfUnapprovedItems": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowSubstitutesAtStaging": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "DeleteOriginalOnSubstitution": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "QuikActivityAllowPrintDollarAmounts": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "QuikScanAllowCreateContract": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "QuikScanAllowApplyAll": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowCrossICodeExchange": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowCrossICodePendingExchange": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowChangeAvailabilityPriority": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AllowSwapItems": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "UserMustChangePassword": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "PasswordExpires": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "PasswordExpireDays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "PasswordUpdatedDateTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "LockAccount": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Memo": {
+            "type": "string",
+            "nullable": true
+          },
+          "AllowCrossLocationEditAndDelete": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "LastLoggedOn": {
+            "type": "string",
+            "nullable": true
+          },
+          "DisableInsertIntoActiveOrder": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AutoPrintContract": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Inactive": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "DateStamp": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "WebAdministrator": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "BrowseDefaultRows": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "GridDefaultRows": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ApplicationTheme": {
+            "type": "string",
+            "nullable": true
+          },
+          "HomeMenuGuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "HomeMenuPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "SoundProfileId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SoundProfileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FirstDayOfWeek": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "SettingsNavigationMenuVisible": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ReportsNavigationMenuVisible": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "UserType": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmailSignature": {
+            "type": "string",
+            "nullable": true
+          },
+          "Locale": {
+            "type": "string",
+            "nullable": true
+          },
+          "AvailabilityPreference": {
+            "type": "string",
+            "nullable": true
+          },
+          "AvailabilityAllWarehouses": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "SourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "QuikSearchMode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ShowRentalItemsOutOnly": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "CreditCardPinPadId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ExportCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuditNote": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecordTitle": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "UrlIdentifier": {
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "_Custom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
+            },
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
+            },
+            "nullable": true
+          },
+          "_Original": {
+            "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogic"
+          },
+          "_Translation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
+            },
+            "nullable": true
+          },
+          "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
+            "type": "boolean"
+          },
+          "CreatedByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedByUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedDateTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedByUserName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedDateTime": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -21325,6 +22548,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -21436,105 +22662,7 @@
           "_HasImport": {
             "type": "boolean"
           },
-          "CreatedByUserId": {
-            "type": "string",
-            "nullable": true
-          },
-          "CreatedByUserName": {
-            "type": "string",
-            "nullable": true
-          },
-          "CreatedDateTime": {
-            "type": "string",
-            "nullable": true
-          },
-          "ModifiedByUserId": {
-            "type": "string",
-            "nullable": true
-          },
-          "ModifiedByUserName": {
-            "type": "string",
-            "nullable": true
-          },
-          "ModifiedDateTime": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WebApi.Modules.AdministratorControls.DuplicateRuleField.DuplicateRuleField": {
-        "type": "object",
-        "properties": {
-          "DuplicateRuleFieldId": {
-            "maxLength": 8,
-            "type": "string",
-            "description": "Format: Text, IsPrimaryKey: true",
-            "nullable": true
-          },
-          "DuplicateRuleId": {
-            "maxLength": 8,
-            "type": "string",
-            "description": "Format: Text, Required: true",
-            "nullable": true
-          },
-          "FieldName": {
-            "maxLength": 255,
-            "type": "string",
-            "description": "Format: Text",
-            "nullable": true
-          },
-          "DateStamp": {
-            "type": "string",
-            "description": "Format: UTCDateTime",
-            "nullable": true
-          },
-          "AuditNote": {
-            "type": "string",
-            "nullable": true
-          },
-          "RecordTitle": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "UrlIdentifier": {
-            "nullable": true,
-            "readOnly": true
-          },
-          "_Fields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "_Custom": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
-            },
-            "nullable": true
-          },
-          "_DefaultFieldAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
-            },
-            "nullable": true
-          },
-          "_Original": {
-            "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogic"
-          },
-          "_Translation": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
-            },
-            "nullable": true
-          },
-          "_HasImport": {
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {
@@ -21648,6 +22776,9 @@
             "nullable": true
           },
           "_HasImport": {
+            "type": "boolean"
+          },
+          "_HasDocuments": {
             "type": "boolean"
           },
           "CreatedByUserId": {

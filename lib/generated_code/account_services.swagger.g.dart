@@ -173,6 +173,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
   displayFieldName: json['DisplayFieldName'] as String?,
   allowedValues: json['AllowedValues'] as String?,
   templateSequence: (json['TemplateSequence'] as num?)?.toInt(),
+  isEmail: json['IsEmail'] as bool?,
 );
 
 Map<String, dynamic>
@@ -191,6 +192,7 @@ _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
   'DisplayFieldName': ?instance.displayFieldName,
   'AllowedValues': ?instance.allowedValues,
   'TemplateSequence': ?instance.templateSequence,
+  'IsEmail': ?instance.isEmail,
 };
 
 FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
@@ -202,6 +204,8 @@ FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
   fieldType: json['FieldType'] as String?,
   validationModule: json['ValidationModule'] as String?,
   validationFieldName: json['ValidationFieldName'] as String?,
+  validationFieldId: json['ValidationFieldId'] as String?,
+  listFieldAllowedValues: json['ListFieldAllowedValues'] as String?,
 );
 
 Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
@@ -213,6 +217,8 @@ Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
   'FieldType': ?instance.fieldType,
   'ValidationModule': ?instance.validationModule,
   'ValidationFieldName': ?instance.validationFieldName,
+  'ValidationFieldId': ?instance.validationFieldId,
+  'ListFieldAllowedValues': ?instance.listFieldAllowedValues,
 };
 
 FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
@@ -324,6 +330,7 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -355,6 +362,7 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   'fields': ?instance.fields?.map((e) => e.toJson()).toList(),
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
+  'timezoneOffset': ?instance.timezoneOffset,
 };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
@@ -828,6 +836,11 @@ _$WebApiLogicAppFuncGetSettingsResponseFromJson(Map<String, dynamic> json) =>
           : WebApiLogicAppFuncSystemSettingsResponse.fromJson(
               json['systemSettings'] as Map<String, dynamic>,
             ),
+      securitySettings: json['securitySettings'] == null
+          ? null
+          : WebApiLogicAppFuncSecuritySettingsResponse.fromJson(
+              json['securitySettings'] as Map<String, dynamic>,
+            ),
       department: json['department'] == null
           ? null
           : WebApiLogicAppFuncDepartmentSettingsResponse.fromJson(
@@ -863,6 +876,7 @@ Map<String, dynamic> _$WebApiLogicAppFuncGetSettingsResponseToJson(
   'inventorySettings': ?instance.inventorySettings?.toJson(),
   'consignmentSettings': ?instance.consignmentSettings?.toJson(),
   'systemSettings': ?instance.systemSettings?.toJson(),
+  'securitySettings': ?instance.securitySettings?.toJson(),
   'department': ?instance.department?.toJson(),
   'documentBarcodeSettings': ?instance.documentBarcodeSettings?.toJson(),
   'systemNumbers': ?instance.systemNumbers?.toJson(),
@@ -947,6 +961,35 @@ Map<String, dynamic> _$WebApiLogicAppFuncInventorySettingsResponseToJson(
   'FixedAssetTransferOwnership': ?instance.fixedAssetTransferOwnership,
   'EnableInventoryCertification': ?instance.enableInventoryCertification,
   'TrackItemsInRooms': ?instance.trackItemsInRooms,
+};
+
+WebApiLogicAppFuncSecuritySettingsResponse
+_$WebApiLogicAppFuncSecuritySettingsResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiLogicAppFuncSecuritySettingsResponse(
+  requireDigitInPassword: json['RequireDigitInPassword'] as bool?,
+  requireSymbolInPassword: json['RequireSymbolInPassword'] as bool?,
+  requireMinLengthPassword: json['RequireMinLengthPassword'] as bool?,
+  minLengthPassword: (json['MinLengthPassword'] as num?)?.toInt(),
+  autoLogoutUser: json['AutoLogoutUser'] as bool?,
+  autoLogoutMinutes: (json['AutoLogoutMinutes'] as num?)?.toInt(),
+  lockUserAfterFailedAttempts: json['LockUserAfterFailedAttempts'] as bool?,
+  lockUserAfterFailedAttemptsNumber:
+      (json['LockUserAfterFailedAttemptsNumber'] as num?)?.toInt(),
+);
+
+Map<String, dynamic> _$WebApiLogicAppFuncSecuritySettingsResponseToJson(
+  WebApiLogicAppFuncSecuritySettingsResponse instance,
+) => <String, dynamic>{
+  'RequireDigitInPassword': ?instance.requireDigitInPassword,
+  'RequireSymbolInPassword': ?instance.requireSymbolInPassword,
+  'RequireMinLengthPassword': ?instance.requireMinLengthPassword,
+  'MinLengthPassword': ?instance.minLengthPassword,
+  'AutoLogoutUser': ?instance.autoLogoutUser,
+  'AutoLogoutMinutes': ?instance.autoLogoutMinutes,
+  'LockUserAfterFailedAttempts': ?instance.lockUserAfterFailedAttempts,
+  'LockUserAfterFailedAttemptsNumber':
+      ?instance.lockUserAfterFailedAttemptsNumber,
 };
 
 WebApiLogicAppFuncSessionDeal _$WebApiLogicAppFuncSessionDealFromJson(
@@ -1105,6 +1148,8 @@ WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
   qsallowapplyallqtyitems: json['qsallowapplyallqtyitems'] as bool?,
   allowcontractwithexceptions: json['allowcontractwithexceptions'] as bool?,
   allowswapitems: json['allowswapitems'] as bool?,
+  stagingallowdecreaseqty: json['stagingallowdecreaseqty'] as bool?,
+  stagemiscitems: json['stagemiscitems'] as bool?,
   canInsertIntoActiveOrder: json['CanInsertIntoActiveOrder'] as bool?,
   creditCardPinPadId: (json['CreditCardPinPadId'] as num?)?.toInt(),
   creditCardPinPad: json['CreditCardPinPad'] as String?,
@@ -1155,6 +1200,8 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionUserToJson(
   'qsallowapplyallqtyitems': ?instance.qsallowapplyallqtyitems,
   'allowcontractwithexceptions': ?instance.allowcontractwithexceptions,
   'allowswapitems': ?instance.allowswapitems,
+  'stagingallowdecreaseqty': ?instance.stagingallowdecreaseqty,
+  'stagemiscitems': ?instance.stagemiscitems,
   'CanInsertIntoActiveOrder': ?instance.canInsertIntoActiveOrder,
   'CreditCardPinPadId': ?instance.creditCardPinPadId,
   'CreditCardPinPad': ?instance.creditCardPinPad,
@@ -1178,6 +1225,8 @@ WebApiLogicAppFuncSessionWarehouse _$WebApiLogicAppFuncSessionWarehouseFromJson(
   regionwarehouseids: json['regionwarehouseids'] as String?,
   regionwarehouses: json['regionwarehouses'] as String?,
   internalorderdealid: json['internalorderdealid'] as String?,
+  checkinenablescanningtoaisleshelf:
+      json['checkinenablescanningtoaisleshelf'] as bool?,
 );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
@@ -1197,6 +1246,8 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
   'regionwarehouseids': ?instance.regionwarehouseids,
   'regionwarehouses': ?instance.regionwarehouses,
   'internalorderdealid': ?instance.internalorderdealid,
+  'checkinenablescanningtoaisleshelf':
+      ?instance.checkinenablescanningtoaisleshelf,
 };
 
 WebApiLogicAppFuncSystemNumbersModel
@@ -1270,6 +1321,8 @@ _$WebApiLogicAppFuncSystemSettingsResponseFromJson(
   setSubQuantityToZero: json['SetSubQuantityToZero'] as bool?,
   promptUserOnPasteLineItems: json['PromptUserOnPasteLineItems'] as bool?,
   overrideHelpURL: json['OverrideHelpURL'] as String?,
+  defaultSalesRepresentativeFilter:
+      json['DefaultSalesRepresentativeFilter'] as String?,
 );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSystemSettingsResponseToJson(
@@ -1307,6 +1360,8 @@ Map<String, dynamic> _$WebApiLogicAppFuncSystemSettingsResponseToJson(
   'SetSubQuantityToZero': ?instance.setSubQuantityToZero,
   'PromptUserOnPasteLineItems': ?instance.promptUserOnPasteLineItems,
   'OverrideHelpURL': ?instance.overrideHelpURL,
+  'DefaultSalesRepresentativeFilter':
+      ?instance.defaultSalesRepresentativeFilter,
 };
 
 WebApiLogicAppFuncUserSettingsResponse

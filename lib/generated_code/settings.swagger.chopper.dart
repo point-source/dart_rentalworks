@@ -907,7 +907,7 @@ final class _$Settings extends Settings {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsActivityTypeActivityTypeLogic
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsActivityTypeActivityTypeLogic
     >
   >
   _activitytypeGet({
@@ -941,15 +941,15 @@ final class _$Settings extends Settings {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsActivityTypeActivityTypeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsActivityTypeActivityTypeLogic
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsActivityTypeActivityTypeLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsActivityTypeActivityTypeLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsActivityTypeActivityType>>
+  Future<Response<WebApiModulesSettingsOrderSettingsActivityTypeActivityType>>
   _activitytypePost({
-    required WebApiModulesSettingsActivityTypeActivityType? body,
+    required WebApiModulesSettingsOrderSettingsActivityTypeActivityType? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -971,13 +971,13 @@ final class _$Settings extends Settings {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesSettingsActivityTypeActivityType,
-      WebApiModulesSettingsActivityTypeActivityType
+      WebApiModulesSettingsOrderSettingsActivityTypeActivityType,
+      WebApiModulesSettingsOrderSettingsActivityTypeActivityType
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsActivityTypeActivityType>>
+  Future<Response<WebApiModulesSettingsOrderSettingsActivityTypeActivityType>>
   _activitytypeIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -999,16 +999,16 @@ final class _$Settings extends Settings {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesSettingsActivityTypeActivityType,
-      WebApiModulesSettingsActivityTypeActivityType
+      WebApiModulesSettingsOrderSettingsActivityTypeActivityType,
+      WebApiModulesSettingsOrderSettingsActivityTypeActivityType
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesSettingsActivityTypeActivityType>>
+  Future<Response<WebApiModulesSettingsOrderSettingsActivityTypeActivityType>>
   _activitytypeIdPut({
     required String? id,
-    required WebApiModulesSettingsActivityTypeActivityType? body,
+    required WebApiModulesSettingsOrderSettingsActivityTypeActivityType? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -1030,8 +1030,8 @@ final class _$Settings extends Settings {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesSettingsActivityTypeActivityType,
-      WebApiModulesSettingsActivityTypeActivityType
+      WebApiModulesSettingsOrderSettingsActivityTypeActivityType,
+      WebApiModulesSettingsOrderSettingsActivityTypeActivityType
     >($request);
   }
 
@@ -1057,6 +1057,355 @@ final class _$Settings extends Settings {
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _aiknowledgescraperservicelogBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIKnowledgeScraperServiceLog"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiknowledgescraperservicelog/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _aiknowledgescraperservicelogExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIKnowledgeScraperServiceLog"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiknowledgescraperservicelog/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsAIKnowledgeScraperServiceLogAIKnowledgeScraperServiceLogLogic
+    >
+  >
+  _aiknowledgescraperservicelogGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIKnowledgeScraperServiceLog"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiknowledgescraperservicelog');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsAIKnowledgeScraperServiceLogAIKnowledgeScraperServiceLogLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsAIKnowledgeScraperServiceLogAIKnowledgeScraperServiceLogLogic
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesSettingsAIKnowledgeScraperServiceLogAIKnowledgeScraperServiceLog
+    >
+  >
+  _aiknowledgescraperservicelogIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIKnowledgeScraperServiceLog"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiknowledgescraperservicelog/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesSettingsAIKnowledgeScraperServiceLogAIKnowledgeScraperServiceLog,
+      WebApiModulesSettingsAIKnowledgeScraperServiceLogAIKnowledgeScraperServiceLog
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _aiknowledgescraperservicesettingsBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIKnowledgeScraperServiceSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiknowledgescraperservicesettings/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _aiknowledgescraperservicesettingsExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIKnowledgeScraperServiceSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/aiknowledgescraperservicesettings/exportexcelxlsx',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettingsLogic
+    >
+  >
+  _aiknowledgescraperservicesettingsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIKnowledgeScraperServiceSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiknowledgescraperservicesettings');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettingsLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettingsLogic
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettings
+    >
+  >
+  _aiknowledgescraperservicesettingsPost({
+    required WebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettings?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIKnowledgeScraperServiceSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiknowledgescraperservicesettings');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettings,
+      WebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettings
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettings
+    >
+  >
+  _aiknowledgescraperservicesettingsIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIKnowledgeScraperServiceSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiknowledgescraperservicesettings/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettings,
+      WebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettings
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettings
+    >
+  >
+  _aiknowledgescraperservicesettingsIdPut({
+    required String? id,
+    required WebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettings?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AIKnowledgeScraperServiceSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aiknowledgescraperservicesettings/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettings,
+      WebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettings
+    >($request);
   }
 
   @override
@@ -4026,6 +4375,215 @@ final class _$Settings extends Settings {
         .send<WebApiLogicSortItemsResponse, WebApiLogicSortItemsResponse>(
           $request,
         );
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _connectionhubsettingsBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ConnectionHubSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/connectionhubsettings/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _connectionhubsettingsExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ConnectionHubSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/connectionhubsettings/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettingsLogic
+    >
+  >
+  _connectionhubsettingsGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ConnectionHubSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/connectionhubsettings');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettingsLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettingsLogic
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettings
+    >
+  >
+  _connectionhubsettingsPost({
+    required WebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettings?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ConnectionHubSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/connectionhubsettings');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettings,
+      WebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettings
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettings
+    >
+  >
+  _connectionhubsettingsIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ConnectionHubSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/connectionhubsettings/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettings,
+      WebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettings
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettings
+    >
+  >
+  _connectionhubsettingsIdPut({
+    required String? id,
+    required WebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettings?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ConnectionHubSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/connectionhubsettings/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettings,
+      WebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettings
+    >($request);
   }
 
   @override
@@ -10021,6 +10579,36 @@ final class _$Settings extends Settings {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _defaultsettingsValidatepaymenttypeBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["DefaultSettings"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/defaultsettings/validatepaymenttype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _departmentBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -13338,2017 +13926,6 @@ final class _$Settings extends Settings {
   }
 
   @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _eventcategoryBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventcategory/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _eventcategoryExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventcategory/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsEventCategoryEventCategoryLogic
-    >
-  >
-  _eventcategoryGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventcategory');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsEventCategoryEventCategoryLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsEventCategoryEventCategoryLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsEventSettingsEventCategoryEventCategory>>
-  _eventcategoryPost({
-    required WebApiModulesSettingsEventSettingsEventCategoryEventCategory? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventcategory');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsEventSettingsEventCategoryEventCategory,
-      WebApiModulesSettingsEventSettingsEventCategoryEventCategory
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsEventSettingsEventCategoryEventCategory>>
-  _eventcategoryIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventcategory/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsEventSettingsEventCategoryEventCategory,
-      WebApiModulesSettingsEventSettingsEventCategoryEventCategory
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsEventSettingsEventCategoryEventCategory>>
-  _eventcategoryIdPut({
-    required String? id,
-    required WebApiModulesSettingsEventSettingsEventCategoryEventCategory? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventcategory/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsEventSettingsEventCategoryEventCategory,
-      WebApiModulesSettingsEventSettingsEventCategoryEventCategory
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _eventcategoryIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventcategory/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _eventtypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _eventtypeExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtype/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsEventTypeEventTypeLogic
-    >
-  >
-  _eventtypeGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtype');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsEventTypeEventTypeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsEventTypeEventTypeLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsEventSettingsEventTypeEventType>>
-  _eventtypePost({
-    required WebApiModulesSettingsEventSettingsEventTypeEventType? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtype');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsEventSettingsEventTypeEventType,
-      WebApiModulesSettingsEventSettingsEventTypeEventType
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsEventSettingsEventTypeEventType>>
-  _eventtypeIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtype/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsEventSettingsEventTypeEventType,
-      WebApiModulesSettingsEventSettingsEventTypeEventType
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsEventSettingsEventTypeEventType>>
-  _eventtypeIdPut({
-    required String? id,
-    required WebApiModulesSettingsEventSettingsEventTypeEventType? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtype/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsEventSettingsEventTypeEventType,
-      WebApiModulesSettingsEventSettingsEventTypeEventType
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _eventtypeIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtype/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _eventtypepersonneltypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventTypePersonnelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtypepersonneltype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _eventtypepersonneltypeExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventTypePersonnelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtypepersonneltype/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelTypeLogic
-    >
-  >
-  _eventtypepersonneltypeGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventTypePersonnelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtypepersonneltype');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelTypeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelTypeLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType
-    >
-  >
-  _eventtypepersonneltypePost({
-    required WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventTypePersonnelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtypepersonneltype');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType,
-      WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType
-    >
-  >
-  _eventtypepersonneltypeIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventTypePersonnelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtypepersonneltype/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType,
-      WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType
-    >
-  >
-  _eventtypepersonneltypeIdPut({
-    required String? id,
-    required WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventTypePersonnelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtypepersonneltype/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType,
-      WebApiModulesSettingsEventSettingsEventTypePersonnelTypeEventTypePersonnelType
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _eventtypepersonneltypeIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["EventTypePersonnelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/eventtypepersonneltype/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _facilitycategoryBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitycategory/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _facilitycategoryExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitycategory/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategoryLogic
-    >
-  >
-  _facilitycategoryGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    String? departmentid,
-    String? locationid,
-    String? warehouseid,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitycategory');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-      'departmentid': departmentid,
-      'locationid': locationid,
-      'warehouseid': warehouseid,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategoryLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategoryLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory
-    >
-  >
-  _facilitycategoryPost({
-    required WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitycategory');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory,
-      WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory
-    >
-  >
-  _facilitycategoryIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitycategory/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory,
-      WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory
-    >
-  >
-  _facilitycategoryIdPut({
-    required String? id,
-    required WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitycategory/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory,
-      WebApiModulesSettingsFacilitySettingsFacilityCategoryFacilityCategory
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _facilitycategoryIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitycategory/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _facilitycategoryValidatefacilitytypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitycategory/validatefacilitytype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _facilitycategoryValidateincomeaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityCategory"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/facilitycategory/validateincomeaccount/browse',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _facilityrateBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityrate/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _facilityrateExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityrate/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityRateFacilityRateLogic
-    >
-  >
-  _facilityrateGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    String? departmentid,
-    String? locationid,
-    String? warehouseid,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityrate');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-      'departmentid': departmentid,
-      'locationid': locationid,
-      'warehouseid': warehouseid,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityRateFacilityRateLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityRateFacilityRateLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate>
-  >
-  _facilityratePost({
-    required WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityrate');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate,
-      WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate>
-  >
-  _facilityrateIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityrate/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate,
-      WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate>
-  >
-  _facilityrateIdPut({
-    required String? id,
-    required WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityrate/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate,
-      WebApiModulesSettingsFacilitySettingsFacilityRateFacilityRate
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _facilityrateIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityrate/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _facilityrateValidatefacilitytypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityrate/validatefacilitytype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _facilityrateValidatecategoryBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityrate/validatecategory/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _facilityrateValidateunitBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityrate/validateunit/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _facilityrateValidateprofitandlosscategoryBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/facilityrate/validateprofitandlosscategory/browse',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _facilityschedulestatusBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityschedulestatus/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _facilityschedulestatusExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityschedulestatus/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatusLogic
-    >
-  >
-  _facilityschedulestatusGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityschedulestatus');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatusLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatusLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatus
-    >
-  >
-  _facilityschedulestatusPost({
-    required WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatus?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityschedulestatus');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatus,
-      WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatus
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatus
-    >
-  >
-  _facilityschedulestatusIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityschedulestatus/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatus,
-      WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatus
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatus
-    >
-  >
-  _facilityschedulestatusIdPut({
-    required String? id,
-    required WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatus?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityschedulestatus/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatus,
-      WebApiModulesSettingsFacilitySettingsFacilityScheduleStatusFacilityScheduleStatus
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _facilityschedulestatusIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilityschedulestatus/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _facilitystatusBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitystatus/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _facilitystatusExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitystatus/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatusLogic
-    >
-  >
-  _facilitystatusGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitystatus');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatusLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatusLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus>
-  >
-  _facilitystatusPost({
-    required WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitystatus');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus,
-      WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus>
-  >
-  _facilitystatusIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitystatus/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus,
-      WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus>
-  >
-  _facilitystatusIdPut({
-    required String? id,
-    required WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitystatus/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus,
-      WebApiModulesSettingsFacilitySettingsFacilityStatusFacilityStatus
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _facilitystatusIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitystatus/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _facilitytypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitytype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _facilitytypeExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitytype/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityTypeFacilityTypeLogic
-    >
-  >
-  _facilitytypeGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitytype');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityTypeFacilityTypeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsFacilityTypeFacilityTypeLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType>
-  >
-  _facilitytypePost({
-    required WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitytype');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType,
-      WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType>
-  >
-  _facilitytypeIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitytype/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType,
-      WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType>
-  >
-  _facilitytypeIdPut({
-    required String? id,
-    required WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitytype/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType,
-      WebApiModulesSettingsFacilitySettingsFacilityTypeFacilityType
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _facilitytypeIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["FacilityType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/facilitytype/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _fiscalmonthBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -16062,1871 +14639,6 @@ final class _$Settings extends Settings {
         .send<WebApiLogicSortItemsResponse, WebApiLogicSortItemsResponse>(
           $request,
         );
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatorfueltypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorfueltype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _generatorfueltypeExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorfueltype/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorFuelTypeGeneratorFuelTypeLogic
-    >
-  >
-  _generatorfueltypeGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorfueltype');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorFuelTypeGeneratorFuelTypeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorFuelTypeGeneratorFuelTypeLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType>>
-  _generatorfueltypePost({
-    required WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorfueltype');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType,
-      WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType>>
-  _generatorfueltypeIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorfueltype/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType,
-      WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType>>
-  _generatorfueltypeIdPut({
-    required String? id,
-    required WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorfueltype/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType,
-      WebApiModulesSettingsGeneratorFuelTypeGeneratorFuelType
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _generatorfueltypeIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorfueltype/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatormakeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormake/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _generatormakeExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormake/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMakeLogic
-    >
-  >
-  _generatormakeGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormake');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMakeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMakeLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake>
-  >
-  _generatormakePost({
-    required WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormake');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake,
-      WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake>
-  >
-  _generatormakeIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormake/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake,
-      WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake>
-  >
-  _generatormakeIdPut({
-    required String? id,
-    required WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormake/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake,
-      WebApiModulesSettingsGeneratorSettingsGeneratorMakeGeneratorMake
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _generatormakeIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormake/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatormodelBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormodel/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _generatormodelExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormodel/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModelLogic
-    >
-  >
-  _generatormodelGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormodel');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModelLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModelLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel>
-  >
-  _generatormodelPost({
-    required WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormodel');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel,
-      WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel>
-  >
-  _generatormodelIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormodel/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel,
-      WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel>
-  >
-  _generatormodelIdPut({
-    required String? id,
-    required WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormodel/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel,
-      WebApiModulesSettingsGeneratorSettingsGeneratorModelGeneratorModel
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _generatormodelIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatormodel/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatorratingBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorRating"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorrating/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _generatorratingExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorRating"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorrating/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRatingLogic
-    >
-  >
-  _generatorratingGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorRating"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorrating');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRatingLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRatingLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating
-    >
-  >
-  _generatorratingPost({
-    required WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorRating"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorrating');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating,
-      WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating
-    >
-  >
-  _generatorratingIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorRating"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorrating/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating,
-      WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating
-    >
-  >
-  _generatorratingIdPut({
-    required String? id,
-    required WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorRating"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorrating/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating,
-      WebApiModulesSettingsGeneratorSettingsGeneratorRatingGeneratorRating
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _generatorratingIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorRating"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorrating/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatortypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _generatortypeExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorTypeLogic
-    >
-  >
-  _generatortypeGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorTypeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorTypeLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType>
-  >
-  _generatortypePost({
-    required WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType,
-      WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType>
-  >
-  _generatortypeIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType,
-      WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType>
-  >
-  _generatortypeIdPut({
-    required String? id,
-    required WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType,
-      WebApiModulesSettingsGeneratorSettingsGeneratorTypeGeneratorType
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _generatortypeIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatortypeValidateinventorytypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype/validateinventorytype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatortypeValidateunitBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype/validateunit/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatortypeValidateassetaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype/validateassetaccount/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatortypeValidateincomeaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype/validateincomeaccount/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatortypeValidatesubincomeaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/generatortype/validatesubincomeaccount/browse',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatortypeValidateequipmentsaleincomeaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/generatortype/validateequipmentsaleincomeaccount/browse',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatortypeValidateldincomeaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortype/validateldincomeaccount/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatortypeValidatecostofgoodssoldexpenseaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/generatortype/validatecostofgoodssoldexpenseaccount/browse',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatortypeValidatecostofgoodsrentedexpenseaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/generatortype/validatecostofgoodsrentedexpenseaccount/browse',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatortypewarehouseBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortypewarehouse/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _generatortypewarehouseExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortypewarehouse/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouseLogic
-    >
-  >
-  _generatortypewarehouseGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortypewarehouse');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouseLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouseLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse>
-  >
-  _generatortypewarehousePost({
-    required WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortypewarehouse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse,
-      WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse>
-  >
-  _generatortypewarehouseIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortypewarehouse/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse,
-      WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse>
-  >
-  _generatortypewarehouseIdPut({
-    required String? id,
-    required WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortypewarehouse/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse,
-      WebApiModulesSettingsGeneratorTypeWarehouseGeneratorTypeWarehouse
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _generatortypewarehouseIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatortypewarehouse/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _generatorwattsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorWatts"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorwatts/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _generatorwattsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorWatts"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorwatts/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWattsLogic
-    >
-  >
-  _generatorwattsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorWatts"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorwatts');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWattsLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWattsLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts>
-  >
-  _generatorwattsPost({
-    required WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorWatts"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorwatts');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts,
-      WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts>
-  >
-  _generatorwattsIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorWatts"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorwatts/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts,
-      WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts>
-  >
-  _generatorwattsIdPut({
-    required String? id,
-    required WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorWatts"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorwatts/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts,
-      WebApiModulesSettingsGeneratorSettingsGeneratorWattsGeneratorWatts
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _generatorwattsIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["GeneratorWatts"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/generatorwatts/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
   }
 
   @override
@@ -21539,7 +18251,7 @@ final class _$Settings extends Settings {
   @override
   Future<
     Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSharedControlsLanguageControlsLanguageLanguageLogic
+      FwStandardModelsFwQueryResponseWebApiModulesLanguageLanguageLanguageLogic
     >
   >
   _languageGet({
@@ -21573,15 +18285,14 @@ final class _$Settings extends Settings {
       tag: swaggerMetaData,
     );
     return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSharedControlsLanguageControlsLanguageLanguageLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSharedControlsLanguageControlsLanguageLanguageLogic
+      FwStandardModelsFwQueryResponseWebApiModulesLanguageLanguageLanguageLogic,
+      FwStandardModelsFwQueryResponseWebApiModulesLanguageLanguageLanguageLogic
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesSharedControlsLanguageControlsLanguageLanguage>>
-  _languagePost({
-    required WebApiModulesSharedControlsLanguageControlsLanguageLanguage? body,
+  Future<Response<WebApiModulesLanguageLanguageLanguage>> _languagePost({
+    required WebApiModulesLanguageLanguageLanguage? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -21603,14 +18314,13 @@ final class _$Settings extends Settings {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesSharedControlsLanguageControlsLanguageLanguage,
-      WebApiModulesSharedControlsLanguageControlsLanguageLanguage
+      WebApiModulesLanguageLanguageLanguage,
+      WebApiModulesLanguageLanguageLanguage
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesSharedControlsLanguageControlsLanguageLanguage>>
-  _languageIdGet({
+  Future<Response<WebApiModulesLanguageLanguageLanguage>> _languageIdGet({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -21631,16 +18341,15 @@ final class _$Settings extends Settings {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesSharedControlsLanguageControlsLanguageLanguage,
-      WebApiModulesSharedControlsLanguageControlsLanguageLanguage
+      WebApiModulesLanguageLanguageLanguage,
+      WebApiModulesLanguageLanguageLanguage
     >($request);
   }
 
   @override
-  Future<Response<WebApiModulesSharedControlsLanguageControlsLanguageLanguage>>
-  _languageIdPut({
+  Future<Response<WebApiModulesLanguageLanguageLanguage>> _languageIdPut({
     required String? id,
-    required WebApiModulesSharedControlsLanguageControlsLanguageLanguage? body,
+    required WebApiModulesLanguageLanguageLanguage? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -21662,8 +18371,8 @@ final class _$Settings extends Settings {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesSharedControlsLanguageControlsLanguageLanguage,
-      WebApiModulesSharedControlsLanguageControlsLanguageLanguage
+      WebApiModulesLanguageLanguageLanguage,
+      WebApiModulesLanguageLanguageLanguage
     >($request);
   }
 
@@ -21682,224 +18391,6 @@ final class _$Settings extends Settings {
     ),
   }) {
     final Uri $url = Uri.parse('/language/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _licenseclassBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["LicenseClass"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/licenseclass/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _licenseclassExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["LicenseClass"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/licenseclass/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsLicenseClassLicenseClassLogic
-    >
-  >
-  _licenseclassGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["LicenseClass"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/licenseclass');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsLicenseClassLicenseClassLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsLicenseClassLicenseClassLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass>>
-  _licenseclassPost({
-    required WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["LicenseClass"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/licenseclass');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass,
-      WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass>>
-  _licenseclassIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["LicenseClass"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/licenseclass/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass,
-      WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass>>
-  _licenseclassIdPut({
-    required String? id,
-    required WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["LicenseClass"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/licenseclass/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass,
-      WebApiModulesSettingsVehicleSettingsLicenseClassLicenseClass
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _licenseclassIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["LicenseClass"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/licenseclass/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -38381,529 +34872,6 @@ final class _$Settings extends Settings {
   }
 
   @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _spacerateBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacerate/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _spacerateExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacerate/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsSpaceRateSpaceRateLogic
-    >
-  >
-  _spacerateGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacerate');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsSpaceRateSpaceRateLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsSpaceRateSpaceRateLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsSpaceRateSpaceRate>> _spaceratePost({
-    required WebApiModulesSettingsSpaceRateSpaceRate? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacerate');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsSpaceRateSpaceRate,
-      WebApiModulesSettingsSpaceRateSpaceRate
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsSpaceRateSpaceRate>> _spacerateIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacerate/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsSpaceRateSpaceRate,
-      WebApiModulesSettingsSpaceRateSpaceRate
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsSpaceRateSpaceRate>> _spacerateIdPut({
-    required String? id,
-    required WebApiModulesSettingsSpaceRateSpaceRate? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacerate/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsSpaceRateSpaceRate,
-      WebApiModulesSettingsSpaceRateSpaceRate
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _spacerateIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacerate/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<WebApiLogicSortItemsResponse>> _spacerateSortPost({
-    required WebApiModulesSettingsFacilitySettingsBuildingSortSpaceRatesRequest?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceRate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacerate/sort');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client
-        .send<WebApiLogicSortItemsResponse, WebApiLogicSortItemsResponse>(
-          $request,
-        );
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _spacetypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacetype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _spacetypeExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacetype/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsSpaceTypeSpaceTypeLogic
-    >
-  >
-  _spacetypeGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacetype');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsSpaceTypeSpaceTypeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsSpaceTypeSpaceTypeLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType>>
-  _spacetypePost({
-    required WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacetype');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType,
-      WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType>>
-  _spacetypeIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacetype/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType,
-      WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType>>
-  _spacetypeIdPut({
-    required String? id,
-    required WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacetype/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType,
-      WebApiModulesSettingsFacilitySettingsSpaceTypeSpaceType
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _spacetypeIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacetype/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _spacetypeValidatefacilitytypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacetype/validatefacilitytype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _spacetypeValidaterateBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SpaceType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/spacetype/validaterate/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _stateBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -42041,6 +38009,37 @@ final class _$Settings extends Settings {
   }
 
   @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _templateUpdatetemplatePost({
+    required WebApiModulesSettingsTemplateSettingsTemplateUpdateTemplateRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Template"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/template/updatetemplate');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _termsconditionsBrowsePost({
     required FwStandardModelsBrowseRequest? body,
@@ -44068,2098 +40067,6 @@ final class _$Settings extends Settings {
     ),
   }) {
     final Uri $url = Uri.parse('/userwidget/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _vehiclecolorBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleColor"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclecolor/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _vehiclecolorExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleColor"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclecolor/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleColorVehicleColorLogic
-    >
-  >
-  _vehiclecolorGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleColor"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclecolor');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleColorVehicleColorLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleColorVehicleColorLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor>>
-  _vehiclecolorPost({
-    required WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleColor"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclecolor');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor,
-      WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor>>
-  _vehiclecolorIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleColor"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclecolor/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor,
-      WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor>>
-  _vehiclecolorIdPut({
-    required String? id,
-    required WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleColor"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclecolor/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor,
-      WebApiModulesSettingsVehicleSettingsVehicleColorVehicleColor
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _vehiclecolorIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleColor"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclecolor/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehiclefueltypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclefueltype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _vehiclefueltypeExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclefueltype/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelTypeLogic
-    >
-  >
-  _vehiclefueltypeGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclefueltype');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelTypeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelTypeLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType>
-  >
-  _vehiclefueltypePost({
-    required WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclefueltype');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType,
-      WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType>
-  >
-  _vehiclefueltypeIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclefueltype/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType,
-      WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType>
-  >
-  _vehiclefueltypeIdPut({
-    required String? id,
-    required WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclefueltype/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType,
-      WebApiModulesSettingsVehicleSettingsVehicleFuelTypeVehicleFuelType
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _vehiclefueltypeIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleFuelType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclefueltype/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _vehiclemakeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemake/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _vehiclemakeExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemake/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMakeLogic
-    >
-  >
-  _vehiclemakeGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemake');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMakeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMakeLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake>>
-  _vehiclemakePost({
-    required WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemake');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake,
-      WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake>>
-  _vehiclemakeIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemake/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake,
-      WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake>>
-  _vehiclemakeIdPut({
-    required String? id,
-    required WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemake/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake,
-      WebApiModulesSettingsVehicleSettingsVehicleMakeVehicleMake
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _vehiclemakeIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleMake"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemake/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _vehiclemodelBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemodel/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _vehiclemodelExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemodel/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleModelVehicleModelLogic
-    >
-  >
-  _vehiclemodelGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemodel');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleModelVehicleModelLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleModelVehicleModelLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleModelVehicleModel>>
-  _vehiclemodelPost({
-    required WebApiModulesSettingsVehicleModelVehicleModel? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemodel');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleModelVehicleModel,
-      WebApiModulesSettingsVehicleModelVehicleModel
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleModelVehicleModel>>
-  _vehiclemodelIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemodel/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleModelVehicleModel,
-      WebApiModulesSettingsVehicleModelVehicleModel
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleModelVehicleModel>>
-  _vehiclemodelIdPut({
-    required String? id,
-    required WebApiModulesSettingsVehicleModelVehicleModel? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemodel/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleModelVehicleModel,
-      WebApiModulesSettingsVehicleModelVehicleModel
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _vehiclemodelIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleModel"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclemodel/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicleschedulestatusBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicleschedulestatus/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _vehicleschedulestatusExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicleschedulestatus/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatusLogic
-    >
-  >
-  _vehicleschedulestatusGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicleschedulestatus');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatusLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatusLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus
-    >
-  >
-  _vehicleschedulestatusPost({
-    required WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicleschedulestatus');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus,
-      WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus
-    >
-  >
-  _vehicleschedulestatusIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicleschedulestatus/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus,
-      WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus
-    >
-  >
-  _vehicleschedulestatusIdPut({
-    required String? id,
-    required WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicleschedulestatus/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus,
-      WebApiModulesSettingsVehicleSettingsVehicleScheduleStatusVehicleScheduleStatus
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _vehicleschedulestatusIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleScheduleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicleschedulestatus/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehiclestatusBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclestatus/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _vehiclestatusExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclestatus/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatusLogic
-    >
-  >
-  _vehiclestatusGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclestatus');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatusLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatusLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus>
-  >
-  _vehiclestatusPost({
-    required WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclestatus');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus,
-      WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus>
-  >
-  _vehiclestatusIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclestatus/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus,
-      WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus>
-  >
-  _vehiclestatusIdPut({
-    required String? id,
-    required WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclestatus/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus,
-      WebApiModulesSettingsVehicleSettingsVehicleStatusVehicleStatus
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _vehiclestatusIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleStatus"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehiclestatus/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>> _vehicletypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _vehicletypeExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleTypeVehicleTypeLogic
-    >
-  >
-  _vehicletypeGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleTypeVehicleTypeLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleSettingsVehicleTypeVehicleTypeLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType>>
-  _vehicletypePost({
-    required WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType,
-      WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType>>
-  _vehicletypeIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType,
-      WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType>>
-  _vehicletypeIdPut({
-    required String? id,
-    required WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType,
-      WebApiModulesSettingsVehicleSettingsVehicleTypeVehicleType
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _vehicletypeIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicletypeValidateinventorytypeBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/validateinventorytype/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicletypeValidatelicenseclassBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/validatelicenseclass/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicletypeValidateunitBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/validateunit/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicletypeValidateassetaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/validateassetaccount/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicletypeValidateincomeaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/validateincomeaccount/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicletypeValidatesubincomeaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/validatesubincomeaccount/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicletypeValidateequipmentsaleincomeaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/vehicletype/validateequipmentsaleincomeaccount/browse',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicletypeValidateldincomeaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletype/validateldincomeaccount/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicletypeValidatecostofgoodssoldexpenseaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/vehicletype/validatecostofgoodssoldexpenseaccount/browse',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicletypeValidatecostofgoodsrentedexpenseaccountBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleType"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse(
-      '/vehicletype/validatecostofgoodsrentedexpenseaccount/browse',
-    );
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _vehicletypewarehouseBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletypewarehouse/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _vehicletypewarehouseExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletypewarehouse/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouseLogic
-    >
-  >
-  _vehicletypewarehouseGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletypewarehouse');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouseLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouseLogic
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse>
-  >
-  _vehicletypewarehousePost({
-    required WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletypewarehouse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse,
-      WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse>
-  >
-  _vehicletypewarehouseIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletypewarehouse/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse,
-      WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse>
-  >
-  _vehicletypewarehouseIdPut({
-    required String? id,
-    required WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletypewarehouse/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse,
-      WebApiModulesSettingsVehicleTypeWarehouseVehicleTypeWarehouse
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _vehicletypewarehouseIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["VehicleTypeWarehouse"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/vehicletypewarehouse/${id}');
     final Request $request = Request(
       'DELETE',
       $url,
@@ -51808,30 +45715,6 @@ final class _$Settings extends Settings {
   }
 
   @override
-  Future<Response<bool>> _widgetIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["Widget"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/widget/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _widgetValidatedatebehaviorBrowsePost({
     required FwStandardModelsBrowseRequest? body,
@@ -51919,6 +45802,225 @@ final class _$Settings extends Settings {
       FwStandardSqlServerFwJsonDataTable,
       FwStandardSqlServerFwJsonDataTable
     >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _widgetcategoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["WidgetCategory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/widgetcategory/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _widgetcategoryExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["WidgetCategory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/widgetcategory/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic
+    >
+  >
+  _widgetcategoryGet({
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["WidgetCategory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/widgetcategory');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic,
+      FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic>>
+  _widgetcategoryPost({
+    required FwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["WidgetCategory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/widgetcategory');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic,
+      FwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic>>
+  _widgetcategoryIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["WidgetCategory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/widgetcategory/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic,
+      FwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic>>
+  _widgetcategoryIdPut({
+    required String? id,
+    required FwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["WidgetCategory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/widgetcategory/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic,
+      FwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic
+    >($request);
+  }
+
+  @override
+  Future<Response<bool>> _widgetcategoryIdDelete({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["WidgetCategory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/widgetcategory/${id}');
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override

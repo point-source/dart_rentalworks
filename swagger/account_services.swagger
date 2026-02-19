@@ -4,11 +4,6 @@
     "title": "RentalWorks Account Services API v1",
     "version": "v1"
   },
-  "servers": [
-    {
-      "url": "/training"
-    }
-  ],
   "paths": {
     "/account/session": {
       "get": {
@@ -1118,6 +1113,9 @@
           "TemplateSequence": {
             "type": "integer",
             "format": "int32"
+          },
+          "IsEmail": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -1146,6 +1144,14 @@
             "nullable": true
           },
           "ValidationFieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationFieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ListFieldAllowedValues": {
             "type": "string",
             "nullable": true
           }
@@ -1335,6 +1341,11 @@
               "nullable": true
             },
             "nullable": true
+          },
+          "timezoneOffset": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -1515,7 +1526,8 @@
           "OleToHtmlColor",
           "Integer",
           "JpgDataUrl",
-          "UTCDateTime"
+          "UTCDateTime",
+          "Email"
         ],
         "type": "string"
       },
@@ -1967,6 +1979,9 @@
           "systemSettings": {
             "$ref": "#/components/schemas/WebApi.Logic.AppFunc_SystemSettingsResponse"
           },
+          "securitySettings": {
+            "$ref": "#/components/schemas/WebApi.Logic.AppFunc_SecuritySettingsResponse"
+          },
           "department": {
             "$ref": "#/components/schemas/WebApi.Logic.AppFunc_DepartmentSettingsResponse"
           },
@@ -2092,6 +2107,47 @@
           },
           "TrackItemsInRooms": {
             "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Logic.AppFunc_SecuritySettingsResponse": {
+        "type": "object",
+        "properties": {
+          "RequireDigitInPassword": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "RequireSymbolInPassword": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "RequireMinLengthPassword": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "MinLengthPassword": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "AutoLogoutUser": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AutoLogoutMinutes": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "LockUserAfterFailedAttempts": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "LockUserAfterFailedAttemptsNumber": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         },
@@ -2440,6 +2496,12 @@
           "allowswapitems": {
             "type": "boolean"
           },
+          "stagingallowdecreaseqty": {
+            "type": "boolean"
+          },
+          "stagemiscitems": {
+            "type": "boolean"
+          },
           "CanInsertIntoActiveOrder": {
             "type": "boolean"
           },
@@ -2508,6 +2570,9 @@
           "internalorderdealid": {
             "type": "string",
             "nullable": true
+          },
+          "checkinenablescanningtoaisleshelf": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2651,6 +2716,10 @@
             "nullable": true
           },
           "OverrideHelpURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "DefaultSalesRepresentativeFilter": {
             "type": "string",
             "nullable": true
           }

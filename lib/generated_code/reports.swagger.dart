@@ -1392,6 +1392,628 @@ abstract class Reports extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  assetshelflifeexpirationreportRenderPost({
+    required FwStandardReportingFwReportRenderRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardReportingFwReportRenderResponse,
+      () => FwStandardReportingFwReportRenderResponse.fromJsonFactory,
+    );
+
+    return _assetshelflifeexpirationreportRenderPost(body: body);
+  }
+
+  ///
+  @POST(path: '/assetshelflifeexpirationreport/render', optionalBody: true)
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  _assetshelflifeexpirationreportRenderPost({
+    @Body() required FwStandardReportingFwReportRenderRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetShelfLifeExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  assetshelflifeexpirationreportExportexcelxlsxPost({
+    required WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      () =>
+          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+              .fromJsonFactory,
+    );
+
+    return _assetshelflifeexpirationreportExportexcelxlsxPost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/assetshelflifeexpirationreport/exportexcelxlsx',
+    optionalBody: true,
+  )
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _assetshelflifeexpirationreportExportexcelxlsxPost({
+    @Body()
+    required WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetShelfLifeExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  assetshelflifeexpirationreportRunreportPost({
+    required WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiDataAppReportResponse,
+      () => WebApiDataAppReportResponse.fromJsonFactory,
+    );
+
+    return _assetshelflifeexpirationreportRunreportPost(body: body);
+  }
+
+  ///
+  @POST(path: '/assetshelflifeexpirationreport/runreport', optionalBody: true)
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  _assetshelflifeexpirationreportRunreportPost({
+    @Body()
+    required WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetShelfLifeExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetshelflifeexpirationreportValidateinventorytypeBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetshelflifeexpirationreportValidateinventorytypeBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/assetshelflifeexpirationreport/validateinventorytype/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetshelflifeexpirationreportValidateinventorytypeBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetShelfLifeExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetshelflifeexpirationreportValidatecategoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetshelflifeexpirationreportValidatecategoryBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/assetshelflifeexpirationreport/validatecategory/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetshelflifeexpirationreportValidatecategoryBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetShelfLifeExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetshelflifeexpirationreportValidatewarehouseBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetshelflifeexpirationreportValidatewarehouseBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/assetshelflifeexpirationreport/validatewarehouse/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetshelflifeexpirationreportValidatewarehouseBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetShelfLifeExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetshelflifeexpirationreportValidateinventoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetshelflifeexpirationreportValidateinventoryBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/assetshelflifeexpirationreport/validateinventory/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetshelflifeexpirationreportValidateinventoryBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetShelfLifeExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetshelflifeexpirationreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetshelflifeexpirationreportEmptyobjectGet();
+  }
+
+  ///
+  @GET(path: '/assetshelflifeexpirationreport/emptyobject')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetshelflifeexpirationreportEmptyobjectGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetShelfLifeExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetshelflifeexpirationreportPreviewGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetshelflifeexpirationreportPreviewGet();
+  }
+
+  ///
+  @GET(path: '/assetshelflifeexpirationreport/preview')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetshelflifeexpirationreportPreviewGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetShelfLifeExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  assetwarrantyexpirationreportRenderPost({
+    required FwStandardReportingFwReportRenderRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardReportingFwReportRenderResponse,
+      () => FwStandardReportingFwReportRenderResponse.fromJsonFactory,
+    );
+
+    return _assetwarrantyexpirationreportRenderPost(body: body);
+  }
+
+  ///
+  @POST(path: '/assetwarrantyexpirationreport/render', optionalBody: true)
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  _assetwarrantyexpirationreportRenderPost({
+    @Body() required FwStandardReportingFwReportRenderRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetWarrantyExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  assetwarrantyexpirationreportExportexcelxlsxPost({
+    required WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      () =>
+          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+              .fromJsonFactory,
+    );
+
+    return _assetwarrantyexpirationreportExportexcelxlsxPost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/assetwarrantyexpirationreport/exportexcelxlsx',
+    optionalBody: true,
+  )
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _assetwarrantyexpirationreportExportexcelxlsxPost({
+    @Body()
+    required WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetWarrantyExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  assetwarrantyexpirationreportRunreportPost({
+    required WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiDataAppReportResponse,
+      () => WebApiDataAppReportResponse.fromJsonFactory,
+    );
+
+    return _assetwarrantyexpirationreportRunreportPost(body: body);
+  }
+
+  ///
+  @POST(path: '/assetwarrantyexpirationreport/runreport', optionalBody: true)
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  _assetwarrantyexpirationreportRunreportPost({
+    @Body()
+    required WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetWarrantyExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetwarrantyexpirationreportValidateinventorytypeBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetwarrantyexpirationreportValidateinventorytypeBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/assetwarrantyexpirationreport/validateinventorytype/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetwarrantyexpirationreportValidateinventorytypeBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetWarrantyExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetwarrantyexpirationreportValidatecategoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetwarrantyexpirationreportValidatecategoryBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/assetwarrantyexpirationreport/validatecategory/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetwarrantyexpirationreportValidatecategoryBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetWarrantyExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetwarrantyexpirationreportValidatewarehouseBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetwarrantyexpirationreportValidatewarehouseBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/assetwarrantyexpirationreport/validatewarehouse/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetwarrantyexpirationreportValidatewarehouseBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetWarrantyExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetwarrantyexpirationreportValidateinventoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetwarrantyexpirationreportValidateinventoryBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/assetwarrantyexpirationreport/validateinventory/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetwarrantyexpirationreportValidateinventoryBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetWarrantyExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetwarrantyexpirationreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetwarrantyexpirationreportEmptyobjectGet();
+  }
+
+  ///
+  @GET(path: '/assetwarrantyexpirationreport/emptyobject')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetwarrantyexpirationreportEmptyobjectGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetWarrantyExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  assetwarrantyexpirationreportPreviewGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _assetwarrantyexpirationreportPreviewGet();
+  }
+
+  ///
+  @GET(path: '/assetwarrantyexpirationreport/preview')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _assetwarrantyexpirationreportPreviewGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["AssetWarrantyExpirationReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
   billinganalysisreportRenderPost({
     required FwStandardReportingFwReportRenderRequest? body,
   }) {
@@ -1929,7 +2551,7 @@ abstract class Reports extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  billingprogressreportValidatedealcsrBrowsePost({
+  billingprogressreportValidatecsrBrowsePost({
     required FwStandardModelsBrowseRequest? body,
   }) {
     generatedMapping.putIfAbsent(
@@ -1937,16 +2559,13 @@ abstract class Reports extends ChopperService {
       () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
     );
 
-    return _billingprogressreportValidatedealcsrBrowsePost(body: body);
+    return _billingprogressreportValidatecsrBrowsePost(body: body);
   }
 
   ///
-  @POST(
-    path: '/billingprogressreport/validatedealcsr/browse',
-    optionalBody: true,
-  )
+  @POST(path: '/billingprogressreport/validatecsr/browse', optionalBody: true)
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  _billingprogressreportValidatedealcsrBrowsePost({
+  _billingprogressreportValidatecsrBrowsePost({
     @Body() required FwStandardModelsBrowseRequest? body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -15147,7 +15766,7 @@ abstract class Reports extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  orderconflictreportValidateinventoryBrowsePost({
+  orderconflictreportValidaterentalinventoryBrowsePost({
     required FwStandardModelsBrowseRequest? body,
   }) {
     generatedMapping.putIfAbsent(
@@ -15155,16 +15774,50 @@ abstract class Reports extends ChopperService {
       () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
     );
 
-    return _orderconflictreportValidateinventoryBrowsePost(body: body);
+    return _orderconflictreportValidaterentalinventoryBrowsePost(body: body);
   }
 
   ///
   @POST(
-    path: '/orderconflictreport/validateinventory/browse',
+    path: '/orderconflictreport/validaterentalinventory/browse',
     optionalBody: true,
   )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  _orderconflictreportValidateinventoryBrowsePost({
+  _orderconflictreportValidaterentalinventoryBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderConflictReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  orderconflictreportValidatesalesinventoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _orderconflictreportValidatesalesinventoryBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/orderconflictreport/validatesalesinventory/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _orderconflictreportValidatesalesinventoryBrowsePost({
     @Body() required FwStandardModelsBrowseRequest? body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -16510,6 +17163,40 @@ abstract class Reports extends ChopperService {
   )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   _ordervaluesheetreportValidatecontractBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderValueSheetReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  ordervaluesheetreportValidatemanifestBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _ordervaluesheetreportValidatemanifestBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/ordervaluesheetreport/validatemanifest/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _ordervaluesheetreportValidatemanifestBrowsePost({
     @Body() required FwStandardModelsBrowseRequest? body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -23193,6 +23880,37 @@ abstract class Reports extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  profitlossreportValidatedealtypeBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _profitlossreportValidatedealtypeBrowsePost(body: body);
+  }
+
+  ///
+  @POST(path: '/profitlossreport/validatedealtype/browse', optionalBody: true)
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _profitlossreportValidatedealtypeBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ProfitLossReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   profitlossreportEmptyobjectGet() {
     generatedMapping.putIfAbsent(
       FwStandardSqlServerFwJsonDataTable,
@@ -26977,6 +27695,40 @@ abstract class Reports extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  quoteordermasterreportValidateagentBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _quoteordermasterreportValidateagentBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/quoteordermasterreport/validateagent/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _quoteordermasterreportValidateagentBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["QuoteOrderMasterReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   quoteordermasterreportEmptyobjectGet() {
     generatedMapping.putIfAbsent(
       FwStandardSqlServerFwJsonDataTable,
@@ -30075,6 +30827,357 @@ abstract class Reports extends ChopperService {
       produces: [],
       security: [],
       tags: ["RentalInventoryChangeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  rentalinventorydetailbyrankreportRenderPost({
+    required FwStandardReportingFwReportRenderRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardReportingFwReportRenderResponse,
+      () => FwStandardReportingFwReportRenderResponse.fromJsonFactory,
+    );
+
+    return _rentalinventorydetailbyrankreportRenderPost(body: body);
+  }
+
+  ///
+  @POST(path: '/rentalinventorydetailbyrankreport/render', optionalBody: true)
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  _rentalinventorydetailbyrankreportRenderPost({
+    @Body() required FwStandardReportingFwReportRenderRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryDetailByRankReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  rentalinventorydetailbyrankreportExportexcelxlsxPost({
+    required WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      () =>
+          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+              .fromJsonFactory,
+    );
+
+    return _rentalinventorydetailbyrankreportExportexcelxlsxPost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/rentalinventorydetailbyrankreport/exportexcelxlsx',
+    optionalBody: true,
+  )
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _rentalinventorydetailbyrankreportExportexcelxlsxPost({
+    @Body()
+    required WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryDetailByRankReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  rentalinventorydetailbyrankreportRunreportPost({
+    required WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiDataAppReportResponse,
+      () => WebApiDataAppReportResponse.fromJsonFactory,
+    );
+
+    return _rentalinventorydetailbyrankreportRunreportPost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/rentalinventorydetailbyrankreport/runreport',
+    optionalBody: true,
+  )
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  _rentalinventorydetailbyrankreportRunreportPost({
+    @Body()
+    required WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryDetailByRankReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  rentalinventorydetailbyrankreportValidateinventorytypeBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _rentalinventorydetailbyrankreportValidateinventorytypeBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/rentalinventorydetailbyrankreport/validateinventorytype/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _rentalinventorydetailbyrankreportValidateinventorytypeBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryDetailByRankReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  rentalinventorydetailbyrankreportValidatecategoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _rentalinventorydetailbyrankreportValidatecategoryBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/rentalinventorydetailbyrankreport/validatecategory/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _rentalinventorydetailbyrankreportValidatecategoryBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryDetailByRankReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  rentalinventorydetailbyrankreportValidatesubcategoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _rentalinventorydetailbyrankreportValidatesubcategoryBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/rentalinventorydetailbyrankreport/validatesubcategory/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _rentalinventorydetailbyrankreportValidatesubcategoryBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryDetailByRankReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  rentalinventorydetailbyrankreportValidateinventoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _rentalinventorydetailbyrankreportValidateinventoryBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/rentalinventorydetailbyrankreport/validateinventory/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _rentalinventorydetailbyrankreportValidateinventoryBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryDetailByRankReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  rentalinventorydetailbyrankreportValidatewarehouseBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _rentalinventorydetailbyrankreportValidatewarehouseBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/rentalinventorydetailbyrankreport/validatewarehouse/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _rentalinventorydetailbyrankreportValidatewarehouseBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryDetailByRankReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  rentalinventorydetailbyrankreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _rentalinventorydetailbyrankreportEmptyobjectGet();
+  }
+
+  ///
+  @GET(path: '/rentalinventorydetailbyrankreport/emptyobject')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _rentalinventorydetailbyrankreportEmptyobjectGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryDetailByRankReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  rentalinventorydetailbyrankreportPreviewGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _rentalinventorydetailbyrankreportPreviewGet();
+  }
+
+  ///
+  @GET(path: '/rentalinventorydetailbyrankreport/preview')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _rentalinventorydetailbyrankreportPreviewGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryDetailByRankReport"],
       deprecated: false,
     ),
   });
@@ -37462,6 +38565,377 @@ abstract class Reports extends ChopperService {
   });
 
   ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  returnonassetbarcodereportRenderPost({
+    required FwStandardReportingFwReportRenderRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardReportingFwReportRenderResponse,
+      () => FwStandardReportingFwReportRenderResponse.fromJsonFactory,
+    );
+
+    return _returnonassetbarcodereportRenderPost(body: body);
+  }
+
+  ///
+  @POST(path: '/returnonassetbarcodereport/render', optionalBody: true)
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  _returnonassetbarcodereportRenderPost({
+    @Body() required FwStandardReportingFwReportRenderRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ReturnOnAssetBarcodeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  returnonassetbarcodereportExportexcelxlsxPost({
+    required WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      () =>
+          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+              .fromJsonFactory,
+    );
+
+    return _returnonassetbarcodereportExportexcelxlsxPost(body: body);
+  }
+
+  ///
+  @POST(path: '/returnonassetbarcodereport/exportexcelxlsx', optionalBody: true)
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _returnonassetbarcodereportExportexcelxlsxPost({
+    @Body()
+    required WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ReturnOnAssetBarcodeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  returnonassetbarcodereportRunreportPost({
+    required WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiDataAppReportResponse,
+      () => WebApiDataAppReportResponse.fromJsonFactory,
+    );
+
+    return _returnonassetbarcodereportRunreportPost(body: body);
+  }
+
+  ///
+  @POST(path: '/returnonassetbarcodereport/runreport', optionalBody: true)
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  _returnonassetbarcodereportRunreportPost({
+    @Body()
+    required WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ReturnOnAssetBarcodeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  returnonassetbarcodereportValidateinventorytypeBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _returnonassetbarcodereportValidateinventorytypeBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/returnonassetbarcodereport/validateinventorytype/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _returnonassetbarcodereportValidateinventorytypeBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ReturnOnAssetBarcodeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  returnonassetbarcodereportValidatecategoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _returnonassetbarcodereportValidatecategoryBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/returnonassetbarcodereport/validatecategory/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _returnonassetbarcodereportValidatecategoryBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ReturnOnAssetBarcodeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  returnonassetbarcodereportValidatewarehouseBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _returnonassetbarcodereportValidatewarehouseBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/returnonassetbarcodereport/validatewarehouse/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _returnonassetbarcodereportValidatewarehouseBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ReturnOnAssetBarcodeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  returnonassetbarcodereportValidatesubcategoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _returnonassetbarcodereportValidatesubcategoryBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/returnonassetbarcodereport/validatesubcategory/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _returnonassetbarcodereportValidatesubcategoryBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ReturnOnAssetBarcodeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  returnonassetbarcodereportValidateinventoryBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _returnonassetbarcodereportValidateinventoryBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/returnonassetbarcodereport/validateinventory/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _returnonassetbarcodereportValidateinventoryBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ReturnOnAssetBarcodeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  returnonassetbarcodereportValidateassetBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _returnonassetbarcodereportValidateassetBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/returnonassetbarcodereport/validateasset/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _returnonassetbarcodereportValidateassetBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ReturnOnAssetBarcodeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  returnonassetbarcodereportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _returnonassetbarcodereportEmptyobjectGet();
+  }
+
+  ///
+  @GET(path: '/returnonassetbarcodereport/emptyobject')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _returnonassetbarcodereportEmptyobjectGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ReturnOnAssetBarcodeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  returnonassetbarcodereportPreviewGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _returnonassetbarcodereportPreviewGet();
+  }
+
+  ///
+  @GET(path: '/returnonassetbarcodereport/preview')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _returnonassetbarcodereportPreviewGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ReturnOnAssetBarcodeReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   returnonassetperiodBrowsePost({
     required FwStandardModelsBrowseRequest? body,
@@ -43789,6 +45263,192 @@ abstract class Reports extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  standaloneitemreportRenderPost({
+    required FwStandardReportingFwReportRenderRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardReportingFwReportRenderResponse,
+      () => FwStandardReportingFwReportRenderResponse.fromJsonFactory,
+    );
+
+    return _standaloneitemreportRenderPost(body: body);
+  }
+
+  ///
+  @POST(path: '/standaloneitemreport/render', optionalBody: true)
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  _standaloneitemreportRenderPost({
+    @Body() required FwStandardReportingFwReportRenderRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StandAloneItemReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  standaloneitemreportRunreportPost({
+    required WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiDataAppReportResponse,
+      () => WebApiDataAppReportResponse.fromJsonFactory,
+    );
+
+    return _standaloneitemreportRunreportPost(body: body);
+  }
+
+  ///
+  @POST(path: '/standaloneitemreport/runreport', optionalBody: true)
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  _standaloneitemreportRunreportPost({
+    @Body()
+    required WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StandAloneItemReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  standaloneitemreportValidateorderBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _standaloneitemreportValidateorderBrowsePost(body: body);
+  }
+
+  ///
+  @POST(path: '/standaloneitemreport/validateorder/browse', optionalBody: true)
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _standaloneitemreportValidateorderBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StandAloneItemReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  standaloneitemreportValidateprojectBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _standaloneitemreportValidateprojectBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/standaloneitemreport/validateproject/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _standaloneitemreportValidateprojectBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StandAloneItemReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  standaloneitemreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _standaloneitemreportEmptyobjectGet();
+  }
+
+  ///
+  @GET(path: '/standaloneitemreport/emptyobject')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _standaloneitemreportEmptyobjectGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StandAloneItemReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  standaloneitemreportPreviewGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _standaloneitemreportPreviewGet();
+  }
+
+  ///
+  @GET(path: '/standaloneitemreport/preview')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _standaloneitemreportPreviewGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StandAloneItemReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
   storagecontainerlabelRenderPost({
     required FwStandardReportingFwReportRenderRequest? body,
   }) {
@@ -49455,6 +51115,7 @@ class FwStandardBusinessLogicFwBusinessLogic {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -49505,6 +51166,8 @@ class FwStandardBusinessLogicFwBusinessLogic {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -49563,6 +51226,11 @@ class FwStandardBusinessLogicFwBusinessLogic {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -49609,6 +51277,7 @@ class FwStandardBusinessLogicFwBusinessLogic {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -49630,6 +51299,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -49648,6 +51318,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -49668,6 +51339,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -49689,6 +51361,9 @@ extension $FwStandardBusinessLogicFwBusinessLogicExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -49724,6 +51399,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
     this.displayFieldName,
     this.allowedValues,
     this.templateSequence,
+    this.isEmail,
   });
 
   factory FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
@@ -49765,6 +51441,8 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
   final String? allowedValues;
   @JsonKey(name: 'TemplateSequence', includeIfNull: false)
   final int? templateSequence;
+  @JsonKey(name: 'IsEmail', includeIfNull: false)
+  final bool? isEmail;
   static const fromJsonFactory =
       _$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson;
 
@@ -49818,7 +51496,9 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
                 const DeepCollectionEquality().equals(
                   other.templateSequence,
                   templateSequence,
-                )));
+                )) &&
+            (identical(other.isEmail, isEmail) ||
+                const DeepCollectionEquality().equals(other.isEmail, isEmail)));
   }
 
   @override
@@ -49836,6 +51516,7 @@ class FwStandardBusinessLogicFwBusinessLogicFieldDefinition {
       const DeepCollectionEquality().hash(displayFieldName) ^
       const DeepCollectionEquality().hash(allowedValues) ^
       const DeepCollectionEquality().hash(templateSequence) ^
+      const DeepCollectionEquality().hash(isEmail) ^
       runtimeType.hashCode;
 }
 
@@ -49852,6 +51533,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     String? displayFieldName,
     String? allowedValues,
     int? templateSequence,
+    bool? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: name ?? this.name,
@@ -49864,6 +51546,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       displayFieldName: displayFieldName ?? this.displayFieldName,
       allowedValues: allowedValues ?? this.allowedValues,
       templateSequence: templateSequence ?? this.templateSequence,
+      isEmail: isEmail ?? this.isEmail,
     );
   }
 
@@ -49878,6 +51561,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
     Wrapped<String?>? displayFieldName,
     Wrapped<String?>? allowedValues,
     Wrapped<int?>? templateSequence,
+    Wrapped<bool?>? isEmail,
   }) {
     return FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
       name: (name != null ? name.value : this.name),
@@ -49900,6 +51584,7 @@ extension $FwStandardBusinessLogicFwBusinessLogicFieldDefinitionExtension
       templateSequence: (templateSequence != null
           ? templateSequence.value
           : this.templateSequence),
+      isEmail: (isEmail != null ? isEmail.value : this.isEmail),
     );
   }
 }
@@ -49913,6 +51598,8 @@ class FwStandardDataFwCustomValue {
     this.fieldType,
     this.validationModule,
     this.validationFieldName,
+    this.validationFieldId,
+    this.listFieldAllowedValues,
   });
 
   factory FwStandardDataFwCustomValue.fromJson(Map<String, dynamic> json) =>
@@ -49933,6 +51620,10 @@ class FwStandardDataFwCustomValue {
   final String? validationModule;
   @JsonKey(name: 'ValidationFieldName', includeIfNull: false)
   final String? validationFieldName;
+  @JsonKey(name: 'ValidationFieldId', includeIfNull: false)
+  final String? validationFieldId;
+  @JsonKey(name: 'ListFieldAllowedValues', includeIfNull: false)
+  final String? listFieldAllowedValues;
   static const fromJsonFactory = _$FwStandardDataFwCustomValueFromJson;
 
   @override
@@ -49968,6 +51659,16 @@ class FwStandardDataFwCustomValue {
                 const DeepCollectionEquality().equals(
                   other.validationFieldName,
                   validationFieldName,
+                )) &&
+            (identical(other.validationFieldId, validationFieldId) ||
+                const DeepCollectionEquality().equals(
+                  other.validationFieldId,
+                  validationFieldId,
+                )) &&
+            (identical(other.listFieldAllowedValues, listFieldAllowedValues) ||
+                const DeepCollectionEquality().equals(
+                  other.listFieldAllowedValues,
+                  listFieldAllowedValues,
                 )));
   }
 
@@ -49982,6 +51683,8 @@ class FwStandardDataFwCustomValue {
       const DeepCollectionEquality().hash(fieldType) ^
       const DeepCollectionEquality().hash(validationModule) ^
       const DeepCollectionEquality().hash(validationFieldName) ^
+      const DeepCollectionEquality().hash(validationFieldId) ^
+      const DeepCollectionEquality().hash(listFieldAllowedValues) ^
       runtimeType.hashCode;
 }
 
@@ -49993,6 +51696,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     String? fieldType,
     String? validationModule,
     String? validationFieldName,
+    String? validationFieldId,
+    String? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: moduleName ?? this.moduleName,
@@ -50001,6 +51706,9 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       fieldType: fieldType ?? this.fieldType,
       validationModule: validationModule ?? this.validationModule,
       validationFieldName: validationFieldName ?? this.validationFieldName,
+      validationFieldId: validationFieldId ?? this.validationFieldId,
+      listFieldAllowedValues:
+          listFieldAllowedValues ?? this.listFieldAllowedValues,
     );
   }
 
@@ -50011,6 +51719,8 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
     Wrapped<String?>? fieldType,
     Wrapped<String?>? validationModule,
     Wrapped<String?>? validationFieldName,
+    Wrapped<String?>? validationFieldId,
+    Wrapped<String?>? listFieldAllowedValues,
   }) {
     return FwStandardDataFwCustomValue(
       moduleName: (moduleName != null ? moduleName.value : this.moduleName),
@@ -50023,6 +51733,12 @@ extension $FwStandardDataFwCustomValueExtension on FwStandardDataFwCustomValue {
       validationFieldName: (validationFieldName != null
           ? validationFieldName.value
           : this.validationFieldName),
+      validationFieldId: (validationFieldId != null
+          ? validationFieldId.value
+          : this.validationFieldId),
+      listFieldAllowedValues: (listFieldAllowedValues != null
+          ? listFieldAllowedValues.value
+          : this.listFieldAllowedValues),
     );
   }
 }
@@ -50125,6 +51841,7 @@ class FwStandardDataFwReportLoader {
     this.defaultFieldAttributes,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.original,
     this.createdByUserId,
     this.createdByUserName,
@@ -50168,6 +51885,8 @@ class FwStandardDataFwReportLoader {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: '_Original', includeIfNull: false)
   final FwStandardBusinessLogicFwBusinessLogic? original;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
@@ -50225,6 +51944,11 @@ class FwStandardDataFwReportLoader {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.original, original) ||
                 const DeepCollectionEquality().equals(
                   other.original,
@@ -50275,6 +51999,7 @@ class FwStandardDataFwReportLoader {
       const DeepCollectionEquality().hash(defaultFieldAttributes) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
@@ -50296,6 +52021,7 @@ extension $FwStandardDataFwReportLoaderExtension
     List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     FwStandardBusinessLogicFwBusinessLogic? original,
     String? createdByUserId,
     String? createdByUserName,
@@ -50314,6 +52040,7 @@ extension $FwStandardDataFwReportLoaderExtension
           defaultFieldAttributes ?? this.defaultFieldAttributes,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       original: original ?? this.original,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
@@ -50333,6 +52060,7 @@ extension $FwStandardDataFwReportLoaderExtension
     Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
@@ -50354,6 +52082,9 @@ extension $FwStandardDataFwReportLoaderExtension
           : this.defaultFieldAttributes),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       original: (original != null ? original.value : this.original),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
@@ -50522,6 +52253,7 @@ class FwStandardModelsBrowseRequest {
     this.fields,
     this.totalfields,
     this.activeviewfields,
+    this.timezoneOffset,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -50610,6 +52342,8 @@ class FwStandardModelsBrowseRequest {
   final List<String>? totalfields;
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
+  @JsonKey(name: 'timezoneOffset', includeIfNull: false)
+  final int? timezoneOffset;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -50733,6 +52467,11 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.activeviewfields,
                   activeviewfields,
+                )) &&
+            (identical(other.timezoneOffset, timezoneOffset) ||
+                const DeepCollectionEquality().equals(
+                  other.timezoneOffset,
+                  timezoneOffset,
                 )));
   }
 
@@ -50767,6 +52506,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(fields) ^
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
+      const DeepCollectionEquality().hash(timezoneOffset) ^
       runtimeType.hashCode;
 }
 
@@ -50799,6 +52539,7 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
+    int? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -50827,6 +52568,7 @@ extension $FwStandardModelsBrowseRequestExtension
       fields: fields ?? this.fields,
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
+      timezoneOffset: timezoneOffset ?? this.timezoneOffset,
     );
   }
 
@@ -50857,6 +52599,7 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
+    Wrapped<int?>? timezoneOffset,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -50909,6 +52652,9 @@ extension $FwStandardModelsBrowseRequestExtension
       activeviewfields: (activeviewfields != null
           ? activeviewfields.value
           : this.activeviewfields),
+      timezoneOffset: (timezoneOffset != null
+          ? timezoneOffset.value
+          : this.timezoneOffset),
     );
   }
 }
@@ -51435,6 +53181,7 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader {
     this.defaultFieldAttributes,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.original,
     this.createdByUserId,
     this.createdByUserName,
@@ -51490,6 +53237,8 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: '_Original', includeIfNull: false)
   final FwStandardBusinessLogicFwBusinessLogic? original;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
@@ -51553,6 +53302,11 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.original, original) ||
                 const DeepCollectionEquality().equals(
                   other.original,
@@ -51605,6 +53359,7 @@ class FwStandardModulesAdministratorCustomReportCssCustomReportCssLoader {
       const DeepCollectionEquality().hash(defaultFieldAttributes) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
@@ -51628,6 +53383,7 @@ extension $FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderExt
     List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     FwStandardBusinessLogicFwBusinessLogic? original,
     String? createdByUserId,
     String? createdByUserName,
@@ -51648,6 +53404,7 @@ extension $FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderExt
           defaultFieldAttributes ?? this.defaultFieldAttributes,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       original: original ?? this.original,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
@@ -51670,6 +53427,7 @@ extension $FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderExt
     Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
@@ -51693,6 +53451,9 @@ extension $FwStandardModulesAdministratorCustomReportCssCustomReportCssLoaderExt
           : this.defaultFieldAttributes),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       original: (original != null ? original.value : this.original),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
@@ -52684,6 +54445,7 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -52773,6 +54535,8 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -52917,6 +54681,11 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -52982,6 +54751,7 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -53022,6 +54792,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -53061,6 +54832,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -53100,6 +54872,7 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -53164,6 +54937,9 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -54929,6 +56705,638 @@ extension $WebApiModulesReportsAccountingReportsPurchaseGlDetailReportPurchaseGl
 }
 
 @JsonSerializable(explicitToJson: true)
+class WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest {
+  const WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest({
+    this.shelfLifeExpired,
+    this.shelfLifeWillExpire,
+    this.numberOfDays,
+    this.warehouseId,
+    this.inventoryTypeId,
+    this.categoryId,
+    this.inventoryId,
+    this.userDepartmentId,
+    this.userLocationId,
+    this.userWarehouseId,
+    this.customReportLayoutId,
+    this.isSummary,
+    this.includeSubHeadingsAndSubTotals,
+    this.includeIdColumns,
+    this.locale,
+    this.excelfields,
+    this.reportName,
+    this.useEmailTemplate,
+  });
+
+  factory WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequestFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequestToJson(
+        this,
+      );
+
+  @JsonKey(name: 'ShelfLifeExpired', includeIfNull: false)
+  final bool? shelfLifeExpired;
+  @JsonKey(name: 'ShelfLifeWillExpire', includeIfNull: false)
+  final bool? shelfLifeWillExpire;
+  @JsonKey(name: 'NumberOfDays', includeIfNull: false)
+  final int? numberOfDays;
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
+  final String? warehouseId;
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
+  final String? inventoryTypeId;
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
+  final String? categoryId;
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
+  final String? inventoryId;
+  @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
+  final String? userDepartmentId;
+  @JsonKey(name: 'UserLocationId', includeIfNull: false)
+  final String? userLocationId;
+  @JsonKey(name: 'UserWarehouseId', includeIfNull: false)
+  final String? userWarehouseId;
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
+  final String? customReportLayoutId;
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
+  final bool? isSummary;
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
+  final bool? includeSubHeadingsAndSubTotals;
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
+  final bool? includeIdColumns;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
+  @JsonKey(
+    name: 'excelfields',
+    includeIfNull: false,
+    defaultValue: <FwStandardModelsCheckBoxListItem>[],
+  )
+  final List<FwStandardModelsCheckBoxListItem>? excelfields;
+  @JsonKey(name: 'ReportName', includeIfNull: false)
+  final String? reportName;
+  @JsonKey(name: 'UseEmailTemplate', includeIfNull: false)
+  final bool? useEmailTemplate;
+  static const fromJsonFactory =
+      _$WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest &&
+            (identical(other.shelfLifeExpired, shelfLifeExpired) ||
+                const DeepCollectionEquality().equals(
+                  other.shelfLifeExpired,
+                  shelfLifeExpired,
+                )) &&
+            (identical(other.shelfLifeWillExpire, shelfLifeWillExpire) ||
+                const DeepCollectionEquality().equals(
+                  other.shelfLifeWillExpire,
+                  shelfLifeWillExpire,
+                )) &&
+            (identical(other.numberOfDays, numberOfDays) ||
+                const DeepCollectionEquality().equals(
+                  other.numberOfDays,
+                  numberOfDays,
+                )) &&
+            (identical(other.warehouseId, warehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.warehouseId,
+                  warehouseId,
+                )) &&
+            (identical(other.inventoryTypeId, inventoryTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryTypeId,
+                  inventoryTypeId,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.inventoryId, inventoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryId,
+                  inventoryId,
+                )) &&
+            (identical(other.userDepartmentId, userDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.userDepartmentId,
+                  userDepartmentId,
+                )) &&
+            (identical(other.userLocationId, userLocationId) ||
+                const DeepCollectionEquality().equals(
+                  other.userLocationId,
+                  userLocationId,
+                )) &&
+            (identical(other.userWarehouseId, userWarehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.userWarehouseId,
+                  userWarehouseId,
+                )) &&
+            (identical(other.customReportLayoutId, customReportLayoutId) ||
+                const DeepCollectionEquality().equals(
+                  other.customReportLayoutId,
+                  customReportLayoutId,
+                )) &&
+            (identical(other.isSummary, isSummary) ||
+                const DeepCollectionEquality().equals(
+                  other.isSummary,
+                  isSummary,
+                )) &&
+            (identical(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                )) &&
+            (identical(other.includeIdColumns, includeIdColumns) ||
+                const DeepCollectionEquality().equals(
+                  other.includeIdColumns,
+                  includeIdColumns,
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)) &&
+            (identical(other.excelfields, excelfields) ||
+                const DeepCollectionEquality().equals(
+                  other.excelfields,
+                  excelfields,
+                )) &&
+            (identical(other.reportName, reportName) ||
+                const DeepCollectionEquality().equals(
+                  other.reportName,
+                  reportName,
+                )) &&
+            (identical(other.useEmailTemplate, useEmailTemplate) ||
+                const DeepCollectionEquality().equals(
+                  other.useEmailTemplate,
+                  useEmailTemplate,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(shelfLifeExpired) ^
+      const DeepCollectionEquality().hash(shelfLifeWillExpire) ^
+      const DeepCollectionEquality().hash(numberOfDays) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(userDepartmentId) ^
+      const DeepCollectionEquality().hash(userLocationId) ^
+      const DeepCollectionEquality().hash(userWarehouseId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      const DeepCollectionEquality().hash(reportName) ^
+      const DeepCollectionEquality().hash(useEmailTemplate) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequestExtension
+    on
+        WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest {
+  WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest
+  copyWith({
+    bool? shelfLifeExpired,
+    bool? shelfLifeWillExpire,
+    int? numberOfDays,
+    String? warehouseId,
+    String? inventoryTypeId,
+    String? categoryId,
+    String? inventoryId,
+    String? userDepartmentId,
+    String? userLocationId,
+    String? userWarehouseId,
+    String? customReportLayoutId,
+    bool? isSummary,
+    bool? includeSubHeadingsAndSubTotals,
+    bool? includeIdColumns,
+    String? locale,
+    List<FwStandardModelsCheckBoxListItem>? excelfields,
+    String? reportName,
+    bool? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest(
+      shelfLifeExpired: shelfLifeExpired ?? this.shelfLifeExpired,
+      shelfLifeWillExpire: shelfLifeWillExpire ?? this.shelfLifeWillExpire,
+      numberOfDays: numberOfDays ?? this.numberOfDays,
+      warehouseId: warehouseId ?? this.warehouseId,
+      inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
+      categoryId: categoryId ?? this.categoryId,
+      inventoryId: inventoryId ?? this.inventoryId,
+      userDepartmentId: userDepartmentId ?? this.userDepartmentId,
+      userLocationId: userLocationId ?? this.userLocationId,
+      userWarehouseId: userWarehouseId ?? this.userWarehouseId,
+      customReportLayoutId: customReportLayoutId ?? this.customReportLayoutId,
+      isSummary: isSummary ?? this.isSummary,
+      includeSubHeadingsAndSubTotals:
+          includeSubHeadingsAndSubTotals ?? this.includeSubHeadingsAndSubTotals,
+      includeIdColumns: includeIdColumns ?? this.includeIdColumns,
+      locale: locale ?? this.locale,
+      excelfields: excelfields ?? this.excelfields,
+      reportName: reportName ?? this.reportName,
+      useEmailTemplate: useEmailTemplate ?? this.useEmailTemplate,
+    );
+  }
+
+  WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest
+  copyWithWrapped({
+    Wrapped<bool?>? shelfLifeExpired,
+    Wrapped<bool?>? shelfLifeWillExpire,
+    Wrapped<int?>? numberOfDays,
+    Wrapped<String?>? warehouseId,
+    Wrapped<String?>? inventoryTypeId,
+    Wrapped<String?>? categoryId,
+    Wrapped<String?>? inventoryId,
+    Wrapped<String?>? userDepartmentId,
+    Wrapped<String?>? userLocationId,
+    Wrapped<String?>? userWarehouseId,
+    Wrapped<String?>? customReportLayoutId,
+    Wrapped<bool?>? isSummary,
+    Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+    Wrapped<bool?>? includeIdColumns,
+    Wrapped<String?>? locale,
+    Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields,
+    Wrapped<String?>? reportName,
+    Wrapped<bool?>? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsAssetShelfLifeExpirationReportAssetShelfLifeExpirationReportRequest(
+      shelfLifeExpired: (shelfLifeExpired != null
+          ? shelfLifeExpired.value
+          : this.shelfLifeExpired),
+      shelfLifeWillExpire: (shelfLifeWillExpire != null
+          ? shelfLifeWillExpire.value
+          : this.shelfLifeWillExpire),
+      numberOfDays: (numberOfDays != null
+          ? numberOfDays.value
+          : this.numberOfDays),
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      inventoryTypeId: (inventoryTypeId != null
+          ? inventoryTypeId.value
+          : this.inventoryTypeId),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
+      userDepartmentId: (userDepartmentId != null
+          ? userDepartmentId.value
+          : this.userDepartmentId),
+      userLocationId: (userLocationId != null
+          ? userLocationId.value
+          : this.userLocationId),
+      userWarehouseId: (userWarehouseId != null
+          ? userWarehouseId.value
+          : this.userWarehouseId),
+      customReportLayoutId: (customReportLayoutId != null
+          ? customReportLayoutId.value
+          : this.customReportLayoutId),
+      isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+      includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+          ? includeSubHeadingsAndSubTotals.value
+          : this.includeSubHeadingsAndSubTotals),
+      includeIdColumns: (includeIdColumns != null
+          ? includeIdColumns.value
+          : this.includeIdColumns),
+      locale: (locale != null ? locale.value : this.locale),
+      excelfields: (excelfields != null ? excelfields.value : this.excelfields),
+      reportName: (reportName != null ? reportName.value : this.reportName),
+      useEmailTemplate: (useEmailTemplate != null
+          ? useEmailTemplate.value
+          : this.useEmailTemplate),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest {
+  const WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest({
+    this.warrantyExpired,
+    this.warrantyWillExpire,
+    this.numberOfDays,
+    this.warehouseId,
+    this.inventoryTypeId,
+    this.categoryId,
+    this.inventoryId,
+    this.userDepartmentId,
+    this.userLocationId,
+    this.userWarehouseId,
+    this.customReportLayoutId,
+    this.isSummary,
+    this.includeSubHeadingsAndSubTotals,
+    this.includeIdColumns,
+    this.locale,
+    this.excelfields,
+    this.reportName,
+    this.useEmailTemplate,
+  });
+
+  factory WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequestFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequestToJson(
+        this,
+      );
+
+  @JsonKey(name: 'WarrantyExpired', includeIfNull: false)
+  final bool? warrantyExpired;
+  @JsonKey(name: 'WarrantyWillExpire', includeIfNull: false)
+  final bool? warrantyWillExpire;
+  @JsonKey(name: 'NumberOfDays', includeIfNull: false)
+  final int? numberOfDays;
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
+  final String? warehouseId;
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
+  final String? inventoryTypeId;
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
+  final String? categoryId;
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
+  final String? inventoryId;
+  @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
+  final String? userDepartmentId;
+  @JsonKey(name: 'UserLocationId', includeIfNull: false)
+  final String? userLocationId;
+  @JsonKey(name: 'UserWarehouseId', includeIfNull: false)
+  final String? userWarehouseId;
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
+  final String? customReportLayoutId;
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
+  final bool? isSummary;
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
+  final bool? includeSubHeadingsAndSubTotals;
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
+  final bool? includeIdColumns;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
+  @JsonKey(
+    name: 'excelfields',
+    includeIfNull: false,
+    defaultValue: <FwStandardModelsCheckBoxListItem>[],
+  )
+  final List<FwStandardModelsCheckBoxListItem>? excelfields;
+  @JsonKey(name: 'ReportName', includeIfNull: false)
+  final String? reportName;
+  @JsonKey(name: 'UseEmailTemplate', includeIfNull: false)
+  final bool? useEmailTemplate;
+  static const fromJsonFactory =
+      _$WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest &&
+            (identical(other.warrantyExpired, warrantyExpired) ||
+                const DeepCollectionEquality().equals(
+                  other.warrantyExpired,
+                  warrantyExpired,
+                )) &&
+            (identical(other.warrantyWillExpire, warrantyWillExpire) ||
+                const DeepCollectionEquality().equals(
+                  other.warrantyWillExpire,
+                  warrantyWillExpire,
+                )) &&
+            (identical(other.numberOfDays, numberOfDays) ||
+                const DeepCollectionEquality().equals(
+                  other.numberOfDays,
+                  numberOfDays,
+                )) &&
+            (identical(other.warehouseId, warehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.warehouseId,
+                  warehouseId,
+                )) &&
+            (identical(other.inventoryTypeId, inventoryTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryTypeId,
+                  inventoryTypeId,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.inventoryId, inventoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryId,
+                  inventoryId,
+                )) &&
+            (identical(other.userDepartmentId, userDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.userDepartmentId,
+                  userDepartmentId,
+                )) &&
+            (identical(other.userLocationId, userLocationId) ||
+                const DeepCollectionEquality().equals(
+                  other.userLocationId,
+                  userLocationId,
+                )) &&
+            (identical(other.userWarehouseId, userWarehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.userWarehouseId,
+                  userWarehouseId,
+                )) &&
+            (identical(other.customReportLayoutId, customReportLayoutId) ||
+                const DeepCollectionEquality().equals(
+                  other.customReportLayoutId,
+                  customReportLayoutId,
+                )) &&
+            (identical(other.isSummary, isSummary) ||
+                const DeepCollectionEquality().equals(
+                  other.isSummary,
+                  isSummary,
+                )) &&
+            (identical(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                )) &&
+            (identical(other.includeIdColumns, includeIdColumns) ||
+                const DeepCollectionEquality().equals(
+                  other.includeIdColumns,
+                  includeIdColumns,
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)) &&
+            (identical(other.excelfields, excelfields) ||
+                const DeepCollectionEquality().equals(
+                  other.excelfields,
+                  excelfields,
+                )) &&
+            (identical(other.reportName, reportName) ||
+                const DeepCollectionEquality().equals(
+                  other.reportName,
+                  reportName,
+                )) &&
+            (identical(other.useEmailTemplate, useEmailTemplate) ||
+                const DeepCollectionEquality().equals(
+                  other.useEmailTemplate,
+                  useEmailTemplate,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(warrantyExpired) ^
+      const DeepCollectionEquality().hash(warrantyWillExpire) ^
+      const DeepCollectionEquality().hash(numberOfDays) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(userDepartmentId) ^
+      const DeepCollectionEquality().hash(userLocationId) ^
+      const DeepCollectionEquality().hash(userWarehouseId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      const DeepCollectionEquality().hash(reportName) ^
+      const DeepCollectionEquality().hash(useEmailTemplate) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequestExtension
+    on
+        WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest {
+  WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest
+  copyWith({
+    bool? warrantyExpired,
+    bool? warrantyWillExpire,
+    int? numberOfDays,
+    String? warehouseId,
+    String? inventoryTypeId,
+    String? categoryId,
+    String? inventoryId,
+    String? userDepartmentId,
+    String? userLocationId,
+    String? userWarehouseId,
+    String? customReportLayoutId,
+    bool? isSummary,
+    bool? includeSubHeadingsAndSubTotals,
+    bool? includeIdColumns,
+    String? locale,
+    List<FwStandardModelsCheckBoxListItem>? excelfields,
+    String? reportName,
+    bool? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest(
+      warrantyExpired: warrantyExpired ?? this.warrantyExpired,
+      warrantyWillExpire: warrantyWillExpire ?? this.warrantyWillExpire,
+      numberOfDays: numberOfDays ?? this.numberOfDays,
+      warehouseId: warehouseId ?? this.warehouseId,
+      inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
+      categoryId: categoryId ?? this.categoryId,
+      inventoryId: inventoryId ?? this.inventoryId,
+      userDepartmentId: userDepartmentId ?? this.userDepartmentId,
+      userLocationId: userLocationId ?? this.userLocationId,
+      userWarehouseId: userWarehouseId ?? this.userWarehouseId,
+      customReportLayoutId: customReportLayoutId ?? this.customReportLayoutId,
+      isSummary: isSummary ?? this.isSummary,
+      includeSubHeadingsAndSubTotals:
+          includeSubHeadingsAndSubTotals ?? this.includeSubHeadingsAndSubTotals,
+      includeIdColumns: includeIdColumns ?? this.includeIdColumns,
+      locale: locale ?? this.locale,
+      excelfields: excelfields ?? this.excelfields,
+      reportName: reportName ?? this.reportName,
+      useEmailTemplate: useEmailTemplate ?? this.useEmailTemplate,
+    );
+  }
+
+  WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest
+  copyWithWrapped({
+    Wrapped<bool?>? warrantyExpired,
+    Wrapped<bool?>? warrantyWillExpire,
+    Wrapped<int?>? numberOfDays,
+    Wrapped<String?>? warehouseId,
+    Wrapped<String?>? inventoryTypeId,
+    Wrapped<String?>? categoryId,
+    Wrapped<String?>? inventoryId,
+    Wrapped<String?>? userDepartmentId,
+    Wrapped<String?>? userLocationId,
+    Wrapped<String?>? userWarehouseId,
+    Wrapped<String?>? customReportLayoutId,
+    Wrapped<bool?>? isSummary,
+    Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+    Wrapped<bool?>? includeIdColumns,
+    Wrapped<String?>? locale,
+    Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields,
+    Wrapped<String?>? reportName,
+    Wrapped<bool?>? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsAssetWarrantyExpirationReportAssetWarrantyExpirationReportRequest(
+      warrantyExpired: (warrantyExpired != null
+          ? warrantyExpired.value
+          : this.warrantyExpired),
+      warrantyWillExpire: (warrantyWillExpire != null
+          ? warrantyWillExpire.value
+          : this.warrantyWillExpire),
+      numberOfDays: (numberOfDays != null
+          ? numberOfDays.value
+          : this.numberOfDays),
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      inventoryTypeId: (inventoryTypeId != null
+          ? inventoryTypeId.value
+          : this.inventoryTypeId),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
+      userDepartmentId: (userDepartmentId != null
+          ? userDepartmentId.value
+          : this.userDepartmentId),
+      userLocationId: (userLocationId != null
+          ? userLocationId.value
+          : this.userLocationId),
+      userWarehouseId: (userWarehouseId != null
+          ? userWarehouseId.value
+          : this.userWarehouseId),
+      customReportLayoutId: (customReportLayoutId != null
+          ? customReportLayoutId.value
+          : this.customReportLayoutId),
+      isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+      includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+          ? includeSubHeadingsAndSubTotals.value
+          : this.includeSubHeadingsAndSubTotals),
+      includeIdColumns: (includeIdColumns != null
+          ? includeIdColumns.value
+          : this.includeIdColumns),
+      locale: (locale != null ? locale.value : this.locale),
+      excelfields: (excelfields != null ? excelfields.value : this.excelfields),
+      reportName: (reportName != null ? reportName.value : this.reportName),
+      useEmailTemplate: (useEmailTemplate != null
+          ? useEmailTemplate.value
+          : this.useEmailTemplate),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest {
   const WebApiModulesReportsBillingAgentBillingReportAgentBillingReportRequest({
     this.fromDate,
@@ -55717,11 +58125,11 @@ class WebApiModulesReportsBillingBillingProgressReportBillingProgressReportReque
     this.excludeBilled100,
     this.officeLocationId,
     this.departmentId,
-    this.dealCsrId,
     this.customerId,
     this.dealTypeId,
     this.dealId,
     this.agentId,
+    this.csrId,
     this.userDepartmentId,
     this.userLocationId,
     this.userWarehouseId,
@@ -55765,8 +58173,6 @@ class WebApiModulesReportsBillingBillingProgressReportBillingProgressReportReque
   final String? officeLocationId;
   @JsonKey(name: 'DepartmentId', includeIfNull: false)
   final String? departmentId;
-  @JsonKey(name: 'DealCsrId', includeIfNull: false)
-  final String? dealCsrId;
   @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
   @JsonKey(name: 'DealTypeId', includeIfNull: false)
@@ -55775,6 +58181,8 @@ class WebApiModulesReportsBillingBillingProgressReportBillingProgressReportReque
   final String? dealId;
   @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
+  @JsonKey(name: 'CsrId', includeIfNull: false)
+  final String? csrId;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
   final String? userDepartmentId;
   @JsonKey(name: 'UserLocationId', includeIfNull: false)
@@ -55839,11 +58247,6 @@ class WebApiModulesReportsBillingBillingProgressReportBillingProgressReportReque
                   other.departmentId,
                   departmentId,
                 )) &&
-            (identical(other.dealCsrId, dealCsrId) ||
-                const DeepCollectionEquality().equals(
-                  other.dealCsrId,
-                  dealCsrId,
-                )) &&
             (identical(other.customerId, customerId) ||
                 const DeepCollectionEquality().equals(
                   other.customerId,
@@ -55861,6 +58264,8 @@ class WebApiModulesReportsBillingBillingProgressReportBillingProgressReportReque
                   other.agentId,
                   agentId,
                 )) &&
+            (identical(other.csrId, csrId) ||
+                const DeepCollectionEquality().equals(other.csrId, csrId)) &&
             (identical(other.userDepartmentId, userDepartmentId) ||
                 const DeepCollectionEquality().equals(
                   other.userDepartmentId,
@@ -55929,11 +58334,11 @@ class WebApiModulesReportsBillingBillingProgressReportBillingProgressReportReque
       const DeepCollectionEquality().hash(excludeBilled100) ^
       const DeepCollectionEquality().hash(officeLocationId) ^
       const DeepCollectionEquality().hash(departmentId) ^
-      const DeepCollectionEquality().hash(dealCsrId) ^
       const DeepCollectionEquality().hash(customerId) ^
       const DeepCollectionEquality().hash(dealTypeId) ^
       const DeepCollectionEquality().hash(dealId) ^
       const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(csrId) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
       const DeepCollectionEquality().hash(userLocationId) ^
       const DeepCollectionEquality().hash(userWarehouseId) ^
@@ -55958,11 +58363,11 @@ extension $WebApiModulesReportsBillingBillingProgressReportBillingProgressReport
     bool? excludeBilled100,
     String? officeLocationId,
     String? departmentId,
-    String? dealCsrId,
     String? customerId,
     String? dealTypeId,
     String? dealId,
     String? agentId,
+    String? csrId,
     String? userDepartmentId,
     String? userLocationId,
     String? userWarehouseId,
@@ -55982,11 +58387,11 @@ extension $WebApiModulesReportsBillingBillingProgressReportBillingProgressReport
       excludeBilled100: excludeBilled100 ?? this.excludeBilled100,
       officeLocationId: officeLocationId ?? this.officeLocationId,
       departmentId: departmentId ?? this.departmentId,
-      dealCsrId: dealCsrId ?? this.dealCsrId,
       customerId: customerId ?? this.customerId,
       dealTypeId: dealTypeId ?? this.dealTypeId,
       dealId: dealId ?? this.dealId,
       agentId: agentId ?? this.agentId,
+      csrId: csrId ?? this.csrId,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
       userLocationId: userLocationId ?? this.userLocationId,
       userWarehouseId: userWarehouseId ?? this.userWarehouseId,
@@ -56010,11 +58415,11 @@ extension $WebApiModulesReportsBillingBillingProgressReportBillingProgressReport
     Wrapped<bool?>? excludeBilled100,
     Wrapped<String?>? officeLocationId,
     Wrapped<String?>? departmentId,
-    Wrapped<String?>? dealCsrId,
     Wrapped<String?>? customerId,
     Wrapped<String?>? dealTypeId,
     Wrapped<String?>? dealId,
     Wrapped<String?>? agentId,
+    Wrapped<String?>? csrId,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
     Wrapped<String?>? userWarehouseId,
@@ -56042,11 +58447,11 @@ extension $WebApiModulesReportsBillingBillingProgressReportBillingProgressReport
       departmentId: (departmentId != null
           ? departmentId.value
           : this.departmentId),
-      dealCsrId: (dealCsrId != null ? dealCsrId.value : this.dealCsrId),
       customerId: (customerId != null ? customerId.value : this.customerId),
       dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
       dealId: (dealId != null ? dealId.value : this.dealId),
       agentId: (agentId != null ? agentId.value : this.agentId),
+      csrId: (csrId != null ? csrId.value : this.csrId),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -56312,7 +58717,6 @@ class WebApiModulesReportsBillingBillingStatementReportBillingStatementReportReq
     this.toDate,
     this.includeNoCharge,
     this.includePaidInvoices,
-    this.includeZeroBalance,
     this.paymentsThroughToday,
     this.hidePaymentDetails,
     this.officeLocationId,
@@ -56355,8 +58759,6 @@ class WebApiModulesReportsBillingBillingStatementReportBillingStatementReportReq
   final bool? includeNoCharge;
   @JsonKey(name: 'IncludePaidInvoices', includeIfNull: false)
   final bool? includePaidInvoices;
-  @JsonKey(name: 'IncludeZeroBalance', includeIfNull: false)
-  final bool? includeZeroBalance;
   @JsonKey(name: 'PaymentsThroughToday', includeIfNull: false)
   final bool? paymentsThroughToday;
   @JsonKey(name: 'HidePaymentDetails', includeIfNull: false)
@@ -56421,11 +58823,6 @@ class WebApiModulesReportsBillingBillingStatementReportBillingStatementReportReq
                 const DeepCollectionEquality().equals(
                   other.includePaidInvoices,
                   includePaidInvoices,
-                )) &&
-            (identical(other.includeZeroBalance, includeZeroBalance) ||
-                const DeepCollectionEquality().equals(
-                  other.includeZeroBalance,
-                  includeZeroBalance,
                 )) &&
             (identical(other.paymentsThroughToday, paymentsThroughToday) ||
                 const DeepCollectionEquality().equals(
@@ -56525,7 +58922,6 @@ class WebApiModulesReportsBillingBillingStatementReportBillingStatementReportReq
       const DeepCollectionEquality().hash(toDate) ^
       const DeepCollectionEquality().hash(includeNoCharge) ^
       const DeepCollectionEquality().hash(includePaidInvoices) ^
-      const DeepCollectionEquality().hash(includeZeroBalance) ^
       const DeepCollectionEquality().hash(paymentsThroughToday) ^
       const DeepCollectionEquality().hash(hidePaymentDetails) ^
       const DeepCollectionEquality().hash(officeLocationId) ^
@@ -56555,7 +58951,6 @@ extension $WebApiModulesReportsBillingBillingStatementReportBillingStatementRepo
     DateTime? toDate,
     bool? includeNoCharge,
     bool? includePaidInvoices,
-    bool? includeZeroBalance,
     bool? paymentsThroughToday,
     bool? hidePaymentDetails,
     String? officeLocationId,
@@ -56580,7 +58975,6 @@ extension $WebApiModulesReportsBillingBillingStatementReportBillingStatementRepo
       toDate: toDate ?? this.toDate,
       includeNoCharge: includeNoCharge ?? this.includeNoCharge,
       includePaidInvoices: includePaidInvoices ?? this.includePaidInvoices,
-      includeZeroBalance: includeZeroBalance ?? this.includeZeroBalance,
       paymentsThroughToday: paymentsThroughToday ?? this.paymentsThroughToday,
       hidePaymentDetails: hidePaymentDetails ?? this.hidePaymentDetails,
       officeLocationId: officeLocationId ?? this.officeLocationId,
@@ -56609,7 +59003,6 @@ extension $WebApiModulesReportsBillingBillingStatementReportBillingStatementRepo
     Wrapped<DateTime?>? toDate,
     Wrapped<bool?>? includeNoCharge,
     Wrapped<bool?>? includePaidInvoices,
-    Wrapped<bool?>? includeZeroBalance,
     Wrapped<bool?>? paymentsThroughToday,
     Wrapped<bool?>? hidePaymentDetails,
     Wrapped<String?>? officeLocationId,
@@ -56638,9 +59031,6 @@ extension $WebApiModulesReportsBillingBillingStatementReportBillingStatementRepo
       includePaidInvoices: (includePaidInvoices != null
           ? includePaidInvoices.value
           : this.includePaidInvoices),
-      includeZeroBalance: (includeZeroBalance != null
-          ? includeZeroBalance.value
-          : this.includeZeroBalance),
       paymentsThroughToday: (paymentsThroughToday != null
           ? paymentsThroughToday.value
           : this.paymentsThroughToday),
@@ -57872,6 +60262,7 @@ class WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest {
     this.agentId,
     this.customerId,
     this.dealId,
+    this.dealTypeId,
     this.orderId,
     this.statuses,
     this.userDepartmentId,
@@ -57917,6 +60308,8 @@ class WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest {
   final String? customerId;
   @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
+  @JsonKey(name: 'DealTypeId', includeIfNull: false)
+  final String? dealTypeId;
   @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
   @JsonKey(
@@ -57993,6 +60386,11 @@ class WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest {
                 )) &&
             (identical(other.dealId, dealId) ||
                 const DeepCollectionEquality().equals(other.dealId, dealId)) &&
+            (identical(other.dealTypeId, dealTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.dealTypeId,
+                  dealTypeId,
+                )) &&
             (identical(other.orderId, orderId) ||
                 const DeepCollectionEquality().equals(
                   other.orderId,
@@ -58073,6 +60471,7 @@ class WebApiModulesReportsBillingProfitLossReportProfitLossReportRequest {
       const DeepCollectionEquality().hash(agentId) ^
       const DeepCollectionEquality().hash(customerId) ^
       const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(dealTypeId) ^
       const DeepCollectionEquality().hash(orderId) ^
       const DeepCollectionEquality().hash(statuses) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
@@ -58100,6 +60499,7 @@ extension $WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestExt
     String? agentId,
     String? customerId,
     String? dealId,
+    String? dealTypeId,
     String? orderId,
     List<FwStandardModelsSelectedCheckBoxListItem>? statuses,
     String? userDepartmentId,
@@ -58123,6 +60523,7 @@ extension $WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestExt
       agentId: agentId ?? this.agentId,
       customerId: customerId ?? this.customerId,
       dealId: dealId ?? this.dealId,
+      dealTypeId: dealTypeId ?? this.dealTypeId,
       orderId: orderId ?? this.orderId,
       statuses: statuses ?? this.statuses,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
@@ -58150,6 +60551,7 @@ extension $WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestExt
     Wrapped<String?>? agentId,
     Wrapped<String?>? customerId,
     Wrapped<String?>? dealId,
+    Wrapped<String?>? dealTypeId,
     Wrapped<String?>? orderId,
     Wrapped<List<FwStandardModelsSelectedCheckBoxListItem>?>? statuses,
     Wrapped<String?>? userDepartmentId,
@@ -58177,6 +60579,7 @@ extension $WebApiModulesReportsBillingProfitLossReportProfitLossReportRequestExt
       agentId: (agentId != null ? agentId.value : this.agentId),
       customerId: (customerId != null ? customerId.value : this.customerId),
       dealId: (dealId != null ? dealId.value : this.dealId),
+      dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
       orderId: (orderId != null ? orderId.value : this.orderId),
       statuses: (statuses != null ? statuses.value : this.statuses),
       userDepartmentId: (userDepartmentId != null
@@ -74322,7 +76725,8 @@ class WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBan
     this.printAlertBannerMessage,
     this.fromDate,
     this.toDate,
-    this.filterDates,
+    this.filterByPickDate,
+    this.filterByEstimatedStartDate,
     this.userDepartmentId,
     this.userLocationId,
     this.userWarehouseId,
@@ -74384,8 +76788,10 @@ class WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBan
   final DateTime? fromDate;
   @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
-  @JsonKey(name: 'FilterDates', includeIfNull: false)
-  final bool? filterDates;
+  @JsonKey(name: 'FilterByPickDate', includeIfNull: false)
+  final bool? filterByPickDate;
+  @JsonKey(name: 'FilterByEstimatedStartDate', includeIfNull: false)
+  final bool? filterByEstimatedStartDate;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
   final String? userDepartmentId;
   @JsonKey(name: 'UserLocationId', includeIfNull: false)
@@ -74472,10 +76878,18 @@ class WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBan
                 )) &&
             (identical(other.toDate, toDate) ||
                 const DeepCollectionEquality().equals(other.toDate, toDate)) &&
-            (identical(other.filterDates, filterDates) ||
+            (identical(other.filterByPickDate, filterByPickDate) ||
                 const DeepCollectionEquality().equals(
-                  other.filterDates,
-                  filterDates,
+                  other.filterByPickDate,
+                  filterByPickDate,
+                )) &&
+            (identical(
+                  other.filterByEstimatedStartDate,
+                  filterByEstimatedStartDate,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.filterByEstimatedStartDate,
+                  filterByEstimatedStartDate,
                 )) &&
             (identical(other.userDepartmentId, userDepartmentId) ||
                 const DeepCollectionEquality().equals(
@@ -74550,7 +76964,8 @@ class WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesAndBan
       const DeepCollectionEquality().hash(printAlertBannerMessage) ^
       const DeepCollectionEquality().hash(fromDate) ^
       const DeepCollectionEquality().hash(toDate) ^
-      const DeepCollectionEquality().hash(filterDates) ^
+      const DeepCollectionEquality().hash(filterByPickDate) ^
+      const DeepCollectionEquality().hash(filterByEstimatedStartDate) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
       const DeepCollectionEquality().hash(userLocationId) ^
       const DeepCollectionEquality().hash(userWarehouseId) ^
@@ -74581,7 +76996,8 @@ extension $WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesA
     bool? printAlertBannerMessage,
     DateTime? fromDate,
     DateTime? toDate,
-    bool? filterDates,
+    bool? filterByPickDate,
+    bool? filterByEstimatedStartDate,
     String? userDepartmentId,
     String? userLocationId,
     String? userWarehouseId,
@@ -74607,7 +77023,9 @@ extension $WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesA
           printAlertBannerMessage ?? this.printAlertBannerMessage,
       fromDate: fromDate ?? this.fromDate,
       toDate: toDate ?? this.toDate,
-      filterDates: filterDates ?? this.filterDates,
+      filterByPickDate: filterByPickDate ?? this.filterByPickDate,
+      filterByEstimatedStartDate:
+          filterByEstimatedStartDate ?? this.filterByEstimatedStartDate,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
       userLocationId: userLocationId ?? this.userLocationId,
       userWarehouseId: userWarehouseId ?? this.userWarehouseId,
@@ -74638,7 +77056,8 @@ extension $WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesA
     Wrapped<bool?>? printAlertBannerMessage,
     Wrapped<DateTime?>? fromDate,
     Wrapped<DateTime?>? toDate,
-    Wrapped<bool?>? filterDates,
+    Wrapped<bool?>? filterByPickDate,
+    Wrapped<bool?>? filterByEstimatedStartDate,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
     Wrapped<String?>? userWarehouseId,
@@ -74673,7 +77092,12 @@ extension $WebApiModulesReportsOrderReportsOrderDatesAndBannersReportOrderDatesA
           : this.printAlertBannerMessage),
       fromDate: (fromDate != null ? fromDate.value : this.fromDate),
       toDate: (toDate != null ? toDate.value : this.toDate),
-      filterDates: (filterDates != null ? filterDates.value : this.filterDates),
+      filterByPickDate: (filterByPickDate != null
+          ? filterByPickDate.value
+          : this.filterByPickDate),
+      filterByEstimatedStartDate: (filterByEstimatedStartDate != null
+          ? filterByEstimatedStartDate.value
+          : this.filterByEstimatedStartDate),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -74731,6 +77155,7 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
     this.languageId,
     this.filterRentalAndSaleItems,
     this.rentalAndSaleItemsToInclude,
+    this.filterOrderQuote,
     this.userDepartmentId,
     this.userLocationId,
     this.userWarehouseId,
@@ -74815,6 +77240,8 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
   final bool? filterRentalAndSaleItems;
   @JsonKey(name: 'RentalAndSaleItemsToInclude', includeIfNull: false)
   final String? rentalAndSaleItemsToInclude;
+  @JsonKey(name: 'FilterOrderQuote', includeIfNull: false)
+  final String? filterOrderQuote;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
   final String? userDepartmentId;
   @JsonKey(name: 'UserLocationId', includeIfNull: false)
@@ -74983,6 +77410,11 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
                   other.rentalAndSaleItemsToInclude,
                   rentalAndSaleItemsToInclude,
                 )) &&
+            (identical(other.filterOrderQuote, filterOrderQuote) ||
+                const DeepCollectionEquality().equals(
+                  other.filterOrderQuote,
+                  filterOrderQuote,
+                )) &&
             (identical(other.userDepartmentId, userDepartmentId) ||
                 const DeepCollectionEquality().equals(
                   other.userDepartmentId,
@@ -75070,6 +77502,7 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
       const DeepCollectionEquality().hash(languageId) ^
       const DeepCollectionEquality().hash(filterRentalAndSaleItems) ^
       const DeepCollectionEquality().hash(rentalAndSaleItemsToInclude) ^
+      const DeepCollectionEquality().hash(filterOrderQuote) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
       const DeepCollectionEquality().hash(userLocationId) ^
       const DeepCollectionEquality().hash(userWarehouseId) ^
@@ -75112,6 +77545,7 @@ extension $WebApiModulesReportsOrderReportsOrderReportOrderReportRequestExtensio
     String? languageId,
     bool? filterRentalAndSaleItems,
     String? rentalAndSaleItemsToInclude,
+    String? filterOrderQuote,
     String? userDepartmentId,
     String? userLocationId,
     String? userWarehouseId,
@@ -75155,6 +77589,7 @@ extension $WebApiModulesReportsOrderReportsOrderReportOrderReportRequestExtensio
           filterRentalAndSaleItems ?? this.filterRentalAndSaleItems,
       rentalAndSaleItemsToInclude:
           rentalAndSaleItemsToInclude ?? this.rentalAndSaleItemsToInclude,
+      filterOrderQuote: filterOrderQuote ?? this.filterOrderQuote,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
       userLocationId: userLocationId ?? this.userLocationId,
       userWarehouseId: userWarehouseId ?? this.userWarehouseId,
@@ -75198,6 +77633,7 @@ extension $WebApiModulesReportsOrderReportsOrderReportOrderReportRequestExtensio
     Wrapped<String?>? languageId,
     Wrapped<bool?>? filterRentalAndSaleItems,
     Wrapped<String?>? rentalAndSaleItemsToInclude,
+    Wrapped<String?>? filterOrderQuote,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
     Wrapped<String?>? userWarehouseId,
@@ -75278,6 +77714,9 @@ extension $WebApiModulesReportsOrderReportsOrderReportOrderReportRequestExtensio
       rentalAndSaleItemsToInclude: (rentalAndSaleItemsToInclude != null
           ? rentalAndSaleItemsToInclude.value
           : this.rentalAndSaleItemsToInclude),
+      filterOrderQuote: (filterOrderQuote != null
+          ? filterOrderQuote.value
+          : this.filterOrderQuote),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -75791,7 +78230,8 @@ extension $WebApiModulesReportsOrderReportsOrderStatusSummaryReportOrderStatusSu
 class WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest {
   const WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest({
     this.orderId,
-    this.shippingCaseId,
+    this.transferId,
+    this.itemId,
     this.weightInCase,
     this.groupByShippingCase,
     this.userDepartmentId,
@@ -75823,8 +78263,10 @@ class WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabel
 
   @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
-  @JsonKey(name: 'ShippingCaseId', includeIfNull: false)
-  final String? shippingCaseId;
+  @JsonKey(name: 'TransferId', includeIfNull: false)
+  final String? transferId;
+  @JsonKey(name: 'ItemId', includeIfNull: false)
+  final String? itemId;
   @JsonKey(name: 'WeightInCase', includeIfNull: false)
   final String? weightInCase;
   @JsonKey(name: 'GroupByShippingCase', includeIfNull: false)
@@ -75868,11 +78310,13 @@ class WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabel
                   other.orderId,
                   orderId,
                 )) &&
-            (identical(other.shippingCaseId, shippingCaseId) ||
+            (identical(other.transferId, transferId) ||
                 const DeepCollectionEquality().equals(
-                  other.shippingCaseId,
-                  shippingCaseId,
+                  other.transferId,
+                  transferId,
                 )) &&
+            (identical(other.itemId, itemId) ||
+                const DeepCollectionEquality().equals(other.itemId, itemId)) &&
             (identical(other.weightInCase, weightInCase) ||
                 const DeepCollectionEquality().equals(
                   other.weightInCase,
@@ -75946,7 +78390,8 @@ class WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabel
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(orderId) ^
-      const DeepCollectionEquality().hash(shippingCaseId) ^
+      const DeepCollectionEquality().hash(transferId) ^
+      const DeepCollectionEquality().hash(itemId) ^
       const DeepCollectionEquality().hash(weightInCase) ^
       const DeepCollectionEquality().hash(groupByShippingCase) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
@@ -75969,7 +78414,8 @@ extension $WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShipping
   WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest
   copyWith({
     String? orderId,
-    String? shippingCaseId,
+    String? transferId,
+    String? itemId,
     String? weightInCase,
     bool? groupByShippingCase,
     String? userDepartmentId,
@@ -75986,7 +78432,8 @@ extension $WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShipping
   }) {
     return WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest(
       orderId: orderId ?? this.orderId,
-      shippingCaseId: shippingCaseId ?? this.shippingCaseId,
+      transferId: transferId ?? this.transferId,
+      itemId: itemId ?? this.itemId,
       weightInCase: weightInCase ?? this.weightInCase,
       groupByShippingCase: groupByShippingCase ?? this.groupByShippingCase,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
@@ -76007,7 +78454,8 @@ extension $WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShipping
   WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest
   copyWithWrapped({
     Wrapped<String?>? orderId,
-    Wrapped<String?>? shippingCaseId,
+    Wrapped<String?>? transferId,
+    Wrapped<String?>? itemId,
     Wrapped<String?>? weightInCase,
     Wrapped<bool?>? groupByShippingCase,
     Wrapped<String?>? userDepartmentId,
@@ -76024,9 +78472,8 @@ extension $WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShipping
   }) {
     return WebApiModulesReportsOrderReportsOutgoingShippingLabelOutgoingShippingLabelRequest(
       orderId: (orderId != null ? orderId.value : this.orderId),
-      shippingCaseId: (shippingCaseId != null
-          ? shippingCaseId.value
-          : this.shippingCaseId),
+      transferId: (transferId != null ? transferId.value : this.transferId),
+      itemId: (itemId != null ? itemId.value : this.itemId),
       weightInCase: (weightInCase != null
           ? weightInCase.value
           : this.weightInCase),
@@ -76673,6 +79120,7 @@ class WebApiModulesReportsOrderReportsProjectReportProjectReportRequest {
     this.languageId,
     this.filterRentalAndSaleItems,
     this.rentalAndSaleItemsToInclude,
+    this.filterOrderQuote,
     this.userDepartmentId,
     this.userLocationId,
     this.userWarehouseId,
@@ -76758,6 +79206,8 @@ class WebApiModulesReportsOrderReportsProjectReportProjectReportRequest {
   final bool? filterRentalAndSaleItems;
   @JsonKey(name: 'RentalAndSaleItemsToInclude', includeIfNull: false)
   final String? rentalAndSaleItemsToInclude;
+  @JsonKey(name: 'FilterOrderQuote', includeIfNull: false)
+  final String? filterOrderQuote;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
   final String? userDepartmentId;
   @JsonKey(name: 'UserLocationId', includeIfNull: false)
@@ -76926,6 +79376,11 @@ class WebApiModulesReportsOrderReportsProjectReportProjectReportRequest {
                   other.rentalAndSaleItemsToInclude,
                   rentalAndSaleItemsToInclude,
                 )) &&
+            (identical(other.filterOrderQuote, filterOrderQuote) ||
+                const DeepCollectionEquality().equals(
+                  other.filterOrderQuote,
+                  filterOrderQuote,
+                )) &&
             (identical(other.userDepartmentId, userDepartmentId) ||
                 const DeepCollectionEquality().equals(
                   other.userDepartmentId,
@@ -77013,6 +79468,7 @@ class WebApiModulesReportsOrderReportsProjectReportProjectReportRequest {
       const DeepCollectionEquality().hash(languageId) ^
       const DeepCollectionEquality().hash(filterRentalAndSaleItems) ^
       const DeepCollectionEquality().hash(rentalAndSaleItemsToInclude) ^
+      const DeepCollectionEquality().hash(filterOrderQuote) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
       const DeepCollectionEquality().hash(userLocationId) ^
       const DeepCollectionEquality().hash(userWarehouseId) ^
@@ -77055,6 +79511,7 @@ extension $WebApiModulesReportsOrderReportsProjectReportProjectReportRequestExte
     String? languageId,
     bool? filterRentalAndSaleItems,
     String? rentalAndSaleItemsToInclude,
+    String? filterOrderQuote,
     String? userDepartmentId,
     String? userLocationId,
     String? userWarehouseId,
@@ -77098,6 +79555,7 @@ extension $WebApiModulesReportsOrderReportsProjectReportProjectReportRequestExte
           filterRentalAndSaleItems ?? this.filterRentalAndSaleItems,
       rentalAndSaleItemsToInclude:
           rentalAndSaleItemsToInclude ?? this.rentalAndSaleItemsToInclude,
+      filterOrderQuote: filterOrderQuote ?? this.filterOrderQuote,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
       userLocationId: userLocationId ?? this.userLocationId,
       userWarehouseId: userWarehouseId ?? this.userWarehouseId,
@@ -77141,6 +79599,7 @@ extension $WebApiModulesReportsOrderReportsProjectReportProjectReportRequestExte
     Wrapped<String?>? languageId,
     Wrapped<bool?>? filterRentalAndSaleItems,
     Wrapped<String?>? rentalAndSaleItemsToInclude,
+    Wrapped<String?>? filterOrderQuote,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
     Wrapped<String?>? userWarehouseId,
@@ -77221,6 +79680,9 @@ extension $WebApiModulesReportsOrderReportsProjectReportProjectReportRequestExte
       rentalAndSaleItemsToInclude: (rentalAndSaleItemsToInclude != null
           ? rentalAndSaleItemsToInclude.value
           : this.rentalAndSaleItemsToInclude),
+      filterOrderQuote: (filterOrderQuote != null
+          ? filterOrderQuote.value
+          : this.filterOrderQuote),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -78055,6 +80517,7 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
     this.languageId,
     this.filterRentalAndSaleItems,
     this.rentalAndSaleItemsToInclude,
+    this.filterOrderQuote,
     this.userDepartmentId,
     this.userLocationId,
     this.userWarehouseId,
@@ -78139,6 +80602,8 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
   final bool? filterRentalAndSaleItems;
   @JsonKey(name: 'RentalAndSaleItemsToInclude', includeIfNull: false)
   final String? rentalAndSaleItemsToInclude;
+  @JsonKey(name: 'FilterOrderQuote', includeIfNull: false)
+  final String? filterOrderQuote;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
   final String? userDepartmentId;
   @JsonKey(name: 'UserLocationId', includeIfNull: false)
@@ -78307,6 +80772,11 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
                   other.rentalAndSaleItemsToInclude,
                   rentalAndSaleItemsToInclude,
                 )) &&
+            (identical(other.filterOrderQuote, filterOrderQuote) ||
+                const DeepCollectionEquality().equals(
+                  other.filterOrderQuote,
+                  filterOrderQuote,
+                )) &&
             (identical(other.userDepartmentId, userDepartmentId) ||
                 const DeepCollectionEquality().equals(
                   other.userDepartmentId,
@@ -78394,6 +80864,7 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
       const DeepCollectionEquality().hash(languageId) ^
       const DeepCollectionEquality().hash(filterRentalAndSaleItems) ^
       const DeepCollectionEquality().hash(rentalAndSaleItemsToInclude) ^
+      const DeepCollectionEquality().hash(filterOrderQuote) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
       const DeepCollectionEquality().hash(userLocationId) ^
       const DeepCollectionEquality().hash(userWarehouseId) ^
@@ -78436,6 +80907,7 @@ extension $WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestExtensio
     String? languageId,
     bool? filterRentalAndSaleItems,
     String? rentalAndSaleItemsToInclude,
+    String? filterOrderQuote,
     String? userDepartmentId,
     String? userLocationId,
     String? userWarehouseId,
@@ -78479,6 +80951,7 @@ extension $WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestExtensio
           filterRentalAndSaleItems ?? this.filterRentalAndSaleItems,
       rentalAndSaleItemsToInclude:
           rentalAndSaleItemsToInclude ?? this.rentalAndSaleItemsToInclude,
+      filterOrderQuote: filterOrderQuote ?? this.filterOrderQuote,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
       userLocationId: userLocationId ?? this.userLocationId,
       userWarehouseId: userWarehouseId ?? this.userWarehouseId,
@@ -78522,6 +80995,7 @@ extension $WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestExtensio
     Wrapped<String?>? languageId,
     Wrapped<bool?>? filterRentalAndSaleItems,
     Wrapped<String?>? rentalAndSaleItemsToInclude,
+    Wrapped<String?>? filterOrderQuote,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
     Wrapped<String?>? userWarehouseId,
@@ -78602,6 +81076,9 @@ extension $WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestExtensio
       rentalAndSaleItemsToInclude: (rentalAndSaleItemsToInclude != null
           ? rentalAndSaleItemsToInclude.value
           : this.rentalAndSaleItemsToInclude),
+      filterOrderQuote: (filterOrderQuote != null
+          ? filterOrderQuote.value
+          : this.filterOrderQuote),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -78635,6 +81112,7 @@ extension $WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestExtensio
 class WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest {
   const WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest({
     this.orderId,
+    this.transferId,
     this.itemId,
     this.userDepartmentId,
     this.userLocationId,
@@ -78665,6 +81143,8 @@ class WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCaseP
 
   @JsonKey(name: 'OrderId', includeIfNull: false)
   final String? orderId;
+  @JsonKey(name: 'TransferId', includeIfNull: false)
+  final String? transferId;
   @JsonKey(name: 'ItemId', includeIfNull: false)
   final String? itemId;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
@@ -78705,6 +81185,11 @@ class WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCaseP
                 const DeepCollectionEquality().equals(
                   other.orderId,
                   orderId,
+                )) &&
+            (identical(other.transferId, transferId) ||
+                const DeepCollectionEquality().equals(
+                  other.transferId,
+                  transferId,
                 )) &&
             (identical(other.itemId, itemId) ||
                 const DeepCollectionEquality().equals(other.itemId, itemId)) &&
@@ -78771,6 +81256,7 @@ class WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCaseP
   @override
   int get hashCode =>
       const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(transferId) ^
       const DeepCollectionEquality().hash(itemId) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
       const DeepCollectionEquality().hash(userLocationId) ^
@@ -78792,6 +81278,7 @@ extension $WebApiModulesReportsOrderReportsShippingCasePackingListReportShipping
   WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest
   copyWith({
     String? orderId,
+    String? transferId,
     String? itemId,
     String? userDepartmentId,
     String? userLocationId,
@@ -78807,6 +81294,7 @@ extension $WebApiModulesReportsOrderReportsShippingCasePackingListReportShipping
   }) {
     return WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest(
       orderId: orderId ?? this.orderId,
+      transferId: transferId ?? this.transferId,
       itemId: itemId ?? this.itemId,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
       userLocationId: userLocationId ?? this.userLocationId,
@@ -78826,6 +81314,7 @@ extension $WebApiModulesReportsOrderReportsShippingCasePackingListReportShipping
   WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest
   copyWithWrapped({
     Wrapped<String?>? orderId,
+    Wrapped<String?>? transferId,
     Wrapped<String?>? itemId,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
@@ -78841,7 +81330,265 @@ extension $WebApiModulesReportsOrderReportsShippingCasePackingListReportShipping
   }) {
     return WebApiModulesReportsOrderReportsShippingCasePackingListReportShippingCasePackingListReportRequest(
       orderId: (orderId != null ? orderId.value : this.orderId),
+      transferId: (transferId != null ? transferId.value : this.transferId),
       itemId: (itemId != null ? itemId.value : this.itemId),
+      userDepartmentId: (userDepartmentId != null
+          ? userDepartmentId.value
+          : this.userDepartmentId),
+      userLocationId: (userLocationId != null
+          ? userLocationId.value
+          : this.userLocationId),
+      userWarehouseId: (userWarehouseId != null
+          ? userWarehouseId.value
+          : this.userWarehouseId),
+      customReportLayoutId: (customReportLayoutId != null
+          ? customReportLayoutId.value
+          : this.customReportLayoutId),
+      isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+      includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+          ? includeSubHeadingsAndSubTotals.value
+          : this.includeSubHeadingsAndSubTotals),
+      includeIdColumns: (includeIdColumns != null
+          ? includeIdColumns.value
+          : this.includeIdColumns),
+      locale: (locale != null ? locale.value : this.locale),
+      excelfields: (excelfields != null ? excelfields.value : this.excelfields),
+      reportName: (reportName != null ? reportName.value : this.reportName),
+      useEmailTemplate: (useEmailTemplate != null
+          ? useEmailTemplate.value
+          : this.useEmailTemplate),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest {
+  const WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest({
+    this.orderId,
+    this.projectId,
+    this.sortBy,
+    this.userDepartmentId,
+    this.userLocationId,
+    this.userWarehouseId,
+    this.customReportLayoutId,
+    this.isSummary,
+    this.includeSubHeadingsAndSubTotals,
+    this.includeIdColumns,
+    this.locale,
+    this.excelfields,
+    this.reportName,
+    this.useEmailTemplate,
+  });
+
+  factory WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequestFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequestToJson(
+        this,
+      );
+
+  @JsonKey(name: 'OrderId', includeIfNull: false)
+  final String? orderId;
+  @JsonKey(name: 'ProjectId', includeIfNull: false)
+  final String? projectId;
+  @JsonKey(
+    name: 'SortBy',
+    includeIfNull: false,
+    defaultValue: <FwStandardModelsCheckBoxListItem>[],
+  )
+  final List<FwStandardModelsCheckBoxListItem>? sortBy;
+  @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
+  final String? userDepartmentId;
+  @JsonKey(name: 'UserLocationId', includeIfNull: false)
+  final String? userLocationId;
+  @JsonKey(name: 'UserWarehouseId', includeIfNull: false)
+  final String? userWarehouseId;
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
+  final String? customReportLayoutId;
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
+  final bool? isSummary;
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
+  final bool? includeSubHeadingsAndSubTotals;
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
+  final bool? includeIdColumns;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
+  @JsonKey(
+    name: 'excelfields',
+    includeIfNull: false,
+    defaultValue: <FwStandardModelsCheckBoxListItem>[],
+  )
+  final List<FwStandardModelsCheckBoxListItem>? excelfields;
+  @JsonKey(name: 'ReportName', includeIfNull: false)
+  final String? reportName;
+  @JsonKey(name: 'UseEmailTemplate', includeIfNull: false)
+  final bool? useEmailTemplate;
+  static const fromJsonFactory =
+      _$WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.projectId, projectId) ||
+                const DeepCollectionEquality().equals(
+                  other.projectId,
+                  projectId,
+                )) &&
+            (identical(other.sortBy, sortBy) ||
+                const DeepCollectionEquality().equals(other.sortBy, sortBy)) &&
+            (identical(other.userDepartmentId, userDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.userDepartmentId,
+                  userDepartmentId,
+                )) &&
+            (identical(other.userLocationId, userLocationId) ||
+                const DeepCollectionEquality().equals(
+                  other.userLocationId,
+                  userLocationId,
+                )) &&
+            (identical(other.userWarehouseId, userWarehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.userWarehouseId,
+                  userWarehouseId,
+                )) &&
+            (identical(other.customReportLayoutId, customReportLayoutId) ||
+                const DeepCollectionEquality().equals(
+                  other.customReportLayoutId,
+                  customReportLayoutId,
+                )) &&
+            (identical(other.isSummary, isSummary) ||
+                const DeepCollectionEquality().equals(
+                  other.isSummary,
+                  isSummary,
+                )) &&
+            (identical(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                )) &&
+            (identical(other.includeIdColumns, includeIdColumns) ||
+                const DeepCollectionEquality().equals(
+                  other.includeIdColumns,
+                  includeIdColumns,
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)) &&
+            (identical(other.excelfields, excelfields) ||
+                const DeepCollectionEquality().equals(
+                  other.excelfields,
+                  excelfields,
+                )) &&
+            (identical(other.reportName, reportName) ||
+                const DeepCollectionEquality().equals(
+                  other.reportName,
+                  reportName,
+                )) &&
+            (identical(other.useEmailTemplate, useEmailTemplate) ||
+                const DeepCollectionEquality().equals(
+                  other.useEmailTemplate,
+                  useEmailTemplate,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(projectId) ^
+      const DeepCollectionEquality().hash(sortBy) ^
+      const DeepCollectionEquality().hash(userDepartmentId) ^
+      const DeepCollectionEquality().hash(userLocationId) ^
+      const DeepCollectionEquality().hash(userWarehouseId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      const DeepCollectionEquality().hash(reportName) ^
+      const DeepCollectionEquality().hash(useEmailTemplate) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequestExtension
+    on
+        WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest {
+  WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest
+  copyWith({
+    String? orderId,
+    String? projectId,
+    List<FwStandardModelsCheckBoxListItem>? sortBy,
+    String? userDepartmentId,
+    String? userLocationId,
+    String? userWarehouseId,
+    String? customReportLayoutId,
+    bool? isSummary,
+    bool? includeSubHeadingsAndSubTotals,
+    bool? includeIdColumns,
+    String? locale,
+    List<FwStandardModelsCheckBoxListItem>? excelfields,
+    String? reportName,
+    bool? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest(
+      orderId: orderId ?? this.orderId,
+      projectId: projectId ?? this.projectId,
+      sortBy: sortBy ?? this.sortBy,
+      userDepartmentId: userDepartmentId ?? this.userDepartmentId,
+      userLocationId: userLocationId ?? this.userLocationId,
+      userWarehouseId: userWarehouseId ?? this.userWarehouseId,
+      customReportLayoutId: customReportLayoutId ?? this.customReportLayoutId,
+      isSummary: isSummary ?? this.isSummary,
+      includeSubHeadingsAndSubTotals:
+          includeSubHeadingsAndSubTotals ?? this.includeSubHeadingsAndSubTotals,
+      includeIdColumns: includeIdColumns ?? this.includeIdColumns,
+      locale: locale ?? this.locale,
+      excelfields: excelfields ?? this.excelfields,
+      reportName: reportName ?? this.reportName,
+      useEmailTemplate: useEmailTemplate ?? this.useEmailTemplate,
+    );
+  }
+
+  WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest
+  copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? projectId,
+    Wrapped<List<FwStandardModelsCheckBoxListItem>?>? sortBy,
+    Wrapped<String?>? userDepartmentId,
+    Wrapped<String?>? userLocationId,
+    Wrapped<String?>? userWarehouseId,
+    Wrapped<String?>? customReportLayoutId,
+    Wrapped<bool?>? isSummary,
+    Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+    Wrapped<bool?>? includeIdColumns,
+    Wrapped<String?>? locale,
+    Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields,
+    Wrapped<String?>? reportName,
+    Wrapped<bool?>? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsOrderReportsStandAloneItemReportStandAloneItemReportRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      projectId: (projectId != null ? projectId.value : this.projectId),
+      sortBy: (sortBy != null ? sortBy.value : this.sortBy),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -79307,13 +82054,16 @@ class WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest {
     this.orderId,
     this.quoteId,
     this.projectId,
+    this.transferId,
     this.rentalValue,
     this.weightInCase,
     this.excludeZeroValueItems,
     this.filterBy,
     this.groupByShippingCase,
     this.outContractId,
+    this.manifestId,
     this.orderType,
+    this.recType,
     this.userDepartmentId,
     this.userLocationId,
     this.userWarehouseId,
@@ -79347,6 +82097,8 @@ class WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest {
   final String? quoteId;
   @JsonKey(name: 'ProjectId', includeIfNull: false)
   final String? projectId;
+  @JsonKey(name: 'TransferId', includeIfNull: false)
+  final String? transferId;
   @JsonKey(name: 'RentalValue', includeIfNull: false)
   final String? rentalValue;
   @JsonKey(name: 'WeightInCase', includeIfNull: false)
@@ -79359,8 +82111,12 @@ class WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest {
   final bool? groupByShippingCase;
   @JsonKey(name: 'OutContractId', includeIfNull: false)
   final String? outContractId;
+  @JsonKey(name: 'ManifestId', includeIfNull: false)
+  final String? manifestId;
   @JsonKey(name: 'OrderType', includeIfNull: false)
   final String? orderType;
+  @JsonKey(name: 'RecType', includeIfNull: false)
+  final String? recType;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
   final String? userDepartmentId;
   @JsonKey(name: 'UserLocationId', includeIfNull: false)
@@ -79410,6 +82166,11 @@ class WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest {
                   other.projectId,
                   projectId,
                 )) &&
+            (identical(other.transferId, transferId) ||
+                const DeepCollectionEquality().equals(
+                  other.transferId,
+                  transferId,
+                )) &&
             (identical(other.rentalValue, rentalValue) ||
                 const DeepCollectionEquality().equals(
                   other.rentalValue,
@@ -79440,10 +82201,20 @@ class WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest {
                   other.outContractId,
                   outContractId,
                 )) &&
+            (identical(other.manifestId, manifestId) ||
+                const DeepCollectionEquality().equals(
+                  other.manifestId,
+                  manifestId,
+                )) &&
             (identical(other.orderType, orderType) ||
                 const DeepCollectionEquality().equals(
                   other.orderType,
                   orderType,
+                )) &&
+            (identical(other.recType, recType) ||
+                const DeepCollectionEquality().equals(
+                  other.recType,
+                  recType,
                 )) &&
             (identical(other.userDepartmentId, userDepartmentId) ||
                 const DeepCollectionEquality().equals(
@@ -79510,13 +82281,16 @@ class WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest {
       const DeepCollectionEquality().hash(orderId) ^
       const DeepCollectionEquality().hash(quoteId) ^
       const DeepCollectionEquality().hash(projectId) ^
+      const DeepCollectionEquality().hash(transferId) ^
       const DeepCollectionEquality().hash(rentalValue) ^
       const DeepCollectionEquality().hash(weightInCase) ^
       const DeepCollectionEquality().hash(excludeZeroValueItems) ^
       const DeepCollectionEquality().hash(filterBy) ^
       const DeepCollectionEquality().hash(groupByShippingCase) ^
       const DeepCollectionEquality().hash(outContractId) ^
+      const DeepCollectionEquality().hash(manifestId) ^
       const DeepCollectionEquality().hash(orderType) ^
+      const DeepCollectionEquality().hash(recType) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
       const DeepCollectionEquality().hash(userLocationId) ^
       const DeepCollectionEquality().hash(userWarehouseId) ^
@@ -79538,13 +82312,16 @@ extension $WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
     String? orderId,
     String? quoteId,
     String? projectId,
+    String? transferId,
     String? rentalValue,
     bool? weightInCase,
     bool? excludeZeroValueItems,
     String? filterBy,
     bool? groupByShippingCase,
     String? outContractId,
+    String? manifestId,
     String? orderType,
+    String? recType,
     String? userDepartmentId,
     String? userLocationId,
     String? userWarehouseId,
@@ -79561,6 +82338,7 @@ extension $WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
       orderId: orderId ?? this.orderId,
       quoteId: quoteId ?? this.quoteId,
       projectId: projectId ?? this.projectId,
+      transferId: transferId ?? this.transferId,
       rentalValue: rentalValue ?? this.rentalValue,
       weightInCase: weightInCase ?? this.weightInCase,
       excludeZeroValueItems:
@@ -79568,7 +82346,9 @@ extension $WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
       filterBy: filterBy ?? this.filterBy,
       groupByShippingCase: groupByShippingCase ?? this.groupByShippingCase,
       outContractId: outContractId ?? this.outContractId,
+      manifestId: manifestId ?? this.manifestId,
       orderType: orderType ?? this.orderType,
+      recType: recType ?? this.recType,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
       userLocationId: userLocationId ?? this.userLocationId,
       userWarehouseId: userWarehouseId ?? this.userWarehouseId,
@@ -79589,13 +82369,16 @@ extension $WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
     Wrapped<String?>? orderId,
     Wrapped<String?>? quoteId,
     Wrapped<String?>? projectId,
+    Wrapped<String?>? transferId,
     Wrapped<String?>? rentalValue,
     Wrapped<bool?>? weightInCase,
     Wrapped<bool?>? excludeZeroValueItems,
     Wrapped<String?>? filterBy,
     Wrapped<bool?>? groupByShippingCase,
     Wrapped<String?>? outContractId,
+    Wrapped<String?>? manifestId,
     Wrapped<String?>? orderType,
+    Wrapped<String?>? recType,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
     Wrapped<String?>? userWarehouseId,
@@ -79612,6 +82395,7 @@ extension $WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
       orderId: (orderId != null ? orderId.value : this.orderId),
       quoteId: (quoteId != null ? quoteId.value : this.quoteId),
       projectId: (projectId != null ? projectId.value : this.projectId),
+      transferId: (transferId != null ? transferId.value : this.transferId),
       rentalValue: (rentalValue != null ? rentalValue.value : this.rentalValue),
       weightInCase: (weightInCase != null
           ? weightInCase.value
@@ -79626,7 +82410,9 @@ extension $WebApiModulesReportsOrderValueSheetReportOrderValueSheetReportRequest
       outContractId: (outContractId != null
           ? outContractId.value
           : this.outContractId),
+      manifestId: (manifestId != null ? manifestId.value : this.manifestId),
       orderType: (orderType != null ? orderType.value : this.orderType),
+      recType: (recType != null ? recType.value : this.recType),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -86341,6 +89127,350 @@ extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryAvailability
 }
 
 @JsonSerializable(explicitToJson: true)
+class WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest {
+  const WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest({
+    this.asOfDate,
+    this.warehouseId,
+    this.ranks,
+    this.inventoryTypeId,
+    this.categoryId,
+    this.subCategoryId,
+    this.inventoryId,
+    this.excludeZeroActualValue,
+    this.excludeZeroReplacementCost,
+    this.userDepartmentId,
+    this.userLocationId,
+    this.userWarehouseId,
+    this.customReportLayoutId,
+    this.isSummary,
+    this.includeSubHeadingsAndSubTotals,
+    this.includeIdColumns,
+    this.locale,
+    this.excelfields,
+    this.reportName,
+    this.useEmailTemplate,
+  });
+
+  factory WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequestFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequestToJson(
+        this,
+      );
+
+  @JsonKey(name: 'AsOfDate', includeIfNull: false)
+  final DateTime? asOfDate;
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
+  final String? warehouseId;
+  @JsonKey(name: 'Ranks', includeIfNull: false)
+  final String? ranks;
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
+  final String? inventoryTypeId;
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
+  final String? categoryId;
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
+  final String? subCategoryId;
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
+  final String? inventoryId;
+  @JsonKey(name: 'ExcludeZeroActualValue', includeIfNull: false)
+  final bool? excludeZeroActualValue;
+  @JsonKey(name: 'ExcludeZeroReplacementCost', includeIfNull: false)
+  final bool? excludeZeroReplacementCost;
+  @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
+  final String? userDepartmentId;
+  @JsonKey(name: 'UserLocationId', includeIfNull: false)
+  final String? userLocationId;
+  @JsonKey(name: 'UserWarehouseId', includeIfNull: false)
+  final String? userWarehouseId;
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
+  final String? customReportLayoutId;
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
+  final bool? isSummary;
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
+  final bool? includeSubHeadingsAndSubTotals;
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
+  final bool? includeIdColumns;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
+  @JsonKey(
+    name: 'excelfields',
+    includeIfNull: false,
+    defaultValue: <FwStandardModelsCheckBoxListItem>[],
+  )
+  final List<FwStandardModelsCheckBoxListItem>? excelfields;
+  @JsonKey(name: 'ReportName', includeIfNull: false)
+  final String? reportName;
+  @JsonKey(name: 'UseEmailTemplate', includeIfNull: false)
+  final bool? useEmailTemplate;
+  static const fromJsonFactory =
+      _$WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest &&
+            (identical(other.asOfDate, asOfDate) ||
+                const DeepCollectionEquality().equals(
+                  other.asOfDate,
+                  asOfDate,
+                )) &&
+            (identical(other.warehouseId, warehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.warehouseId,
+                  warehouseId,
+                )) &&
+            (identical(other.ranks, ranks) ||
+                const DeepCollectionEquality().equals(other.ranks, ranks)) &&
+            (identical(other.inventoryTypeId, inventoryTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryTypeId,
+                  inventoryTypeId,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.subCategoryId, subCategoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.subCategoryId,
+                  subCategoryId,
+                )) &&
+            (identical(other.inventoryId, inventoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryId,
+                  inventoryId,
+                )) &&
+            (identical(other.excludeZeroActualValue, excludeZeroActualValue) ||
+                const DeepCollectionEquality().equals(
+                  other.excludeZeroActualValue,
+                  excludeZeroActualValue,
+                )) &&
+            (identical(
+                  other.excludeZeroReplacementCost,
+                  excludeZeroReplacementCost,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.excludeZeroReplacementCost,
+                  excludeZeroReplacementCost,
+                )) &&
+            (identical(other.userDepartmentId, userDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.userDepartmentId,
+                  userDepartmentId,
+                )) &&
+            (identical(other.userLocationId, userLocationId) ||
+                const DeepCollectionEquality().equals(
+                  other.userLocationId,
+                  userLocationId,
+                )) &&
+            (identical(other.userWarehouseId, userWarehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.userWarehouseId,
+                  userWarehouseId,
+                )) &&
+            (identical(other.customReportLayoutId, customReportLayoutId) ||
+                const DeepCollectionEquality().equals(
+                  other.customReportLayoutId,
+                  customReportLayoutId,
+                )) &&
+            (identical(other.isSummary, isSummary) ||
+                const DeepCollectionEquality().equals(
+                  other.isSummary,
+                  isSummary,
+                )) &&
+            (identical(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                )) &&
+            (identical(other.includeIdColumns, includeIdColumns) ||
+                const DeepCollectionEquality().equals(
+                  other.includeIdColumns,
+                  includeIdColumns,
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)) &&
+            (identical(other.excelfields, excelfields) ||
+                const DeepCollectionEquality().equals(
+                  other.excelfields,
+                  excelfields,
+                )) &&
+            (identical(other.reportName, reportName) ||
+                const DeepCollectionEquality().equals(
+                  other.reportName,
+                  reportName,
+                )) &&
+            (identical(other.useEmailTemplate, useEmailTemplate) ||
+                const DeepCollectionEquality().equals(
+                  other.useEmailTemplate,
+                  useEmailTemplate,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(asOfDate) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(excludeZeroActualValue) ^
+      const DeepCollectionEquality().hash(excludeZeroReplacementCost) ^
+      const DeepCollectionEquality().hash(userDepartmentId) ^
+      const DeepCollectionEquality().hash(userLocationId) ^
+      const DeepCollectionEquality().hash(userWarehouseId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      const DeepCollectionEquality().hash(reportName) ^
+      const DeepCollectionEquality().hash(useEmailTemplate) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequestExtension
+    on
+        WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest {
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest
+  copyWith({
+    DateTime? asOfDate,
+    String? warehouseId,
+    String? ranks,
+    String? inventoryTypeId,
+    String? categoryId,
+    String? subCategoryId,
+    String? inventoryId,
+    bool? excludeZeroActualValue,
+    bool? excludeZeroReplacementCost,
+    String? userDepartmentId,
+    String? userLocationId,
+    String? userWarehouseId,
+    String? customReportLayoutId,
+    bool? isSummary,
+    bool? includeSubHeadingsAndSubTotals,
+    bool? includeIdColumns,
+    String? locale,
+    List<FwStandardModelsCheckBoxListItem>? excelfields,
+    String? reportName,
+    bool? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest(
+      asOfDate: asOfDate ?? this.asOfDate,
+      warehouseId: warehouseId ?? this.warehouseId,
+      ranks: ranks ?? this.ranks,
+      inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
+      categoryId: categoryId ?? this.categoryId,
+      subCategoryId: subCategoryId ?? this.subCategoryId,
+      inventoryId: inventoryId ?? this.inventoryId,
+      excludeZeroActualValue:
+          excludeZeroActualValue ?? this.excludeZeroActualValue,
+      excludeZeroReplacementCost:
+          excludeZeroReplacementCost ?? this.excludeZeroReplacementCost,
+      userDepartmentId: userDepartmentId ?? this.userDepartmentId,
+      userLocationId: userLocationId ?? this.userLocationId,
+      userWarehouseId: userWarehouseId ?? this.userWarehouseId,
+      customReportLayoutId: customReportLayoutId ?? this.customReportLayoutId,
+      isSummary: isSummary ?? this.isSummary,
+      includeSubHeadingsAndSubTotals:
+          includeSubHeadingsAndSubTotals ?? this.includeSubHeadingsAndSubTotals,
+      includeIdColumns: includeIdColumns ?? this.includeIdColumns,
+      locale: locale ?? this.locale,
+      excelfields: excelfields ?? this.excelfields,
+      reportName: reportName ?? this.reportName,
+      useEmailTemplate: useEmailTemplate ?? this.useEmailTemplate,
+    );
+  }
+
+  WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest
+  copyWithWrapped({
+    Wrapped<DateTime?>? asOfDate,
+    Wrapped<String?>? warehouseId,
+    Wrapped<String?>? ranks,
+    Wrapped<String?>? inventoryTypeId,
+    Wrapped<String?>? categoryId,
+    Wrapped<String?>? subCategoryId,
+    Wrapped<String?>? inventoryId,
+    Wrapped<bool?>? excludeZeroActualValue,
+    Wrapped<bool?>? excludeZeroReplacementCost,
+    Wrapped<String?>? userDepartmentId,
+    Wrapped<String?>? userLocationId,
+    Wrapped<String?>? userWarehouseId,
+    Wrapped<String?>? customReportLayoutId,
+    Wrapped<bool?>? isSummary,
+    Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+    Wrapped<bool?>? includeIdColumns,
+    Wrapped<String?>? locale,
+    Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields,
+    Wrapped<String?>? reportName,
+    Wrapped<bool?>? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsRentalInventoryReportsRentalInventoryDetailByRankReportRentalInventoryDetailByRankReportRequest(
+      asOfDate: (asOfDate != null ? asOfDate.value : this.asOfDate),
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      ranks: (ranks != null ? ranks.value : this.ranks),
+      inventoryTypeId: (inventoryTypeId != null
+          ? inventoryTypeId.value
+          : this.inventoryTypeId),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      subCategoryId: (subCategoryId != null
+          ? subCategoryId.value
+          : this.subCategoryId),
+      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
+      excludeZeroActualValue: (excludeZeroActualValue != null
+          ? excludeZeroActualValue.value
+          : this.excludeZeroActualValue),
+      excludeZeroReplacementCost: (excludeZeroReplacementCost != null
+          ? excludeZeroReplacementCost.value
+          : this.excludeZeroReplacementCost),
+      userDepartmentId: (userDepartmentId != null
+          ? userDepartmentId.value
+          : this.userDepartmentId),
+      userLocationId: (userLocationId != null
+          ? userLocationId.value
+          : this.userLocationId),
+      userWarehouseId: (userWarehouseId != null
+          ? userWarehouseId.value
+          : this.userWarehouseId),
+      customReportLayoutId: (customReportLayoutId != null
+          ? customReportLayoutId.value
+          : this.customReportLayoutId),
+      isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+      includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+          ? includeSubHeadingsAndSubTotals.value
+          : this.includeSubHeadingsAndSubTotals),
+      includeIdColumns: (includeIdColumns != null
+          ? includeIdColumns.value
+          : this.includeIdColumns),
+      locale: (locale != null ? locale.value : this.locale),
+      excelfields: (excelfields != null ? excelfields.value : this.excelfields),
+      reportName: (reportName != null ? reportName.value : this.reportName),
+      useEmailTemplate: (useEmailTemplate != null
+          ? useEmailTemplate.value
+          : this.useEmailTemplate),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest {
   const WebApiModulesReportsRentalInventoryReportsRentalInventoryMasterReportRentalInventoryMasterReportRequest({
     this.warehouseId,
@@ -91486,6 +94616,408 @@ extension $WebApiModulesReportsRentalInventoryReportsRetiredRentalInventoryRepor
       retiredReasonId: (retiredReasonId != null
           ? retiredReasonId.value
           : this.retiredReasonId),
+      userDepartmentId: (userDepartmentId != null
+          ? userDepartmentId.value
+          : this.userDepartmentId),
+      userLocationId: (userLocationId != null
+          ? userLocationId.value
+          : this.userLocationId),
+      userWarehouseId: (userWarehouseId != null
+          ? userWarehouseId.value
+          : this.userWarehouseId),
+      customReportLayoutId: (customReportLayoutId != null
+          ? customReportLayoutId.value
+          : this.customReportLayoutId),
+      isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+      includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+          ? includeSubHeadingsAndSubTotals.value
+          : this.includeSubHeadingsAndSubTotals),
+      includeIdColumns: (includeIdColumns != null
+          ? includeIdColumns.value
+          : this.includeIdColumns),
+      locale: (locale != null ? locale.value : this.locale),
+      excelfields: (excelfields != null ? excelfields.value : this.excelfields),
+      reportName: (reportName != null ? reportName.value : this.reportName),
+      useEmailTemplate: (useEmailTemplate != null
+          ? useEmailTemplate.value
+          : this.useEmailTemplate),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest {
+  const WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest({
+    this.usePeriodSelector,
+    this.reportYear,
+    this.reportPeriod,
+    this.useDateRange,
+    this.fromDate,
+    this.toDate,
+    this.excludeRetiredItems,
+    this.warehouseId,
+    this.inventoryTypeId,
+    this.categoryId,
+    this.subCategoryId,
+    this.ranks,
+    this.inventoryId,
+    this.itemId,
+    this.userDepartmentId,
+    this.userLocationId,
+    this.userWarehouseId,
+    this.customReportLayoutId,
+    this.isSummary,
+    this.includeSubHeadingsAndSubTotals,
+    this.includeIdColumns,
+    this.locale,
+    this.excelfields,
+    this.reportName,
+    this.useEmailTemplate,
+  });
+
+  factory WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequestFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequestToJson(
+        this,
+      );
+
+  @JsonKey(name: 'UsePeriodSelector', includeIfNull: false)
+  final bool? usePeriodSelector;
+  @JsonKey(name: 'ReportYear', includeIfNull: false)
+  final String? reportYear;
+  @JsonKey(name: 'ReportPeriod', includeIfNull: false)
+  final String? reportPeriod;
+  @JsonKey(name: 'UseDateRange', includeIfNull: false)
+  final bool? useDateRange;
+  @JsonKey(name: 'FromDate', includeIfNull: false)
+  final DateTime? fromDate;
+  @JsonKey(name: 'ToDate', includeIfNull: false)
+  final DateTime? toDate;
+  @JsonKey(name: 'ExcludeRetiredItems', includeIfNull: false)
+  final bool? excludeRetiredItems;
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
+  final String? warehouseId;
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
+  final String? inventoryTypeId;
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
+  final String? categoryId;
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
+  final String? subCategoryId;
+  @JsonKey(name: 'Ranks', includeIfNull: false)
+  final String? ranks;
+  @JsonKey(name: 'InventoryId', includeIfNull: false)
+  final String? inventoryId;
+  @JsonKey(name: 'ItemId', includeIfNull: false)
+  final String? itemId;
+  @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
+  final String? userDepartmentId;
+  @JsonKey(name: 'UserLocationId', includeIfNull: false)
+  final String? userLocationId;
+  @JsonKey(name: 'UserWarehouseId', includeIfNull: false)
+  final String? userWarehouseId;
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
+  final String? customReportLayoutId;
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
+  final bool? isSummary;
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
+  final bool? includeSubHeadingsAndSubTotals;
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
+  final bool? includeIdColumns;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
+  @JsonKey(
+    name: 'excelfields',
+    includeIfNull: false,
+    defaultValue: <FwStandardModelsCheckBoxListItem>[],
+  )
+  final List<FwStandardModelsCheckBoxListItem>? excelfields;
+  @JsonKey(name: 'ReportName', includeIfNull: false)
+  final String? reportName;
+  @JsonKey(name: 'UseEmailTemplate', includeIfNull: false)
+  final bool? useEmailTemplate;
+  static const fromJsonFactory =
+      _$WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest &&
+            (identical(other.usePeriodSelector, usePeriodSelector) ||
+                const DeepCollectionEquality().equals(
+                  other.usePeriodSelector,
+                  usePeriodSelector,
+                )) &&
+            (identical(other.reportYear, reportYear) ||
+                const DeepCollectionEquality().equals(
+                  other.reportYear,
+                  reportYear,
+                )) &&
+            (identical(other.reportPeriod, reportPeriod) ||
+                const DeepCollectionEquality().equals(
+                  other.reportPeriod,
+                  reportPeriod,
+                )) &&
+            (identical(other.useDateRange, useDateRange) ||
+                const DeepCollectionEquality().equals(
+                  other.useDateRange,
+                  useDateRange,
+                )) &&
+            (identical(other.fromDate, fromDate) ||
+                const DeepCollectionEquality().equals(
+                  other.fromDate,
+                  fromDate,
+                )) &&
+            (identical(other.toDate, toDate) ||
+                const DeepCollectionEquality().equals(other.toDate, toDate)) &&
+            (identical(other.excludeRetiredItems, excludeRetiredItems) ||
+                const DeepCollectionEquality().equals(
+                  other.excludeRetiredItems,
+                  excludeRetiredItems,
+                )) &&
+            (identical(other.warehouseId, warehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.warehouseId,
+                  warehouseId,
+                )) &&
+            (identical(other.inventoryTypeId, inventoryTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryTypeId,
+                  inventoryTypeId,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.subCategoryId, subCategoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.subCategoryId,
+                  subCategoryId,
+                )) &&
+            (identical(other.ranks, ranks) ||
+                const DeepCollectionEquality().equals(other.ranks, ranks)) &&
+            (identical(other.inventoryId, inventoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryId,
+                  inventoryId,
+                )) &&
+            (identical(other.itemId, itemId) ||
+                const DeepCollectionEquality().equals(other.itemId, itemId)) &&
+            (identical(other.userDepartmentId, userDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.userDepartmentId,
+                  userDepartmentId,
+                )) &&
+            (identical(other.userLocationId, userLocationId) ||
+                const DeepCollectionEquality().equals(
+                  other.userLocationId,
+                  userLocationId,
+                )) &&
+            (identical(other.userWarehouseId, userWarehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.userWarehouseId,
+                  userWarehouseId,
+                )) &&
+            (identical(other.customReportLayoutId, customReportLayoutId) ||
+                const DeepCollectionEquality().equals(
+                  other.customReportLayoutId,
+                  customReportLayoutId,
+                )) &&
+            (identical(other.isSummary, isSummary) ||
+                const DeepCollectionEquality().equals(
+                  other.isSummary,
+                  isSummary,
+                )) &&
+            (identical(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                )) &&
+            (identical(other.includeIdColumns, includeIdColumns) ||
+                const DeepCollectionEquality().equals(
+                  other.includeIdColumns,
+                  includeIdColumns,
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)) &&
+            (identical(other.excelfields, excelfields) ||
+                const DeepCollectionEquality().equals(
+                  other.excelfields,
+                  excelfields,
+                )) &&
+            (identical(other.reportName, reportName) ||
+                const DeepCollectionEquality().equals(
+                  other.reportName,
+                  reportName,
+                )) &&
+            (identical(other.useEmailTemplate, useEmailTemplate) ||
+                const DeepCollectionEquality().equals(
+                  other.useEmailTemplate,
+                  useEmailTemplate,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(usePeriodSelector) ^
+      const DeepCollectionEquality().hash(reportYear) ^
+      const DeepCollectionEquality().hash(reportPeriod) ^
+      const DeepCollectionEquality().hash(useDateRange) ^
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
+      const DeepCollectionEquality().hash(excludeRetiredItems) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(ranks) ^
+      const DeepCollectionEquality().hash(inventoryId) ^
+      const DeepCollectionEquality().hash(itemId) ^
+      const DeepCollectionEquality().hash(userDepartmentId) ^
+      const DeepCollectionEquality().hash(userLocationId) ^
+      const DeepCollectionEquality().hash(userWarehouseId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      const DeepCollectionEquality().hash(reportName) ^
+      const DeepCollectionEquality().hash(useEmailTemplate) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequestExtension
+    on
+        WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest {
+  WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest
+  copyWith({
+    bool? usePeriodSelector,
+    String? reportYear,
+    String? reportPeriod,
+    bool? useDateRange,
+    DateTime? fromDate,
+    DateTime? toDate,
+    bool? excludeRetiredItems,
+    String? warehouseId,
+    String? inventoryTypeId,
+    String? categoryId,
+    String? subCategoryId,
+    String? ranks,
+    String? inventoryId,
+    String? itemId,
+    String? userDepartmentId,
+    String? userLocationId,
+    String? userWarehouseId,
+    String? customReportLayoutId,
+    bool? isSummary,
+    bool? includeSubHeadingsAndSubTotals,
+    bool? includeIdColumns,
+    String? locale,
+    List<FwStandardModelsCheckBoxListItem>? excelfields,
+    String? reportName,
+    bool? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest(
+      usePeriodSelector: usePeriodSelector ?? this.usePeriodSelector,
+      reportYear: reportYear ?? this.reportYear,
+      reportPeriod: reportPeriod ?? this.reportPeriod,
+      useDateRange: useDateRange ?? this.useDateRange,
+      fromDate: fromDate ?? this.fromDate,
+      toDate: toDate ?? this.toDate,
+      excludeRetiredItems: excludeRetiredItems ?? this.excludeRetiredItems,
+      warehouseId: warehouseId ?? this.warehouseId,
+      inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
+      categoryId: categoryId ?? this.categoryId,
+      subCategoryId: subCategoryId ?? this.subCategoryId,
+      ranks: ranks ?? this.ranks,
+      inventoryId: inventoryId ?? this.inventoryId,
+      itemId: itemId ?? this.itemId,
+      userDepartmentId: userDepartmentId ?? this.userDepartmentId,
+      userLocationId: userLocationId ?? this.userLocationId,
+      userWarehouseId: userWarehouseId ?? this.userWarehouseId,
+      customReportLayoutId: customReportLayoutId ?? this.customReportLayoutId,
+      isSummary: isSummary ?? this.isSummary,
+      includeSubHeadingsAndSubTotals:
+          includeSubHeadingsAndSubTotals ?? this.includeSubHeadingsAndSubTotals,
+      includeIdColumns: includeIdColumns ?? this.includeIdColumns,
+      locale: locale ?? this.locale,
+      excelfields: excelfields ?? this.excelfields,
+      reportName: reportName ?? this.reportName,
+      useEmailTemplate: useEmailTemplate ?? this.useEmailTemplate,
+    );
+  }
+
+  WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest
+  copyWithWrapped({
+    Wrapped<bool?>? usePeriodSelector,
+    Wrapped<String?>? reportYear,
+    Wrapped<String?>? reportPeriod,
+    Wrapped<bool?>? useDateRange,
+    Wrapped<DateTime?>? fromDate,
+    Wrapped<DateTime?>? toDate,
+    Wrapped<bool?>? excludeRetiredItems,
+    Wrapped<String?>? warehouseId,
+    Wrapped<String?>? inventoryTypeId,
+    Wrapped<String?>? categoryId,
+    Wrapped<String?>? subCategoryId,
+    Wrapped<String?>? ranks,
+    Wrapped<String?>? inventoryId,
+    Wrapped<String?>? itemId,
+    Wrapped<String?>? userDepartmentId,
+    Wrapped<String?>? userLocationId,
+    Wrapped<String?>? userWarehouseId,
+    Wrapped<String?>? customReportLayoutId,
+    Wrapped<bool?>? isSummary,
+    Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+    Wrapped<bool?>? includeIdColumns,
+    Wrapped<String?>? locale,
+    Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields,
+    Wrapped<String?>? reportName,
+    Wrapped<bool?>? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsRentalInventoryReportsReturnOnAssetBarcodeReportReturnOnAssetBarcodeReportRequest(
+      usePeriodSelector: (usePeriodSelector != null
+          ? usePeriodSelector.value
+          : this.usePeriodSelector),
+      reportYear: (reportYear != null ? reportYear.value : this.reportYear),
+      reportPeriod: (reportPeriod != null
+          ? reportPeriod.value
+          : this.reportPeriod),
+      useDateRange: (useDateRange != null
+          ? useDateRange.value
+          : this.useDateRange),
+      fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+      toDate: (toDate != null ? toDate.value : this.toDate),
+      excludeRetiredItems: (excludeRetiredItems != null
+          ? excludeRetiredItems.value
+          : this.excludeRetiredItems),
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      inventoryTypeId: (inventoryTypeId != null
+          ? inventoryTypeId.value
+          : this.inventoryTypeId),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      subCategoryId: (subCategoryId != null
+          ? subCategoryId.value
+          : this.subCategoryId),
+      ranks: (ranks != null ? ranks.value : this.ranks),
+      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
+      itemId: (itemId != null ? itemId.value : this.itemId),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -97257,6 +100789,7 @@ class WebApiModulesReportsSharedReportSettingsReportSettings {
     this.original,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.createdByUserId,
     this.createdByUserName,
     this.createdDateTime,
@@ -97322,6 +100855,8 @@ class WebApiModulesReportsSharedReportSettingsReportSettings {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
   final String? createdByUserId;
   @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
@@ -97412,6 +100947,11 @@ class WebApiModulesReportsSharedReportSettingsReportSettings {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.createdByUserId, createdByUserId) ||
                 const DeepCollectionEquality().equals(
                   other.createdByUserId,
@@ -97465,6 +101005,7 @@ class WebApiModulesReportsSharedReportSettingsReportSettings {
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
       const DeepCollectionEquality().hash(createdDateTime) ^
@@ -97493,6 +101034,7 @@ extension $WebApiModulesReportsSharedReportSettingsReportSettingsExtension
     FwStandardBusinessLogicFwBusinessLogic? original,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     String? createdByUserId,
     String? createdByUserName,
     String? createdDateTime,
@@ -97518,6 +101060,7 @@ extension $WebApiModulesReportsSharedReportSettingsReportSettingsExtension
       original: original ?? this.original,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
       createdDateTime: createdDateTime ?? this.createdDateTime,
@@ -97545,6 +101088,7 @@ extension $WebApiModulesReportsSharedReportSettingsReportSettingsExtension
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
     Wrapped<String?>? createdDateTime,
@@ -97575,6 +101119,9 @@ extension $WebApiModulesReportsSharedReportSettingsReportSettingsExtension
       original: (original != null ? original.value : this.original),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
           : this.createdByUserId),
@@ -103650,6 +107197,7 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItem
     this.defaultFieldAttributes,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.original,
     this.createdByUserId,
     this.createdByUserName,
@@ -103707,6 +107255,8 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItem
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: '_Original', includeIfNull: false)
   final FwStandardBusinessLogicFwBusinessLogic? original;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
@@ -103781,6 +107331,11 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItem
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.original, original) ||
                 const DeepCollectionEquality().equals(
                   other.original,
@@ -103834,6 +107389,7 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportItem
       const DeepCollectionEquality().hash(defaultFieldAttributes) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
@@ -103859,6 +107415,7 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
     List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     FwStandardBusinessLogicFwBusinessLogic? original,
     String? createdByUserId,
     String? createdByUserName,
@@ -103880,6 +107437,7 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
           defaultFieldAttributes ?? this.defaultFieldAttributes,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       original: original ?? this.original,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
@@ -103903,6 +107461,7 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
     Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
@@ -103927,6 +107486,9 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
           : this.defaultFieldAttributes),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       original: (original != null ? original.value : this.original),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value
@@ -104060,6 +107622,7 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
     this.defaultFieldAttributes,
     this.translation,
     this.hasImport,
+    this.hasDocuments,
     this.original,
     this.createdByUserId,
     this.createdByUserName,
@@ -104320,6 +107883,8 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
   final List<FwStandardDataFwTranslatedValue>? translation;
   @JsonKey(name: '_HasImport', includeIfNull: false)
   final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
   @JsonKey(name: '_Original', includeIfNull: false)
   final FwStandardBusinessLogicFwBusinessLogic? original;
   @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
@@ -104883,6 +108448,11 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
                   other.hasImport,
                   hasImport,
                 )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
             (identical(other.original, original) ||
                 const DeepCollectionEquality().equals(
                   other.original,
@@ -105034,6 +108604,7 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
       const DeepCollectionEquality().hash(defaultFieldAttributes) ^
       const DeepCollectionEquality().hash(translation) ^
       const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
       const DeepCollectionEquality().hash(original) ^
       const DeepCollectionEquality().hash(createdByUserId) ^
       const DeepCollectionEquality().hash(createdByUserName) ^
@@ -105159,6 +108730,7 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
     List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
     List<FwStandardDataFwTranslatedValue>? translation,
     bool? hasImport,
+    bool? hasDocuments,
     FwStandardBusinessLogicFwBusinessLogic? original,
     String? createdByUserId,
     String? createdByUserName,
@@ -105294,6 +108866,7 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
           defaultFieldAttributes ?? this.defaultFieldAttributes,
       translation: translation ?? this.translation,
       hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
       original: original ?? this.original,
       createdByUserId: createdByUserId ?? this.createdByUserId,
       createdByUserName: createdByUserName ?? this.createdByUserName,
@@ -105421,6 +108994,7 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
     Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
     Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
     Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
     Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
     Wrapped<String?>? createdByUserId,
     Wrapped<String?>? createdByUserName,
@@ -105681,6 +109255,9 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
           : this.defaultFieldAttributes),
       translation: (translation != null ? translation.value : this.translation),
       hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
       original: (original != null ? original.value : this.original),
       createdByUserId: (createdByUserId != null
           ? createdByUserId.value

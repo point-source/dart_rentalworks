@@ -751,6 +751,7 @@ final class _$Mobile extends Mobile {
   @override
   Future<Response<bool>> _quikscanStagingAllowCreateContractOrderOrderidGet({
     required String? orderId,
+    String? contractId,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -765,10 +766,14 @@ final class _$Mobile extends Mobile {
     final Uri $url = Uri.parse(
       '/quikscan/staging/allow-create-contract/order/{orderid}',
     );
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'ContractId': contractId,
+    };
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
+      parameters: $params,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);

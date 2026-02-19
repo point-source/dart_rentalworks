@@ -317,7 +317,7 @@ void main() {
     test('Get inventory ID', () async {
       expect(item?.iCode, isNotNull);
       final r = await rw!.utilities
-          .changeicodeutilityValidaterentalinventoryBrowsePost(
+          .changeicodeutilityValidateinventoryBrowsePost(
             body: u.FwStandardModelsBrowseRequest(
               pageno: 1,
               pagesize: 1,
