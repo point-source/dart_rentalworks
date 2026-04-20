@@ -1,0 +1,329 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "RentalWorks Undocumented API",
+    "version": "v1"
+  },
+  "paths": {
+    "/shippingcase/{id}": {
+      "get": {
+        "tags": ["ShippingCase"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Warehouse.ShippingCase.ShippingCase"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized (jwt token is invalid)" },
+          "403": { "description": "Forbidden (jwt token is valid, but you don't have permission)" },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shippingcase/browse": {
+      "post": {
+        "tags": ["ShippingCase"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized (jwt token is invalid)" },
+          "403": { "description": "Forbidden (jwt token is valid, but you don't have permission)" },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shippingcaseitem/browse": {
+      "post": {
+        "tags": ["ShippingCaseItem"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized (jwt token is invalid)" },
+          "403": { "description": "Forbidden (jwt token is valid, but you don't have permission)" },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "WebApi.Modules.Warehouse.ShippingCase.ShippingCase": {
+        "type": "object",
+        "properties": {
+          "ShippingCaseId": { "type": "integer", "format": "int32" },
+          "OrderId": { "type": "string", "nullable": true },
+          "OrderNumber": { "type": "string", "nullable": true },
+          "OrderDescription": { "type": "string", "nullable": true },
+          "OrderType": { "type": "string", "nullable": true },
+          "ItemId": { "type": "string", "nullable": true },
+          "InventoryId": { "type": "string", "nullable": true },
+          "ICode": { "type": "string", "nullable": true },
+          "ItemDescription": { "type": "string", "nullable": true },
+          "BarCode": { "type": "string", "nullable": true },
+          "Description": { "type": "string", "nullable": true },
+          "ShippingCaseNumber": { "type": "string", "nullable": true },
+          "ItemCount": { "type": "number", "format": "double" },
+          "ShippingCaseTitle": { "type": "string", "nullable": true },
+          "WarehouseId": { "type": "string", "nullable": true },
+          "Warehouse": { "type": "string", "nullable": true },
+          "AuditNote": { "type": "string", "nullable": true },
+          "RecordTitle": { "type": "string", "nullable": true, "readOnly": true },
+          "UrlIdentifier": { "nullable": true, "readOnly": true },
+          "_Custom": {
+            "type": "array",
+            "items": {},
+            "nullable": true
+          },
+          "_DefaultFieldAttributes": {
+            "type": "array",
+            "items": {},
+            "nullable": true
+          },
+          "_Original": { "nullable": true },
+          "_Translation": {
+            "type": "array",
+            "items": {},
+            "nullable": true
+          },
+          "_HasImport": { "type": "boolean" },
+          "_HasDocuments": { "type": "boolean" },
+          "CreatedByUserId": { "type": "string", "nullable": true },
+          "CreatedByUserName": { "type": "string", "nullable": true },
+          "CreatedDateTime": { "type": "string", "nullable": true },
+          "ModifiedByUserId": { "type": "string", "nullable": true },
+          "ModifiedByUserName": { "type": "string", "nullable": true },
+          "ModifiedDateTime": { "type": "string", "nullable": true }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.BrowseRequest": {
+        "type": "object",
+        "properties": {
+          "miscfields": { "nullable": true },
+          "module": { "type": "string", "nullable": true },
+          "options": { "nullable": true },
+          "orderby": { "type": "string", "nullable": true },
+          "orderbydirection": { "type": "string", "nullable": true },
+          "top": { "type": "integer", "format": "int32" },
+          "pageno": { "type": "integer", "format": "int32" },
+          "pagesize": { "type": "integer", "format": "int32" },
+          "searchfieldoperators": { "type": "array", "items": { "type": "string" }, "nullable": true },
+          "searchfields": { "type": "array", "items": { "type": "string" }, "nullable": true },
+          "searchfieldvalues": { "type": "array", "items": { "type": "string" }, "nullable": true },
+          "searchfieldtypes": { "type": "array", "items": { "type": "string" }, "nullable": true },
+          "searchseparators": { "type": "array", "items": { "type": "string" }, "nullable": true },
+          "searchcondition": { "type": "array", "items": { "type": "string" }, "nullable": true },
+          "searchconjunctions": { "type": "array", "items": { "type": "string" }, "nullable": true },
+          "searchgroupings": { "type": "array", "items": { "type": "integer", "format": "int32" }, "nullable": true },
+          "uniqueids": { "nullable": true },
+          "boundids": { "nullable": true },
+          "filterfields": {
+            "type": "object",
+            "additionalProperties": { "type": "string", "nullable": true },
+            "nullable": true
+          },
+          "activeview": { "type": "string", "nullable": true },
+          "emptyobject": { "type": "boolean" },
+          "forexcel": { "type": "boolean" },
+          "includeallcolumns": { "type": "boolean" },
+          "fields": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/FwStandard.Models.CheckBoxListItem" },
+            "nullable": true
+          },
+          "totalfields": { "type": "array", "items": { "type": "string" }, "nullable": true },
+          "activeviewfields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": { "type": "string" },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "timezoneOffset": { "type": "integer", "format": "int32", "nullable": true }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.Models.CheckBoxListItem": {
+        "type": "object",
+        "properties": {
+          "value": { "type": "string", "nullable": true },
+          "text": { "type": "string", "nullable": true },
+          "selected": { "type": "boolean", "nullable": true }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.SqlServer.FwJsonDataTable": {
+        "type": "object",
+        "properties": {
+          "ColumnIndex": {
+            "type": "object",
+            "additionalProperties": { "type": "integer", "format": "int32", "nullable": true },
+            "nullable": true
+          },
+          "Totals": {
+            "type": "object",
+            "additionalProperties": { "type": "number", "format": "double", "nullable": true },
+            "nullable": true
+          },
+          "Columns": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTableColumn" },
+            "nullable": true
+          },
+          "Rows": {
+            "type": "array",
+            "items": { "type": "array", "items": {} },
+            "nullable": true
+          },
+          "PageNo": { "type": "integer", "format": "int32" },
+          "PageSize": { "type": "integer", "format": "int32" },
+          "TotalPages": { "type": "integer", "format": "int32" },
+          "TotalRows": { "type": "integer", "format": "int32" },
+          "DateFields": { "type": "array", "items": { "type": "string" }, "nullable": true },
+          "ColumnNameByIndex": {
+            "type": "object",
+            "additionalProperties": { "type": "string", "nullable": true },
+            "nullable": true,
+            "readOnly": true
+          },
+          "ServerVersion": { "type": "string", "nullable": true },
+          "_Translation": { "type": "array", "items": {}, "nullable": true }
+        },
+        "additionalProperties": false
+      },
+      "FwStandard.SqlServer.FwJsonDataTableColumn": {
+        "type": "object",
+        "properties": {
+          "Name": { "type": "string", "nullable": true },
+          "DataField": { "type": "string", "nullable": true },
+          "DataType": { "type": "string", "nullable": true },
+          "IsUniqueId": { "type": "boolean" },
+          "IsVisible": { "type": "boolean" }
+        },
+        "additionalProperties": false
+      },
+      "FwCore.Api.Swashbuckle.BadRequestResponse": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "FwStandard.Models.FwApiException": {
+        "type": "object",
+        "properties": {
+          "StatusCode": { "type": "integer", "format": "int32" },
+          "Message": { "type": "string", "nullable": true },
+          "StackTrace": { "type": "string", "nullable": true }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

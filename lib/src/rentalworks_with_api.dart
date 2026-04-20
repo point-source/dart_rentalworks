@@ -72,6 +72,7 @@ class RentalWorks {
         services: [
           AccountServices.create(),
           Administrator.create(),
+          Undocumented.create(),
           Exports.create(),
           Home.create(),
           Mobile.create(),
@@ -93,6 +94,8 @@ class RentalWorks {
   AccountServices get accountServices => client.getService();
 
   Administrator get administrator => client.getService();
+
+  Undocumented get undocumented => client.getService();
 
   Exports get exports => client.getService();
 

@@ -8,5 +8,6 @@ export 'pages.swagger.dart' show Pages;
 export 'plugins.swagger.dart' show Plugins;
 export 'reports.swagger.dart' show Reports;
 export 'settings.swagger.dart' show Settings;
+export 'undocumented.swagger.dart' show Undocumented;
 export 'utilities.swagger.dart' show Utilities;
 export 'warehouse.swagger.dart' show Warehouse;
