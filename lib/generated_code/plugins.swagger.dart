@@ -2744,6 +2744,43 @@ abstract class Plugins extends ChopperService {
   });
 
   ///
+  Future<
+    chopper.Response<
+      List<WebApiModulesPluginsFreightPopFreightPopPluginLocation>
+    >
+  >
+  freightpoppluginLocationsGet() {
+    generatedMapping.putIfAbsent(
+      WebApiModulesPluginsFreightPopFreightPopPluginLocation,
+      () => WebApiModulesPluginsFreightPopFreightPopPluginLocation
+          .fromJsonFactory,
+    );
+
+    return _freightpoppluginLocationsGet();
+  }
+
+  ///
+  @GET(path: '/freightpopplugin/locations')
+  Future<
+    chopper.Response<
+      List<WebApiModulesPluginsFreightPopFreightPopPluginLocation>
+    >
+  >
+  _freightpoppluginLocationsGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FreightPopPlugin"],
+      deprecated: false,
+    ),
+  });
+
+  ///
   ///@param QuoteOrderProjectNo
   Future<chopper.Response<WebApiModulesPluginsKissFlowProjectResponse>>
   kissflowpluginProjectGet({String? quoteOrderProjectNo}) {
@@ -7326,6 +7363,8 @@ class WebApiModulesAgentOrderOrder {
     this.disableCrewValidation,
     this.updateBillingStartAndStopDatesOnSubPurchaseOrders,
     this.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+    this.weeklyReturnOnValue,
+    this.weeklyReturnOnReplacement,
     this.orderValueTotal,
     this.orderReplacementTotal,
     this.ownedValueTotal,
@@ -8331,6 +8370,10 @@ class WebApiModulesAgentOrderOrder {
     includeIfNull: false,
   )
   final bool? promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders;
+  @JsonKey(name: 'WeeklyReturnOnValue', includeIfNull: false)
+  final double? weeklyReturnOnValue;
+  @JsonKey(name: 'WeeklyReturnOnReplacement', includeIfNull: false)
+  final double? weeklyReturnOnReplacement;
   @JsonKey(name: 'OrderValueTotal', includeIfNull: false)
   final double? orderValueTotal;
   @JsonKey(name: 'OrderReplacementTotal', includeIfNull: false)
@@ -11100,6 +11143,19 @@ class WebApiModulesAgentOrderOrder {
                       .promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
                   promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
                 )) &&
+            (identical(other.weeklyReturnOnValue, weeklyReturnOnValue) ||
+                const DeepCollectionEquality().equals(
+                  other.weeklyReturnOnValue,
+                  weeklyReturnOnValue,
+                )) &&
+            (identical(
+                  other.weeklyReturnOnReplacement,
+                  weeklyReturnOnReplacement,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.weeklyReturnOnReplacement,
+                  weeklyReturnOnReplacement,
+                )) &&
             (identical(other.orderValueTotal, orderValueTotal) ||
                 const DeepCollectionEquality().equals(
                   other.orderValueTotal,
@@ -11876,6 +11932,8 @@ class WebApiModulesAgentOrderOrder {
       const DeepCollectionEquality().hash(
         promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
       ) ^
+      const DeepCollectionEquality().hash(weeklyReturnOnValue) ^
+      const DeepCollectionEquality().hash(weeklyReturnOnReplacement) ^
       const DeepCollectionEquality().hash(orderValueTotal) ^
       const DeepCollectionEquality().hash(orderReplacementTotal) ^
       const DeepCollectionEquality().hash(ownedValueTotal) ^
@@ -12399,6 +12457,8 @@ extension $WebApiModulesAgentOrderOrderExtension
     bool? disableCrewValidation,
     bool? updateBillingStartAndStopDatesOnSubPurchaseOrders,
     bool? promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+    double? weeklyReturnOnValue,
+    double? weeklyReturnOnReplacement,
     double? orderValueTotal,
     double? orderReplacementTotal,
     double? ownedValueTotal,
@@ -13109,6 +13169,9 @@ extension $WebApiModulesAgentOrderOrderExtension
       promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders:
           promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders ??
           this.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+      weeklyReturnOnValue: weeklyReturnOnValue ?? this.weeklyReturnOnValue,
+      weeklyReturnOnReplacement:
+          weeklyReturnOnReplacement ?? this.weeklyReturnOnReplacement,
       orderValueTotal: orderValueTotal ?? this.orderValueTotal,
       orderReplacementTotal:
           orderReplacementTotal ?? this.orderReplacementTotal,
@@ -13645,6 +13708,8 @@ extension $WebApiModulesAgentOrderOrderExtension
     Wrapped<bool?>? disableCrewValidation,
     Wrapped<bool?>? updateBillingStartAndStopDatesOnSubPurchaseOrders,
     Wrapped<bool?>? promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+    Wrapped<double?>? weeklyReturnOnValue,
+    Wrapped<double?>? weeklyReturnOnReplacement,
     Wrapped<double?>? orderValueTotal,
     Wrapped<double?>? orderReplacementTotal,
     Wrapped<double?>? ownedValueTotal,
@@ -14923,6 +14988,12 @@ extension $WebApiModulesAgentOrderOrderExtension
           (promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders != null
           ? promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders.value
           : this.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders),
+      weeklyReturnOnValue: (weeklyReturnOnValue != null
+          ? weeklyReturnOnValue.value
+          : this.weeklyReturnOnValue),
+      weeklyReturnOnReplacement: (weeklyReturnOnReplacement != null
+          ? weeklyReturnOnReplacement.value
+          : this.weeklyReturnOnReplacement),
       orderValueTotal: (orderValueTotal != null
           ? orderValueTotal.value
           : this.orderValueTotal),
@@ -20773,6 +20844,8 @@ class WebApiModulesAgentQuoteQuote {
     this.disableCrewValidation,
     this.updateBillingStartAndStopDatesOnSubPurchaseOrders,
     this.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+    this.weeklyReturnOnValue,
+    this.weeklyReturnOnReplacement,
     this.orderValueTotal,
     this.orderReplacementTotal,
     this.ownedValueTotal,
@@ -21770,6 +21843,10 @@ class WebApiModulesAgentQuoteQuote {
     includeIfNull: false,
   )
   final bool? promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders;
+  @JsonKey(name: 'WeeklyReturnOnValue', includeIfNull: false)
+  final double? weeklyReturnOnValue;
+  @JsonKey(name: 'WeeklyReturnOnReplacement', includeIfNull: false)
+  final double? weeklyReturnOnReplacement;
   @JsonKey(name: 'OrderValueTotal', includeIfNull: false)
   final double? orderValueTotal;
   @JsonKey(name: 'OrderReplacementTotal', includeIfNull: false)
@@ -24510,6 +24587,19 @@ class WebApiModulesAgentQuoteQuote {
                       .promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
                   promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
                 )) &&
+            (identical(other.weeklyReturnOnValue, weeklyReturnOnValue) ||
+                const DeepCollectionEquality().equals(
+                  other.weeklyReturnOnValue,
+                  weeklyReturnOnValue,
+                )) &&
+            (identical(
+                  other.weeklyReturnOnReplacement,
+                  weeklyReturnOnReplacement,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.weeklyReturnOnReplacement,
+                  weeklyReturnOnReplacement,
+                )) &&
             (identical(other.orderValueTotal, orderValueTotal) ||
                 const DeepCollectionEquality().equals(
                   other.orderValueTotal,
@@ -25282,6 +25372,8 @@ class WebApiModulesAgentQuoteQuote {
       const DeepCollectionEquality().hash(
         promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
       ) ^
+      const DeepCollectionEquality().hash(weeklyReturnOnValue) ^
+      const DeepCollectionEquality().hash(weeklyReturnOnReplacement) ^
       const DeepCollectionEquality().hash(orderValueTotal) ^
       const DeepCollectionEquality().hash(orderReplacementTotal) ^
       const DeepCollectionEquality().hash(ownedValueTotal) ^
@@ -25801,6 +25893,8 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     bool? disableCrewValidation,
     bool? updateBillingStartAndStopDatesOnSubPurchaseOrders,
     bool? promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+    double? weeklyReturnOnValue,
+    double? weeklyReturnOnReplacement,
     double? orderValueTotal,
     double? orderReplacementTotal,
     double? ownedValueTotal,
@@ -26504,6 +26598,9 @@ extension $WebApiModulesAgentQuoteQuoteExtension
       promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders:
           promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders ??
           this.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+      weeklyReturnOnValue: weeklyReturnOnValue ?? this.weeklyReturnOnValue,
+      weeklyReturnOnReplacement:
+          weeklyReturnOnReplacement ?? this.weeklyReturnOnReplacement,
       orderValueTotal: orderValueTotal ?? this.orderValueTotal,
       orderReplacementTotal:
           orderReplacementTotal ?? this.orderReplacementTotal,
@@ -27036,6 +27133,8 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     Wrapped<bool?>? disableCrewValidation,
     Wrapped<bool?>? updateBillingStartAndStopDatesOnSubPurchaseOrders,
     Wrapped<bool?>? promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+    Wrapped<double?>? weeklyReturnOnValue,
+    Wrapped<double?>? weeklyReturnOnReplacement,
     Wrapped<double?>? orderValueTotal,
     Wrapped<double?>? orderReplacementTotal,
     Wrapped<double?>? ownedValueTotal,
@@ -28303,6 +28402,12 @@ extension $WebApiModulesAgentQuoteQuoteExtension
           (promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders != null
           ? promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders.value
           : this.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders),
+      weeklyReturnOnValue: (weeklyReturnOnValue != null
+          ? weeklyReturnOnValue.value
+          : this.weeklyReturnOnValue),
+      weeklyReturnOnReplacement: (weeklyReturnOnReplacement != null
+          ? weeklyReturnOnReplacement.value
+          : this.weeklyReturnOnReplacement),
       orderValueTotal: (orderValueTotal != null
           ? orderValueTotal.value
           : this.orderValueTotal),
@@ -39727,6 +39832,78 @@ extension $WebApiModulesPluginsCreditCardProcessCreditCardPaymentTypeExtension
           ? paymentTypeType.value
           : this.paymentTypeType),
       feePercent: (feePercent != null ? feePercent.value : this.feePercent),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesPluginsFreightPopFreightPopPluginLocation {
+  const WebApiModulesPluginsFreightPopFreightPopPluginLocation({
+    this.locationId,
+    this.location,
+  });
+
+  factory WebApiModulesPluginsFreightPopFreightPopPluginLocation.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesPluginsFreightPopFreightPopPluginLocationFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesPluginsFreightPopFreightPopPluginLocationToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesPluginsFreightPopFreightPopPluginLocationToJson(this);
+
+  @JsonKey(name: 'LocationId', includeIfNull: false)
+  final String? locationId;
+  @JsonKey(name: 'Location', includeIfNull: false)
+  final String? location;
+  static const fromJsonFactory =
+      _$WebApiModulesPluginsFreightPopFreightPopPluginLocationFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesPluginsFreightPopFreightPopPluginLocation &&
+            (identical(other.locationId, locationId) ||
+                const DeepCollectionEquality().equals(
+                  other.locationId,
+                  locationId,
+                )) &&
+            (identical(other.location, location) ||
+                const DeepCollectionEquality().equals(
+                  other.location,
+                  location,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(locationId) ^
+      const DeepCollectionEquality().hash(location) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesPluginsFreightPopFreightPopPluginLocationExtension
+    on WebApiModulesPluginsFreightPopFreightPopPluginLocation {
+  WebApiModulesPluginsFreightPopFreightPopPluginLocation copyWith({
+    String? locationId,
+    String? location,
+  }) {
+    return WebApiModulesPluginsFreightPopFreightPopPluginLocation(
+      locationId: locationId ?? this.locationId,
+      location: location ?? this.location,
+    );
+  }
+
+  WebApiModulesPluginsFreightPopFreightPopPluginLocation copyWithWrapped({
+    Wrapped<String?>? locationId,
+    Wrapped<String?>? location,
+  }) {
+    return WebApiModulesPluginsFreightPopFreightPopPluginLocation(
+      locationId: (locationId != null ? locationId.value : this.locationId),
+      location: (location != null ? location.value : this.location),
     );
   }
 }

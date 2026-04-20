@@ -8161,7 +8161,7 @@ _$WebApiModulesAgentOrderCopyQuoteOrderRequestFromJson(
   copyLineItemUnitCosts: json['CopyLineItemUnitCosts'] as bool?,
   copyWithUserSelectedDates: json['CopyWithUserSelectedDates'] as bool?,
   copyLineItemNotes: json['CopyLineItemNotes'] as bool?,
-  useCurrentPricing: json['UseCurrentPricing'] as bool?,
+  copyLineItemPricing: json['CopyLineItemPricing'] as bool?,
   copyOrderNotes: json['CopyOrderNotes'] as bool?,
   combineSubs: json['CombineSubs'] as bool?,
   copyDocuments: json['CopyDocuments'] as bool?,
@@ -8185,7 +8185,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderCopyQuoteOrderRequestToJson(
   'CopyLineItemUnitCosts': ?instance.copyLineItemUnitCosts,
   'CopyWithUserSelectedDates': ?instance.copyWithUserSelectedDates,
   'CopyLineItemNotes': ?instance.copyLineItemNotes,
-  'UseCurrentPricing': ?instance.useCurrentPricing,
+  'CopyLineItemPricing': ?instance.copyLineItemPricing,
   'CopyOrderNotes': ?instance.copyOrderNotes,
   'CombineSubs': ?instance.combineSubs,
   'CopyDocuments': ?instance.copyDocuments,
@@ -9037,6 +9037,9 @@ _$WebApiModulesAgentOrderGetOrderResponseFromJson(
   promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders:
       json['PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders']
           as bool?,
+  weeklyReturnOnValue: (json['WeeklyReturnOnValue'] as num?)?.toDouble(),
+  weeklyReturnOnReplacement: (json['WeeklyReturnOnReplacement'] as num?)
+      ?.toDouble(),
   orderValueTotal: (json['OrderValueTotal'] as num?)?.toDouble(),
   orderReplacementTotal: (json['OrderReplacementTotal'] as num?)?.toDouble(),
   ownedValueTotal: (json['OwnedValueTotal'] as num?)?.toDouble(),
@@ -9626,6 +9629,8 @@ Map<String, dynamic> _$WebApiModulesAgentOrderGetOrderResponseToJson(
       ?instance.updateBillingStartAndStopDatesOnSubPurchaseOrders,
   'PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders':
       ?instance.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+  'WeeklyReturnOnValue': ?instance.weeklyReturnOnValue,
+  'WeeklyReturnOnReplacement': ?instance.weeklyReturnOnReplacement,
   'OrderValueTotal': ?instance.orderValueTotal,
   'OrderReplacementTotal': ?instance.orderReplacementTotal,
   'OwnedValueTotal': ?instance.ownedValueTotal,
@@ -9686,6 +9691,22 @@ Map<String, dynamic> _$WebApiModulesAgentOrderGetOrderResponseToJson(
   'ModifiedByUserId': ?instance.modifiedByUserId,
   'ModifiedByUserName': ?instance.modifiedByUserName,
   'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
+WebApiModulesAgentOrderKissFlowQuoteOrderSubmissionRequest
+_$WebApiModulesAgentOrderKissFlowQuoteOrderSubmissionRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesAgentOrderKissFlowQuoteOrderSubmissionRequest(
+  quoteOrderId: json['QuoteOrderId'] as String?,
+  goToUrl: json['GoToUrl'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesAgentOrderKissFlowQuoteOrderSubmissionRequestToJson(
+  WebApiModulesAgentOrderKissFlowQuoteOrderSubmissionRequest instance,
+) => <String, dynamic>{
+  'QuoteOrderId': ?instance.quoteOrderId,
+  'GoToUrl': ?instance.goToUrl,
 };
 
 WebApiModulesAgentOrderLaborTotalsResponse
@@ -10334,6 +10355,9 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders:
       json['PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders']
           as bool?,
+  weeklyReturnOnValue: (json['WeeklyReturnOnValue'] as num?)?.toDouble(),
+  weeklyReturnOnReplacement: (json['WeeklyReturnOnReplacement'] as num?)
+      ?.toDouble(),
   orderValueTotal: (json['OrderValueTotal'] as num?)?.toDouble(),
   orderReplacementTotal: (json['OrderReplacementTotal'] as num?)?.toDouble(),
   ownedValueTotal: (json['OwnedValueTotal'] as num?)?.toDouble(),
@@ -10914,6 +10938,8 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
       ?instance.updateBillingStartAndStopDatesOnSubPurchaseOrders,
   'PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders':
       ?instance.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+  'WeeklyReturnOnValue': ?instance.weeklyReturnOnValue,
+  'WeeklyReturnOnReplacement': ?instance.weeklyReturnOnReplacement,
   'OrderValueTotal': ?instance.orderValueTotal,
   'OrderReplacementTotal': ?instance.orderReplacementTotal,
   'OwnedValueTotal': ?instance.ownedValueTotal,
@@ -11488,6 +11514,9 @@ WebApiModulesAgentOrderOrderBase _$WebApiModulesAgentOrderOrderBaseFromJson(
   promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders:
       json['PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders']
           as bool?,
+  weeklyReturnOnValue: (json['WeeklyReturnOnValue'] as num?)?.toDouble(),
+  weeklyReturnOnReplacement: (json['WeeklyReturnOnReplacement'] as num?)
+      ?.toDouble(),
   orderValueTotal: (json['OrderValueTotal'] as num?)?.toDouble(),
   orderReplacementTotal: (json['OrderReplacementTotal'] as num?)?.toDouble(),
   ownedValueTotal: (json['OwnedValueTotal'] as num?)?.toDouble(),
@@ -12056,6 +12085,8 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderBaseToJson(
       ?instance.updateBillingStartAndStopDatesOnSubPurchaseOrders,
   'PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders':
       ?instance.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+  'WeeklyReturnOnValue': ?instance.weeklyReturnOnValue,
+  'WeeklyReturnOnReplacement': ?instance.weeklyReturnOnReplacement,
   'OrderValueTotal': ?instance.orderValueTotal,
   'OrderReplacementTotal': ?instance.orderReplacementTotal,
   'OwnedValueTotal': ?instance.ownedValueTotal,
@@ -16080,6 +16111,8 @@ WebApiModulesAgentPurchaseOrderGetPurchaseOrderResponse
 _$WebApiModulesAgentPurchaseOrderGetPurchaseOrderResponseFromJson(
   Map<String, dynamic> json,
 ) => WebApiModulesAgentPurchaseOrderGetPurchaseOrderResponse(
+  syncDateModificationsToInternalOrder:
+      json['_syncDateModificationsToInternalOrder'] as bool?,
   purchaseOrderId: json['PurchaseOrderId'] as String?,
   purchaseOrderNumber: json['PurchaseOrderNumber'] as String?,
   description: json['Description'] as String?,
@@ -16603,6 +16636,8 @@ Map<String, dynamic>
 _$WebApiModulesAgentPurchaseOrderGetPurchaseOrderResponseToJson(
   WebApiModulesAgentPurchaseOrderGetPurchaseOrderResponse instance,
 ) => <String, dynamic>{
+  '_syncDateModificationsToInternalOrder':
+      ?instance.syncDateModificationsToInternalOrder,
   'PurchaseOrderId': ?instance.purchaseOrderId,
   'PurchaseOrderNumber': ?instance.purchaseOrderNumber,
   'Description': ?instance.description,
@@ -17216,6 +17251,8 @@ WebApiModulesAgentPurchaseOrderPurchaseOrder
 _$WebApiModulesAgentPurchaseOrderPurchaseOrderFromJson(
   Map<String, dynamic> json,
 ) => WebApiModulesAgentPurchaseOrderPurchaseOrder(
+  syncDateModificationsToInternalOrder:
+      json['_syncDateModificationsToInternalOrder'] as bool?,
   purchaseOrderId: json['PurchaseOrderId'] as String?,
   purchaseOrderNumber: json['PurchaseOrderNumber'] as String?,
   description: json['Description'] as String?,
@@ -17729,6 +17766,8 @@ _$WebApiModulesAgentPurchaseOrderPurchaseOrderFromJson(
 Map<String, dynamic> _$WebApiModulesAgentPurchaseOrderPurchaseOrderToJson(
   WebApiModulesAgentPurchaseOrderPurchaseOrder instance,
 ) => <String, dynamic>{
+  '_syncDateModificationsToInternalOrder':
+      ?instance.syncDateModificationsToInternalOrder,
   'PurchaseOrderId': ?instance.purchaseOrderId,
   'PurchaseOrderNumber': ?instance.purchaseOrderNumber,
   'Description': ?instance.description,
@@ -19669,6 +19708,9 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders:
       json['PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders']
           as bool?,
+  weeklyReturnOnValue: (json['WeeklyReturnOnValue'] as num?)?.toDouble(),
+  weeklyReturnOnReplacement: (json['WeeklyReturnOnReplacement'] as num?)
+      ?.toDouble(),
   orderValueTotal: (json['OrderValueTotal'] as num?)?.toDouble(),
   orderReplacementTotal: (json['OrderReplacementTotal'] as num?)?.toDouble(),
   ownedValueTotal: (json['OwnedValueTotal'] as num?)?.toDouble(),
@@ -20244,6 +20286,8 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
       ?instance.updateBillingStartAndStopDatesOnSubPurchaseOrders,
   'PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders':
       ?instance.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+  'WeeklyReturnOnValue': ?instance.weeklyReturnOnValue,
+  'WeeklyReturnOnReplacement': ?instance.weeklyReturnOnReplacement,
   'OrderValueTotal': ?instance.orderValueTotal,
   'OrderReplacementTotal': ?instance.orderReplacementTotal,
   'OwnedValueTotal': ?instance.ownedValueTotal,
@@ -22918,6 +22962,8 @@ WebApiModulesBillingInvoiceInvoice _$WebApiModulesBillingInvoiceInvoiceFromJson(
   project: json['Project'] as String?,
   sourceId: json['SourceId'] as String?,
   sourceDate: json['SourceDate'] as String?,
+  csrId: json['CsrId'] as String?,
+  csr: json['Csr'] as String?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -23140,6 +23186,8 @@ Map<String, dynamic> _$WebApiModulesBillingInvoiceInvoiceToJson(
   'Project': ?instance.project,
   'SourceId': ?instance.sourceId,
   'SourceDate': ?instance.sourceDate,
+  'CsrId': ?instance.csrId,
+  'Csr': ?instance.csr,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -34086,6 +34134,7 @@ _$WebApiModulesInventoryInventorySearchInventorySearchRequestFromJson(
   attributeId: json['AttributeId'] as String?,
   attributeValueId: json['AttributeValueId'] as String?,
   attributeValueRange: json['AttributeValueRange'] as String?,
+  manufacturerId: json['ManufacturerId'] as String?,
   showAvailability: json['ShowAvailability'] as bool?,
   fromDate: json['FromDate'] == null
       ? null
@@ -34128,6 +34177,7 @@ _$WebApiModulesInventoryInventorySearchInventorySearchRequestToJson(
   'AttributeId': ?instance.attributeId,
   'AttributeValueId': ?instance.attributeValueId,
   'AttributeValueRange': ?instance.attributeValueRange,
+  'ManufacturerId': ?instance.manufacturerId,
   'ShowAvailability': ?instance.showAvailability,
   'FromDate': ?instance.fromDate?.toIso8601String(),
   'FromTime': ?instance.fromTime,
@@ -40092,6 +40142,56 @@ Map<String, dynamic> _$WebApiModulesInventoryRepairCreateRepairResponseToJson(
   'msg': ?instance.msg,
 };
 
+WebApiModulesInventoryRepairKissFlowRepairOrderSubmissionRequest
+_$WebApiModulesInventoryRepairKissFlowRepairOrderSubmissionRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesInventoryRepairKissFlowRepairOrderSubmissionRequest(
+  repairId: json['RepairId'] as String?,
+  goToUrl: json['GoToUrl'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesInventoryRepairKissFlowRepairOrderSubmissionRequestToJson(
+  WebApiModulesInventoryRepairKissFlowRepairOrderSubmissionRequest instance,
+) => <String, dynamic>{
+  'RepairId': ?instance.repairId,
+  'GoToUrl': ?instance.goToUrl,
+};
+
+WebApiModulesInventoryRepairKissFlowUpdateRepairOrderPoRequest
+_$WebApiModulesInventoryRepairKissFlowUpdateRepairOrderPoRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesInventoryRepairKissFlowUpdateRepairOrderPoRequest(
+  repairNumber: json['RepairNumber'] as String?,
+  purchaseOrderNumber: json['PurchaseOrderNumber'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesInventoryRepairKissFlowUpdateRepairOrderPoRequestToJson(
+  WebApiModulesInventoryRepairKissFlowUpdateRepairOrderPoRequest instance,
+) => <String, dynamic>{
+  'RepairNumber': ?instance.repairNumber,
+  'PurchaseOrderNumber': ?instance.purchaseOrderNumber,
+};
+
+WebApiModulesInventoryRepairKissFlowUpdateRepairOrderTransferRequest
+_$WebApiModulesInventoryRepairKissFlowUpdateRepairOrderTransferRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesInventoryRepairKissFlowUpdateRepairOrderTransferRequest(
+  repairNumber: json['RepairNumber'] as String?,
+  rmaNumber: json['RmaNumber'] as String?,
+  transferNumber: json['TransferNumber'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesInventoryRepairKissFlowUpdateRepairOrderTransferRequestToJson(
+  WebApiModulesInventoryRepairKissFlowUpdateRepairOrderTransferRequest instance,
+) => <String, dynamic>{
+  'RepairNumber': ?instance.repairNumber,
+  'RmaNumber': ?instance.rmaNumber,
+  'TransferNumber': ?instance.transferNumber,
+};
+
 WebApiModulesInventoryRepairRepair _$WebApiModulesInventoryRepairRepairFromJson(
   Map<String, dynamic> json,
 ) => WebApiModulesInventoryRepairRepair(
@@ -40225,6 +40325,7 @@ WebApiModulesInventoryRepairRepair _$WebApiModulesInventoryRepairRepairFromJson(
   consignor: json['Consignor'] as String?,
   consignorAgreementId: json['ConsignorAgreementId'] as String?,
   agreementNumber: json['AgreementNumber'] as String?,
+  flatRateRepair: json['FlatRateRepair'] as bool?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -40411,6 +40512,7 @@ Map<String, dynamic> _$WebApiModulesInventoryRepairRepairToJson(
   'Consignor': ?instance.consignor,
   'ConsignorAgreementId': ?instance.consignorAgreementId,
   'AgreementNumber': ?instance.agreementNumber,
+  'FlatRateRepair': ?instance.flatRateRepair,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -45319,6 +45421,7 @@ _$WebApiModulesWarehouseCheckInCheckInItemsRequestFromJson(
   moduleType: json['ModuleType'] as String?,
   contractType: json['ContractType'] as String?,
   userWarehouseId: json['UserWarehouseId'] as String?,
+  notes: json['Notes'] as String?,
   forceNewSession: json['ForceNewSession'] as bool?,
   forceCheckInItemInContainer: json['ForceCheckInItemInContainer'] as bool?,
   items:
@@ -45346,6 +45449,7 @@ Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInItemsRequestToJson(
   'ModuleType': ?instance.moduleType,
   'ContractType': ?instance.contractType,
   'UserWarehouseId': ?instance.userWarehouseId,
+  'Notes': ?instance.notes,
   'ForceNewSession': ?instance.forceNewSession,
   'ForceCheckInItemInContainer': ?instance.forceCheckInItemInContainer,
   'Items': ?instance.items?.map((e) => e.toJson()).toList(),
@@ -45500,6 +45604,7 @@ _$WebApiModulesWarehouseCheckInCheckInSessionFromJson(
   orderIds:
       (json['OrderIds'] as List<dynamic>?)?.map((e) => e as String).toList() ??
       [],
+  notes: json['Notes'] as String?,
 );
 
 Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInSessionToJson(
@@ -45513,6 +45618,7 @@ Map<String, dynamic> _$WebApiModulesWarehouseCheckInCheckInSessionToJson(
   'WarehouseId': ?instance.warehouseId,
   'ModuleType': ?instance.moduleType,
   'OrderIds': ?instance.orderIds,
+  'Notes': ?instance.notes,
 };
 
 WebApiModulesWarehouseCheckInCheckInSessionInfo
@@ -45819,6 +45925,7 @@ _$WebApiModulesWarehouseCheckInSessionSettingsResponseFromJson(
   warehouseId: json['WarehouseId'] as String?,
   hasPendingExchange: json['HasPendingExchange'] as bool?,
   hasException: json['HasException'] as bool?,
+  notes: json['Notes'] as String?,
   orders:
       (json['Orders'] as List<dynamic>?)
           ?.map(
@@ -45840,6 +45947,7 @@ _$WebApiModulesWarehouseCheckInSessionSettingsResponseToJson(
   'WarehouseId': ?instance.warehouseId,
   'HasPendingExchange': ?instance.hasPendingExchange,
   'HasException': ?instance.hasException,
+  'Notes': ?instance.notes,
   'Orders': ?instance.orders?.map((e) => e.toJson()).toList(),
 };
 
@@ -45915,6 +46023,38 @@ Map<String, dynamic> _$WebApiModulesWarehouseCheckInSwapResponseToJson(
   WebApiModulesWarehouseCheckInSwapResponse instance,
 ) => <String, dynamic>{
   'Swaps': ?instance.swaps?.map((e) => e.toJson()).toList(),
+};
+
+WebApiModulesWarehouseCheckInUpdateNotesRequest
+_$WebApiModulesWarehouseCheckInUpdateNotesRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseCheckInUpdateNotesRequest(
+  notes: json['Notes'] as String?,
+  contractId: json['ContractId'] as String?,
+);
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInUpdateNotesRequestToJson(
+  WebApiModulesWarehouseCheckInUpdateNotesRequest instance,
+) => <String, dynamic>{
+  'Notes': ?instance.notes,
+  'ContractId': ?instance.contractId,
+};
+
+WebApiModulesWarehouseCheckInUpdateNotesResponse
+_$WebApiModulesWarehouseCheckInUpdateNotesResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseCheckInUpdateNotesResponse(
+  status: (json['status'] as num?)?.toInt(),
+  success: json['success'] as bool?,
+  msg: json['msg'] as String?,
+);
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckInUpdateNotesResponseToJson(
+  WebApiModulesWarehouseCheckInUpdateNotesResponse instance,
+) => <String, dynamic>{
+  'status': ?instance.status,
+  'success': ?instance.success,
+  'msg': ?instance.msg,
 };
 
 WebApiModulesWarehouseCheckInReconcileAssignByOrderICodesRequest
@@ -46375,6 +46515,8 @@ _$WebApiModulesWarehouseCheckOutCheckOutAllStagedRequestFromJson(
   officeLocationId: json['OfficeLocationId'] as String?,
   warehouseId: json['WarehouseId'] as String?,
   responsiblePersonId: json['ResponsiblePersonId'] as String?,
+  expectedReturnDate: json['ExpectedReturnDate'] as String?,
+  enableExpectedReturnAlert: json['EnableExpectedReturnAlert'] as bool?,
 );
 
 Map<String, dynamic>
@@ -46385,6 +46527,8 @@ _$WebApiModulesWarehouseCheckOutCheckOutAllStagedRequestToJson(
   'OfficeLocationId': ?instance.officeLocationId,
   'WarehouseId': ?instance.warehouseId,
   'ResponsiblePersonId': ?instance.responsiblePersonId,
+  'ExpectedReturnDate': ?instance.expectedReturnDate,
+  'EnableExpectedReturnAlert': ?instance.enableExpectedReturnAlert,
 };
 
 WebApiModulesWarehouseCheckOutCheckOutAllStagedResponse
@@ -46416,6 +46560,8 @@ _$WebApiModulesWarehouseCheckOutCompleteCheckOutContractRequestFromJson(
   orderId: json['OrderId'] as String?,
   contractId: json['ContractId'] as String?,
   responsiblePersonId: json['ResponsiblePersonId'] as String?,
+  expectedReturnDate: json['ExpectedReturnDate'] as String?,
+  enableExpectedReturnAlert: json['EnableExpectedReturnAlert'] as bool?,
 );
 
 Map<String, dynamic>
@@ -46425,6 +46571,8 @@ _$WebApiModulesWarehouseCheckOutCompleteCheckOutContractRequestToJson(
   'OrderId': ?instance.orderId,
   'ContractId': ?instance.contractId,
   'ResponsiblePersonId': ?instance.responsiblePersonId,
+  'ExpectedReturnDate': ?instance.expectedReturnDate,
+  'EnableExpectedReturnAlert': ?instance.enableExpectedReturnAlert,
 };
 
 WebApiModulesWarehouseCheckOutCompleteCheckOutContractResponse
@@ -46562,6 +46710,25 @@ Map<String, dynamic>
 _$WebApiModulesWarehouseCheckOutDecreaseOrderQuantityResponseToJson(
   WebApiModulesWarehouseCheckOutDecreaseOrderQuantityResponse instance,
 ) => <String, dynamic>{
+  'status': ?instance.status,
+  'success': ?instance.success,
+  'msg': ?instance.msg,
+};
+
+WebApiModulesWarehouseCheckOutGetNotesResponse
+_$WebApiModulesWarehouseCheckOutGetNotesResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseCheckOutGetNotesResponse(
+  notes: json['Notes'] as String?,
+  status: (json['status'] as num?)?.toInt(),
+  success: json['success'] as bool?,
+  msg: json['msg'] as String?,
+);
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckOutGetNotesResponseToJson(
+  WebApiModulesWarehouseCheckOutGetNotesResponse instance,
+) => <String, dynamic>{
+  'Notes': ?instance.notes,
   'status': ?instance.status,
   'success': ?instance.success,
   'msg': ?instance.msg,
@@ -46839,6 +47006,7 @@ _$WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequestFromJson(
 ) => WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequest(
   orderId: json['OrderId'] as String,
   warehouseId: json['WarehouseId'] as String,
+  shippingCaseItemId: json['ShippingCaseItemId'] as String?,
 );
 
 Map<String, dynamic>
@@ -46847,6 +47015,7 @@ _$WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequestToJson(
 ) => <String, dynamic>{
   'OrderId': instance.orderId,
   'WarehouseId': instance.warehouseId,
+  'ShippingCaseItemId': ?instance.shippingCaseItemId,
 };
 
 WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemResponse
@@ -47629,6 +47798,35 @@ _$WebApiModulesWarehouseCheckOutUpdateMiscItemDescriptionRequestToJson(
   'Description': ?instance.description,
 };
 
+WebApiModulesWarehouseCheckOutUpdateNotesRequest
+_$WebApiModulesWarehouseCheckOutUpdateNotesRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseCheckOutUpdateNotesRequest(
+  orderId: json['OrderId'] as String?,
+  notes: json['Notes'] as String?,
+);
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckOutUpdateNotesRequestToJson(
+  WebApiModulesWarehouseCheckOutUpdateNotesRequest instance,
+) => <String, dynamic>{'OrderId': ?instance.orderId, 'Notes': ?instance.notes};
+
+WebApiModulesWarehouseCheckOutUpdateNotesResponse
+_$WebApiModulesWarehouseCheckOutUpdateNotesResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseCheckOutUpdateNotesResponse(
+  status: (json['status'] as num?)?.toInt(),
+  success: json['success'] as bool?,
+  msg: json['msg'] as String?,
+);
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckOutUpdateNotesResponseToJson(
+  WebApiModulesWarehouseCheckOutUpdateNotesResponse instance,
+) => <String, dynamic>{
+  'status': ?instance.status,
+  'success': ?instance.success,
+  'msg': ?instance.msg,
+};
+
 WebApiModulesWarehouseCheckOutUpdatePickupLocationRequest
 _$WebApiModulesWarehouseCheckOutUpdatePickupLocationRequestFromJson(
   Map<String, dynamic> json,
@@ -47831,6 +48029,9 @@ _$WebApiModulesWarehouseContractContractFromJson(
       json['ResponsiblePersonOfficeExtension'] as String?,
   hasPrintableBarCodes: json['HasPrintableBarCodes'] as bool?,
   purchaseOrderAgentEmail: json['PurchaseOrderAgentEmail'] as String?,
+  enableExpectedReturnDate: json['EnableExpectedReturnDate'] as bool?,
+  expectedReturnDate: json['ExpectedReturnDate'] as String?,
+  enableExpectedReturnAlert: json['EnableExpectedReturnAlert'] as bool?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -48024,6 +48225,9 @@ Map<String, dynamic> _$WebApiModulesWarehouseContractContractToJson(
       ?instance.responsiblePersonOfficeExtension,
   'HasPrintableBarCodes': ?instance.hasPrintableBarCodes,
   'PurchaseOrderAgentEmail': ?instance.purchaseOrderAgentEmail,
+  'EnableExpectedReturnDate': ?instance.enableExpectedReturnDate,
+  'ExpectedReturnDate': ?instance.expectedReturnDate,
+  'EnableExpectedReturnAlert': ?instance.enableExpectedReturnAlert,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -48191,6 +48395,9 @@ _$WebApiModulesWarehouseContractContractDetailResponseFromJson(
       json['ResponsiblePersonOfficeExtension'] as String?,
   hasPrintableBarCodes: json['HasPrintableBarCodes'] as bool?,
   purchaseOrderAgentEmail: json['PurchaseOrderAgentEmail'] as String?,
+  enableExpectedReturnDate: json['EnableExpectedReturnDate'] as bool?,
+  expectedReturnDate: json['ExpectedReturnDate'] as String?,
+  enableExpectedReturnAlert: json['EnableExpectedReturnAlert'] as bool?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -48395,6 +48602,9 @@ _$WebApiModulesWarehouseContractContractDetailResponseToJson(
       ?instance.responsiblePersonOfficeExtension,
   'HasPrintableBarCodes': ?instance.hasPrintableBarCodes,
   'PurchaseOrderAgentEmail': ?instance.purchaseOrderAgentEmail,
+  'EnableExpectedReturnDate': ?instance.enableExpectedReturnDate,
+  'ExpectedReturnDate': ?instance.expectedReturnDate,
+  'EnableExpectedReturnAlert': ?instance.enableExpectedReturnAlert,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -48739,6 +48949,7 @@ _$WebApiModulesWarehouseContractSessionRequestFromJson(
   departmentId: json['DepartmentId'] as String?,
   locationId: json['LocationId'] as String?,
   warehouseId: json['WarehouseId'] as String?,
+  notes: json['Notes'] as String?,
   contractType: json['ContractType'] as String?,
 );
 
@@ -48750,6 +48961,7 @@ Map<String, dynamic> _$WebApiModulesWarehouseContractSessionRequestToJson(
   'DepartmentId': ?instance.departmentId,
   'LocationId': ?instance.locationId,
   'WarehouseId': ?instance.warehouseId,
+  'Notes': ?instance.notes,
   'ContractType': ?instance.contractType,
 };
 
@@ -49238,6 +49450,102 @@ Map<String, dynamic> _$WebApiModulesWarehouseExchangeExchangeItemStatusToJson(
   'PurchaseOrderNumber': ?instance.purchaseOrderNumber,
   'ConsignorId': ?instance.consignorId,
   'Consignor': ?instance.consignor,
+};
+
+WebApiModulesWarehouseExchangeExchangeNonBcItemInfoRequest
+_$WebApiModulesWarehouseExchangeExchangeNonBcItemInfoRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseExchangeExchangeNonBcItemInfoRequest(
+  iCode: json['ICode'] as String?,
+  warehouseId: json['WarehouseId'] as String?,
+  orderId: json['OrderId'] as String?,
+  dealId: json['DealId'] as String?,
+  departmentId: json['DepartmentId'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesWarehouseExchangeExchangeNonBcItemInfoRequestToJson(
+  WebApiModulesWarehouseExchangeExchangeNonBcItemInfoRequest instance,
+) => <String, dynamic>{
+  'ICode': ?instance.iCode,
+  'WarehouseId': ?instance.warehouseId,
+  'OrderId': ?instance.orderId,
+  'DealId': ?instance.dealId,
+  'DepartmentId': ?instance.departmentId,
+};
+
+WebApiModulesWarehouseExchangeExchangeNonBcItemInfoResponse
+_$WebApiModulesWarehouseExchangeExchangeNonBcItemInfoResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseExchangeExchangeNonBcItemInfoResponse(
+  orderId: json['OrderId'] as String?,
+  orderItemId: json['OrderItemId'] as String?,
+  masterId: json['MasterId'] as String?,
+  iCode: json['ICode'] as String?,
+  description: json['Description'] as String?,
+  warehouseId: json['WarehouseId'] as String?,
+  warehouse: json['Warehouse'] as String?,
+  vendorId: json['VendorId'] as String?,
+  vendor: json['Vendor'] as String?,
+  purchaseOrderId: json['PurchaseOrderId'] as String?,
+  purchaseOrderNumber: json['PurchaseOrderNumber'] as String?,
+  qtyOut: (json['QtyOut'] as num?)?.toInt(),
+  status: (json['status'] as num?)?.toInt(),
+  success: json['success'] as bool?,
+  msg: json['msg'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesWarehouseExchangeExchangeNonBcItemInfoResponseToJson(
+  WebApiModulesWarehouseExchangeExchangeNonBcItemInfoResponse instance,
+) => <String, dynamic>{
+  'OrderId': ?instance.orderId,
+  'OrderItemId': ?instance.orderItemId,
+  'MasterId': ?instance.masterId,
+  'ICode': ?instance.iCode,
+  'Description': ?instance.description,
+  'WarehouseId': ?instance.warehouseId,
+  'Warehouse': ?instance.warehouse,
+  'VendorId': ?instance.vendorId,
+  'Vendor': ?instance.vendor,
+  'PurchaseOrderId': ?instance.purchaseOrderId,
+  'PurchaseOrderNumber': ?instance.purchaseOrderNumber,
+  'QtyOut': ?instance.qtyOut,
+  'status': ?instance.status,
+  'success': ?instance.success,
+  'msg': ?instance.msg,
+};
+
+WebApiModulesWarehouseExchangeExchangeNonBcItemRequest
+_$WebApiModulesWarehouseExchangeExchangeNonBcItemRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseExchangeExchangeNonBcItemRequest(
+  contractId: json['ContractId'] as String?,
+  orderId: json['OrderId'] as String?,
+  dealId: json['DealId'] as String?,
+  departmentId: json['DepartmentId'] as String?,
+  warehouseId: json['WarehouseId'] as String?,
+  masterId: json['MasterId'] as String?,
+  orderItemId: json['OrderItemId'] as String?,
+  quantity: (json['Quantity'] as num?)?.toInt(),
+  pendingExchange: json['PendingExchange'] as bool?,
+  completingPending: json['CompletingPending'] as bool?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesWarehouseExchangeExchangeNonBcItemRequestToJson(
+  WebApiModulesWarehouseExchangeExchangeNonBcItemRequest instance,
+) => <String, dynamic>{
+  'ContractId': ?instance.contractId,
+  'OrderId': ?instance.orderId,
+  'DealId': ?instance.dealId,
+  'DepartmentId': ?instance.departmentId,
+  'WarehouseId': ?instance.warehouseId,
+  'MasterId': ?instance.masterId,
+  'OrderItemId': ?instance.orderItemId,
+  'Quantity': ?instance.quantity,
+  'PendingExchange': ?instance.pendingExchange,
+  'CompletingPending': ?instance.completingPending,
 };
 
 WebApiModulesWarehouseOrderStatusOrderStatusHeaderResponse

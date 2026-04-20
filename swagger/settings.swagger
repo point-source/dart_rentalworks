@@ -45887,6 +45887,60 @@
         }
       }
     },
+    "/poactivitytype/browse": {
+      "post": {
+        "tags": [
+          "PoActivityType"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/poapprovalstatus/browse": {
       "post": {
         "tags": [
@@ -90675,6 +90729,10 @@
             "type": "string",
             "nullable": true
           },
+          "DateRangeFields": {
+            "type": "string",
+            "nullable": true
+          },
           "DefaultDateField": {
             "type": "string",
             "nullable": true
@@ -97169,6 +97227,21 @@
             "type": "number",
             "description": "Format: Decimal, Total digits: 12, Decimal places: 2",
             "format": "double",
+            "nullable": true
+          },
+          "EnableExpectedDate": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "RequireExpectedDate": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "ExpectedDateAlertDefaultValue": {
+            "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "AuditNote": {
@@ -116020,6 +116093,12 @@
             "type": "string",
             "nullable": true
           },
+          "MaxQueryDataElements": {
+            "type": "integer",
+            "description": "Format: Integer",
+            "format": "int32",
+            "nullable": true
+          },
           "DateStamp": {
             "type": "string",
             "description": "Format: UTCDateTime",
@@ -120081,6 +120160,11 @@
             "nullable": true
           },
           "DeleteAssetLocationOnOut": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DeleteAssetLocationOnTransfer": {
             "type": "boolean",
             "description": "Format: Boolean",
             "nullable": true

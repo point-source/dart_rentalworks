@@ -3770,6 +3770,54 @@
         }
       }
     },
+    "/freightpopplugin/locations": {
+      "get": {
+        "tags": [
+          "FreightPopPlugin"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Plugins.FreightPop.FreightPopPluginLocation"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/kissflowplugin/project": {
       "get": {
         "tags": [
@@ -8281,6 +8329,16 @@
             "type": "boolean",
             "nullable": true
           },
+          "WeeklyReturnOnValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "WeeklyReturnOnReplacement": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
           "OrderValueTotal": {
             "type": "number",
             "format": "double",
@@ -12174,6 +12232,16 @@
             "type": "boolean",
             "nullable": true
           },
+          "WeeklyReturnOnValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "WeeklyReturnOnReplacement": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
           "OrderValueTotal": {
             "type": "number",
             "format": "double",
@@ -15557,6 +15625,20 @@
           "VoidFailed"
         ],
         "type": "string"
+      },
+      "WebApi.Modules.Plugins.FreightPop.FreightPopPluginLocation": {
+        "type": "object",
+        "properties": {
+          "LocationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "WebApi.Modules.Plugins.FreightPop.FreightPopShipmentRequest": {
         "type": "object",

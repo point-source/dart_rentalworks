@@ -1,3 +1,8 @@
+## 8.0.0
+
+- Update swagger specs for RW v2026.1.004
+- Add Undocumented API support
+
 ## 7.0.0
 
 - Update swagger specs for RW v2026.1.002

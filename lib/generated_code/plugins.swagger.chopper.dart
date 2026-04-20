@@ -1990,6 +1990,33 @@ final class _$Plugins extends Plugins {
   }
 
   @override
+  Future<Response<List<WebApiModulesPluginsFreightPopFreightPopPluginLocation>>>
+  _freightpoppluginLocationsGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FreightPopPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/freightpopplugin/locations');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<WebApiModulesPluginsFreightPopFreightPopPluginLocation>,
+      WebApiModulesPluginsFreightPopFreightPopPluginLocation
+    >($request);
+  }
+
+  @override
   Future<Response<WebApiModulesPluginsKissFlowProjectResponse>>
   _kissflowpluginProjectGet({
     String? quoteOrderProjectNo,

@@ -14388,6 +14388,10 @@
             "type": "string",
             "nullable": true
           },
+          "dateRangeFields": {
+            "type": "string",
+            "nullable": true
+          },
           "backgroundColorFieldName": {
             "type": "string",
             "nullable": true
@@ -14479,6 +14483,22 @@
           "borderWidth": {
             "type": "integer",
             "format": "int32"
+          },
+          "fromDate": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "nullable": true
+          },
+          "toDate": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -19834,6 +19854,11 @@
             "nullable": true
           },
           "DeleteAssetLocationOnOut": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "DeleteAssetLocationOnTransfer": {
             "type": "boolean",
             "description": "Format: Boolean",
             "nullable": true
@@ -25471,6 +25496,20 @@
           },
           "PurchaseOrderAgentEmail": {
             "type": "string",
+            "nullable": true
+          },
+          "EnableExpectedReturnDate": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ExpectedReturnDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "EnableExpectedReturnAlert": {
+            "type": "boolean",
+            "description": "Format: Boolean",
             "nullable": true
           },
           "DateStamp": {

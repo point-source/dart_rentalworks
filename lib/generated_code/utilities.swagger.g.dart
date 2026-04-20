@@ -1093,6 +1093,7 @@ _$FwStandardModulesSettingsWidgetSettingsWidgetWidgetFromJson(
   counterFieldName: json['counterFieldName'] as String?,
   label1FieldName: json['label1FieldName'] as String?,
   label2FieldName: json['label2FieldName'] as String?,
+  dateRangeFields: json['dateRangeFields'] as String?,
   backgroundColorFieldName: json['backgroundColorFieldName'] as String?,
   borderColorFieldName: json['borderColorFieldName'] as String?,
   opacity: (json['opacity'] as num?)?.toDouble(),
@@ -1121,6 +1122,7 @@ _$FwStandardModulesSettingsWidgetSettingsWidgetWidgetToJson(
   'counterFieldName': ?instance.counterFieldName,
   'label1FieldName': ?instance.label1FieldName,
   'label2FieldName': ?instance.label2FieldName,
+  'dateRangeFields': ?instance.dateRangeFields,
   'backgroundColorFieldName': ?instance.backgroundColorFieldName,
   'borderColorFieldName': ?instance.borderColorFieldName,
   'opacity': ?instance.opacity,
@@ -1207,6 +1209,16 @@ _$FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSetFromJson(
           .toList() ??
       [],
   borderWidth: (json['borderWidth'] as num?)?.toInt(),
+  fromDate:
+      (json['fromDate'] as List<dynamic>?)
+          ?.map((e) => DateTime.parse(e as String))
+          .toList() ??
+      [],
+  toDate:
+      (json['toDate'] as List<dynamic>?)
+          ?.map((e) => DateTime.parse(e as String))
+          .toList() ??
+      [],
 );
 
 Map<String, dynamic>
@@ -1218,6 +1230,8 @@ _$FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSetToJson(
   'backgroundColor': ?instance.backgroundColor,
   'borderColor': ?instance.borderColor,
   'borderWidth': ?instance.borderWidth,
+  'fromDate': ?instance.fromDate?.map((e) => e.toIso8601String()).toList(),
+  'toDate': ?instance.toDate?.map((e) => e.toIso8601String()).toList(),
 };
 
 FwStandardModulesSettingsWidgetSettingsWidgetWidgetLegend
@@ -4464,6 +4478,7 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseFromJson(
   promptForCheckOutExceptions: json['PromptForCheckOutExceptions'] as bool?,
   promptForCheckInExceptions: json['PromptForCheckInExceptions'] as bool?,
   deleteAssetLocationOnOut: json['DeleteAssetLocationOnOut'] as bool?,
+  deleteAssetLocationOnTransfer: json['DeleteAssetLocationOnTransfer'] as bool?,
   deleteAssetConditionOnOut: json['DeleteAssetConditionOnOut'] as bool?,
   deleteAssetConditionOnQCRequired:
       json['DeleteAssetConditionOnQCRequired'] as bool?,
@@ -4680,6 +4695,7 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseToJson(
   'PromptForCheckOutExceptions': ?instance.promptForCheckOutExceptions,
   'PromptForCheckInExceptions': ?instance.promptForCheckInExceptions,
   'DeleteAssetLocationOnOut': ?instance.deleteAssetLocationOnOut,
+  'DeleteAssetLocationOnTransfer': ?instance.deleteAssetLocationOnTransfer,
   'DeleteAssetConditionOnOut': ?instance.deleteAssetConditionOnOut,
   'DeleteAssetConditionOnQCRequired':
       ?instance.deleteAssetConditionOnQCRequired,
@@ -8291,6 +8307,9 @@ _$WebApiModulesWarehouseContractContractFromJson(
       json['ResponsiblePersonOfficeExtension'] as String?,
   hasPrintableBarCodes: json['HasPrintableBarCodes'] as bool?,
   purchaseOrderAgentEmail: json['PurchaseOrderAgentEmail'] as String?,
+  enableExpectedReturnDate: json['EnableExpectedReturnDate'] as bool?,
+  expectedReturnDate: json['ExpectedReturnDate'] as String?,
+  enableExpectedReturnAlert: json['EnableExpectedReturnAlert'] as bool?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -8484,6 +8503,9 @@ Map<String, dynamic> _$WebApiModulesWarehouseContractContractToJson(
       ?instance.responsiblePersonOfficeExtension,
   'HasPrintableBarCodes': ?instance.hasPrintableBarCodes,
   'PurchaseOrderAgentEmail': ?instance.purchaseOrderAgentEmail,
+  'EnableExpectedReturnDate': ?instance.enableExpectedReturnDate,
+  'ExpectedReturnDate': ?instance.expectedReturnDate,
+  'EnableExpectedReturnAlert': ?instance.enableExpectedReturnAlert,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,

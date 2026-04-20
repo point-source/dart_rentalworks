@@ -1004,6 +1004,68 @@ abstract class Reports extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  aragingreportValidateinvoicecsrBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _aragingreportValidateinvoicecsrBrowsePost(body: body);
+  }
+
+  ///
+  @POST(path: '/aragingreport/validateinvoicecsr/browse', optionalBody: true)
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _aragingreportValidateinvoicecsrBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ArAgingReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  aragingreportValidateagentBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _aragingreportValidateagentBrowsePost(body: body);
+  }
+
+  ///
+  @POST(path: '/aragingreport/validateagent/browse', optionalBody: true)
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _aragingreportValidateagentBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ArAgingReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   aragingreportEmptyobjectGet() {
     generatedMapping.putIfAbsent(
       FwStandardSqlServerFwJsonDataTable,
@@ -54971,6 +55033,8 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
     this.dealCsrId,
     this.dealTypeId,
     this.dealId,
+    this.csrId,
+    this.agentId,
     this.userDepartmentId,
     this.userLocationId,
     this.userWarehouseId,
@@ -55010,6 +55074,10 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
   final String? dealTypeId;
   @JsonKey(name: 'DealId', includeIfNull: false)
   final String? dealId;
+  @JsonKey(name: 'CsrId', includeIfNull: false)
+  final String? csrId;
+  @JsonKey(name: 'AgentId', includeIfNull: false)
+  final String? agentId;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
   final String? userDepartmentId;
   @JsonKey(name: 'UserLocationId', includeIfNull: false)
@@ -55071,6 +55139,13 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
                 )) &&
             (identical(other.dealId, dealId) ||
                 const DeepCollectionEquality().equals(other.dealId, dealId)) &&
+            (identical(other.csrId, csrId) ||
+                const DeepCollectionEquality().equals(other.csrId, csrId)) &&
+            (identical(other.agentId, agentId) ||
+                const DeepCollectionEquality().equals(
+                  other.agentId,
+                  agentId,
+                )) &&
             (identical(other.userDepartmentId, userDepartmentId) ||
                 const DeepCollectionEquality().equals(
                   other.userDepartmentId,
@@ -55139,6 +55214,8 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
       const DeepCollectionEquality().hash(dealCsrId) ^
       const DeepCollectionEquality().hash(dealTypeId) ^
       const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(csrId) ^
+      const DeepCollectionEquality().hash(agentId) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
       const DeepCollectionEquality().hash(userLocationId) ^
       const DeepCollectionEquality().hash(userWarehouseId) ^
@@ -55163,6 +55240,8 @@ extension $WebApiModulesReportsAccountingReportsArAgingReportArAgingReportReques
     String? dealCsrId,
     String? dealTypeId,
     String? dealId,
+    String? csrId,
+    String? agentId,
     String? userDepartmentId,
     String? userLocationId,
     String? userWarehouseId,
@@ -55182,6 +55261,8 @@ extension $WebApiModulesReportsAccountingReportsArAgingReportArAgingReportReques
       dealCsrId: dealCsrId ?? this.dealCsrId,
       dealTypeId: dealTypeId ?? this.dealTypeId,
       dealId: dealId ?? this.dealId,
+      csrId: csrId ?? this.csrId,
+      agentId: agentId ?? this.agentId,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
       userLocationId: userLocationId ?? this.userLocationId,
       userWarehouseId: userWarehouseId ?? this.userWarehouseId,
@@ -55205,6 +55286,8 @@ extension $WebApiModulesReportsAccountingReportsArAgingReportArAgingReportReques
     Wrapped<String?>? dealCsrId,
     Wrapped<String?>? dealTypeId,
     Wrapped<String?>? dealId,
+    Wrapped<String?>? csrId,
+    Wrapped<String?>? agentId,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
     Wrapped<String?>? userWarehouseId,
@@ -55226,6 +55309,8 @@ extension $WebApiModulesReportsAccountingReportsArAgingReportArAgingReportReques
       dealCsrId: (dealCsrId != null ? dealCsrId.value : this.dealCsrId),
       dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
       dealId: (dealId != null ? dealId.value : this.dealId),
+      csrId: (csrId != null ? csrId.value : this.csrId),
+      agentId: (agentId != null ? agentId.value : this.agentId),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),

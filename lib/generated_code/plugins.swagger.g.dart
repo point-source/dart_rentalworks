@@ -1295,6 +1295,9 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders:
       json['PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders']
           as bool?,
+  weeklyReturnOnValue: (json['WeeklyReturnOnValue'] as num?)?.toDouble(),
+  weeklyReturnOnReplacement: (json['WeeklyReturnOnReplacement'] as num?)
+      ?.toDouble(),
   orderValueTotal: (json['OrderValueTotal'] as num?)?.toDouble(),
   orderReplacementTotal: (json['OrderReplacementTotal'] as num?)?.toDouble(),
   ownedValueTotal: (json['OwnedValueTotal'] as num?)?.toDouble(),
@@ -1875,6 +1878,8 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
       ?instance.updateBillingStartAndStopDatesOnSubPurchaseOrders,
   'PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders':
       ?instance.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+  'WeeklyReturnOnValue': ?instance.weeklyReturnOnValue,
+  'WeeklyReturnOnReplacement': ?instance.weeklyReturnOnReplacement,
   'OrderValueTotal': ?instance.orderValueTotal,
   'OrderReplacementTotal': ?instance.orderReplacementTotal,
   'OwnedValueTotal': ?instance.ownedValueTotal,
@@ -3260,6 +3265,9 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders:
       json['PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders']
           as bool?,
+  weeklyReturnOnValue: (json['WeeklyReturnOnValue'] as num?)?.toDouble(),
+  weeklyReturnOnReplacement: (json['WeeklyReturnOnReplacement'] as num?)
+      ?.toDouble(),
   orderValueTotal: (json['OrderValueTotal'] as num?)?.toDouble(),
   orderReplacementTotal: (json['OrderReplacementTotal'] as num?)?.toDouble(),
   ownedValueTotal: (json['OwnedValueTotal'] as num?)?.toDouble(),
@@ -3835,6 +3843,8 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
       ?instance.updateBillingStartAndStopDatesOnSubPurchaseOrders,
   'PromptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders':
       ?instance.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
+  'WeeklyReturnOnValue': ?instance.weeklyReturnOnValue,
+  'WeeklyReturnOnReplacement': ?instance.weeklyReturnOnReplacement,
   'OrderValueTotal': ?instance.orderValueTotal,
   'OrderReplacementTotal': ?instance.orderReplacementTotal,
   'OwnedValueTotal': ?instance.ownedValueTotal,
@@ -6298,6 +6308,22 @@ _$WebApiModulesPluginsCreditCardProcessCreditCardPaymentTypeToJson(
   'PaymentType': ?instance.paymentType,
   'PaymentTypeType': ?instance.paymentTypeType,
   'FeePercent': ?instance.feePercent,
+};
+
+WebApiModulesPluginsFreightPopFreightPopPluginLocation
+_$WebApiModulesPluginsFreightPopFreightPopPluginLocationFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesPluginsFreightPopFreightPopPluginLocation(
+  locationId: json['LocationId'] as String?,
+  location: json['Location'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesPluginsFreightPopFreightPopPluginLocationToJson(
+  WebApiModulesPluginsFreightPopFreightPopPluginLocation instance,
+) => <String, dynamic>{
+  'LocationId': ?instance.locationId,
+  'Location': ?instance.location,
 };
 
 WebApiModulesPluginsFreightPopFreightPopShipmentRequest

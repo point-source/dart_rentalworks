@@ -12958,6 +12958,7 @@ class FwStandardModulesSettingsWidgetSettingsWidgetWidget {
     this.counterFieldName,
     this.label1FieldName,
     this.label2FieldName,
+    this.dateRangeFields,
     this.backgroundColorFieldName,
     this.borderColorFieldName,
     this.opacity,
@@ -13009,6 +13010,8 @@ class FwStandardModulesSettingsWidgetSettingsWidgetWidget {
   final String? label1FieldName;
   @JsonKey(name: 'label2FieldName', includeIfNull: false)
   final String? label2FieldName;
+  @JsonKey(name: 'dateRangeFields', includeIfNull: false)
+  final String? dateRangeFields;
   @JsonKey(name: 'backgroundColorFieldName', includeIfNull: false)
   final String? backgroundColorFieldName;
   @JsonKey(name: 'borderColorFieldName', includeIfNull: false)
@@ -13105,6 +13108,11 @@ class FwStandardModulesSettingsWidgetSettingsWidgetWidget {
                   other.label2FieldName,
                   label2FieldName,
                 )) &&
+            (identical(other.dateRangeFields, dateRangeFields) ||
+                const DeepCollectionEquality().equals(
+                  other.dateRangeFields,
+                  dateRangeFields,
+                )) &&
             (identical(
                   other.backgroundColorFieldName,
                   backgroundColorFieldName,
@@ -13150,6 +13158,7 @@ class FwStandardModulesSettingsWidgetSettingsWidgetWidget {
       const DeepCollectionEquality().hash(counterFieldName) ^
       const DeepCollectionEquality().hash(label1FieldName) ^
       const DeepCollectionEquality().hash(label2FieldName) ^
+      const DeepCollectionEquality().hash(dateRangeFields) ^
       const DeepCollectionEquality().hash(backgroundColorFieldName) ^
       const DeepCollectionEquality().hash(borderColorFieldName) ^
       const DeepCollectionEquality().hash(opacity) ^
@@ -13178,6 +13187,7 @@ extension $FwStandardModulesSettingsWidgetSettingsWidgetWidgetExtension
     String? counterFieldName,
     String? label1FieldName,
     String? label2FieldName,
+    String? dateRangeFields,
     String? backgroundColorFieldName,
     String? borderColorFieldName,
     double? opacity,
@@ -13202,6 +13212,7 @@ extension $FwStandardModulesSettingsWidgetSettingsWidgetWidgetExtension
       counterFieldName: counterFieldName ?? this.counterFieldName,
       label1FieldName: label1FieldName ?? this.label1FieldName,
       label2FieldName: label2FieldName ?? this.label2FieldName,
+      dateRangeFields: dateRangeFields ?? this.dateRangeFields,
       backgroundColorFieldName:
           backgroundColorFieldName ?? this.backgroundColorFieldName,
       borderColorFieldName: borderColorFieldName ?? this.borderColorFieldName,
@@ -13230,6 +13241,7 @@ extension $FwStandardModulesSettingsWidgetSettingsWidgetWidgetExtension
     Wrapped<String?>? counterFieldName,
     Wrapped<String?>? label1FieldName,
     Wrapped<String?>? label2FieldName,
+    Wrapped<String?>? dateRangeFields,
     Wrapped<String?>? backgroundColorFieldName,
     Wrapped<String?>? borderColorFieldName,
     Wrapped<double?>? opacity,
@@ -13272,6 +13284,9 @@ extension $FwStandardModulesSettingsWidgetSettingsWidgetWidgetExtension
       label2FieldName: (label2FieldName != null
           ? label2FieldName.value
           : this.label2FieldName),
+      dateRangeFields: (dateRangeFields != null
+          ? dateRangeFields.value
+          : this.dateRangeFields),
       backgroundColorFieldName: (backgroundColorFieldName != null
           ? backgroundColorFieldName.value
           : this.backgroundColorFieldName),
@@ -13498,6 +13513,8 @@ class FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSet {
     this.backgroundColor,
     this.borderColor,
     this.borderWidth,
+    this.fromDate,
+    this.toDate,
   });
 
   factory FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSet.fromJson(
@@ -13525,6 +13542,10 @@ class FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSet {
   final List<String>? borderColor;
   @JsonKey(name: 'borderWidth', includeIfNull: false)
   final int? borderWidth;
+  @JsonKey(name: 'fromDate', includeIfNull: false, defaultValue: <DateTime>[])
+  final List<DateTime>? fromDate;
+  @JsonKey(name: 'toDate', includeIfNull: false, defaultValue: <DateTime>[])
+  final List<DateTime>? toDate;
   static const fromJsonFactory =
       _$FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSetFromJson;
 
@@ -13550,7 +13571,14 @@ class FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSet {
                 const DeepCollectionEquality().equals(
                   other.borderWidth,
                   borderWidth,
-                )));
+                )) &&
+            (identical(other.fromDate, fromDate) ||
+                const DeepCollectionEquality().equals(
+                  other.fromDate,
+                  fromDate,
+                )) &&
+            (identical(other.toDate, toDate) ||
+                const DeepCollectionEquality().equals(other.toDate, toDate)));
   }
 
   @override
@@ -13563,6 +13591,8 @@ class FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSet {
       const DeepCollectionEquality().hash(backgroundColor) ^
       const DeepCollectionEquality().hash(borderColor) ^
       const DeepCollectionEquality().hash(borderWidth) ^
+      const DeepCollectionEquality().hash(fromDate) ^
+      const DeepCollectionEquality().hash(toDate) ^
       runtimeType.hashCode;
 }
 
@@ -13574,6 +13604,8 @@ extension $FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSetExtension
     List<String>? backgroundColor,
     List<String>? borderColor,
     int? borderWidth,
+    List<DateTime>? fromDate,
+    List<DateTime>? toDate,
   }) {
     return FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSet(
       label: label ?? this.label,
@@ -13581,6 +13613,8 @@ extension $FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSetExtension
       backgroundColor: backgroundColor ?? this.backgroundColor,
       borderColor: borderColor ?? this.borderColor,
       borderWidth: borderWidth ?? this.borderWidth,
+      fromDate: fromDate ?? this.fromDate,
+      toDate: toDate ?? this.toDate,
     );
   }
 
@@ -13590,6 +13624,8 @@ extension $FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSetExtension
     Wrapped<List<String>?>? backgroundColor,
     Wrapped<List<String>?>? borderColor,
     Wrapped<int?>? borderWidth,
+    Wrapped<List<DateTime>?>? fromDate,
+    Wrapped<List<DateTime>?>? toDate,
   }) {
     return FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSet(
       label: (label != null ? label.value : this.label),
@@ -13599,6 +13635,8 @@ extension $FwStandardModulesSettingsWidgetSettingsWidgetWidgetDataSetExtension
           : this.backgroundColor),
       borderColor: (borderColor != null ? borderColor.value : this.borderColor),
       borderWidth: (borderWidth != null ? borderWidth.value : this.borderWidth),
+      fromDate: (fromDate != null ? fromDate.value : this.fromDate),
+      toDate: (toDate != null ? toDate.value : this.toDate),
     );
   }
 }
@@ -30817,6 +30855,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
     this.promptForCheckOutExceptions,
     this.promptForCheckInExceptions,
     this.deleteAssetLocationOnOut,
+    this.deleteAssetLocationOnTransfer,
     this.deleteAssetConditionOnOut,
     this.deleteAssetConditionOnQCRequired,
     this.stagingShowCheckedInHoldingItems,
@@ -31023,6 +31062,8 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
   final bool? promptForCheckInExceptions;
   @JsonKey(name: 'DeleteAssetLocationOnOut', includeIfNull: false)
   final bool? deleteAssetLocationOnOut;
+  @JsonKey(name: 'DeleteAssetLocationOnTransfer', includeIfNull: false)
+  final bool? deleteAssetLocationOnTransfer;
   @JsonKey(name: 'DeleteAssetConditionOnOut', includeIfNull: false)
   final bool? deleteAssetConditionOnOut;
   @JsonKey(name: 'DeleteAssetConditionOnQCRequired', includeIfNull: false)
@@ -31505,6 +31546,14 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
                 const DeepCollectionEquality().equals(
                   other.deleteAssetLocationOnOut,
                   deleteAssetLocationOnOut,
+                )) &&
+            (identical(
+                  other.deleteAssetLocationOnTransfer,
+                  deleteAssetLocationOnTransfer,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.deleteAssetLocationOnTransfer,
+                  deleteAssetLocationOnTransfer,
                 )) &&
             (identical(
                   other.deleteAssetConditionOnOut,
@@ -32200,6 +32249,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
       const DeepCollectionEquality().hash(promptForCheckOutExceptions) ^
       const DeepCollectionEquality().hash(promptForCheckInExceptions) ^
       const DeepCollectionEquality().hash(deleteAssetLocationOnOut) ^
+      const DeepCollectionEquality().hash(deleteAssetLocationOnTransfer) ^
       const DeepCollectionEquality().hash(deleteAssetConditionOnOut) ^
       const DeepCollectionEquality().hash(deleteAssetConditionOnQCRequired) ^
       const DeepCollectionEquality().hash(stagingShowCheckedInHoldingItems) ^
@@ -32365,6 +32415,7 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     bool? promptForCheckOutExceptions,
     bool? promptForCheckInExceptions,
     bool? deleteAssetLocationOnOut,
+    bool? deleteAssetLocationOnTransfer,
     bool? deleteAssetConditionOnOut,
     bool? deleteAssetConditionOnQCRequired,
     bool? stagingShowCheckedInHoldingItems,
@@ -32528,6 +32579,8 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
           promptForCheckInExceptions ?? this.promptForCheckInExceptions,
       deleteAssetLocationOnOut:
           deleteAssetLocationOnOut ?? this.deleteAssetLocationOnOut,
+      deleteAssetLocationOnTransfer:
+          deleteAssetLocationOnTransfer ?? this.deleteAssetLocationOnTransfer,
       deleteAssetConditionOnOut:
           deleteAssetConditionOnOut ?? this.deleteAssetConditionOnOut,
       deleteAssetConditionOnQCRequired:
@@ -32754,6 +32807,7 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     Wrapped<bool?>? promptForCheckOutExceptions,
     Wrapped<bool?>? promptForCheckInExceptions,
     Wrapped<bool?>? deleteAssetLocationOnOut,
+    Wrapped<bool?>? deleteAssetLocationOnTransfer,
     Wrapped<bool?>? deleteAssetConditionOnOut,
     Wrapped<bool?>? deleteAssetConditionOnQCRequired,
     Wrapped<bool?>? stagingShowCheckedInHoldingItems,
@@ -32959,6 +33013,9 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
       deleteAssetLocationOnOut: (deleteAssetLocationOnOut != null
           ? deleteAssetLocationOnOut.value
           : this.deleteAssetLocationOnOut),
+      deleteAssetLocationOnTransfer: (deleteAssetLocationOnTransfer != null
+          ? deleteAssetLocationOnTransfer.value
+          : this.deleteAssetLocationOnTransfer),
       deleteAssetConditionOnOut: (deleteAssetConditionOnOut != null
           ? deleteAssetConditionOnOut.value
           : this.deleteAssetConditionOnOut),
@@ -49110,6 +49167,9 @@ class WebApiModulesWarehouseContractContract {
     this.responsiblePersonOfficeExtension,
     this.hasPrintableBarCodes,
     this.purchaseOrderAgentEmail,
+    this.enableExpectedReturnDate,
+    this.expectedReturnDate,
+    this.enableExpectedReturnAlert,
     this.dateStamp,
     this.auditNote,
     this.recordTitle,
@@ -49397,6 +49457,12 @@ class WebApiModulesWarehouseContractContract {
   final bool? hasPrintableBarCodes;
   @JsonKey(name: 'PurchaseOrderAgentEmail', includeIfNull: false)
   final String? purchaseOrderAgentEmail;
+  @JsonKey(name: 'EnableExpectedReturnDate', includeIfNull: false)
+  final bool? enableExpectedReturnDate;
+  @JsonKey(name: 'ExpectedReturnDate', includeIfNull: false)
+  final String? expectedReturnDate;
+  @JsonKey(name: 'EnableExpectedReturnAlert', includeIfNull: false)
+  final bool? enableExpectedReturnAlert;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
@@ -50170,6 +50236,27 @@ class WebApiModulesWarehouseContractContract {
                   other.purchaseOrderAgentEmail,
                   purchaseOrderAgentEmail,
                 )) &&
+            (identical(
+                  other.enableExpectedReturnDate,
+                  enableExpectedReturnDate,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.enableExpectedReturnDate,
+                  enableExpectedReturnDate,
+                )) &&
+            (identical(other.expectedReturnDate, expectedReturnDate) ||
+                const DeepCollectionEquality().equals(
+                  other.expectedReturnDate,
+                  expectedReturnDate,
+                )) &&
+            (identical(
+                  other.enableExpectedReturnAlert,
+                  enableExpectedReturnAlert,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.enableExpectedReturnAlert,
+                  enableExpectedReturnAlert,
+                )) &&
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality().equals(
                   other.dateStamp,
@@ -50386,6 +50473,9 @@ class WebApiModulesWarehouseContractContract {
       const DeepCollectionEquality().hash(responsiblePersonOfficeExtension) ^
       const DeepCollectionEquality().hash(hasPrintableBarCodes) ^
       const DeepCollectionEquality().hash(purchaseOrderAgentEmail) ^
+      const DeepCollectionEquality().hash(enableExpectedReturnDate) ^
+      const DeepCollectionEquality().hash(expectedReturnDate) ^
+      const DeepCollectionEquality().hash(enableExpectedReturnAlert) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
@@ -50539,6 +50629,9 @@ extension $WebApiModulesWarehouseContractContractExtension
     String? responsiblePersonOfficeExtension,
     bool? hasPrintableBarCodes,
     String? purchaseOrderAgentEmail,
+    bool? enableExpectedReturnDate,
+    String? expectedReturnDate,
+    bool? enableExpectedReturnAlert,
     String? dateStamp,
     String? auditNote,
     String? recordTitle,
@@ -50733,6 +50826,11 @@ extension $WebApiModulesWarehouseContractContractExtension
       hasPrintableBarCodes: hasPrintableBarCodes ?? this.hasPrintableBarCodes,
       purchaseOrderAgentEmail:
           purchaseOrderAgentEmail ?? this.purchaseOrderAgentEmail,
+      enableExpectedReturnDate:
+          enableExpectedReturnDate ?? this.enableExpectedReturnDate,
+      expectedReturnDate: expectedReturnDate ?? this.expectedReturnDate,
+      enableExpectedReturnAlert:
+          enableExpectedReturnAlert ?? this.enableExpectedReturnAlert,
       dateStamp: dateStamp ?? this.dateStamp,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
@@ -50885,6 +50983,9 @@ extension $WebApiModulesWarehouseContractContractExtension
     Wrapped<String?>? responsiblePersonOfficeExtension,
     Wrapped<bool?>? hasPrintableBarCodes,
     Wrapped<String?>? purchaseOrderAgentEmail,
+    Wrapped<bool?>? enableExpectedReturnDate,
+    Wrapped<String?>? expectedReturnDate,
+    Wrapped<bool?>? enableExpectedReturnAlert,
     Wrapped<String?>? dateStamp,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
@@ -51240,6 +51341,15 @@ extension $WebApiModulesWarehouseContractContractExtension
       purchaseOrderAgentEmail: (purchaseOrderAgentEmail != null
           ? purchaseOrderAgentEmail.value
           : this.purchaseOrderAgentEmail),
+      enableExpectedReturnDate: (enableExpectedReturnDate != null
+          ? enableExpectedReturnDate.value
+          : this.enableExpectedReturnDate),
+      expectedReturnDate: (expectedReturnDate != null
+          ? expectedReturnDate.value
+          : this.expectedReturnDate),
+      enableExpectedReturnAlert: (enableExpectedReturnAlert != null
+          ? enableExpectedReturnAlert.value
+          : this.enableExpectedReturnAlert),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),

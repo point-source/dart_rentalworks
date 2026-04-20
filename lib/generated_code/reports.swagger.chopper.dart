@@ -887,6 +887,66 @@ final class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _aragingreportValidateinvoicecsrBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ArAgingReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aragingreport/validateinvoicecsr/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _aragingreportValidateagentBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ArAgingReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/aragingreport/validateagent/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _aragingreportEmptyobjectGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',

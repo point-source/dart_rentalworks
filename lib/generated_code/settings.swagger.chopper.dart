@@ -25164,6 +25164,36 @@ final class _$Settings extends Settings {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _poactivitytypeBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PoActivityType"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/poactivitytype/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _poapprovalstatusBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(

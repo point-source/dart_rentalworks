@@ -3210,6 +3210,36 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesWarehouseCheckInUpdateNotesResponse>>
+  _checkinUpdatenotesPost({
+    required WebApiModulesWarehouseCheckInUpdateNotesRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckIn"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkin/updatenotes');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseCheckInUpdateNotesResponse,
+      WebApiModulesWarehouseCheckInUpdateNotesResponse
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _checkinValidateinventorytypeBrowsePost({
     required FwStandardModelsBrowseRequest? body,
@@ -4642,6 +4672,36 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesWarehouseCheckOutUpdateNotesResponse>>
+  _checkoutUpdatenotesPost({
+    required WebApiModulesWarehouseCheckOutUpdateNotesRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/updatenotes');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseCheckOutUpdateNotesResponse,
+      WebApiModulesWarehouseCheckOutUpdateNotesResponse
+    >($request);
+  }
+
+  @override
   Future<Response<WebApiModulesWarehouseCheckOutCreateOutContractResponse>>
   _checkoutStartcheckoutcontractPost({
     required WebApiModulesWarehouseCheckOutCreateOutContractRequest? body,
@@ -5528,6 +5588,36 @@ final class _$Home extends Home {
     return client.send<
       WebApiModulesInventoryContainerItemContainerItem,
       WebApiModulesInventoryContainerItemContainerItem
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesWarehouseCheckOutGetNotesResponse>>
+  _checkoutGetnotesGet({
+    String? orderid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/getnotes');
+    final Map<String, dynamic> $params = <String, dynamic>{'orderid': orderid};
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseCheckOutGetNotesResponse,
+      WebApiModulesWarehouseCheckOutGetNotesResponse
     >($request);
   }
 
@@ -15893,6 +15983,66 @@ final class _$Home extends Home {
     return client.send<
       WebApiModulesWarehouseExchangeExchangeItemOutResponse,
       WebApiModulesWarehouseExchangeExchangeItemOutResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesWarehouseExchangeExchangeNonBcItemInfoResponse>>
+  _exchangeGetnonbciteminfoPost({
+    required WebApiModulesWarehouseExchangeExchangeNonBcItemInfoRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Exchange"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/exchange/getnonbciteminfo');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseExchangeExchangeNonBcItemInfoResponse,
+      WebApiModulesWarehouseExchangeExchangeNonBcItemInfoResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _exchangeExchangenonbcitemPost({
+    required WebApiModulesWarehouseExchangeExchangeNonBcItemRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Exchange"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/exchange/exchangenonbcitem');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
     >($request);
   }
 
@@ -32127,6 +32277,36 @@ final class _$Home extends Home {
       $url,
       client.baseUrl,
       parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _orderSubmittokissfloworderapprovalPost({
+    required WebApiModulesAgentOrderKissFlowQuoteOrderSubmissionRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Order"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/order/submittokissfloworderapproval');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
       tag: swaggerMetaData,
     );
     return client.send<
@@ -49861,6 +50041,36 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _quoteSubmittokissflowquoteapprovalPost({
+    required WebApiModulesAgentOrderKissFlowQuoteOrderSubmissionRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Quote"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/quote/submittokissflowquoteapproval');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
   Future<Response<bool>> _quoteSavecrewworkweekPost({
     required WebApiModulesAgentOrderCrewWorkWeek? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -56420,6 +56630,87 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<bool>> _repairSubmittokissflowPost({
+    required WebApiModulesInventoryRepairKissFlowRepairOrderSubmissionRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Repair"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/repair/submittokissflow');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _repairUpdaterepairorderpoinfoPost({
+    required WebApiModulesInventoryRepairKissFlowUpdateRepairOrderPoRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Repair"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/repair/updaterepairorderpoinfo');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _repairUpdaterepairordertransferinfoPost({
+    required WebApiModulesInventoryRepairKissFlowUpdateRepairOrderTransferRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Repair"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/repair/updaterepairordertransferinfo');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _repaircostBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -61297,6 +61588,29 @@ final class _$Home extends Home {
       FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
       FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
     >($request);
+  }
+
+  @override
+  Future<Response<Object>> _subpurchaseorderitemLegendGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SubPurchaseOrderItem"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/subpurchaseorderitem/legend');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<Object, Object>($request);
   }
 
   @override
