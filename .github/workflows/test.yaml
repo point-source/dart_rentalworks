@@ -20,6 +20,6 @@ jobs:
       - name: Run tests
         env:
           RENTALWORKS_URL: ${{ secrets.RENTALWORKS_URL }}
-          RENTALWORKS_USER: ${{ secrets.RENTALWORKS_USER }}
-          RENTALWORKS_PASSWORD: ${{ secrets.RENTALWORKS_PASSWORD }}
+          RW_USERNAME: ${{ secrets.RENTALWORKS_USER }}
+          RW_PASSWORD: ${{ secrets.RENTALWORKS_PASSWORD }}
         run: dart test

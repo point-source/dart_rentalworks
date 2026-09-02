@@ -34,17 +34,16 @@ void main() {
     });
   });
 
-  RentalWorks? rw;
+  final rw = RentalWorks.withCredentials(baseUrl, username, password);
   group('Authentication', () {
     test('with Credentials', () async {
-      rw = RentalWorks.withCredentials(baseUrl, username, password);
-      expect(await rw?.jwt ?? '', isNotEmpty);
+      expect(await rw.jwt, isNotEmpty);
     });
   });
 
   group('Fetch:', () {
     test('/quotes/browse', () async {
-      final quotes = await rw!.home.quoteBrowsePost(
+      final quotes = await rw.home.quoteBrowsePost(
         body: FwStandardModelsBrowseRequest(
           orderby: 'QuoteNumber desc',
           top: 0,
@@ -58,7 +57,7 @@ void main() {
     });
 
     test('/ordersummary', () async {
-      final summary = await rw!.home.ordersummaryGet(
+      final summary = await rw.home.ordersummaryGet(
         orderid: '304949',
         totaltype: 'P',
       );
@@ -67,19 +66,19 @@ void main() {
     });
 
     test('/warehouse', () async {
-      final warehouses = await rw!.settings.warehouseGet(sort: 'Warehouse');
+      final warehouses = await rw.settings.warehouseGet(sort: 'Warehouse');
       expect(warehouses.base.reasonPhrase, 'OK');
       expect(warehouses.isSuccessful, isTrue);
     });
 
     test('/item', () async {
-      final asset = await rw!.home.itemBycodeGet(barCodeOrRfid: '001152');
+      final asset = await rw.home.itemBycodeGet(barCodeOrRfid: '001152');
       expect(asset.base.reasonPhrase, 'OK');
       expect(asset.isSuccessful, isTrue);
     });
 
     test('/transferorder', () async {
-      final transfers = await rw!.home.transferorderGet(
+      final transfers = await rw.home.transferorderGet(
         filter: [
           FwStandardModelsFwQueryFilter(
             field: 'Status',
@@ -93,7 +92,7 @@ void main() {
     });
 
     test('/pricing/{inventoryId}', () async {
-      final pricing = await rw!.home.pricingInventoryidGet(
+      final pricing = await rw.home.pricingInventoryidGet(
         inventoryid: 'A0001R42',
       );
       expect(pricing.base.reasonPhrase, 'OK');
@@ -104,58 +103,27 @@ void main() {
 
   group('Asset Transfer:', () {
     const String officeLocationId = '0000000F'; // Fuse
-    //const departmentId = '0000000I'; // Rental
 
     WebApiModulesInventoryAssetItem? item;
     WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse? warehouse;
     WebApiModulesTransfersTransferOrderTransferOrder? transfer;
-    String contractId = '';
+    String outContractId = '';
+    String receiptContractId = '';
 
     test('authenticate', () async {
-      rw = RentalWorks.withCredentials(baseUrl, username, password);
-      expect(await rw?.jwt ?? '', isNotEmpty);
+      expect(await rw.jwt, isNotEmpty);
     });
 
     test('get item', () async {
-      final items = await rw!.home.itemGet(
+      final items = await rw.home.itemGet(
         pageno: 1,
         pagesize: 1,
         filter: [
           FwStandardModelsFwQueryFilter(
             field: 'StatusType',
             op: '=',
-            value: 'RETIRED',
+            value: 'IN',
           ),
-          //FwStandardModelsFwQueryFilter(
-          //  field: 'BarCode',
-          //  op: '=',
-          //  value: '000052',
-          //), // Intel NUC
-          //FwStandardModelsFwQueryFilter(
-          //  field: 'StatusType',
-          //  op: '==',
-          //  value: 'RETIRED',
-          //),
-          //FwStandardModelsFwQueryFilter(
-          //  field: 'StatusType',
-          //  op: '<>',
-          //  value: 'OUT',
-          //),
-          //FwStandardModelsFwQueryFilter(
-          //  field: 'StatusType',
-          //  op: '<>',
-          //  value: 'INTRANSIT',
-          //),
-          //FwStandardModelsFwQueryFilter(
-          //  field: 'StatusType',
-          //  op: '<>',
-          //  value: 'STAGED',
-          //),
-          //FwStandardModelsFwQueryFilter(
-          //  field: 'StatusType',
-          //  op: '<>',
-          //  value: 'INCONTAINER',
-          //),
         ],
       );
       expect(items.error, isNull);
@@ -169,7 +137,7 @@ void main() {
 
     test('locate item (get warehouse)', () async {
       expect(item, isNotNull);
-      final warehouseQuery = await rw!.settings.warehouseIdGet(
+      final warehouseQuery = await rw.settings.warehouseIdGet(
         id: item!.warehouseId,
       );
       expect(warehouseQuery.isSuccessful, isTrue);
@@ -182,7 +150,7 @@ void main() {
     test('find transfer', () async {
       expect(item, isNotNull);
       expect(warehouse, isNotNull);
-      final transferQuery = await rw!.home.transferorderGet(
+      final transferQuery = await rw.home.transferorderGet(
         filter: [
           FwStandardModelsFwQueryFilter(
             field: 'FromWarehouseId',
@@ -218,7 +186,7 @@ void main() {
       expect(item, isNotNull);
       expect(warehouse, isNotNull);
       expect(transfer, isNotNull);
-      final transferAdd = await rw!.home.checkoutStageitemPost(
+      final transferAdd = await rw.home.checkoutStageitemPost(
         body: WebApiModulesWarehouseCheckOutStageItemRequest(
           addItemToOrder: true, // maybe not necessary but do it just in case
           transferRepair: true,
@@ -229,13 +197,14 @@ void main() {
       );
       expect(transferAdd.isSuccessful, isTrue);
       expect(transferAdd.base.reasonPhrase, 'OK');
+      expect(transferAdd.body?.success, isTrue, reason: transferAdd.body?.msg);
     });
 
     test('checkout item', () async {
       expect(item, isNotNull);
       expect(warehouse, isNotNull);
       expect(transfer, isNotNull);
-      final checkoutStaged = await rw!.home.checkoutCheckoutallstagedPost(
+      final checkoutStaged = await rw.home.checkoutCheckoutallstagedPost(
         body: WebApiModulesWarehouseCheckOutCheckOutAllStagedRequest(
           officeLocationId: officeLocationId,
           orderId: transfer!.transferId,
@@ -244,40 +213,51 @@ void main() {
       );
       expect(checkoutStaged.isSuccessful, isTrue);
       expect(checkoutStaged.base.reasonPhrase, 'OK');
-      contractId = checkoutStaged.body?.contractId ?? '';
-      expect(contractId, isNotEmpty);
-      print('contractId: $contractId');
+      expect(
+        checkoutStaged.body?.success,
+        isTrue,
+        reason: checkoutStaged.body?.msg,
+      );
+      outContractId = checkoutStaged.body?.contractId ?? '';
+      expect(outContractId, isNotEmpty);
+      print('outContractId: $outContractId');
     });
 
-    /*     test('create contract', () async {
+    test('start check-in session', () async {
       expect(item, isNotNull);
       expect(warehouse, isNotNull);
       expect(transfer, isNotNull);
-      final checkInContract = await rw!.home.checkinStartsessionPost(
-          body: WebApiModulesWarehouseContractSessionRequest(
-              departmentId: departmentId,
-              locationId: officeLocationId,
-              orderId: transfer!.transferId,
-              warehouseId: transfer!.toWarehouseId,
-              contractType: 'RECEIPT'));
+      final checkInContract = await rw.home.transferinStartsessionPost(
+        body: WebApiModulesWarehouseContractSessionRequest(
+          departmentId: transfer!.departmentId,
+          locationId: transfer!.officeLocationId ?? officeLocationId,
+          orderId: transfer!.transferId,
+          warehouseId: transfer!.toWarehouseId,
+          contractType: 'RECEIPT',
+        ),
+      );
       expect(checkInContract.isSuccessful, isTrue);
       expect(checkInContract.base.reasonPhrase, 'OK');
-      contractId = checkInContract.body?.contractId ?? '';
-      expect(contractId, isNotEmpty);
-    }); */
+      receiptContractId = checkInContract.body?.contractId ?? '';
+      expect(
+        receiptContractId,
+        isNotEmpty,
+        reason: checkInContract.body?.message,
+      );
+    });
 
     test('check-in item', () async {
       expect(item, isNotNull);
       expect(warehouse, isNotNull);
       expect(transfer, isNotNull);
-      expect(contractId, isNotEmpty);
-      final checkInItem = await rw!.home.transferinCheckinitemPost(
+      expect(receiptContractId, isNotEmpty);
+      final checkInItem = await rw.home.transferinCheckinitemPost(
         body: WebApiModulesWarehouseCheckInCheckInItemsRequest(
-          contractId: contractId,
+          contractId: receiptContractId,
           contractType: 'RECEIPT',
           forceNewSession: false,
-          locationId: officeLocationId,
-          userWarehouseId: warehouse!.warehouseId,
+          locationId: transfer!.officeLocationId ?? officeLocationId,
+          userWarehouseId: transfer!.toWarehouseId,
           moduleType: 'T',
           items: [
             WebApiModulesWarehouseCheckInCheckInItem(
@@ -290,17 +270,24 @@ void main() {
       expect(checkInItem.error, isNull);
       expect(checkInItem.isSuccessful, isTrue);
       expect(checkInItem.base.reasonPhrase, 'OK');
+      expect(checkInItem.body?.sessionInfo?.contractId, receiptContractId);
     });
 
-    /*    test('generate reciept', () async {
-      expect(contractId, isNotEmpty);
-      print('contractId: $contractId');
-      final checkInReceipt = await rw!.home
-          .transferinCompletecheckincontractIdPost(id: contractId);
+    test('complete receipt', () async {
+      expect(receiptContractId, isNotEmpty);
+      final checkInReceipt = await rw.home
+          .transferinCompletecheckincontractIdPost(id: receiptContractId);
       expect(checkInReceipt.error, isNull);
       expect(checkInReceipt.isSuccessful, isTrue);
       expect(checkInReceipt.base.reasonPhrase, 'OK');
-    }); */
+      expect(checkInReceipt.body?.contract?.contractId, receiptContractId);
+
+      final receivedItem = await rw.home.itemBycodeGet(
+        barCodeOrRfid: item!.barCode!,
+      );
+      expect(receivedItem.body?.item?.statusType, 'IN');
+      expect(receivedItem.body?.item?.warehouseId, transfer!.toWarehouseId);
+    });
   });
 
   group('Change ICode: ', () {
@@ -308,7 +295,7 @@ void main() {
     String originalInventoryId = '';
 
     setUp(() async {
-      final asset = await rw!.home.itemBycodeGet(barCodeOrRfid: '000067');
+      final asset = await rw.home.itemBycodeGet(barCodeOrRfid: '000067');
       item = asset.body?.item;
       print('item: ${item?.barCode} // ${item?.description}');
       originalInventoryId = item?.inventoryId ?? '';
@@ -316,9 +303,10 @@ void main() {
 
     test('Get inventory ID', () async {
       expect(item?.iCode, isNotNull);
-      final r = await rw!.utilities
+      final r = await rw.utilities
           .changeicodeutilityValidateinventoryBrowsePost(
             body: u.FwStandardModelsBrowseRequest(
+              orderby: 'ICode asc',
               pageno: 1,
               pagesize: 1,
               searchfieldoperators: ['like', '<>'],
@@ -329,37 +317,58 @@ void main() {
               searchcondition: ['and'],
               fields: [
                 u.FwStandardModelsCheckBoxListItem(
-                  value: "InventoryId",
-                  text: "InventoryId",
+                  value: 'InventoryId',
+                  text: 'InventoryId',
                   selected: true,
                 ),
               ],
             ),
           );
 
-      expect(r.error, isNull);
-      originalInventoryId =
+      expect(r.error, isNull, reason: '${r.error}');
+      final resolvedInventoryId =
           r.body?.rows?.firstOrNull?.firstOrNull?.toString() ?? '';
-      expect(originalInventoryId, isNotEmpty);
-      print('originalInventoryId: $originalInventoryId');
+      expect(resolvedInventoryId, isNotEmpty);
+      expect(resolvedInventoryId, originalInventoryId);
+      print('originalInventoryId: $resolvedInventoryId');
     });
 
     test('Change ICode', () async {
       expect(item?.itemId, isNotNull);
-      final r = await rw!.utilities.changeicodeutilityChangeicodePost(
-        body: u.WebApiModulesInventoryInventoryChangeICodeRequest(
-          itemId: item!.itemId!,
-          inventoryId: '00005CUR',
-        ),
-      );
-      expect(r.isSuccessful, isTrue);
-      expect(r.body?.success, isTrue);
-      await rw!.utilities.changeicodeutilityChangeicodePost(
-        body: u.WebApiModulesInventoryInventoryChangeICodeRequest(
-          itemId: item!.itemId!,
-          inventoryId: originalInventoryId,
-        ),
-      );
+      final target = await rw.home.itemBycodeGet(barCodeOrRfid: '001152');
+      final targetInventoryId = target.body?.item?.inventoryId ?? '';
+      expect(targetInventoryId, isNotEmpty);
+      expect(targetInventoryId, isNot(originalInventoryId));
+
+      try {
+        final r = await rw.utilities.changeicodeutilityChangeicodePost(
+          body: u.WebApiModulesInventoryInventoryChangeICodeRequest(
+            itemId: item!.itemId!,
+            inventoryId: targetInventoryId,
+          ),
+        );
+        expect(r.isSuccessful, isTrue);
+        expect(r.body?.success, isTrue, reason: r.body?.msg);
+      } finally {
+        final changedItem = await rw.home.itemBycodeGet(
+          barCodeOrRfid: item!.barCode!,
+        );
+        if (changedItem.body?.item?.inventoryId != originalInventoryId) {
+          final restore = await rw.utilities.changeicodeutilityChangeicodePost(
+            body: u.WebApiModulesInventoryInventoryChangeICodeRequest(
+              itemId: changedItem.body?.item?.itemId,
+              inventoryId: originalInventoryId,
+            ),
+          );
+          expect(restore.isSuccessful, isTrue);
+          expect(restore.body?.success, isTrue, reason: restore.body?.msg);
+        }
+
+        final restoredItem = await rw.home.itemBycodeGet(
+          barCodeOrRfid: item!.barCode!,
+        );
+        expect(restoredItem.body?.item?.inventoryId, originalInventoryId);
+      }
     });
   });
 }
