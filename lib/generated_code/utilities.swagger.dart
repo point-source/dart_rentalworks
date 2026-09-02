@@ -5,15 +5,19 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:json_annotation/json_annotation.dart' as json;
 import 'package:collection/collection.dart';
+
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
 
 import 'client_mapping.dart';
+
 import 'dart:async';
+
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
+
 import 'utilities.enums.swagger.dart' as enums;
 import 'utilities.metadata.swagger.dart';
 export 'utilities.enums.swagger.dart';
@@ -1167,7 +1171,7 @@ abstract class Utilities extends ChopperService {
     DateTime? toDate,
     bool? stacked,
     bool? displayNumbers,
-    int? timezoneOffset,
+    num? timezoneOffset,
   }) {
     generatedMapping.putIfAbsent(
       FwStandardModulesSettingsWidgetSettingsWidgetWidget,
@@ -1217,7 +1221,7 @@ abstract class Utilities extends ChopperService {
     @Query('toDate') DateTime? toDate,
     @Query('stacked') bool? stacked,
     @Query('displayNumbers') bool? displayNumbers,
-    @Query('timezoneOffset') int? timezoneOffset,
+    @Query('timezoneOffset') num? timezoneOffset,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1716,6 +1720,34 @@ abstract class Utilities extends ChopperService {
       produces: [],
       security: [],
       tags: ["Download"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  fwutilityServerutcdatetimeGet() {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      () => FwCoreControllersGetServerUtcDateTimeResponse.fromJsonFactory,
+    );
+
+    return _fwutilityServerutcdatetimeGet();
+  }
+
+  ///
+  @GET(path: '/fwutility/serverutcdatetime')
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FwUtility"],
       deprecated: false,
     ),
   });
@@ -3968,6 +4000,27 @@ abstract class Utilities extends ChopperService {
     ),
   });
 
+  ///Get field names for designing I-Code labels.
+  Future<chopper.Response<List<String>>> labeldesignFieldnamesIcodelabelGet() {
+    return _labeldesignFieldnamesIcodelabelGet();
+  }
+
+  ///Get field names for designing I-Code labels.
+  @GET(path: '/labeldesign/fieldnames/icodelabel')
+  Future<chopper.Response<List<String>>> _labeldesignFieldnamesIcodelabelGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get field names for designing I-Code labels.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["LabelDesign"],
+      deprecated: false,
+    ),
+  });
+
   ///Get a comma separated list of barcodes from a receive contract for printing labels.
   ///@param receivecontractid
   ///@param warehouseid
@@ -3986,8 +4039,7 @@ abstract class Utilities extends ChopperService {
   ///@param receivecontractid
   ///@param warehouseid
   @GET(
-    path:
-        '/labeldesign/barcodes/contract/{receivecontractid}/warehouse/{warehouseid}',
+    path: '/labeldesign/barcodes/contract/{receivecontractid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignBarcodesContractReceivecontractidWarehouseWarehouseidGet({
@@ -3996,8 +4048,7 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Get a comma separated list of barcodes from a receive contract for printing labels.',
+      summary: 'Get a comma separated list of barcodes from a receive contract for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4025,8 +4076,7 @@ abstract class Utilities extends ChopperService {
   ///@param purchaseorderid
   ///@param warehouseid
   @GET(
-    path:
-        '/labeldesign/barcodes/purchaseorder/{purchaseorderid}/warehouse/{warehouseid}',
+    path: '/labeldesign/barcodes/purchaseorder/{purchaseorderid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignBarcodesPurchaseorderPurchaseorderidWarehouseWarehouseidGet({
@@ -4035,8 +4085,7 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Get a comma separated list of barcodes from a purchase order for printing labels.',
+      summary: 'Get a comma separated list of barcodes from a purchase order for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4064,8 +4113,7 @@ abstract class Utilities extends ChopperService {
   ///@param rentalinventoryid
   ///@param warehouseid
   @GET(
-    path:
-        '/labeldesign/barcodes/rentalinventory/{rentalinventoryid}/warehouse/{warehouseid}',
+    path: '/labeldesign/barcodes/rentalinventory/{rentalinventoryid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignBarcodesRentalinventoryRentalinventoryidWarehouseWarehouseidGet({
@@ -4074,8 +4122,7 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Get a comma separated list of barcodes from a purchase order for printing labels.',
+      summary: 'Get a comma separated list of barcodes from a purchase order for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4103,8 +4150,7 @@ abstract class Utilities extends ChopperService {
   ///@param salesinventoryid
   ///@param warehouseid
   @GET(
-    path:
-        '/labeldesign/barcodes/salesinventory/{salesinventoryid}/warehouse/{warehouseid}',
+    path: '/labeldesign/barcodes/salesinventory/{salesinventoryid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignBarcodesSalesinventorySalesinventoryidWarehouseWarehouseidGet({
@@ -4113,8 +4159,7 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Get a comma separated list of barcodes from a purchase order for printing labels.',
+      summary: 'Get a comma separated list of barcodes from a purchase order for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4146,8 +4191,7 @@ abstract class Utilities extends ChopperService {
   ///@param tobarcode
   ///@param warehouseid
   @GET(
-    path:
-        '/labeldesign/barcodes/from/{frombarcode}/to/{tobarcode}/warehouse/{warehouseid}',
+    path: '/labeldesign/barcodes/from/{frombarcode}/to/{tobarcode}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignBarcodesFromFrombarcodeToTobarcodeWarehouseWarehouseidGet({
@@ -4157,8 +4201,7 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Get a comma separated list of barcodes by a range of barcodes for printing labels.',
+      summary: 'Get a comma separated list of barcodes by a range of barcodes for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4188,8 +4231,7 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Get a comma separated list of barcodes by inventory purchase utility sessionid for printing labels.',
+      summary: 'Get a comma separated list of barcodes by inventory purchase utility sessionid for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4217,8 +4259,7 @@ abstract class Utilities extends ChopperService {
   ///@param orderid
   ///@param warehouseid
   @GET(
-    path:
-        '/labeldesign/purchaseordernumber/orderid/{orderid}/warehouse/{warehouseid}',
+    path: '/labeldesign/purchaseordernumber/orderid/{orderid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignPurchaseordernumberOrderidOrderidWarehouseWarehouseidGet({
@@ -4255,8 +4296,7 @@ abstract class Utilities extends ChopperService {
   ///@param contractid
   ///@param warehouseid
   @GET(
-    path:
-        '/labeldesign/contractnumber/contractid/{contractid}/warehouse/{warehouseid}',
+    path: '/labeldesign/contractnumber/contractid/{contractid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignContractnumberContractidContractidWarehouseWarehouseidGet({
@@ -4275,7 +4315,7 @@ abstract class Utilities extends ChopperService {
     ),
   });
 
-  ///Get field replacements for printing an asset labels.
+  ///Get field replacements for printing an asset label.
   ///@param barcode
   ///@param warehouseid
   Future<chopper.Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
@@ -4294,12 +4334,11 @@ abstract class Utilities extends ChopperService {
     );
   }
 
-  ///Get field replacements for printing an asset labels.
+  ///Get field replacements for printing an asset label.
   ///@param barcode
   ///@param warehouseid
   @GET(
-    path:
-        '/labeldesign/labeldata/asset/barcode/{barcode}/warehouse/{warehouseid}',
+    path: '/labeldesign/labeldata/asset/barcode/{barcode}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
   _labeldesignLabeldataAssetBarcodeBarcodeWarehouseWarehouseidGet({
@@ -4308,7 +4347,38 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Get field replacements for printing an asset labels.',
+      summary: 'Get field replacements for printing an asset label.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["LabelDesign"],
+      deprecated: false,
+    ),
+  });
+
+  ///Get field replacements for printing an I-Code label.
+  ///@param icode
+  Future<chopper.Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
+  labeldesignLabeldataIcodeIcodeIcodeGet({required String? icode}) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesUtilitiesLabelDesignBarcodeLabel,
+      () => WebApiModulesUtilitiesLabelDesignBarcodeLabel.fromJsonFactory,
+    );
+
+    return _labeldesignLabeldataIcodeIcodeIcodeGet(icode: icode);
+  }
+
+  ///Get field replacements for printing an I-Code label.
+  ///@param icode
+  @GET(path: '/labeldesign/labeldata/icode/icode/{icode}')
+  Future<chopper.Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
+  _labeldesignLabeldataIcodeIcodeIcodeGet({
+    @Path('icode') required String? icode,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get field replacements for printing an I-Code label.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4345,8 +4415,7 @@ abstract class Utilities extends ChopperService {
   ///@param barcode
   ///@param warehouseid
   @GET(
-    path:
-        '/labeldesign/labeldata/receivecontract/{contractid}/barcode/{barcode}/warehouse/{warehouseid}',
+    path: '/labeldesign/labeldata/receivecontract/{contractid}/barcode/{barcode}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
   _labeldesignLabeldataReceivecontractContractidBarcodeBarcodeWarehouseWarehouseidGet({
@@ -4356,8 +4425,7 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Get fields replacements for printing a receive contract barcode label.',
+      summary: 'Get fields replacements for printing a receive contract barcode label.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4394,8 +4462,7 @@ abstract class Utilities extends ChopperService {
   ///@param barcode
   ///@param warehouseid
   @GET(
-    path:
-        '/labeldesign/labeldata/purchaseorder/{orderid}/barcode/{barcode}/warehouse/{warehouseid}',
+    path: '/labeldesign/labeldata/purchaseorder/{orderid}/barcode/{barcode}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
   _labeldesignLabeldataPurchaseorderOrderidBarcodeBarcodeWarehouseWarehouseidGet({
@@ -4438,8 +4505,7 @@ abstract class Utilities extends ChopperService {
   ///@param sessionid
   ///@param barcode
   @GET(
-    path:
-        '/labeldesign/labeldata/inventorypurchase/{sessionid}/barcode/{barcode}',
+    path: '/labeldesign/labeldata/inventorypurchase/{sessionid}/barcode/{barcode}',
   )
   Future<chopper.Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
   _labeldesignLabeldataInventorypurchaseSessionidBarcodeBarcodeGet({
@@ -4618,29 +4684,29 @@ abstract class Utilities extends ChopperService {
   ///
   Future<
     chopper.Response<
-      WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse
+      WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse
     >
   >
-  migrateCompletesession2Post({
+  migrateStartcompletesession2Post({
     required WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest? body,
   }) {
     generatedMapping.putIfAbsent(
-      WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse,
-      () => WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse
+      WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse,
+      () => WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse
           .fromJsonFactory,
     );
 
-    return _migrateCompletesession2Post(body: body);
+    return _migrateStartcompletesession2Post(body: body);
   }
 
   ///
-  @POST(path: '/migrate/completesession2', optionalBody: true)
+  @POST(path: '/migrate/startcompletesession2', optionalBody: true)
   Future<
     chopper.Response<
-      WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse
+      WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse
     >
   >
-  _migrateCompletesession2Post({
+  _migrateStartcompletesession2Post({
     @Body()
     required WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest? body,
     @chopper.Tag()
@@ -7361,261 +7427,6 @@ abstract class Utilities extends ChopperService {
   });
 
   ///
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardSqlServerFwJsonDataTable,
-      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsBrowsePost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/browse', optionalBody: true)
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      () =>
-          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsExportexcelxlsxPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/exportexcelxlsx', optionalBody: true)
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      () =>
-          FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsGet(
-      pageno: pageno,
-      pagesize: pagesize,
-      sort: sort,
-      filter: filter,
-    );
-  }
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  @GET(path: '/taskscheduler/tasksteps')
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    @Query('pageno') int? pageno,
-    @Query('pagesize') int? pagesize,
-    @Query('sort') String? sort,
-    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdGet({required String? id}) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdGet(id: id);
-  }
-
-  ///
-  ///@param id
-  @GET(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdPut(id: id, body: body);
-  }
-
-  ///
-  ///@param id
-  @PUT(path: '/taskscheduler/tasksteps/{id}', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    @Path('id') required String? id,
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<bool>> taskschedulerTaskstepsIdDelete({
-    required String? id,
-  }) {
-    return _taskschedulerTaskstepsIdDelete(id: id);
-  }
-
-  ///
-  ///@param id
-  @DELETE(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<bool>> _taskschedulerTaskstepsIdDelete({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
   Future<
     chopper.Response<
       WebApiModulesUtilitiesUnlockMultiOrderContractOrdersUtilityUnlockMultiOrderContractOrdersResponse
@@ -7956,40 +7767,23 @@ abstract class Utilities extends ChopperService {
   });
 
   ///
-  ///@param from
-  ///@param to
-  ///@param cc
-  ///@param subject
-  ///@param body
-  Future<chopper.Response<bool>> utilityfunctionsSendmailPost({
-    String? from,
-    String? to,
-    String? cc,
-    String? subject,
-    String? body,
-  }) {
-    return _utilityfunctionsSendmailPost(
-      from: from,
-      to: to,
-      cc: cc,
-      subject: subject,
-      body: body,
+  ///@param jobId
+  Future<chopper.Response<FwCoreServicesJobFwJobStatusResponse>>
+  utilityfunctionsJobstatusJobidGet({required String? jobId}) {
+    generatedMapping.putIfAbsent(
+      FwCoreServicesJobFwJobStatusResponse,
+      () => FwCoreServicesJobFwJobStatusResponse.fromJsonFactory,
     );
+
+    return _utilityfunctionsJobstatusJobidGet(jobId: jobId);
   }
 
   ///
-  ///@param from
-  ///@param to
-  ///@param cc
-  ///@param subject
-  ///@param body
-  @POST(path: '/utilityfunctions/sendmail', optionalBody: true)
-  Future<chopper.Response<bool>> _utilityfunctionsSendmailPost({
-    @Query('from') String? from,
-    @Query('to') String? to,
-    @Query('cc') String? cc,
-    @Query('subject') String? subject,
-    @Query('body') String? body,
+  ///@param jobId
+  @GET(path: '/utilityfunctions/jobstatus/{jobid}')
+  Future<chopper.Response<FwCoreServicesJobFwJobStatusResponse>>
+  _utilityfunctionsJobstatusJobidGet({
+    @Path('jobId') required String? jobId,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -8786,6 +8580,190 @@ extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResu
   copyWithWrapped({Wrapped<String?>? downloadUrl}) {
     return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
       downloadUrl: (downloadUrl != null ? downloadUrl.value : this.downloadUrl),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwCoreControllersGetServerUtcDateTimeResponse {
+  const FwCoreControllersGetServerUtcDateTimeResponse({this.serverUtcDateTime});
+
+  factory FwCoreControllersGetServerUtcDateTimeResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$FwCoreControllersGetServerUtcDateTimeResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson(this);
+
+  @JsonKey(name: 'ServerUtcDateTime', includeIfNull: false)
+  final DateTime? serverUtcDateTime;
+  static const fromJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is FwCoreControllersGetServerUtcDateTimeResponse &&
+            (identical(other.serverUtcDateTime, serverUtcDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.serverUtcDateTime,
+                  serverUtcDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(serverUtcDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $FwCoreControllersGetServerUtcDateTimeResponseExtension
+    on FwCoreControllersGetServerUtcDateTimeResponse {
+  FwCoreControllersGetServerUtcDateTimeResponse copyWith({
+    DateTime? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: serverUtcDateTime ?? this.serverUtcDateTime,
+    );
+  }
+
+  FwCoreControllersGetServerUtcDateTimeResponse copyWithWrapped({
+    Wrapped<DateTime?>? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: (serverUtcDateTime != null
+          ? serverUtcDateTime.value
+          : this.serverUtcDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwCoreServicesJobFwJobStatusResponse {
+  const FwCoreServicesJobFwJobStatusResponse({
+    this.isComplete,
+    this.isError,
+    this.errorMessage,
+    this.statusMessage,
+    this.percentComplete,
+    this.result,
+  });
+
+  factory FwCoreServicesJobFwJobStatusResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$FwCoreServicesJobFwJobStatusResponseFromJson(json);
+
+  static const toJsonFactory = _$FwCoreServicesJobFwJobStatusResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwCoreServicesJobFwJobStatusResponseToJson(this);
+
+  @JsonKey(name: 'IsComplete', includeIfNull: false)
+  final bool? isComplete;
+  @JsonKey(name: 'IsError', includeIfNull: false)
+  final bool? isError;
+  @JsonKey(name: 'ErrorMessage', includeIfNull: false)
+  final String? errorMessage;
+  @JsonKey(name: 'StatusMessage', includeIfNull: false)
+  final String? statusMessage;
+  @JsonKey(name: 'PercentComplete', includeIfNull: false)
+  final int? percentComplete;
+  @JsonKey(name: 'Result', includeIfNull: false)
+  final dynamic result;
+  static const fromJsonFactory = _$FwCoreServicesJobFwJobStatusResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is FwCoreServicesJobFwJobStatusResponse &&
+            (identical(other.isComplete, isComplete) ||
+                const DeepCollectionEquality().equals(
+                  other.isComplete,
+                  isComplete,
+                )) &&
+            (identical(other.isError, isError) ||
+                const DeepCollectionEquality().equals(
+                  other.isError,
+                  isError,
+                )) &&
+            (identical(other.errorMessage, errorMessage) ||
+                const DeepCollectionEquality().equals(
+                  other.errorMessage,
+                  errorMessage,
+                )) &&
+            (identical(other.statusMessage, statusMessage) ||
+                const DeepCollectionEquality().equals(
+                  other.statusMessage,
+                  statusMessage,
+                )) &&
+            (identical(other.percentComplete, percentComplete) ||
+                const DeepCollectionEquality().equals(
+                  other.percentComplete,
+                  percentComplete,
+                )) &&
+            (identical(other.result, result) ||
+                const DeepCollectionEquality().equals(other.result, result)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(isComplete) ^
+      const DeepCollectionEquality().hash(isError) ^
+      const DeepCollectionEquality().hash(errorMessage) ^
+      const DeepCollectionEquality().hash(statusMessage) ^
+      const DeepCollectionEquality().hash(percentComplete) ^
+      const DeepCollectionEquality().hash(result) ^
+      runtimeType.hashCode;
+}
+
+extension $FwCoreServicesJobFwJobStatusResponseExtension
+    on FwCoreServicesJobFwJobStatusResponse {
+  FwCoreServicesJobFwJobStatusResponse copyWith({
+    bool? isComplete,
+    bool? isError,
+    String? errorMessage,
+    String? statusMessage,
+    int? percentComplete,
+    dynamic result,
+  }) {
+    return FwCoreServicesJobFwJobStatusResponse(
+      isComplete: isComplete ?? this.isComplete,
+      isError: isError ?? this.isError,
+      errorMessage: errorMessage ?? this.errorMessage,
+      statusMessage: statusMessage ?? this.statusMessage,
+      percentComplete: percentComplete ?? this.percentComplete,
+      result: result ?? this.result,
+    );
+  }
+
+  FwCoreServicesJobFwJobStatusResponse copyWithWrapped({
+    Wrapped<bool?>? isComplete,
+    Wrapped<bool?>? isError,
+    Wrapped<String?>? errorMessage,
+    Wrapped<String?>? statusMessage,
+    Wrapped<int?>? percentComplete,
+    Wrapped<dynamic>? result,
+  }) {
+    return FwCoreServicesJobFwJobStatusResponse(
+      isComplete: (isComplete != null ? isComplete.value : this.isComplete),
+      isError: (isError != null ? isError.value : this.isError),
+      errorMessage: (errorMessage != null
+          ? errorMessage.value
+          : this.errorMessage),
+      statusMessage: (statusMessage != null
+          ? statusMessage.value
+          : this.statusMessage),
+      percentComplete: (percentComplete != null
+          ? percentComplete.value
+          : this.percentComplete),
+      result: (result != null ? result.value : this.result),
     );
   }
 }
@@ -9790,6 +9768,7 @@ class FwStandardModelsBrowseRequest {
     this.totalfields,
     this.activeviewfields,
     this.timezoneOffset,
+    this.locale,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -9879,7 +9858,9 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
   @JsonKey(name: 'timezoneOffset', includeIfNull: false)
-  final int? timezoneOffset;
+  final double? timezoneOffset;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -10008,7 +9989,9 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.timezoneOffset,
                   timezoneOffset,
-                )));
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)));
   }
 
   @override
@@ -10043,6 +10026,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
       const DeepCollectionEquality().hash(timezoneOffset) ^
+      const DeepCollectionEquality().hash(locale) ^
       runtimeType.hashCode;
 }
 
@@ -10075,7 +10059,8 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
-    int? timezoneOffset,
+    double? timezoneOffset,
+    String? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -10105,6 +10090,7 @@ extension $FwStandardModelsBrowseRequestExtension
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
       timezoneOffset: timezoneOffset ?? this.timezoneOffset,
+      locale: locale ?? this.locale,
     );
   }
 
@@ -10135,7 +10121,8 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
-    Wrapped<int?>? timezoneOffset,
+    Wrapped<double?>? timezoneOffset,
+    Wrapped<String?>? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -10191,6 +10178,7 @@ extension $FwStandardModelsBrowseRequestExtension
       timezoneOffset: (timezoneOffset != null
           ? timezoneOffset.value
           : this.timezoneOffset),
+      locale: (locale != null ? locale.value : this.locale),
     );
   }
 }
@@ -10605,121 +10593,6 @@ extension $FwStandardModelsFwQueryFilterExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  const FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic({
-    this.items,
-    this.pageNo,
-    this.pageSize,
-    this.totalItems,
-    this.sort,
-  });
-
-  factory FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-        this,
-      );
-
-  @JsonKey(
-    name: 'Items',
-    includeIfNull: false,
-    defaultValue: <WebApiModulesAdministratorTaskSchedulerTaskSteps>[],
-  )
-  final List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items;
-  @JsonKey(name: 'PageNo', includeIfNull: false)
-  final int? pageNo;
-  @JsonKey(name: 'PageSize', includeIfNull: false)
-  final int? pageSize;
-  @JsonKey(name: 'TotalItems', includeIfNull: false)
-  final int? totalItems;
-  @JsonKey(name: 'Sort', includeIfNull: false)
-  final String? sort;
-  static const fromJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic &&
-            (identical(other.items, items) ||
-                const DeepCollectionEquality().equals(other.items, items)) &&
-            (identical(other.pageNo, pageNo) ||
-                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
-            (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality().equals(
-                  other.pageSize,
-                  pageSize,
-                )) &&
-            (identical(other.totalItems, totalItems) ||
-                const DeepCollectionEquality().equals(
-                  other.totalItems,
-                  totalItems,
-                )) &&
-            (identical(other.sort, sort) ||
-                const DeepCollectionEquality().equals(other.sort, sort)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(items) ^
-      const DeepCollectionEquality().hash(pageNo) ^
-      const DeepCollectionEquality().hash(pageSize) ^
-      const DeepCollectionEquality().hash(totalItems) ^
-      const DeepCollectionEquality().hash(sort) ^
-      runtimeType.hashCode;
-}
-
-extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicExtension
-    on
-        FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWith({
-    List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items,
-    int? pageNo,
-    int? pageSize,
-    int? totalItems,
-    String? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: items ?? this.items,
-      pageNo: pageNo ?? this.pageNo,
-      pageSize: pageSize ?? this.pageSize,
-      totalItems: totalItems ?? this.totalItems,
-      sort: sort ?? this.sort,
-    );
-  }
-
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWithWrapped({
-    Wrapped<List<WebApiModulesAdministratorTaskSchedulerTaskSteps>?>? items,
-    Wrapped<int?>? pageNo,
-    Wrapped<int?>? pageSize,
-    Wrapped<int?>? totalItems,
-    Wrapped<String?>? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: (items != null ? items.value : this.items),
-      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
-      sort: (sort != null ? sort.value : this.sort),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryResponseWebApiModulesAgentDealDealLogic {
   const FwStandardModelsFwQueryResponseWebApiModulesAgentDealDealLogic({
     this.items,
@@ -10986,8 +10859,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRental
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRentalInventoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRentalInventoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11101,8 +10973,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryUnretiredUnretiredLog
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesInventoryUnretiredUnretiredLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryUnretiredUnretiredLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11215,8 +11086,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsCountry
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsCountryCountryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsCountryCountryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11330,8 +11200,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencySettingsCurren
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencySettingsCurrencyCurrencyLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencySettingsCurrencyCurrencyLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11446,8 +11315,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsWareh
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsWarehouseWarehouseLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsWarehouseWarehouseLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11562,8 +11430,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesLabelDesignLabelDesig
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesLabelDesignLabelDesignLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesLabelDesignLabelDesignLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11679,8 +11546,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOn
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11797,8 +11663,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUp
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11914,8 +11779,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRa
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12032,8 +11896,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpd
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12147,8 +12010,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportWebImportLog
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportWebImportLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportWebImportLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12261,8 +12123,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportRecordWebImp
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportRecordWebImportRecordLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportRecordWebImportRecordLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12382,8 +12243,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveV
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12511,8 +12371,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivityS
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12991,7 +12850,7 @@ class FwStandardModulesSettingsWidgetSettingsWidgetWidget {
   @JsonKey(name: 'toDate', includeIfNull: false)
   final DateTime? toDate;
   @JsonKey(name: 'timezoneOffset', includeIfNull: false)
-  final int? timezoneOffset;
+  final double? timezoneOffset;
   @JsonKey(name: 'type', includeIfNull: false)
   final String? type;
   @JsonKey(name: 'data', includeIfNull: false)
@@ -13177,7 +13036,7 @@ extension $FwStandardModulesSettingsWidgetSettingsWidgetWidgetExtension
     String? dateField,
     DateTime? fromDate,
     DateTime? toDate,
-    int? timezoneOffset,
+    double? timezoneOffset,
     String? type,
     FwStandardModulesSettingsWidgetSettingsWidgetWidgetData? data,
     FwStandardModulesSettingsWidgetSettingsWidgetWidgetOptions? options,
@@ -13230,7 +13089,7 @@ extension $FwStandardModulesSettingsWidgetSettingsWidgetWidgetExtension
     Wrapped<String?>? dateField,
     Wrapped<DateTime?>? fromDate,
     Wrapped<DateTime?>? toDate,
-    Wrapped<int?>? timezoneOffset,
+    Wrapped<double?>? timezoneOffset,
     Wrapped<String?>? type,
     Wrapped<FwStandardModulesSettingsWidgetSettingsWidgetWidgetData?>? data,
     Wrapped<FwStandardModulesSettingsWidgetSettingsWidgetWidgetOptions?>?
@@ -16232,8 +16091,7 @@ class MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashb
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -16307,8 +16165,7 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationI
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -16383,8 +16240,7 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRate
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -16458,8 +16314,7 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesWebImportRecordWeb
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesWebImportRecordWebImportRecordLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesWebImportRecordWebImportRecordLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -16498,554 +16353,6 @@ extension $MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesWebImportReco
     return MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesWebImportRecordWebImportRecordLogic(
       result: (result != null ? result.value : this.result),
       value: (value != null ? value.value : this.value),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  const WebApiModulesAdministratorTaskSchedulerTaskSteps({
-    this.taskStepsId,
-    this.taskId,
-    this.name,
-    this.stepNumber,
-    this.type,
-    this.command,
-    this.onSuccessActionDisplay,
-    this.onFailureActionDisplay,
-    this.onSuccessAction,
-    this.retryAttempts,
-    this.retryInterval,
-    this.onFailureAction,
-    this.onSuccessTaskStepsId,
-    this.onFailureTaskStepsId,
-    this.outputFilename,
-    this.lastRunOutcome,
-    this.lastRunDuration,
-    this.lastRunRetries,
-    this.dateStamp,
-    this.auditNote,
-    this.recordTitle,
-    this.urlIdentifier,
-    this.fields,
-    this.custom,
-    this.defaultFieldAttributes,
-    this.original,
-    this.translation,
-    this.hasImport,
-    this.hasDocuments,
-    this.createdByUserId,
-    this.createdByUserName,
-    this.createdDateTime,
-    this.modifiedByUserId,
-    this.modifiedByUserName,
-    this.modifiedDateTime,
-  });
-
-  factory WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-    Map<String, dynamic> json,
-  ) => _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(json);
-
-  static const toJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(this);
-
-  @JsonKey(name: 'TaskStepsId', includeIfNull: false)
-  final int? taskStepsId;
-  @JsonKey(name: 'TaskId', includeIfNull: false)
-  final int? taskId;
-  @JsonKey(name: 'Name', includeIfNull: false)
-  final String? name;
-  @JsonKey(name: 'StepNumber', includeIfNull: false)
-  final int? stepNumber;
-  @JsonKey(name: 'Type', includeIfNull: false)
-  final String? type;
-  @JsonKey(name: 'Command', includeIfNull: false)
-  final String? command;
-  @JsonKey(name: 'OnSuccessActionDisplay', includeIfNull: false)
-  final String? onSuccessActionDisplay;
-  @JsonKey(name: 'OnFailureActionDisplay', includeIfNull: false)
-  final String? onFailureActionDisplay;
-  @JsonKey(name: 'OnSuccessAction', includeIfNull: false)
-  final int? onSuccessAction;
-  @JsonKey(name: 'RetryAttempts', includeIfNull: false)
-  final int? retryAttempts;
-  @JsonKey(name: 'RetryInterval', includeIfNull: false)
-  final int? retryInterval;
-  @JsonKey(name: 'OnFailureAction', includeIfNull: false)
-  final int? onFailureAction;
-  @JsonKey(name: 'OnSuccessTaskStepsId', includeIfNull: false)
-  final int? onSuccessTaskStepsId;
-  @JsonKey(name: 'OnFailureTaskStepsId', includeIfNull: false)
-  final int? onFailureTaskStepsId;
-  @JsonKey(name: 'OutputFilename', includeIfNull: false)
-  final String? outputFilename;
-  @JsonKey(name: 'LastRunOutcome', includeIfNull: false)
-  final int? lastRunOutcome;
-  @JsonKey(name: 'LastRunDuration', includeIfNull: false)
-  final int? lastRunDuration;
-  @JsonKey(name: 'LastRunRetries', includeIfNull: false)
-  final int? lastRunRetries;
-  @JsonKey(name: 'DateStamp', includeIfNull: false)
-  final String? dateStamp;
-  @JsonKey(name: 'AuditNote', includeIfNull: false)
-  final String? auditNote;
-  @JsonKey(name: 'RecordTitle', includeIfNull: false)
-  final String? recordTitle;
-  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
-  final dynamic urlIdentifier;
-  @JsonKey(
-    name: '_Fields',
-    includeIfNull: false,
-    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
-  )
-  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(
-    name: '_Custom',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwCustomValue>[],
-  )
-  final List<FwStandardDataFwCustomValue>? custom;
-  @JsonKey(
-    name: '_DefaultFieldAttributes',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwDefaultAttribute>[],
-  )
-  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
-  @JsonKey(name: '_Original', includeIfNull: false)
-  final FwStandardBusinessLogicFwBusinessLogic? original;
-  @JsonKey(
-    name: '_Translation',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwTranslatedValue>[],
-  )
-  final List<FwStandardDataFwTranslatedValue>? translation;
-  @JsonKey(name: '_HasImport', includeIfNull: false)
-  final bool? hasImport;
-  @JsonKey(name: '_HasDocuments', includeIfNull: false)
-  final bool? hasDocuments;
-  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
-  final String? createdByUserId;
-  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
-  final String? createdByUserName;
-  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
-  final String? createdDateTime;
-  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
-  final String? modifiedByUserId;
-  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
-  final String? modifiedByUserName;
-  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
-  final String? modifiedDateTime;
-  static const fromJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is WebApiModulesAdministratorTaskSchedulerTaskSteps &&
-            (identical(other.taskStepsId, taskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.taskStepsId,
-                  taskStepsId,
-                )) &&
-            (identical(other.taskId, taskId) ||
-                const DeepCollectionEquality().equals(other.taskId, taskId)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.stepNumber, stepNumber) ||
-                const DeepCollectionEquality().equals(
-                  other.stepNumber,
-                  stepNumber,
-                )) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.command, command) ||
-                const DeepCollectionEquality().equals(
-                  other.command,
-                  command,
-                )) &&
-            (identical(other.onSuccessActionDisplay, onSuccessActionDisplay) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessActionDisplay,
-                  onSuccessActionDisplay,
-                )) &&
-            (identical(other.onFailureActionDisplay, onFailureActionDisplay) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureActionDisplay,
-                  onFailureActionDisplay,
-                )) &&
-            (identical(other.onSuccessAction, onSuccessAction) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessAction,
-                  onSuccessAction,
-                )) &&
-            (identical(other.retryAttempts, retryAttempts) ||
-                const DeepCollectionEquality().equals(
-                  other.retryAttempts,
-                  retryAttempts,
-                )) &&
-            (identical(other.retryInterval, retryInterval) ||
-                const DeepCollectionEquality().equals(
-                  other.retryInterval,
-                  retryInterval,
-                )) &&
-            (identical(other.onFailureAction, onFailureAction) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureAction,
-                  onFailureAction,
-                )) &&
-            (identical(other.onSuccessTaskStepsId, onSuccessTaskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessTaskStepsId,
-                  onSuccessTaskStepsId,
-                )) &&
-            (identical(other.onFailureTaskStepsId, onFailureTaskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureTaskStepsId,
-                  onFailureTaskStepsId,
-                )) &&
-            (identical(other.outputFilename, outputFilename) ||
-                const DeepCollectionEquality().equals(
-                  other.outputFilename,
-                  outputFilename,
-                )) &&
-            (identical(other.lastRunOutcome, lastRunOutcome) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunOutcome,
-                  lastRunOutcome,
-                )) &&
-            (identical(other.lastRunDuration, lastRunDuration) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunDuration,
-                  lastRunDuration,
-                )) &&
-            (identical(other.lastRunRetries, lastRunRetries) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunRetries,
-                  lastRunRetries,
-                )) &&
-            (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality().equals(
-                  other.dateStamp,
-                  dateStamp,
-                )) &&
-            (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality().equals(
-                  other.auditNote,
-                  auditNote,
-                )) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality().equals(
-                  other.recordTitle,
-                  recordTitle,
-                )) &&
-            (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality().equals(
-                  other.urlIdentifier,
-                  urlIdentifier,
-                )) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                  other.defaultFieldAttributes,
-                  defaultFieldAttributes,
-                )) &&
-            (identical(other.original, original) ||
-                const DeepCollectionEquality().equals(
-                  other.original,
-                  original,
-                )) &&
-            (identical(other.translation, translation) ||
-                const DeepCollectionEquality().equals(
-                  other.translation,
-                  translation,
-                )) &&
-            (identical(other.hasImport, hasImport) ||
-                const DeepCollectionEquality().equals(
-                  other.hasImport,
-                  hasImport,
-                )) &&
-            (identical(other.hasDocuments, hasDocuments) ||
-                const DeepCollectionEquality().equals(
-                  other.hasDocuments,
-                  hasDocuments,
-                )) &&
-            (identical(other.createdByUserId, createdByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserId,
-                  createdByUserId,
-                )) &&
-            (identical(other.createdByUserName, createdByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserName,
-                  createdByUserName,
-                )) &&
-            (identical(other.createdDateTime, createdDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.createdDateTime,
-                  createdDateTime,
-                )) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserId,
-                  modifiedByUserId,
-                )) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserName,
-                  modifiedByUserName,
-                )) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedDateTime,
-                  modifiedDateTime,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(taskStepsId) ^
-      const DeepCollectionEquality().hash(taskId) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(stepNumber) ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(command) ^
-      const DeepCollectionEquality().hash(onSuccessActionDisplay) ^
-      const DeepCollectionEquality().hash(onFailureActionDisplay) ^
-      const DeepCollectionEquality().hash(onSuccessAction) ^
-      const DeepCollectionEquality().hash(retryAttempts) ^
-      const DeepCollectionEquality().hash(retryInterval) ^
-      const DeepCollectionEquality().hash(onFailureAction) ^
-      const DeepCollectionEquality().hash(onSuccessTaskStepsId) ^
-      const DeepCollectionEquality().hash(onFailureTaskStepsId) ^
-      const DeepCollectionEquality().hash(outputFilename) ^
-      const DeepCollectionEquality().hash(lastRunOutcome) ^
-      const DeepCollectionEquality().hash(lastRunDuration) ^
-      const DeepCollectionEquality().hash(lastRunRetries) ^
-      const DeepCollectionEquality().hash(dateStamp) ^
-      const DeepCollectionEquality().hash(auditNote) ^
-      const DeepCollectionEquality().hash(recordTitle) ^
-      const DeepCollectionEquality().hash(urlIdentifier) ^
-      const DeepCollectionEquality().hash(fields) ^
-      const DeepCollectionEquality().hash(custom) ^
-      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
-      const DeepCollectionEquality().hash(original) ^
-      const DeepCollectionEquality().hash(translation) ^
-      const DeepCollectionEquality().hash(hasImport) ^
-      const DeepCollectionEquality().hash(hasDocuments) ^
-      const DeepCollectionEquality().hash(createdByUserId) ^
-      const DeepCollectionEquality().hash(createdByUserName) ^
-      const DeepCollectionEquality().hash(createdDateTime) ^
-      const DeepCollectionEquality().hash(modifiedByUserId) ^
-      const DeepCollectionEquality().hash(modifiedByUserName) ^
-      const DeepCollectionEquality().hash(modifiedDateTime) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
-    on WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWith({
-    int? taskStepsId,
-    int? taskId,
-    String? name,
-    int? stepNumber,
-    String? type,
-    String? command,
-    String? onSuccessActionDisplay,
-    String? onFailureActionDisplay,
-    int? onSuccessAction,
-    int? retryAttempts,
-    int? retryInterval,
-    int? onFailureAction,
-    int? onSuccessTaskStepsId,
-    int? onFailureTaskStepsId,
-    String? outputFilename,
-    int? lastRunOutcome,
-    int? lastRunDuration,
-    int? lastRunRetries,
-    String? dateStamp,
-    String? auditNote,
-    String? recordTitle,
-    dynamic urlIdentifier,
-    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-    List<FwStandardDataFwCustomValue>? custom,
-    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-    FwStandardBusinessLogicFwBusinessLogic? original,
-    List<FwStandardDataFwTranslatedValue>? translation,
-    bool? hasImport,
-    bool? hasDocuments,
-    String? createdByUserId,
-    String? createdByUserName,
-    String? createdDateTime,
-    String? modifiedByUserId,
-    String? modifiedByUserName,
-    String? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: taskStepsId ?? this.taskStepsId,
-      taskId: taskId ?? this.taskId,
-      name: name ?? this.name,
-      stepNumber: stepNumber ?? this.stepNumber,
-      type: type ?? this.type,
-      command: command ?? this.command,
-      onSuccessActionDisplay:
-          onSuccessActionDisplay ?? this.onSuccessActionDisplay,
-      onFailureActionDisplay:
-          onFailureActionDisplay ?? this.onFailureActionDisplay,
-      onSuccessAction: onSuccessAction ?? this.onSuccessAction,
-      retryAttempts: retryAttempts ?? this.retryAttempts,
-      retryInterval: retryInterval ?? this.retryInterval,
-      onFailureAction: onFailureAction ?? this.onFailureAction,
-      onSuccessTaskStepsId: onSuccessTaskStepsId ?? this.onSuccessTaskStepsId,
-      onFailureTaskStepsId: onFailureTaskStepsId ?? this.onFailureTaskStepsId,
-      outputFilename: outputFilename ?? this.outputFilename,
-      lastRunOutcome: lastRunOutcome ?? this.lastRunOutcome,
-      lastRunDuration: lastRunDuration ?? this.lastRunDuration,
-      lastRunRetries: lastRunRetries ?? this.lastRunRetries,
-      dateStamp: dateStamp ?? this.dateStamp,
-      auditNote: auditNote ?? this.auditNote,
-      recordTitle: recordTitle ?? this.recordTitle,
-      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-      fields: fields ?? this.fields,
-      custom: custom ?? this.custom,
-      defaultFieldAttributes:
-          defaultFieldAttributes ?? this.defaultFieldAttributes,
-      original: original ?? this.original,
-      translation: translation ?? this.translation,
-      hasImport: hasImport ?? this.hasImport,
-      hasDocuments: hasDocuments ?? this.hasDocuments,
-      createdByUserId: createdByUserId ?? this.createdByUserId,
-      createdByUserName: createdByUserName ?? this.createdByUserName,
-      createdDateTime: createdDateTime ?? this.createdDateTime,
-      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
-    );
-  }
-
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWithWrapped({
-    Wrapped<int?>? taskStepsId,
-    Wrapped<int?>? taskId,
-    Wrapped<String?>? name,
-    Wrapped<int?>? stepNumber,
-    Wrapped<String?>? type,
-    Wrapped<String?>? command,
-    Wrapped<String?>? onSuccessActionDisplay,
-    Wrapped<String?>? onFailureActionDisplay,
-    Wrapped<int?>? onSuccessAction,
-    Wrapped<int?>? retryAttempts,
-    Wrapped<int?>? retryInterval,
-    Wrapped<int?>? onFailureAction,
-    Wrapped<int?>? onSuccessTaskStepsId,
-    Wrapped<int?>? onFailureTaskStepsId,
-    Wrapped<String?>? outputFilename,
-    Wrapped<int?>? lastRunOutcome,
-    Wrapped<int?>? lastRunDuration,
-    Wrapped<int?>? lastRunRetries,
-    Wrapped<String?>? dateStamp,
-    Wrapped<String?>? auditNote,
-    Wrapped<String?>? recordTitle,
-    Wrapped<dynamic>? urlIdentifier,
-    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-    fields,
-    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-    Wrapped<bool?>? hasImport,
-    Wrapped<bool?>? hasDocuments,
-    Wrapped<String?>? createdByUserId,
-    Wrapped<String?>? createdByUserName,
-    Wrapped<String?>? createdDateTime,
-    Wrapped<String?>? modifiedByUserId,
-    Wrapped<String?>? modifiedByUserName,
-    Wrapped<String?>? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: (taskStepsId != null ? taskStepsId.value : this.taskStepsId),
-      taskId: (taskId != null ? taskId.value : this.taskId),
-      name: (name != null ? name.value : this.name),
-      stepNumber: (stepNumber != null ? stepNumber.value : this.stepNumber),
-      type: (type != null ? type.value : this.type),
-      command: (command != null ? command.value : this.command),
-      onSuccessActionDisplay: (onSuccessActionDisplay != null
-          ? onSuccessActionDisplay.value
-          : this.onSuccessActionDisplay),
-      onFailureActionDisplay: (onFailureActionDisplay != null
-          ? onFailureActionDisplay.value
-          : this.onFailureActionDisplay),
-      onSuccessAction: (onSuccessAction != null
-          ? onSuccessAction.value
-          : this.onSuccessAction),
-      retryAttempts: (retryAttempts != null
-          ? retryAttempts.value
-          : this.retryAttempts),
-      retryInterval: (retryInterval != null
-          ? retryInterval.value
-          : this.retryInterval),
-      onFailureAction: (onFailureAction != null
-          ? onFailureAction.value
-          : this.onFailureAction),
-      onSuccessTaskStepsId: (onSuccessTaskStepsId != null
-          ? onSuccessTaskStepsId.value
-          : this.onSuccessTaskStepsId),
-      onFailureTaskStepsId: (onFailureTaskStepsId != null
-          ? onFailureTaskStepsId.value
-          : this.onFailureTaskStepsId),
-      outputFilename: (outputFilename != null
-          ? outputFilename.value
-          : this.outputFilename),
-      lastRunOutcome: (lastRunOutcome != null
-          ? lastRunOutcome.value
-          : this.lastRunOutcome),
-      lastRunDuration: (lastRunDuration != null
-          ? lastRunDuration.value
-          : this.lastRunDuration),
-      lastRunRetries: (lastRunRetries != null
-          ? lastRunRetries.value
-          : this.lastRunRetries),
-      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
-      urlIdentifier: (urlIdentifier != null
-          ? urlIdentifier.value
-          : this.urlIdentifier),
-      fields: (fields != null ? fields.value : this.fields),
-      custom: (custom != null ? custom.value : this.custom),
-      defaultFieldAttributes: (defaultFieldAttributes != null
-          ? defaultFieldAttributes.value
-          : this.defaultFieldAttributes),
-      original: (original != null ? original.value : this.original),
-      translation: (translation != null ? translation.value : this.translation),
-      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-      hasDocuments: (hasDocuments != null
-          ? hasDocuments.value
-          : this.hasDocuments),
-      createdByUserId: (createdByUserId != null
-          ? createdByUserId.value
-          : this.createdByUserId),
-      createdByUserName: (createdByUserName != null
-          ? createdByUserName.value
-          : this.createdByUserName),
-      createdDateTime: (createdDateTime != null
-          ? createdDateTime.value
-          : this.createdDateTime),
-      modifiedByUserId: (modifiedByUserId != null
-          ? modifiedByUserId.value
-          : this.modifiedByUserId),
-      modifiedByUserName: (modifiedByUserName != null
-          ? modifiedByUserName.value
-          : this.modifiedByUserName),
-      modifiedDateTime: (modifiedDateTime != null
-          ? modifiedDateTime.value
-          : this.modifiedDateTime),
     );
   }
 }
@@ -17246,6 +16553,9 @@ class WebApiModulesAgentDealDeal {
     this.email,
     this.paymentTypeType,
     this.taxOption,
+    this.hasNotes,
+    this.minEquipmentRequestHours,
+    this.maxEquipmentRequestHours,
     this.dateStamp,
     this.auditNote,
     this.recordTitle,
@@ -17657,6 +16967,12 @@ class WebApiModulesAgentDealDeal {
   final String? paymentTypeType;
   @JsonKey(name: 'TaxOption', includeIfNull: false)
   final String? taxOption;
+  @JsonKey(name: 'HasNotes', includeIfNull: false)
+  final bool? hasNotes;
+  @JsonKey(name: 'MinEquipmentRequestHours', includeIfNull: false)
+  final int? minEquipmentRequestHours;
+  @JsonKey(name: 'MaxEquipmentRequestHours', includeIfNull: false)
+  final int? maxEquipmentRequestHours;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
@@ -18789,6 +18105,27 @@ class WebApiModulesAgentDealDeal {
                   other.taxOption,
                   taxOption,
                 )) &&
+            (identical(other.hasNotes, hasNotes) ||
+                const DeepCollectionEquality().equals(
+                  other.hasNotes,
+                  hasNotes,
+                )) &&
+            (identical(
+                  other.minEquipmentRequestHours,
+                  minEquipmentRequestHours,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.minEquipmentRequestHours,
+                  minEquipmentRequestHours,
+                )) &&
+            (identical(
+                  other.maxEquipmentRequestHours,
+                  maxEquipmentRequestHours,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.maxEquipmentRequestHours,
+                  maxEquipmentRequestHours,
+                )) &&
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality().equals(
                   other.dateStamp,
@@ -19074,6 +18411,9 @@ class WebApiModulesAgentDealDeal {
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(paymentTypeType) ^
       const DeepCollectionEquality().hash(taxOption) ^
+      const DeepCollectionEquality().hash(hasNotes) ^
+      const DeepCollectionEquality().hash(minEquipmentRequestHours) ^
+      const DeepCollectionEquality().hash(maxEquipmentRequestHours) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
@@ -19289,6 +18629,9 @@ extension $WebApiModulesAgentDealDealExtension on WebApiModulesAgentDealDeal {
     String? email,
     String? paymentTypeType,
     String? taxOption,
+    bool? hasNotes,
+    int? minEquipmentRequestHours,
+    int? maxEquipmentRequestHours,
     String? dateStamp,
     String? auditNote,
     String? recordTitle,
@@ -19573,6 +18916,11 @@ extension $WebApiModulesAgentDealDealExtension on WebApiModulesAgentDealDeal {
       email: email ?? this.email,
       paymentTypeType: paymentTypeType ?? this.paymentTypeType,
       taxOption: taxOption ?? this.taxOption,
+      hasNotes: hasNotes ?? this.hasNotes,
+      minEquipmentRequestHours:
+          minEquipmentRequestHours ?? this.minEquipmentRequestHours,
+      maxEquipmentRequestHours:
+          maxEquipmentRequestHours ?? this.maxEquipmentRequestHours,
       dateStamp: dateStamp ?? this.dateStamp,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
@@ -19788,6 +19136,9 @@ extension $WebApiModulesAgentDealDealExtension on WebApiModulesAgentDealDeal {
     Wrapped<String?>? email,
     Wrapped<String?>? paymentTypeType,
     Wrapped<String?>? taxOption,
+    Wrapped<bool?>? hasNotes,
+    Wrapped<int?>? minEquipmentRequestHours,
+    Wrapped<int?>? maxEquipmentRequestHours,
     Wrapped<String?>? dateStamp,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
@@ -20315,6 +19666,13 @@ extension $WebApiModulesAgentDealDealExtension on WebApiModulesAgentDealDeal {
           ? paymentTypeType.value
           : this.paymentTypeType),
       taxOption: (taxOption != null ? taxOption.value : this.taxOption),
+      hasNotes: (hasNotes != null ? hasNotes.value : this.hasNotes),
+      minEquipmentRequestHours: (minEquipmentRequestHours != null
+          ? minEquipmentRequestHours.value
+          : this.minEquipmentRequestHours),
+      maxEquipmentRequestHours: (maxEquipmentRequestHours != null
+          ? maxEquipmentRequestHours.value
+          : this.maxEquipmentRequestHours),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
@@ -22603,8 +21961,7 @@ class WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResp
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse &&
+        (other is WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse &&
             (identical(other.batchId, batchId) ||
                 const DeepCollectionEquality().equals(
                   other.batchId,
@@ -23873,6 +23230,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.replacementCostForAllWarehouses,
     this.hourlyAvailabilityMyWarehouse,
     this.hourlyAvailabilityAllWarehouses,
+    this.assetAvailabilityMyWarehouse,
+    this.assetAvailabilityAllWarehouses,
     this.inventoryTypeId,
     this.inventoryType,
     this.availableFrom,
@@ -23968,6 +23327,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.automaticallyRebuildContainerAtTransferIn,
     this.automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
     this.automaticallyTransferInEntireContainerWithScannableItem,
+    this.specifyContainerItemSettingsPerItem,
     this.containerStagingRule,
     this.excludeContainedItemsFromAvailability,
     this.useContainerNumber,
@@ -24212,6 +23572,10 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final bool? hourlyAvailabilityMyWarehouse;
   @JsonKey(name: 'HourlyAvailabilityAllWarehouses', includeIfNull: false)
   final bool? hourlyAvailabilityAllWarehouses;
+  @JsonKey(name: 'AssetAvailabilityMyWarehouse', includeIfNull: false)
+  final bool? assetAvailabilityMyWarehouse;
+  @JsonKey(name: 'AssetAvailabilityAllWarehouses', includeIfNull: false)
+  final bool? assetAvailabilityAllWarehouses;
   @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
   @JsonKey(name: 'InventoryType', includeIfNull: false)
@@ -24420,6 +23784,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     includeIfNull: false,
   )
   final bool? automaticallyTransferInEntireContainerWithScannableItem;
+  @JsonKey(name: 'SpecifyContainerItemSettingsPerItem', includeIfNull: false)
+  final bool? specifyContainerItemSettingsPerItem;
   @JsonKey(name: 'ContainerStagingRule', includeIfNull: false)
   final String? containerStagingRule;
   @JsonKey(name: 'ExcludeContainedItemsFromAvailability', includeIfNull: false)
@@ -24994,6 +24360,22 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
                 const DeepCollectionEquality().equals(
                   other.hourlyAvailabilityAllWarehouses,
                   hourlyAvailabilityAllWarehouses,
+                )) &&
+            (identical(
+                  other.assetAvailabilityMyWarehouse,
+                  assetAvailabilityMyWarehouse,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.assetAvailabilityMyWarehouse,
+                  assetAvailabilityMyWarehouse,
+                )) &&
+            (identical(
+                  other.assetAvailabilityAllWarehouses,
+                  assetAvailabilityAllWarehouses,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.assetAvailabilityAllWarehouses,
+                  assetAvailabilityAllWarehouses,
                 )) &&
             (identical(other.inventoryTypeId, inventoryTypeId) ||
                 const DeepCollectionEquality().equals(
@@ -25654,6 +25036,14 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
                 const DeepCollectionEquality().equals(
                   other.automaticallyTransferInEntireContainerWithScannableItem,
                   automaticallyTransferInEntireContainerWithScannableItem,
+                )) &&
+            (identical(
+                  other.specifyContainerItemSettingsPerItem,
+                  specifyContainerItemSettingsPerItem,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.specifyContainerItemSettingsPerItem,
+                  specifyContainerItemSettingsPerItem,
                 )) &&
             (identical(other.containerStagingRule, containerStagingRule) ||
                 const DeepCollectionEquality().equals(
@@ -26515,6 +25905,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(replacementCostForAllWarehouses) ^
       const DeepCollectionEquality().hash(hourlyAvailabilityMyWarehouse) ^
       const DeepCollectionEquality().hash(hourlyAvailabilityAllWarehouses) ^
+      const DeepCollectionEquality().hash(assetAvailabilityMyWarehouse) ^
+      const DeepCollectionEquality().hash(assetAvailabilityAllWarehouses) ^
       const DeepCollectionEquality().hash(inventoryTypeId) ^
       const DeepCollectionEquality().hash(inventoryType) ^
       const DeepCollectionEquality().hash(availableFrom) ^
@@ -26630,6 +26022,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(
         automaticallyTransferInEntireContainerWithScannableItem,
       ) ^
+      const DeepCollectionEquality().hash(specifyContainerItemSettingsPerItem) ^
       const DeepCollectionEquality().hash(containerStagingRule) ^
       const DeepCollectionEquality().hash(
         excludeContainedItemsFromAvailability,
@@ -26841,6 +26234,8 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     double? replacementCostForAllWarehouses,
     bool? hourlyAvailabilityMyWarehouse,
     bool? hourlyAvailabilityAllWarehouses,
+    bool? assetAvailabilityMyWarehouse,
+    bool? assetAvailabilityAllWarehouses,
     String? inventoryTypeId,
     String? inventoryType,
     String? availableFrom,
@@ -26936,6 +26331,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     bool? automaticallyRebuildContainerAtTransferIn,
     bool? automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
     bool? automaticallyTransferInEntireContainerWithScannableItem,
+    bool? specifyContainerItemSettingsPerItem,
     String? containerStagingRule,
     bool? excludeContainedItemsFromAvailability,
     bool? useContainerNumber,
@@ -27140,6 +26536,10 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       hourlyAvailabilityAllWarehouses:
           hourlyAvailabilityAllWarehouses ??
           this.hourlyAvailabilityAllWarehouses,
+      assetAvailabilityMyWarehouse:
+          assetAvailabilityMyWarehouse ?? this.assetAvailabilityMyWarehouse,
+      assetAvailabilityAllWarehouses:
+          assetAvailabilityAllWarehouses ?? this.assetAvailabilityAllWarehouses,
       inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
       inventoryType: inventoryType ?? this.inventoryType,
       availableFrom: availableFrom ?? this.availableFrom,
@@ -27325,6 +26725,9 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       automaticallyTransferInEntireContainerWithScannableItem:
           automaticallyTransferInEntireContainerWithScannableItem ??
           this.automaticallyTransferInEntireContainerWithScannableItem,
+      specifyContainerItemSettingsPerItem:
+          specifyContainerItemSettingsPerItem ??
+          this.specifyContainerItemSettingsPerItem,
       containerStagingRule: containerStagingRule ?? this.containerStagingRule,
       excludeContainedItemsFromAvailability:
           excludeContainedItemsFromAvailability ??
@@ -27578,6 +26981,8 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     Wrapped<double?>? replacementCostForAllWarehouses,
     Wrapped<bool?>? hourlyAvailabilityMyWarehouse,
     Wrapped<bool?>? hourlyAvailabilityAllWarehouses,
+    Wrapped<bool?>? assetAvailabilityMyWarehouse,
+    Wrapped<bool?>? assetAvailabilityAllWarehouses,
     Wrapped<String?>? inventoryTypeId,
     Wrapped<String?>? inventoryType,
     Wrapped<String?>? availableFrom,
@@ -27673,6 +27078,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     Wrapped<bool?>? automaticallyRebuildContainerAtTransferIn,
     Wrapped<bool?>? automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
     Wrapped<bool?>? automaticallyTransferInEntireContainerWithScannableItem,
+    Wrapped<bool?>? specifyContainerItemSettingsPerItem,
     Wrapped<String?>? containerStagingRule,
     Wrapped<bool?>? excludeContainedItemsFromAvailability,
     Wrapped<bool?>? useContainerNumber,
@@ -27913,6 +27319,12 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       hourlyAvailabilityAllWarehouses: (hourlyAvailabilityAllWarehouses != null
           ? hourlyAvailabilityAllWarehouses.value
           : this.hourlyAvailabilityAllWarehouses),
+      assetAvailabilityMyWarehouse: (assetAvailabilityMyWarehouse != null
+          ? assetAvailabilityMyWarehouse.value
+          : this.assetAvailabilityMyWarehouse),
+      assetAvailabilityAllWarehouses: (assetAvailabilityAllWarehouses != null
+          ? assetAvailabilityAllWarehouses.value
+          : this.assetAvailabilityAllWarehouses),
       inventoryTypeId: (inventoryTypeId != null
           ? inventoryTypeId.value
           : this.inventoryTypeId),
@@ -28203,6 +27615,10 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
           (automaticallyTransferInEntireContainerWithScannableItem != null
           ? automaticallyTransferInEntireContainerWithScannableItem.value
           : this.automaticallyTransferInEntireContainerWithScannableItem),
+      specifyContainerItemSettingsPerItem:
+          (specifyContainerItemSettingsPerItem != null
+          ? specifyContainerItemSettingsPerItem.value
+          : this.specifyContainerItemSettingsPerItem),
       containerStagingRule: (containerStagingRule != null
           ? containerStagingRule.value
           : this.containerStagingRule),
@@ -28535,801 +27951,6 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       taxableForAllLocations: (taxableForAllLocations != null
           ? taxableForAllLocations.value
           : this.taxableForAllLocations),
-      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
-      urlIdentifier: (urlIdentifier != null
-          ? urlIdentifier.value
-          : this.urlIdentifier),
-      fields: (fields != null ? fields.value : this.fields),
-      custom: (custom != null ? custom.value : this.custom),
-      defaultFieldAttributes: (defaultFieldAttributes != null
-          ? defaultFieldAttributes.value
-          : this.defaultFieldAttributes),
-      original: (original != null ? original.value : this.original),
-      translation: (translation != null ? translation.value : this.translation),
-      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-      hasDocuments: (hasDocuments != null
-          ? hasDocuments.value
-          : this.hasDocuments),
-      createdByUserId: (createdByUserId != null
-          ? createdByUserId.value
-          : this.createdByUserId),
-      createdByUserName: (createdByUserName != null
-          ? createdByUserName.value
-          : this.createdByUserName),
-      createdDateTime: (createdDateTime != null
-          ? createdDateTime.value
-          : this.createdDateTime),
-      modifiedByUserId: (modifiedByUserId != null
-          ? modifiedByUserId.value
-          : this.modifiedByUserId),
-      modifiedByUserName: (modifiedByUserName != null
-          ? modifiedByUserName.value
-          : this.modifiedByUserName),
-      modifiedDateTime: (modifiedDateTime != null
-          ? modifiedDateTime.value
-          : this.modifiedDateTime),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class WebApiModulesInventoryReservedRentalItemReservedRentalItem {
-  const WebApiModulesInventoryReservedRentalItemReservedRentalItem({
-    this.reservedRentalItemId,
-    this.orderId,
-    this.orderItemId,
-    this.rentalItemId,
-    this.inventoryId,
-    this.iCode,
-    this.description,
-    this.inventoryTypeId,
-    this.categoryId,
-    this.subCategoryId,
-    this.warehouseId,
-    this.returnToWarehouseId,
-    this.usersId,
-    this.barCode,
-    this.serialNumber,
-    this.trackedByCode,
-    this.ownership,
-    this.ownershipSort,
-    this.consignorId,
-    this.consignor,
-    this.orderNumber,
-    this.orderDescription,
-    this.orderType,
-    this.orderStatus,
-    this.dealId,
-    this.deal,
-    this.nameFml,
-    this.fromDateTime,
-    this.toDateTime,
-    this.conflict,
-    this.forceConflict,
-    this.positiveConflict,
-    this.availabilityColor,
-    this.availabilityOrderColor,
-    this.availabilityOrderWhiteText,
-    this.availabilityByHour,
-    this.itemStatus,
-    this.auditNote,
-    this.recordTitle,
-    this.urlIdentifier,
-    this.fields,
-    this.custom,
-    this.defaultFieldAttributes,
-    this.original,
-    this.translation,
-    this.hasImport,
-    this.hasDocuments,
-    this.createdByUserId,
-    this.createdByUserName,
-    this.createdDateTime,
-    this.modifiedByUserId,
-    this.modifiedByUserName,
-    this.modifiedDateTime,
-  });
-
-  factory WebApiModulesInventoryReservedRentalItemReservedRentalItem.fromJson(
-    Map<String, dynamic> json,
-  ) => _$WebApiModulesInventoryReservedRentalItemReservedRentalItemFromJson(
-    json,
-  );
-
-  static const toJsonFactory =
-      _$WebApiModulesInventoryReservedRentalItemReservedRentalItemToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesInventoryReservedRentalItemReservedRentalItemToJson(this);
-
-  @JsonKey(name: 'ReservedRentalItemId', includeIfNull: false)
-  final int? reservedRentalItemId;
-  @JsonKey(name: 'OrderId', includeIfNull: false)
-  final String? orderId;
-  @JsonKey(name: 'OrderItemId', includeIfNull: false)
-  final String? orderItemId;
-  @JsonKey(name: 'RentalItemId', includeIfNull: false)
-  final String? rentalItemId;
-  @JsonKey(name: 'InventoryId', includeIfNull: false)
-  final String? inventoryId;
-  @JsonKey(name: 'ICode', includeIfNull: false)
-  final String? iCode;
-  @JsonKey(name: 'Description', includeIfNull: false)
-  final String? description;
-  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
-  final String? inventoryTypeId;
-  @JsonKey(name: 'CategoryId', includeIfNull: false)
-  final String? categoryId;
-  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
-  final String? subCategoryId;
-  @JsonKey(name: 'WarehouseId', includeIfNull: false)
-  final String? warehouseId;
-  @JsonKey(name: 'ReturnToWarehouseId', includeIfNull: false)
-  final String? returnToWarehouseId;
-  @JsonKey(name: 'UsersId', includeIfNull: false)
-  final String? usersId;
-  @JsonKey(name: 'BarCode', includeIfNull: false)
-  final String? barCode;
-  @JsonKey(name: 'SerialNumber', includeIfNull: false)
-  final String? serialNumber;
-  @JsonKey(name: 'TrackedByCode', includeIfNull: false)
-  final String? trackedByCode;
-  @JsonKey(name: 'Ownership', includeIfNull: false)
-  final String? ownership;
-  @JsonKey(name: 'OwnershipSort', includeIfNull: false)
-  final String? ownershipSort;
-  @JsonKey(name: 'ConsignorId', includeIfNull: false)
-  final String? consignorId;
-  @JsonKey(name: 'Consignor', includeIfNull: false)
-  final String? consignor;
-  @JsonKey(name: 'OrderNumber', includeIfNull: false)
-  final String? orderNumber;
-  @JsonKey(name: 'OrderDescription', includeIfNull: false)
-  final String? orderDescription;
-  @JsonKey(name: 'OrderType', includeIfNull: false)
-  final String? orderType;
-  @JsonKey(name: 'OrderStatus', includeIfNull: false)
-  final String? orderStatus;
-  @JsonKey(name: 'DealId', includeIfNull: false)
-  final String? dealId;
-  @JsonKey(name: 'Deal', includeIfNull: false)
-  final String? deal;
-  @JsonKey(name: 'NameFml', includeIfNull: false)
-  final String? nameFml;
-  @JsonKey(name: 'FromDateTime', includeIfNull: false)
-  final DateTime? fromDateTime;
-  @JsonKey(name: 'ToDateTime', includeIfNull: false)
-  final DateTime? toDateTime;
-  @JsonKey(name: 'Conflict', includeIfNull: false)
-  final String? conflict;
-  @JsonKey(name: 'ForceConflict', includeIfNull: false)
-  final String? forceConflict;
-  @JsonKey(name: 'PositiveConflict', includeIfNull: false)
-  final String? positiveConflict;
-  @JsonKey(name: 'AvailabilityColor', includeIfNull: false)
-  final String? availabilityColor;
-  @JsonKey(name: 'AvailabilityOrderColor', includeIfNull: false)
-  final String? availabilityOrderColor;
-  @JsonKey(name: 'AvailabilityOrderWhiteText', includeIfNull: false)
-  final String? availabilityOrderWhiteText;
-  @JsonKey(name: 'AvailabilityByHour', includeIfNull: false)
-  final String? availabilityByHour;
-  @JsonKey(name: 'ItemStatus', includeIfNull: false)
-  final String? itemStatus;
-  @JsonKey(name: 'AuditNote', includeIfNull: false)
-  final String? auditNote;
-  @JsonKey(name: 'RecordTitle', includeIfNull: false)
-  final String? recordTitle;
-  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
-  final dynamic urlIdentifier;
-  @JsonKey(
-    name: '_Fields',
-    includeIfNull: false,
-    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
-  )
-  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(
-    name: '_Custom',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwCustomValue>[],
-  )
-  final List<FwStandardDataFwCustomValue>? custom;
-  @JsonKey(
-    name: '_DefaultFieldAttributes',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwDefaultAttribute>[],
-  )
-  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
-  @JsonKey(name: '_Original', includeIfNull: false)
-  final FwStandardBusinessLogicFwBusinessLogic? original;
-  @JsonKey(
-    name: '_Translation',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwTranslatedValue>[],
-  )
-  final List<FwStandardDataFwTranslatedValue>? translation;
-  @JsonKey(name: '_HasImport', includeIfNull: false)
-  final bool? hasImport;
-  @JsonKey(name: '_HasDocuments', includeIfNull: false)
-  final bool? hasDocuments;
-  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
-  final String? createdByUserId;
-  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
-  final String? createdByUserName;
-  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
-  final String? createdDateTime;
-  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
-  final String? modifiedByUserId;
-  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
-  final String? modifiedByUserName;
-  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
-  final String? modifiedDateTime;
-  static const fromJsonFactory =
-      _$WebApiModulesInventoryReservedRentalItemReservedRentalItemFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is WebApiModulesInventoryReservedRentalItemReservedRentalItem &&
-            (identical(other.reservedRentalItemId, reservedRentalItemId) ||
-                const DeepCollectionEquality().equals(
-                  other.reservedRentalItemId,
-                  reservedRentalItemId,
-                )) &&
-            (identical(other.orderId, orderId) ||
-                const DeepCollectionEquality().equals(
-                  other.orderId,
-                  orderId,
-                )) &&
-            (identical(other.orderItemId, orderItemId) ||
-                const DeepCollectionEquality().equals(
-                  other.orderItemId,
-                  orderItemId,
-                )) &&
-            (identical(other.rentalItemId, rentalItemId) ||
-                const DeepCollectionEquality().equals(
-                  other.rentalItemId,
-                  rentalItemId,
-                )) &&
-            (identical(other.inventoryId, inventoryId) ||
-                const DeepCollectionEquality().equals(
-                  other.inventoryId,
-                  inventoryId,
-                )) &&
-            (identical(other.iCode, iCode) ||
-                const DeepCollectionEquality().equals(other.iCode, iCode)) &&
-            (identical(other.description, description) ||
-                const DeepCollectionEquality().equals(
-                  other.description,
-                  description,
-                )) &&
-            (identical(other.inventoryTypeId, inventoryTypeId) ||
-                const DeepCollectionEquality().equals(
-                  other.inventoryTypeId,
-                  inventoryTypeId,
-                )) &&
-            (identical(other.categoryId, categoryId) ||
-                const DeepCollectionEquality().equals(
-                  other.categoryId,
-                  categoryId,
-                )) &&
-            (identical(other.subCategoryId, subCategoryId) ||
-                const DeepCollectionEquality().equals(
-                  other.subCategoryId,
-                  subCategoryId,
-                )) &&
-            (identical(other.warehouseId, warehouseId) ||
-                const DeepCollectionEquality().equals(
-                  other.warehouseId,
-                  warehouseId,
-                )) &&
-            (identical(other.returnToWarehouseId, returnToWarehouseId) ||
-                const DeepCollectionEquality().equals(
-                  other.returnToWarehouseId,
-                  returnToWarehouseId,
-                )) &&
-            (identical(other.usersId, usersId) ||
-                const DeepCollectionEquality().equals(
-                  other.usersId,
-                  usersId,
-                )) &&
-            (identical(other.barCode, barCode) ||
-                const DeepCollectionEquality().equals(
-                  other.barCode,
-                  barCode,
-                )) &&
-            (identical(other.serialNumber, serialNumber) ||
-                const DeepCollectionEquality().equals(
-                  other.serialNumber,
-                  serialNumber,
-                )) &&
-            (identical(other.trackedByCode, trackedByCode) ||
-                const DeepCollectionEquality().equals(
-                  other.trackedByCode,
-                  trackedByCode,
-                )) &&
-            (identical(other.ownership, ownership) ||
-                const DeepCollectionEquality().equals(
-                  other.ownership,
-                  ownership,
-                )) &&
-            (identical(other.ownershipSort, ownershipSort) ||
-                const DeepCollectionEquality().equals(
-                  other.ownershipSort,
-                  ownershipSort,
-                )) &&
-            (identical(other.consignorId, consignorId) ||
-                const DeepCollectionEquality().equals(
-                  other.consignorId,
-                  consignorId,
-                )) &&
-            (identical(other.consignor, consignor) ||
-                const DeepCollectionEquality().equals(
-                  other.consignor,
-                  consignor,
-                )) &&
-            (identical(other.orderNumber, orderNumber) ||
-                const DeepCollectionEquality().equals(
-                  other.orderNumber,
-                  orderNumber,
-                )) &&
-            (identical(other.orderDescription, orderDescription) ||
-                const DeepCollectionEquality().equals(
-                  other.orderDescription,
-                  orderDescription,
-                )) &&
-            (identical(other.orderType, orderType) ||
-                const DeepCollectionEquality().equals(
-                  other.orderType,
-                  orderType,
-                )) &&
-            (identical(other.orderStatus, orderStatus) ||
-                const DeepCollectionEquality().equals(
-                  other.orderStatus,
-                  orderStatus,
-                )) &&
-            (identical(other.dealId, dealId) ||
-                const DeepCollectionEquality().equals(other.dealId, dealId)) &&
-            (identical(other.deal, deal) ||
-                const DeepCollectionEquality().equals(other.deal, deal)) &&
-            (identical(other.nameFml, nameFml) ||
-                const DeepCollectionEquality().equals(
-                  other.nameFml,
-                  nameFml,
-                )) &&
-            (identical(other.fromDateTime, fromDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.fromDateTime,
-                  fromDateTime,
-                )) &&
-            (identical(other.toDateTime, toDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.toDateTime,
-                  toDateTime,
-                )) &&
-            (identical(other.conflict, conflict) ||
-                const DeepCollectionEquality().equals(
-                  other.conflict,
-                  conflict,
-                )) &&
-            (identical(other.forceConflict, forceConflict) ||
-                const DeepCollectionEquality().equals(
-                  other.forceConflict,
-                  forceConflict,
-                )) &&
-            (identical(other.positiveConflict, positiveConflict) ||
-                const DeepCollectionEquality().equals(
-                  other.positiveConflict,
-                  positiveConflict,
-                )) &&
-            (identical(other.availabilityColor, availabilityColor) ||
-                const DeepCollectionEquality().equals(
-                  other.availabilityColor,
-                  availabilityColor,
-                )) &&
-            (identical(other.availabilityOrderColor, availabilityOrderColor) ||
-                const DeepCollectionEquality().equals(
-                  other.availabilityOrderColor,
-                  availabilityOrderColor,
-                )) &&
-            (identical(
-                  other.availabilityOrderWhiteText,
-                  availabilityOrderWhiteText,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.availabilityOrderWhiteText,
-                  availabilityOrderWhiteText,
-                )) &&
-            (identical(other.availabilityByHour, availabilityByHour) ||
-                const DeepCollectionEquality().equals(
-                  other.availabilityByHour,
-                  availabilityByHour,
-                )) &&
-            (identical(other.itemStatus, itemStatus) ||
-                const DeepCollectionEquality().equals(
-                  other.itemStatus,
-                  itemStatus,
-                )) &&
-            (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality().equals(
-                  other.auditNote,
-                  auditNote,
-                )) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality().equals(
-                  other.recordTitle,
-                  recordTitle,
-                )) &&
-            (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality().equals(
-                  other.urlIdentifier,
-                  urlIdentifier,
-                )) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                  other.defaultFieldAttributes,
-                  defaultFieldAttributes,
-                )) &&
-            (identical(other.original, original) ||
-                const DeepCollectionEquality().equals(
-                  other.original,
-                  original,
-                )) &&
-            (identical(other.translation, translation) ||
-                const DeepCollectionEquality().equals(
-                  other.translation,
-                  translation,
-                )) &&
-            (identical(other.hasImport, hasImport) ||
-                const DeepCollectionEquality().equals(
-                  other.hasImport,
-                  hasImport,
-                )) &&
-            (identical(other.hasDocuments, hasDocuments) ||
-                const DeepCollectionEquality().equals(
-                  other.hasDocuments,
-                  hasDocuments,
-                )) &&
-            (identical(other.createdByUserId, createdByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserId,
-                  createdByUserId,
-                )) &&
-            (identical(other.createdByUserName, createdByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserName,
-                  createdByUserName,
-                )) &&
-            (identical(other.createdDateTime, createdDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.createdDateTime,
-                  createdDateTime,
-                )) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserId,
-                  modifiedByUserId,
-                )) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserName,
-                  modifiedByUserName,
-                )) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedDateTime,
-                  modifiedDateTime,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(reservedRentalItemId) ^
-      const DeepCollectionEquality().hash(orderId) ^
-      const DeepCollectionEquality().hash(orderItemId) ^
-      const DeepCollectionEquality().hash(rentalItemId) ^
-      const DeepCollectionEquality().hash(inventoryId) ^
-      const DeepCollectionEquality().hash(iCode) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(inventoryTypeId) ^
-      const DeepCollectionEquality().hash(categoryId) ^
-      const DeepCollectionEquality().hash(subCategoryId) ^
-      const DeepCollectionEquality().hash(warehouseId) ^
-      const DeepCollectionEquality().hash(returnToWarehouseId) ^
-      const DeepCollectionEquality().hash(usersId) ^
-      const DeepCollectionEquality().hash(barCode) ^
-      const DeepCollectionEquality().hash(serialNumber) ^
-      const DeepCollectionEquality().hash(trackedByCode) ^
-      const DeepCollectionEquality().hash(ownership) ^
-      const DeepCollectionEquality().hash(ownershipSort) ^
-      const DeepCollectionEquality().hash(consignorId) ^
-      const DeepCollectionEquality().hash(consignor) ^
-      const DeepCollectionEquality().hash(orderNumber) ^
-      const DeepCollectionEquality().hash(orderDescription) ^
-      const DeepCollectionEquality().hash(orderType) ^
-      const DeepCollectionEquality().hash(orderStatus) ^
-      const DeepCollectionEquality().hash(dealId) ^
-      const DeepCollectionEquality().hash(deal) ^
-      const DeepCollectionEquality().hash(nameFml) ^
-      const DeepCollectionEquality().hash(fromDateTime) ^
-      const DeepCollectionEquality().hash(toDateTime) ^
-      const DeepCollectionEquality().hash(conflict) ^
-      const DeepCollectionEquality().hash(forceConflict) ^
-      const DeepCollectionEquality().hash(positiveConflict) ^
-      const DeepCollectionEquality().hash(availabilityColor) ^
-      const DeepCollectionEquality().hash(availabilityOrderColor) ^
-      const DeepCollectionEquality().hash(availabilityOrderWhiteText) ^
-      const DeepCollectionEquality().hash(availabilityByHour) ^
-      const DeepCollectionEquality().hash(itemStatus) ^
-      const DeepCollectionEquality().hash(auditNote) ^
-      const DeepCollectionEquality().hash(recordTitle) ^
-      const DeepCollectionEquality().hash(urlIdentifier) ^
-      const DeepCollectionEquality().hash(fields) ^
-      const DeepCollectionEquality().hash(custom) ^
-      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
-      const DeepCollectionEquality().hash(original) ^
-      const DeepCollectionEquality().hash(translation) ^
-      const DeepCollectionEquality().hash(hasImport) ^
-      const DeepCollectionEquality().hash(hasDocuments) ^
-      const DeepCollectionEquality().hash(createdByUserId) ^
-      const DeepCollectionEquality().hash(createdByUserName) ^
-      const DeepCollectionEquality().hash(createdDateTime) ^
-      const DeepCollectionEquality().hash(modifiedByUserId) ^
-      const DeepCollectionEquality().hash(modifiedByUserName) ^
-      const DeepCollectionEquality().hash(modifiedDateTime) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesInventoryReservedRentalItemReservedRentalItemExtension
-    on WebApiModulesInventoryReservedRentalItemReservedRentalItem {
-  WebApiModulesInventoryReservedRentalItemReservedRentalItem copyWith({
-    int? reservedRentalItemId,
-    String? orderId,
-    String? orderItemId,
-    String? rentalItemId,
-    String? inventoryId,
-    String? iCode,
-    String? description,
-    String? inventoryTypeId,
-    String? categoryId,
-    String? subCategoryId,
-    String? warehouseId,
-    String? returnToWarehouseId,
-    String? usersId,
-    String? barCode,
-    String? serialNumber,
-    String? trackedByCode,
-    String? ownership,
-    String? ownershipSort,
-    String? consignorId,
-    String? consignor,
-    String? orderNumber,
-    String? orderDescription,
-    String? orderType,
-    String? orderStatus,
-    String? dealId,
-    String? deal,
-    String? nameFml,
-    DateTime? fromDateTime,
-    DateTime? toDateTime,
-    String? conflict,
-    String? forceConflict,
-    String? positiveConflict,
-    String? availabilityColor,
-    String? availabilityOrderColor,
-    String? availabilityOrderWhiteText,
-    String? availabilityByHour,
-    String? itemStatus,
-    String? auditNote,
-    String? recordTitle,
-    dynamic urlIdentifier,
-    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-    List<FwStandardDataFwCustomValue>? custom,
-    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-    FwStandardBusinessLogicFwBusinessLogic? original,
-    List<FwStandardDataFwTranslatedValue>? translation,
-    bool? hasImport,
-    bool? hasDocuments,
-    String? createdByUserId,
-    String? createdByUserName,
-    String? createdDateTime,
-    String? modifiedByUserId,
-    String? modifiedByUserName,
-    String? modifiedDateTime,
-  }) {
-    return WebApiModulesInventoryReservedRentalItemReservedRentalItem(
-      reservedRentalItemId: reservedRentalItemId ?? this.reservedRentalItemId,
-      orderId: orderId ?? this.orderId,
-      orderItemId: orderItemId ?? this.orderItemId,
-      rentalItemId: rentalItemId ?? this.rentalItemId,
-      inventoryId: inventoryId ?? this.inventoryId,
-      iCode: iCode ?? this.iCode,
-      description: description ?? this.description,
-      inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
-      categoryId: categoryId ?? this.categoryId,
-      subCategoryId: subCategoryId ?? this.subCategoryId,
-      warehouseId: warehouseId ?? this.warehouseId,
-      returnToWarehouseId: returnToWarehouseId ?? this.returnToWarehouseId,
-      usersId: usersId ?? this.usersId,
-      barCode: barCode ?? this.barCode,
-      serialNumber: serialNumber ?? this.serialNumber,
-      trackedByCode: trackedByCode ?? this.trackedByCode,
-      ownership: ownership ?? this.ownership,
-      ownershipSort: ownershipSort ?? this.ownershipSort,
-      consignorId: consignorId ?? this.consignorId,
-      consignor: consignor ?? this.consignor,
-      orderNumber: orderNumber ?? this.orderNumber,
-      orderDescription: orderDescription ?? this.orderDescription,
-      orderType: orderType ?? this.orderType,
-      orderStatus: orderStatus ?? this.orderStatus,
-      dealId: dealId ?? this.dealId,
-      deal: deal ?? this.deal,
-      nameFml: nameFml ?? this.nameFml,
-      fromDateTime: fromDateTime ?? this.fromDateTime,
-      toDateTime: toDateTime ?? this.toDateTime,
-      conflict: conflict ?? this.conflict,
-      forceConflict: forceConflict ?? this.forceConflict,
-      positiveConflict: positiveConflict ?? this.positiveConflict,
-      availabilityColor: availabilityColor ?? this.availabilityColor,
-      availabilityOrderColor:
-          availabilityOrderColor ?? this.availabilityOrderColor,
-      availabilityOrderWhiteText:
-          availabilityOrderWhiteText ?? this.availabilityOrderWhiteText,
-      availabilityByHour: availabilityByHour ?? this.availabilityByHour,
-      itemStatus: itemStatus ?? this.itemStatus,
-      auditNote: auditNote ?? this.auditNote,
-      recordTitle: recordTitle ?? this.recordTitle,
-      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-      fields: fields ?? this.fields,
-      custom: custom ?? this.custom,
-      defaultFieldAttributes:
-          defaultFieldAttributes ?? this.defaultFieldAttributes,
-      original: original ?? this.original,
-      translation: translation ?? this.translation,
-      hasImport: hasImport ?? this.hasImport,
-      hasDocuments: hasDocuments ?? this.hasDocuments,
-      createdByUserId: createdByUserId ?? this.createdByUserId,
-      createdByUserName: createdByUserName ?? this.createdByUserName,
-      createdDateTime: createdDateTime ?? this.createdDateTime,
-      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
-    );
-  }
-
-  WebApiModulesInventoryReservedRentalItemReservedRentalItem copyWithWrapped({
-    Wrapped<int?>? reservedRentalItemId,
-    Wrapped<String?>? orderId,
-    Wrapped<String?>? orderItemId,
-    Wrapped<String?>? rentalItemId,
-    Wrapped<String?>? inventoryId,
-    Wrapped<String?>? iCode,
-    Wrapped<String?>? description,
-    Wrapped<String?>? inventoryTypeId,
-    Wrapped<String?>? categoryId,
-    Wrapped<String?>? subCategoryId,
-    Wrapped<String?>? warehouseId,
-    Wrapped<String?>? returnToWarehouseId,
-    Wrapped<String?>? usersId,
-    Wrapped<String?>? barCode,
-    Wrapped<String?>? serialNumber,
-    Wrapped<String?>? trackedByCode,
-    Wrapped<String?>? ownership,
-    Wrapped<String?>? ownershipSort,
-    Wrapped<String?>? consignorId,
-    Wrapped<String?>? consignor,
-    Wrapped<String?>? orderNumber,
-    Wrapped<String?>? orderDescription,
-    Wrapped<String?>? orderType,
-    Wrapped<String?>? orderStatus,
-    Wrapped<String?>? dealId,
-    Wrapped<String?>? deal,
-    Wrapped<String?>? nameFml,
-    Wrapped<DateTime?>? fromDateTime,
-    Wrapped<DateTime?>? toDateTime,
-    Wrapped<String?>? conflict,
-    Wrapped<String?>? forceConflict,
-    Wrapped<String?>? positiveConflict,
-    Wrapped<String?>? availabilityColor,
-    Wrapped<String?>? availabilityOrderColor,
-    Wrapped<String?>? availabilityOrderWhiteText,
-    Wrapped<String?>? availabilityByHour,
-    Wrapped<String?>? itemStatus,
-    Wrapped<String?>? auditNote,
-    Wrapped<String?>? recordTitle,
-    Wrapped<dynamic>? urlIdentifier,
-    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-    fields,
-    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-    Wrapped<bool?>? hasImport,
-    Wrapped<bool?>? hasDocuments,
-    Wrapped<String?>? createdByUserId,
-    Wrapped<String?>? createdByUserName,
-    Wrapped<String?>? createdDateTime,
-    Wrapped<String?>? modifiedByUserId,
-    Wrapped<String?>? modifiedByUserName,
-    Wrapped<String?>? modifiedDateTime,
-  }) {
-    return WebApiModulesInventoryReservedRentalItemReservedRentalItem(
-      reservedRentalItemId: (reservedRentalItemId != null
-          ? reservedRentalItemId.value
-          : this.reservedRentalItemId),
-      orderId: (orderId != null ? orderId.value : this.orderId),
-      orderItemId: (orderItemId != null ? orderItemId.value : this.orderItemId),
-      rentalItemId: (rentalItemId != null
-          ? rentalItemId.value
-          : this.rentalItemId),
-      inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
-      iCode: (iCode != null ? iCode.value : this.iCode),
-      description: (description != null ? description.value : this.description),
-      inventoryTypeId: (inventoryTypeId != null
-          ? inventoryTypeId.value
-          : this.inventoryTypeId),
-      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
-      subCategoryId: (subCategoryId != null
-          ? subCategoryId.value
-          : this.subCategoryId),
-      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
-      returnToWarehouseId: (returnToWarehouseId != null
-          ? returnToWarehouseId.value
-          : this.returnToWarehouseId),
-      usersId: (usersId != null ? usersId.value : this.usersId),
-      barCode: (barCode != null ? barCode.value : this.barCode),
-      serialNumber: (serialNumber != null
-          ? serialNumber.value
-          : this.serialNumber),
-      trackedByCode: (trackedByCode != null
-          ? trackedByCode.value
-          : this.trackedByCode),
-      ownership: (ownership != null ? ownership.value : this.ownership),
-      ownershipSort: (ownershipSort != null
-          ? ownershipSort.value
-          : this.ownershipSort),
-      consignorId: (consignorId != null ? consignorId.value : this.consignorId),
-      consignor: (consignor != null ? consignor.value : this.consignor),
-      orderNumber: (orderNumber != null ? orderNumber.value : this.orderNumber),
-      orderDescription: (orderDescription != null
-          ? orderDescription.value
-          : this.orderDescription),
-      orderType: (orderType != null ? orderType.value : this.orderType),
-      orderStatus: (orderStatus != null ? orderStatus.value : this.orderStatus),
-      dealId: (dealId != null ? dealId.value : this.dealId),
-      deal: (deal != null ? deal.value : this.deal),
-      nameFml: (nameFml != null ? nameFml.value : this.nameFml),
-      fromDateTime: (fromDateTime != null
-          ? fromDateTime.value
-          : this.fromDateTime),
-      toDateTime: (toDateTime != null ? toDateTime.value : this.toDateTime),
-      conflict: (conflict != null ? conflict.value : this.conflict),
-      forceConflict: (forceConflict != null
-          ? forceConflict.value
-          : this.forceConflict),
-      positiveConflict: (positiveConflict != null
-          ? positiveConflict.value
-          : this.positiveConflict),
-      availabilityColor: (availabilityColor != null
-          ? availabilityColor.value
-          : this.availabilityColor),
-      availabilityOrderColor: (availabilityOrderColor != null
-          ? availabilityOrderColor.value
-          : this.availabilityOrderColor),
-      availabilityOrderWhiteText: (availabilityOrderWhiteText != null
-          ? availabilityOrderWhiteText.value
-          : this.availabilityOrderWhiteText),
-      availabilityByHour: (availabilityByHour != null
-          ? availabilityByHour.value
-          : this.availabilityByHour),
-      itemStatus: (itemStatus != null ? itemStatus.value : this.itemStatus),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
       urlIdentifier: (urlIdentifier != null
@@ -30825,6 +29446,9 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
     this.laborTaxRate1,
     this.laborTaxRate2,
     this.laborExempt,
+    this.miscTaxRate1,
+    this.miscTaxRate2,
+    this.miscExempt,
     this.attention,
     this.address1,
     this.address2,
@@ -30926,8 +29550,11 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
     this.storageContainerCheckInEnable,
     this.storageContainerStagingEnable,
     this.storageContainerRescanRequired,
+    this.preventUnstageItemInContainer,
     this.quikReceiptTermsConditionsId,
     this.quikReceiptTermsConditions,
+    this.automaticallyAssignShippingCaseNumber,
+    this.defaultShippingCaseWeight,
     this.disableSubstituteNote,
     this.daysToExpireSuspendedSessions,
     this.inactive,
@@ -30943,6 +29570,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
     this.internalOrderDeal,
     this.flexibleContainerStagingRule,
     this.internalOrderGracePeriod,
+    this.allowUserToAddShippingNote,
     this.auditNote,
     this.recordTitle,
     this.urlIdentifier,
@@ -31002,6 +29630,12 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
   final double? laborTaxRate2;
   @JsonKey(name: 'LaborExempt', includeIfNull: false)
   final bool? laborExempt;
+  @JsonKey(name: 'MiscTaxRate1', includeIfNull: false)
+  final double? miscTaxRate1;
+  @JsonKey(name: 'MiscTaxRate2', includeIfNull: false)
+  final double? miscTaxRate2;
+  @JsonKey(name: 'MiscExempt', includeIfNull: false)
+  final bool? miscExempt;
   @JsonKey(name: 'Attention', includeIfNull: false)
   final String? attention;
   @JsonKey(name: 'Address1', includeIfNull: false)
@@ -31213,10 +29847,16 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
   final bool? storageContainerStagingEnable;
   @JsonKey(name: 'StorageContainerRescanRequired', includeIfNull: false)
   final bool? storageContainerRescanRequired;
+  @JsonKey(name: 'PreventUnstageItemInContainer', includeIfNull: false)
+  final bool? preventUnstageItemInContainer;
   @JsonKey(name: 'QuikReceiptTermsConditionsId', includeIfNull: false)
   final String? quikReceiptTermsConditionsId;
   @JsonKey(name: 'QuikReceiptTermsConditions', includeIfNull: false)
   final String? quikReceiptTermsConditions;
+  @JsonKey(name: 'AutomaticallyAssignShippingCaseNumber', includeIfNull: false)
+  final bool? automaticallyAssignShippingCaseNumber;
+  @JsonKey(name: 'DefaultShippingCaseWeight', includeIfNull: false)
+  final bool? defaultShippingCaseWeight;
   @JsonKey(name: 'DisableSubstituteNote', includeIfNull: false)
   final bool? disableSubstituteNote;
   @JsonKey(name: 'DaysToExpireSuspendedSessions', includeIfNull: false)
@@ -31247,6 +29887,8 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
   final String? flexibleContainerStagingRule;
   @JsonKey(name: 'InternalOrderGracePeriod', includeIfNull: false)
   final int? internalOrderGracePeriod;
+  @JsonKey(name: 'AllowUserToAddShippingNote', includeIfNull: false)
+  final bool? allowUserToAddShippingNote;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
   final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
@@ -31381,6 +30023,21 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
                 const DeepCollectionEquality().equals(
                   other.laborExempt,
                   laborExempt,
+                )) &&
+            (identical(other.miscTaxRate1, miscTaxRate1) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate1,
+                  miscTaxRate1,
+                )) &&
+            (identical(other.miscTaxRate2, miscTaxRate2) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate2,
+                  miscTaxRate2,
+                )) &&
+            (identical(other.miscExempt, miscExempt) ||
+                const DeepCollectionEquality().equals(
+                  other.miscExempt,
+                  miscExempt,
                 )) &&
             (identical(other.attention, attention) ||
                 const DeepCollectionEquality().equals(
@@ -32020,6 +30677,14 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
                   storageContainerRescanRequired,
                 )) &&
             (identical(
+                  other.preventUnstageItemInContainer,
+                  preventUnstageItemInContainer,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.preventUnstageItemInContainer,
+                  preventUnstageItemInContainer,
+                )) &&
+            (identical(
                   other.quikReceiptTermsConditionsId,
                   quikReceiptTermsConditionsId,
                 ) ||
@@ -32034,6 +30699,22 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
                 const DeepCollectionEquality().equals(
                   other.quikReceiptTermsConditions,
                   quikReceiptTermsConditions,
+                )) &&
+            (identical(
+                  other.automaticallyAssignShippingCaseNumber,
+                  automaticallyAssignShippingCaseNumber,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.automaticallyAssignShippingCaseNumber,
+                  automaticallyAssignShippingCaseNumber,
+                )) &&
+            (identical(
+                  other.defaultShippingCaseWeight,
+                  defaultShippingCaseWeight,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultShippingCaseWeight,
+                  defaultShippingCaseWeight,
                 )) &&
             (identical(other.disableSubstituteNote, disableSubstituteNote) ||
                 const DeepCollectionEquality().equals(
@@ -32121,6 +30802,14 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
                 const DeepCollectionEquality().equals(
                   other.internalOrderGracePeriod,
                   internalOrderGracePeriod,
+                )) &&
+            (identical(
+                  other.allowUserToAddShippingNote,
+                  allowUserToAddShippingNote,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowUserToAddShippingNote,
+                  allowUserToAddShippingNote,
                 )) &&
             (identical(other.auditNote, auditNote) ||
                 const DeepCollectionEquality().equals(
@@ -32219,6 +30908,9 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
       const DeepCollectionEquality().hash(laborTaxRate1) ^
       const DeepCollectionEquality().hash(laborTaxRate2) ^
       const DeepCollectionEquality().hash(laborExempt) ^
+      const DeepCollectionEquality().hash(miscTaxRate1) ^
+      const DeepCollectionEquality().hash(miscTaxRate2) ^
+      const DeepCollectionEquality().hash(miscExempt) ^
       const DeepCollectionEquality().hash(attention) ^
       const DeepCollectionEquality().hash(address1) ^
       const DeepCollectionEquality().hash(address2) ^
@@ -32330,8 +31022,13 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
       const DeepCollectionEquality().hash(storageContainerCheckInEnable) ^
       const DeepCollectionEquality().hash(storageContainerStagingEnable) ^
       const DeepCollectionEquality().hash(storageContainerRescanRequired) ^
+      const DeepCollectionEquality().hash(preventUnstageItemInContainer) ^
       const DeepCollectionEquality().hash(quikReceiptTermsConditionsId) ^
       const DeepCollectionEquality().hash(quikReceiptTermsConditions) ^
+      const DeepCollectionEquality().hash(
+        automaticallyAssignShippingCaseNumber,
+      ) ^
+      const DeepCollectionEquality().hash(defaultShippingCaseWeight) ^
       const DeepCollectionEquality().hash(disableSubstituteNote) ^
       const DeepCollectionEquality().hash(daysToExpireSuspendedSessions) ^
       const DeepCollectionEquality().hash(inactive) ^
@@ -32347,6 +31044,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
       const DeepCollectionEquality().hash(internalOrderDeal) ^
       const DeepCollectionEquality().hash(flexibleContainerStagingRule) ^
       const DeepCollectionEquality().hash(internalOrderGracePeriod) ^
+      const DeepCollectionEquality().hash(allowUserToAddShippingNote) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(urlIdentifier) ^
@@ -32385,6 +31083,9 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     double? laborTaxRate1,
     double? laborTaxRate2,
     bool? laborExempt,
+    double? miscTaxRate1,
+    double? miscTaxRate2,
+    bool? miscExempt,
     String? attention,
     String? address1,
     String? address2,
@@ -32486,8 +31187,11 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     bool? storageContainerCheckInEnable,
     bool? storageContainerStagingEnable,
     bool? storageContainerRescanRequired,
+    bool? preventUnstageItemInContainer,
     String? quikReceiptTermsConditionsId,
     String? quikReceiptTermsConditions,
+    bool? automaticallyAssignShippingCaseNumber,
+    bool? defaultShippingCaseWeight,
     bool? disableSubstituteNote,
     int? daysToExpireSuspendedSessions,
     bool? inactive,
@@ -32503,6 +31207,7 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     String? internalOrderDeal,
     String? flexibleContainerStagingRule,
     int? internalOrderGracePeriod,
+    bool? allowUserToAddShippingNote,
     String? auditNote,
     String? recordTitle,
     dynamic urlIdentifier,
@@ -32537,6 +31242,9 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
       laborTaxRate1: laborTaxRate1 ?? this.laborTaxRate1,
       laborTaxRate2: laborTaxRate2 ?? this.laborTaxRate2,
       laborExempt: laborExempt ?? this.laborExempt,
+      miscTaxRate1: miscTaxRate1 ?? this.miscTaxRate1,
+      miscTaxRate2: miscTaxRate2 ?? this.miscTaxRate2,
+      miscExempt: miscExempt ?? this.miscExempt,
       attention: attention ?? this.attention,
       address1: address1 ?? this.address1,
       address2: address2 ?? this.address2,
@@ -32715,10 +31423,17 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
           storageContainerStagingEnable ?? this.storageContainerStagingEnable,
       storageContainerRescanRequired:
           storageContainerRescanRequired ?? this.storageContainerRescanRequired,
+      preventUnstageItemInContainer:
+          preventUnstageItemInContainer ?? this.preventUnstageItemInContainer,
       quikReceiptTermsConditionsId:
           quikReceiptTermsConditionsId ?? this.quikReceiptTermsConditionsId,
       quikReceiptTermsConditions:
           quikReceiptTermsConditions ?? this.quikReceiptTermsConditions,
+      automaticallyAssignShippingCaseNumber:
+          automaticallyAssignShippingCaseNumber ??
+          this.automaticallyAssignShippingCaseNumber,
+      defaultShippingCaseWeight:
+          defaultShippingCaseWeight ?? this.defaultShippingCaseWeight,
       disableSubstituteNote:
           disableSubstituteNote ?? this.disableSubstituteNote,
       daysToExpireSuspendedSessions:
@@ -32740,6 +31455,8 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
           flexibleContainerStagingRule ?? this.flexibleContainerStagingRule,
       internalOrderGracePeriod:
           internalOrderGracePeriod ?? this.internalOrderGracePeriod,
+      allowUserToAddShippingNote:
+          allowUserToAddShippingNote ?? this.allowUserToAddShippingNote,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
       urlIdentifier: urlIdentifier ?? this.urlIdentifier,
@@ -32777,6 +31494,9 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     Wrapped<double?>? laborTaxRate1,
     Wrapped<double?>? laborTaxRate2,
     Wrapped<bool?>? laborExempt,
+    Wrapped<double?>? miscTaxRate1,
+    Wrapped<double?>? miscTaxRate2,
+    Wrapped<bool?>? miscExempt,
     Wrapped<String?>? attention,
     Wrapped<String?>? address1,
     Wrapped<String?>? address2,
@@ -32878,8 +31598,11 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     Wrapped<bool?>? storageContainerCheckInEnable,
     Wrapped<bool?>? storageContainerStagingEnable,
     Wrapped<bool?>? storageContainerRescanRequired,
+    Wrapped<bool?>? preventUnstageItemInContainer,
     Wrapped<String?>? quikReceiptTermsConditionsId,
     Wrapped<String?>? quikReceiptTermsConditions,
+    Wrapped<bool?>? automaticallyAssignShippingCaseNumber,
+    Wrapped<bool?>? defaultShippingCaseWeight,
     Wrapped<bool?>? disableSubstituteNote,
     Wrapped<int?>? daysToExpireSuspendedSessions,
     Wrapped<bool?>? inactive,
@@ -32895,6 +31618,7 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     Wrapped<String?>? internalOrderDeal,
     Wrapped<String?>? flexibleContainerStagingRule,
     Wrapped<int?>? internalOrderGracePeriod,
+    Wrapped<bool?>? allowUserToAddShippingNote,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
     Wrapped<dynamic>? urlIdentifier,
@@ -32946,6 +31670,13 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
           ? laborTaxRate2.value
           : this.laborTaxRate2),
       laborExempt: (laborExempt != null ? laborExempt.value : this.laborExempt),
+      miscTaxRate1: (miscTaxRate1 != null
+          ? miscTaxRate1.value
+          : this.miscTaxRate1),
+      miscTaxRate2: (miscTaxRate2 != null
+          ? miscTaxRate2.value
+          : this.miscTaxRate2),
+      miscExempt: (miscExempt != null ? miscExempt.value : this.miscExempt),
       attention: (attention != null ? attention.value : this.attention),
       address1: (address1 != null ? address1.value : this.address1),
       address2: (address2 != null ? address2.value : this.address2),
@@ -33228,12 +31959,22 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
       storageContainerRescanRequired: (storageContainerRescanRequired != null
           ? storageContainerRescanRequired.value
           : this.storageContainerRescanRequired),
+      preventUnstageItemInContainer: (preventUnstageItemInContainer != null
+          ? preventUnstageItemInContainer.value
+          : this.preventUnstageItemInContainer),
       quikReceiptTermsConditionsId: (quikReceiptTermsConditionsId != null
           ? quikReceiptTermsConditionsId.value
           : this.quikReceiptTermsConditionsId),
       quikReceiptTermsConditions: (quikReceiptTermsConditions != null
           ? quikReceiptTermsConditions.value
           : this.quikReceiptTermsConditions),
+      automaticallyAssignShippingCaseNumber:
+          (automaticallyAssignShippingCaseNumber != null
+          ? automaticallyAssignShippingCaseNumber.value
+          : this.automaticallyAssignShippingCaseNumber),
+      defaultShippingCaseWeight: (defaultShippingCaseWeight != null
+          ? defaultShippingCaseWeight.value
+          : this.defaultShippingCaseWeight),
       disableSubstituteNote: (disableSubstituteNote != null
           ? disableSubstituteNote.value
           : this.disableSubstituteNote),
@@ -33273,6 +32014,9 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
       internalOrderGracePeriod: (internalOrderGracePeriod != null
           ? internalOrderGracePeriod.value
           : this.internalOrderGracePeriod),
+      allowUserToAddShippingNote: (allowUserToAddShippingNote != null
+          ? allowUserToAddShippingNote.value
+          : this.allowUserToAddShippingNote),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
       urlIdentifier: (urlIdentifier != null
@@ -33568,8 +32312,7 @@ class WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerReposit
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerRepositionAsyncRequest &&
+        (other is WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerRepositionAsyncRequest &&
             (identical(other.appImageId, appImageId) ||
                 const DeepCollectionEquality().equals(
                   other.appImageId,
@@ -37131,6 +35874,9 @@ class WebApiModulesUtilitiesLabelDesignBarcodeLabel {
     this.trackedby,
     this.manufacturer,
     this.manufacturerpartnumber,
+    this.aisle,
+    this.shelf,
+    this.aisleshelf,
   });
 
   factory WebApiModulesUtilitiesLabelDesignBarcodeLabel.fromJson(
@@ -37162,6 +35908,12 @@ class WebApiModulesUtilitiesLabelDesignBarcodeLabel {
   final String? manufacturer;
   @JsonKey(name: 'MANUFACTURERPARTNUMBER', includeIfNull: false)
   final String? manufacturerpartnumber;
+  @JsonKey(name: 'AISLE', includeIfNull: false)
+  final String? aisle;
+  @JsonKey(name: 'SHELF', includeIfNull: false)
+  final String? shelf;
+  @JsonKey(name: 'AISLESHELF', includeIfNull: false)
+  final String? aisleshelf;
   static const fromJsonFactory =
       _$WebApiModulesUtilitiesLabelDesignBarcodeLabelFromJson;
 
@@ -37215,6 +35967,15 @@ class WebApiModulesUtilitiesLabelDesignBarcodeLabel {
                 const DeepCollectionEquality().equals(
                   other.manufacturerpartnumber,
                   manufacturerpartnumber,
+                )) &&
+            (identical(other.aisle, aisle) ||
+                const DeepCollectionEquality().equals(other.aisle, aisle)) &&
+            (identical(other.shelf, shelf) ||
+                const DeepCollectionEquality().equals(other.shelf, shelf)) &&
+            (identical(other.aisleshelf, aisleshelf) ||
+                const DeepCollectionEquality().equals(
+                  other.aisleshelf,
+                  aisleshelf,
                 )));
   }
 
@@ -37233,6 +35994,9 @@ class WebApiModulesUtilitiesLabelDesignBarcodeLabel {
       const DeepCollectionEquality().hash(trackedby) ^
       const DeepCollectionEquality().hash(manufacturer) ^
       const DeepCollectionEquality().hash(manufacturerpartnumber) ^
+      const DeepCollectionEquality().hash(aisle) ^
+      const DeepCollectionEquality().hash(shelf) ^
+      const DeepCollectionEquality().hash(aisleshelf) ^
       runtimeType.hashCode;
 }
 
@@ -37249,6 +36013,9 @@ extension $WebApiModulesUtilitiesLabelDesignBarcodeLabelExtension
     String? trackedby,
     String? manufacturer,
     String? manufacturerpartnumber,
+    String? aisle,
+    String? shelf,
+    String? aisleshelf,
   }) {
     return WebApiModulesUtilitiesLabelDesignBarcodeLabel(
       barcode: barcode ?? this.barcode,
@@ -37262,6 +36029,9 @@ extension $WebApiModulesUtilitiesLabelDesignBarcodeLabelExtension
       manufacturer: manufacturer ?? this.manufacturer,
       manufacturerpartnumber:
           manufacturerpartnumber ?? this.manufacturerpartnumber,
+      aisle: aisle ?? this.aisle,
+      shelf: shelf ?? this.shelf,
+      aisleshelf: aisleshelf ?? this.aisleshelf,
     );
   }
 
@@ -37276,6 +36046,9 @@ extension $WebApiModulesUtilitiesLabelDesignBarcodeLabelExtension
     Wrapped<String?>? trackedby,
     Wrapped<String?>? manufacturer,
     Wrapped<String?>? manufacturerpartnumber,
+    Wrapped<String?>? aisle,
+    Wrapped<String?>? shelf,
+    Wrapped<String?>? aisleshelf,
   }) {
     return WebApiModulesUtilitiesLabelDesignBarcodeLabel(
       barcode: (barcode != null ? barcode.value : this.barcode),
@@ -37294,6 +36067,9 @@ extension $WebApiModulesUtilitiesLabelDesignBarcodeLabelExtension
       manufacturerpartnumber: (manufacturerpartnumber != null
           ? manufacturerpartnumber.value
           : this.manufacturerpartnumber),
+      aisle: (aisle != null ? aisle.value : this.aisle),
+      shelf: (shelf != null ? shelf.value : this.shelf),
+      aisleshelf: (aisleshelf != null ? aisleshelf.value : this.aisleshelf),
     );
   }
 }
@@ -38212,140 +36988,6 @@ extension $WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequestExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse {
-  const WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse({
-    this.status,
-    this.success,
-    this.msg,
-    this.contractIds,
-    this.contracts,
-    this.reservedRentalItems,
-  });
-
-  factory WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse.fromJson(
-    Map<String, dynamic> json,
-  ) => _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponseFromJson(
-    json,
-  );
-
-  static const toJsonFactory =
-      _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponseToJson(this);
-
-  @JsonKey(name: 'status', includeIfNull: false)
-  final int? status;
-  @JsonKey(name: 'success', includeIfNull: false)
-  final bool? success;
-  @JsonKey(name: 'msg', includeIfNull: false)
-  final String? msg;
-  @JsonKey(name: 'ContractIds', includeIfNull: false)
-  final String? contractIds;
-  @JsonKey(
-    name: 'Contracts',
-    includeIfNull: false,
-    defaultValue: <WebApiModulesWarehouseContractContract>[],
-  )
-  final List<WebApiModulesWarehouseContractContract>? contracts;
-  @JsonKey(
-    name: 'ReservedRentalItems',
-    includeIfNull: false,
-    defaultValue:
-        <WebApiModulesInventoryReservedRentalItemReservedRentalItem>[],
-  )
-  final List<WebApiModulesInventoryReservedRentalItemReservedRentalItem>?
-  reservedRentalItems;
-  static const fromJsonFactory =
-      _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(
-                  other.success,
-                  success,
-                )) &&
-            (identical(other.msg, msg) ||
-                const DeepCollectionEquality().equals(other.msg, msg)) &&
-            (identical(other.contractIds, contractIds) ||
-                const DeepCollectionEquality().equals(
-                  other.contractIds,
-                  contractIds,
-                )) &&
-            (identical(other.contracts, contracts) ||
-                const DeepCollectionEquality().equals(
-                  other.contracts,
-                  contracts,
-                )) &&
-            (identical(other.reservedRentalItems, reservedRentalItems) ||
-                const DeepCollectionEquality().equals(
-                  other.reservedRentalItems,
-                  reservedRentalItems,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(success) ^
-      const DeepCollectionEquality().hash(msg) ^
-      const DeepCollectionEquality().hash(contractIds) ^
-      const DeepCollectionEquality().hash(contracts) ^
-      const DeepCollectionEquality().hash(reservedRentalItems) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponseExtension
-    on WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse {
-  WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse copyWith({
-    int? status,
-    bool? success,
-    String? msg,
-    String? contractIds,
-    List<WebApiModulesWarehouseContractContract>? contracts,
-    List<WebApiModulesInventoryReservedRentalItemReservedRentalItem>?
-    reservedRentalItems,
-  }) {
-    return WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse(
-      status: status ?? this.status,
-      success: success ?? this.success,
-      msg: msg ?? this.msg,
-      contractIds: contractIds ?? this.contractIds,
-      contracts: contracts ?? this.contracts,
-      reservedRentalItems: reservedRentalItems ?? this.reservedRentalItems,
-    );
-  }
-
-  WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse copyWithWrapped({
-    Wrapped<int?>? status,
-    Wrapped<bool?>? success,
-    Wrapped<String?>? msg,
-    Wrapped<String?>? contractIds,
-    Wrapped<List<WebApiModulesWarehouseContractContract>?>? contracts,
-    Wrapped<List<WebApiModulesInventoryReservedRentalItemReservedRentalItem>?>?
-    reservedRentalItems,
-  }) {
-    return WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse(
-      status: (status != null ? status.value : this.status),
-      success: (success != null ? success.value : this.success),
-      msg: (msg != null ? msg.value : this.msg),
-      contractIds: (contractIds != null ? contractIds.value : this.contractIds),
-      contracts: (contracts != null ? contracts.value : this.contracts),
-      reservedRentalItems: (reservedRentalItems != null
-          ? reservedRentalItems.value
-          : this.reservedRentalItems),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest {
   const WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest({
     required this.sessionId,
@@ -38559,7 +37201,8 @@ class WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse &&
+        (other
+                is WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -38606,6 +37249,65 @@ extension $WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponseExtensio
       status: (status != null ? status.value : this.status),
       success: (success != null ? success.value : this.success),
       msg: (msg != null ? msg.value : this.msg),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse {
+  const WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse({
+    this.jobId,
+  });
+
+  factory WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponseFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponseToJson(
+        this,
+      );
+
+  @JsonKey(name: 'JobId', includeIfNull: false)
+  final String? jobId;
+  static const fromJsonFactory =
+      _$WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse &&
+            (identical(other.jobId, jobId) ||
+                const DeepCollectionEquality().equals(other.jobId, jobId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(jobId) ^ runtimeType.hashCode;
+}
+
+extension $WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponseExtension
+    on WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse {
+  WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse copyWith({
+    String? jobId,
+  }) {
+    return WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse(
+      jobId: jobId ?? this.jobId,
+    );
+  }
+
+  WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse
+  copyWithWrapped({Wrapped<String?>? jobId}) {
+    return WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse(
+      jobId: (jobId != null ? jobId.value : this.jobId),
     );
   }
 }
@@ -40899,8 +39601,7 @@ class WebApiModulesUtilitiesQuikActivityQuikActivityFuncPopulateQuikActivityRequ
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesUtilitiesQuikActivityQuikActivityFuncPopulateQuikActivityRequest &&
+        (other is WebApiModulesUtilitiesQuikActivityQuikActivityFuncPopulateQuikActivityRequest &&
             (identical(other.fromDate, fromDate) ||
                 const DeepCollectionEquality().equals(
                   other.fromDate,
@@ -45070,7 +43771,8 @@ class WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse &&
+        (other
+                is WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse &&
             (identical(other.batch, batch) ||
                 const DeepCollectionEquality().equals(other.batch, batch)) &&
             (identical(other.status, status) ||
@@ -47285,8 +45987,7 @@ class WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRe
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse &&
+        (other is WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -49034,2361 +47735,6 @@ extension $WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponseExt
   }
 }
 
-@JsonSerializable(explicitToJson: true)
-class WebApiModulesWarehouseContractContract {
-  const WebApiModulesWarehouseContractContract({
-    this.contractId,
-    this.contractNumber,
-    this.contractType,
-    this.contractDate,
-    this.contractTime,
-    this.locationId,
-    this.locationCode,
-    this.location,
-    this.warehouseId,
-    this.warehouseCode,
-    this.warehouse,
-    this.customerId,
-    this.customer,
-    this.dealId,
-    this.deal,
-    this.orderId,
-    this.orderNumber,
-    this.departmentId,
-    this.department,
-    this.purchaseOrderId,
-    this.purchaseOrderNumber,
-    this.requisitionNumber,
-    this.vendorId,
-    this.vendor,
-    this.isMigrated,
-    this.unassigned,
-    this.needReconcile,
-    this.pendingExchange,
-    this.exchangeContractId,
-    this.hasSwaps,
-    this.rental,
-    this.sales,
-    this.parts,
-    this.exchange,
-    this.inputByUserId,
-    this.inputByUser,
-    this.dealInactive,
-    this.truck,
-    this.billingDate,
-    this.billingDateChangeReason,
-    this.lastBillingDateChangeReason,
-    this.billingDateAdjusted,
-    this.hasVoId,
-    this.hasTransfer,
-    this.sessionId,
-    this.orderDescription,
-    this.poOrderDescription,
-    this.deliveryId,
-    this.deliveryDeliveryType,
-    this.deliveryRequiredDate,
-    this.deliveryRequiredTime,
-    this.deliveryTargetShipDate,
-    this.deliveryTargetShipTime,
-    this.deliveryDirection,
-    this.deliveryAddressType,
-    this.deliveryFromLocation,
-    this.deliveryFromContact,
-    this.deliveryFromContactPhone,
-    this.deliveryFromAlternateContact,
-    this.deliveryFromAlternateContactPhone,
-    this.deliveryFromAttention,
-    this.deliveryFromAddress1,
-    this.deliveryFromAddress2,
-    this.deliveryFromCity,
-    this.deliveryFromState,
-    this.deliveryFromZipCode,
-    this.deliveryFromCountry,
-    this.deliveryFromCityStateZipCodeCountry,
-    this.deliveryFromCountryCodeIsoAlpha2,
-    this.deliveryFromCountryCodePhone,
-    this.deliveryFromCountryId,
-    this.deliveryFromCrossStreets,
-    this.deliveryToLocation,
-    this.deliveryToContact,
-    this.deliveryToContactPhone,
-    this.deliveryToAlternateContact,
-    this.deliveryToAlternateContactPhone,
-    this.deliveryToAttention,
-    this.deliveryToAddress1,
-    this.deliveryToAddress2,
-    this.deliveryToCity,
-    this.deliveryToState,
-    this.deliveryToZipCode,
-    this.deliveryToCountryId,
-    this.deliveryToCountry,
-    this.deliveryToCityStateZipCodeCountry,
-    this.deliveryToCountryCodeIsoAlpha2,
-    this.deliveryToCountryCodePhone,
-    this.deliveryToContactFax,
-    this.deliveryToCrossStreets,
-    this.deliveryDeliveryNotes,
-    this.deliveryCarrierId,
-    this.deliveryCarrier,
-    this.deliveryCarrierAccount,
-    this.deliveryShipViaId,
-    this.deliveryShipVia,
-    this.deliveryInvoiceId,
-    this.deliveryVendorInvoiceId,
-    this.deliveryEstimatedFreight,
-    this.deliveryFreightInvoiceAmount,
-    this.deliveryChargeType,
-    this.deliveryFreightTrackingNumber,
-    this.deliveryFreightTrackingUrl,
-    this.deliveryDropShip,
-    this.deliveryPackageCode,
-    this.deliveryBillPoFreightOnOrder,
-    this.deliveryOnlineOrderNumber,
-    this.deliveryOnlineOrderStatus,
-    this.deliveryToVenue,
-    this.deliveryToVenueId,
-    this.deliveryDateStamp,
-    this.note,
-    this.printNoteOnOrder,
-    this.termsConditionsId,
-    this.quikReceiptTermsConditionsId,
-    this.quikReceiptTermsConditions,
-    this.termsConditions,
-    this.containerId,
-    this.containerItemId,
-    this.containerDescription,
-    this.containerScannableBarCode,
-    this.containerScannableItemId,
-    this.responsiblePersonId,
-    this.responsiblePerson,
-    this.responsiblePersonEmail,
-    this.responsiblePersonMobilePhone,
-    this.responsiblePersonOfficePhone,
-    this.responsiblePersonOfficeExtension,
-    this.hasPrintableBarCodes,
-    this.purchaseOrderAgentEmail,
-    this.enableExpectedReturnDate,
-    this.expectedReturnDate,
-    this.enableExpectedReturnAlert,
-    this.dateStamp,
-    this.auditNote,
-    this.recordTitle,
-    this.urlIdentifier,
-    this.fields,
-    this.custom,
-    this.defaultFieldAttributes,
-    this.original,
-    this.translation,
-    this.hasImport,
-    this.hasDocuments,
-    this.createdByUserId,
-    this.createdByUserName,
-    this.createdDateTime,
-    this.modifiedByUserId,
-    this.modifiedByUserName,
-    this.modifiedDateTime,
-  });
-
-  factory WebApiModulesWarehouseContractContract.fromJson(
-    Map<String, dynamic> json,
-  ) => _$WebApiModulesWarehouseContractContractFromJson(json);
-
-  static const toJsonFactory = _$WebApiModulesWarehouseContractContractToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesWarehouseContractContractToJson(this);
-
-  @JsonKey(name: 'ContractId', includeIfNull: false)
-  final String? contractId;
-  @JsonKey(name: 'ContractNumber', includeIfNull: false)
-  final String? contractNumber;
-  @JsonKey(name: 'ContractType', includeIfNull: false)
-  final String? contractType;
-  @JsonKey(name: 'ContractDate', includeIfNull: false)
-  final String? contractDate;
-  @JsonKey(name: 'ContractTime', includeIfNull: false)
-  final String? contractTime;
-  @JsonKey(name: 'LocationId', includeIfNull: false)
-  final String? locationId;
-  @JsonKey(name: 'LocationCode', includeIfNull: false)
-  final String? locationCode;
-  @JsonKey(name: 'Location', includeIfNull: false)
-  final String? location;
-  @JsonKey(name: 'WarehouseId', includeIfNull: false)
-  final String? warehouseId;
-  @JsonKey(name: 'WarehouseCode', includeIfNull: false)
-  final String? warehouseCode;
-  @JsonKey(name: 'Warehouse', includeIfNull: false)
-  final String? warehouse;
-  @JsonKey(name: 'CustomerId', includeIfNull: false)
-  final String? customerId;
-  @JsonKey(name: 'Customer', includeIfNull: false)
-  final String? customer;
-  @JsonKey(name: 'DealId', includeIfNull: false)
-  final String? dealId;
-  @JsonKey(name: 'Deal', includeIfNull: false)
-  final String? deal;
-  @JsonKey(name: 'OrderId', includeIfNull: false)
-  final String? orderId;
-  @JsonKey(name: 'OrderNumber', includeIfNull: false)
-  final String? orderNumber;
-  @JsonKey(name: 'DepartmentId', includeIfNull: false)
-  final String? departmentId;
-  @JsonKey(name: 'Department', includeIfNull: false)
-  final String? department;
-  @JsonKey(name: 'PurchaseOrderId', includeIfNull: false)
-  final String? purchaseOrderId;
-  @JsonKey(name: 'PurchaseOrderNumber', includeIfNull: false)
-  final String? purchaseOrderNumber;
-  @JsonKey(name: 'RequisitionNumber', includeIfNull: false)
-  final String? requisitionNumber;
-  @JsonKey(name: 'VendorId', includeIfNull: false)
-  final String? vendorId;
-  @JsonKey(name: 'Vendor', includeIfNull: false)
-  final String? vendor;
-  @JsonKey(name: 'IsMigrated', includeIfNull: false)
-  final bool? isMigrated;
-  @JsonKey(name: 'Unassigned', includeIfNull: false)
-  final bool? unassigned;
-  @JsonKey(name: 'NeedReconcile', includeIfNull: false)
-  final bool? needReconcile;
-  @JsonKey(name: 'PendingExchange', includeIfNull: false)
-  final bool? pendingExchange;
-  @JsonKey(name: 'ExchangeContractId', includeIfNull: false)
-  final String? exchangeContractId;
-  @JsonKey(name: 'HasSwaps', includeIfNull: false)
-  final bool? hasSwaps;
-  @JsonKey(name: 'Rental', includeIfNull: false)
-  final bool? rental;
-  @JsonKey(name: 'Sales', includeIfNull: false)
-  final bool? sales;
-  @JsonKey(name: 'Parts', includeIfNull: false)
-  final bool? parts;
-  @JsonKey(name: 'Exchange', includeIfNull: false)
-  final bool? exchange;
-  @JsonKey(name: 'InputByUserId', includeIfNull: false)
-  final String? inputByUserId;
-  @JsonKey(name: 'InputByUser', includeIfNull: false)
-  final String? inputByUser;
-  @JsonKey(name: 'DealInactive', includeIfNull: false)
-  final bool? dealInactive;
-  @JsonKey(name: 'Truck', includeIfNull: false)
-  final bool? truck;
-  @JsonKey(name: 'BillingDate', includeIfNull: false)
-  final String? billingDate;
-  @JsonKey(name: 'BillingDateChangeReason', includeIfNull: false)
-  final String? billingDateChangeReason;
-  @JsonKey(name: 'LastBillingDateChangeReason', includeIfNull: false)
-  final String? lastBillingDateChangeReason;
-  @JsonKey(name: 'BillingDateAdjusted', includeIfNull: false)
-  final bool? billingDateAdjusted;
-  @JsonKey(name: 'HasVoId', includeIfNull: false)
-  final bool? hasVoId;
-  @JsonKey(name: 'HasTransfer', includeIfNull: false)
-  final bool? hasTransfer;
-  @JsonKey(name: 'SessionId', includeIfNull: false)
-  final String? sessionId;
-  @JsonKey(name: 'OrderDescription', includeIfNull: false)
-  final String? orderDescription;
-  @JsonKey(name: 'PoOrderDescription', includeIfNull: false)
-  final String? poOrderDescription;
-  @JsonKey(name: 'DeliveryId', includeIfNull: false)
-  final String? deliveryId;
-  @JsonKey(name: 'DeliveryDeliveryType', includeIfNull: false)
-  final String? deliveryDeliveryType;
-  @JsonKey(name: 'DeliveryRequiredDate', includeIfNull: false)
-  final String? deliveryRequiredDate;
-  @JsonKey(name: 'DeliveryRequiredTime', includeIfNull: false)
-  final String? deliveryRequiredTime;
-  @JsonKey(name: 'DeliveryTargetShipDate', includeIfNull: false)
-  final String? deliveryTargetShipDate;
-  @JsonKey(name: 'DeliveryTargetShipTime', includeIfNull: false)
-  final String? deliveryTargetShipTime;
-  @JsonKey(name: 'DeliveryDirection', includeIfNull: false)
-  final String? deliveryDirection;
-  @JsonKey(name: 'DeliveryAddressType', includeIfNull: false)
-  final String? deliveryAddressType;
-  @JsonKey(name: 'DeliveryFromLocation', includeIfNull: false)
-  final String? deliveryFromLocation;
-  @JsonKey(name: 'DeliveryFromContact', includeIfNull: false)
-  final String? deliveryFromContact;
-  @JsonKey(name: 'DeliveryFromContactPhone', includeIfNull: false)
-  final String? deliveryFromContactPhone;
-  @JsonKey(name: 'DeliveryFromAlternateContact', includeIfNull: false)
-  final String? deliveryFromAlternateContact;
-  @JsonKey(name: 'DeliveryFromAlternateContactPhone', includeIfNull: false)
-  final String? deliveryFromAlternateContactPhone;
-  @JsonKey(name: 'DeliveryFromAttention', includeIfNull: false)
-  final String? deliveryFromAttention;
-  @JsonKey(name: 'DeliveryFromAddress1', includeIfNull: false)
-  final String? deliveryFromAddress1;
-  @JsonKey(name: 'DeliveryFromAddress2', includeIfNull: false)
-  final String? deliveryFromAddress2;
-  @JsonKey(name: 'DeliveryFromCity', includeIfNull: false)
-  final String? deliveryFromCity;
-  @JsonKey(name: 'DeliveryFromState', includeIfNull: false)
-  final String? deliveryFromState;
-  @JsonKey(name: 'DeliveryFromZipCode', includeIfNull: false)
-  final String? deliveryFromZipCode;
-  @JsonKey(name: 'DeliveryFromCountry', includeIfNull: false)
-  final String? deliveryFromCountry;
-  @JsonKey(name: 'DeliveryFromCityStateZipCodeCountry', includeIfNull: false)
-  final String? deliveryFromCityStateZipCodeCountry;
-  @JsonKey(name: 'DeliveryFromCountryCodeIsoAlpha2', includeIfNull: false)
-  final String? deliveryFromCountryCodeIsoAlpha2;
-  @JsonKey(name: 'DeliveryFromCountryCodePhone', includeIfNull: false)
-  final int? deliveryFromCountryCodePhone;
-  @JsonKey(name: 'DeliveryFromCountryId', includeIfNull: false)
-  final String? deliveryFromCountryId;
-  @JsonKey(name: 'DeliveryFromCrossStreets', includeIfNull: false)
-  final String? deliveryFromCrossStreets;
-  @JsonKey(name: 'DeliveryToLocation', includeIfNull: false)
-  final String? deliveryToLocation;
-  @JsonKey(name: 'DeliveryToContact', includeIfNull: false)
-  final String? deliveryToContact;
-  @JsonKey(name: 'DeliveryToContactPhone', includeIfNull: false)
-  final String? deliveryToContactPhone;
-  @JsonKey(name: 'DeliveryToAlternateContact', includeIfNull: false)
-  final String? deliveryToAlternateContact;
-  @JsonKey(name: 'DeliveryToAlternateContactPhone', includeIfNull: false)
-  final String? deliveryToAlternateContactPhone;
-  @JsonKey(name: 'DeliveryToAttention', includeIfNull: false)
-  final String? deliveryToAttention;
-  @JsonKey(name: 'DeliveryToAddress1', includeIfNull: false)
-  final String? deliveryToAddress1;
-  @JsonKey(name: 'DeliveryToAddress2', includeIfNull: false)
-  final String? deliveryToAddress2;
-  @JsonKey(name: 'DeliveryToCity', includeIfNull: false)
-  final String? deliveryToCity;
-  @JsonKey(name: 'DeliveryToState', includeIfNull: false)
-  final String? deliveryToState;
-  @JsonKey(name: 'DeliveryToZipCode', includeIfNull: false)
-  final String? deliveryToZipCode;
-  @JsonKey(name: 'DeliveryToCountryId', includeIfNull: false)
-  final String? deliveryToCountryId;
-  @JsonKey(name: 'DeliveryToCountry', includeIfNull: false)
-  final String? deliveryToCountry;
-  @JsonKey(name: 'DeliveryToCityStateZipCodeCountry', includeIfNull: false)
-  final String? deliveryToCityStateZipCodeCountry;
-  @JsonKey(name: 'DeliveryToCountryCodeIsoAlpha2', includeIfNull: false)
-  final String? deliveryToCountryCodeIsoAlpha2;
-  @JsonKey(name: 'DeliveryToCountryCodePhone', includeIfNull: false)
-  final int? deliveryToCountryCodePhone;
-  @JsonKey(name: 'DeliveryToContactFax', includeIfNull: false)
-  final String? deliveryToContactFax;
-  @JsonKey(name: 'DeliveryToCrossStreets', includeIfNull: false)
-  final String? deliveryToCrossStreets;
-  @JsonKey(name: 'DeliveryDeliveryNotes', includeIfNull: false)
-  final String? deliveryDeliveryNotes;
-  @JsonKey(name: 'DeliveryCarrierId', includeIfNull: false)
-  final String? deliveryCarrierId;
-  @JsonKey(name: 'DeliveryCarrier', includeIfNull: false)
-  final String? deliveryCarrier;
-  @JsonKey(name: 'DeliveryCarrierAccount', includeIfNull: false)
-  final String? deliveryCarrierAccount;
-  @JsonKey(name: 'DeliveryShipViaId', includeIfNull: false)
-  final String? deliveryShipViaId;
-  @JsonKey(name: 'DeliveryShipVia', includeIfNull: false)
-  final String? deliveryShipVia;
-  @JsonKey(name: 'DeliveryInvoiceId', includeIfNull: false)
-  final String? deliveryInvoiceId;
-  @JsonKey(name: 'DeliveryVendorInvoiceId', includeIfNull: false)
-  final String? deliveryVendorInvoiceId;
-  @JsonKey(name: 'DeliveryEstimatedFreight', includeIfNull: false)
-  final double? deliveryEstimatedFreight;
-  @JsonKey(name: 'DeliveryFreightInvoiceAmount', includeIfNull: false)
-  final double? deliveryFreightInvoiceAmount;
-  @JsonKey(name: 'DeliveryChargeType', includeIfNull: false)
-  final String? deliveryChargeType;
-  @JsonKey(name: 'DeliveryFreightTrackingNumber', includeIfNull: false)
-  final String? deliveryFreightTrackingNumber;
-  @JsonKey(name: 'DeliveryFreightTrackingUrl', includeIfNull: false)
-  final String? deliveryFreightTrackingUrl;
-  @JsonKey(name: 'DeliveryDropShip', includeIfNull: false)
-  final bool? deliveryDropShip;
-  @JsonKey(name: 'DeliveryPackageCode', includeIfNull: false)
-  final String? deliveryPackageCode;
-  @JsonKey(name: 'DeliveryBillPoFreightOnOrder', includeIfNull: false)
-  final bool? deliveryBillPoFreightOnOrder;
-  @JsonKey(name: 'DeliveryOnlineOrderNumber', includeIfNull: false)
-  final String? deliveryOnlineOrderNumber;
-  @JsonKey(name: 'DeliveryOnlineOrderStatus', includeIfNull: false)
-  final String? deliveryOnlineOrderStatus;
-  @JsonKey(name: 'DeliveryToVenue', includeIfNull: false)
-  final String? deliveryToVenue;
-  @JsonKey(name: 'DeliveryToVenueId', includeIfNull: false)
-  final String? deliveryToVenueId;
-  @JsonKey(name: 'DeliveryDateStamp', includeIfNull: false)
-  final String? deliveryDateStamp;
-  @JsonKey(name: 'Note', includeIfNull: false)
-  final String? note;
-  @JsonKey(name: 'PrintNoteOnOrder', includeIfNull: false)
-  final bool? printNoteOnOrder;
-  @JsonKey(name: 'TermsConditionsId', includeIfNull: false)
-  final String? termsConditionsId;
-  @JsonKey(name: 'QuikReceiptTermsConditionsId', includeIfNull: false)
-  final String? quikReceiptTermsConditionsId;
-  @JsonKey(name: 'QuikReceiptTermsConditions', includeIfNull: false)
-  final String? quikReceiptTermsConditions;
-  @JsonKey(name: 'TermsConditions', includeIfNull: false)
-  final String? termsConditions;
-  @JsonKey(name: 'ContainerId', includeIfNull: false)
-  final String? containerId;
-  @JsonKey(name: 'ContainerItemId', includeIfNull: false)
-  final String? containerItemId;
-  @JsonKey(name: 'ContainerDescription', includeIfNull: false)
-  final String? containerDescription;
-  @JsonKey(name: 'ContainerScannableBarCode', includeIfNull: false)
-  final String? containerScannableBarCode;
-  @JsonKey(name: 'ContainerScannableItemId', includeIfNull: false)
-  final String? containerScannableItemId;
-  @JsonKey(name: 'ResponsiblePersonId', includeIfNull: false)
-  final String? responsiblePersonId;
-  @JsonKey(name: 'ResponsiblePerson', includeIfNull: false)
-  final String? responsiblePerson;
-  @JsonKey(name: 'ResponsiblePersonEmail', includeIfNull: false)
-  final String? responsiblePersonEmail;
-  @JsonKey(name: 'ResponsiblePersonMobilePhone', includeIfNull: false)
-  final String? responsiblePersonMobilePhone;
-  @JsonKey(name: 'ResponsiblePersonOfficePhone', includeIfNull: false)
-  final String? responsiblePersonOfficePhone;
-  @JsonKey(name: 'ResponsiblePersonOfficeExtension', includeIfNull: false)
-  final String? responsiblePersonOfficeExtension;
-  @JsonKey(name: 'HasPrintableBarCodes', includeIfNull: false)
-  final bool? hasPrintableBarCodes;
-  @JsonKey(name: 'PurchaseOrderAgentEmail', includeIfNull: false)
-  final String? purchaseOrderAgentEmail;
-  @JsonKey(name: 'EnableExpectedReturnDate', includeIfNull: false)
-  final bool? enableExpectedReturnDate;
-  @JsonKey(name: 'ExpectedReturnDate', includeIfNull: false)
-  final String? expectedReturnDate;
-  @JsonKey(name: 'EnableExpectedReturnAlert', includeIfNull: false)
-  final bool? enableExpectedReturnAlert;
-  @JsonKey(name: 'DateStamp', includeIfNull: false)
-  final String? dateStamp;
-  @JsonKey(name: 'AuditNote', includeIfNull: false)
-  final String? auditNote;
-  @JsonKey(name: 'RecordTitle', includeIfNull: false)
-  final String? recordTitle;
-  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
-  final dynamic urlIdentifier;
-  @JsonKey(
-    name: '_Fields',
-    includeIfNull: false,
-    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
-  )
-  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(
-    name: '_Custom',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwCustomValue>[],
-  )
-  final List<FwStandardDataFwCustomValue>? custom;
-  @JsonKey(
-    name: '_DefaultFieldAttributes',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwDefaultAttribute>[],
-  )
-  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
-  @JsonKey(name: '_Original', includeIfNull: false)
-  final FwStandardBusinessLogicFwBusinessLogic? original;
-  @JsonKey(
-    name: '_Translation',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwTranslatedValue>[],
-  )
-  final List<FwStandardDataFwTranslatedValue>? translation;
-  @JsonKey(name: '_HasImport', includeIfNull: false)
-  final bool? hasImport;
-  @JsonKey(name: '_HasDocuments', includeIfNull: false)
-  final bool? hasDocuments;
-  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
-  final String? createdByUserId;
-  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
-  final String? createdByUserName;
-  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
-  final String? createdDateTime;
-  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
-  final String? modifiedByUserId;
-  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
-  final String? modifiedByUserName;
-  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
-  final String? modifiedDateTime;
-  static const fromJsonFactory =
-      _$WebApiModulesWarehouseContractContractFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is WebApiModulesWarehouseContractContract &&
-            (identical(other.contractId, contractId) ||
-                const DeepCollectionEquality().equals(
-                  other.contractId,
-                  contractId,
-                )) &&
-            (identical(other.contractNumber, contractNumber) ||
-                const DeepCollectionEquality().equals(
-                  other.contractNumber,
-                  contractNumber,
-                )) &&
-            (identical(other.contractType, contractType) ||
-                const DeepCollectionEquality().equals(
-                  other.contractType,
-                  contractType,
-                )) &&
-            (identical(other.contractDate, contractDate) ||
-                const DeepCollectionEquality().equals(
-                  other.contractDate,
-                  contractDate,
-                )) &&
-            (identical(other.contractTime, contractTime) ||
-                const DeepCollectionEquality().equals(
-                  other.contractTime,
-                  contractTime,
-                )) &&
-            (identical(other.locationId, locationId) ||
-                const DeepCollectionEquality().equals(
-                  other.locationId,
-                  locationId,
-                )) &&
-            (identical(other.locationCode, locationCode) ||
-                const DeepCollectionEquality().equals(
-                  other.locationCode,
-                  locationCode,
-                )) &&
-            (identical(other.location, location) ||
-                const DeepCollectionEquality().equals(
-                  other.location,
-                  location,
-                )) &&
-            (identical(other.warehouseId, warehouseId) ||
-                const DeepCollectionEquality().equals(
-                  other.warehouseId,
-                  warehouseId,
-                )) &&
-            (identical(other.warehouseCode, warehouseCode) ||
-                const DeepCollectionEquality().equals(
-                  other.warehouseCode,
-                  warehouseCode,
-                )) &&
-            (identical(other.warehouse, warehouse) ||
-                const DeepCollectionEquality().equals(
-                  other.warehouse,
-                  warehouse,
-                )) &&
-            (identical(other.customerId, customerId) ||
-                const DeepCollectionEquality().equals(
-                  other.customerId,
-                  customerId,
-                )) &&
-            (identical(other.customer, customer) ||
-                const DeepCollectionEquality().equals(
-                  other.customer,
-                  customer,
-                )) &&
-            (identical(other.dealId, dealId) ||
-                const DeepCollectionEquality().equals(other.dealId, dealId)) &&
-            (identical(other.deal, deal) ||
-                const DeepCollectionEquality().equals(other.deal, deal)) &&
-            (identical(other.orderId, orderId) ||
-                const DeepCollectionEquality().equals(
-                  other.orderId,
-                  orderId,
-                )) &&
-            (identical(other.orderNumber, orderNumber) ||
-                const DeepCollectionEquality().equals(
-                  other.orderNumber,
-                  orderNumber,
-                )) &&
-            (identical(other.departmentId, departmentId) ||
-                const DeepCollectionEquality().equals(
-                  other.departmentId,
-                  departmentId,
-                )) &&
-            (identical(other.department, department) ||
-                const DeepCollectionEquality().equals(
-                  other.department,
-                  department,
-                )) &&
-            (identical(other.purchaseOrderId, purchaseOrderId) ||
-                const DeepCollectionEquality().equals(
-                  other.purchaseOrderId,
-                  purchaseOrderId,
-                )) &&
-            (identical(other.purchaseOrderNumber, purchaseOrderNumber) ||
-                const DeepCollectionEquality().equals(
-                  other.purchaseOrderNumber,
-                  purchaseOrderNumber,
-                )) &&
-            (identical(other.requisitionNumber, requisitionNumber) ||
-                const DeepCollectionEquality().equals(
-                  other.requisitionNumber,
-                  requisitionNumber,
-                )) &&
-            (identical(other.vendorId, vendorId) ||
-                const DeepCollectionEquality().equals(
-                  other.vendorId,
-                  vendorId,
-                )) &&
-            (identical(other.vendor, vendor) ||
-                const DeepCollectionEquality().equals(other.vendor, vendor)) &&
-            (identical(other.isMigrated, isMigrated) ||
-                const DeepCollectionEquality().equals(
-                  other.isMigrated,
-                  isMigrated,
-                )) &&
-            (identical(other.unassigned, unassigned) ||
-                const DeepCollectionEquality().equals(
-                  other.unassigned,
-                  unassigned,
-                )) &&
-            (identical(other.needReconcile, needReconcile) ||
-                const DeepCollectionEquality().equals(
-                  other.needReconcile,
-                  needReconcile,
-                )) &&
-            (identical(other.pendingExchange, pendingExchange) ||
-                const DeepCollectionEquality().equals(
-                  other.pendingExchange,
-                  pendingExchange,
-                )) &&
-            (identical(other.exchangeContractId, exchangeContractId) ||
-                const DeepCollectionEquality().equals(
-                  other.exchangeContractId,
-                  exchangeContractId,
-                )) &&
-            (identical(other.hasSwaps, hasSwaps) ||
-                const DeepCollectionEquality().equals(
-                  other.hasSwaps,
-                  hasSwaps,
-                )) &&
-            (identical(other.rental, rental) ||
-                const DeepCollectionEquality().equals(other.rental, rental)) &&
-            (identical(other.sales, sales) ||
-                const DeepCollectionEquality().equals(other.sales, sales)) &&
-            (identical(other.parts, parts) ||
-                const DeepCollectionEquality().equals(other.parts, parts)) &&
-            (identical(other.exchange, exchange) ||
-                const DeepCollectionEquality().equals(
-                  other.exchange,
-                  exchange,
-                )) &&
-            (identical(other.inputByUserId, inputByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.inputByUserId,
-                  inputByUserId,
-                )) &&
-            (identical(other.inputByUser, inputByUser) ||
-                const DeepCollectionEquality().equals(
-                  other.inputByUser,
-                  inputByUser,
-                )) &&
-            (identical(other.dealInactive, dealInactive) ||
-                const DeepCollectionEquality().equals(
-                  other.dealInactive,
-                  dealInactive,
-                )) &&
-            (identical(other.truck, truck) ||
-                const DeepCollectionEquality().equals(other.truck, truck)) &&
-            (identical(other.billingDate, billingDate) ||
-                const DeepCollectionEquality().equals(
-                  other.billingDate,
-                  billingDate,
-                )) &&
-            (identical(
-                  other.billingDateChangeReason,
-                  billingDateChangeReason,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.billingDateChangeReason,
-                  billingDateChangeReason,
-                )) &&
-            (identical(
-                  other.lastBillingDateChangeReason,
-                  lastBillingDateChangeReason,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.lastBillingDateChangeReason,
-                  lastBillingDateChangeReason,
-                )) &&
-            (identical(other.billingDateAdjusted, billingDateAdjusted) ||
-                const DeepCollectionEquality().equals(
-                  other.billingDateAdjusted,
-                  billingDateAdjusted,
-                )) &&
-            (identical(other.hasVoId, hasVoId) ||
-                const DeepCollectionEquality().equals(
-                  other.hasVoId,
-                  hasVoId,
-                )) &&
-            (identical(other.hasTransfer, hasTransfer) ||
-                const DeepCollectionEquality().equals(
-                  other.hasTransfer,
-                  hasTransfer,
-                )) &&
-            (identical(other.sessionId, sessionId) ||
-                const DeepCollectionEquality().equals(
-                  other.sessionId,
-                  sessionId,
-                )) &&
-            (identical(other.orderDescription, orderDescription) ||
-                const DeepCollectionEquality().equals(
-                  other.orderDescription,
-                  orderDescription,
-                )) &&
-            (identical(other.poOrderDescription, poOrderDescription) ||
-                const DeepCollectionEquality().equals(
-                  other.poOrderDescription,
-                  poOrderDescription,
-                )) &&
-            (identical(other.deliveryId, deliveryId) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryId,
-                  deliveryId,
-                )) &&
-            (identical(other.deliveryDeliveryType, deliveryDeliveryType) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryDeliveryType,
-                  deliveryDeliveryType,
-                )) &&
-            (identical(other.deliveryRequiredDate, deliveryRequiredDate) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryRequiredDate,
-                  deliveryRequiredDate,
-                )) &&
-            (identical(other.deliveryRequiredTime, deliveryRequiredTime) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryRequiredTime,
-                  deliveryRequiredTime,
-                )) &&
-            (identical(other.deliveryTargetShipDate, deliveryTargetShipDate) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryTargetShipDate,
-                  deliveryTargetShipDate,
-                )) &&
-            (identical(other.deliveryTargetShipTime, deliveryTargetShipTime) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryTargetShipTime,
-                  deliveryTargetShipTime,
-                )) &&
-            (identical(other.deliveryDirection, deliveryDirection) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryDirection,
-                  deliveryDirection,
-                )) &&
-            (identical(other.deliveryAddressType, deliveryAddressType) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryAddressType,
-                  deliveryAddressType,
-                )) &&
-            (identical(other.deliveryFromLocation, deliveryFromLocation) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromLocation,
-                  deliveryFromLocation,
-                )) &&
-            (identical(other.deliveryFromContact, deliveryFromContact) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromContact,
-                  deliveryFromContact,
-                )) &&
-            (identical(
-                  other.deliveryFromContactPhone,
-                  deliveryFromContactPhone,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromContactPhone,
-                  deliveryFromContactPhone,
-                )) &&
-            (identical(
-                  other.deliveryFromAlternateContact,
-                  deliveryFromAlternateContact,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromAlternateContact,
-                  deliveryFromAlternateContact,
-                )) &&
-            (identical(
-                  other.deliveryFromAlternateContactPhone,
-                  deliveryFromAlternateContactPhone,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromAlternateContactPhone,
-                  deliveryFromAlternateContactPhone,
-                )) &&
-            (identical(other.deliveryFromAttention, deliveryFromAttention) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromAttention,
-                  deliveryFromAttention,
-                )) &&
-            (identical(other.deliveryFromAddress1, deliveryFromAddress1) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromAddress1,
-                  deliveryFromAddress1,
-                )) &&
-            (identical(other.deliveryFromAddress2, deliveryFromAddress2) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromAddress2,
-                  deliveryFromAddress2,
-                )) &&
-            (identical(other.deliveryFromCity, deliveryFromCity) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromCity,
-                  deliveryFromCity,
-                )) &&
-            (identical(other.deliveryFromState, deliveryFromState) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromState,
-                  deliveryFromState,
-                )) &&
-            (identical(other.deliveryFromZipCode, deliveryFromZipCode) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromZipCode,
-                  deliveryFromZipCode,
-                )) &&
-            (identical(other.deliveryFromCountry, deliveryFromCountry) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromCountry,
-                  deliveryFromCountry,
-                )) &&
-            (identical(
-                  other.deliveryFromCityStateZipCodeCountry,
-                  deliveryFromCityStateZipCodeCountry,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromCityStateZipCodeCountry,
-                  deliveryFromCityStateZipCodeCountry,
-                )) &&
-            (identical(
-                  other.deliveryFromCountryCodeIsoAlpha2,
-                  deliveryFromCountryCodeIsoAlpha2,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromCountryCodeIsoAlpha2,
-                  deliveryFromCountryCodeIsoAlpha2,
-                )) &&
-            (identical(
-                  other.deliveryFromCountryCodePhone,
-                  deliveryFromCountryCodePhone,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromCountryCodePhone,
-                  deliveryFromCountryCodePhone,
-                )) &&
-            (identical(other.deliveryFromCountryId, deliveryFromCountryId) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromCountryId,
-                  deliveryFromCountryId,
-                )) &&
-            (identical(
-                  other.deliveryFromCrossStreets,
-                  deliveryFromCrossStreets,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFromCrossStreets,
-                  deliveryFromCrossStreets,
-                )) &&
-            (identical(other.deliveryToLocation, deliveryToLocation) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToLocation,
-                  deliveryToLocation,
-                )) &&
-            (identical(other.deliveryToContact, deliveryToContact) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToContact,
-                  deliveryToContact,
-                )) &&
-            (identical(other.deliveryToContactPhone, deliveryToContactPhone) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToContactPhone,
-                  deliveryToContactPhone,
-                )) &&
-            (identical(
-                  other.deliveryToAlternateContact,
-                  deliveryToAlternateContact,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToAlternateContact,
-                  deliveryToAlternateContact,
-                )) &&
-            (identical(
-                  other.deliveryToAlternateContactPhone,
-                  deliveryToAlternateContactPhone,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToAlternateContactPhone,
-                  deliveryToAlternateContactPhone,
-                )) &&
-            (identical(other.deliveryToAttention, deliveryToAttention) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToAttention,
-                  deliveryToAttention,
-                )) &&
-            (identical(other.deliveryToAddress1, deliveryToAddress1) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToAddress1,
-                  deliveryToAddress1,
-                )) &&
-            (identical(other.deliveryToAddress2, deliveryToAddress2) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToAddress2,
-                  deliveryToAddress2,
-                )) &&
-            (identical(other.deliveryToCity, deliveryToCity) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToCity,
-                  deliveryToCity,
-                )) &&
-            (identical(other.deliveryToState, deliveryToState) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToState,
-                  deliveryToState,
-                )) &&
-            (identical(other.deliveryToZipCode, deliveryToZipCode) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToZipCode,
-                  deliveryToZipCode,
-                )) &&
-            (identical(other.deliveryToCountryId, deliveryToCountryId) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToCountryId,
-                  deliveryToCountryId,
-                )) &&
-            (identical(other.deliveryToCountry, deliveryToCountry) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToCountry,
-                  deliveryToCountry,
-                )) &&
-            (identical(
-                  other.deliveryToCityStateZipCodeCountry,
-                  deliveryToCityStateZipCodeCountry,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToCityStateZipCodeCountry,
-                  deliveryToCityStateZipCodeCountry,
-                )) &&
-            (identical(
-                  other.deliveryToCountryCodeIsoAlpha2,
-                  deliveryToCountryCodeIsoAlpha2,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToCountryCodeIsoAlpha2,
-                  deliveryToCountryCodeIsoAlpha2,
-                )) &&
-            (identical(
-                  other.deliveryToCountryCodePhone,
-                  deliveryToCountryCodePhone,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToCountryCodePhone,
-                  deliveryToCountryCodePhone,
-                )) &&
-            (identical(other.deliveryToContactFax, deliveryToContactFax) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToContactFax,
-                  deliveryToContactFax,
-                )) &&
-            (identical(other.deliveryToCrossStreets, deliveryToCrossStreets) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToCrossStreets,
-                  deliveryToCrossStreets,
-                )) &&
-            (identical(other.deliveryDeliveryNotes, deliveryDeliveryNotes) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryDeliveryNotes,
-                  deliveryDeliveryNotes,
-                )) &&
-            (identical(other.deliveryCarrierId, deliveryCarrierId) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryCarrierId,
-                  deliveryCarrierId,
-                )) &&
-            (identical(other.deliveryCarrier, deliveryCarrier) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryCarrier,
-                  deliveryCarrier,
-                )) &&
-            (identical(other.deliveryCarrierAccount, deliveryCarrierAccount) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryCarrierAccount,
-                  deliveryCarrierAccount,
-                )) &&
-            (identical(other.deliveryShipViaId, deliveryShipViaId) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryShipViaId,
-                  deliveryShipViaId,
-                )) &&
-            (identical(other.deliveryShipVia, deliveryShipVia) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryShipVia,
-                  deliveryShipVia,
-                )) &&
-            (identical(other.deliveryInvoiceId, deliveryInvoiceId) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryInvoiceId,
-                  deliveryInvoiceId,
-                )) &&
-            (identical(
-                  other.deliveryVendorInvoiceId,
-                  deliveryVendorInvoiceId,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryVendorInvoiceId,
-                  deliveryVendorInvoiceId,
-                )) &&
-            (identical(
-                  other.deliveryEstimatedFreight,
-                  deliveryEstimatedFreight,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryEstimatedFreight,
-                  deliveryEstimatedFreight,
-                )) &&
-            (identical(
-                  other.deliveryFreightInvoiceAmount,
-                  deliveryFreightInvoiceAmount,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFreightInvoiceAmount,
-                  deliveryFreightInvoiceAmount,
-                )) &&
-            (identical(other.deliveryChargeType, deliveryChargeType) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryChargeType,
-                  deliveryChargeType,
-                )) &&
-            (identical(
-                  other.deliveryFreightTrackingNumber,
-                  deliveryFreightTrackingNumber,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFreightTrackingNumber,
-                  deliveryFreightTrackingNumber,
-                )) &&
-            (identical(
-                  other.deliveryFreightTrackingUrl,
-                  deliveryFreightTrackingUrl,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryFreightTrackingUrl,
-                  deliveryFreightTrackingUrl,
-                )) &&
-            (identical(other.deliveryDropShip, deliveryDropShip) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryDropShip,
-                  deliveryDropShip,
-                )) &&
-            (identical(other.deliveryPackageCode, deliveryPackageCode) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryPackageCode,
-                  deliveryPackageCode,
-                )) &&
-            (identical(
-                  other.deliveryBillPoFreightOnOrder,
-                  deliveryBillPoFreightOnOrder,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryBillPoFreightOnOrder,
-                  deliveryBillPoFreightOnOrder,
-                )) &&
-            (identical(
-                  other.deliveryOnlineOrderNumber,
-                  deliveryOnlineOrderNumber,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryOnlineOrderNumber,
-                  deliveryOnlineOrderNumber,
-                )) &&
-            (identical(
-                  other.deliveryOnlineOrderStatus,
-                  deliveryOnlineOrderStatus,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryOnlineOrderStatus,
-                  deliveryOnlineOrderStatus,
-                )) &&
-            (identical(other.deliveryToVenue, deliveryToVenue) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToVenue,
-                  deliveryToVenue,
-                )) &&
-            (identical(other.deliveryToVenueId, deliveryToVenueId) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryToVenueId,
-                  deliveryToVenueId,
-                )) &&
-            (identical(other.deliveryDateStamp, deliveryDateStamp) ||
-                const DeepCollectionEquality().equals(
-                  other.deliveryDateStamp,
-                  deliveryDateStamp,
-                )) &&
-            (identical(other.note, note) ||
-                const DeepCollectionEquality().equals(other.note, note)) &&
-            (identical(other.printNoteOnOrder, printNoteOnOrder) ||
-                const DeepCollectionEquality().equals(
-                  other.printNoteOnOrder,
-                  printNoteOnOrder,
-                )) &&
-            (identical(other.termsConditionsId, termsConditionsId) ||
-                const DeepCollectionEquality().equals(
-                  other.termsConditionsId,
-                  termsConditionsId,
-                )) &&
-            (identical(
-                  other.quikReceiptTermsConditionsId,
-                  quikReceiptTermsConditionsId,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.quikReceiptTermsConditionsId,
-                  quikReceiptTermsConditionsId,
-                )) &&
-            (identical(
-                  other.quikReceiptTermsConditions,
-                  quikReceiptTermsConditions,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.quikReceiptTermsConditions,
-                  quikReceiptTermsConditions,
-                )) &&
-            (identical(other.termsConditions, termsConditions) ||
-                const DeepCollectionEquality().equals(
-                  other.termsConditions,
-                  termsConditions,
-                )) &&
-            (identical(other.containerId, containerId) ||
-                const DeepCollectionEquality().equals(
-                  other.containerId,
-                  containerId,
-                )) &&
-            (identical(other.containerItemId, containerItemId) ||
-                const DeepCollectionEquality().equals(
-                  other.containerItemId,
-                  containerItemId,
-                )) &&
-            (identical(other.containerDescription, containerDescription) ||
-                const DeepCollectionEquality().equals(
-                  other.containerDescription,
-                  containerDescription,
-                )) &&
-            (identical(
-                  other.containerScannableBarCode,
-                  containerScannableBarCode,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.containerScannableBarCode,
-                  containerScannableBarCode,
-                )) &&
-            (identical(
-                  other.containerScannableItemId,
-                  containerScannableItemId,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.containerScannableItemId,
-                  containerScannableItemId,
-                )) &&
-            (identical(other.responsiblePersonId, responsiblePersonId) ||
-                const DeepCollectionEquality().equals(
-                  other.responsiblePersonId,
-                  responsiblePersonId,
-                )) &&
-            (identical(other.responsiblePerson, responsiblePerson) ||
-                const DeepCollectionEquality().equals(
-                  other.responsiblePerson,
-                  responsiblePerson,
-                )) &&
-            (identical(other.responsiblePersonEmail, responsiblePersonEmail) ||
-                const DeepCollectionEquality().equals(
-                  other.responsiblePersonEmail,
-                  responsiblePersonEmail,
-                )) &&
-            (identical(
-                  other.responsiblePersonMobilePhone,
-                  responsiblePersonMobilePhone,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.responsiblePersonMobilePhone,
-                  responsiblePersonMobilePhone,
-                )) &&
-            (identical(
-                  other.responsiblePersonOfficePhone,
-                  responsiblePersonOfficePhone,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.responsiblePersonOfficePhone,
-                  responsiblePersonOfficePhone,
-                )) &&
-            (identical(
-                  other.responsiblePersonOfficeExtension,
-                  responsiblePersonOfficeExtension,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.responsiblePersonOfficeExtension,
-                  responsiblePersonOfficeExtension,
-                )) &&
-            (identical(other.hasPrintableBarCodes, hasPrintableBarCodes) ||
-                const DeepCollectionEquality().equals(
-                  other.hasPrintableBarCodes,
-                  hasPrintableBarCodes,
-                )) &&
-            (identical(
-                  other.purchaseOrderAgentEmail,
-                  purchaseOrderAgentEmail,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.purchaseOrderAgentEmail,
-                  purchaseOrderAgentEmail,
-                )) &&
-            (identical(
-                  other.enableExpectedReturnDate,
-                  enableExpectedReturnDate,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.enableExpectedReturnDate,
-                  enableExpectedReturnDate,
-                )) &&
-            (identical(other.expectedReturnDate, expectedReturnDate) ||
-                const DeepCollectionEquality().equals(
-                  other.expectedReturnDate,
-                  expectedReturnDate,
-                )) &&
-            (identical(
-                  other.enableExpectedReturnAlert,
-                  enableExpectedReturnAlert,
-                ) ||
-                const DeepCollectionEquality().equals(
-                  other.enableExpectedReturnAlert,
-                  enableExpectedReturnAlert,
-                )) &&
-            (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality().equals(
-                  other.dateStamp,
-                  dateStamp,
-                )) &&
-            (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality().equals(
-                  other.auditNote,
-                  auditNote,
-                )) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality().equals(
-                  other.recordTitle,
-                  recordTitle,
-                )) &&
-            (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality().equals(
-                  other.urlIdentifier,
-                  urlIdentifier,
-                )) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                  other.defaultFieldAttributes,
-                  defaultFieldAttributes,
-                )) &&
-            (identical(other.original, original) ||
-                const DeepCollectionEquality().equals(
-                  other.original,
-                  original,
-                )) &&
-            (identical(other.translation, translation) ||
-                const DeepCollectionEquality().equals(
-                  other.translation,
-                  translation,
-                )) &&
-            (identical(other.hasImport, hasImport) ||
-                const DeepCollectionEquality().equals(
-                  other.hasImport,
-                  hasImport,
-                )) &&
-            (identical(other.hasDocuments, hasDocuments) ||
-                const DeepCollectionEquality().equals(
-                  other.hasDocuments,
-                  hasDocuments,
-                )) &&
-            (identical(other.createdByUserId, createdByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserId,
-                  createdByUserId,
-                )) &&
-            (identical(other.createdByUserName, createdByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserName,
-                  createdByUserName,
-                )) &&
-            (identical(other.createdDateTime, createdDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.createdDateTime,
-                  createdDateTime,
-                )) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserId,
-                  modifiedByUserId,
-                )) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserName,
-                  modifiedByUserName,
-                )) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedDateTime,
-                  modifiedDateTime,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(contractId) ^
-      const DeepCollectionEquality().hash(contractNumber) ^
-      const DeepCollectionEquality().hash(contractType) ^
-      const DeepCollectionEquality().hash(contractDate) ^
-      const DeepCollectionEquality().hash(contractTime) ^
-      const DeepCollectionEquality().hash(locationId) ^
-      const DeepCollectionEquality().hash(locationCode) ^
-      const DeepCollectionEquality().hash(location) ^
-      const DeepCollectionEquality().hash(warehouseId) ^
-      const DeepCollectionEquality().hash(warehouseCode) ^
-      const DeepCollectionEquality().hash(warehouse) ^
-      const DeepCollectionEquality().hash(customerId) ^
-      const DeepCollectionEquality().hash(customer) ^
-      const DeepCollectionEquality().hash(dealId) ^
-      const DeepCollectionEquality().hash(deal) ^
-      const DeepCollectionEquality().hash(orderId) ^
-      const DeepCollectionEquality().hash(orderNumber) ^
-      const DeepCollectionEquality().hash(departmentId) ^
-      const DeepCollectionEquality().hash(department) ^
-      const DeepCollectionEquality().hash(purchaseOrderId) ^
-      const DeepCollectionEquality().hash(purchaseOrderNumber) ^
-      const DeepCollectionEquality().hash(requisitionNumber) ^
-      const DeepCollectionEquality().hash(vendorId) ^
-      const DeepCollectionEquality().hash(vendor) ^
-      const DeepCollectionEquality().hash(isMigrated) ^
-      const DeepCollectionEquality().hash(unassigned) ^
-      const DeepCollectionEquality().hash(needReconcile) ^
-      const DeepCollectionEquality().hash(pendingExchange) ^
-      const DeepCollectionEquality().hash(exchangeContractId) ^
-      const DeepCollectionEquality().hash(hasSwaps) ^
-      const DeepCollectionEquality().hash(rental) ^
-      const DeepCollectionEquality().hash(sales) ^
-      const DeepCollectionEquality().hash(parts) ^
-      const DeepCollectionEquality().hash(exchange) ^
-      const DeepCollectionEquality().hash(inputByUserId) ^
-      const DeepCollectionEquality().hash(inputByUser) ^
-      const DeepCollectionEquality().hash(dealInactive) ^
-      const DeepCollectionEquality().hash(truck) ^
-      const DeepCollectionEquality().hash(billingDate) ^
-      const DeepCollectionEquality().hash(billingDateChangeReason) ^
-      const DeepCollectionEquality().hash(lastBillingDateChangeReason) ^
-      const DeepCollectionEquality().hash(billingDateAdjusted) ^
-      const DeepCollectionEquality().hash(hasVoId) ^
-      const DeepCollectionEquality().hash(hasTransfer) ^
-      const DeepCollectionEquality().hash(sessionId) ^
-      const DeepCollectionEquality().hash(orderDescription) ^
-      const DeepCollectionEquality().hash(poOrderDescription) ^
-      const DeepCollectionEquality().hash(deliveryId) ^
-      const DeepCollectionEquality().hash(deliveryDeliveryType) ^
-      const DeepCollectionEquality().hash(deliveryRequiredDate) ^
-      const DeepCollectionEquality().hash(deliveryRequiredTime) ^
-      const DeepCollectionEquality().hash(deliveryTargetShipDate) ^
-      const DeepCollectionEquality().hash(deliveryTargetShipTime) ^
-      const DeepCollectionEquality().hash(deliveryDirection) ^
-      const DeepCollectionEquality().hash(deliveryAddressType) ^
-      const DeepCollectionEquality().hash(deliveryFromLocation) ^
-      const DeepCollectionEquality().hash(deliveryFromContact) ^
-      const DeepCollectionEquality().hash(deliveryFromContactPhone) ^
-      const DeepCollectionEquality().hash(deliveryFromAlternateContact) ^
-      const DeepCollectionEquality().hash(deliveryFromAlternateContactPhone) ^
-      const DeepCollectionEquality().hash(deliveryFromAttention) ^
-      const DeepCollectionEquality().hash(deliveryFromAddress1) ^
-      const DeepCollectionEquality().hash(deliveryFromAddress2) ^
-      const DeepCollectionEquality().hash(deliveryFromCity) ^
-      const DeepCollectionEquality().hash(deliveryFromState) ^
-      const DeepCollectionEquality().hash(deliveryFromZipCode) ^
-      const DeepCollectionEquality().hash(deliveryFromCountry) ^
-      const DeepCollectionEquality().hash(deliveryFromCityStateZipCodeCountry) ^
-      const DeepCollectionEquality().hash(deliveryFromCountryCodeIsoAlpha2) ^
-      const DeepCollectionEquality().hash(deliveryFromCountryCodePhone) ^
-      const DeepCollectionEquality().hash(deliveryFromCountryId) ^
-      const DeepCollectionEquality().hash(deliveryFromCrossStreets) ^
-      const DeepCollectionEquality().hash(deliveryToLocation) ^
-      const DeepCollectionEquality().hash(deliveryToContact) ^
-      const DeepCollectionEquality().hash(deliveryToContactPhone) ^
-      const DeepCollectionEquality().hash(deliveryToAlternateContact) ^
-      const DeepCollectionEquality().hash(deliveryToAlternateContactPhone) ^
-      const DeepCollectionEquality().hash(deliveryToAttention) ^
-      const DeepCollectionEquality().hash(deliveryToAddress1) ^
-      const DeepCollectionEquality().hash(deliveryToAddress2) ^
-      const DeepCollectionEquality().hash(deliveryToCity) ^
-      const DeepCollectionEquality().hash(deliveryToState) ^
-      const DeepCollectionEquality().hash(deliveryToZipCode) ^
-      const DeepCollectionEquality().hash(deliveryToCountryId) ^
-      const DeepCollectionEquality().hash(deliveryToCountry) ^
-      const DeepCollectionEquality().hash(deliveryToCityStateZipCodeCountry) ^
-      const DeepCollectionEquality().hash(deliveryToCountryCodeIsoAlpha2) ^
-      const DeepCollectionEquality().hash(deliveryToCountryCodePhone) ^
-      const DeepCollectionEquality().hash(deliveryToContactFax) ^
-      const DeepCollectionEquality().hash(deliveryToCrossStreets) ^
-      const DeepCollectionEquality().hash(deliveryDeliveryNotes) ^
-      const DeepCollectionEquality().hash(deliveryCarrierId) ^
-      const DeepCollectionEquality().hash(deliveryCarrier) ^
-      const DeepCollectionEquality().hash(deliveryCarrierAccount) ^
-      const DeepCollectionEquality().hash(deliveryShipViaId) ^
-      const DeepCollectionEquality().hash(deliveryShipVia) ^
-      const DeepCollectionEquality().hash(deliveryInvoiceId) ^
-      const DeepCollectionEquality().hash(deliveryVendorInvoiceId) ^
-      const DeepCollectionEquality().hash(deliveryEstimatedFreight) ^
-      const DeepCollectionEquality().hash(deliveryFreightInvoiceAmount) ^
-      const DeepCollectionEquality().hash(deliveryChargeType) ^
-      const DeepCollectionEquality().hash(deliveryFreightTrackingNumber) ^
-      const DeepCollectionEquality().hash(deliveryFreightTrackingUrl) ^
-      const DeepCollectionEquality().hash(deliveryDropShip) ^
-      const DeepCollectionEquality().hash(deliveryPackageCode) ^
-      const DeepCollectionEquality().hash(deliveryBillPoFreightOnOrder) ^
-      const DeepCollectionEquality().hash(deliveryOnlineOrderNumber) ^
-      const DeepCollectionEquality().hash(deliveryOnlineOrderStatus) ^
-      const DeepCollectionEquality().hash(deliveryToVenue) ^
-      const DeepCollectionEquality().hash(deliveryToVenueId) ^
-      const DeepCollectionEquality().hash(deliveryDateStamp) ^
-      const DeepCollectionEquality().hash(note) ^
-      const DeepCollectionEquality().hash(printNoteOnOrder) ^
-      const DeepCollectionEquality().hash(termsConditionsId) ^
-      const DeepCollectionEquality().hash(quikReceiptTermsConditionsId) ^
-      const DeepCollectionEquality().hash(quikReceiptTermsConditions) ^
-      const DeepCollectionEquality().hash(termsConditions) ^
-      const DeepCollectionEquality().hash(containerId) ^
-      const DeepCollectionEquality().hash(containerItemId) ^
-      const DeepCollectionEquality().hash(containerDescription) ^
-      const DeepCollectionEquality().hash(containerScannableBarCode) ^
-      const DeepCollectionEquality().hash(containerScannableItemId) ^
-      const DeepCollectionEquality().hash(responsiblePersonId) ^
-      const DeepCollectionEquality().hash(responsiblePerson) ^
-      const DeepCollectionEquality().hash(responsiblePersonEmail) ^
-      const DeepCollectionEquality().hash(responsiblePersonMobilePhone) ^
-      const DeepCollectionEquality().hash(responsiblePersonOfficePhone) ^
-      const DeepCollectionEquality().hash(responsiblePersonOfficeExtension) ^
-      const DeepCollectionEquality().hash(hasPrintableBarCodes) ^
-      const DeepCollectionEquality().hash(purchaseOrderAgentEmail) ^
-      const DeepCollectionEquality().hash(enableExpectedReturnDate) ^
-      const DeepCollectionEquality().hash(expectedReturnDate) ^
-      const DeepCollectionEquality().hash(enableExpectedReturnAlert) ^
-      const DeepCollectionEquality().hash(dateStamp) ^
-      const DeepCollectionEquality().hash(auditNote) ^
-      const DeepCollectionEquality().hash(recordTitle) ^
-      const DeepCollectionEquality().hash(urlIdentifier) ^
-      const DeepCollectionEquality().hash(fields) ^
-      const DeepCollectionEquality().hash(custom) ^
-      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
-      const DeepCollectionEquality().hash(original) ^
-      const DeepCollectionEquality().hash(translation) ^
-      const DeepCollectionEquality().hash(hasImport) ^
-      const DeepCollectionEquality().hash(hasDocuments) ^
-      const DeepCollectionEquality().hash(createdByUserId) ^
-      const DeepCollectionEquality().hash(createdByUserName) ^
-      const DeepCollectionEquality().hash(createdDateTime) ^
-      const DeepCollectionEquality().hash(modifiedByUserId) ^
-      const DeepCollectionEquality().hash(modifiedByUserName) ^
-      const DeepCollectionEquality().hash(modifiedDateTime) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesWarehouseContractContractExtension
-    on WebApiModulesWarehouseContractContract {
-  WebApiModulesWarehouseContractContract copyWith({
-    String? contractId,
-    String? contractNumber,
-    String? contractType,
-    String? contractDate,
-    String? contractTime,
-    String? locationId,
-    String? locationCode,
-    String? location,
-    String? warehouseId,
-    String? warehouseCode,
-    String? warehouse,
-    String? customerId,
-    String? customer,
-    String? dealId,
-    String? deal,
-    String? orderId,
-    String? orderNumber,
-    String? departmentId,
-    String? department,
-    String? purchaseOrderId,
-    String? purchaseOrderNumber,
-    String? requisitionNumber,
-    String? vendorId,
-    String? vendor,
-    bool? isMigrated,
-    bool? unassigned,
-    bool? needReconcile,
-    bool? pendingExchange,
-    String? exchangeContractId,
-    bool? hasSwaps,
-    bool? rental,
-    bool? sales,
-    bool? parts,
-    bool? exchange,
-    String? inputByUserId,
-    String? inputByUser,
-    bool? dealInactive,
-    bool? truck,
-    String? billingDate,
-    String? billingDateChangeReason,
-    String? lastBillingDateChangeReason,
-    bool? billingDateAdjusted,
-    bool? hasVoId,
-    bool? hasTransfer,
-    String? sessionId,
-    String? orderDescription,
-    String? poOrderDescription,
-    String? deliveryId,
-    String? deliveryDeliveryType,
-    String? deliveryRequiredDate,
-    String? deliveryRequiredTime,
-    String? deliveryTargetShipDate,
-    String? deliveryTargetShipTime,
-    String? deliveryDirection,
-    String? deliveryAddressType,
-    String? deliveryFromLocation,
-    String? deliveryFromContact,
-    String? deliveryFromContactPhone,
-    String? deliveryFromAlternateContact,
-    String? deliveryFromAlternateContactPhone,
-    String? deliveryFromAttention,
-    String? deliveryFromAddress1,
-    String? deliveryFromAddress2,
-    String? deliveryFromCity,
-    String? deliveryFromState,
-    String? deliveryFromZipCode,
-    String? deliveryFromCountry,
-    String? deliveryFromCityStateZipCodeCountry,
-    String? deliveryFromCountryCodeIsoAlpha2,
-    int? deliveryFromCountryCodePhone,
-    String? deliveryFromCountryId,
-    String? deliveryFromCrossStreets,
-    String? deliveryToLocation,
-    String? deliveryToContact,
-    String? deliveryToContactPhone,
-    String? deliveryToAlternateContact,
-    String? deliveryToAlternateContactPhone,
-    String? deliveryToAttention,
-    String? deliveryToAddress1,
-    String? deliveryToAddress2,
-    String? deliveryToCity,
-    String? deliveryToState,
-    String? deliveryToZipCode,
-    String? deliveryToCountryId,
-    String? deliveryToCountry,
-    String? deliveryToCityStateZipCodeCountry,
-    String? deliveryToCountryCodeIsoAlpha2,
-    int? deliveryToCountryCodePhone,
-    String? deliveryToContactFax,
-    String? deliveryToCrossStreets,
-    String? deliveryDeliveryNotes,
-    String? deliveryCarrierId,
-    String? deliveryCarrier,
-    String? deliveryCarrierAccount,
-    String? deliveryShipViaId,
-    String? deliveryShipVia,
-    String? deliveryInvoiceId,
-    String? deliveryVendorInvoiceId,
-    double? deliveryEstimatedFreight,
-    double? deliveryFreightInvoiceAmount,
-    String? deliveryChargeType,
-    String? deliveryFreightTrackingNumber,
-    String? deliveryFreightTrackingUrl,
-    bool? deliveryDropShip,
-    String? deliveryPackageCode,
-    bool? deliveryBillPoFreightOnOrder,
-    String? deliveryOnlineOrderNumber,
-    String? deliveryOnlineOrderStatus,
-    String? deliveryToVenue,
-    String? deliveryToVenueId,
-    String? deliveryDateStamp,
-    String? note,
-    bool? printNoteOnOrder,
-    String? termsConditionsId,
-    String? quikReceiptTermsConditionsId,
-    String? quikReceiptTermsConditions,
-    String? termsConditions,
-    String? containerId,
-    String? containerItemId,
-    String? containerDescription,
-    String? containerScannableBarCode,
-    String? containerScannableItemId,
-    String? responsiblePersonId,
-    String? responsiblePerson,
-    String? responsiblePersonEmail,
-    String? responsiblePersonMobilePhone,
-    String? responsiblePersonOfficePhone,
-    String? responsiblePersonOfficeExtension,
-    bool? hasPrintableBarCodes,
-    String? purchaseOrderAgentEmail,
-    bool? enableExpectedReturnDate,
-    String? expectedReturnDate,
-    bool? enableExpectedReturnAlert,
-    String? dateStamp,
-    String? auditNote,
-    String? recordTitle,
-    dynamic urlIdentifier,
-    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-    List<FwStandardDataFwCustomValue>? custom,
-    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-    FwStandardBusinessLogicFwBusinessLogic? original,
-    List<FwStandardDataFwTranslatedValue>? translation,
-    bool? hasImport,
-    bool? hasDocuments,
-    String? createdByUserId,
-    String? createdByUserName,
-    String? createdDateTime,
-    String? modifiedByUserId,
-    String? modifiedByUserName,
-    String? modifiedDateTime,
-  }) {
-    return WebApiModulesWarehouseContractContract(
-      contractId: contractId ?? this.contractId,
-      contractNumber: contractNumber ?? this.contractNumber,
-      contractType: contractType ?? this.contractType,
-      contractDate: contractDate ?? this.contractDate,
-      contractTime: contractTime ?? this.contractTime,
-      locationId: locationId ?? this.locationId,
-      locationCode: locationCode ?? this.locationCode,
-      location: location ?? this.location,
-      warehouseId: warehouseId ?? this.warehouseId,
-      warehouseCode: warehouseCode ?? this.warehouseCode,
-      warehouse: warehouse ?? this.warehouse,
-      customerId: customerId ?? this.customerId,
-      customer: customer ?? this.customer,
-      dealId: dealId ?? this.dealId,
-      deal: deal ?? this.deal,
-      orderId: orderId ?? this.orderId,
-      orderNumber: orderNumber ?? this.orderNumber,
-      departmentId: departmentId ?? this.departmentId,
-      department: department ?? this.department,
-      purchaseOrderId: purchaseOrderId ?? this.purchaseOrderId,
-      purchaseOrderNumber: purchaseOrderNumber ?? this.purchaseOrderNumber,
-      requisitionNumber: requisitionNumber ?? this.requisitionNumber,
-      vendorId: vendorId ?? this.vendorId,
-      vendor: vendor ?? this.vendor,
-      isMigrated: isMigrated ?? this.isMigrated,
-      unassigned: unassigned ?? this.unassigned,
-      needReconcile: needReconcile ?? this.needReconcile,
-      pendingExchange: pendingExchange ?? this.pendingExchange,
-      exchangeContractId: exchangeContractId ?? this.exchangeContractId,
-      hasSwaps: hasSwaps ?? this.hasSwaps,
-      rental: rental ?? this.rental,
-      sales: sales ?? this.sales,
-      parts: parts ?? this.parts,
-      exchange: exchange ?? this.exchange,
-      inputByUserId: inputByUserId ?? this.inputByUserId,
-      inputByUser: inputByUser ?? this.inputByUser,
-      dealInactive: dealInactive ?? this.dealInactive,
-      truck: truck ?? this.truck,
-      billingDate: billingDate ?? this.billingDate,
-      billingDateChangeReason:
-          billingDateChangeReason ?? this.billingDateChangeReason,
-      lastBillingDateChangeReason:
-          lastBillingDateChangeReason ?? this.lastBillingDateChangeReason,
-      billingDateAdjusted: billingDateAdjusted ?? this.billingDateAdjusted,
-      hasVoId: hasVoId ?? this.hasVoId,
-      hasTransfer: hasTransfer ?? this.hasTransfer,
-      sessionId: sessionId ?? this.sessionId,
-      orderDescription: orderDescription ?? this.orderDescription,
-      poOrderDescription: poOrderDescription ?? this.poOrderDescription,
-      deliveryId: deliveryId ?? this.deliveryId,
-      deliveryDeliveryType: deliveryDeliveryType ?? this.deliveryDeliveryType,
-      deliveryRequiredDate: deliveryRequiredDate ?? this.deliveryRequiredDate,
-      deliveryRequiredTime: deliveryRequiredTime ?? this.deliveryRequiredTime,
-      deliveryTargetShipDate:
-          deliveryTargetShipDate ?? this.deliveryTargetShipDate,
-      deliveryTargetShipTime:
-          deliveryTargetShipTime ?? this.deliveryTargetShipTime,
-      deliveryDirection: deliveryDirection ?? this.deliveryDirection,
-      deliveryAddressType: deliveryAddressType ?? this.deliveryAddressType,
-      deliveryFromLocation: deliveryFromLocation ?? this.deliveryFromLocation,
-      deliveryFromContact: deliveryFromContact ?? this.deliveryFromContact,
-      deliveryFromContactPhone:
-          deliveryFromContactPhone ?? this.deliveryFromContactPhone,
-      deliveryFromAlternateContact:
-          deliveryFromAlternateContact ?? this.deliveryFromAlternateContact,
-      deliveryFromAlternateContactPhone:
-          deliveryFromAlternateContactPhone ??
-          this.deliveryFromAlternateContactPhone,
-      deliveryFromAttention:
-          deliveryFromAttention ?? this.deliveryFromAttention,
-      deliveryFromAddress1: deliveryFromAddress1 ?? this.deliveryFromAddress1,
-      deliveryFromAddress2: deliveryFromAddress2 ?? this.deliveryFromAddress2,
-      deliveryFromCity: deliveryFromCity ?? this.deliveryFromCity,
-      deliveryFromState: deliveryFromState ?? this.deliveryFromState,
-      deliveryFromZipCode: deliveryFromZipCode ?? this.deliveryFromZipCode,
-      deliveryFromCountry: deliveryFromCountry ?? this.deliveryFromCountry,
-      deliveryFromCityStateZipCodeCountry:
-          deliveryFromCityStateZipCodeCountry ??
-          this.deliveryFromCityStateZipCodeCountry,
-      deliveryFromCountryCodeIsoAlpha2:
-          deliveryFromCountryCodeIsoAlpha2 ??
-          this.deliveryFromCountryCodeIsoAlpha2,
-      deliveryFromCountryCodePhone:
-          deliveryFromCountryCodePhone ?? this.deliveryFromCountryCodePhone,
-      deliveryFromCountryId:
-          deliveryFromCountryId ?? this.deliveryFromCountryId,
-      deliveryFromCrossStreets:
-          deliveryFromCrossStreets ?? this.deliveryFromCrossStreets,
-      deliveryToLocation: deliveryToLocation ?? this.deliveryToLocation,
-      deliveryToContact: deliveryToContact ?? this.deliveryToContact,
-      deliveryToContactPhone:
-          deliveryToContactPhone ?? this.deliveryToContactPhone,
-      deliveryToAlternateContact:
-          deliveryToAlternateContact ?? this.deliveryToAlternateContact,
-      deliveryToAlternateContactPhone:
-          deliveryToAlternateContactPhone ??
-          this.deliveryToAlternateContactPhone,
-      deliveryToAttention: deliveryToAttention ?? this.deliveryToAttention,
-      deliveryToAddress1: deliveryToAddress1 ?? this.deliveryToAddress1,
-      deliveryToAddress2: deliveryToAddress2 ?? this.deliveryToAddress2,
-      deliveryToCity: deliveryToCity ?? this.deliveryToCity,
-      deliveryToState: deliveryToState ?? this.deliveryToState,
-      deliveryToZipCode: deliveryToZipCode ?? this.deliveryToZipCode,
-      deliveryToCountryId: deliveryToCountryId ?? this.deliveryToCountryId,
-      deliveryToCountry: deliveryToCountry ?? this.deliveryToCountry,
-      deliveryToCityStateZipCodeCountry:
-          deliveryToCityStateZipCodeCountry ??
-          this.deliveryToCityStateZipCodeCountry,
-      deliveryToCountryCodeIsoAlpha2:
-          deliveryToCountryCodeIsoAlpha2 ?? this.deliveryToCountryCodeIsoAlpha2,
-      deliveryToCountryCodePhone:
-          deliveryToCountryCodePhone ?? this.deliveryToCountryCodePhone,
-      deliveryToContactFax: deliveryToContactFax ?? this.deliveryToContactFax,
-      deliveryToCrossStreets:
-          deliveryToCrossStreets ?? this.deliveryToCrossStreets,
-      deliveryDeliveryNotes:
-          deliveryDeliveryNotes ?? this.deliveryDeliveryNotes,
-      deliveryCarrierId: deliveryCarrierId ?? this.deliveryCarrierId,
-      deliveryCarrier: deliveryCarrier ?? this.deliveryCarrier,
-      deliveryCarrierAccount:
-          deliveryCarrierAccount ?? this.deliveryCarrierAccount,
-      deliveryShipViaId: deliveryShipViaId ?? this.deliveryShipViaId,
-      deliveryShipVia: deliveryShipVia ?? this.deliveryShipVia,
-      deliveryInvoiceId: deliveryInvoiceId ?? this.deliveryInvoiceId,
-      deliveryVendorInvoiceId:
-          deliveryVendorInvoiceId ?? this.deliveryVendorInvoiceId,
-      deliveryEstimatedFreight:
-          deliveryEstimatedFreight ?? this.deliveryEstimatedFreight,
-      deliveryFreightInvoiceAmount:
-          deliveryFreightInvoiceAmount ?? this.deliveryFreightInvoiceAmount,
-      deliveryChargeType: deliveryChargeType ?? this.deliveryChargeType,
-      deliveryFreightTrackingNumber:
-          deliveryFreightTrackingNumber ?? this.deliveryFreightTrackingNumber,
-      deliveryFreightTrackingUrl:
-          deliveryFreightTrackingUrl ?? this.deliveryFreightTrackingUrl,
-      deliveryDropShip: deliveryDropShip ?? this.deliveryDropShip,
-      deliveryPackageCode: deliveryPackageCode ?? this.deliveryPackageCode,
-      deliveryBillPoFreightOnOrder:
-          deliveryBillPoFreightOnOrder ?? this.deliveryBillPoFreightOnOrder,
-      deliveryOnlineOrderNumber:
-          deliveryOnlineOrderNumber ?? this.deliveryOnlineOrderNumber,
-      deliveryOnlineOrderStatus:
-          deliveryOnlineOrderStatus ?? this.deliveryOnlineOrderStatus,
-      deliveryToVenue: deliveryToVenue ?? this.deliveryToVenue,
-      deliveryToVenueId: deliveryToVenueId ?? this.deliveryToVenueId,
-      deliveryDateStamp: deliveryDateStamp ?? this.deliveryDateStamp,
-      note: note ?? this.note,
-      printNoteOnOrder: printNoteOnOrder ?? this.printNoteOnOrder,
-      termsConditionsId: termsConditionsId ?? this.termsConditionsId,
-      quikReceiptTermsConditionsId:
-          quikReceiptTermsConditionsId ?? this.quikReceiptTermsConditionsId,
-      quikReceiptTermsConditions:
-          quikReceiptTermsConditions ?? this.quikReceiptTermsConditions,
-      termsConditions: termsConditions ?? this.termsConditions,
-      containerId: containerId ?? this.containerId,
-      containerItemId: containerItemId ?? this.containerItemId,
-      containerDescription: containerDescription ?? this.containerDescription,
-      containerScannableBarCode:
-          containerScannableBarCode ?? this.containerScannableBarCode,
-      containerScannableItemId:
-          containerScannableItemId ?? this.containerScannableItemId,
-      responsiblePersonId: responsiblePersonId ?? this.responsiblePersonId,
-      responsiblePerson: responsiblePerson ?? this.responsiblePerson,
-      responsiblePersonEmail:
-          responsiblePersonEmail ?? this.responsiblePersonEmail,
-      responsiblePersonMobilePhone:
-          responsiblePersonMobilePhone ?? this.responsiblePersonMobilePhone,
-      responsiblePersonOfficePhone:
-          responsiblePersonOfficePhone ?? this.responsiblePersonOfficePhone,
-      responsiblePersonOfficeExtension:
-          responsiblePersonOfficeExtension ??
-          this.responsiblePersonOfficeExtension,
-      hasPrintableBarCodes: hasPrintableBarCodes ?? this.hasPrintableBarCodes,
-      purchaseOrderAgentEmail:
-          purchaseOrderAgentEmail ?? this.purchaseOrderAgentEmail,
-      enableExpectedReturnDate:
-          enableExpectedReturnDate ?? this.enableExpectedReturnDate,
-      expectedReturnDate: expectedReturnDate ?? this.expectedReturnDate,
-      enableExpectedReturnAlert:
-          enableExpectedReturnAlert ?? this.enableExpectedReturnAlert,
-      dateStamp: dateStamp ?? this.dateStamp,
-      auditNote: auditNote ?? this.auditNote,
-      recordTitle: recordTitle ?? this.recordTitle,
-      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-      fields: fields ?? this.fields,
-      custom: custom ?? this.custom,
-      defaultFieldAttributes:
-          defaultFieldAttributes ?? this.defaultFieldAttributes,
-      original: original ?? this.original,
-      translation: translation ?? this.translation,
-      hasImport: hasImport ?? this.hasImport,
-      hasDocuments: hasDocuments ?? this.hasDocuments,
-      createdByUserId: createdByUserId ?? this.createdByUserId,
-      createdByUserName: createdByUserName ?? this.createdByUserName,
-      createdDateTime: createdDateTime ?? this.createdDateTime,
-      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
-    );
-  }
-
-  WebApiModulesWarehouseContractContract copyWithWrapped({
-    Wrapped<String?>? contractId,
-    Wrapped<String?>? contractNumber,
-    Wrapped<String?>? contractType,
-    Wrapped<String?>? contractDate,
-    Wrapped<String?>? contractTime,
-    Wrapped<String?>? locationId,
-    Wrapped<String?>? locationCode,
-    Wrapped<String?>? location,
-    Wrapped<String?>? warehouseId,
-    Wrapped<String?>? warehouseCode,
-    Wrapped<String?>? warehouse,
-    Wrapped<String?>? customerId,
-    Wrapped<String?>? customer,
-    Wrapped<String?>? dealId,
-    Wrapped<String?>? deal,
-    Wrapped<String?>? orderId,
-    Wrapped<String?>? orderNumber,
-    Wrapped<String?>? departmentId,
-    Wrapped<String?>? department,
-    Wrapped<String?>? purchaseOrderId,
-    Wrapped<String?>? purchaseOrderNumber,
-    Wrapped<String?>? requisitionNumber,
-    Wrapped<String?>? vendorId,
-    Wrapped<String?>? vendor,
-    Wrapped<bool?>? isMigrated,
-    Wrapped<bool?>? unassigned,
-    Wrapped<bool?>? needReconcile,
-    Wrapped<bool?>? pendingExchange,
-    Wrapped<String?>? exchangeContractId,
-    Wrapped<bool?>? hasSwaps,
-    Wrapped<bool?>? rental,
-    Wrapped<bool?>? sales,
-    Wrapped<bool?>? parts,
-    Wrapped<bool?>? exchange,
-    Wrapped<String?>? inputByUserId,
-    Wrapped<String?>? inputByUser,
-    Wrapped<bool?>? dealInactive,
-    Wrapped<bool?>? truck,
-    Wrapped<String?>? billingDate,
-    Wrapped<String?>? billingDateChangeReason,
-    Wrapped<String?>? lastBillingDateChangeReason,
-    Wrapped<bool?>? billingDateAdjusted,
-    Wrapped<bool?>? hasVoId,
-    Wrapped<bool?>? hasTransfer,
-    Wrapped<String?>? sessionId,
-    Wrapped<String?>? orderDescription,
-    Wrapped<String?>? poOrderDescription,
-    Wrapped<String?>? deliveryId,
-    Wrapped<String?>? deliveryDeliveryType,
-    Wrapped<String?>? deliveryRequiredDate,
-    Wrapped<String?>? deliveryRequiredTime,
-    Wrapped<String?>? deliveryTargetShipDate,
-    Wrapped<String?>? deliveryTargetShipTime,
-    Wrapped<String?>? deliveryDirection,
-    Wrapped<String?>? deliveryAddressType,
-    Wrapped<String?>? deliveryFromLocation,
-    Wrapped<String?>? deliveryFromContact,
-    Wrapped<String?>? deliveryFromContactPhone,
-    Wrapped<String?>? deliveryFromAlternateContact,
-    Wrapped<String?>? deliveryFromAlternateContactPhone,
-    Wrapped<String?>? deliveryFromAttention,
-    Wrapped<String?>? deliveryFromAddress1,
-    Wrapped<String?>? deliveryFromAddress2,
-    Wrapped<String?>? deliveryFromCity,
-    Wrapped<String?>? deliveryFromState,
-    Wrapped<String?>? deliveryFromZipCode,
-    Wrapped<String?>? deliveryFromCountry,
-    Wrapped<String?>? deliveryFromCityStateZipCodeCountry,
-    Wrapped<String?>? deliveryFromCountryCodeIsoAlpha2,
-    Wrapped<int?>? deliveryFromCountryCodePhone,
-    Wrapped<String?>? deliveryFromCountryId,
-    Wrapped<String?>? deliveryFromCrossStreets,
-    Wrapped<String?>? deliveryToLocation,
-    Wrapped<String?>? deliveryToContact,
-    Wrapped<String?>? deliveryToContactPhone,
-    Wrapped<String?>? deliveryToAlternateContact,
-    Wrapped<String?>? deliveryToAlternateContactPhone,
-    Wrapped<String?>? deliveryToAttention,
-    Wrapped<String?>? deliveryToAddress1,
-    Wrapped<String?>? deliveryToAddress2,
-    Wrapped<String?>? deliveryToCity,
-    Wrapped<String?>? deliveryToState,
-    Wrapped<String?>? deliveryToZipCode,
-    Wrapped<String?>? deliveryToCountryId,
-    Wrapped<String?>? deliveryToCountry,
-    Wrapped<String?>? deliveryToCityStateZipCodeCountry,
-    Wrapped<String?>? deliveryToCountryCodeIsoAlpha2,
-    Wrapped<int?>? deliveryToCountryCodePhone,
-    Wrapped<String?>? deliveryToContactFax,
-    Wrapped<String?>? deliveryToCrossStreets,
-    Wrapped<String?>? deliveryDeliveryNotes,
-    Wrapped<String?>? deliveryCarrierId,
-    Wrapped<String?>? deliveryCarrier,
-    Wrapped<String?>? deliveryCarrierAccount,
-    Wrapped<String?>? deliveryShipViaId,
-    Wrapped<String?>? deliveryShipVia,
-    Wrapped<String?>? deliveryInvoiceId,
-    Wrapped<String?>? deliveryVendorInvoiceId,
-    Wrapped<double?>? deliveryEstimatedFreight,
-    Wrapped<double?>? deliveryFreightInvoiceAmount,
-    Wrapped<String?>? deliveryChargeType,
-    Wrapped<String?>? deliveryFreightTrackingNumber,
-    Wrapped<String?>? deliveryFreightTrackingUrl,
-    Wrapped<bool?>? deliveryDropShip,
-    Wrapped<String?>? deliveryPackageCode,
-    Wrapped<bool?>? deliveryBillPoFreightOnOrder,
-    Wrapped<String?>? deliveryOnlineOrderNumber,
-    Wrapped<String?>? deliveryOnlineOrderStatus,
-    Wrapped<String?>? deliveryToVenue,
-    Wrapped<String?>? deliveryToVenueId,
-    Wrapped<String?>? deliveryDateStamp,
-    Wrapped<String?>? note,
-    Wrapped<bool?>? printNoteOnOrder,
-    Wrapped<String?>? termsConditionsId,
-    Wrapped<String?>? quikReceiptTermsConditionsId,
-    Wrapped<String?>? quikReceiptTermsConditions,
-    Wrapped<String?>? termsConditions,
-    Wrapped<String?>? containerId,
-    Wrapped<String?>? containerItemId,
-    Wrapped<String?>? containerDescription,
-    Wrapped<String?>? containerScannableBarCode,
-    Wrapped<String?>? containerScannableItemId,
-    Wrapped<String?>? responsiblePersonId,
-    Wrapped<String?>? responsiblePerson,
-    Wrapped<String?>? responsiblePersonEmail,
-    Wrapped<String?>? responsiblePersonMobilePhone,
-    Wrapped<String?>? responsiblePersonOfficePhone,
-    Wrapped<String?>? responsiblePersonOfficeExtension,
-    Wrapped<bool?>? hasPrintableBarCodes,
-    Wrapped<String?>? purchaseOrderAgentEmail,
-    Wrapped<bool?>? enableExpectedReturnDate,
-    Wrapped<String?>? expectedReturnDate,
-    Wrapped<bool?>? enableExpectedReturnAlert,
-    Wrapped<String?>? dateStamp,
-    Wrapped<String?>? auditNote,
-    Wrapped<String?>? recordTitle,
-    Wrapped<dynamic>? urlIdentifier,
-    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-    fields,
-    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-    Wrapped<bool?>? hasImport,
-    Wrapped<bool?>? hasDocuments,
-    Wrapped<String?>? createdByUserId,
-    Wrapped<String?>? createdByUserName,
-    Wrapped<String?>? createdDateTime,
-    Wrapped<String?>? modifiedByUserId,
-    Wrapped<String?>? modifiedByUserName,
-    Wrapped<String?>? modifiedDateTime,
-  }) {
-    return WebApiModulesWarehouseContractContract(
-      contractId: (contractId != null ? contractId.value : this.contractId),
-      contractNumber: (contractNumber != null
-          ? contractNumber.value
-          : this.contractNumber),
-      contractType: (contractType != null
-          ? contractType.value
-          : this.contractType),
-      contractDate: (contractDate != null
-          ? contractDate.value
-          : this.contractDate),
-      contractTime: (contractTime != null
-          ? contractTime.value
-          : this.contractTime),
-      locationId: (locationId != null ? locationId.value : this.locationId),
-      locationCode: (locationCode != null
-          ? locationCode.value
-          : this.locationCode),
-      location: (location != null ? location.value : this.location),
-      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
-      warehouseCode: (warehouseCode != null
-          ? warehouseCode.value
-          : this.warehouseCode),
-      warehouse: (warehouse != null ? warehouse.value : this.warehouse),
-      customerId: (customerId != null ? customerId.value : this.customerId),
-      customer: (customer != null ? customer.value : this.customer),
-      dealId: (dealId != null ? dealId.value : this.dealId),
-      deal: (deal != null ? deal.value : this.deal),
-      orderId: (orderId != null ? orderId.value : this.orderId),
-      orderNumber: (orderNumber != null ? orderNumber.value : this.orderNumber),
-      departmentId: (departmentId != null
-          ? departmentId.value
-          : this.departmentId),
-      department: (department != null ? department.value : this.department),
-      purchaseOrderId: (purchaseOrderId != null
-          ? purchaseOrderId.value
-          : this.purchaseOrderId),
-      purchaseOrderNumber: (purchaseOrderNumber != null
-          ? purchaseOrderNumber.value
-          : this.purchaseOrderNumber),
-      requisitionNumber: (requisitionNumber != null
-          ? requisitionNumber.value
-          : this.requisitionNumber),
-      vendorId: (vendorId != null ? vendorId.value : this.vendorId),
-      vendor: (vendor != null ? vendor.value : this.vendor),
-      isMigrated: (isMigrated != null ? isMigrated.value : this.isMigrated),
-      unassigned: (unassigned != null ? unassigned.value : this.unassigned),
-      needReconcile: (needReconcile != null
-          ? needReconcile.value
-          : this.needReconcile),
-      pendingExchange: (pendingExchange != null
-          ? pendingExchange.value
-          : this.pendingExchange),
-      exchangeContractId: (exchangeContractId != null
-          ? exchangeContractId.value
-          : this.exchangeContractId),
-      hasSwaps: (hasSwaps != null ? hasSwaps.value : this.hasSwaps),
-      rental: (rental != null ? rental.value : this.rental),
-      sales: (sales != null ? sales.value : this.sales),
-      parts: (parts != null ? parts.value : this.parts),
-      exchange: (exchange != null ? exchange.value : this.exchange),
-      inputByUserId: (inputByUserId != null
-          ? inputByUserId.value
-          : this.inputByUserId),
-      inputByUser: (inputByUser != null ? inputByUser.value : this.inputByUser),
-      dealInactive: (dealInactive != null
-          ? dealInactive.value
-          : this.dealInactive),
-      truck: (truck != null ? truck.value : this.truck),
-      billingDate: (billingDate != null ? billingDate.value : this.billingDate),
-      billingDateChangeReason: (billingDateChangeReason != null
-          ? billingDateChangeReason.value
-          : this.billingDateChangeReason),
-      lastBillingDateChangeReason: (lastBillingDateChangeReason != null
-          ? lastBillingDateChangeReason.value
-          : this.lastBillingDateChangeReason),
-      billingDateAdjusted: (billingDateAdjusted != null
-          ? billingDateAdjusted.value
-          : this.billingDateAdjusted),
-      hasVoId: (hasVoId != null ? hasVoId.value : this.hasVoId),
-      hasTransfer: (hasTransfer != null ? hasTransfer.value : this.hasTransfer),
-      sessionId: (sessionId != null ? sessionId.value : this.sessionId),
-      orderDescription: (orderDescription != null
-          ? orderDescription.value
-          : this.orderDescription),
-      poOrderDescription: (poOrderDescription != null
-          ? poOrderDescription.value
-          : this.poOrderDescription),
-      deliveryId: (deliveryId != null ? deliveryId.value : this.deliveryId),
-      deliveryDeliveryType: (deliveryDeliveryType != null
-          ? deliveryDeliveryType.value
-          : this.deliveryDeliveryType),
-      deliveryRequiredDate: (deliveryRequiredDate != null
-          ? deliveryRequiredDate.value
-          : this.deliveryRequiredDate),
-      deliveryRequiredTime: (deliveryRequiredTime != null
-          ? deliveryRequiredTime.value
-          : this.deliveryRequiredTime),
-      deliveryTargetShipDate: (deliveryTargetShipDate != null
-          ? deliveryTargetShipDate.value
-          : this.deliveryTargetShipDate),
-      deliveryTargetShipTime: (deliveryTargetShipTime != null
-          ? deliveryTargetShipTime.value
-          : this.deliveryTargetShipTime),
-      deliveryDirection: (deliveryDirection != null
-          ? deliveryDirection.value
-          : this.deliveryDirection),
-      deliveryAddressType: (deliveryAddressType != null
-          ? deliveryAddressType.value
-          : this.deliveryAddressType),
-      deliveryFromLocation: (deliveryFromLocation != null
-          ? deliveryFromLocation.value
-          : this.deliveryFromLocation),
-      deliveryFromContact: (deliveryFromContact != null
-          ? deliveryFromContact.value
-          : this.deliveryFromContact),
-      deliveryFromContactPhone: (deliveryFromContactPhone != null
-          ? deliveryFromContactPhone.value
-          : this.deliveryFromContactPhone),
-      deliveryFromAlternateContact: (deliveryFromAlternateContact != null
-          ? deliveryFromAlternateContact.value
-          : this.deliveryFromAlternateContact),
-      deliveryFromAlternateContactPhone:
-          (deliveryFromAlternateContactPhone != null
-          ? deliveryFromAlternateContactPhone.value
-          : this.deliveryFromAlternateContactPhone),
-      deliveryFromAttention: (deliveryFromAttention != null
-          ? deliveryFromAttention.value
-          : this.deliveryFromAttention),
-      deliveryFromAddress1: (deliveryFromAddress1 != null
-          ? deliveryFromAddress1.value
-          : this.deliveryFromAddress1),
-      deliveryFromAddress2: (deliveryFromAddress2 != null
-          ? deliveryFromAddress2.value
-          : this.deliveryFromAddress2),
-      deliveryFromCity: (deliveryFromCity != null
-          ? deliveryFromCity.value
-          : this.deliveryFromCity),
-      deliveryFromState: (deliveryFromState != null
-          ? deliveryFromState.value
-          : this.deliveryFromState),
-      deliveryFromZipCode: (deliveryFromZipCode != null
-          ? deliveryFromZipCode.value
-          : this.deliveryFromZipCode),
-      deliveryFromCountry: (deliveryFromCountry != null
-          ? deliveryFromCountry.value
-          : this.deliveryFromCountry),
-      deliveryFromCityStateZipCodeCountry:
-          (deliveryFromCityStateZipCodeCountry != null
-          ? deliveryFromCityStateZipCodeCountry.value
-          : this.deliveryFromCityStateZipCodeCountry),
-      deliveryFromCountryCodeIsoAlpha2:
-          (deliveryFromCountryCodeIsoAlpha2 != null
-          ? deliveryFromCountryCodeIsoAlpha2.value
-          : this.deliveryFromCountryCodeIsoAlpha2),
-      deliveryFromCountryCodePhone: (deliveryFromCountryCodePhone != null
-          ? deliveryFromCountryCodePhone.value
-          : this.deliveryFromCountryCodePhone),
-      deliveryFromCountryId: (deliveryFromCountryId != null
-          ? deliveryFromCountryId.value
-          : this.deliveryFromCountryId),
-      deliveryFromCrossStreets: (deliveryFromCrossStreets != null
-          ? deliveryFromCrossStreets.value
-          : this.deliveryFromCrossStreets),
-      deliveryToLocation: (deliveryToLocation != null
-          ? deliveryToLocation.value
-          : this.deliveryToLocation),
-      deliveryToContact: (deliveryToContact != null
-          ? deliveryToContact.value
-          : this.deliveryToContact),
-      deliveryToContactPhone: (deliveryToContactPhone != null
-          ? deliveryToContactPhone.value
-          : this.deliveryToContactPhone),
-      deliveryToAlternateContact: (deliveryToAlternateContact != null
-          ? deliveryToAlternateContact.value
-          : this.deliveryToAlternateContact),
-      deliveryToAlternateContactPhone: (deliveryToAlternateContactPhone != null
-          ? deliveryToAlternateContactPhone.value
-          : this.deliveryToAlternateContactPhone),
-      deliveryToAttention: (deliveryToAttention != null
-          ? deliveryToAttention.value
-          : this.deliveryToAttention),
-      deliveryToAddress1: (deliveryToAddress1 != null
-          ? deliveryToAddress1.value
-          : this.deliveryToAddress1),
-      deliveryToAddress2: (deliveryToAddress2 != null
-          ? deliveryToAddress2.value
-          : this.deliveryToAddress2),
-      deliveryToCity: (deliveryToCity != null
-          ? deliveryToCity.value
-          : this.deliveryToCity),
-      deliveryToState: (deliveryToState != null
-          ? deliveryToState.value
-          : this.deliveryToState),
-      deliveryToZipCode: (deliveryToZipCode != null
-          ? deliveryToZipCode.value
-          : this.deliveryToZipCode),
-      deliveryToCountryId: (deliveryToCountryId != null
-          ? deliveryToCountryId.value
-          : this.deliveryToCountryId),
-      deliveryToCountry: (deliveryToCountry != null
-          ? deliveryToCountry.value
-          : this.deliveryToCountry),
-      deliveryToCityStateZipCodeCountry:
-          (deliveryToCityStateZipCodeCountry != null
-          ? deliveryToCityStateZipCodeCountry.value
-          : this.deliveryToCityStateZipCodeCountry),
-      deliveryToCountryCodeIsoAlpha2: (deliveryToCountryCodeIsoAlpha2 != null
-          ? deliveryToCountryCodeIsoAlpha2.value
-          : this.deliveryToCountryCodeIsoAlpha2),
-      deliveryToCountryCodePhone: (deliveryToCountryCodePhone != null
-          ? deliveryToCountryCodePhone.value
-          : this.deliveryToCountryCodePhone),
-      deliveryToContactFax: (deliveryToContactFax != null
-          ? deliveryToContactFax.value
-          : this.deliveryToContactFax),
-      deliveryToCrossStreets: (deliveryToCrossStreets != null
-          ? deliveryToCrossStreets.value
-          : this.deliveryToCrossStreets),
-      deliveryDeliveryNotes: (deliveryDeliveryNotes != null
-          ? deliveryDeliveryNotes.value
-          : this.deliveryDeliveryNotes),
-      deliveryCarrierId: (deliveryCarrierId != null
-          ? deliveryCarrierId.value
-          : this.deliveryCarrierId),
-      deliveryCarrier: (deliveryCarrier != null
-          ? deliveryCarrier.value
-          : this.deliveryCarrier),
-      deliveryCarrierAccount: (deliveryCarrierAccount != null
-          ? deliveryCarrierAccount.value
-          : this.deliveryCarrierAccount),
-      deliveryShipViaId: (deliveryShipViaId != null
-          ? deliveryShipViaId.value
-          : this.deliveryShipViaId),
-      deliveryShipVia: (deliveryShipVia != null
-          ? deliveryShipVia.value
-          : this.deliveryShipVia),
-      deliveryInvoiceId: (deliveryInvoiceId != null
-          ? deliveryInvoiceId.value
-          : this.deliveryInvoiceId),
-      deliveryVendorInvoiceId: (deliveryVendorInvoiceId != null
-          ? deliveryVendorInvoiceId.value
-          : this.deliveryVendorInvoiceId),
-      deliveryEstimatedFreight: (deliveryEstimatedFreight != null
-          ? deliveryEstimatedFreight.value
-          : this.deliveryEstimatedFreight),
-      deliveryFreightInvoiceAmount: (deliveryFreightInvoiceAmount != null
-          ? deliveryFreightInvoiceAmount.value
-          : this.deliveryFreightInvoiceAmount),
-      deliveryChargeType: (deliveryChargeType != null
-          ? deliveryChargeType.value
-          : this.deliveryChargeType),
-      deliveryFreightTrackingNumber: (deliveryFreightTrackingNumber != null
-          ? deliveryFreightTrackingNumber.value
-          : this.deliveryFreightTrackingNumber),
-      deliveryFreightTrackingUrl: (deliveryFreightTrackingUrl != null
-          ? deliveryFreightTrackingUrl.value
-          : this.deliveryFreightTrackingUrl),
-      deliveryDropShip: (deliveryDropShip != null
-          ? deliveryDropShip.value
-          : this.deliveryDropShip),
-      deliveryPackageCode: (deliveryPackageCode != null
-          ? deliveryPackageCode.value
-          : this.deliveryPackageCode),
-      deliveryBillPoFreightOnOrder: (deliveryBillPoFreightOnOrder != null
-          ? deliveryBillPoFreightOnOrder.value
-          : this.deliveryBillPoFreightOnOrder),
-      deliveryOnlineOrderNumber: (deliveryOnlineOrderNumber != null
-          ? deliveryOnlineOrderNumber.value
-          : this.deliveryOnlineOrderNumber),
-      deliveryOnlineOrderStatus: (deliveryOnlineOrderStatus != null
-          ? deliveryOnlineOrderStatus.value
-          : this.deliveryOnlineOrderStatus),
-      deliveryToVenue: (deliveryToVenue != null
-          ? deliveryToVenue.value
-          : this.deliveryToVenue),
-      deliveryToVenueId: (deliveryToVenueId != null
-          ? deliveryToVenueId.value
-          : this.deliveryToVenueId),
-      deliveryDateStamp: (deliveryDateStamp != null
-          ? deliveryDateStamp.value
-          : this.deliveryDateStamp),
-      note: (note != null ? note.value : this.note),
-      printNoteOnOrder: (printNoteOnOrder != null
-          ? printNoteOnOrder.value
-          : this.printNoteOnOrder),
-      termsConditionsId: (termsConditionsId != null
-          ? termsConditionsId.value
-          : this.termsConditionsId),
-      quikReceiptTermsConditionsId: (quikReceiptTermsConditionsId != null
-          ? quikReceiptTermsConditionsId.value
-          : this.quikReceiptTermsConditionsId),
-      quikReceiptTermsConditions: (quikReceiptTermsConditions != null
-          ? quikReceiptTermsConditions.value
-          : this.quikReceiptTermsConditions),
-      termsConditions: (termsConditions != null
-          ? termsConditions.value
-          : this.termsConditions),
-      containerId: (containerId != null ? containerId.value : this.containerId),
-      containerItemId: (containerItemId != null
-          ? containerItemId.value
-          : this.containerItemId),
-      containerDescription: (containerDescription != null
-          ? containerDescription.value
-          : this.containerDescription),
-      containerScannableBarCode: (containerScannableBarCode != null
-          ? containerScannableBarCode.value
-          : this.containerScannableBarCode),
-      containerScannableItemId: (containerScannableItemId != null
-          ? containerScannableItemId.value
-          : this.containerScannableItemId),
-      responsiblePersonId: (responsiblePersonId != null
-          ? responsiblePersonId.value
-          : this.responsiblePersonId),
-      responsiblePerson: (responsiblePerson != null
-          ? responsiblePerson.value
-          : this.responsiblePerson),
-      responsiblePersonEmail: (responsiblePersonEmail != null
-          ? responsiblePersonEmail.value
-          : this.responsiblePersonEmail),
-      responsiblePersonMobilePhone: (responsiblePersonMobilePhone != null
-          ? responsiblePersonMobilePhone.value
-          : this.responsiblePersonMobilePhone),
-      responsiblePersonOfficePhone: (responsiblePersonOfficePhone != null
-          ? responsiblePersonOfficePhone.value
-          : this.responsiblePersonOfficePhone),
-      responsiblePersonOfficeExtension:
-          (responsiblePersonOfficeExtension != null
-          ? responsiblePersonOfficeExtension.value
-          : this.responsiblePersonOfficeExtension),
-      hasPrintableBarCodes: (hasPrintableBarCodes != null
-          ? hasPrintableBarCodes.value
-          : this.hasPrintableBarCodes),
-      purchaseOrderAgentEmail: (purchaseOrderAgentEmail != null
-          ? purchaseOrderAgentEmail.value
-          : this.purchaseOrderAgentEmail),
-      enableExpectedReturnDate: (enableExpectedReturnDate != null
-          ? enableExpectedReturnDate.value
-          : this.enableExpectedReturnDate),
-      expectedReturnDate: (expectedReturnDate != null
-          ? expectedReturnDate.value
-          : this.expectedReturnDate),
-      enableExpectedReturnAlert: (enableExpectedReturnAlert != null
-          ? enableExpectedReturnAlert.value
-          : this.enableExpectedReturnAlert),
-      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
-      urlIdentifier: (urlIdentifier != null
-          ? urlIdentifier.value
-          : this.urlIdentifier),
-      fields: (fields != null ? fields.value : this.fields),
-      custom: (custom != null ? custom.value : this.custom),
-      defaultFieldAttributes: (defaultFieldAttributes != null
-          ? defaultFieldAttributes.value
-          : this.defaultFieldAttributes),
-      original: (original != null ? original.value : this.original),
-      translation: (translation != null ? translation.value : this.translation),
-      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-      hasDocuments: (hasDocuments != null
-          ? hasDocuments.value
-          : this.hasDocuments),
-      createdByUserId: (createdByUserId != null
-          ? createdByUserId.value
-          : this.createdByUserId),
-      createdByUserName: (createdByUserName != null
-          ? createdByUserName.value
-          : this.createdByUserName),
-      createdDateTime: (createdDateTime != null
-          ? createdDateTime.value
-          : this.createdDateTime),
-      modifiedByUserId: (modifiedByUserId != null
-          ? modifiedByUserId.value
-          : this.modifiedByUserId),
-      modifiedByUserName: (modifiedByUserName != null
-          ? modifiedByUserName.value
-          : this.modifiedByUserName),
-      modifiedDateTime: (modifiedDateTime != null
-          ? modifiedDateTime.value
-          : this.modifiedDateTime),
-    );
-  }
-}
-
 String? fwStandardSqlServerAttributesFwExcelOptionsNullableToJson(
   enums.FwStandardSqlServerAttributesFwExcelOptions?
   fwStandardSqlServerAttributesFwExcelOptions,
@@ -51630,9 +47976,9 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
 
     if (ResultType == DateTime) {
       return response.copyWith(
-        body:
-            DateTime.parse((response.body as String).replaceAll('"', ''))
-                as ResultType,
+        body: DateTime.parse(
+          (response.body as String).replaceAll('"', ''),
+        ) as ResultType,
       );
     }
 

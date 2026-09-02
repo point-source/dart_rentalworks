@@ -14,19 +14,6 @@ Map<String, dynamic> _$FwCoreApiSwashbuckleBadRequestResponseToJson(
   FwCoreApiSwashbuckleBadRequestResponse instance,
 ) => <String, dynamic>{};
 
-FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-_$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultFromJson(
-  Map<String, dynamic> json,
-) => FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
-  downloadUrl: json['downloadUrl'] as String?,
-);
-
-Map<String, dynamic>
-_$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
-  FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-  instance,
-) => <String, dynamic>{'downloadUrl': ?instance.downloadUrl};
-
 FwCoreControllersFwJwtControllerJwtResponseModel
 _$FwCoreControllersFwJwtControllerJwtResponseModelFromJson(
   Map<String, dynamic> json,
@@ -46,6 +33,21 @@ Map<String, dynamic> _$FwCoreControllersFwJwtControllerJwtResponseModelToJson(
   'access_token': ?instance.accessToken,
   'expires_in': ?instance.expiresIn,
   'resetpassword': ?instance.resetpassword,
+};
+
+FwCoreControllersGetServerUtcDateTimeResponse
+_$FwCoreControllersGetServerUtcDateTimeResponseFromJson(
+  Map<String, dynamic> json,
+) => FwCoreControllersGetServerUtcDateTimeResponse(
+  serverUtcDateTime: json['ServerUtcDateTime'] == null
+      ? null
+      : DateTime.parse(json['ServerUtcDateTime'] as String),
+);
+
+Map<String, dynamic> _$FwCoreControllersGetServerUtcDateTimeResponseToJson(
+  FwCoreControllersGetServerUtcDateTimeResponse instance,
+) => <String, dynamic>{
+  'ServerUtcDateTime': ?instance.serverUtcDateTime?.toIso8601String(),
 };
 
 FwStandardAppManagerFwAmSecurityTreeNode
@@ -76,167 +78,6 @@ Map<String, dynamic> _$FwStandardAppManagerFwAmSecurityTreeNodeToJson(
   'children': ?instance.children?.map((e) => e.toJson()).toList(),
 };
 
-FwStandardBusinessLogicFwBusinessLogic
-_$FwStandardBusinessLogicFwBusinessLogicFromJson(
-  Map<String, dynamic> json,
-) => FwStandardBusinessLogicFwBusinessLogic(
-  auditNote: json['AuditNote'] as String?,
-  recordTitle: json['RecordTitle'] as String?,
-  urlIdentifier: json['UrlIdentifier'],
-  fields:
-      (json['_Fields'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  custom:
-      (json['_Custom'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      [],
-  defaultFieldAttributes:
-      (json['_DefaultFieldAttributes'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwDefaultAttribute.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  original: json['_Original'] == null
-      ? null
-      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          json['_Original'] as Map<String, dynamic>,
-        ),
-  translation:
-      (json['_Translation'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwTranslatedValue.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  hasImport: json['_HasImport'] as bool?,
-  hasDocuments: json['_HasDocuments'] as bool?,
-  createdByUserId: json['CreatedByUserId'] as String?,
-  createdByUserName: json['CreatedByUserName'] as String?,
-  createdDateTime: json['CreatedDateTime'] as String?,
-  modifiedByUserId: json['ModifiedByUserId'] as String?,
-  modifiedByUserName: json['ModifiedByUserName'] as String?,
-  modifiedDateTime: json['ModifiedDateTime'] as String?,
-);
-
-Map<String, dynamic> _$FwStandardBusinessLogicFwBusinessLogicToJson(
-  FwStandardBusinessLogicFwBusinessLogic instance,
-) => <String, dynamic>{
-  'AuditNote': ?instance.auditNote,
-  'RecordTitle': ?instance.recordTitle,
-  'UrlIdentifier': ?instance.urlIdentifier,
-  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
-  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
-      ?.map((e) => e.toJson())
-      .toList(),
-  '_Original': ?instance.original?.toJson(),
-  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
-  '_HasImport': ?instance.hasImport,
-  '_HasDocuments': ?instance.hasDocuments,
-  'CreatedByUserId': ?instance.createdByUserId,
-  'CreatedByUserName': ?instance.createdByUserName,
-  'CreatedDateTime': ?instance.createdDateTime,
-  'ModifiedByUserId': ?instance.modifiedByUserId,
-  'ModifiedByUserName': ?instance.modifiedByUserName,
-  'ModifiedDateTime': ?instance.modifiedDateTime,
-};
-
-FwStandardBusinessLogicFwBusinessLogicFieldDefinition
-_$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionFromJson(
-  Map<String, dynamic> json,
-) => FwStandardBusinessLogicFwBusinessLogicFieldDefinition(
-  name: json['Name'] as String?,
-  dataType: fwStandardSqlServerFwDataTypesNullableFromJson(json['DataType']),
-  excelOptions: fwStandardSqlServerAttributesFwExcelOptionsNullableFromJson(
-    json['ExcelOptions'],
-  ),
-  maxLength: (json['MaxLength'] as num?)?.toInt(),
-  isRequired: json['IsRequired'] as bool?,
-  isPrimaryKey: json['IsPrimaryKey'] as bool?,
-  isReadOnly: json['IsReadOnly'] as bool?,
-  displayFieldName: json['DisplayFieldName'] as String?,
-  allowedValues: json['AllowedValues'] as String?,
-  templateSequence: (json['TemplateSequence'] as num?)?.toInt(),
-  isEmail: json['IsEmail'] as bool?,
-);
-
-Map<String, dynamic>
-_$FwStandardBusinessLogicFwBusinessLogicFieldDefinitionToJson(
-  FwStandardBusinessLogicFwBusinessLogicFieldDefinition instance,
-) => <String, dynamic>{
-  'Name': ?instance.name,
-  'DataType': ?fwStandardSqlServerFwDataTypesNullableToJson(instance.dataType),
-  'ExcelOptions': ?fwStandardSqlServerAttributesFwExcelOptionsNullableToJson(
-    instance.excelOptions,
-  ),
-  'MaxLength': ?instance.maxLength,
-  'IsRequired': ?instance.isRequired,
-  'IsPrimaryKey': ?instance.isPrimaryKey,
-  'IsReadOnly': ?instance.isReadOnly,
-  'DisplayFieldName': ?instance.displayFieldName,
-  'AllowedValues': ?instance.allowedValues,
-  'TemplateSequence': ?instance.templateSequence,
-  'IsEmail': ?instance.isEmail,
-};
-
-FwStandardDataFwCustomValue _$FwStandardDataFwCustomValueFromJson(
-  Map<String, dynamic> json,
-) => FwStandardDataFwCustomValue(
-  moduleName: json['ModuleName'] as String?,
-  fieldName: json['FieldName'] as String?,
-  fieldValue: json['FieldValue'] as String?,
-  fieldType: json['FieldType'] as String?,
-  validationModule: json['ValidationModule'] as String?,
-  validationFieldName: json['ValidationFieldName'] as String?,
-  validationFieldId: json['ValidationFieldId'] as String?,
-  listFieldAllowedValues: json['ListFieldAllowedValues'] as String?,
-);
-
-Map<String, dynamic> _$FwStandardDataFwCustomValueToJson(
-  FwStandardDataFwCustomValue instance,
-) => <String, dynamic>{
-  'ModuleName': ?instance.moduleName,
-  'FieldName': ?instance.fieldName,
-  'FieldValue': ?instance.fieldValue,
-  'FieldType': ?instance.fieldType,
-  'ValidationModule': ?instance.validationModule,
-  'ValidationFieldName': ?instance.validationFieldName,
-  'ValidationFieldId': ?instance.validationFieldId,
-  'ListFieldAllowedValues': ?instance.listFieldAllowedValues,
-};
-
-FwStandardDataFwDefaultAttribute _$FwStandardDataFwDefaultAttributeFromJson(
-  Map<String, dynamic> json,
-) => FwStandardDataFwDefaultAttribute(
-  fieldName: json['FieldName'] as String?,
-  attributeName: json['AttributeName'] as String?,
-  defaultValue: json['DefaultValue'] as String?,
-);
-
-Map<String, dynamic> _$FwStandardDataFwDefaultAttributeToJson(
-  FwStandardDataFwDefaultAttribute instance,
-) => <String, dynamic>{
-  'FieldName': ?instance.fieldName,
-  'AttributeName': ?instance.attributeName,
-  'DefaultValue': ?instance.defaultValue,
-};
-
 FwStandardDataFwTranslatedValue _$FwStandardDataFwTranslatedValueFromJson(
   Map<String, dynamic> json,
 ) => FwStandardDataFwTranslatedValue(
@@ -255,130 +96,6 @@ Map<String, dynamic> _$FwStandardDataFwTranslatedValueToJson(
   'UntranslatedValue': ?instance.untranslatedValue,
   'IsTranslated': ?instance.isTranslated,
   'UserIsTranslating': ?instance.userIsTranslating,
-};
-
-FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
-  Map<String, dynamic> json,
-) => FwStandardModelsBrowseRequest(
-  miscfields: json['miscfields'],
-  module: json['module'] as String?,
-  options: json['options'],
-  orderby: json['orderby'] as String?,
-  orderbydirection: json['orderbydirection'] as String?,
-  top: (json['top'] as num?)?.toInt(),
-  pageno: (json['pageno'] as num?)?.toInt(),
-  pagesize: (json['pagesize'] as num?)?.toInt(),
-  searchfieldoperators:
-      (json['searchfieldoperators'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
-  searchfields:
-      (json['searchfields'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
-  searchfieldvalues:
-      (json['searchfieldvalues'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
-  searchfieldtypes:
-      (json['searchfieldtypes'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
-  searchseparators:
-      (json['searchseparators'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
-  searchcondition:
-      (json['searchcondition'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
-  searchconjunctions:
-      (json['searchconjunctions'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
-  searchgroupings:
-      (json['searchgroupings'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList() ??
-      [],
-  uniqueids: json['uniqueids'],
-  boundids: json['boundids'],
-  filterfields: json['filterfields'] as Map<String, dynamic>?,
-  activeview: json['activeview'] as String?,
-  emptyobject: json['emptyobject'] as bool?,
-  forexcel: json['forexcel'] as bool?,
-  includeallcolumns: json['includeallcolumns'] as bool?,
-  fields:
-      (json['fields'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardModelsCheckBoxListItem.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  totalfields:
-      (json['totalfields'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
-  activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
-  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
-);
-
-Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
-  FwStandardModelsBrowseRequest instance,
-) => <String, dynamic>{
-  'miscfields': ?instance.miscfields,
-  'module': ?instance.module,
-  'options': ?instance.options,
-  'orderby': ?instance.orderby,
-  'orderbydirection': ?instance.orderbydirection,
-  'top': ?instance.top,
-  'pageno': ?instance.pageno,
-  'pagesize': ?instance.pagesize,
-  'searchfieldoperators': ?instance.searchfieldoperators,
-  'searchfields': ?instance.searchfields,
-  'searchfieldvalues': ?instance.searchfieldvalues,
-  'searchfieldtypes': ?instance.searchfieldtypes,
-  'searchseparators': ?instance.searchseparators,
-  'searchcondition': ?instance.searchcondition,
-  'searchconjunctions': ?instance.searchconjunctions,
-  'searchgroupings': ?instance.searchgroupings,
-  'uniqueids': ?instance.uniqueids,
-  'boundids': ?instance.boundids,
-  'filterfields': ?instance.filterfields,
-  'activeview': ?instance.activeview,
-  'emptyobject': ?instance.emptyobject,
-  'forexcel': ?instance.forexcel,
-  'includeallcolumns': ?instance.includeallcolumns,
-  'fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  'totalfields': ?instance.totalfields,
-  'activeviewfields': ?instance.activeviewfields,
-  'timezoneOffset': ?instance.timezoneOffset,
-};
-
-FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
-  Map<String, dynamic> json,
-) => FwStandardModelsCheckBoxListItem(
-  value: json['value'] as String?,
-  text: json['text'] as String?,
-  selected: json['selected'] as bool?,
-);
-
-Map<String, dynamic> _$FwStandardModelsCheckBoxListItemToJson(
-  FwStandardModelsCheckBoxListItem instance,
-) => <String, dynamic>{
-  'value': ?instance.value,
-  'text': ?instance.text,
-  'selected': ?instance.selected,
 };
 
 FwStandardModelsFwApiException _$FwStandardModelsFwApiExceptionFromJson(
@@ -421,55 +138,6 @@ Map<String, dynamic> _$FwStandardModelsFwApplicationUserToJson(
   'BrowserDeviceId': ?instance.browserDeviceId,
   'BrowserUserAgent': ?instance.browserUserAgent,
   'BrowserUrl': ?instance.browserUrl,
-};
-
-FwStandardModelsFwQueryFilter _$FwStandardModelsFwQueryFilterFromJson(
-  Map<String, dynamic> json,
-) => FwStandardModelsFwQueryFilter(
-  field: json['Field'] as String,
-  op: json['Op'] as String,
-  value: json['Value'] as String?,
-);
-
-Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
-  FwStandardModelsFwQueryFilter instance,
-) => <String, dynamic>{
-  'Field': instance.field,
-  'Op': instance.op,
-  'Value': ?instance.value,
-};
-
-FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-  Map<String, dynamic> json,
-) =>
-    FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items:
-          (json['Items'] as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-                      e as Map<String, dynamic>,
-                    ),
-              )
-              .toList() ??
-          [],
-      pageNo: (json['PageNo'] as num?)?.toInt(),
-      pageSize: (json['PageSize'] as num?)?.toInt(),
-      totalItems: (json['TotalItems'] as num?)?.toInt(),
-      sort: json['Sort'] as String?,
-    );
-
-Map<String, dynamic>
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  instance,
-) => <String, dynamic>{
-  'Items': ?instance.items?.map((e) => e.toJson()).toList(),
-  'PageNo': ?instance.pageNo,
-  'PageSize': ?instance.pageSize,
-  'TotalItems': ?instance.totalItems,
-  'Sort': ?instance.sort,
 };
 
 FwStandardSqlServerFwJsonDataTable _$FwStandardSqlServerFwJsonDataTableFromJson(
@@ -597,6 +265,8 @@ WebApiLogicAppFuncCustomFormModel _$WebApiLogicAppFuncCustomFormModelFromJson(
   thisUserOnly: json['ThisUserOnly'] as bool?,
   html: json['Html'] as String?,
   assignTo: json['AssignTo'] as String?,
+  metaData1: json['MetaData1'] as String?,
+  metaData2: json['MetaData2'] as String?,
 );
 
 Map<String, dynamic> _$WebApiLogicAppFuncCustomFormModelToJson(
@@ -608,6 +278,8 @@ Map<String, dynamic> _$WebApiLogicAppFuncCustomFormModelToJson(
   'ThisUserOnly': ?instance.thisUserOnly,
   'Html': ?instance.html,
   'AssignTo': ?instance.assignTo,
+  'MetaData1': ?instance.metaData1,
+  'MetaData2': ?instance.metaData2,
 };
 
 WebApiLogicAppFuncCustomFormsResponse
@@ -1116,6 +788,7 @@ WebApiLogicAppFuncSessionUser _$WebApiLogicAppFuncSessionUserFromJson(
   name: json['name'] as String?,
   browsedefaultrows: (json['browsedefaultrows'] as num?)?.toInt(),
   griddefaultrows: (json['griddefaultrows'] as num?)?.toInt(),
+  lastusedbrowsetemplatesjson: json['lastusedbrowsetemplatesjson'] as String?,
   applicationtheme: json['applicationtheme'] as String?,
   locale: json['locale'] as String?,
   locationid: json['locationid'] as String?,
@@ -1169,6 +842,7 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionUserToJson(
   'name': ?instance.name,
   'browsedefaultrows': ?instance.browsedefaultrows,
   'griddefaultrows': ?instance.griddefaultrows,
+  'lastusedbrowsetemplatesjson': ?instance.lastusedbrowsetemplatesjson,
   'applicationtheme': ?instance.applicationtheme,
   'locale': ?instance.locale,
   'locationid': ?instance.locationid,
@@ -1227,6 +901,9 @@ WebApiLogicAppFuncSessionWarehouse _$WebApiLogicAppFuncSessionWarehouseFromJson(
   internalorderdealid: json['internalorderdealid'] as String?,
   checkinenablescanningtoaisleshelf:
       json['checkinenablescanningtoaisleshelf'] as bool?,
+  automaticallyassignshippingcaseno:
+      json['automaticallyassignshippingcaseno'] as bool?,
+  defaultshippingcaseweight: json['defaultshippingcaseweight'] as bool?,
 );
 
 Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
@@ -1248,6 +925,9 @@ Map<String, dynamic> _$WebApiLogicAppFuncSessionWarehouseToJson(
   'internalorderdealid': ?instance.internalorderdealid,
   'checkinenablescanningtoaisleshelf':
       ?instance.checkinenablescanningtoaisleshelf,
+  'automaticallyassignshippingcaseno':
+      ?instance.automaticallyassignshippingcaseno,
+  'defaultshippingcaseweight': ?instance.defaultshippingcaseweight,
 };
 
 WebApiLogicAppFuncSystemNumbersModel
@@ -1310,6 +990,7 @@ _$WebApiLogicAppFuncSystemSettingsResponseFromJson(
   dataLanguage: json['DataLanguage'] as String?,
   allCaps: json['AllCaps'] as bool?,
   enableQuikLocate: json['EnableQuikLocate'] as bool?,
+  enableOrderItemViews: json['EnableOrderItemViews'] as bool?,
   departmentFilter: json['DepartmentFilter'] as bool?,
   defaultBillingSelectAllOrders: json['DefaultBillingSelectAllOrders'] as bool?,
   defaultProcessConsignmentSelectAllInvoices:
@@ -1349,6 +1030,7 @@ Map<String, dynamic> _$WebApiLogicAppFuncSystemSettingsResponseToJson(
   'DataLanguage': ?instance.dataLanguage,
   'AllCaps': ?instance.allCaps,
   'EnableQuikLocate': ?instance.enableQuikLocate,
+  'EnableOrderItemViews': ?instance.enableOrderItemViews,
   'DepartmentFilter': ?instance.departmentFilter,
   'DefaultBillingSelectAllOrders': ?instance.defaultBillingSelectAllOrders,
   'DefaultProcessConsignmentSelectAllInvoices':
@@ -1636,6 +1318,8 @@ _$WebApiModulesAccountServicesAccountSystemSettingsResponseFromJson(
   enableSetsWalls: json['EnableSetsWalls'] as bool?,
   isStorefrontHosted: json['IsStorefrontHosted'] as bool?,
   isStorefrontApiEnabled: json['IsStorefrontApiEnabled'] as bool?,
+  isPortalHosted: json['IsPortalHosted'] as bool?,
+  isPortalApiEnabled: json['IsPortalApiEnabled'] as bool?,
   isUniversity: json['IsUniversity'] as bool?,
   systemUTCDateTime: json['SystemUTCDateTime'] == null
       ? null
@@ -1656,6 +1340,8 @@ _$WebApiModulesAccountServicesAccountSystemSettingsResponseToJson(
   'EnableSetsWalls': ?instance.enableSetsWalls,
   'IsStorefrontHosted': ?instance.isStorefrontHosted,
   'IsStorefrontApiEnabled': ?instance.isStorefrontApiEnabled,
+  'IsPortalHosted': ?instance.isPortalHosted,
+  'IsPortalApiEnabled': ?instance.isPortalApiEnabled,
   'IsUniversity': ?instance.isUniversity,
   'SystemUTCDateTime': ?instance.systemUTCDateTime?.toIso8601String(),
 };
@@ -1696,123 +1382,4 @@ Map<String, dynamic> _$WebApiModulesAccountServicesJwtOktaRequestToJson(
   'Token': ?instance.token,
   'Issuer': ?instance.issuer,
   'Audience': ?instance.audience,
-};
-
-WebApiModulesAdministratorTaskSchedulerTaskSteps
-_$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesAdministratorTaskSchedulerTaskSteps(
-  taskStepsId: (json['TaskStepsId'] as num?)?.toInt(),
-  taskId: (json['TaskId'] as num?)?.toInt(),
-  name: json['Name'] as String?,
-  stepNumber: (json['StepNumber'] as num?)?.toInt(),
-  type: json['Type'] as String?,
-  command: json['Command'] as String?,
-  onSuccessActionDisplay: json['OnSuccessActionDisplay'] as String?,
-  onFailureActionDisplay: json['OnFailureActionDisplay'] as String?,
-  onSuccessAction: (json['OnSuccessAction'] as num?)?.toInt(),
-  retryAttempts: (json['RetryAttempts'] as num?)?.toInt(),
-  retryInterval: (json['RetryInterval'] as num?)?.toInt(),
-  onFailureAction: (json['OnFailureAction'] as num?)?.toInt(),
-  onSuccessTaskStepsId: (json['OnSuccessTaskStepsId'] as num?)?.toInt(),
-  onFailureTaskStepsId: (json['OnFailureTaskStepsId'] as num?)?.toInt(),
-  outputFilename: json['OutputFilename'] as String?,
-  lastRunOutcome: (json['LastRunOutcome'] as num?)?.toInt(),
-  lastRunDuration: (json['LastRunDuration'] as num?)?.toInt(),
-  lastRunRetries: (json['LastRunRetries'] as num?)?.toInt(),
-  dateStamp: json['DateStamp'] as String?,
-  auditNote: json['AuditNote'] as String?,
-  recordTitle: json['RecordTitle'] as String?,
-  urlIdentifier: json['UrlIdentifier'],
-  fields:
-      (json['_Fields'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  custom:
-      (json['_Custom'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      [],
-  defaultFieldAttributes:
-      (json['_DefaultFieldAttributes'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwDefaultAttribute.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  original: json['_Original'] == null
-      ? null
-      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          json['_Original'] as Map<String, dynamic>,
-        ),
-  translation:
-      (json['_Translation'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwTranslatedValue.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  hasImport: json['_HasImport'] as bool?,
-  hasDocuments: json['_HasDocuments'] as bool?,
-  createdByUserId: json['CreatedByUserId'] as String?,
-  createdByUserName: json['CreatedByUserName'] as String?,
-  createdDateTime: json['CreatedDateTime'] as String?,
-  modifiedByUserId: json['ModifiedByUserId'] as String?,
-  modifiedByUserName: json['ModifiedByUserName'] as String?,
-  modifiedDateTime: json['ModifiedDateTime'] as String?,
-);
-
-Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
-  WebApiModulesAdministratorTaskSchedulerTaskSteps instance,
-) => <String, dynamic>{
-  'TaskStepsId': ?instance.taskStepsId,
-  'TaskId': ?instance.taskId,
-  'Name': ?instance.name,
-  'StepNumber': ?instance.stepNumber,
-  'Type': ?instance.type,
-  'Command': ?instance.command,
-  'OnSuccessActionDisplay': ?instance.onSuccessActionDisplay,
-  'OnFailureActionDisplay': ?instance.onFailureActionDisplay,
-  'OnSuccessAction': ?instance.onSuccessAction,
-  'RetryAttempts': ?instance.retryAttempts,
-  'RetryInterval': ?instance.retryInterval,
-  'OnFailureAction': ?instance.onFailureAction,
-  'OnSuccessTaskStepsId': ?instance.onSuccessTaskStepsId,
-  'OnFailureTaskStepsId': ?instance.onFailureTaskStepsId,
-  'OutputFilename': ?instance.outputFilename,
-  'LastRunOutcome': ?instance.lastRunOutcome,
-  'LastRunDuration': ?instance.lastRunDuration,
-  'LastRunRetries': ?instance.lastRunRetries,
-  'DateStamp': ?instance.dateStamp,
-  'AuditNote': ?instance.auditNote,
-  'RecordTitle': ?instance.recordTitle,
-  'UrlIdentifier': ?instance.urlIdentifier,
-  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
-  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
-      ?.map((e) => e.toJson())
-      .toList(),
-  '_Original': ?instance.original?.toJson(),
-  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
-  '_HasImport': ?instance.hasImport,
-  '_HasDocuments': ?instance.hasDocuments,
-  'CreatedByUserId': ?instance.createdByUserId,
-  'CreatedByUserName': ?instance.createdByUserName,
-  'CreatedDateTime': ?instance.createdDateTime,
-  'ModifiedByUserId': ?instance.modifiedByUserId,
-  'ModifiedByUserName': ?instance.modifiedByUserName,
-  'ModifiedDateTime': ?instance.modifiedDateTime,
 };

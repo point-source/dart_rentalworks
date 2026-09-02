@@ -5,15 +5,19 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:json_annotation/json_annotation.dart' as json;
 import 'package:collection/collection.dart';
+
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
 
 import 'client_mapping.dart';
+
 import 'dart:async';
+
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
+
 import 'plugins.enums.swagger.dart' as enums;
 import 'plugins.metadata.swagger.dart';
 export 'plugins.enums.swagger.dart';
@@ -216,8 +220,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Call BoxedUp to signup for an account and provide a RentalWorks access token.',
+      summary: 'Call BoxedUp to signup for an account and provide a RentalWorks access token.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -331,13 +334,358 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Mock service for testing BoxedUp\'s /user/3p/update_access_token endpoint',
+      summary: 'Mock service for testing BoxedUp\'s /user/3p/update_access_token endpoint',
       operationId: '',
       consumes: [],
       produces: [],
       security: [],
       tags: ["BoxedUpPlugin"],
+      deprecated: false,
+    ),
+  });
+
+  ///Get contact credit card accounts.
+  ///@param locationid
+  ///@param contactid
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+    >
+  >
+  creditcardpluginProfileContactContactidLocationLocationidAccountGet({
+    required String? locationid,
+    required String? contactid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount,
+      () => FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+          .fromJsonFactory,
+    );
+
+    return _creditcardpluginProfileContactContactidLocationLocationidAccountGet(
+      locationid: locationid,
+      contactid: contactid,
+      pageno: pageno,
+      pagesize: pagesize,
+      sort: sort,
+      filter: filter,
+    );
+  }
+
+  ///Get contact credit card accounts.
+  ///@param locationid
+  ///@param contactid
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  @GET(
+    path: '/creditcardplugin/profile/contact/{contactid}/location/{locationid}/account',
+  )
+  Future<
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+    >
+  >
+  _creditcardpluginProfileContactContactidLocationLocationidAccountGet({
+    @Path('locationid') required String? locationid,
+    @Path('contactid') required String? contactid,
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get contact credit card accounts.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
+      deprecated: false,
+    ),
+  });
+
+  ///Create/update a contact credit card account.
+  ///@param locationid
+  ///@param contactid
+  Future<
+    chopper.Response<
+      WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse
+    >
+  >
+  creditcardpluginProfileContactContactidLocationLocationidAccountPost({
+    required String? locationid,
+    required String? contactid,
+    required WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse,
+      () =>
+          WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse
+              .fromJsonFactory,
+    );
+
+    return _creditcardpluginProfileContactContactidLocationLocationidAccountPost(
+      locationid: locationid,
+      contactid: contactid,
+      body: body,
+    );
+  }
+
+  ///Create/update a contact credit card account.
+  ///@param locationid
+  ///@param contactid
+  @POST(
+    path: '/creditcardplugin/profile/contact/{contactid}/location/{locationid}/account',
+    optionalBody: true,
+  )
+  Future<
+    chopper.Response<
+      WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse
+    >
+  >
+  _creditcardpluginProfileContactContactidLocationLocationidAccountPost({
+    @Path('locationid') required String? locationid,
+    @Path('contactid') required String? contactid,
+    @Body()
+    required WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Create/update a contact credit card account.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
+      deprecated: false,
+    ),
+  });
+
+  ///Get contact credit card accounts that have card on file permission from the customer.
+  ///@param locationid
+  ///@param contactid
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  Future<
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+    >
+  >
+  creditcardpluginProfileContactContactidLocationLocationidAuthorizedaccountGet({
+    required String? locationid,
+    required String? contactid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount,
+      () => FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+          .fromJsonFactory,
+    );
+
+    return _creditcardpluginProfileContactContactidLocationLocationidAuthorizedaccountGet(
+      locationid: locationid,
+      contactid: contactid,
+      pageno: pageno,
+      pagesize: pagesize,
+      sort: sort,
+      filter: filter,
+    );
+  }
+
+  ///Get contact credit card accounts that have card on file permission from the customer.
+  ///@param locationid
+  ///@param contactid
+  ///@param pageno
+  ///@param pagesize
+  ///@param sort
+  ///@param filter
+  @GET(
+    path: '/creditcardplugin/profile/contact/{contactid}/location/{locationid}/authorizedaccount',
+  )
+  Future<
+    chopper.Response<
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+    >
+  >
+  _creditcardpluginProfileContactContactidLocationLocationidAuthorizedaccountGet({
+    @Path('locationid') required String? locationid,
+    @Path('contactid') required String? contactid,
+    @Query('pageno') int? pageno,
+    @Query('pagesize') int? pagesize,
+    @Query('sort') String? sort,
+    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get contact credit card accounts that have card on file permission from the customer.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
+      deprecated: false,
+    ),
+  });
+
+  ///Get contact default credit card account.
+  ///@param locationid
+  ///@param dealid
+  ///@param contactid
+  Future<chopper.Response>
+  creditcardpluginProfileContactContactidLocationLocationidDefaultaccountGet({
+    required String? locationid,
+    required String? dealid,
+    required String? contactid,
+  }) {
+    return _creditcardpluginProfileContactContactidLocationLocationidDefaultaccountGet(
+      locationid: locationid,
+      dealid: dealid,
+      contactid: contactid,
+    );
+  }
+
+  ///Get contact default credit card account.
+  ///@param locationid
+  ///@param dealid
+  ///@param contactid
+  @GET(
+    path: '/creditcardplugin/profile/contact/{contactid}/location/{locationid}/defaultaccount',
+  )
+  Future<chopper.Response>
+  _creditcardpluginProfileContactContactidLocationLocationidDefaultaccountGet({
+    @Path('locationid') required String? locationid,
+    @Path('dealid') required String? dealid,
+    @Path('contactid') required String? contactid,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get contact default credit card account.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
+      deprecated: false,
+    ),
+  });
+
+  ///Get contact credit card account.
+  ///@param locationid
+  ///@param contactid
+  ///@param accountid
+  Future<chopper.Response<WebApiModulesPluginsCreditCardAccount>>
+  creditcardpluginProfileContactContactidLocationLocationidAccountAccountidGet({
+    required String? locationid,
+    required String? contactid,
+    required String? accountid,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesPluginsCreditCardAccount,
+      () => WebApiModulesPluginsCreditCardAccount.fromJsonFactory,
+    );
+
+    return _creditcardpluginProfileContactContactidLocationLocationidAccountAccountidGet(
+      locationid: locationid,
+      contactid: contactid,
+      accountid: accountid,
+    );
+  }
+
+  ///Get contact credit card account.
+  ///@param locationid
+  ///@param contactid
+  ///@param accountid
+  @GET(
+    path: '/creditcardplugin/profile/contact/{contactid}/location/{locationid}/account/{accountid}',
+  )
+  Future<chopper.Response<WebApiModulesPluginsCreditCardAccount>>
+  _creditcardpluginProfileContactContactidLocationLocationidAccountAccountidGet({
+    @Path('locationid') required String? locationid,
+    @Path('contactid') required String? contactid,
+    @Path('accountid') required String? accountid,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get contact credit card account.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
+      deprecated: false,
+    ),
+  });
+
+  ///Delete a contact credit card account.
+  ///@param locationid
+  ///@param contactid
+  ///@param accountid
+  Future<
+    chopper.Response<
+      WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse
+    >
+  >
+  creditcardpluginProfileContactContactidLocationLocationidAccountAccountidDelete({
+    required String? locationid,
+    required String? contactid,
+    required String? accountid,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse,
+      () => WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse
+          .fromJsonFactory,
+    );
+
+    return _creditcardpluginProfileContactContactidLocationLocationidAccountAccountidDelete(
+      locationid: locationid,
+      contactid: contactid,
+      accountid: accountid,
+    );
+  }
+
+  ///Delete a contact credit card account.
+  ///@param locationid
+  ///@param contactid
+  ///@param accountid
+  @DELETE(
+    path: '/creditcardplugin/profile/contact/{contactid}/location/{locationid}/account/{accountid}',
+  )
+  Future<
+    chopper.Response<
+      WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse
+    >
+  >
+  _creditcardpluginProfileContactContactidLocationLocationidAccountAccountidDelete({
+    @Path('locationid') required String? locationid,
+    @Path('contactid') required String? contactid,
+    @Path('accountid') required String? accountid,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Delete a contact credit card account.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
       deprecated: false,
     ),
   });
@@ -511,8 +859,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Returns a boolean if an order has credit card transaction log records.',
+      summary: 'Returns a boolean if an order has credit card transaction log records.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -646,8 +993,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Create a credit card pre-authorization record and do a credit card authorize transaction (unless there\'s an approval step).',
+      summary: 'Create a credit card pre-authorization record and do a credit card authorize transaction (unless there\'s an approval step).',
       operationId: '',
       consumes: [],
       produces: [],
@@ -774,8 +1120,7 @@ abstract class Plugins extends ChopperService {
   ///Get total of all credit card pre-authorization records for an order where status is APPROVED.
   ///@param OrderId
   @GET(
-    path:
-        '/creditcardplugin/preauthorization/order/{orderid}/totalpreauthorizationamount',
+    path: '/creditcardplugin/preauthorization/order/{orderid}/totalpreauthorizationamount',
   )
   Future<chopper.Response<num>>
   _creditcardpluginPreauthorizationOrderOrderidTotalpreauthorizationamountGet({
@@ -783,8 +1128,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Get total of all credit card pre-authorization records for an order where status is APPROVED.',
+      summary: 'Get total of all credit card pre-authorization records for an order where status is APPROVED.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -808,8 +1152,7 @@ abstract class Plugins extends ChopperService {
   ///Returns a boolean if an order has any pre-authorization records (no status filter).
   ///@param OrderId
   @GET(
-    path:
-        '/creditcardplugin/preauthorization/order/{orderid}/haspreauthorizationrecords',
+    path: '/creditcardplugin/preauthorization/order/{orderid}/haspreauthorizationrecords',
   )
   Future<chopper.Response<bool>>
   _creditcardpluginPreauthorizationOrderOrderidHaspreauthorizationrecordsGet({
@@ -817,8 +1160,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Returns a boolean if an order has any pre-authorization records (no status filter).',
+      summary: 'Returns a boolean if an order has any pre-authorization records (no status filter).',
       operationId: '',
       consumes: [],
       produces: [],
@@ -860,8 +1202,7 @@ abstract class Plugins extends ChopperService {
   ///@param locationid
   ///@param orderid
   @POST(
-    path:
-        '/creditcardplugin/preauthorization/location/{locationid}/order/{orderid}/capturepreauthorizations',
+    path: '/creditcardplugin/preauthorization/location/{locationid}/order/{orderid}/capturepreauthorizations',
     optionalBody: true,
   )
   Future<
@@ -878,8 +1219,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Capture pre-authorizations for an order and create depleting deposits.',
+      summary: 'Capture pre-authorizations for an order and create depleting deposits.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -921,8 +1261,7 @@ abstract class Plugins extends ChopperService {
   ///@param preauthorizationid
   ///@param locationid
   @POST(
-    path:
-        '/creditcardplugin/preauthorization/{preauthorizationid}/location/{locationid}/capture',
+    path: '/creditcardplugin/preauthorization/{preauthorizationid}/location/{locationid}/capture',
     optionalBody: true,
   )
   Future<
@@ -981,8 +1320,7 @@ abstract class Plugins extends ChopperService {
   ///@param preauthorizationid
   ///@param locationid
   @POST(
-    path:
-        '/creditcardplugin/preauthorization/{preauthorizationid}/location/{locationid}/updatestatus',
+    path: '/creditcardplugin/preauthorization/{preauthorizationid}/location/{locationid}/updatestatus',
     optionalBody: true,
   )
   Future<
@@ -1040,8 +1378,7 @@ abstract class Plugins extends ChopperService {
   ///@param preauthorizationid
   ///@param locationid
   @POST(
-    path:
-        '/creditcardplugin/preauthorization/{preauthorizationid}/location/{locationid}/void',
+    path: '/creditcardplugin/preauthorization/{preauthorizationid}/location/{locationid}/void',
     optionalBody: true,
   )
   Future<
@@ -1112,8 +1449,7 @@ abstract class Plugins extends ChopperService {
   ///@param sort
   ///@param filter
   @GET(
-    path:
-        '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/account',
+    path: '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/account',
   )
   Future<
     chopper.Response<
@@ -1172,8 +1508,7 @@ abstract class Plugins extends ChopperService {
   ///@param locationid
   ///@param customerid
   @POST(
-    path:
-        '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/account',
+    path: '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/account',
     optionalBody: true,
   )
   Future<
@@ -1244,8 +1579,7 @@ abstract class Plugins extends ChopperService {
   ///@param sort
   ///@param filter
   @GET(
-    path:
-        '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/authorizedaccount',
+    path: '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/authorizedaccount',
   )
   Future<
     chopper.Response<
@@ -1262,8 +1596,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Get customer credit card accounts that have card on file permission from the customer.',
+      summary: 'Get customer credit card accounts that have card on file permission from the customer.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -1291,8 +1624,7 @@ abstract class Plugins extends ChopperService {
   ///@param locationid
   ///@param customerid
   @GET(
-    path:
-        '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/defaultaccount',
+    path: '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/defaultaccount',
   )
   Future<chopper.Response>
   _creditcardpluginProfileCustomerCustomeridLocationLocationidDefaultaccountGet({
@@ -1301,8 +1633,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Get customer default credit card account. Returns null if not found.',
+      summary: 'Get customer default credit card account. Returns null if not found.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -1339,8 +1670,7 @@ abstract class Plugins extends ChopperService {
   ///@param customerid
   ///@param accountid
   @GET(
-    path:
-        '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/account/{accountid}',
+    path: '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/account/{accountid}',
   )
   Future<chopper.Response<WebApiModulesPluginsCreditCardAccount>>
   _creditcardpluginProfileCustomerCustomeridLocationLocationidAccountAccountidGet({
@@ -1392,8 +1722,7 @@ abstract class Plugins extends ChopperService {
   ///@param customerid
   ///@param accountid
   @DELETE(
-    path:
-        '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/account/{accountid}',
+    path: '/creditcardplugin/profile/customer/{customerid}/location/{locationid}/account/{accountid}',
   )
   Future<
     chopper.Response<
@@ -1593,8 +1922,7 @@ abstract class Plugins extends ChopperService {
   ///@param sort
   ///@param filter
   @GET(
-    path:
-        '/creditcardplugin/profile/deal/{dealid}/location/{locationid}/authorizedaccount',
+    path: '/creditcardplugin/profile/deal/{dealid}/location/{locationid}/authorizedaccount',
   )
   Future<
     chopper.Response<
@@ -1611,8 +1939,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Get deal credit card accounts that have card on file permission from the customer.',
+      summary: 'Get deal credit card accounts that have card on file permission from the customer.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -1640,8 +1967,7 @@ abstract class Plugins extends ChopperService {
   ///@param locationid
   ///@param dealid
   @GET(
-    path:
-        '/creditcardplugin/profile/deal/{dealid}/location/{locationid}/defaultaccount',
+    path: '/creditcardplugin/profile/deal/{dealid}/location/{locationid}/defaultaccount',
   )
   Future<chopper.Response>
   _creditcardpluginProfileDealDealidLocationLocationidDefaultaccountGet({
@@ -1687,8 +2013,7 @@ abstract class Plugins extends ChopperService {
   ///@param dealid
   ///@param accountid
   @GET(
-    path:
-        '/creditcardplugin/profile/deal/{dealid}/location/{locationid}/account/{accountid}',
+    path: '/creditcardplugin/profile/deal/{dealid}/location/{locationid}/account/{accountid}',
   )
   Future<chopper.Response<WebApiModulesPluginsCreditCardAccount>>
   _creditcardpluginProfileDealDealidLocationLocationidAccountAccountidGet({
@@ -1740,8 +2065,7 @@ abstract class Plugins extends ChopperService {
   ///@param dealid
   ///@param accountid
   @DELETE(
-    path:
-        '/creditcardplugin/profile/deal/{dealid}/location/{locationid}/account/{accountid}',
+    path: '/creditcardplugin/profile/deal/{dealid}/location/{locationid}/account/{accountid}',
   )
   Future<
     chopper.Response<
@@ -1959,8 +2283,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Do a credit card authorize and capture transaction and create a depleting deposit receipt.',
+      summary: 'Do a credit card authorize and capture transaction and create a depleting deposit receipt.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -2042,8 +2365,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Returns a boolean used to toggle the View Deposits button on an Order.  The value is true when there is data to see.',
+      summary: 'Returns a boolean used to toggle the View Deposits button on an Order.  The value is true when there is data to see.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -2171,8 +2493,7 @@ abstract class Plugins extends ChopperService {
   ///@param token
   ///@param locationid
   @GET(
-    path:
-        '/creditcardplugin/processcreditcardinfo/paymenttypebytoken/{token}/location/{locationid}',
+    path: '/creditcardplugin/processcreditcardinfo/paymenttypebytoken/{token}/location/{locationid}',
   )
   Future<
     chopper.Response<WebApiModulesPluginsCreditCardProcessCreditCardPaymentType>
@@ -2183,8 +2504,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Returns a PaymentType record with fees given a tokenized card number.',
+      summary: 'Returns a PaymentType record with fees given a tokenized card number.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -2280,8 +2600,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Voids a credit card payment receipt if the transaction has not been settled and the receipt has not been exported',
+      summary: 'Voids a credit card payment receipt if the transaction has not been settled and the receipt has not been exported',
       operationId: '',
       consumes: [],
       produces: [],
@@ -2402,8 +2721,7 @@ abstract class Plugins extends ChopperService {
   ///Calls InquireMerchant on the CardPointe GatewayApi to get the surcharge fee percentage.
   ///@param locationid
   @GET(
-    path:
-        '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/{locationid}',
+    path: '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/{locationid}',
   )
   Future<
     chopper.Response<
@@ -2415,8 +2733,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Calls InquireMerchant on the CardPointe GatewayApi to get the surcharge fee percentage.',
+      summary: 'Calls InquireMerchant on the CardPointe GatewayApi to get the surcharge fee percentage.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -2467,8 +2784,7 @@ abstract class Plugins extends ChopperService {
   ///@param postalcode
   ///@param amount
   @GET(
-    path:
-        '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/{locationid}/customer/{customerid}/accountid/{accountid}/postalcode/{postalcode}/amount/{amount}',
+    path: '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/{locationid}/customer/{customerid}/accountid/{accountid}/postalcode/{postalcode}/amount/{amount}',
   )
   Future<
     chopper.Response<
@@ -2484,8 +2800,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Calls the Cardpointe Gateway API Surcharge endpoint to determine if there is a surcharge for this postal code.  Accountid should be the saved card number from the proifle.  If so, then calls CardPointe Gateway API InquireMerchant to determine the surcharge percent and returns the percentages and totals.',
+      summary: 'Calls the Cardpointe Gateway API Surcharge endpoint to determine if there is a surcharge for this postal code.  Accountid should be the saved card number from the proifle.  If so, then calls CardPointe Gateway API InquireMerchant to determine the surcharge percent and returns the percentages and totals.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -2536,8 +2851,7 @@ abstract class Plugins extends ChopperService {
   ///@param postalcode
   ///@param amount
   @GET(
-    path:
-        '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/{locationid}/deal/{dealid}/accountid/{accountid}/postalcode/{postalcode}/amount/{amount}',
+    path: '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/{locationid}/deal/{dealid}/accountid/{accountid}/postalcode/{postalcode}/amount/{amount}',
   )
   Future<
     chopper.Response<
@@ -2553,8 +2867,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Calls the Cardpointe Gateway API Surcharge endpoint to determine if there is a surcharge for this postal code.  If so, then calls CardPointe Gateway API InquireMerchant to determine the surcharge percent and returns the percentages and totals.',
+      summary: 'Calls the Cardpointe Gateway API Surcharge endpoint to determine if there is a surcharge for this postal code.  If so, then calls CardPointe Gateway API InquireMerchant to determine the surcharge percent and returns the percentages and totals.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -2601,8 +2914,7 @@ abstract class Plugins extends ChopperService {
   ///@param postalcode
   ///@param amount
   @GET(
-    path:
-        '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/{locationid}/account/{accountid}/postalcode/{postalcode}/amount/{amount}',
+    path: '/creditcardplugin/cardpointe/gatewayapi/surchargefee/location/{locationid}/account/{accountid}/postalcode/{postalcode}/amount/{amount}',
   )
   Future<
     chopper.Response<
@@ -2617,8 +2929,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Calls the Cardpointe Gateway API Surcharge endpoint to determine if there is a surcharge for an account (tokenized card #).',
+      summary: 'Calls the Cardpointe Gateway API Surcharge endpoint to determine if there is a surcharge for an account (tokenized card #).',
       operationId: '',
       consumes: [],
       produces: [],
@@ -2654,8 +2965,7 @@ abstract class Plugins extends ChopperService {
   ///@param accountid
   ///@param locationid
   @GET(
-    path:
-        '/creditcardplugin/cardpointe/gatewayapi/carddetails/account/{accountid}/location/{locationid}',
+    path: '/creditcardplugin/cardpointe/gatewayapi/carddetails/account/{accountid}/location/{locationid}',
   )
   Future<
     chopper.Response<WebApiModulesPluginsCreditCardCreditCardPluginBinResponse>
@@ -2666,8 +2976,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Calls the Cardpointe Gateway API BIN endpoint to get info about the card such as whether it\'s credit or debit.',
+      summary: 'Calls the Cardpointe Gateway API BIN endpoint to get info about the card such as whether it\'s credit or debit.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -2691,8 +3000,7 @@ abstract class Plugins extends ChopperService {
   ///This determines if MerchId (Surcharge) is configured in CardPointe plugin settings.
   ///@param locationid
   @GET(
-    path:
-        '/creditcardplugin/cardpointe/iscreditcardfeeenabled/location/{locationid}',
+    path: '/creditcardplugin/cardpointe/iscreditcardfeeenabled/location/{locationid}',
   )
   Future<chopper.Response<bool>>
   _creditcardpluginCardpointeIscreditcardfeeenabledLocationLocationidGet({
@@ -2700,8 +3008,7 @@ abstract class Plugins extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'This determines if MerchId (Surcharge) is configured in CardPointe plugin settings.',
+      summary: 'This determines if MerchId (Surcharge) is configured in CardPointe plugin settings.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -2776,6 +3083,34 @@ abstract class Plugins extends ChopperService {
       produces: [],
       security: [],
       tags: ["FreightPopPlugin"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  fwutilityServerutcdatetimeGet() {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      () => FwCoreControllersGetServerUtcDateTimeResponse.fromJsonFactory,
+    );
+
+    return _fwutilityServerutcdatetimeGet();
+  }
+
+  ///
+  @GET(path: '/fwutility/serverutcdatetime')
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FwUtility"],
       deprecated: false,
     ),
   });
@@ -3348,8 +3683,7 @@ abstract class Plugins extends ChopperService {
   ///@param locationid
   ///@param order_number
   @POST(
-    path:
-        '/shopifyplugin/create_quote_from_shopify_order/location/{locationid}/order_number/{order_number}',
+    path: '/shopifyplugin/create_quote_from_shopify_order/location/{locationid}/order_number/{order_number}',
     optionalBody: true,
   )
   Future<chopper.Response<String>>
@@ -3365,261 +3699,6 @@ abstract class Plugins extends ChopperService {
       produces: [],
       security: [],
       tags: ["ShopifyPlugin"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardSqlServerFwJsonDataTable,
-      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsBrowsePost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/browse', optionalBody: true)
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      () =>
-          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsExportexcelxlsxPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/exportexcelxlsx', optionalBody: true)
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      () =>
-          FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsGet(
-      pageno: pageno,
-      pagesize: pagesize,
-      sort: sort,
-      filter: filter,
-    );
-  }
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  @GET(path: '/taskscheduler/tasksteps')
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    @Query('pageno') int? pageno,
-    @Query('pagesize') int? pagesize,
-    @Query('sort') String? sort,
-    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdGet({required String? id}) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdGet(id: id);
-  }
-
-  ///
-  ///@param id
-  @GET(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdPut(id: id, body: body);
-  }
-
-  ///
-  ///@param id
-  @PUT(path: '/taskscheduler/tasksteps/{id}', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    @Path('id') required String? id,
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<bool>> taskschedulerTaskstepsIdDelete({
-    required String? id,
-  }) {
-    return _taskschedulerTaskstepsIdDelete(id: id);
-  }
-
-  ///
-  ///@param id
-  @DELETE(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<bool>> _taskschedulerTaskstepsIdDelete({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
       deprecated: false,
     ),
   });
@@ -3761,6 +3840,65 @@ extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResu
   copyWithWrapped({Wrapped<String?>? downloadUrl}) {
     return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
       downloadUrl: (downloadUrl != null ? downloadUrl.value : this.downloadUrl),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwCoreControllersGetServerUtcDateTimeResponse {
+  const FwCoreControllersGetServerUtcDateTimeResponse({this.serverUtcDateTime});
+
+  factory FwCoreControllersGetServerUtcDateTimeResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$FwCoreControllersGetServerUtcDateTimeResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson(this);
+
+  @JsonKey(name: 'ServerUtcDateTime', includeIfNull: false)
+  final DateTime? serverUtcDateTime;
+  static const fromJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is FwCoreControllersGetServerUtcDateTimeResponse &&
+            (identical(other.serverUtcDateTime, serverUtcDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.serverUtcDateTime,
+                  serverUtcDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(serverUtcDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $FwCoreControllersGetServerUtcDateTimeResponseExtension
+    on FwCoreControllersGetServerUtcDateTimeResponse {
+  FwCoreControllersGetServerUtcDateTimeResponse copyWith({
+    DateTime? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: serverUtcDateTime ?? this.serverUtcDateTime,
+    );
+  }
+
+  FwCoreControllersGetServerUtcDateTimeResponse copyWithWrapped({
+    Wrapped<DateTime?>? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: (serverUtcDateTime != null
+          ? serverUtcDateTime.value
+          : this.serverUtcDateTime),
     );
   }
 }
@@ -4638,6 +4776,7 @@ class FwStandardModelsBrowseRequest {
     this.totalfields,
     this.activeviewfields,
     this.timezoneOffset,
+    this.locale,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -4727,7 +4866,9 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
   @JsonKey(name: 'timezoneOffset', includeIfNull: false)
-  final int? timezoneOffset;
+  final double? timezoneOffset;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -4856,7 +4997,9 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.timezoneOffset,
                   timezoneOffset,
-                )));
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)));
   }
 
   @override
@@ -4891,6 +5034,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
       const DeepCollectionEquality().hash(timezoneOffset) ^
+      const DeepCollectionEquality().hash(locale) ^
       runtimeType.hashCode;
 }
 
@@ -4923,7 +5067,8 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
-    int? timezoneOffset,
+    double? timezoneOffset,
+    String? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -4953,6 +5098,7 @@ extension $FwStandardModelsBrowseRequestExtension
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
       timezoneOffset: timezoneOffset ?? this.timezoneOffset,
+      locale: locale ?? this.locale,
     );
   }
 
@@ -4983,7 +5129,8 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
-    Wrapped<int?>? timezoneOffset,
+    Wrapped<double?>? timezoneOffset,
+    Wrapped<String?>? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -5039,6 +5186,7 @@ extension $FwStandardModelsBrowseRequestExtension
       timezoneOffset: (timezoneOffset != null
           ? timezoneOffset.value
           : this.timezoneOffset),
+      locale: (locale != null ? locale.value : this.locale),
     );
   }
 }
@@ -5274,121 +5422,6 @@ extension $FwStandardModelsFwQueryFilterExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  const FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic({
-    this.items,
-    this.pageNo,
-    this.pageSize,
-    this.totalItems,
-    this.sort,
-  });
-
-  factory FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-        this,
-      );
-
-  @JsonKey(
-    name: 'Items',
-    includeIfNull: false,
-    defaultValue: <WebApiModulesAdministratorTaskSchedulerTaskSteps>[],
-  )
-  final List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items;
-  @JsonKey(name: 'PageNo', includeIfNull: false)
-  final int? pageNo;
-  @JsonKey(name: 'PageSize', includeIfNull: false)
-  final int? pageSize;
-  @JsonKey(name: 'TotalItems', includeIfNull: false)
-  final int? totalItems;
-  @JsonKey(name: 'Sort', includeIfNull: false)
-  final String? sort;
-  static const fromJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic &&
-            (identical(other.items, items) ||
-                const DeepCollectionEquality().equals(other.items, items)) &&
-            (identical(other.pageNo, pageNo) ||
-                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
-            (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality().equals(
-                  other.pageSize,
-                  pageSize,
-                )) &&
-            (identical(other.totalItems, totalItems) ||
-                const DeepCollectionEquality().equals(
-                  other.totalItems,
-                  totalItems,
-                )) &&
-            (identical(other.sort, sort) ||
-                const DeepCollectionEquality().equals(other.sort, sort)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(items) ^
-      const DeepCollectionEquality().hash(pageNo) ^
-      const DeepCollectionEquality().hash(pageSize) ^
-      const DeepCollectionEquality().hash(totalItems) ^
-      const DeepCollectionEquality().hash(sort) ^
-      runtimeType.hashCode;
-}
-
-extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicExtension
-    on
-        FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWith({
-    List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items,
-    int? pageNo,
-    int? pageSize,
-    int? totalItems,
-    String? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: items ?? this.items,
-      pageNo: pageNo ?? this.pageNo,
-      pageSize: pageSize ?? this.pageSize,
-      totalItems: totalItems ?? this.totalItems,
-      sort: sort ?? this.sort,
-    );
-  }
-
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWithWrapped({
-    Wrapped<List<WebApiModulesAdministratorTaskSchedulerTaskSteps>?>? items,
-    Wrapped<int?>? pageNo,
-    Wrapped<int?>? pageSize,
-    Wrapped<int?>? totalItems,
-    Wrapped<String?>? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: (items != null ? items.value : this.items),
-      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
-      sort: (sort != null ? sort.value : this.sort),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount {
   const FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount({
     this.items,
@@ -5545,8 +5578,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLog
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -5660,8 +5692,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPre
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPreAuthorizationLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardPreAuthorizationLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -5776,8 +5807,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositL
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardOrderDepositLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -5891,8 +5921,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardProcessCredit
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardProcessCreditCardPaymentType &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardProcessCreditCardPaymentType &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -6356,554 +6385,6 @@ extension $FwStandardSqlServerTSpStatusResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  const WebApiModulesAdministratorTaskSchedulerTaskSteps({
-    this.taskStepsId,
-    this.taskId,
-    this.name,
-    this.stepNumber,
-    this.type,
-    this.command,
-    this.onSuccessActionDisplay,
-    this.onFailureActionDisplay,
-    this.onSuccessAction,
-    this.retryAttempts,
-    this.retryInterval,
-    this.onFailureAction,
-    this.onSuccessTaskStepsId,
-    this.onFailureTaskStepsId,
-    this.outputFilename,
-    this.lastRunOutcome,
-    this.lastRunDuration,
-    this.lastRunRetries,
-    this.dateStamp,
-    this.auditNote,
-    this.recordTitle,
-    this.urlIdentifier,
-    this.fields,
-    this.custom,
-    this.defaultFieldAttributes,
-    this.original,
-    this.translation,
-    this.hasImport,
-    this.hasDocuments,
-    this.createdByUserId,
-    this.createdByUserName,
-    this.createdDateTime,
-    this.modifiedByUserId,
-    this.modifiedByUserName,
-    this.modifiedDateTime,
-  });
-
-  factory WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-    Map<String, dynamic> json,
-  ) => _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(json);
-
-  static const toJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(this);
-
-  @JsonKey(name: 'TaskStepsId', includeIfNull: false)
-  final int? taskStepsId;
-  @JsonKey(name: 'TaskId', includeIfNull: false)
-  final int? taskId;
-  @JsonKey(name: 'Name', includeIfNull: false)
-  final String? name;
-  @JsonKey(name: 'StepNumber', includeIfNull: false)
-  final int? stepNumber;
-  @JsonKey(name: 'Type', includeIfNull: false)
-  final String? type;
-  @JsonKey(name: 'Command', includeIfNull: false)
-  final String? command;
-  @JsonKey(name: 'OnSuccessActionDisplay', includeIfNull: false)
-  final String? onSuccessActionDisplay;
-  @JsonKey(name: 'OnFailureActionDisplay', includeIfNull: false)
-  final String? onFailureActionDisplay;
-  @JsonKey(name: 'OnSuccessAction', includeIfNull: false)
-  final int? onSuccessAction;
-  @JsonKey(name: 'RetryAttempts', includeIfNull: false)
-  final int? retryAttempts;
-  @JsonKey(name: 'RetryInterval', includeIfNull: false)
-  final int? retryInterval;
-  @JsonKey(name: 'OnFailureAction', includeIfNull: false)
-  final int? onFailureAction;
-  @JsonKey(name: 'OnSuccessTaskStepsId', includeIfNull: false)
-  final int? onSuccessTaskStepsId;
-  @JsonKey(name: 'OnFailureTaskStepsId', includeIfNull: false)
-  final int? onFailureTaskStepsId;
-  @JsonKey(name: 'OutputFilename', includeIfNull: false)
-  final String? outputFilename;
-  @JsonKey(name: 'LastRunOutcome', includeIfNull: false)
-  final int? lastRunOutcome;
-  @JsonKey(name: 'LastRunDuration', includeIfNull: false)
-  final int? lastRunDuration;
-  @JsonKey(name: 'LastRunRetries', includeIfNull: false)
-  final int? lastRunRetries;
-  @JsonKey(name: 'DateStamp', includeIfNull: false)
-  final String? dateStamp;
-  @JsonKey(name: 'AuditNote', includeIfNull: false)
-  final String? auditNote;
-  @JsonKey(name: 'RecordTitle', includeIfNull: false)
-  final String? recordTitle;
-  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
-  final dynamic urlIdentifier;
-  @JsonKey(
-    name: '_Fields',
-    includeIfNull: false,
-    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
-  )
-  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(
-    name: '_Custom',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwCustomValue>[],
-  )
-  final List<FwStandardDataFwCustomValue>? custom;
-  @JsonKey(
-    name: '_DefaultFieldAttributes',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwDefaultAttribute>[],
-  )
-  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
-  @JsonKey(name: '_Original', includeIfNull: false)
-  final FwStandardBusinessLogicFwBusinessLogic? original;
-  @JsonKey(
-    name: '_Translation',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwTranslatedValue>[],
-  )
-  final List<FwStandardDataFwTranslatedValue>? translation;
-  @JsonKey(name: '_HasImport', includeIfNull: false)
-  final bool? hasImport;
-  @JsonKey(name: '_HasDocuments', includeIfNull: false)
-  final bool? hasDocuments;
-  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
-  final String? createdByUserId;
-  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
-  final String? createdByUserName;
-  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
-  final String? createdDateTime;
-  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
-  final String? modifiedByUserId;
-  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
-  final String? modifiedByUserName;
-  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
-  final String? modifiedDateTime;
-  static const fromJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is WebApiModulesAdministratorTaskSchedulerTaskSteps &&
-            (identical(other.taskStepsId, taskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.taskStepsId,
-                  taskStepsId,
-                )) &&
-            (identical(other.taskId, taskId) ||
-                const DeepCollectionEquality().equals(other.taskId, taskId)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.stepNumber, stepNumber) ||
-                const DeepCollectionEquality().equals(
-                  other.stepNumber,
-                  stepNumber,
-                )) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.command, command) ||
-                const DeepCollectionEquality().equals(
-                  other.command,
-                  command,
-                )) &&
-            (identical(other.onSuccessActionDisplay, onSuccessActionDisplay) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessActionDisplay,
-                  onSuccessActionDisplay,
-                )) &&
-            (identical(other.onFailureActionDisplay, onFailureActionDisplay) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureActionDisplay,
-                  onFailureActionDisplay,
-                )) &&
-            (identical(other.onSuccessAction, onSuccessAction) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessAction,
-                  onSuccessAction,
-                )) &&
-            (identical(other.retryAttempts, retryAttempts) ||
-                const DeepCollectionEquality().equals(
-                  other.retryAttempts,
-                  retryAttempts,
-                )) &&
-            (identical(other.retryInterval, retryInterval) ||
-                const DeepCollectionEquality().equals(
-                  other.retryInterval,
-                  retryInterval,
-                )) &&
-            (identical(other.onFailureAction, onFailureAction) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureAction,
-                  onFailureAction,
-                )) &&
-            (identical(other.onSuccessTaskStepsId, onSuccessTaskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessTaskStepsId,
-                  onSuccessTaskStepsId,
-                )) &&
-            (identical(other.onFailureTaskStepsId, onFailureTaskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureTaskStepsId,
-                  onFailureTaskStepsId,
-                )) &&
-            (identical(other.outputFilename, outputFilename) ||
-                const DeepCollectionEquality().equals(
-                  other.outputFilename,
-                  outputFilename,
-                )) &&
-            (identical(other.lastRunOutcome, lastRunOutcome) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunOutcome,
-                  lastRunOutcome,
-                )) &&
-            (identical(other.lastRunDuration, lastRunDuration) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunDuration,
-                  lastRunDuration,
-                )) &&
-            (identical(other.lastRunRetries, lastRunRetries) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunRetries,
-                  lastRunRetries,
-                )) &&
-            (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality().equals(
-                  other.dateStamp,
-                  dateStamp,
-                )) &&
-            (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality().equals(
-                  other.auditNote,
-                  auditNote,
-                )) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality().equals(
-                  other.recordTitle,
-                  recordTitle,
-                )) &&
-            (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality().equals(
-                  other.urlIdentifier,
-                  urlIdentifier,
-                )) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                  other.defaultFieldAttributes,
-                  defaultFieldAttributes,
-                )) &&
-            (identical(other.original, original) ||
-                const DeepCollectionEquality().equals(
-                  other.original,
-                  original,
-                )) &&
-            (identical(other.translation, translation) ||
-                const DeepCollectionEquality().equals(
-                  other.translation,
-                  translation,
-                )) &&
-            (identical(other.hasImport, hasImport) ||
-                const DeepCollectionEquality().equals(
-                  other.hasImport,
-                  hasImport,
-                )) &&
-            (identical(other.hasDocuments, hasDocuments) ||
-                const DeepCollectionEquality().equals(
-                  other.hasDocuments,
-                  hasDocuments,
-                )) &&
-            (identical(other.createdByUserId, createdByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserId,
-                  createdByUserId,
-                )) &&
-            (identical(other.createdByUserName, createdByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserName,
-                  createdByUserName,
-                )) &&
-            (identical(other.createdDateTime, createdDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.createdDateTime,
-                  createdDateTime,
-                )) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserId,
-                  modifiedByUserId,
-                )) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserName,
-                  modifiedByUserName,
-                )) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedDateTime,
-                  modifiedDateTime,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(taskStepsId) ^
-      const DeepCollectionEquality().hash(taskId) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(stepNumber) ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(command) ^
-      const DeepCollectionEquality().hash(onSuccessActionDisplay) ^
-      const DeepCollectionEquality().hash(onFailureActionDisplay) ^
-      const DeepCollectionEquality().hash(onSuccessAction) ^
-      const DeepCollectionEquality().hash(retryAttempts) ^
-      const DeepCollectionEquality().hash(retryInterval) ^
-      const DeepCollectionEquality().hash(onFailureAction) ^
-      const DeepCollectionEquality().hash(onSuccessTaskStepsId) ^
-      const DeepCollectionEquality().hash(onFailureTaskStepsId) ^
-      const DeepCollectionEquality().hash(outputFilename) ^
-      const DeepCollectionEquality().hash(lastRunOutcome) ^
-      const DeepCollectionEquality().hash(lastRunDuration) ^
-      const DeepCollectionEquality().hash(lastRunRetries) ^
-      const DeepCollectionEquality().hash(dateStamp) ^
-      const DeepCollectionEquality().hash(auditNote) ^
-      const DeepCollectionEquality().hash(recordTitle) ^
-      const DeepCollectionEquality().hash(urlIdentifier) ^
-      const DeepCollectionEquality().hash(fields) ^
-      const DeepCollectionEquality().hash(custom) ^
-      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
-      const DeepCollectionEquality().hash(original) ^
-      const DeepCollectionEquality().hash(translation) ^
-      const DeepCollectionEquality().hash(hasImport) ^
-      const DeepCollectionEquality().hash(hasDocuments) ^
-      const DeepCollectionEquality().hash(createdByUserId) ^
-      const DeepCollectionEquality().hash(createdByUserName) ^
-      const DeepCollectionEquality().hash(createdDateTime) ^
-      const DeepCollectionEquality().hash(modifiedByUserId) ^
-      const DeepCollectionEquality().hash(modifiedByUserName) ^
-      const DeepCollectionEquality().hash(modifiedDateTime) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
-    on WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWith({
-    int? taskStepsId,
-    int? taskId,
-    String? name,
-    int? stepNumber,
-    String? type,
-    String? command,
-    String? onSuccessActionDisplay,
-    String? onFailureActionDisplay,
-    int? onSuccessAction,
-    int? retryAttempts,
-    int? retryInterval,
-    int? onFailureAction,
-    int? onSuccessTaskStepsId,
-    int? onFailureTaskStepsId,
-    String? outputFilename,
-    int? lastRunOutcome,
-    int? lastRunDuration,
-    int? lastRunRetries,
-    String? dateStamp,
-    String? auditNote,
-    String? recordTitle,
-    dynamic urlIdentifier,
-    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-    List<FwStandardDataFwCustomValue>? custom,
-    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-    FwStandardBusinessLogicFwBusinessLogic? original,
-    List<FwStandardDataFwTranslatedValue>? translation,
-    bool? hasImport,
-    bool? hasDocuments,
-    String? createdByUserId,
-    String? createdByUserName,
-    String? createdDateTime,
-    String? modifiedByUserId,
-    String? modifiedByUserName,
-    String? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: taskStepsId ?? this.taskStepsId,
-      taskId: taskId ?? this.taskId,
-      name: name ?? this.name,
-      stepNumber: stepNumber ?? this.stepNumber,
-      type: type ?? this.type,
-      command: command ?? this.command,
-      onSuccessActionDisplay:
-          onSuccessActionDisplay ?? this.onSuccessActionDisplay,
-      onFailureActionDisplay:
-          onFailureActionDisplay ?? this.onFailureActionDisplay,
-      onSuccessAction: onSuccessAction ?? this.onSuccessAction,
-      retryAttempts: retryAttempts ?? this.retryAttempts,
-      retryInterval: retryInterval ?? this.retryInterval,
-      onFailureAction: onFailureAction ?? this.onFailureAction,
-      onSuccessTaskStepsId: onSuccessTaskStepsId ?? this.onSuccessTaskStepsId,
-      onFailureTaskStepsId: onFailureTaskStepsId ?? this.onFailureTaskStepsId,
-      outputFilename: outputFilename ?? this.outputFilename,
-      lastRunOutcome: lastRunOutcome ?? this.lastRunOutcome,
-      lastRunDuration: lastRunDuration ?? this.lastRunDuration,
-      lastRunRetries: lastRunRetries ?? this.lastRunRetries,
-      dateStamp: dateStamp ?? this.dateStamp,
-      auditNote: auditNote ?? this.auditNote,
-      recordTitle: recordTitle ?? this.recordTitle,
-      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-      fields: fields ?? this.fields,
-      custom: custom ?? this.custom,
-      defaultFieldAttributes:
-          defaultFieldAttributes ?? this.defaultFieldAttributes,
-      original: original ?? this.original,
-      translation: translation ?? this.translation,
-      hasImport: hasImport ?? this.hasImport,
-      hasDocuments: hasDocuments ?? this.hasDocuments,
-      createdByUserId: createdByUserId ?? this.createdByUserId,
-      createdByUserName: createdByUserName ?? this.createdByUserName,
-      createdDateTime: createdDateTime ?? this.createdDateTime,
-      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
-    );
-  }
-
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWithWrapped({
-    Wrapped<int?>? taskStepsId,
-    Wrapped<int?>? taskId,
-    Wrapped<String?>? name,
-    Wrapped<int?>? stepNumber,
-    Wrapped<String?>? type,
-    Wrapped<String?>? command,
-    Wrapped<String?>? onSuccessActionDisplay,
-    Wrapped<String?>? onFailureActionDisplay,
-    Wrapped<int?>? onSuccessAction,
-    Wrapped<int?>? retryAttempts,
-    Wrapped<int?>? retryInterval,
-    Wrapped<int?>? onFailureAction,
-    Wrapped<int?>? onSuccessTaskStepsId,
-    Wrapped<int?>? onFailureTaskStepsId,
-    Wrapped<String?>? outputFilename,
-    Wrapped<int?>? lastRunOutcome,
-    Wrapped<int?>? lastRunDuration,
-    Wrapped<int?>? lastRunRetries,
-    Wrapped<String?>? dateStamp,
-    Wrapped<String?>? auditNote,
-    Wrapped<String?>? recordTitle,
-    Wrapped<dynamic>? urlIdentifier,
-    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-    fields,
-    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-    Wrapped<bool?>? hasImport,
-    Wrapped<bool?>? hasDocuments,
-    Wrapped<String?>? createdByUserId,
-    Wrapped<String?>? createdByUserName,
-    Wrapped<String?>? createdDateTime,
-    Wrapped<String?>? modifiedByUserId,
-    Wrapped<String?>? modifiedByUserName,
-    Wrapped<String?>? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: (taskStepsId != null ? taskStepsId.value : this.taskStepsId),
-      taskId: (taskId != null ? taskId.value : this.taskId),
-      name: (name != null ? name.value : this.name),
-      stepNumber: (stepNumber != null ? stepNumber.value : this.stepNumber),
-      type: (type != null ? type.value : this.type),
-      command: (command != null ? command.value : this.command),
-      onSuccessActionDisplay: (onSuccessActionDisplay != null
-          ? onSuccessActionDisplay.value
-          : this.onSuccessActionDisplay),
-      onFailureActionDisplay: (onFailureActionDisplay != null
-          ? onFailureActionDisplay.value
-          : this.onFailureActionDisplay),
-      onSuccessAction: (onSuccessAction != null
-          ? onSuccessAction.value
-          : this.onSuccessAction),
-      retryAttempts: (retryAttempts != null
-          ? retryAttempts.value
-          : this.retryAttempts),
-      retryInterval: (retryInterval != null
-          ? retryInterval.value
-          : this.retryInterval),
-      onFailureAction: (onFailureAction != null
-          ? onFailureAction.value
-          : this.onFailureAction),
-      onSuccessTaskStepsId: (onSuccessTaskStepsId != null
-          ? onSuccessTaskStepsId.value
-          : this.onSuccessTaskStepsId),
-      onFailureTaskStepsId: (onFailureTaskStepsId != null
-          ? onFailureTaskStepsId.value
-          : this.onFailureTaskStepsId),
-      outputFilename: (outputFilename != null
-          ? outputFilename.value
-          : this.outputFilename),
-      lastRunOutcome: (lastRunOutcome != null
-          ? lastRunOutcome.value
-          : this.lastRunOutcome),
-      lastRunDuration: (lastRunDuration != null
-          ? lastRunDuration.value
-          : this.lastRunDuration),
-      lastRunRetries: (lastRunRetries != null
-          ? lastRunRetries.value
-          : this.lastRunRetries),
-      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
-      urlIdentifier: (urlIdentifier != null
-          ? urlIdentifier.value
-          : this.urlIdentifier),
-      fields: (fields != null ? fields.value : this.fields),
-      custom: (custom != null ? custom.value : this.custom),
-      defaultFieldAttributes: (defaultFieldAttributes != null
-          ? defaultFieldAttributes.value
-          : this.defaultFieldAttributes),
-      original: (original != null ? original.value : this.original),
-      translation: (translation != null ? translation.value : this.translation),
-      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-      hasDocuments: (hasDocuments != null
-          ? hasDocuments.value
-          : this.hasDocuments),
-      createdByUserId: (createdByUserId != null
-          ? createdByUserId.value
-          : this.createdByUserId),
-      createdByUserName: (createdByUserName != null
-          ? createdByUserName.value
-          : this.createdByUserName),
-      createdDateTime: (createdDateTime != null
-          ? createdDateTime.value
-          : this.createdDateTime),
-      modifiedByUserId: (modifiedByUserId != null
-          ? modifiedByUserId.value
-          : this.modifiedByUserId),
-      modifiedByUserName: (modifiedByUserName != null
-          ? modifiedByUserName.value
-          : this.modifiedByUserName),
-      modifiedDateTime: (modifiedDateTime != null
-          ? modifiedDateTime.value
-          : this.modifiedDateTime),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class WebApiModulesAgentOrderOrder {
   const WebApiModulesAgentOrderOrder({
     this.orderId,
@@ -7044,6 +6525,8 @@ class WebApiModulesAgentOrderOrder {
     this.rentalTaxRate2,
     this.salesTaxRate2,
     this.laborTaxRate2,
+    this.miscTaxRate1,
+    this.miscTaxRate2,
     this.totalTax,
     this.noCharge,
     this.noChargeReason,
@@ -7085,6 +6568,7 @@ class WebApiModulesAgentOrderOrder {
     this.groupNumber,
     this.groupColor,
     this.groupOrderBy,
+    this.groupName,
     this.coverLetterId,
     this.coverLetter,
     this.termsConditionsId,
@@ -7326,6 +6810,7 @@ class WebApiModulesAgentOrderOrder {
     this.rentalExempt,
     this.salesExempt,
     this.laborExempt,
+    this.miscExempt,
     this.enableProjects,
     this.projectId,
     this.projectNumber,
@@ -7345,6 +6830,7 @@ class WebApiModulesAgentOrderOrder {
     this.projectSyncMarket,
     this.projectSyncDeliverShip,
     this.projectSyncBilling,
+    this.projectSyncSchedule,
     this.inputByUserId,
     this.modByUserId,
     this.webUserId,
@@ -7403,6 +6889,7 @@ class WebApiModulesAgentOrderOrder {
     this.totalWeightKg,
     this.totalWeightG,
     this.shipmentNumber,
+    this.lassoEventId,
     this.dateStamp,
     this.auditNote,
     this.recordTitle,
@@ -7714,6 +7201,10 @@ class WebApiModulesAgentOrderOrder {
   final double? salesTaxRate2;
   @JsonKey(name: 'LaborTaxRate2', includeIfNull: false)
   final double? laborTaxRate2;
+  @JsonKey(name: 'MiscTaxRate1', includeIfNull: false)
+  final double? miscTaxRate1;
+  @JsonKey(name: 'MiscTaxRate2', includeIfNull: false)
+  final double? miscTaxRate2;
   @JsonKey(name: 'TotalTax', includeIfNull: false)
   final double? totalTax;
   @JsonKey(name: 'NoCharge', includeIfNull: false)
@@ -7799,6 +7290,8 @@ class WebApiModulesAgentOrderOrder {
   final int? groupColor;
   @JsonKey(name: 'GroupOrderBy', includeIfNull: false)
   final double? groupOrderBy;
+  @JsonKey(name: 'GroupName', includeIfNull: false)
+  final String? groupName;
   @JsonKey(name: 'CoverLetterId', includeIfNull: false)
   final String? coverLetterId;
   @JsonKey(name: 'CoverLetter', includeIfNull: false)
@@ -8284,6 +7777,8 @@ class WebApiModulesAgentOrderOrder {
   final bool? salesExempt;
   @JsonKey(name: 'LaborExempt', includeIfNull: false)
   final bool? laborExempt;
+  @JsonKey(name: 'MiscExempt', includeIfNull: false)
+  final bool? miscExempt;
   @JsonKey(name: 'EnableProjects', includeIfNull: false)
   final bool? enableProjects;
   @JsonKey(name: 'ProjectId', includeIfNull: false)
@@ -8322,6 +7817,8 @@ class WebApiModulesAgentOrderOrder {
   final bool? projectSyncDeliverShip;
   @JsonKey(name: 'ProjectSyncBilling', includeIfNull: false)
   final bool? projectSyncBilling;
+  @JsonKey(name: 'ProjectSyncSchedule', includeIfNull: false)
+  final bool? projectSyncSchedule;
   @JsonKey(name: 'InputByUserId', includeIfNull: false)
   final String? inputByUserId;
   @JsonKey(name: 'ModByUserId', includeIfNull: false)
@@ -8453,6 +7950,8 @@ class WebApiModulesAgentOrderOrder {
   final int? totalWeightG;
   @JsonKey(name: 'ShipmentNumber', includeIfNull: false)
   final int? shipmentNumber;
+  @JsonKey(name: 'LassoEventId', includeIfNull: false)
+  final String? lassoEventId;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
@@ -9220,6 +8719,16 @@ class WebApiModulesAgentOrderOrder {
                   other.laborTaxRate2,
                   laborTaxRate2,
                 )) &&
+            (identical(other.miscTaxRate1, miscTaxRate1) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate1,
+                  miscTaxRate1,
+                )) &&
+            (identical(other.miscTaxRate2, miscTaxRate2) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate2,
+                  miscTaxRate2,
+                )) &&
             (identical(other.totalTax, totalTax) ||
                 const DeepCollectionEquality().equals(
                   other.totalTax,
@@ -9448,6 +8957,11 @@ class WebApiModulesAgentOrderOrder {
                 const DeepCollectionEquality().equals(
                   other.groupOrderBy,
                   groupOrderBy,
+                )) &&
+            (identical(other.groupName, groupName) ||
+                const DeepCollectionEquality().equals(
+                  other.groupName,
+                  groupName,
                 )) &&
             (identical(other.coverLetterId, coverLetterId) ||
                 const DeepCollectionEquality().equals(
@@ -10936,6 +10450,11 @@ class WebApiModulesAgentOrderOrder {
                   other.laborExempt,
                   laborExempt,
                 )) &&
+            (identical(other.miscExempt, miscExempt) ||
+                const DeepCollectionEquality().equals(
+                  other.miscExempt,
+                  miscExempt,
+                )) &&
             (identical(other.enableProjects, enableProjects) ||
                 const DeepCollectionEquality().equals(
                   other.enableProjects,
@@ -11030,6 +10549,11 @@ class WebApiModulesAgentOrderOrder {
                 const DeepCollectionEquality().equals(
                   other.projectSyncBilling,
                   projectSyncBilling,
+                )) &&
+            (identical(other.projectSyncSchedule, projectSyncSchedule) ||
+                const DeepCollectionEquality().equals(
+                  other.projectSyncSchedule,
+                  projectSyncSchedule,
                 )) &&
             (identical(other.inputByUserId, inputByUserId) ||
                 const DeepCollectionEquality().equals(
@@ -11373,6 +10897,11 @@ class WebApiModulesAgentOrderOrder {
                   other.shipmentNumber,
                   shipmentNumber,
                 )) &&
+            (identical(other.lassoEventId, lassoEventId) ||
+                const DeepCollectionEquality().equals(
+                  other.lassoEventId,
+                  lassoEventId,
+                )) &&
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality().equals(
                   other.dateStamp,
@@ -11597,6 +11126,8 @@ class WebApiModulesAgentOrderOrder {
       const DeepCollectionEquality().hash(rentalTaxRate2) ^
       const DeepCollectionEquality().hash(salesTaxRate2) ^
       const DeepCollectionEquality().hash(laborTaxRate2) ^
+      const DeepCollectionEquality().hash(miscTaxRate1) ^
+      const DeepCollectionEquality().hash(miscTaxRate2) ^
       const DeepCollectionEquality().hash(totalTax) ^
       const DeepCollectionEquality().hash(noCharge) ^
       const DeepCollectionEquality().hash(noChargeReason) ^
@@ -11642,6 +11173,7 @@ class WebApiModulesAgentOrderOrder {
       const DeepCollectionEquality().hash(groupNumber) ^
       const DeepCollectionEquality().hash(groupColor) ^
       const DeepCollectionEquality().hash(groupOrderBy) ^
+      const DeepCollectionEquality().hash(groupName) ^
       const DeepCollectionEquality().hash(coverLetterId) ^
       const DeepCollectionEquality().hash(coverLetter) ^
       const DeepCollectionEquality().hash(termsConditionsId) ^
@@ -11887,6 +11419,7 @@ class WebApiModulesAgentOrderOrder {
       const DeepCollectionEquality().hash(rentalExempt) ^
       const DeepCollectionEquality().hash(salesExempt) ^
       const DeepCollectionEquality().hash(laborExempt) ^
+      const DeepCollectionEquality().hash(miscExempt) ^
       const DeepCollectionEquality().hash(enableProjects) ^
       const DeepCollectionEquality().hash(projectId) ^
       const DeepCollectionEquality().hash(projectNumber) ^
@@ -11906,6 +11439,7 @@ class WebApiModulesAgentOrderOrder {
       const DeepCollectionEquality().hash(projectSyncMarket) ^
       const DeepCollectionEquality().hash(projectSyncDeliverShip) ^
       const DeepCollectionEquality().hash(projectSyncBilling) ^
+      const DeepCollectionEquality().hash(projectSyncSchedule) ^
       const DeepCollectionEquality().hash(inputByUserId) ^
       const DeepCollectionEquality().hash(modByUserId) ^
       const DeepCollectionEquality().hash(webUserId) ^
@@ -11976,6 +11510,7 @@ class WebApiModulesAgentOrderOrder {
       const DeepCollectionEquality().hash(totalWeightKg) ^
       const DeepCollectionEquality().hash(totalWeightG) ^
       const DeepCollectionEquality().hash(shipmentNumber) ^
+      const DeepCollectionEquality().hash(lassoEventId) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
@@ -12138,6 +11673,8 @@ extension $WebApiModulesAgentOrderOrderExtension
     double? rentalTaxRate2,
     double? salesTaxRate2,
     double? laborTaxRate2,
+    double? miscTaxRate1,
+    double? miscTaxRate2,
     double? totalTax,
     bool? noCharge,
     String? noChargeReason,
@@ -12179,6 +11716,7 @@ extension $WebApiModulesAgentOrderOrderExtension
     int? groupNumber,
     int? groupColor,
     double? groupOrderBy,
+    String? groupName,
     String? coverLetterId,
     String? coverLetter,
     String? termsConditionsId,
@@ -12420,6 +11958,7 @@ extension $WebApiModulesAgentOrderOrderExtension
     bool? rentalExempt,
     bool? salesExempt,
     bool? laborExempt,
+    bool? miscExempt,
     bool? enableProjects,
     String? projectId,
     String? projectNumber,
@@ -12439,6 +11978,7 @@ extension $WebApiModulesAgentOrderOrderExtension
     bool? projectSyncMarket,
     bool? projectSyncDeliverShip,
     bool? projectSyncBilling,
+    bool? projectSyncSchedule,
     String? inputByUserId,
     String? modByUserId,
     String? webUserId,
@@ -12497,6 +12037,7 @@ extension $WebApiModulesAgentOrderOrderExtension
     int? totalWeightKg,
     int? totalWeightG,
     int? shipmentNumber,
+    String? lassoEventId,
     String? dateStamp,
     String? auditNote,
     String? recordTitle,
@@ -12679,6 +12220,8 @@ extension $WebApiModulesAgentOrderOrderExtension
       rentalTaxRate2: rentalTaxRate2 ?? this.rentalTaxRate2,
       salesTaxRate2: salesTaxRate2 ?? this.salesTaxRate2,
       laborTaxRate2: laborTaxRate2 ?? this.laborTaxRate2,
+      miscTaxRate1: miscTaxRate1 ?? this.miscTaxRate1,
+      miscTaxRate2: miscTaxRate2 ?? this.miscTaxRate2,
       totalTax: totalTax ?? this.totalTax,
       noCharge: noCharge ?? this.noCharge,
       noChargeReason: noChargeReason ?? this.noChargeReason,
@@ -12731,6 +12274,7 @@ extension $WebApiModulesAgentOrderOrderExtension
       groupNumber: groupNumber ?? this.groupNumber,
       groupColor: groupColor ?? this.groupColor,
       groupOrderBy: groupOrderBy ?? this.groupOrderBy,
+      groupName: groupName ?? this.groupName,
       coverLetterId: coverLetterId ?? this.coverLetterId,
       coverLetter: coverLetter ?? this.coverLetter,
       termsConditionsId: termsConditionsId ?? this.termsConditionsId,
@@ -13118,6 +12662,7 @@ extension $WebApiModulesAgentOrderOrderExtension
       rentalExempt: rentalExempt ?? this.rentalExempt,
       salesExempt: salesExempt ?? this.salesExempt,
       laborExempt: laborExempt ?? this.laborExempt,
+      miscExempt: miscExempt ?? this.miscExempt,
       enableProjects: enableProjects ?? this.enableProjects,
       projectId: projectId ?? this.projectId,
       projectNumber: projectNumber ?? this.projectNumber,
@@ -13140,6 +12685,7 @@ extension $WebApiModulesAgentOrderOrderExtension
       projectSyncDeliverShip:
           projectSyncDeliverShip ?? this.projectSyncDeliverShip,
       projectSyncBilling: projectSyncBilling ?? this.projectSyncBilling,
+      projectSyncSchedule: projectSyncSchedule ?? this.projectSyncSchedule,
       inputByUserId: inputByUserId ?? this.inputByUserId,
       modByUserId: modByUserId ?? this.modByUserId,
       webUserId: webUserId ?? this.webUserId,
@@ -13225,6 +12771,7 @@ extension $WebApiModulesAgentOrderOrderExtension
       totalWeightKg: totalWeightKg ?? this.totalWeightKg,
       totalWeightG: totalWeightG ?? this.totalWeightG,
       shipmentNumber: shipmentNumber ?? this.shipmentNumber,
+      lassoEventId: lassoEventId ?? this.lassoEventId,
       dateStamp: dateStamp ?? this.dateStamp,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
@@ -13389,6 +12936,8 @@ extension $WebApiModulesAgentOrderOrderExtension
     Wrapped<double?>? rentalTaxRate2,
     Wrapped<double?>? salesTaxRate2,
     Wrapped<double?>? laborTaxRate2,
+    Wrapped<double?>? miscTaxRate1,
+    Wrapped<double?>? miscTaxRate2,
     Wrapped<double?>? totalTax,
     Wrapped<bool?>? noCharge,
     Wrapped<String?>? noChargeReason,
@@ -13430,6 +12979,7 @@ extension $WebApiModulesAgentOrderOrderExtension
     Wrapped<int?>? groupNumber,
     Wrapped<int?>? groupColor,
     Wrapped<double?>? groupOrderBy,
+    Wrapped<String?>? groupName,
     Wrapped<String?>? coverLetterId,
     Wrapped<String?>? coverLetter,
     Wrapped<String?>? termsConditionsId,
@@ -13671,6 +13221,7 @@ extension $WebApiModulesAgentOrderOrderExtension
     Wrapped<bool?>? rentalExempt,
     Wrapped<bool?>? salesExempt,
     Wrapped<bool?>? laborExempt,
+    Wrapped<bool?>? miscExempt,
     Wrapped<bool?>? enableProjects,
     Wrapped<String?>? projectId,
     Wrapped<String?>? projectNumber,
@@ -13690,6 +13241,7 @@ extension $WebApiModulesAgentOrderOrderExtension
     Wrapped<bool?>? projectSyncMarket,
     Wrapped<bool?>? projectSyncDeliverShip,
     Wrapped<bool?>? projectSyncBilling,
+    Wrapped<bool?>? projectSyncSchedule,
     Wrapped<String?>? inputByUserId,
     Wrapped<String?>? modByUserId,
     Wrapped<String?>? webUserId,
@@ -13748,6 +13300,7 @@ extension $WebApiModulesAgentOrderOrderExtension
     Wrapped<int?>? totalWeightKg,
     Wrapped<int?>? totalWeightG,
     Wrapped<int?>? shipmentNumber,
+    Wrapped<String?>? lassoEventId,
     Wrapped<String?>? dateStamp,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
@@ -14071,6 +13624,12 @@ extension $WebApiModulesAgentOrderOrderExtension
       laborTaxRate2: (laborTaxRate2 != null
           ? laborTaxRate2.value
           : this.laborTaxRate2),
+      miscTaxRate1: (miscTaxRate1 != null
+          ? miscTaxRate1.value
+          : this.miscTaxRate1),
+      miscTaxRate2: (miscTaxRate2 != null
+          ? miscTaxRate2.value
+          : this.miscTaxRate2),
       totalTax: (totalTax != null ? totalTax.value : this.totalTax),
       noCharge: (noCharge != null ? noCharge.value : this.noCharge),
       noChargeReason: (noChargeReason != null
@@ -14180,6 +13739,7 @@ extension $WebApiModulesAgentOrderOrderExtension
       groupOrderBy: (groupOrderBy != null
           ? groupOrderBy.value
           : this.groupOrderBy),
+      groupName: (groupName != null ? groupName.value : this.groupName),
       coverLetterId: (coverLetterId != null
           ? coverLetterId.value
           : this.coverLetterId),
@@ -14885,6 +14445,7 @@ extension $WebApiModulesAgentOrderOrderExtension
           : this.rentalExempt),
       salesExempt: (salesExempt != null ? salesExempt.value : this.salesExempt),
       laborExempt: (laborExempt != null ? laborExempt.value : this.laborExempt),
+      miscExempt: (miscExempt != null ? miscExempt.value : this.miscExempt),
       enableProjects: (enableProjects != null
           ? enableProjects.value
           : this.enableProjects),
@@ -14938,6 +14499,9 @@ extension $WebApiModulesAgentOrderOrderExtension
       projectSyncBilling: (projectSyncBilling != null
           ? projectSyncBilling.value
           : this.projectSyncBilling),
+      projectSyncSchedule: (projectSyncSchedule != null
+          ? projectSyncSchedule.value
+          : this.projectSyncSchedule),
       inputByUserId: (inputByUserId != null
           ? inputByUserId.value
           : this.inputByUserId),
@@ -15092,6 +14656,9 @@ extension $WebApiModulesAgentOrderOrderExtension
       shipmentNumber: (shipmentNumber != null
           ? shipmentNumber.value
           : this.shipmentNumber),
+      lassoEventId: (lassoEventId != null
+          ? lassoEventId.value
+          : this.lassoEventId),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
@@ -15787,6 +15354,7 @@ class WebApiModulesAgentProjectProject {
     this.marketSegmentJob,
     this.syncMarket,
     this.syncDeliverShip,
+    this.syncSchedule,
     this.outDeliveryId,
     this.outDeliveryDeliveryType,
     this.outDeliveryRequiredDate,
@@ -15963,6 +15531,8 @@ class WebApiModulesAgentProjectProject {
     this.rentalTaxRate2,
     this.salesTaxRate2,
     this.laborTaxRate2,
+    this.miscTaxRate1,
+    this.miscTaxRate2,
     this.determineQuantitiesToBillBasedOn,
     this.includePrepFeesInRentalRate,
     this.hiatusDiscountFrom,
@@ -15999,6 +15569,10 @@ class WebApiModulesAgentProjectProject {
     this.billToCountryCodePhone,
     this.noCharge,
     this.noChargeReason,
+    this.coverLetterId,
+    this.coverLetter,
+    this.termsConditionsId,
+    this.termsConditions,
     this.activityDatesAndTimes,
     this.inactive,
     this.dateStamp,
@@ -16141,6 +15715,8 @@ class WebApiModulesAgentProjectProject {
   final bool? syncMarket;
   @JsonKey(name: 'SyncDeliverShip', includeIfNull: false)
   final bool? syncDeliverShip;
+  @JsonKey(name: 'SyncSchedule', includeIfNull: false)
+  final bool? syncSchedule;
   @JsonKey(name: 'OutDeliveryId', includeIfNull: false)
   final String? outDeliveryId;
   @JsonKey(name: 'OutDeliveryDeliveryType', includeIfNull: false)
@@ -16496,6 +16072,10 @@ class WebApiModulesAgentProjectProject {
   final double? salesTaxRate2;
   @JsonKey(name: 'LaborTaxRate2', includeIfNull: false)
   final double? laborTaxRate2;
+  @JsonKey(name: 'MiscTaxRate1', includeIfNull: false)
+  final double? miscTaxRate1;
+  @JsonKey(name: 'MiscTaxRate2', includeIfNull: false)
+  final double? miscTaxRate2;
   @JsonKey(name: 'DetermineQuantitiesToBillBasedOn', includeIfNull: false)
   final String? determineQuantitiesToBillBasedOn;
   @JsonKey(name: 'IncludePrepFeesInRentalRate', includeIfNull: false)
@@ -16571,6 +16151,14 @@ class WebApiModulesAgentProjectProject {
   final bool? noCharge;
   @JsonKey(name: 'NoChargeReason', includeIfNull: false)
   final String? noChargeReason;
+  @JsonKey(name: 'CoverLetterId', includeIfNull: false)
+  final String? coverLetterId;
+  @JsonKey(name: 'CoverLetter', includeIfNull: false)
+  final String? coverLetter;
+  @JsonKey(name: 'TermsConditionsId', includeIfNull: false)
+  final String? termsConditionsId;
+  @JsonKey(name: 'TermsConditions', includeIfNull: false)
+  final String? termsConditions;
   @JsonKey(
     name: 'ActivityDatesAndTimes',
     includeIfNull: false,
@@ -16906,6 +16494,11 @@ class WebApiModulesAgentProjectProject {
                 const DeepCollectionEquality().equals(
                   other.syncDeliverShip,
                   syncDeliverShip,
+                )) &&
+            (identical(other.syncSchedule, syncSchedule) ||
+                const DeepCollectionEquality().equals(
+                  other.syncSchedule,
+                  syncSchedule,
                 )) &&
             (identical(other.outDeliveryId, outDeliveryId) ||
                 const DeepCollectionEquality().equals(
@@ -18003,6 +17596,16 @@ class WebApiModulesAgentProjectProject {
                   other.laborTaxRate2,
                   laborTaxRate2,
                 )) &&
+            (identical(other.miscTaxRate1, miscTaxRate1) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate1,
+                  miscTaxRate1,
+                )) &&
+            (identical(other.miscTaxRate2, miscTaxRate2) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate2,
+                  miscTaxRate2,
+                )) &&
             (identical(
                   other.determineQuantitiesToBillBasedOn,
                   determineQuantitiesToBillBasedOn,
@@ -18204,6 +17807,26 @@ class WebApiModulesAgentProjectProject {
                   other.noChargeReason,
                   noChargeReason,
                 )) &&
+            (identical(other.coverLetterId, coverLetterId) ||
+                const DeepCollectionEquality().equals(
+                  other.coverLetterId,
+                  coverLetterId,
+                )) &&
+            (identical(other.coverLetter, coverLetter) ||
+                const DeepCollectionEquality().equals(
+                  other.coverLetter,
+                  coverLetter,
+                )) &&
+            (identical(other.termsConditionsId, termsConditionsId) ||
+                const DeepCollectionEquality().equals(
+                  other.termsConditionsId,
+                  termsConditionsId,
+                )) &&
+            (identical(other.termsConditions, termsConditions) ||
+                const DeepCollectionEquality().equals(
+                  other.termsConditions,
+                  termsConditions,
+                )) &&
             (identical(other.activityDatesAndTimes, activityDatesAndTimes) ||
                 const DeepCollectionEquality().equals(
                   other.activityDatesAndTimes,
@@ -18357,6 +17980,7 @@ class WebApiModulesAgentProjectProject {
       const DeepCollectionEquality().hash(marketSegmentJob) ^
       const DeepCollectionEquality().hash(syncMarket) ^
       const DeepCollectionEquality().hash(syncDeliverShip) ^
+      const DeepCollectionEquality().hash(syncSchedule) ^
       const DeepCollectionEquality().hash(outDeliveryId) ^
       const DeepCollectionEquality().hash(outDeliveryDeliveryType) ^
       const DeepCollectionEquality().hash(outDeliveryRequiredDate) ^
@@ -18537,6 +18161,8 @@ class WebApiModulesAgentProjectProject {
       const DeepCollectionEquality().hash(rentalTaxRate2) ^
       const DeepCollectionEquality().hash(salesTaxRate2) ^
       const DeepCollectionEquality().hash(laborTaxRate2) ^
+      const DeepCollectionEquality().hash(miscTaxRate1) ^
+      const DeepCollectionEquality().hash(miscTaxRate2) ^
       const DeepCollectionEquality().hash(determineQuantitiesToBillBasedOn) ^
       const DeepCollectionEquality().hash(includePrepFeesInRentalRate) ^
       const DeepCollectionEquality().hash(hiatusDiscountFrom) ^
@@ -18575,6 +18201,10 @@ class WebApiModulesAgentProjectProject {
       const DeepCollectionEquality().hash(billToCountryCodePhone) ^
       const DeepCollectionEquality().hash(noCharge) ^
       const DeepCollectionEquality().hash(noChargeReason) ^
+      const DeepCollectionEquality().hash(coverLetterId) ^
+      const DeepCollectionEquality().hash(coverLetter) ^
+      const DeepCollectionEquality().hash(termsConditionsId) ^
+      const DeepCollectionEquality().hash(termsConditions) ^
       const DeepCollectionEquality().hash(activityDatesAndTimes) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
@@ -18655,6 +18285,7 @@ extension $WebApiModulesAgentProjectProjectExtension
     String? marketSegmentJob,
     bool? syncMarket,
     bool? syncDeliverShip,
+    bool? syncSchedule,
     String? outDeliveryId,
     String? outDeliveryDeliveryType,
     String? outDeliveryRequiredDate,
@@ -18831,6 +18462,8 @@ extension $WebApiModulesAgentProjectProjectExtension
     double? rentalTaxRate2,
     double? salesTaxRate2,
     double? laborTaxRate2,
+    double? miscTaxRate1,
+    double? miscTaxRate2,
     String? determineQuantitiesToBillBasedOn,
     bool? includePrepFeesInRentalRate,
     String? hiatusDiscountFrom,
@@ -18867,6 +18500,10 @@ extension $WebApiModulesAgentProjectProjectExtension
     int? billToCountryCodePhone,
     bool? noCharge,
     String? noChargeReason,
+    String? coverLetterId,
+    String? coverLetter,
+    String? termsConditionsId,
+    String? termsConditions,
     List<WebApiModulesAgentOrderDatesOrderDates>? activityDatesAndTimes,
     bool? inactive,
     String? dateStamp,
@@ -18951,6 +18588,7 @@ extension $WebApiModulesAgentProjectProjectExtension
       marketSegmentJob: marketSegmentJob ?? this.marketSegmentJob,
       syncMarket: syncMarket ?? this.syncMarket,
       syncDeliverShip: syncDeliverShip ?? this.syncDeliverShip,
+      syncSchedule: syncSchedule ?? this.syncSchedule,
       outDeliveryId: outDeliveryId ?? this.outDeliveryId,
       outDeliveryDeliveryType:
           outDeliveryDeliveryType ?? this.outDeliveryDeliveryType,
@@ -19246,6 +18884,8 @@ extension $WebApiModulesAgentProjectProjectExtension
       rentalTaxRate2: rentalTaxRate2 ?? this.rentalTaxRate2,
       salesTaxRate2: salesTaxRate2 ?? this.salesTaxRate2,
       laborTaxRate2: laborTaxRate2 ?? this.laborTaxRate2,
+      miscTaxRate1: miscTaxRate1 ?? this.miscTaxRate1,
+      miscTaxRate2: miscTaxRate2 ?? this.miscTaxRate2,
       determineQuantitiesToBillBasedOn:
           determineQuantitiesToBillBasedOn ??
           this.determineQuantitiesToBillBasedOn,
@@ -19292,6 +18932,10 @@ extension $WebApiModulesAgentProjectProjectExtension
           billToCountryCodePhone ?? this.billToCountryCodePhone,
       noCharge: noCharge ?? this.noCharge,
       noChargeReason: noChargeReason ?? this.noChargeReason,
+      coverLetterId: coverLetterId ?? this.coverLetterId,
+      coverLetter: coverLetter ?? this.coverLetter,
+      termsConditionsId: termsConditionsId ?? this.termsConditionsId,
+      termsConditions: termsConditions ?? this.termsConditions,
       activityDatesAndTimes:
           activityDatesAndTimes ?? this.activityDatesAndTimes,
       inactive: inactive ?? this.inactive,
@@ -19372,6 +19016,7 @@ extension $WebApiModulesAgentProjectProjectExtension
     Wrapped<String?>? marketSegmentJob,
     Wrapped<bool?>? syncMarket,
     Wrapped<bool?>? syncDeliverShip,
+    Wrapped<bool?>? syncSchedule,
     Wrapped<String?>? outDeliveryId,
     Wrapped<String?>? outDeliveryDeliveryType,
     Wrapped<String?>? outDeliveryRequiredDate,
@@ -19548,6 +19193,8 @@ extension $WebApiModulesAgentProjectProjectExtension
     Wrapped<double?>? rentalTaxRate2,
     Wrapped<double?>? salesTaxRate2,
     Wrapped<double?>? laborTaxRate2,
+    Wrapped<double?>? miscTaxRate1,
+    Wrapped<double?>? miscTaxRate2,
     Wrapped<String?>? determineQuantitiesToBillBasedOn,
     Wrapped<bool?>? includePrepFeesInRentalRate,
     Wrapped<String?>? hiatusDiscountFrom,
@@ -19584,6 +19231,10 @@ extension $WebApiModulesAgentProjectProjectExtension
     Wrapped<int?>? billToCountryCodePhone,
     Wrapped<bool?>? noCharge,
     Wrapped<String?>? noChargeReason,
+    Wrapped<String?>? coverLetterId,
+    Wrapped<String?>? coverLetter,
+    Wrapped<String?>? termsConditionsId,
+    Wrapped<String?>? termsConditions,
     Wrapped<List<WebApiModulesAgentOrderDatesOrderDates>?>?
     activityDatesAndTimes,
     Wrapped<bool?>? inactive,
@@ -19724,6 +19375,9 @@ extension $WebApiModulesAgentProjectProjectExtension
       syncDeliverShip: (syncDeliverShip != null
           ? syncDeliverShip.value
           : this.syncDeliverShip),
+      syncSchedule: (syncSchedule != null
+          ? syncSchedule.value
+          : this.syncSchedule),
       outDeliveryId: (outDeliveryId != null
           ? outDeliveryId.value
           : this.outDeliveryId),
@@ -20245,6 +19899,12 @@ extension $WebApiModulesAgentProjectProjectExtension
       laborTaxRate2: (laborTaxRate2 != null
           ? laborTaxRate2.value
           : this.laborTaxRate2),
+      miscTaxRate1: (miscTaxRate1 != null
+          ? miscTaxRate1.value
+          : this.miscTaxRate1),
+      miscTaxRate2: (miscTaxRate2 != null
+          ? miscTaxRate2.value
+          : this.miscTaxRate2),
       determineQuantitiesToBillBasedOn:
           (determineQuantitiesToBillBasedOn != null
           ? determineQuantitiesToBillBasedOn.value
@@ -20345,6 +20005,16 @@ extension $WebApiModulesAgentProjectProjectExtension
       noChargeReason: (noChargeReason != null
           ? noChargeReason.value
           : this.noChargeReason),
+      coverLetterId: (coverLetterId != null
+          ? coverLetterId.value
+          : this.coverLetterId),
+      coverLetter: (coverLetter != null ? coverLetter.value : this.coverLetter),
+      termsConditionsId: (termsConditionsId != null
+          ? termsConditionsId.value
+          : this.termsConditionsId),
+      termsConditions: (termsConditions != null
+          ? termsConditions.value
+          : this.termsConditions),
       activityDatesAndTimes: (activityDatesAndTimes != null
           ? activityDatesAndTimes.value
           : this.activityDatesAndTimes),
@@ -20525,6 +20195,8 @@ class WebApiModulesAgentQuoteQuote {
     this.rentalTaxRate2,
     this.salesTaxRate2,
     this.laborTaxRate2,
+    this.miscTaxRate1,
+    this.miscTaxRate2,
     this.totalTax,
     this.noCharge,
     this.noChargeReason,
@@ -20566,6 +20238,7 @@ class WebApiModulesAgentQuoteQuote {
     this.groupNumber,
     this.groupColor,
     this.groupOrderBy,
+    this.groupName,
     this.coverLetterId,
     this.coverLetter,
     this.termsConditionsId,
@@ -20807,6 +20480,7 @@ class WebApiModulesAgentQuoteQuote {
     this.rentalExempt,
     this.salesExempt,
     this.laborExempt,
+    this.miscExempt,
     this.enableProjects,
     this.projectId,
     this.projectNumber,
@@ -20826,6 +20500,7 @@ class WebApiModulesAgentQuoteQuote {
     this.projectSyncMarket,
     this.projectSyncDeliverShip,
     this.projectSyncBilling,
+    this.projectSyncSchedule,
     this.inputByUserId,
     this.modByUserId,
     this.webUserId,
@@ -20884,6 +20559,7 @@ class WebApiModulesAgentQuoteQuote {
     this.totalWeightKg,
     this.totalWeightG,
     this.shipmentNumber,
+    this.lassoEventId,
     this.dateStamp,
     this.auditNote,
     this.recordTitle,
@@ -21187,6 +20863,10 @@ class WebApiModulesAgentQuoteQuote {
   final double? salesTaxRate2;
   @JsonKey(name: 'LaborTaxRate2', includeIfNull: false)
   final double? laborTaxRate2;
+  @JsonKey(name: 'MiscTaxRate1', includeIfNull: false)
+  final double? miscTaxRate1;
+  @JsonKey(name: 'MiscTaxRate2', includeIfNull: false)
+  final double? miscTaxRate2;
   @JsonKey(name: 'TotalTax', includeIfNull: false)
   final double? totalTax;
   @JsonKey(name: 'NoCharge', includeIfNull: false)
@@ -21272,6 +20952,8 @@ class WebApiModulesAgentQuoteQuote {
   final int? groupColor;
   @JsonKey(name: 'GroupOrderBy', includeIfNull: false)
   final double? groupOrderBy;
+  @JsonKey(name: 'GroupName', includeIfNull: false)
+  final String? groupName;
   @JsonKey(name: 'CoverLetterId', includeIfNull: false)
   final String? coverLetterId;
   @JsonKey(name: 'CoverLetter', includeIfNull: false)
@@ -21757,6 +21439,8 @@ class WebApiModulesAgentQuoteQuote {
   final bool? salesExempt;
   @JsonKey(name: 'LaborExempt', includeIfNull: false)
   final bool? laborExempt;
+  @JsonKey(name: 'MiscExempt', includeIfNull: false)
+  final bool? miscExempt;
   @JsonKey(name: 'EnableProjects', includeIfNull: false)
   final bool? enableProjects;
   @JsonKey(name: 'ProjectId', includeIfNull: false)
@@ -21795,6 +21479,8 @@ class WebApiModulesAgentQuoteQuote {
   final bool? projectSyncDeliverShip;
   @JsonKey(name: 'ProjectSyncBilling', includeIfNull: false)
   final bool? projectSyncBilling;
+  @JsonKey(name: 'ProjectSyncSchedule', includeIfNull: false)
+  final bool? projectSyncSchedule;
   @JsonKey(name: 'InputByUserId', includeIfNull: false)
   final String? inputByUserId;
   @JsonKey(name: 'ModByUserId', includeIfNull: false)
@@ -21926,6 +21612,8 @@ class WebApiModulesAgentQuoteQuote {
   final int? totalWeightG;
   @JsonKey(name: 'ShipmentNumber', includeIfNull: false)
   final int? shipmentNumber;
+  @JsonKey(name: 'LassoEventId', includeIfNull: false)
+  final String? lassoEventId;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
@@ -22664,6 +22352,16 @@ class WebApiModulesAgentQuoteQuote {
                   other.laborTaxRate2,
                   laborTaxRate2,
                 )) &&
+            (identical(other.miscTaxRate1, miscTaxRate1) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate1,
+                  miscTaxRate1,
+                )) &&
+            (identical(other.miscTaxRate2, miscTaxRate2) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate2,
+                  miscTaxRate2,
+                )) &&
             (identical(other.totalTax, totalTax) ||
                 const DeepCollectionEquality().equals(
                   other.totalTax,
@@ -22892,6 +22590,11 @@ class WebApiModulesAgentQuoteQuote {
                 const DeepCollectionEquality().equals(
                   other.groupOrderBy,
                   groupOrderBy,
+                )) &&
+            (identical(other.groupName, groupName) ||
+                const DeepCollectionEquality().equals(
+                  other.groupName,
+                  groupName,
                 )) &&
             (identical(other.coverLetterId, coverLetterId) ||
                 const DeepCollectionEquality().equals(
@@ -24380,6 +24083,11 @@ class WebApiModulesAgentQuoteQuote {
                   other.laborExempt,
                   laborExempt,
                 )) &&
+            (identical(other.miscExempt, miscExempt) ||
+                const DeepCollectionEquality().equals(
+                  other.miscExempt,
+                  miscExempt,
+                )) &&
             (identical(other.enableProjects, enableProjects) ||
                 const DeepCollectionEquality().equals(
                   other.enableProjects,
@@ -24474,6 +24182,11 @@ class WebApiModulesAgentQuoteQuote {
                 const DeepCollectionEquality().equals(
                   other.projectSyncBilling,
                   projectSyncBilling,
+                )) &&
+            (identical(other.projectSyncSchedule, projectSyncSchedule) ||
+                const DeepCollectionEquality().equals(
+                  other.projectSyncSchedule,
+                  projectSyncSchedule,
                 )) &&
             (identical(other.inputByUserId, inputByUserId) ||
                 const DeepCollectionEquality().equals(
@@ -24817,6 +24530,11 @@ class WebApiModulesAgentQuoteQuote {
                   other.shipmentNumber,
                   shipmentNumber,
                 )) &&
+            (identical(other.lassoEventId, lassoEventId) ||
+                const DeepCollectionEquality().equals(
+                  other.lassoEventId,
+                  lassoEventId,
+                )) &&
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality().equals(
                   other.dateStamp,
@@ -25037,6 +24755,8 @@ class WebApiModulesAgentQuoteQuote {
       const DeepCollectionEquality().hash(rentalTaxRate2) ^
       const DeepCollectionEquality().hash(salesTaxRate2) ^
       const DeepCollectionEquality().hash(laborTaxRate2) ^
+      const DeepCollectionEquality().hash(miscTaxRate1) ^
+      const DeepCollectionEquality().hash(miscTaxRate2) ^
       const DeepCollectionEquality().hash(totalTax) ^
       const DeepCollectionEquality().hash(noCharge) ^
       const DeepCollectionEquality().hash(noChargeReason) ^
@@ -25082,6 +24802,7 @@ class WebApiModulesAgentQuoteQuote {
       const DeepCollectionEquality().hash(groupNumber) ^
       const DeepCollectionEquality().hash(groupColor) ^
       const DeepCollectionEquality().hash(groupOrderBy) ^
+      const DeepCollectionEquality().hash(groupName) ^
       const DeepCollectionEquality().hash(coverLetterId) ^
       const DeepCollectionEquality().hash(coverLetter) ^
       const DeepCollectionEquality().hash(termsConditionsId) ^
@@ -25327,6 +25048,7 @@ class WebApiModulesAgentQuoteQuote {
       const DeepCollectionEquality().hash(rentalExempt) ^
       const DeepCollectionEquality().hash(salesExempt) ^
       const DeepCollectionEquality().hash(laborExempt) ^
+      const DeepCollectionEquality().hash(miscExempt) ^
       const DeepCollectionEquality().hash(enableProjects) ^
       const DeepCollectionEquality().hash(projectId) ^
       const DeepCollectionEquality().hash(projectNumber) ^
@@ -25346,6 +25068,7 @@ class WebApiModulesAgentQuoteQuote {
       const DeepCollectionEquality().hash(projectSyncMarket) ^
       const DeepCollectionEquality().hash(projectSyncDeliverShip) ^
       const DeepCollectionEquality().hash(projectSyncBilling) ^
+      const DeepCollectionEquality().hash(projectSyncSchedule) ^
       const DeepCollectionEquality().hash(inputByUserId) ^
       const DeepCollectionEquality().hash(modByUserId) ^
       const DeepCollectionEquality().hash(webUserId) ^
@@ -25416,6 +25139,7 @@ class WebApiModulesAgentQuoteQuote {
       const DeepCollectionEquality().hash(totalWeightKg) ^
       const DeepCollectionEquality().hash(totalWeightG) ^
       const DeepCollectionEquality().hash(shipmentNumber) ^
+      const DeepCollectionEquality().hash(lassoEventId) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
@@ -25574,6 +25298,8 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     double? rentalTaxRate2,
     double? salesTaxRate2,
     double? laborTaxRate2,
+    double? miscTaxRate1,
+    double? miscTaxRate2,
     double? totalTax,
     bool? noCharge,
     String? noChargeReason,
@@ -25615,6 +25341,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     int? groupNumber,
     int? groupColor,
     double? groupOrderBy,
+    String? groupName,
     String? coverLetterId,
     String? coverLetter,
     String? termsConditionsId,
@@ -25856,6 +25583,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     bool? rentalExempt,
     bool? salesExempt,
     bool? laborExempt,
+    bool? miscExempt,
     bool? enableProjects,
     String? projectId,
     String? projectNumber,
@@ -25875,6 +25603,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     bool? projectSyncMarket,
     bool? projectSyncDeliverShip,
     bool? projectSyncBilling,
+    bool? projectSyncSchedule,
     String? inputByUserId,
     String? modByUserId,
     String? webUserId,
@@ -25933,6 +25662,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     int? totalWeightKg,
     int? totalWeightG,
     int? shipmentNumber,
+    String? lassoEventId,
     String? dateStamp,
     String? auditNote,
     String? recordTitle,
@@ -26108,6 +25838,8 @@ extension $WebApiModulesAgentQuoteQuoteExtension
       rentalTaxRate2: rentalTaxRate2 ?? this.rentalTaxRate2,
       salesTaxRate2: salesTaxRate2 ?? this.salesTaxRate2,
       laborTaxRate2: laborTaxRate2 ?? this.laborTaxRate2,
+      miscTaxRate1: miscTaxRate1 ?? this.miscTaxRate1,
+      miscTaxRate2: miscTaxRate2 ?? this.miscTaxRate2,
       totalTax: totalTax ?? this.totalTax,
       noCharge: noCharge ?? this.noCharge,
       noChargeReason: noChargeReason ?? this.noChargeReason,
@@ -26160,6 +25892,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
       groupNumber: groupNumber ?? this.groupNumber,
       groupColor: groupColor ?? this.groupColor,
       groupOrderBy: groupOrderBy ?? this.groupOrderBy,
+      groupName: groupName ?? this.groupName,
       coverLetterId: coverLetterId ?? this.coverLetterId,
       coverLetter: coverLetter ?? this.coverLetter,
       termsConditionsId: termsConditionsId ?? this.termsConditionsId,
@@ -26547,6 +26280,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
       rentalExempt: rentalExempt ?? this.rentalExempt,
       salesExempt: salesExempt ?? this.salesExempt,
       laborExempt: laborExempt ?? this.laborExempt,
+      miscExempt: miscExempt ?? this.miscExempt,
       enableProjects: enableProjects ?? this.enableProjects,
       projectId: projectId ?? this.projectId,
       projectNumber: projectNumber ?? this.projectNumber,
@@ -26569,6 +26303,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
       projectSyncDeliverShip:
           projectSyncDeliverShip ?? this.projectSyncDeliverShip,
       projectSyncBilling: projectSyncBilling ?? this.projectSyncBilling,
+      projectSyncSchedule: projectSyncSchedule ?? this.projectSyncSchedule,
       inputByUserId: inputByUserId ?? this.inputByUserId,
       modByUserId: modByUserId ?? this.modByUserId,
       webUserId: webUserId ?? this.webUserId,
@@ -26654,6 +26389,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
       totalWeightKg: totalWeightKg ?? this.totalWeightKg,
       totalWeightG: totalWeightG ?? this.totalWeightG,
       shipmentNumber: shipmentNumber ?? this.shipmentNumber,
+      lassoEventId: lassoEventId ?? this.lassoEventId,
       dateStamp: dateStamp ?? this.dateStamp,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
@@ -26814,6 +26550,8 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     Wrapped<double?>? rentalTaxRate2,
     Wrapped<double?>? salesTaxRate2,
     Wrapped<double?>? laborTaxRate2,
+    Wrapped<double?>? miscTaxRate1,
+    Wrapped<double?>? miscTaxRate2,
     Wrapped<double?>? totalTax,
     Wrapped<bool?>? noCharge,
     Wrapped<String?>? noChargeReason,
@@ -26855,6 +26593,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     Wrapped<int?>? groupNumber,
     Wrapped<int?>? groupColor,
     Wrapped<double?>? groupOrderBy,
+    Wrapped<String?>? groupName,
     Wrapped<String?>? coverLetterId,
     Wrapped<String?>? coverLetter,
     Wrapped<String?>? termsConditionsId,
@@ -27096,6 +26835,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     Wrapped<bool?>? rentalExempt,
     Wrapped<bool?>? salesExempt,
     Wrapped<bool?>? laborExempt,
+    Wrapped<bool?>? miscExempt,
     Wrapped<bool?>? enableProjects,
     Wrapped<String?>? projectId,
     Wrapped<String?>? projectNumber,
@@ -27115,6 +26855,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     Wrapped<bool?>? projectSyncMarket,
     Wrapped<bool?>? projectSyncDeliverShip,
     Wrapped<bool?>? projectSyncBilling,
+    Wrapped<bool?>? projectSyncSchedule,
     Wrapped<String?>? inputByUserId,
     Wrapped<String?>? modByUserId,
     Wrapped<String?>? webUserId,
@@ -27173,6 +26914,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
     Wrapped<int?>? totalWeightKg,
     Wrapped<int?>? totalWeightG,
     Wrapped<int?>? shipmentNumber,
+    Wrapped<String?>? lassoEventId,
     Wrapped<String?>? dateStamp,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
@@ -27485,6 +27227,12 @@ extension $WebApiModulesAgentQuoteQuoteExtension
       laborTaxRate2: (laborTaxRate2 != null
           ? laborTaxRate2.value
           : this.laborTaxRate2),
+      miscTaxRate1: (miscTaxRate1 != null
+          ? miscTaxRate1.value
+          : this.miscTaxRate1),
+      miscTaxRate2: (miscTaxRate2 != null
+          ? miscTaxRate2.value
+          : this.miscTaxRate2),
       totalTax: (totalTax != null ? totalTax.value : this.totalTax),
       noCharge: (noCharge != null ? noCharge.value : this.noCharge),
       noChargeReason: (noChargeReason != null
@@ -27594,6 +27342,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
       groupOrderBy: (groupOrderBy != null
           ? groupOrderBy.value
           : this.groupOrderBy),
+      groupName: (groupName != null ? groupName.value : this.groupName),
       coverLetterId: (coverLetterId != null
           ? coverLetterId.value
           : this.coverLetterId),
@@ -28299,6 +28048,7 @@ extension $WebApiModulesAgentQuoteQuoteExtension
           : this.rentalExempt),
       salesExempt: (salesExempt != null ? salesExempt.value : this.salesExempt),
       laborExempt: (laborExempt != null ? laborExempt.value : this.laborExempt),
+      miscExempt: (miscExempt != null ? miscExempt.value : this.miscExempt),
       enableProjects: (enableProjects != null
           ? enableProjects.value
           : this.enableProjects),
@@ -28352,6 +28102,9 @@ extension $WebApiModulesAgentQuoteQuoteExtension
       projectSyncBilling: (projectSyncBilling != null
           ? projectSyncBilling.value
           : this.projectSyncBilling),
+      projectSyncSchedule: (projectSyncSchedule != null
+          ? projectSyncSchedule.value
+          : this.projectSyncSchedule),
       inputByUserId: (inputByUserId != null
           ? inputByUserId.value
           : this.inputByUserId),
@@ -28506,6 +28259,9 @@ extension $WebApiModulesAgentQuoteQuoteExtension
       shipmentNumber: (shipmentNumber != null
           ? shipmentNumber.value
           : this.shipmentNumber),
+      lassoEventId: (lassoEventId != null
+          ? lassoEventId.value
+          : this.lassoEventId),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
@@ -28554,6 +28310,8 @@ class WebApiModulesBillingReceiptReceipt {
     this.locationCode,
     this.location,
     this.customerId,
+    this.contactId,
+    this.contactName,
     this.customer,
     this.dealId,
     this.deal,
@@ -28595,6 +28353,7 @@ class WebApiModulesBillingReceiptReceipt {
     this.creditCardExpirationDate,
     this.creditCardName,
     this.creditCardAccountId,
+    this.paymentByPortal,
     this.creditCardPaymentMode,
     this.creditCardPinPadId,
     this.newCreditCardAccountToken,
@@ -28653,6 +28412,10 @@ class WebApiModulesBillingReceiptReceipt {
   final String? location;
   @JsonKey(name: 'CustomerId', includeIfNull: false)
   final String? customerId;
+  @JsonKey(name: 'ContactId', includeIfNull: false)
+  final String? contactId;
+  @JsonKey(name: 'ContactName', includeIfNull: false)
+  final String? contactName;
   @JsonKey(name: 'Customer', includeIfNull: false)
   final String? customer;
   @JsonKey(name: 'DealId', includeIfNull: false)
@@ -28743,6 +28506,8 @@ class WebApiModulesBillingReceiptReceipt {
   final String? creditCardName;
   @JsonKey(name: 'CreditCardAccountId', includeIfNull: false)
   final String? creditCardAccountId;
+  @JsonKey(name: 'PaymentByPortal', includeIfNull: false)
+  final bool? paymentByPortal;
   @JsonKey(name: 'CreditCardPaymentMode', includeIfNull: false)
   final String? creditCardPaymentMode;
   @JsonKey(name: 'CreditCardPinPadId', includeIfNull: false)
@@ -28866,6 +28631,16 @@ class WebApiModulesBillingReceiptReceipt {
                 const DeepCollectionEquality().equals(
                   other.customerId,
                   customerId,
+                )) &&
+            (identical(other.contactId, contactId) ||
+                const DeepCollectionEquality().equals(
+                  other.contactId,
+                  contactId,
+                )) &&
+            (identical(other.contactName, contactName) ||
+                const DeepCollectionEquality().equals(
+                  other.contactName,
+                  contactName,
                 )) &&
             (identical(other.customer, customer) ||
                 const DeepCollectionEquality().equals(
@@ -29077,6 +28852,11 @@ class WebApiModulesBillingReceiptReceipt {
                 const DeepCollectionEquality().equals(
                   other.creditCardAccountId,
                   creditCardAccountId,
+                )) &&
+            (identical(other.paymentByPortal, paymentByPortal) ||
+                const DeepCollectionEquality().equals(
+                  other.paymentByPortal,
+                  paymentByPortal,
                 )) &&
             (identical(other.creditCardPaymentMode, creditCardPaymentMode) ||
                 const DeepCollectionEquality().equals(
@@ -29292,6 +29072,8 @@ class WebApiModulesBillingReceiptReceipt {
       const DeepCollectionEquality().hash(locationCode) ^
       const DeepCollectionEquality().hash(location) ^
       const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(contactId) ^
+      const DeepCollectionEquality().hash(contactName) ^
       const DeepCollectionEquality().hash(customer) ^
       const DeepCollectionEquality().hash(dealId) ^
       const DeepCollectionEquality().hash(deal) ^
@@ -29333,6 +29115,7 @@ class WebApiModulesBillingReceiptReceipt {
       const DeepCollectionEquality().hash(creditCardExpirationDate) ^
       const DeepCollectionEquality().hash(creditCardName) ^
       const DeepCollectionEquality().hash(creditCardAccountId) ^
+      const DeepCollectionEquality().hash(paymentByPortal) ^
       const DeepCollectionEquality().hash(creditCardPaymentMode) ^
       const DeepCollectionEquality().hash(creditCardPinPadId) ^
       const DeepCollectionEquality().hash(newCreditCardAccountToken) ^
@@ -29381,6 +29164,8 @@ extension $WebApiModulesBillingReceiptReceiptExtension
     String? locationCode,
     String? location,
     String? customerId,
+    String? contactId,
+    String? contactName,
     String? customer,
     String? dealId,
     String? deal,
@@ -29422,6 +29207,7 @@ extension $WebApiModulesBillingReceiptReceiptExtension
     String? creditCardExpirationDate,
     String? creditCardName,
     String? creditCardAccountId,
+    bool? paymentByPortal,
     String? creditCardPaymentMode,
     int? creditCardPinPadId,
     String? newCreditCardAccountToken,
@@ -29466,6 +29252,8 @@ extension $WebApiModulesBillingReceiptReceiptExtension
       locationCode: locationCode ?? this.locationCode,
       location: location ?? this.location,
       customerId: customerId ?? this.customerId,
+      contactId: contactId ?? this.contactId,
+      contactName: contactName ?? this.contactName,
       customer: customer ?? this.customer,
       dealId: dealId ?? this.dealId,
       deal: deal ?? this.deal,
@@ -29515,6 +29303,7 @@ extension $WebApiModulesBillingReceiptReceiptExtension
           creditCardExpirationDate ?? this.creditCardExpirationDate,
       creditCardName: creditCardName ?? this.creditCardName,
       creditCardAccountId: creditCardAccountId ?? this.creditCardAccountId,
+      paymentByPortal: paymentByPortal ?? this.paymentByPortal,
       creditCardPaymentMode:
           creditCardPaymentMode ?? this.creditCardPaymentMode,
       creditCardPinPadId: creditCardPinPadId ?? this.creditCardPinPadId,
@@ -29575,6 +29364,8 @@ extension $WebApiModulesBillingReceiptReceiptExtension
     Wrapped<String?>? locationCode,
     Wrapped<String?>? location,
     Wrapped<String?>? customerId,
+    Wrapped<String?>? contactId,
+    Wrapped<String?>? contactName,
     Wrapped<String?>? customer,
     Wrapped<String?>? dealId,
     Wrapped<String?>? deal,
@@ -29616,6 +29407,7 @@ extension $WebApiModulesBillingReceiptReceiptExtension
     Wrapped<String?>? creditCardExpirationDate,
     Wrapped<String?>? creditCardName,
     Wrapped<String?>? creditCardAccountId,
+    Wrapped<bool?>? paymentByPortal,
     Wrapped<String?>? creditCardPaymentMode,
     Wrapped<int?>? creditCardPinPadId,
     Wrapped<String?>? newCreditCardAccountToken,
@@ -29663,6 +29455,8 @@ extension $WebApiModulesBillingReceiptReceiptExtension
           : this.locationCode),
       location: (location != null ? location.value : this.location),
       customerId: (customerId != null ? customerId.value : this.customerId),
+      contactId: (contactId != null ? contactId.value : this.contactId),
+      contactName: (contactName != null ? contactName.value : this.contactName),
       customer: (customer != null ? customer.value : this.customer),
       dealId: (dealId != null ? dealId.value : this.dealId),
       deal: (deal != null ? deal.value : this.deal),
@@ -29760,6 +29554,9 @@ extension $WebApiModulesBillingReceiptReceiptExtension
       creditCardAccountId: (creditCardAccountId != null
           ? creditCardAccountId.value
           : this.creditCardAccountId),
+      paymentByPortal: (paymentByPortal != null
+          ? paymentByPortal.value
+          : this.paymentByPortal),
       creditCardPaymentMode: (creditCardPaymentMode != null
           ? creditCardPaymentMode.value
           : this.creditCardPaymentMode),
@@ -33212,8 +33009,7 @@ class WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderReq
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest &&
+        (other is WebApiModulesPluginsCreditCardCreditCardCapturePreAuthorizationForOrderRequest &&
             (identical(other.orderId, orderId) ||
                 const DeepCollectionEquality().equals(other.orderId, orderId)));
   }
@@ -35374,8 +35170,7 @@ class WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequest
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequest &&
+        (other is WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequest &&
             (identical(other.accountId, accountId) ||
                 const DeepCollectionEquality().equals(
                   other.accountId,
@@ -38131,8 +37926,7 @@ class WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusReques
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest &&
+        (other is WebApiModulesPluginsCreditCardCreditCardUpdatePreAuthorizationStatusRequest &&
             (identical(
                   other.creditCardPreAuthorizationId,
                   creditCardPreAuthorizationId,
@@ -40726,8 +40520,7 @@ class WebApiModulesPluginsQuickbooksOnlineQuickBooksOnlinePluginLogicLocation {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesPluginsQuickbooksOnlineQuickBooksOnlinePluginLogicLocation &&
+        (other is WebApiModulesPluginsQuickbooksOnlineQuickBooksOnlinePluginLogicLocation &&
             (identical(other.locationId, locationId) ||
                 const DeepCollectionEquality().equals(
                   other.locationId,
@@ -41852,6 +41645,7 @@ class WebApiModulesPluginsTeamupTeamupSettings {
     this.success,
     this.msg,
     this.teamupApiKey,
+    this.useDeliverShipDatesForTeamup,
   });
 
   factory WebApiModulesPluginsTeamupTeamupSettings.fromJson(
@@ -41876,6 +41670,8 @@ class WebApiModulesPluginsTeamupTeamupSettings {
   final String? msg;
   @JsonKey(name: 'TeamupApiKey', includeIfNull: false)
   final String? teamupApiKey;
+  @JsonKey(name: 'UseDeliverShipDatesForTeamup', includeIfNull: false)
+  final bool? useDeliverShipDatesForTeamup;
   static const fromJsonFactory =
       _$WebApiModulesPluginsTeamupTeamupSettingsFromJson;
 
@@ -41901,6 +41697,14 @@ class WebApiModulesPluginsTeamupTeamupSettings {
                 const DeepCollectionEquality().equals(
                   other.teamupApiKey,
                   teamupApiKey,
+                )) &&
+            (identical(
+                  other.useDeliverShipDatesForTeamup,
+                  useDeliverShipDatesForTeamup,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.useDeliverShipDatesForTeamup,
+                  useDeliverShipDatesForTeamup,
                 )));
   }
 
@@ -41914,6 +41718,7 @@ class WebApiModulesPluginsTeamupTeamupSettings {
       const DeepCollectionEquality().hash(success) ^
       const DeepCollectionEquality().hash(msg) ^
       const DeepCollectionEquality().hash(teamupApiKey) ^
+      const DeepCollectionEquality().hash(useDeliverShipDatesForTeamup) ^
       runtimeType.hashCode;
 }
 
@@ -41925,6 +41730,7 @@ extension $WebApiModulesPluginsTeamupTeamupSettingsExtension
     bool? success,
     String? msg,
     String? teamupApiKey,
+    bool? useDeliverShipDatesForTeamup,
   }) {
     return WebApiModulesPluginsTeamupTeamupSettings(
       locations: locations ?? this.locations,
@@ -41932,6 +41738,8 @@ extension $WebApiModulesPluginsTeamupTeamupSettingsExtension
       success: success ?? this.success,
       msg: msg ?? this.msg,
       teamupApiKey: teamupApiKey ?? this.teamupApiKey,
+      useDeliverShipDatesForTeamup:
+          useDeliverShipDatesForTeamup ?? this.useDeliverShipDatesForTeamup,
     );
   }
 
@@ -41942,6 +41750,7 @@ extension $WebApiModulesPluginsTeamupTeamupSettingsExtension
     Wrapped<bool?>? success,
     Wrapped<String?>? msg,
     Wrapped<String?>? teamupApiKey,
+    Wrapped<bool?>? useDeliverShipDatesForTeamup,
   }) {
     return WebApiModulesPluginsTeamupTeamupSettings(
       locations: (locations != null ? locations.value : this.locations),
@@ -41951,6 +41760,9 @@ extension $WebApiModulesPluginsTeamupTeamupSettingsExtension
       teamupApiKey: (teamupApiKey != null
           ? teamupApiKey.value
           : this.teamupApiKey),
+      useDeliverShipDatesForTeamup: (useDeliverShipDatesForTeamup != null
+          ? useDeliverShipDatesForTeamup.value
+          : this.useDeliverShipDatesForTeamup),
     );
   }
 }
@@ -43980,9 +43792,9 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
 
     if (ResultType == DateTime) {
       return response.copyWith(
-        body:
-            DateTime.parse((response.body as String).replaceAll('"', ''))
-                as ResultType,
+        body: DateTime.parse(
+          (response.body as String).replaceAll('"', ''),
+        ) as ResultType,
       );
     }
 

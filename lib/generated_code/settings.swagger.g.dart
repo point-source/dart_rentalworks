@@ -27,6 +27,21 @@ _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
   instance,
 ) => <String, dynamic>{'downloadUrl': ?instance.downloadUrl};
 
+FwCoreControllersGetServerUtcDateTimeResponse
+_$FwCoreControllersGetServerUtcDateTimeResponseFromJson(
+  Map<String, dynamic> json,
+) => FwCoreControllersGetServerUtcDateTimeResponse(
+  serverUtcDateTime: json['ServerUtcDateTime'] == null
+      ? null
+      : DateTime.parse(json['ServerUtcDateTime'] as String),
+);
+
+Map<String, dynamic> _$FwCoreControllersGetServerUtcDateTimeResponseToJson(
+  FwCoreControllersGetServerUtcDateTimeResponse instance,
+) => <String, dynamic>{
+  'ServerUtcDateTime': ?instance.serverUtcDateTime?.toIso8601String(),
+};
+
 FwStandardBusinessLogicFwBusinessLogic
 _$FwStandardBusinessLogicFwBusinessLogicFromJson(
   Map<String, dynamic> json,
@@ -394,7 +409,8 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
-  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toDouble(),
+  locale: json['Locale'] as String?,
 );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -427,6 +443,7 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
   'timezoneOffset': ?instance.timezoneOffset,
+  'Locale': ?instance.locale,
 };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
@@ -781,39 +798,6 @@ _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessUserAcces
 Map<String, dynamic>
 _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessUserAccessUserLocationAccessLogicToJson(
   FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessUserAccessUserLocationAccessLogic
-  instance,
-) => <String, dynamic>{
-  'Items': ?instance.items?.map((e) => e.toJson()).toList(),
-  'PageNo': ?instance.pageNo,
-  'PageSize': ?instance.pageSize,
-  'TotalItems': ?instance.totalItems,
-  'Sort': ?instance.sort,
-};
-
-FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-  Map<String, dynamic> json,
-) =>
-    FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items:
-          (json['Items'] as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-                      e as Map<String, dynamic>,
-                    ),
-              )
-              .toList() ??
-          [],
-      pageNo: (json['PageNo'] as num?)?.toInt(),
-      pageSize: (json['PageSize'] as num?)?.toInt(),
-      totalItems: (json['TotalItems'] as num?)?.toInt(),
-      sort: json['Sort'] as String?,
-    );
-
-Map<String, dynamic>
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
   instance,
 ) => <String, dynamic>{
   'Items': ?instance.items?.map((e) => e.toJson()).toList(),
@@ -7531,125 +7515,6 @@ _$WebApiModulesAdministratorSystemAccessUserAccessUserLocationAccessToJson(
   'ModifiedDateTime': ?instance.modifiedDateTime,
 };
 
-WebApiModulesAdministratorTaskSchedulerTaskSteps
-_$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesAdministratorTaskSchedulerTaskSteps(
-  taskStepsId: (json['TaskStepsId'] as num?)?.toInt(),
-  taskId: (json['TaskId'] as num?)?.toInt(),
-  name: json['Name'] as String?,
-  stepNumber: (json['StepNumber'] as num?)?.toInt(),
-  type: json['Type'] as String?,
-  command: json['Command'] as String?,
-  onSuccessActionDisplay: json['OnSuccessActionDisplay'] as String?,
-  onFailureActionDisplay: json['OnFailureActionDisplay'] as String?,
-  onSuccessAction: (json['OnSuccessAction'] as num?)?.toInt(),
-  retryAttempts: (json['RetryAttempts'] as num?)?.toInt(),
-  retryInterval: (json['RetryInterval'] as num?)?.toInt(),
-  onFailureAction: (json['OnFailureAction'] as num?)?.toInt(),
-  onSuccessTaskStepsId: (json['OnSuccessTaskStepsId'] as num?)?.toInt(),
-  onFailureTaskStepsId: (json['OnFailureTaskStepsId'] as num?)?.toInt(),
-  outputFilename: json['OutputFilename'] as String?,
-  lastRunOutcome: (json['LastRunOutcome'] as num?)?.toInt(),
-  lastRunDuration: (json['LastRunDuration'] as num?)?.toInt(),
-  lastRunRetries: (json['LastRunRetries'] as num?)?.toInt(),
-  dateStamp: json['DateStamp'] as String?,
-  auditNote: json['AuditNote'] as String?,
-  recordTitle: json['RecordTitle'] as String?,
-  urlIdentifier: json['UrlIdentifier'],
-  fields:
-      (json['_Fields'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  custom:
-      (json['_Custom'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      [],
-  defaultFieldAttributes:
-      (json['_DefaultFieldAttributes'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwDefaultAttribute.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  original: json['_Original'] == null
-      ? null
-      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          json['_Original'] as Map<String, dynamic>,
-        ),
-  translation:
-      (json['_Translation'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwTranslatedValue.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  hasImport: json['_HasImport'] as bool?,
-  hasDocuments: json['_HasDocuments'] as bool?,
-  createdByUserId: json['CreatedByUserId'] as String?,
-  createdByUserName: json['CreatedByUserName'] as String?,
-  createdDateTime: json['CreatedDateTime'] as String?,
-  modifiedByUserId: json['ModifiedByUserId'] as String?,
-  modifiedByUserName: json['ModifiedByUserName'] as String?,
-  modifiedDateTime: json['ModifiedDateTime'] as String?,
-);
-
-Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
-  WebApiModulesAdministratorTaskSchedulerTaskSteps instance,
-) => <String, dynamic>{
-  'TaskStepsId': ?instance.taskStepsId,
-  'TaskId': ?instance.taskId,
-  'Name': ?instance.name,
-  'StepNumber': ?instance.stepNumber,
-  'Type': ?instance.type,
-  'Command': ?instance.command,
-  'OnSuccessActionDisplay': ?instance.onSuccessActionDisplay,
-  'OnFailureActionDisplay': ?instance.onFailureActionDisplay,
-  'OnSuccessAction': ?instance.onSuccessAction,
-  'RetryAttempts': ?instance.retryAttempts,
-  'RetryInterval': ?instance.retryInterval,
-  'OnFailureAction': ?instance.onFailureAction,
-  'OnSuccessTaskStepsId': ?instance.onSuccessTaskStepsId,
-  'OnFailureTaskStepsId': ?instance.onFailureTaskStepsId,
-  'OutputFilename': ?instance.outputFilename,
-  'LastRunOutcome': ?instance.lastRunOutcome,
-  'LastRunDuration': ?instance.lastRunDuration,
-  'LastRunRetries': ?instance.lastRunRetries,
-  'DateStamp': ?instance.dateStamp,
-  'AuditNote': ?instance.auditNote,
-  'RecordTitle': ?instance.recordTitle,
-  'UrlIdentifier': ?instance.urlIdentifier,
-  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
-  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
-      ?.map((e) => e.toJson())
-      .toList(),
-  '_Original': ?instance.original?.toJson(),
-  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
-  '_HasImport': ?instance.hasImport,
-  '_HasDocuments': ?instance.hasDocuments,
-  'CreatedByUserId': ?instance.createdByUserId,
-  'CreatedByUserName': ?instance.createdByUserName,
-  'CreatedDateTime': ?instance.createdDateTime,
-  'ModifiedByUserId': ?instance.modifiedByUserId,
-  'ModifiedByUserName': ?instance.modifiedByUserName,
-  'ModifiedDateTime': ?instance.modifiedDateTime,
-};
-
 WebApiModulesInventoryStorageContainerStorageContainer
 _$WebApiModulesInventoryStorageContainerStorageContainerFromJson(
   Map<String, dynamic> json,
@@ -11605,6 +11470,9 @@ _$WebApiModulesSettingsDepartmentLocationDepartmentLocationFromJson(
       json['FlatAmountCreditInvoiceRateICode'] as String?,
   flatAmountCreditInvoiceRateDescription:
       json['FlatAmountCreditInvoiceRateDescription'] as String?,
+  freightRateId: json['FreightRateId'] as String?,
+  freightRateICode: json['FreightRateICode'] as String?,
+  freightRateDescription: json['FreightRateDescription'] as String?,
   updateEstimatedStartAndStopDatesOnSubPurchaseOrders:
       json['UpdateEstimatedStartAndStopDatesOnSubPurchaseOrders'] as bool?,
   promptToUpdateEstimatedStartAndStopDatesOnSubPurchaseOrders:
@@ -11617,6 +11485,8 @@ _$WebApiModulesSettingsDepartmentLocationDepartmentLocationFromJson(
           as bool?,
   purchaseOrderApprovalRequiredAsOf:
       json['PurchaseOrderApprovalRequiredAsOf'] as String?,
+  purchaseOrderRequireApprovalBeforeVendorInvoice:
+      json['PurchaseOrderRequireApprovalBeforeVendorInvoice'] as bool?,
   purchaseOrderRequireFirstApproval:
       json['PurchaseOrderRequireFirstApproval'] as bool?,
   purchaseOrderRequireSecondApproval:
@@ -11729,6 +11599,12 @@ _$WebApiModulesSettingsDepartmentLocationDepartmentLocationFromJson(
   enableExpectedDate: json['EnableExpectedDate'] as bool?,
   requireExpectedDate: json['RequireExpectedDate'] as bool?,
   expectedDateAlertDefaultValue: json['ExpectedDateAlertDefaultValue'] as bool?,
+  quoteWebReportLayoutId: json['QuoteWebReportLayoutId'] as String?,
+  quoteWebReportDescription: json['QuoteWebReportDescription'] as String?,
+  orderWebReportLayoutId: json['OrderWebReportLayoutId'] as String?,
+  orderWebReportDescription: json['OrderWebReportDescription'] as String?,
+  invoiceWebReportLayoutId: json['InvoiceWebReportLayoutId'] as String?,
+  invoiceWebReportDescription: json['InvoiceWebReportDescription'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
   urlIdentifier: json['UrlIdentifier'],
@@ -11813,6 +11689,9 @@ _$WebApiModulesSettingsDepartmentLocationDepartmentLocationToJson(
       ?instance.flatAmountCreditInvoiceRateICode,
   'FlatAmountCreditInvoiceRateDescription':
       ?instance.flatAmountCreditInvoiceRateDescription,
+  'FreightRateId': ?instance.freightRateId,
+  'FreightRateICode': ?instance.freightRateICode,
+  'FreightRateDescription': ?instance.freightRateDescription,
   'UpdateEstimatedStartAndStopDatesOnSubPurchaseOrders':
       ?instance.updateEstimatedStartAndStopDatesOnSubPurchaseOrders,
   'PromptToUpdateEstimatedStartAndStopDatesOnSubPurchaseOrders':
@@ -11823,6 +11702,8 @@ _$WebApiModulesSettingsDepartmentLocationDepartmentLocationToJson(
       ?instance.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
   'PurchaseOrderApprovalRequiredAsOf':
       ?instance.purchaseOrderApprovalRequiredAsOf,
+  'PurchaseOrderRequireApprovalBeforeVendorInvoice':
+      ?instance.purchaseOrderRequireApprovalBeforeVendorInvoice,
   'PurchaseOrderRequireFirstApproval':
       ?instance.purchaseOrderRequireFirstApproval,
   'PurchaseOrderRequireSecondApproval':
@@ -11925,6 +11806,12 @@ _$WebApiModulesSettingsDepartmentLocationDepartmentLocationToJson(
   'EnableExpectedDate': ?instance.enableExpectedDate,
   'RequireExpectedDate': ?instance.requireExpectedDate,
   'ExpectedDateAlertDefaultValue': ?instance.expectedDateAlertDefaultValue,
+  'QuoteWebReportLayoutId': ?instance.quoteWebReportLayoutId,
+  'QuoteWebReportDescription': ?instance.quoteWebReportDescription,
+  'OrderWebReportLayoutId': ?instance.orderWebReportLayoutId,
+  'OrderWebReportDescription': ?instance.orderWebReportDescription,
+  'InvoiceWebReportLayoutId': ?instance.invoiceWebReportLayoutId,
+  'InvoiceWebReportDescription': ?instance.invoiceWebReportDescription,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
   'UrlIdentifier': ?instance.urlIdentifier,
@@ -12693,6 +12580,7 @@ _$WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentTypeFromJson(
   videos: json['Videos'] as bool?,
   panoramic: json['Panoramic'] as bool?,
   automaticallyAttachToEmail: json['AutomaticallyAttachToEmail'] as bool?,
+  manifestDocument: json['ManifestDocument'] as bool?,
   inactive: json['Inactive'] as bool?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
@@ -12759,6 +12647,7 @@ _$WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentTypeToJson(
   'Videos': ?instance.videos,
   'Panoramic': ?instance.panoramic,
   'AutomaticallyAttachToEmail': ?instance.automaticallyAttachToEmail,
+  'ManifestDocument': ?instance.manifestDocument,
   'Inactive': ?instance.inactive,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
@@ -13222,6 +13111,7 @@ _$WebApiModulesSettingsFacilitySettingsVenueVenueFromJson(
   countryCodePhone: (json['CountryCodePhone'] as num?)?.toInt(),
   phone: json['Phone'] as String?,
   webAddress: json['WebAddress'] as String?,
+  notes: json['Notes'] as String?,
   taxOptionId: json['TaxOptionId'] as String?,
   taxOption: json['TaxOption'] as String?,
   tax1Name: json['Tax1Name'] as String?,
@@ -13235,6 +13125,8 @@ _$WebApiModulesSettingsFacilitySettingsVenueVenueFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   primaryContactId: json['PrimaryContactId'] as String?,
   primaryCompanyContactId: json['PrimaryCompanyContactId'] as String?,
   primaryContact: json['PrimaryContact'] as String?,
@@ -13317,6 +13209,7 @@ Map<String, dynamic> _$WebApiModulesSettingsFacilitySettingsVenueVenueToJson(
   'CountryCodePhone': ?instance.countryCodePhone,
   'Phone': ?instance.phone,
   'WebAddress': ?instance.webAddress,
+  'Notes': ?instance.notes,
   'TaxOptionId': ?instance.taxOptionId,
   'TaxOption': ?instance.taxOption,
   'Tax1Name': ?instance.tax1Name,
@@ -13330,6 +13223,8 @@ Map<String, dynamic> _$WebApiModulesSettingsFacilitySettingsVenueVenueToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'PrimaryContactId': ?instance.primaryContactId,
   'PrimaryCompanyContactId': ?instance.primaryCompanyContactId,
   'PrimaryContact': ?instance.primaryContact,
@@ -18516,6 +18411,7 @@ _$WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocationFromJso
   logoImageWidth: (json['LogoImageWidth'] as num?)?.toInt(),
   autoProcessQuikSaleInvoice: json['AutoProcessQuikSaleInvoice'] as bool?,
   useCompleteDescription: json['UseCompleteDescription'] as bool?,
+  includePaymentActiveLink: json['IncludePaymentActiveLink'] as bool?,
   inactive: json['Inactive'] as bool?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
@@ -18688,6 +18584,7 @@ _$WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocationToJson(
   'LogoImageWidth': ?instance.logoImageWidth,
   'AutoProcessQuikSaleInvoice': ?instance.autoProcessQuikSaleInvoice,
   'UseCompleteDescription': ?instance.useCompleteDescription,
+  'IncludePaymentActiveLink': ?instance.includePaymentActiveLink,
   'Inactive': ?instance.inactive,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
@@ -24432,6 +24329,7 @@ _$WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsFromJ
   dateStamp: json['DateStamp'] as String?,
   defaultProcessConsignmentSelectAllInvoices:
       json['DefaultProcessConsignmentSelectAllInvoices'] as bool?,
+  allowBlendedKitAvailability: json['AllowBlendedKitAvailability'] as bool?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
   urlIdentifier: json['UrlIdentifier'],
@@ -24517,6 +24415,7 @@ _$WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsToJso
   'DateStamp': ?instance.dateStamp,
   'DefaultProcessConsignmentSelectAllInvoices':
       ?instance.defaultProcessConsignmentSelectAllInvoices,
+  'AllowBlendedKitAvailability': ?instance.allowBlendedKitAvailability,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
   'UrlIdentifier': ?instance.urlIdentifier,
@@ -25286,6 +25185,8 @@ _$WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsFromJson(
   allowDeleteExportedReceipts: json['AllowDeleteExportedReceipts'] as bool?,
   enableReceipts: json['EnableReceipts'] as bool?,
   enableVendorInvoice: json['EnableVendorInvoice'] as bool?,
+  autoCreateInternalVendorInvoices:
+      json['AutoCreateInternalVendorInvoices'] as bool?,
   closePoReminingInvoiceAmount: (json['ClosePoReminingInvoiceAmount'] as num?)
       ?.toDouble(),
   enableBetaUpdates: json['EnableBetaUpdates'] as bool?,
@@ -25328,6 +25229,7 @@ _$WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsFromJson(
   deleteDataHealthDays: (json['DeleteDataHealthDays'] as num?)?.toInt(),
   allCaps: json['AllCaps'] as bool?,
   enableQuikLocate: json['EnableQuikLocate'] as bool?,
+  enableOrderItemViews: json['EnableOrderItemViews'] as bool?,
   quikSearchDontUpdateBottomLine:
       json['QuikSearchDontUpdateBottomLine'] as bool?,
   hasInternalVendors: json['HasInternalVendors'] as bool?,
@@ -25422,6 +25324,8 @@ _$WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsToJson(
   'AllowDeleteExportedReceipts': ?instance.allowDeleteExportedReceipts,
   'EnableReceipts': ?instance.enableReceipts,
   'EnableVendorInvoice': ?instance.enableVendorInvoice,
+  'AutoCreateInternalVendorInvoices':
+      ?instance.autoCreateInternalVendorInvoices,
   'ClosePoReminingInvoiceAmount': ?instance.closePoReminingInvoiceAmount,
   'EnableBetaUpdates': ?instance.enableBetaUpdates,
   'EnableQaUpdates': ?instance.enableQaUpdates,
@@ -25462,6 +25366,7 @@ _$WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsToJson(
   'DeleteDataHealthDays': ?instance.deleteDataHealthDays,
   'AllCaps': ?instance.allCaps,
   'EnableQuikLocate': ?instance.enableQuikLocate,
+  'EnableOrderItemViews': ?instance.enableOrderItemViews,
   'QuikSearchDontUpdateBottomLine': ?instance.quikSearchDontUpdateBottomLine,
   'HasInternalVendors': ?instance.hasInternalVendors,
   'DisableCrossWarehouseCheckIn': ?instance.disableCrossWarehouseCheckIn,
@@ -25535,6 +25440,11 @@ _$WebApiModulesSettingsTaxSettingsTaxOptionTaxOptionFromJson(
   laborExempt: json['LaborExempt'] as bool?,
   laborTaxDisplay: json['LaborTaxDisplay'] as String?,
   laborTaxAlias: json['LaborTaxAlias'] as String?,
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
+  miscExempt: json['MiscExempt'] as bool?,
+  miscTaxDisplay: json['MiscTaxDisplay'] as String?,
+  miscTaxAlias: json['MiscTaxAlias'] as String?,
   taxOnTax: json['TaxOnTax'] as bool?,
   taxOnTaxAccountId: json['TaxOnTaxAccountId'] as String?,
   taxOnTaxAccountNo: json['TaxOnTaxAccountNo'] as String?,
@@ -25641,6 +25551,11 @@ Map<String, dynamic> _$WebApiModulesSettingsTaxSettingsTaxOptionTaxOptionToJson(
   'LaborExempt': ?instance.laborExempt,
   'LaborTaxDisplay': ?instance.laborTaxDisplay,
   'LaborTaxAlias': ?instance.laborTaxAlias,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
+  'MiscExempt': ?instance.miscExempt,
+  'MiscTaxDisplay': ?instance.miscTaxDisplay,
+  'MiscTaxAlias': ?instance.miscTaxAlias,
   'TaxOnTax': ?instance.taxOnTax,
   'TaxOnTaxAccountId': ?instance.taxOnTaxAccountId,
   'TaxOnTaxAccountNo': ?instance.taxOnTaxAccountNo,
@@ -27645,6 +27560,7 @@ _$WebApiModulesSettingsWarehouseAvailabilitySettingsWarehouseAvailabilitySetting
   warehouse: json['Warehouse'] as String?,
   warehouseCode: json['WarehouseCode'] as String?,
   regionId: json['RegionId'] as String?,
+  countryId: json['CountryId'] as String?,
   availabilityLateDays: (json['AvailabilityLateDays'] as num?)?.toInt(),
   availabilityLateHours: (json['AvailabilityLateHours'] as num?)?.toInt(),
   availabilityPreserveConflicts: json['AvailabilityPreserveConflicts'] as bool?,
@@ -27723,6 +27639,7 @@ _$WebApiModulesSettingsWarehouseAvailabilitySettingsWarehouseAvailabilitySetting
   'Warehouse': ?instance.warehouse,
   'WarehouseCode': ?instance.warehouseCode,
   'RegionId': ?instance.regionId,
+  'CountryId': ?instance.countryId,
   'AvailabilityLateDays': ?instance.availabilityLateDays,
   'AvailabilityLateHours': ?instance.availabilityLateHours,
   'AvailabilityPreserveConflicts': ?instance.availabilityPreserveConflicts,
@@ -28465,6 +28382,9 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseFromJson(
   laborTaxRate1: (json['LaborTaxRate1'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
   laborExempt: json['LaborExempt'] as bool?,
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
+  miscExempt: json['MiscExempt'] as bool?,
   attention: json['Attention'] as String?,
   address1: json['Address1'] as String?,
   address2: json['Address2'] as String?,
@@ -28590,8 +28510,12 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseFromJson(
   storageContainerStagingEnable: json['StorageContainerStagingEnable'] as bool?,
   storageContainerRescanRequired:
       json['StorageContainerRescanRequired'] as bool?,
+  preventUnstageItemInContainer: json['PreventUnstageItemInContainer'] as bool?,
   quikReceiptTermsConditionsId: json['QuikReceiptTermsConditionsId'] as String?,
   quikReceiptTermsConditions: json['QuikReceiptTermsConditions'] as String?,
+  automaticallyAssignShippingCaseNumber:
+      json['AutomaticallyAssignShippingCaseNumber'] as bool?,
+  defaultShippingCaseWeight: json['DefaultShippingCaseWeight'] as bool?,
   disableSubstituteNote: json['DisableSubstituteNote'] as bool?,
   daysToExpireSuspendedSessions: (json['DaysToExpireSuspendedSessions'] as num?)
       ?.toInt(),
@@ -28608,6 +28532,7 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseFromJson(
   internalOrderDeal: json['InternalOrderDeal'] as String?,
   flexibleContainerStagingRule: json['FlexibleContainerStagingRule'] as String?,
   internalOrderGracePeriod: (json['InternalOrderGracePeriod'] as num?)?.toInt(),
+  allowUserToAddShippingNote: json['AllowUserToAddShippingNote'] as bool?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
   urlIdentifier: json['UrlIdentifier'],
@@ -28682,6 +28607,9 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseToJson(
   'LaborTaxRate1': ?instance.laborTaxRate1,
   'LaborTaxRate2': ?instance.laborTaxRate2,
   'LaborExempt': ?instance.laborExempt,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
+  'MiscExempt': ?instance.miscExempt,
   'Attention': ?instance.attention,
   'Address1': ?instance.address1,
   'Address2': ?instance.address2,
@@ -28800,8 +28728,12 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseToJson(
   'StorageContainerCheckInEnable': ?instance.storageContainerCheckInEnable,
   'StorageContainerStagingEnable': ?instance.storageContainerStagingEnable,
   'StorageContainerRescanRequired': ?instance.storageContainerRescanRequired,
+  'PreventUnstageItemInContainer': ?instance.preventUnstageItemInContainer,
   'QuikReceiptTermsConditionsId': ?instance.quikReceiptTermsConditionsId,
   'QuikReceiptTermsConditions': ?instance.quikReceiptTermsConditions,
+  'AutomaticallyAssignShippingCaseNumber':
+      ?instance.automaticallyAssignShippingCaseNumber,
+  'DefaultShippingCaseWeight': ?instance.defaultShippingCaseWeight,
   'DisableSubstituteNote': ?instance.disableSubstituteNote,
   'DaysToExpireSuspendedSessions': ?instance.daysToExpireSuspendedSessions,
   'Inactive': ?instance.inactive,
@@ -28817,6 +28749,7 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseToJson(
   'InternalOrderDeal': ?instance.internalOrderDeal,
   'FlexibleContainerStagingRule': ?instance.flexibleContainerStagingRule,
   'InternalOrderGracePeriod': ?instance.internalOrderGracePeriod,
+  'AllowUserToAddShippingNote': ?instance.allowUserToAddShippingNote,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
   'UrlIdentifier': ?instance.urlIdentifier,
@@ -28945,4 +28878,52 @@ _$WebApiServicesAvailabilityServicePruneCacheResponseToJson(
 ) => <String, dynamic>{
   'EntriesBefore': ?instance.entriesBefore,
   'EntriesAfter': ?instance.entriesAfter,
+};
+
+CrewContactidDocumentDocumentidImageformuploadPost$RequestBody
+_$CrewContactidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => CrewContactidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$CrewContactidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  CrewContactidDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+CrewContactidDocumentDocumentidFileformuploadPut$RequestBody
+_$CrewContactidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => CrewContactidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$CrewContactidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  CrewContactidDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
 };

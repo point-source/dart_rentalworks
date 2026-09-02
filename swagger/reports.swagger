@@ -15341,6 +15341,51 @@
         }
       }
     },
+    "/fwutility/serverutcdatetime": {
+      "get": {
+        "tags": [
+          "FwUtility"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.GetServerUtcDateTimeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/gldistributionreport/render": {
       "post": {
         "tags": [
@@ -21497,6 +21542,116 @@
         }
       }
     },
+    "/invoicereport/invoice/{invoiceid}": {
+      "get": {
+        "tags": [
+          "InvoiceReport"
+        ],
+        "parameters": [
+          {
+            "name": "invoiceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Billing.Invoice.Invoice"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/invoicereport/paymentlink/{officelocationid}": {
+      "get": {
+        "tags": [
+          "InvoiceReport"
+        ],
+        "parameters": [
+          {
+            "name": "officeLocationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Reports.Billing.InvoiceReport.PaymentLinkResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/invoicereport/emptyobject": {
       "get": {
         "tags": [
@@ -26028,6 +26183,442 @@
       "get": {
         "tags": [
           "OrdersByDealReport"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ordershippingmanifestreport/render": {
+      "post": {
+        "tags": [
+          "OrderShippingManifestReport"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Reporting.FwReportRenderRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Reporting.FwReportRenderResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ordershippingmanifestreport/exportexcelxlsx": {
+      "post": {
+        "tags": [
+          "OrderShippingManifestReport"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Reports.OrderShippingManifestReport.OrderShippingManifestReportRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ordershippingmanifestreport/runreport": {
+      "post": {
+        "tags": [
+          "OrderShippingManifestReport"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Reports.OrderShippingManifestReport.OrderShippingManifestReportRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Data.AppReportResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ordershippingmanifestreport/validateorder/browse": {
+      "post": {
+        "tags": [
+          "OrderShippingManifestReport"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ordershippingmanifestreport/validatecontract/browse": {
+      "post": {
+        "tags": [
+          "OrderShippingManifestReport"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ordershippingmanifestreport/render-with-documents/orderid/{orderid}/outcontractid/{outcontractid}": {
+      "post": {
+        "tags": [
+          "OrderShippingManifestReport"
+        ],
+        "summary": "Get a list of URLs for Manifest documents associated to an order (for printing).",
+        "parameters": [
+          {
+            "name": "orderid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "outcontractid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Reporting.FwReportRenderRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Agent.OrderManifest.OrderManifestFunc_ShippingManifestDocumentUrl"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ordershippingmanifestreport/emptyobject": {
+      "get": {
+        "tags": [
+          "OrderShippingManifestReport"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ordershippingmanifestreport/preview": {
+      "get": {
+        "tags": [
+          "OrderShippingManifestReport"
         ],
         "responses": {
           "200": {
@@ -40037,6 +40628,60 @@
         }
       }
     },
+    "/purchaseorderreturnlist/validatecontract/browse": {
+      "post": {
+        "tags": [
+          "PurchaseOrderReturnList"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/purchaseorderreturnlist/emptyobject": {
       "get": {
         "tags": [
@@ -51288,6 +51933,60 @@
       }
     },
     "/rentalinventoryqcrequiredreport/validateinventory/browse": {
+      "post": {
+        "tags": [
+          "RentalInventoryQCRequiredReport"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rentalinventoryqcrequiredreport/validatecontract/browse": {
       "post": {
         "tags": [
           "RentalInventoryQCRequiredReport"
@@ -72739,416 +73438,6 @@
         }
       }
     },
-    "/taskscheduler/tasksteps/browse": {
-      "post": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/taskscheduler/tasksteps/exportexcelxlsx": {
-      "post": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/taskscheduler/tasksteps": {
-      "get": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "parameters": [
-          {
-            "name": "pageno",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "pagesize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.TaskScheduler.TaskStepsLogic"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/taskscheduler/tasksteps/{id}": {
-      "get": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "boolean"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/taxespaidreport/render": {
       "post": {
         "tags": [
@@ -78823,6 +79112,16 @@
         },
         "additionalProperties": false
       },
+      "FwCore.Controllers.GetServerUtcDateTimeResponse": {
+        "type": "object",
+        "properties": {
+          "ServerUtcDateTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "FwStandard.BusinessLogic.FwBusinessLogic": {
         "type": "object",
         "properties": {
@@ -79251,8 +79550,12 @@
             "nullable": true
           },
           "timezoneOffset": {
-            "type": "integer",
-            "format": "int32",
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "Locale": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -79311,35 +79614,6 @@
           "Value": {
             "type": "string",
             "description": "The value of the DataField to filter on.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.TaskScheduler.TaskStepsLogic": {
-        "type": "object",
-        "properties": {
-          "Items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-            },
-            "nullable": true
-          },
-          "PageNo": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "PageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalItems": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Sort": {
-            "type": "string",
             "nullable": true
           }
         },
@@ -79776,95 +80050,843 @@
         ],
         "type": "string"
       },
-      "WebApi.Modules.Administrator.TaskScheduler.TaskSteps": {
+      "WebApi.Modules.Agent.OrderManifest.OrderManifestFunc_ShippingManifestDocumentUrl": {
         "type": "object",
         "properties": {
-          "TaskStepsId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "TaskId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "Name": {
+          "appimageid": {
             "type": "string",
             "nullable": true
           },
-          "StepNumber": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "Type": {
+          "appdocumentid": {
             "type": "string",
             "nullable": true
           },
-          "Command": {
+          "filename": {
             "type": "string",
             "nullable": true
           },
-          "OnSuccessActionDisplay": {
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Billing.Invoice.Invoice": {
+        "type": "object",
+        "properties": {
+          "InvoiceId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
+            "nullable": true
+          },
+          "InvoiceNumber": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "InvoiceDate": {
+            "type": "string",
+            "description": "Format: Date, Required: true",
+            "nullable": true
+          },
+          "InvoiceDueDate": {
             "type": "string",
             "nullable": true
           },
-          "OnFailureActionDisplay": {
+          "InvoiceType": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "BillingStartDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "BillingEndDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "UsageStartDate": {
             "type": "string",
             "nullable": true
           },
-          "OnSuccessAction": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "RetryAttempts": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "RetryInterval": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "OnFailureAction": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "OnSuccessTaskStepsId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "OnFailureTaskStepsId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "OutputFilename": {
+          "UsageEndDate": {
             "type": "string",
             "nullable": true
           },
-          "LastRunOutcome": {
+          "OrderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderNumber": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "OrderDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "InvoiceDescription": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "CreditingInvoiceId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "CreditingInvoiceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Customer": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerTypeId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerType": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "Deal": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealTypeId": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealType": {
+            "type": "string",
+            "nullable": true
+          },
+          "DepartmentId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "Department": {
+            "type": "string",
+            "nullable": true
+          },
+          "PurchaseOrderNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "WorkAuthorizationNumber": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Status": {
+            "maxLength": 15,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "StatusDate": {
+            "type": "string",
+            "description": "Format: Date",
+            "nullable": true
+          },
+          "IsNoCharge": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "IsAdjusted": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "IsBilledHiatus": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "EpisodeNumber": {
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "LastRunDuration": {
+          "HasLockedTotal": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "IsAlteredDates": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "OfficeLocationId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "OfficeLocation": {
+            "type": "string",
+            "nullable": true
+          },
+          "InvoiceCreationBatchId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "InvoiceCreationBatchNumber": {
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "LastRunRetries": {
+          "InvoiceGroupNumber": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "RentalSale": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "LossAndDamage": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Repair": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "InputByUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "FlatPoId": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderType": {
+            "type": "string",
+            "nullable": true
+          },
+          "RebateCustomerId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Orbitsapchgmajor": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Orbitsapchgsub": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Orbitsapchgdetail": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Orbitsapchgdeal": {
+            "maxLength": 6,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Orbitsapchgset": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ExcludeFromFlatPo": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "IsSplitRental": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "IsRebateRental": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "InvoiceListTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "InvoiceGrossTotal": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 19, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "InvoiceDiscountTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "InvoiceDaysPerWeekDiscountTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ReferenceNumber": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "AgentId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Agent": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProjectManagerId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ProjectManager": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToAddressId": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToName": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToAttention1": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToAttention2": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToAddress1": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToAddress2": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToState": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToZipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToCountryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToCountry": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToCountryCodeIsoAlpha2": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillToCountryCodePhone": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "InvoiceClass": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "PrintNotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "PaymentTermsId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "PaymentTerms": {
+            "type": "string",
+            "nullable": true
+          },
+          "PaymentTermsColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "PaymentTypeId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "PaymentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "TaxId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, IsPrimaryKey: true",
+            "nullable": true
+          },
+          "TaxOptionId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "TaxOption": {
+            "type": "string",
+            "nullable": true
+          },
+          "Tax1Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Tax2Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "RentalTaxAlias": {
+            "type": "string",
+            "nullable": true
+          },
+          "SalesTaxAlias": {
+            "type": "string",
+            "nullable": true
+          },
+          "LaborTaxAlias": {
+            "type": "string",
+            "nullable": true
+          },
+          "MiscTaxAlias": {
+            "type": "string",
+            "nullable": true
+          },
+          "RentalTaxRate1": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 6, Decimal places: 4",
+            "format": "double",
+            "nullable": true
+          },
+          "SalesTaxRate1": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 6, Decimal places: 4",
+            "format": "double",
+            "nullable": true
+          },
+          "LaborTaxRate1": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 6, Decimal places: 4",
+            "format": "double",
+            "nullable": true
+          },
+          "RentalTaxRate2": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 6, Decimal places: 4",
+            "format": "double",
+            "nullable": true
+          },
+          "SalesTaxRate2": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 6, Decimal places: 4",
+            "format": "double",
+            "nullable": true
+          },
+          "LaborTaxRate2": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 6, Decimal places: 4",
+            "format": "double",
+            "nullable": true
+          },
+          "MiscTaxRate1": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 6, Decimal places: 4",
+            "format": "double",
+            "nullable": true
+          },
+          "MiscTaxRate2": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 6, Decimal places: 4",
+            "format": "double",
+            "nullable": true
+          },
+          "TaxItemCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "TaxVendor": {
+            "type": "string",
+            "nullable": true
+          },
+          "TaxCountry": {
+            "type": "string",
+            "nullable": true
+          },
+          "ChargeBatchId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ChargeBatchNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "QuikPayDiscount": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "QuikPayRentalTotal": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 11, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "QuikPayTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ReceivedTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "RateType": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "ConsignmentRevenue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "IsNonBillable": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "CurrencyId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text, Required: true",
+            "nullable": true
+          },
+          "CurrencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CurrencySymbol": {
+            "type": "string",
+            "nullable": true
+          },
+          "OfficeLocationDefaultCurrencyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "DivisionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "OutsideSalesRepresentativeId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "OutsideSalesRepresentative": {
+            "type": "string",
+            "nullable": true
+          },
+          "ExportTaxAsLineItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "InvoiceNumberColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "StatusColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderNumberColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "PurchaseOrderNumberColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "DealColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillingStartDateColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "InvoiceTotalColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "DescriptionColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "HasRentalItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasMeterItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasSalesItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasLaborItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasMiscellaneousItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasFacilityItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasTransportationItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasRentalSaleItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasRepairItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasConsignment": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasLossAndDamageItem": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HasInternalInvoice": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "IsInternal": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "RentalTotal": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 11, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "SalesTotal": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 12, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "FacilitiesTotal": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 12, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "MiscellaneousTotal": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 12, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "LaborTotal": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 12, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "PartsTotal": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 12, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "AssetSaleTotal": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 12, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "InvoiceSubTotal": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 11, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "InvoiceTax1": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 12, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "InvoiceTax2": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 12, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "InvoiceTax": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 11, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "InvoiceTotal": {
+            "type": "number",
+            "description": "Format: Decimal, Total digits: 11, Decimal places: 2",
+            "format": "double",
+            "nullable": true
+          },
+          "RemainingTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "IsStandAloneInvoice": {
+            "type": "boolean",
+            "description": "Format: Boolean",
+            "nullable": true
+          },
+          "WarehouseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TermsConditionsId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "TermsConditions": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProjectId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProjectNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "Project": {
+            "type": "string",
+            "nullable": true
+          },
+          "SourceId": {
+            "maxLength": 255,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "SourceDate": {
+            "type": "string",
+            "description": "Format: UTCDateTime",
+            "nullable": true
+          },
+          "CsrId": {
+            "maxLength": 8,
+            "type": "string",
+            "description": "Format: Text",
+            "nullable": true
+          },
+          "Csr": {
+            "type": "string",
             "nullable": true
           },
           "DateStamp": {
             "type": "string",
+            "description": "Format: UTCDateTime",
             "nullable": true
           },
           "AuditNote": {
@@ -79977,6 +80999,10 @@
             "nullable": true
           },
           "AgentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "PastDueTermsType": {
             "type": "string",
             "nullable": true
           },
@@ -81179,6 +82205,10 @@
             "type": "boolean",
             "nullable": true
           },
+          "IncludePaymentPortalActiveLink": {
+            "type": "boolean",
+            "nullable": true
+          },
           "UserDepartmentId": {
             "type": "string",
             "nullable": true
@@ -81221,6 +82251,16 @@
             "nullable": true
           },
           "UseEmailTemplate": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Reports.Billing.InvoiceReport.PaymentLinkResponse": {
+        "type": "object",
+        "properties": {
+          "IncludePaymentActiveLink": {
             "type": "boolean",
             "nullable": true
           }
@@ -81651,6 +82691,10 @@
             "type": "boolean",
             "nullable": true
           },
+          "ExcludeNoSalesRepresentative": {
+            "type": "boolean",
+            "nullable": true
+          },
           "OfficeLocationId": {
             "type": "string",
             "nullable": true
@@ -81966,8 +83010,8 @@
             "format": "date-time"
           },
           "HoursOffsetFromUTC": {
-            "type": "integer",
-            "format": "int32",
+            "type": "number",
+            "format": "double",
             "nullable": true
           },
           "ModuleName": {
@@ -85049,8 +86093,8 @@
             "nullable": true
           },
           "HoursOffsetFromUTC": {
-            "type": "integer",
-            "format": "int32",
+            "type": "number",
+            "format": "double",
             "nullable": true
           },
           "ExcludeZeroVariance": {
@@ -85723,6 +86767,10 @@
             "type": "boolean",
             "nullable": true
           },
+          "NewPagePerQuoteOrder": {
+            "type": "boolean",
+            "nullable": true
+          },
           "PrintInventoryType": {
             "type": "boolean",
             "nullable": true
@@ -86223,6 +87271,10 @@
             "type": "boolean",
             "nullable": true
           },
+          "NewPagePerQuoteOrder": {
+            "type": "boolean",
+            "nullable": true
+          },
           "PrintInventoryType": {
             "type": "boolean",
             "nullable": true
@@ -86596,6 +87648,10 @@
             "type": "boolean",
             "nullable": true
           },
+          "NewPagePerQuoteOrder": {
+            "type": "boolean",
+            "nullable": true
+          },
           "PrintInventoryType": {
             "type": "boolean",
             "nullable": true
@@ -86929,6 +87985,89 @@
             "items": {
               "$ref": "#/components/schemas/FwStandard.Models.SelectedCheckBoxListItem"
             },
+            "nullable": true
+          },
+          "UserDepartmentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserLocationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserWarehouseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomReportLayoutId": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsSummary": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "IncludeSubHeadingsAndSubTotals": {
+            "type": "boolean"
+          },
+          "IncludeIdColumns": {
+            "type": "boolean"
+          },
+          "Locale": {
+            "type": "string",
+            "nullable": true
+          },
+          "excelfields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FwStandard.Models.CheckBoxListItem"
+            },
+            "nullable": true
+          },
+          "ReportName": {
+            "type": "string",
+            "nullable": true
+          },
+          "UseEmailTemplate": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Reports.OrderShippingManifestReport.OrderShippingManifestReportRequest": {
+        "type": "object",
+        "properties": {
+          "OrderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "OutContractId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ExcludeZeroValueItems": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "OwnedSubbedValue": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "PrintShippingNotes": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "SortShippingCases": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "RentalValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "WeightDimensions": {
+            "type": "string",
             "nullable": true
           },
           "UserDepartmentId": {
@@ -88403,6 +89542,10 @@
             "nullable": true
           },
           "WarehouseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "InContractId": {
             "type": "string",
             "nullable": true
           },
@@ -93760,6 +94903,22 @@
             "type": "string",
             "nullable": true
           },
+          "OrderEstimatedStartDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderEstimatedStartTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderEstimatedStopDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderEstimatedStopTime": {
+            "type": "string",
+            "nullable": true
+          },
           "OrderBillingStartDate": {
             "type": "string",
             "nullable": true
@@ -93772,19 +94931,35 @@
             "type": "string",
             "nullable": true
           },
-          "DeliveryTargetShipDate": {
+          "ContractDeliveryTargetShipDate": {
             "type": "string",
             "nullable": true
           },
-          "DeliveryRequiredDate": {
+          "ContractDeliveryRequiredDate": {
             "type": "string",
             "nullable": true
           },
-          "DeliveryDeliveryType": {
+          "ContractDeliveryDeliveryType": {
             "type": "string",
             "nullable": true
           },
-          "DeliveryDeliveryNotes": {
+          "ContractDeliveryDeliveryNotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderOutgoingDeliveryRequiredDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderOutgoingDeliveryRequiredTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderIncomingDeliveryRequiredDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderIncomingDeliveryRequiredTime": {
             "type": "string",
             "nullable": true
           },
@@ -93945,6 +95120,18 @@
             "nullable": true
           },
           "UsageDates": {
+            "type": "string",
+            "nullable": true
+          },
+          "UsageDateFrom": {
+            "type": "string",
+            "nullable": true
+          },
+          "UsageDateTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "BillingCycleId": {
             "type": "string",
             "nullable": true
           },

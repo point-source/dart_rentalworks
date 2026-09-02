@@ -27,6 +27,21 @@ _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
   instance,
 ) => <String, dynamic>{'downloadUrl': ?instance.downloadUrl};
 
+FwCoreControllersGetServerUtcDateTimeResponse
+_$FwCoreControllersGetServerUtcDateTimeResponseFromJson(
+  Map<String, dynamic> json,
+) => FwCoreControllersGetServerUtcDateTimeResponse(
+  serverUtcDateTime: json['ServerUtcDateTime'] == null
+      ? null
+      : DateTime.parse(json['ServerUtcDateTime'] as String),
+);
+
+Map<String, dynamic> _$FwCoreControllersGetServerUtcDateTimeResponseToJson(
+  FwCoreControllersGetServerUtcDateTimeResponse instance,
+) => <String, dynamic>{
+  'ServerUtcDateTime': ?instance.serverUtcDateTime?.toIso8601String(),
+};
+
 FwStandardBusinessLogicFwBusinessLogic
 _$FwStandardBusinessLogicFwBusinessLogicFromJson(
   Map<String, dynamic> json,
@@ -394,7 +409,8 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
-  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toDouble(),
+  locale: json['Locale'] as String?,
 );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -427,6 +443,7 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
   'timezoneOffset': ?instance.timezoneOffset,
+  'Locale': ?instance.locale,
 };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
@@ -532,39 +549,6 @@ Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
   'Field': instance.field,
   'Op': instance.op,
   'Value': ?instance.value,
-};
-
-FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-  Map<String, dynamic> json,
-) =>
-    FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items:
-          (json['Items'] as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-                      e as Map<String, dynamic>,
-                    ),
-              )
-              .toList() ??
-          [],
-      pageNo: (json['PageNo'] as num?)?.toInt(),
-      pageSize: (json['PageSize'] as num?)?.toInt(),
-      totalItems: (json['TotalItems'] as num?)?.toInt(),
-      sort: json['Sort'] as String?,
-    );
-
-Map<String, dynamic>
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  instance,
-) => <String, dynamic>{
-  'Items': ?instance.items?.map((e) => e.toJson()).toList(),
-  'PageNo': ?instance.pageNo,
-  'PageSize': ?instance.pageSize,
-  'TotalItems': ?instance.totalItems,
-  'Sort': ?instance.sort,
 };
 
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic
@@ -4352,6 +4336,67 @@ _$FwStandardModelsGetResponseWebApiModulesSettingsOfficeLocationSettingsOfficeLo
   'Sort': ?instance.sort,
 };
 
+FwStandardReportingFwReportEmailInfo
+_$FwStandardReportingFwReportEmailInfoFromJson(Map<String, dynamic> json) =>
+    FwStandardReportingFwReportEmailInfo(
+      from: json['from'] as String?,
+      to: json['to'] as String?,
+      cc: json['cc'] as String?,
+      subject: json['subject'] as String?,
+      body: json['body'] as String?,
+    );
+
+Map<String, dynamic> _$FwStandardReportingFwReportEmailInfoToJson(
+  FwStandardReportingFwReportEmailInfo instance,
+) => <String, dynamic>{
+  'from': ?instance.from,
+  'to': ?instance.to,
+  'cc': ?instance.cc,
+  'subject': ?instance.subject,
+  'body': ?instance.body,
+};
+
+FwStandardReportingFwReportRenderRequest
+_$FwStandardReportingFwReportRenderRequestFromJson(Map<String, dynamic> json) =>
+    FwStandardReportingFwReportRenderRequest(
+      renderMode: json['renderMode'] as String?,
+      parameters: json['parameters'] as Map<String, dynamic>?,
+      email: json['email'] == null
+          ? null
+          : FwStandardReportingFwReportEmailInfo.fromJson(
+              json['email'] as Map<String, dynamic>,
+            ),
+      downloadPdfAsAttachment: json['downloadPdfAsAttachment'] as bool?,
+      emailImageOptions: json['emailImageOptions'] == null
+          ? null
+          : FwStandardReportingFwReportRenderRequestEmailImageOptions.fromJson(
+              json['emailImageOptions'] as Map<String, dynamic>,
+            ),
+    );
+
+Map<String, dynamic> _$FwStandardReportingFwReportRenderRequestToJson(
+  FwStandardReportingFwReportRenderRequest instance,
+) => <String, dynamic>{
+  'renderMode': ?instance.renderMode,
+  'parameters': ?instance.parameters,
+  'email': ?instance.email?.toJson(),
+  'downloadPdfAsAttachment': ?instance.downloadPdfAsAttachment,
+  'emailImageOptions': ?instance.emailImageOptions?.toJson(),
+};
+
+FwStandardReportingFwReportRenderRequestEmailImageOptions
+_$FwStandardReportingFwReportRenderRequestEmailImageOptionsFromJson(
+  Map<String, dynamic> json,
+) => FwStandardReportingFwReportRenderRequestEmailImageOptions(
+  width: (json['Width'] as num?)?.toInt(),
+  height: (json['Height'] as num?)?.toInt(),
+);
+
+Map<String, dynamic>
+_$FwStandardReportingFwReportRenderRequestEmailImageOptionsToJson(
+  FwStandardReportingFwReportRenderRequestEmailImageOptions instance,
+) => <String, dynamic>{'Width': ?instance.width, 'Height': ?instance.height};
+
 FwStandardSqlServerFwDateTime _$FwStandardSqlServerFwDateTimeFromJson(
   Map<String, dynamic> json,
 ) => FwStandardSqlServerFwDateTime(val: json['Val'] as String?);
@@ -4610,6 +4655,56 @@ _$MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeSubPurchaseOrderItemSubPurc
 Map<String, dynamic>
 _$MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItemLogicToJson(
   MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItemLogic
+  instance,
+) => <String, dynamic>{
+  'Result': ?instance.result?.toJson(),
+  'Value': ?instance.value?.toJson(),
+};
+
+MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic
+_$MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogicFromJson(
+  Map<String, dynamic> json,
+) => MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic(
+  result: json['Result'] == null
+      ? null
+      : MicrosoftAspNetCoreMvcActionResult.fromJson(
+          json['Result'] as Map<String, dynamic>,
+        ),
+  value: json['Value'] == null
+      ? null
+      : WebApiModulesInventoryInventoryContainerItemInventoryContainerItem.fromJson(
+          json['Value'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic>
+_$MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogicToJson(
+  MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic
+  instance,
+) => <String, dynamic>{
+  'Result': ?instance.result?.toJson(),
+  'Value': ?instance.value?.toJson(),
+};
+
+MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic
+_$MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogicFromJson(
+  Map<String, dynamic> json,
+) => MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic(
+  result: json['Result'] == null
+      ? null
+      : MicrosoftAspNetCoreMvcActionResult.fromJson(
+          json['Result'] as Map<String, dynamic>,
+        ),
+  value: json['Value'] == null
+      ? null
+      : WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory.fromJson(
+          json['Value'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic>
+_$MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogicToJson(
+  MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic
   instance,
 ) => <String, dynamic>{
   'Result': ?instance.result?.toJson(),
@@ -4973,125 +5068,6 @@ Map<String, dynamic> _$WebApiLogicSortItemsResponseToJson(
   'msg': ?instance.msg,
   'SortStartDateTime': ?instance.sortStartDateTime?.toIso8601String(),
   'ItemDateStamp': ?instance.itemDateStamp?.toIso8601String(),
-};
-
-WebApiModulesAdministratorTaskSchedulerTaskSteps
-_$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesAdministratorTaskSchedulerTaskSteps(
-  taskStepsId: (json['TaskStepsId'] as num?)?.toInt(),
-  taskId: (json['TaskId'] as num?)?.toInt(),
-  name: json['Name'] as String?,
-  stepNumber: (json['StepNumber'] as num?)?.toInt(),
-  type: json['Type'] as String?,
-  command: json['Command'] as String?,
-  onSuccessActionDisplay: json['OnSuccessActionDisplay'] as String?,
-  onFailureActionDisplay: json['OnFailureActionDisplay'] as String?,
-  onSuccessAction: (json['OnSuccessAction'] as num?)?.toInt(),
-  retryAttempts: (json['RetryAttempts'] as num?)?.toInt(),
-  retryInterval: (json['RetryInterval'] as num?)?.toInt(),
-  onFailureAction: (json['OnFailureAction'] as num?)?.toInt(),
-  onSuccessTaskStepsId: (json['OnSuccessTaskStepsId'] as num?)?.toInt(),
-  onFailureTaskStepsId: (json['OnFailureTaskStepsId'] as num?)?.toInt(),
-  outputFilename: json['OutputFilename'] as String?,
-  lastRunOutcome: (json['LastRunOutcome'] as num?)?.toInt(),
-  lastRunDuration: (json['LastRunDuration'] as num?)?.toInt(),
-  lastRunRetries: (json['LastRunRetries'] as num?)?.toInt(),
-  dateStamp: json['DateStamp'] as String?,
-  auditNote: json['AuditNote'] as String?,
-  recordTitle: json['RecordTitle'] as String?,
-  urlIdentifier: json['UrlIdentifier'],
-  fields:
-      (json['_Fields'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  custom:
-      (json['_Custom'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      [],
-  defaultFieldAttributes:
-      (json['_DefaultFieldAttributes'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwDefaultAttribute.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  original: json['_Original'] == null
-      ? null
-      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          json['_Original'] as Map<String, dynamic>,
-        ),
-  translation:
-      (json['_Translation'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwTranslatedValue.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  hasImport: json['_HasImport'] as bool?,
-  hasDocuments: json['_HasDocuments'] as bool?,
-  createdByUserId: json['CreatedByUserId'] as String?,
-  createdByUserName: json['CreatedByUserName'] as String?,
-  createdDateTime: json['CreatedDateTime'] as String?,
-  modifiedByUserId: json['ModifiedByUserId'] as String?,
-  modifiedByUserName: json['ModifiedByUserName'] as String?,
-  modifiedDateTime: json['ModifiedDateTime'] as String?,
-);
-
-Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
-  WebApiModulesAdministratorTaskSchedulerTaskSteps instance,
-) => <String, dynamic>{
-  'TaskStepsId': ?instance.taskStepsId,
-  'TaskId': ?instance.taskId,
-  'Name': ?instance.name,
-  'StepNumber': ?instance.stepNumber,
-  'Type': ?instance.type,
-  'Command': ?instance.command,
-  'OnSuccessActionDisplay': ?instance.onSuccessActionDisplay,
-  'OnFailureActionDisplay': ?instance.onFailureActionDisplay,
-  'OnSuccessAction': ?instance.onSuccessAction,
-  'RetryAttempts': ?instance.retryAttempts,
-  'RetryInterval': ?instance.retryInterval,
-  'OnFailureAction': ?instance.onFailureAction,
-  'OnSuccessTaskStepsId': ?instance.onSuccessTaskStepsId,
-  'OnFailureTaskStepsId': ?instance.onFailureTaskStepsId,
-  'OutputFilename': ?instance.outputFilename,
-  'LastRunOutcome': ?instance.lastRunOutcome,
-  'LastRunDuration': ?instance.lastRunDuration,
-  'LastRunRetries': ?instance.lastRunRetries,
-  'DateStamp': ?instance.dateStamp,
-  'AuditNote': ?instance.auditNote,
-  'RecordTitle': ?instance.recordTitle,
-  'UrlIdentifier': ?instance.urlIdentifier,
-  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
-  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
-      ?.map((e) => e.toJson())
-      .toList(),
-  '_Original': ?instance.original?.toJson(),
-  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
-  '_HasImport': ?instance.hasImport,
-  '_HasDocuments': ?instance.hasDocuments,
-  'CreatedByUserId': ?instance.createdByUserId,
-  'CreatedByUserName': ?instance.createdByUserName,
-  'CreatedDateTime': ?instance.createdDateTime,
-  'ModifiedByUserId': ?instance.modifiedByUserId,
-  'ModifiedByUserName': ?instance.modifiedByUserName,
-  'ModifiedDateTime': ?instance.modifiedDateTime,
 };
 
 WebApiModulesAdministratorUserUser _$WebApiModulesAdministratorUserUserFromJson(
@@ -5639,7 +5615,6 @@ WebApiModulesAgentContactContact _$WebApiModulesAgentContactContactFromJson(
   webUserContactId: json['WebUserContactId'] as String?,
   webUserUserId: json['WebUserUserId'] as String?,
   webAccess: json['WebAccess'] as bool?,
-  lockAccount: json['LockAccount'] as bool?,
   defaultDealId: json['DefaultDealId'] as String?,
   defaultDeal: json['DefaultDeal'] as String?,
   storefrontCatalogId: json['StorefrontCatalogId'] as String?,
@@ -5765,7 +5740,6 @@ Map<String, dynamic> _$WebApiModulesAgentContactContactToJson(
   'WebUserContactId': ?instance.webUserContactId,
   'WebUserUserId': ?instance.webUserUserId,
   'WebAccess': ?instance.webAccess,
-  'LockAccount': ?instance.lockAccount,
   'DefaultDealId': ?instance.defaultDealId,
   'DefaultDeal': ?instance.defaultDeal,
   'StorefrontCatalogId': ?instance.storefrontCatalogId,
@@ -5985,6 +5959,99 @@ Map<String, dynamic> _$WebApiModulesAgentContactContactDocumentPutRequestToJson(
   'FileIsModified': ?instance.fileIsModified,
   'FileDataUrl': ?instance.fileDataUrl,
   'FilePath': ?instance.filePath,
+};
+
+WebApiModulesAgentContactPortalAccess
+_$WebApiModulesAgentContactPortalAccessFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesAgentContactPortalAccess(
+  companyContactId: json['CompanyContactId'] as String?,
+  companyId: json['CompanyId'] as String?,
+  contactId: json['ContactId'] as String?,
+  deal: json['Deal'] as String?,
+  enablePortalAccess: json['EnablePortalAccess'] as bool?,
+  dateStamp: json['DateStamp'] as String?,
+  auditNote: json['AuditNote'] as String?,
+  recordTitle: json['RecordTitle'] as String?,
+  urlIdentifier: json['UrlIdentifier'],
+  fields:
+      (json['_Fields'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+  custom:
+      (json['_Custom'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      [],
+  defaultFieldAttributes:
+      (json['_DefaultFieldAttributes'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwDefaultAttribute.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  original: json['_Original'] == null
+      ? null
+      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+          json['_Original'] as Map<String, dynamic>,
+        ),
+  translation:
+      (json['_Translation'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwTranslatedValue.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
+  createdByUserId: json['CreatedByUserId'] as String?,
+  createdByUserName: json['CreatedByUserName'] as String?,
+  createdDateTime: json['CreatedDateTime'] as String?,
+  modifiedByUserId: json['ModifiedByUserId'] as String?,
+  modifiedByUserName: json['ModifiedByUserName'] as String?,
+  modifiedDateTime: json['ModifiedDateTime'] as String?,
+);
+
+Map<String, dynamic> _$WebApiModulesAgentContactPortalAccessToJson(
+  WebApiModulesAgentContactPortalAccess instance,
+) => <String, dynamic>{
+  'CompanyContactId': ?instance.companyContactId,
+  'CompanyId': ?instance.companyId,
+  'ContactId': ?instance.contactId,
+  'Deal': ?instance.deal,
+  'EnablePortalAccess': ?instance.enablePortalAccess,
+  'DateStamp': ?instance.dateStamp,
+  'AuditNote': ?instance.auditNote,
+  'RecordTitle': ?instance.recordTitle,
+  'UrlIdentifier': ?instance.urlIdentifier,
+  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
+  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
+  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
+      ?.map((e) => e.toJson())
+      .toList(),
+  '_Original': ?instance.original?.toJson(),
+  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
+  '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
+  'CreatedByUserId': ?instance.createdByUserId,
+  'CreatedByUserName': ?instance.createdByUserName,
+  'CreatedDateTime': ?instance.createdDateTime,
+  'ModifiedByUserId': ?instance.modifiedByUserId,
+  'ModifiedByUserName': ?instance.modifiedByUserName,
+  'ModifiedDateTime': ?instance.modifiedDateTime,
 };
 
 WebApiModulesAgentContactNoteContactNote
@@ -6254,6 +6321,7 @@ WebApiModulesAgentCustomerCustomer _$WebApiModulesAgentCustomerCustomerFromJson(
   inactive: json['Inactive'] as bool?,
   paymentTypeType: json['PaymentTypeType'] as String?,
   taxOption: json['TaxOption'] as String?,
+  hasNotes: json['HasNotes'] as bool?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -6471,6 +6539,7 @@ Map<String, dynamic> _$WebApiModulesAgentCustomerCustomerToJson(
   'Inactive': ?instance.inactive,
   'PaymentTypeType': ?instance.paymentTypeType,
   'TaxOption': ?instance.taxOption,
+  'HasNotes': ?instance.hasNotes,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -7153,6 +7222,9 @@ WebApiModulesAgentDealDeal _$WebApiModulesAgentDealDealFromJson(
   email: json['Email'] as String?,
   paymentTypeType: json['PaymentTypeType'] as String?,
   taxOption: json['TaxOption'] as String?,
+  hasNotes: json['HasNotes'] as bool?,
+  minEquipmentRequestHours: (json['MinEquipmentRequestHours'] as num?)?.toInt(),
+  maxEquipmentRequestHours: (json['MaxEquipmentRequestHours'] as num?)?.toInt(),
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -7414,6 +7486,9 @@ Map<String, dynamic> _$WebApiModulesAgentDealDealToJson(
   'Email': ?instance.email,
   'PaymentTypeType': ?instance.paymentTypeType,
   'TaxOption': ?instance.taxOption,
+  'HasNotes': ?instance.hasNotes,
+  'MinEquipmentRequestHours': ?instance.minEquipmentRequestHours,
+  'MaxEquipmentRequestHours': ?instance.maxEquipmentRequestHours,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -7858,26 +7933,6 @@ _$WebApiModulesAgentLossAndDamageRetireLossAndDamageItemRequestToJson(
   'SessionId': ?instance.sessionId,
 };
 
-WebApiModulesAgentLossAndDamageRetireLossAndDamageItemResponse
-_$WebApiModulesAgentLossAndDamageRetireLossAndDamageItemResponseFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesAgentLossAndDamageRetireLossAndDamageItemResponse(
-  status: (json['status'] as num?)?.toInt(),
-  success: json['success'] as bool?,
-  msg: json['msg'] as String?,
-  contractId: json['ContractId'] as String?,
-);
-
-Map<String, dynamic>
-_$WebApiModulesAgentLossAndDamageRetireLossAndDamageItemResponseToJson(
-  WebApiModulesAgentLossAndDamageRetireLossAndDamageItemResponse instance,
-) => <String, dynamic>{
-  'status': ?instance.status,
-  'success': ?instance.success,
-  'msg': ?instance.msg,
-  'ContractId': ?instance.contractId,
-};
-
 WebApiModulesAgentLossAndDamageSelectAllNoneLossAndDamageItemRequest
 _$WebApiModulesAgentLossAndDamageSelectAllNoneLossAndDamageItemRequestFromJson(
   Map<String, dynamic> json,
@@ -7946,6 +8001,18 @@ _$WebApiModulesAgentLossAndDamageStartLossAndDamageSessionResponseToJson(
   'success': ?instance.success,
   'msg': ?instance.msg,
 };
+
+WebApiModulesAgentLossAndDamageStartRetireLossAndDamageResponse
+_$WebApiModulesAgentLossAndDamageStartRetireLossAndDamageResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesAgentLossAndDamageStartRetireLossAndDamageResponse(
+  jobId: json['JobId'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesAgentLossAndDamageStartRetireLossAndDamageResponseToJson(
+  WebApiModulesAgentLossAndDamageStartRetireLossAndDamageResponse instance,
+) => <String, dynamic>{'JobId': ?instance.jobId};
 
 WebApiModulesAgentLossAndDamageUpdateLossAndDamageItemRequest
 _$WebApiModulesAgentLossAndDamageUpdateLossAndDamageItemRequestFromJson(
@@ -8167,6 +8234,7 @@ _$WebApiModulesAgentOrderCopyQuoteOrderRequestFromJson(
   copyDocuments: json['CopyDocuments'] as bool?,
   copyCarrierShipVia: json['CopyCarrierShipVia'] as bool?,
   useCurrentDealTax: json['UseCurrentDealTax'] as bool?,
+  copyHiatusDates: json['CopyHiatusDates'] as bool?,
 );
 
 Map<String, dynamic> _$WebApiModulesAgentOrderCopyQuoteOrderRequestToJson(
@@ -8191,6 +8259,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderCopyQuoteOrderRequestToJson(
   'CopyDocuments': ?instance.copyDocuments,
   'CopyCarrierShipVia': ?instance.copyCarrierShipVia,
   'UseCurrentDealTax': ?instance.useCurrentDealTax,
+  'CopyHiatusDates': ?instance.copyHiatusDates,
 };
 
 WebApiModulesAgentOrderCopyQuoteOrderResponse
@@ -8677,6 +8746,8 @@ _$WebApiModulesAgentOrderGetOrderResponseFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   totalTax: (json['TotalTax'] as num?)?.toDouble(),
   noCharge: json['NoCharge'] as bool?,
   noChargeReason: json['NoChargeReason'] as String?,
@@ -8720,6 +8791,7 @@ _$WebApiModulesAgentOrderGetOrderResponseFromJson(
   groupNumber: (json['GroupNumber'] as num?)?.toInt(),
   groupColor: (json['GroupColor'] as num?)?.toInt(),
   groupOrderBy: (json['GroupOrderBy'] as num?)?.toDouble(),
+  groupName: json['GroupName'] as String?,
   coverLetterId: json['CoverLetterId'] as String?,
   coverLetter: json['CoverLetter'] as String?,
   termsConditionsId: json['TermsConditionsId'] as String?,
@@ -8994,6 +9066,7 @@ _$WebApiModulesAgentOrderGetOrderResponseFromJson(
   rentalExempt: json['RentalExempt'] as bool?,
   salesExempt: json['SalesExempt'] as bool?,
   laborExempt: json['LaborExempt'] as bool?,
+  miscExempt: json['MiscExempt'] as bool?,
   enableProjects: json['EnableProjects'] as bool?,
   projectId: json['ProjectId'] as String?,
   projectNumber: json['ProjectNumber'] as String?,
@@ -9013,6 +9086,7 @@ _$WebApiModulesAgentOrderGetOrderResponseFromJson(
   projectSyncMarket: json['ProjectSyncMarket'] as bool?,
   projectSyncDeliverShip: json['ProjectSyncDeliverShip'] as bool?,
   projectSyncBilling: json['ProjectSyncBilling'] as bool?,
+  projectSyncSchedule: json['ProjectSyncSchedule'] as bool?,
   inputByUserId: json['InputByUserId'] as String?,
   modByUserId: json['ModByUserId'] as String?,
   webUserId: json['WebUserId'] as String?,
@@ -9084,6 +9158,7 @@ _$WebApiModulesAgentOrderGetOrderResponseFromJson(
   totalWeightKg: (json['TotalWeightKg'] as num?)?.toInt(),
   totalWeightG: (json['TotalWeightG'] as num?)?.toInt(),
   shipmentNumber: (json['ShipmentNumber'] as num?)?.toInt(),
+  lassoEventId: json['LassoEventId'] as String?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -9294,6 +9369,8 @@ Map<String, dynamic> _$WebApiModulesAgentOrderGetOrderResponseToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'TotalTax': ?instance.totalTax,
   'NoCharge': ?instance.noCharge,
   'NoChargeReason': ?instance.noChargeReason,
@@ -9337,6 +9414,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderGetOrderResponseToJson(
   'GroupNumber': ?instance.groupNumber,
   'GroupColor': ?instance.groupColor,
   'GroupOrderBy': ?instance.groupOrderBy,
+  'GroupName': ?instance.groupName,
   'CoverLetterId': ?instance.coverLetterId,
   'CoverLetter': ?instance.coverLetter,
   'TermsConditionsId': ?instance.termsConditionsId,
@@ -9588,6 +9666,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderGetOrderResponseToJson(
   'RentalExempt': ?instance.rentalExempt,
   'SalesExempt': ?instance.salesExempt,
   'LaborExempt': ?instance.laborExempt,
+  'MiscExempt': ?instance.miscExempt,
   'EnableProjects': ?instance.enableProjects,
   'ProjectId': ?instance.projectId,
   'ProjectNumber': ?instance.projectNumber,
@@ -9607,6 +9686,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderGetOrderResponseToJson(
   'ProjectSyncMarket': ?instance.projectSyncMarket,
   'ProjectSyncDeliverShip': ?instance.projectSyncDeliverShip,
   'ProjectSyncBilling': ?instance.projectSyncBilling,
+  'ProjectSyncSchedule': ?instance.projectSyncSchedule,
   'InputByUserId': ?instance.inputByUserId,
   'ModByUserId': ?instance.modByUserId,
   'WebUserId': ?instance.webUserId,
@@ -9671,6 +9751,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderGetOrderResponseToJson(
   'TotalWeightKg': ?instance.totalWeightKg,
   'TotalWeightG': ?instance.totalWeightG,
   'ShipmentNumber': ?instance.shipmentNumber,
+  'LassoEventId': ?instance.lassoEventId,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -9691,6 +9772,24 @@ Map<String, dynamic> _$WebApiModulesAgentOrderGetOrderResponseToJson(
   'ModifiedByUserId': ?instance.modifiedByUserId,
   'ModifiedByUserName': ?instance.modifiedByUserName,
   'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
+WebApiModulesAgentOrderKissFlowOrderSubmissionRequest
+_$WebApiModulesAgentOrderKissFlowOrderSubmissionRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesAgentOrderKissFlowOrderSubmissionRequest(
+  orderId: json['OrderId'] as String?,
+  orderStatusUrl: json['OrderStatusUrl'] as String?,
+  printOrderUrl: json['PrintOrderUrl'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesAgentOrderKissFlowOrderSubmissionRequestToJson(
+  WebApiModulesAgentOrderKissFlowOrderSubmissionRequest instance,
+) => <String, dynamic>{
+  'OrderId': ?instance.orderId,
+  'OrderStatusUrl': ?instance.orderStatusUrl,
+  'PrintOrderUrl': ?instance.printOrderUrl,
 };
 
 WebApiModulesAgentOrderKissFlowQuoteOrderSubmissionRequest
@@ -9995,6 +10094,8 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   totalTax: (json['TotalTax'] as num?)?.toDouble(),
   noCharge: json['NoCharge'] as bool?,
   noChargeReason: json['NoChargeReason'] as String?,
@@ -10038,6 +10139,7 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   groupNumber: (json['GroupNumber'] as num?)?.toInt(),
   groupColor: (json['GroupColor'] as num?)?.toInt(),
   groupOrderBy: (json['GroupOrderBy'] as num?)?.toDouble(),
+  groupName: json['GroupName'] as String?,
   coverLetterId: json['CoverLetterId'] as String?,
   coverLetter: json['CoverLetter'] as String?,
   termsConditionsId: json['TermsConditionsId'] as String?,
@@ -10312,6 +10414,7 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   rentalExempt: json['RentalExempt'] as bool?,
   salesExempt: json['SalesExempt'] as bool?,
   laborExempt: json['LaborExempt'] as bool?,
+  miscExempt: json['MiscExempt'] as bool?,
   enableProjects: json['EnableProjects'] as bool?,
   projectId: json['ProjectId'] as String?,
   projectNumber: json['ProjectNumber'] as String?,
@@ -10331,6 +10434,7 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   projectSyncMarket: json['ProjectSyncMarket'] as bool?,
   projectSyncDeliverShip: json['ProjectSyncDeliverShip'] as bool?,
   projectSyncBilling: json['ProjectSyncBilling'] as bool?,
+  projectSyncSchedule: json['ProjectSyncSchedule'] as bool?,
   inputByUserId: json['InputByUserId'] as String?,
   modByUserId: json['ModByUserId'] as String?,
   webUserId: json['WebUserId'] as String?,
@@ -10402,6 +10506,7 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   totalWeightKg: (json['TotalWeightKg'] as num?)?.toInt(),
   totalWeightG: (json['TotalWeightG'] as num?)?.toInt(),
   shipmentNumber: (json['ShipmentNumber'] as num?)?.toInt(),
+  lassoEventId: json['LassoEventId'] as String?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -10603,6 +10708,8 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'TotalTax': ?instance.totalTax,
   'NoCharge': ?instance.noCharge,
   'NoChargeReason': ?instance.noChargeReason,
@@ -10646,6 +10753,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
   'GroupNumber': ?instance.groupNumber,
   'GroupColor': ?instance.groupColor,
   'GroupOrderBy': ?instance.groupOrderBy,
+  'GroupName': ?instance.groupName,
   'CoverLetterId': ?instance.coverLetterId,
   'CoverLetter': ?instance.coverLetter,
   'TermsConditionsId': ?instance.termsConditionsId,
@@ -10897,6 +11005,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
   'RentalExempt': ?instance.rentalExempt,
   'SalesExempt': ?instance.salesExempt,
   'LaborExempt': ?instance.laborExempt,
+  'MiscExempt': ?instance.miscExempt,
   'EnableProjects': ?instance.enableProjects,
   'ProjectId': ?instance.projectId,
   'ProjectNumber': ?instance.projectNumber,
@@ -10916,6 +11025,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
   'ProjectSyncMarket': ?instance.projectSyncMarket,
   'ProjectSyncDeliverShip': ?instance.projectSyncDeliverShip,
   'ProjectSyncBilling': ?instance.projectSyncBilling,
+  'ProjectSyncSchedule': ?instance.projectSyncSchedule,
   'InputByUserId': ?instance.inputByUserId,
   'ModByUserId': ?instance.modByUserId,
   'WebUserId': ?instance.webUserId,
@@ -10980,6 +11090,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
   'TotalWeightKg': ?instance.totalWeightKg,
   'TotalWeightG': ?instance.totalWeightG,
   'ShipmentNumber': ?instance.shipmentNumber,
+  'LassoEventId': ?instance.lassoEventId,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -11154,6 +11265,8 @@ WebApiModulesAgentOrderOrderBase _$WebApiModulesAgentOrderOrderBaseFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   totalTax: (json['TotalTax'] as num?)?.toDouble(),
   noCharge: json['NoCharge'] as bool?,
   noChargeReason: json['NoChargeReason'] as String?,
@@ -11197,6 +11310,7 @@ WebApiModulesAgentOrderOrderBase _$WebApiModulesAgentOrderOrderBaseFromJson(
   groupNumber: (json['GroupNumber'] as num?)?.toInt(),
   groupColor: (json['GroupColor'] as num?)?.toInt(),
   groupOrderBy: (json['GroupOrderBy'] as num?)?.toDouble(),
+  groupName: json['GroupName'] as String?,
   coverLetterId: json['CoverLetterId'] as String?,
   coverLetter: json['CoverLetter'] as String?,
   termsConditionsId: json['TermsConditionsId'] as String?,
@@ -11471,6 +11585,7 @@ WebApiModulesAgentOrderOrderBase _$WebApiModulesAgentOrderOrderBaseFromJson(
   rentalExempt: json['RentalExempt'] as bool?,
   salesExempt: json['SalesExempt'] as bool?,
   laborExempt: json['LaborExempt'] as bool?,
+  miscExempt: json['MiscExempt'] as bool?,
   enableProjects: json['EnableProjects'] as bool?,
   projectId: json['ProjectId'] as String?,
   projectNumber: json['ProjectNumber'] as String?,
@@ -11490,6 +11605,7 @@ WebApiModulesAgentOrderOrderBase _$WebApiModulesAgentOrderOrderBaseFromJson(
   projectSyncMarket: json['ProjectSyncMarket'] as bool?,
   projectSyncDeliverShip: json['ProjectSyncDeliverShip'] as bool?,
   projectSyncBilling: json['ProjectSyncBilling'] as bool?,
+  projectSyncSchedule: json['ProjectSyncSchedule'] as bool?,
   inputByUserId: json['InputByUserId'] as String?,
   modByUserId: json['ModByUserId'] as String?,
   webUserId: json['WebUserId'] as String?,
@@ -11561,6 +11677,7 @@ WebApiModulesAgentOrderOrderBase _$WebApiModulesAgentOrderOrderBaseFromJson(
   totalWeightKg: (json['TotalWeightKg'] as num?)?.toInt(),
   totalWeightG: (json['TotalWeightG'] as num?)?.toInt(),
   shipmentNumber: (json['ShipmentNumber'] as num?)?.toInt(),
+  lassoEventId: json['LassoEventId'] as String?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -11750,6 +11867,8 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderBaseToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'TotalTax': ?instance.totalTax,
   'NoCharge': ?instance.noCharge,
   'NoChargeReason': ?instance.noChargeReason,
@@ -11793,6 +11912,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderBaseToJson(
   'GroupNumber': ?instance.groupNumber,
   'GroupColor': ?instance.groupColor,
   'GroupOrderBy': ?instance.groupOrderBy,
+  'GroupName': ?instance.groupName,
   'CoverLetterId': ?instance.coverLetterId,
   'CoverLetter': ?instance.coverLetter,
   'TermsConditionsId': ?instance.termsConditionsId,
@@ -12044,6 +12164,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderBaseToJson(
   'RentalExempt': ?instance.rentalExempt,
   'SalesExempt': ?instance.salesExempt,
   'LaborExempt': ?instance.laborExempt,
+  'MiscExempt': ?instance.miscExempt,
   'EnableProjects': ?instance.enableProjects,
   'ProjectId': ?instance.projectId,
   'ProjectNumber': ?instance.projectNumber,
@@ -12063,6 +12184,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderBaseToJson(
   'ProjectSyncMarket': ?instance.projectSyncMarket,
   'ProjectSyncDeliverShip': ?instance.projectSyncDeliverShip,
   'ProjectSyncBilling': ?instance.projectSyncBilling,
+  'ProjectSyncSchedule': ?instance.projectSyncSchedule,
   'InputByUserId': ?instance.inputByUserId,
   'ModByUserId': ?instance.modByUserId,
   'WebUserId': ?instance.webUserId,
@@ -12127,6 +12249,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderBaseToJson(
   'TotalWeightKg': ?instance.totalWeightKg,
   'TotalWeightG': ?instance.totalWeightG,
   'ShipmentNumber': ?instance.shipmentNumber,
+  'LassoEventId': ?instance.lassoEventId,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -13426,9 +13549,13 @@ _$WebApiModulesAgentOrderItemOrderItemFromJson(
   printNoteOnVendorReceiveList: json['PrintNoteOnVendorReceiveList'] as bool?,
   printNoteOnVendorReturnList: json['PrintNoteOnVendorReturnList'] as bool?,
   defaultHourlyRate: (json['DefaultHourlyRate'] as num?)?.toDouble(),
+  defaultHourlyCost: (json['DefaultHourlyCost'] as num?)?.toDouble(),
   defaultDailyRate: (json['DefaultDailyRate'] as num?)?.toDouble(),
+  defaultDailyCost: (json['DefaultDailyCost'] as num?)?.toDouble(),
   defaultWeeklyRate: (json['DefaultWeeklyRate'] as num?)?.toDouble(),
+  defaultWeeklyCost: (json['DefaultWeeklyCost'] as num?)?.toDouble(),
   defaultMonthlyRate: (json['DefaultMonthlyRate'] as num?)?.toDouble(),
+  defaultMonthlyCost: (json['DefaultMonthlyCost'] as num?)?.toDouble(),
   nestingLevel: (json['NestingLevel'] as num?)?.toInt(),
   repairId: json['RepairId'] as String?,
   repairOrderNumber: json['RepairOrderNumber'] as String?,
@@ -13704,9 +13831,13 @@ Map<String, dynamic> _$WebApiModulesAgentOrderItemOrderItemToJson(
   'PrintNoteOnVendorReceiveList': ?instance.printNoteOnVendorReceiveList,
   'PrintNoteOnVendorReturnList': ?instance.printNoteOnVendorReturnList,
   'DefaultHourlyRate': ?instance.defaultHourlyRate,
+  'DefaultHourlyCost': ?instance.defaultHourlyCost,
   'DefaultDailyRate': ?instance.defaultDailyRate,
+  'DefaultDailyCost': ?instance.defaultDailyCost,
   'DefaultWeeklyRate': ?instance.defaultWeeklyRate,
+  'DefaultWeeklyCost': ?instance.defaultWeeklyCost,
   'DefaultMonthlyRate': ?instance.defaultMonthlyRate,
+  'DefaultMonthlyCost': ?instance.defaultMonthlyCost,
   'NestingLevel': ?instance.nestingLevel,
   'RepairId': ?instance.repairId,
   'RepairOrderNumber': ?instance.repairOrderNumber,
@@ -13804,6 +13935,8 @@ _$WebApiModulesAgentOrderItemOrderItemDefaultRequestFromJson(
   salesExempt: json['SalesExempt'] as bool?,
   laborTaxRate1: (json['LaborTaxRate1'] as num?)?.toDouble(),
   laborExempt: json['LaborExempt'] as bool?,
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscExempt: json['MiscExempt'] as bool?,
   consignment: json['Consignment'] as bool?,
   poTypeId: json['PoTypeId'] as String?,
   vendorId: json['VendorId'] as String?,
@@ -13839,6 +13972,8 @@ Map<String, dynamic> _$WebApiModulesAgentOrderItemOrderItemDefaultRequestToJson(
   'SalesExempt': ?instance.salesExempt,
   'LaborTaxRate1': ?instance.laborTaxRate1,
   'LaborExempt': ?instance.laborExempt,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscExempt': ?instance.miscExempt,
   'Consignment': ?instance.consignment,
   'PoTypeId': ?instance.poTypeId,
   'VendorId': ?instance.vendorId,
@@ -14068,6 +14203,8 @@ _$WebApiModulesAgentOrderItemSplitOrderItemRequestFromJson(
   stagedOutOnly: json['StagedOutOnly'] as bool?,
   outOnly: json['OutOnly'] as bool?,
   inOnly: json['InOnly'] as bool?,
+  byBarCode: json['ByBarCode'] as bool?,
+  barCodes: json['BarCodes'] as String?,
   consignorId: json['ConsignorId'] as String?,
   consignorAgreementId: json['ConsignorAgreementId'] as String?,
   reSortItemsAfterSplit: json['ReSortItemsAfterSplit'] as bool?,
@@ -14086,6 +14223,8 @@ Map<String, dynamic> _$WebApiModulesAgentOrderItemSplitOrderItemRequestToJson(
   'StagedOutOnly': ?instance.stagedOutOnly,
   'OutOnly': ?instance.outOnly,
   'InOnly': ?instance.inOnly,
+  'ByBarCode': ?instance.byBarCode,
+  'BarCodes': ?instance.barCodes,
   'ConsignorId': ?instance.consignorId,
   'ConsignorAgreementId': ?instance.consignorAgreementId,
   'ReSortItemsAfterSplit': ?instance.reSortItemsAfterSplit,
@@ -14138,6 +14277,28 @@ _$WebApiModulesAgentOrderItemToggleOrderApprovalResponseToJson(
   'Status': ?instance.status,
   'Message': ?instance.message,
   'ToggleOrderApproval': ?instance.toggleOrderApproval,
+};
+
+WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+_$WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrlFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl(
+      appimageid: json['appimageid'] as String?,
+      appdocumentid: json['appdocumentid'] as String?,
+      filename: json['filename'] as String?,
+      url: json['url'] as String?,
+    );
+
+Map<String, dynamic>
+_$WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrlToJson(
+  WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+  instance,
+) => <String, dynamic>{
+  'appimageid': ?instance.appimageid,
+  'appdocumentid': ?instance.appdocumentid,
+  'filename': ?instance.filename,
+  'url': ?instance.url,
 };
 
 WebApiModulesAgentOrderNoteOrderNote
@@ -14376,6 +14537,7 @@ _$WebApiModulesAgentOrderStatusSummaryOrderStatusSummaryFromJson(
   quantityOrderedColor: json['QuantityOrderedColor'] as String?,
   subQuantity: (json['SubQuantity'] as num?)?.toDouble(),
   stagedQuantity: (json['StagedQuantity'] as num?)?.toDouble(),
+  holdingQuantity: (json['HoldingQuantity'] as num?)?.toDouble(),
   stagedQuantityFilter: (json['StagedQuantityFilter'] as num?)?.toDouble(),
   stagedQuantityColor: json['StagedQuantityColor'] as String?,
   outQuantity: (json['OutQuantity'] as num?)?.toDouble(),
@@ -14506,6 +14668,7 @@ _$WebApiModulesAgentOrderStatusSummaryOrderStatusSummaryToJson(
   'QuantityOrderedColor': ?instance.quantityOrderedColor,
   'SubQuantity': ?instance.subQuantity,
   'StagedQuantity': ?instance.stagedQuantity,
+  'HoldingQuantity': ?instance.holdingQuantity,
   'StagedQuantityFilter': ?instance.stagedQuantityFilter,
   'StagedQuantityColor': ?instance.stagedQuantityColor,
   'OutQuantity': ?instance.outQuantity,
@@ -14836,6 +14999,7 @@ WebApiModulesAgentProjectProject _$WebApiModulesAgentProjectProjectFromJson(
   marketSegmentJob: json['MarketSegmentJob'] as String?,
   syncMarket: json['SyncMarket'] as bool?,
   syncDeliverShip: json['SyncDeliverShip'] as bool?,
+  syncSchedule: json['SyncSchedule'] as bool?,
   outDeliveryId: json['OutDeliveryId'] as String?,
   outDeliveryDeliveryType: json['OutDeliveryDeliveryType'] as String?,
   outDeliveryRequiredDate: json['OutDeliveryRequiredDate'] as String?,
@@ -15040,6 +15204,8 @@ WebApiModulesAgentProjectProject _$WebApiModulesAgentProjectProjectFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   determineQuantitiesToBillBasedOn:
       json['DetermineQuantitiesToBillBasedOn'] as String?,
   includePrepFeesInRentalRate: json['IncludePrepFeesInRentalRate'] as bool?,
@@ -15078,6 +15244,10 @@ WebApiModulesAgentProjectProject _$WebApiModulesAgentProjectProjectFromJson(
   billToCountryCodePhone: (json['BillToCountryCodePhone'] as num?)?.toInt(),
   noCharge: json['NoCharge'] as bool?,
   noChargeReason: json['NoChargeReason'] as String?,
+  coverLetterId: json['CoverLetterId'] as String?,
+  coverLetter: json['CoverLetter'] as String?,
+  termsConditionsId: json['TermsConditionsId'] as String?,
+  termsConditions: json['TermsConditions'] as String?,
   activityDatesAndTimes:
       (json['ActivityDatesAndTimes'] as List<dynamic>?)
           ?.map(
@@ -15203,6 +15373,7 @@ Map<String, dynamic> _$WebApiModulesAgentProjectProjectToJson(
   'MarketSegmentJob': ?instance.marketSegmentJob,
   'SyncMarket': ?instance.syncMarket,
   'SyncDeliverShip': ?instance.syncDeliverShip,
+  'SyncSchedule': ?instance.syncSchedule,
   'OutDeliveryId': ?instance.outDeliveryId,
   'OutDeliveryDeliveryType': ?instance.outDeliveryDeliveryType,
   'OutDeliveryRequiredDate': ?instance.outDeliveryRequiredDate,
@@ -15390,6 +15561,8 @@ Map<String, dynamic> _$WebApiModulesAgentProjectProjectToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'DetermineQuantitiesToBillBasedOn':
       ?instance.determineQuantitiesToBillBasedOn,
   'IncludePrepFeesInRentalRate': ?instance.includePrepFeesInRentalRate,
@@ -15428,6 +15601,10 @@ Map<String, dynamic> _$WebApiModulesAgentProjectProjectToJson(
   'BillToCountryCodePhone': ?instance.billToCountryCodePhone,
   'NoCharge': ?instance.noCharge,
   'NoChargeReason': ?instance.noChargeReason,
+  'CoverLetterId': ?instance.coverLetterId,
+  'CoverLetter': ?instance.coverLetter,
+  'TermsConditionsId': ?instance.termsConditionsId,
+  'TermsConditions': ?instance.termsConditions,
   'ActivityDatesAndTimes': ?instance.activityDatesAndTimes
       ?.map((e) => e.toJson())
       .toList(),
@@ -16444,6 +16621,9 @@ _$WebApiModulesAgentPurchaseOrderGetPurchaseOrderResponseFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
+  miscExempt: json['MiscExempt'] as bool?,
   hasRentalItem: json['HasRentalItem'] as bool?,
   hasSalesItem: json['HasSalesItem'] as bool?,
   hasMiscellaneousItem: json['HasMiscellaneousItem'] as bool?,
@@ -16948,6 +17128,9 @@ _$WebApiModulesAgentPurchaseOrderGetPurchaseOrderResponseToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
+  'MiscExempt': ?instance.miscExempt,
   'HasRentalItem': ?instance.hasRentalItem,
   'HasSalesItem': ?instance.hasSalesItem,
   'HasMiscellaneousItem': ?instance.hasMiscellaneousItem,
@@ -17584,6 +17767,9 @@ _$WebApiModulesAgentPurchaseOrderPurchaseOrderFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
+  miscExempt: json['MiscExempt'] as bool?,
   hasRentalItem: json['HasRentalItem'] as bool?,
   hasSalesItem: json['HasSalesItem'] as bool?,
   hasMiscellaneousItem: json['HasMiscellaneousItem'] as bool?,
@@ -18078,6 +18264,9 @@ Map<String, dynamic> _$WebApiModulesAgentPurchaseOrderPurchaseOrderToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
+  'MiscExempt': ?instance.miscExempt,
   'HasRentalItem': ?instance.hasRentalItem,
   'HasSalesItem': ?instance.hasSalesItem,
   'HasMiscellaneousItem': ?instance.hasMiscellaneousItem,
@@ -19348,6 +19537,8 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   totalTax: (json['TotalTax'] as num?)?.toDouble(),
   noCharge: json['NoCharge'] as bool?,
   noChargeReason: json['NoChargeReason'] as String?,
@@ -19391,6 +19582,7 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   groupNumber: (json['GroupNumber'] as num?)?.toInt(),
   groupColor: (json['GroupColor'] as num?)?.toInt(),
   groupOrderBy: (json['GroupOrderBy'] as num?)?.toDouble(),
+  groupName: json['GroupName'] as String?,
   coverLetterId: json['CoverLetterId'] as String?,
   coverLetter: json['CoverLetter'] as String?,
   termsConditionsId: json['TermsConditionsId'] as String?,
@@ -19665,6 +19857,7 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   rentalExempt: json['RentalExempt'] as bool?,
   salesExempt: json['SalesExempt'] as bool?,
   laborExempt: json['LaborExempt'] as bool?,
+  miscExempt: json['MiscExempt'] as bool?,
   enableProjects: json['EnableProjects'] as bool?,
   projectId: json['ProjectId'] as String?,
   projectNumber: json['ProjectNumber'] as String?,
@@ -19684,6 +19877,7 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   projectSyncMarket: json['ProjectSyncMarket'] as bool?,
   projectSyncDeliverShip: json['ProjectSyncDeliverShip'] as bool?,
   projectSyncBilling: json['ProjectSyncBilling'] as bool?,
+  projectSyncSchedule: json['ProjectSyncSchedule'] as bool?,
   inputByUserId: json['InputByUserId'] as String?,
   modByUserId: json['ModByUserId'] as String?,
   webUserId: json['WebUserId'] as String?,
@@ -19755,6 +19949,7 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   totalWeightKg: (json['TotalWeightKg'] as num?)?.toInt(),
   totalWeightG: (json['TotalWeightG'] as num?)?.toInt(),
   shipmentNumber: (json['ShipmentNumber'] as num?)?.toInt(),
+  lassoEventId: json['LassoEventId'] as String?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -19951,6 +20146,8 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'TotalTax': ?instance.totalTax,
   'NoCharge': ?instance.noCharge,
   'NoChargeReason': ?instance.noChargeReason,
@@ -19994,6 +20191,7 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   'GroupNumber': ?instance.groupNumber,
   'GroupColor': ?instance.groupColor,
   'GroupOrderBy': ?instance.groupOrderBy,
+  'GroupName': ?instance.groupName,
   'CoverLetterId': ?instance.coverLetterId,
   'CoverLetter': ?instance.coverLetter,
   'TermsConditionsId': ?instance.termsConditionsId,
@@ -20245,6 +20443,7 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   'RentalExempt': ?instance.rentalExempt,
   'SalesExempt': ?instance.salesExempt,
   'LaborExempt': ?instance.laborExempt,
+  'MiscExempt': ?instance.miscExempt,
   'EnableProjects': ?instance.enableProjects,
   'ProjectId': ?instance.projectId,
   'ProjectNumber': ?instance.projectNumber,
@@ -20264,6 +20463,7 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   'ProjectSyncMarket': ?instance.projectSyncMarket,
   'ProjectSyncDeliverShip': ?instance.projectSyncDeliverShip,
   'ProjectSyncBilling': ?instance.projectSyncBilling,
+  'ProjectSyncSchedule': ?instance.projectSyncSchedule,
   'InputByUserId': ?instance.inputByUserId,
   'ModByUserId': ?instance.modByUserId,
   'WebUserId': ?instance.webUserId,
@@ -20328,6 +20528,7 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   'TotalWeightKg': ?instance.totalWeightKg,
   'TotalWeightG': ?instance.totalWeightG,
   'ShipmentNumber': ?instance.shipmentNumber,
+  'LassoEventId': ?instance.lassoEventId,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -20697,6 +20898,9 @@ _$WebApiModulesAgentScheduleBarCodeReservationResourceFromJson(
   inventoryId: json['inventoryId'] as String?,
   warehouseId: json['warehouseId'] as String?,
   consignor: json['consignor'] as String?,
+  consignorAgreementNumber: json['consignorAgreementNumber'] as String?,
+  consignorPercent: json['consignorPercent'] as String?,
+  bubbleHtml: json['bubbleHtml'] as String?,
   children:
       (json['children'] as List<dynamic>?)
           ?.map(
@@ -20729,6 +20933,9 @@ _$WebApiModulesAgentScheduleBarCodeReservationResourceToJson(
   'inventoryId': ?instance.inventoryId,
   'warehouseId': ?instance.warehouseId,
   'consignor': ?instance.consignor,
+  'consignorAgreementNumber': ?instance.consignorAgreementNumber,
+  'consignorPercent': ?instance.consignorPercent,
+  'bubbleHtml': ?instance.bubbleHtml,
   'children': ?instance.children?.map((e) => e.toJson()).toList(),
 };
 
@@ -22184,6 +22391,30 @@ _$WebApiModulesBillingBillingGetOrderBillingDatesResponseToJson(
   'BillPeriodEvent': ?instance.billPeriodEvent,
 };
 
+WebApiModulesBillingBillingGetOrderBillingEventDateResponse
+_$WebApiModulesBillingBillingGetOrderBillingEventDateResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesBillingBillingGetOrderBillingEventDateResponse(
+  status: (json['status'] as num?)?.toInt(),
+  success: json['success'] as bool?,
+  msg: json['msg'] as String?,
+  billPeriodEvent: json['BillPeriodEvent'] as String?,
+  eventDate: json['EventDate'] == null
+      ? null
+      : DateTime.parse(json['EventDate'] as String),
+);
+
+Map<String, dynamic>
+_$WebApiModulesBillingBillingGetOrderBillingEventDateResponseToJson(
+  WebApiModulesBillingBillingGetOrderBillingEventDateResponse instance,
+) => <String, dynamic>{
+  'status': ?instance.status,
+  'success': ?instance.success,
+  'msg': ?instance.msg,
+  'BillPeriodEvent': ?instance.billPeriodEvent,
+  'EventDate': ?instance.eventDate?.toIso8601String(),
+};
+
 WebApiModulesBillingBillingGetPreviewInvoiceTotalsRequest
 _$WebApiModulesBillingBillingGetPreviewInvoiceTotalsRequestFromJson(
   Map<String, dynamic> json,
@@ -22320,6 +22551,18 @@ Map<String, dynamic> _$WebApiModulesBillingBillingPopulateBillingResponseToJson(
   'BillingMessages': ?instance.billingMessages,
 };
 
+WebApiModulesBillingBillingStartCreateGroupInvoicesResponse
+_$WebApiModulesBillingBillingStartCreateGroupInvoicesResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesBillingBillingStartCreateGroupInvoicesResponse(
+  jobId: json['JobId'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesBillingBillingStartCreateGroupInvoicesResponseToJson(
+  WebApiModulesBillingBillingStartCreateGroupInvoicesResponse instance,
+) => <String, dynamic>{'JobId': ?instance.jobId};
+
 WebApiModulesBillingBillingUpdateBillingWorksheetRequest
 _$WebApiModulesBillingBillingUpdateBillingWorksheetRequestFromJson(
   Map<String, dynamic> json,
@@ -22400,6 +22643,8 @@ _$WebApiModulesBillingBillingWorksheetBillingWorksheetFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   purchaseOrderNumber: json['PurchaseOrderNumber'] as String?,
   status: json['Status'] as String?,
   statusDate: json['StatusDate'] as String?,
@@ -22534,6 +22779,8 @@ _$WebApiModulesBillingBillingWorksheetBillingWorksheetToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'PurchaseOrderNumber': ?instance.purchaseOrderNumber,
   'Status': ?instance.status,
   'StatusDate': ?instance.statusDate,
@@ -22892,12 +23139,15 @@ WebApiModulesBillingInvoiceInvoice _$WebApiModulesBillingInvoiceInvoiceFromJson(
   rentalTaxAlias: json['RentalTaxAlias'] as String?,
   salesTaxAlias: json['SalesTaxAlias'] as String?,
   laborTaxAlias: json['LaborTaxAlias'] as String?,
+  miscTaxAlias: json['MiscTaxAlias'] as String?,
   rentalTaxRate1: (json['RentalTaxRate1'] as num?)?.toDouble(),
   salesTaxRate1: (json['SalesTaxRate1'] as num?)?.toDouble(),
   laborTaxRate1: (json['LaborTaxRate1'] as num?)?.toDouble(),
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   taxItemCode: json['TaxItemCode'] as String?,
   taxVendor: json['TaxVendor'] as String?,
   taxCountry: json['TaxCountry'] as String?,
@@ -23117,12 +23367,15 @@ Map<String, dynamic> _$WebApiModulesBillingInvoiceInvoiceToJson(
   'RentalTaxAlias': ?instance.rentalTaxAlias,
   'SalesTaxAlias': ?instance.salesTaxAlias,
   'LaborTaxAlias': ?instance.laborTaxAlias,
+  'MiscTaxAlias': ?instance.miscTaxAlias,
   'RentalTaxRate1': ?instance.rentalTaxRate1,
   'SalesTaxRate1': ?instance.salesTaxRate1,
   'LaborTaxRate1': ?instance.laborTaxRate1,
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'TaxItemCode': ?instance.taxItemCode,
   'TaxVendor': ?instance.taxVendor,
   'TaxCountry': ?instance.taxCountry,
@@ -23430,6 +23683,30 @@ _$WebApiModulesBillingInvoiceRestoreInvoiceChargeCodesToDefaultResponseToJson(
   'msg': ?instance.msg,
 };
 
+WebApiModulesBillingInvoiceStartApproveInvoiceResponse
+_$WebApiModulesBillingInvoiceStartApproveInvoiceResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesBillingInvoiceStartApproveInvoiceResponse(
+  jobId: json['JobId'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesBillingInvoiceStartApproveInvoiceResponseToJson(
+  WebApiModulesBillingInvoiceStartApproveInvoiceResponse instance,
+) => <String, dynamic>{'JobId': ?instance.jobId};
+
+WebApiModulesBillingInvoiceStartUnapproveInvoiceResponse
+_$WebApiModulesBillingInvoiceStartUnapproveInvoiceResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesBillingInvoiceStartUnapproveInvoiceResponse(
+  jobId: json['JobId'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesBillingInvoiceStartUnapproveInvoiceResponseToJson(
+  WebApiModulesBillingInvoiceStartUnapproveInvoiceResponse instance,
+) => <String, dynamic>{'JobId': ?instance.jobId};
+
 WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse
 _$WebApiModulesBillingInvoiceToggleInvoiceApprovedResponseFromJson(
   Map<String, dynamic> json,
@@ -23552,6 +23829,7 @@ _$WebApiModulesBillingInvoiceItemInvoiceItemFromJson(
   itemClass: json['ItemClass'] as String?,
   itemOrder: json['ItemOrder'] as String?,
   inventoryId: json['InventoryId'] as String?,
+  ratemasterId: json['RatemasterId'] as String?,
   orderId: json['OrderId'] as String?,
   parentId: json['ParentId'] as String?,
   repairId: json['RepairId'] as String?,
@@ -23683,6 +23961,7 @@ Map<String, dynamic> _$WebApiModulesBillingInvoiceItemInvoiceItemToJson(
   'ItemClass': ?instance.itemClass,
   'ItemOrder': ?instance.itemOrder,
   'InventoryId': ?instance.inventoryId,
+  'RatemasterId': ?instance.ratemasterId,
   'OrderId': ?instance.orderId,
   'ParentId': ?instance.parentId,
   'RepairId': ?instance.repairId,
@@ -24534,6 +24813,8 @@ WebApiModulesBillingReceiptReceipt _$WebApiModulesBillingReceiptReceiptFromJson(
   locationCode: json['LocationCode'] as String?,
   location: json['Location'] as String?,
   customerId: json['CustomerId'] as String?,
+  contactId: json['ContactId'] as String?,
+  contactName: json['ContactName'] as String?,
   customer: json['Customer'] as String?,
   dealId: json['DealId'] as String?,
   deal: json['Deal'] as String?,
@@ -24593,6 +24874,7 @@ WebApiModulesBillingReceiptReceipt _$WebApiModulesBillingReceiptReceiptFromJson(
   creditCardExpirationDate: json['CreditCardExpirationDate'] as String?,
   creditCardName: json['CreditCardName'] as String?,
   creditCardAccountId: json['CreditCardAccountId'] as String?,
+  paymentByPortal: json['PaymentByPortal'] as bool?,
   creditCardPaymentMode: json['CreditCardPaymentMode'] as String?,
   creditCardPinPadId: (json['CreditCardPinPadId'] as num?)?.toInt(),
   newCreditCardAccountToken: json['NewCreditCardAccountToken'] as String?,
@@ -24680,6 +24962,8 @@ Map<String, dynamic> _$WebApiModulesBillingReceiptReceiptToJson(
   'LocationCode': ?instance.locationCode,
   'Location': ?instance.location,
   'CustomerId': ?instance.customerId,
+  'ContactId': ?instance.contactId,
+  'ContactName': ?instance.contactName,
   'Customer': ?instance.customer,
   'DealId': ?instance.dealId,
   'Deal': ?instance.deal,
@@ -24721,6 +25005,7 @@ Map<String, dynamic> _$WebApiModulesBillingReceiptReceiptToJson(
   'CreditCardExpirationDate': ?instance.creditCardExpirationDate,
   'CreditCardName': ?instance.creditCardName,
   'CreditCardAccountId': ?instance.creditCardAccountId,
+  'PaymentByPortal': ?instance.paymentByPortal,
   'CreditCardPaymentMode': ?instance.creditCardPaymentMode,
   'CreditCardPinPadId': ?instance.creditCardPinPadId,
   'NewCreditCardAccountToken': ?instance.newCreditCardAccountToken,
@@ -25365,6 +25650,8 @@ _$WebApiModulesBillingVendorInvoiceVendorInvoiceFromJson(
   printNotes: json['PrintNotes'] as bool?,
   paymentTermsId: json['PaymentTermsId'] as String?,
   paymentTerms: json['PaymentTerms'] as String?,
+  paymentTypeId: json['PaymentTypeId'] as String?,
+  paymentType: json['PaymentType'] as String?,
   paymentTermsColor: json['PaymentTermsColor'] as String?,
   taxId: json['TaxId'] as String?,
   rentalTaxRate1: (json['RentalTaxRate1'] as num?)?.toDouble(),
@@ -25373,6 +25660,8 @@ _$WebApiModulesBillingVendorInvoiceVendorInvoiceFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   taxOptionId: json['TaxOptionId'] as String?,
   taxOption: json['TaxOption'] as String?,
   tax1Name: json['Tax1Name'] as String?,
@@ -25380,6 +25669,7 @@ _$WebApiModulesBillingVendorInvoiceVendorInvoiceFromJson(
   rentalTaxAlias: json['RentalTaxAlias'] as String?,
   salesTaxAlias: json['SalesTaxAlias'] as String?,
   laborTaxAlias: json['LaborTaxAlias'] as String?,
+  miscTaxAlias: json['MiscTaxAlias'] as String?,
   taxItemCode: json['TaxItemCode'] as String?,
   notes: json['Notes'] as String?,
   billedHiatus: json['BilledHiatus'] as bool?,
@@ -25507,6 +25797,8 @@ Map<String, dynamic> _$WebApiModulesBillingVendorInvoiceVendorInvoiceToJson(
   'PrintNotes': ?instance.printNotes,
   'PaymentTermsId': ?instance.paymentTermsId,
   'PaymentTerms': ?instance.paymentTerms,
+  'PaymentTypeId': ?instance.paymentTypeId,
+  'PaymentType': ?instance.paymentType,
   'PaymentTermsColor': ?instance.paymentTermsColor,
   'TaxId': ?instance.taxId,
   'RentalTaxRate1': ?instance.rentalTaxRate1,
@@ -25515,6 +25807,8 @@ Map<String, dynamic> _$WebApiModulesBillingVendorInvoiceVendorInvoiceToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'TaxOptionId': ?instance.taxOptionId,
   'TaxOption': ?instance.taxOption,
   'Tax1Name': ?instance.tax1Name,
@@ -25522,6 +25816,7 @@ Map<String, dynamic> _$WebApiModulesBillingVendorInvoiceVendorInvoiceToJson(
   'RentalTaxAlias': ?instance.rentalTaxAlias,
   'SalesTaxAlias': ?instance.salesTaxAlias,
   'LaborTaxAlias': ?instance.laborTaxAlias,
+  'MiscTaxAlias': ?instance.miscTaxAlias,
   'TaxItemCode': ?instance.taxItemCode,
   'Notes': ?instance.notes,
   'BilledHiatus': ?instance.billedHiatus,
@@ -26375,6 +26670,10 @@ _$WebApiModulesCompanyCompanyTaxOptionCompanyTaxOptionFromJson(
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
   laborExempt: json['LaborExempt'] as bool?,
   laborTaxDisplay: json['LaborTaxDisplay'] as String?,
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
+  miscExempt: json['MiscExempt'] as bool?,
+  miscTaxDisplay: json['MiscTaxDisplay'] as String?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -26455,6 +26754,10 @@ _$WebApiModulesCompanyCompanyTaxOptionCompanyTaxOptionToJson(
   'LaborTaxRate2': ?instance.laborTaxRate2,
   'LaborExempt': ?instance.laborExempt,
   'LaborTaxDisplay': ?instance.laborTaxDisplay,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
+  'MiscExempt': ?instance.miscExempt,
+  'MiscTaxDisplay': ?instance.miscTaxDisplay,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -29546,6 +29849,7 @@ WebApiModulesInventoryAssetItem _$WebApiModulesInventoryAssetItemFromJson(
   containerItemId: json['ContainerItemId'] as String?,
   containerItemItemId: json['ContainerItemItemId'] as String?,
   containerBarCode: json['ContainerBarCode'] as String?,
+  containerTrackedByCode: json['ContainerTrackedByCode'] as String?,
   containerStatusDate: json['ContainerStatusDate'] as String?,
   fixedAsset: json['FixedAsset'] as bool?,
   rank: json['Rank'] as String?,
@@ -29663,6 +29967,7 @@ WebApiModulesInventoryAssetItem _$WebApiModulesInventoryAssetItemFromJson(
   opening: json['Opening'] as String?,
   responsiblePersonId: json['ResponsiblePersonId'] as String?,
   responsiblePerson: json['ResponsiblePerson'] as String?,
+  expectedReturnDate: json['ExpectedReturnDate'] as String?,
   buyerId: json['BuyerId'] as String?,
   buyer: json['Buyer'] as String?,
   receiptNumber: json['ReceiptNumber'] as String?,
@@ -29711,6 +30016,10 @@ WebApiModulesInventoryAssetItem _$WebApiModulesInventoryAssetItemFromJson(
   inventoryTypeIsWardrobe: json['InventoryTypeIsWardrobe'] as bool?,
   orderLocationId: json['OrderLocationId'] as String?,
   containerNumber: json['ContainerNumber'] as String?,
+  shippingCaseWeightLastOrderLbs:
+      (json['ShippingCaseWeightLastOrderLbs'] as num?)?.toDouble(),
+  shippingCaseWeightLastOrderKg: (json['ShippingCaseWeightLastOrderKg'] as num?)
+      ?.toDouble(),
   isWardrobe: json['IsWardrobe'] as bool?,
   isProps: json['IsProps'] as bool?,
   dailyRate: (json['DailyRate'] as num?)?.toDouble(),
@@ -29775,6 +30084,10 @@ WebApiModulesInventoryAssetItem _$WebApiModulesInventoryAssetItemFromJson(
   qcByUsersId: json['QcByUsersId'] as String?,
   qcByUser: json['QcByUser'] as String?,
   allowFlexibleContainer: json['AllowFlexibleContainer'] as bool?,
+  shipWeightLbs: (json['ShipWeightLbs'] as num?)?.toInt(),
+  shipWeightOz: (json['ShipWeightOz'] as num?)?.toInt(),
+  shipWeightKg: (json['ShipWeightKg'] as num?)?.toInt(),
+  shipWeightG: (json['ShipWeightG'] as num?)?.toInt(),
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -29861,6 +30174,7 @@ Map<String, dynamic> _$WebApiModulesInventoryAssetItemToJson(
   'ContainerItemId': ?instance.containerItemId,
   'ContainerItemItemId': ?instance.containerItemItemId,
   'ContainerBarCode': ?instance.containerBarCode,
+  'ContainerTrackedByCode': ?instance.containerTrackedByCode,
   'ContainerStatusDate': ?instance.containerStatusDate,
   'FixedAsset': ?instance.fixedAsset,
   'Rank': ?instance.rank,
@@ -29973,6 +30287,7 @@ Map<String, dynamic> _$WebApiModulesInventoryAssetItemToJson(
   'Opening': ?instance.opening,
   'ResponsiblePersonId': ?instance.responsiblePersonId,
   'ResponsiblePerson': ?instance.responsiblePerson,
+  'ExpectedReturnDate': ?instance.expectedReturnDate,
   'BuyerId': ?instance.buyerId,
   'Buyer': ?instance.buyer,
   'ReceiptNumber': ?instance.receiptNumber,
@@ -30020,6 +30335,8 @@ Map<String, dynamic> _$WebApiModulesInventoryAssetItemToJson(
   'InventoryTypeIsWardrobe': ?instance.inventoryTypeIsWardrobe,
   'OrderLocationId': ?instance.orderLocationId,
   'ContainerNumber': ?instance.containerNumber,
+  'ShippingCaseWeightLastOrderLbs': ?instance.shippingCaseWeightLastOrderLbs,
+  'ShippingCaseWeightLastOrderKg': ?instance.shippingCaseWeightLastOrderKg,
   'IsWardrobe': ?instance.isWardrobe,
   'IsProps': ?instance.isProps,
   'DailyRate': ?instance.dailyRate,
@@ -30084,6 +30401,10 @@ Map<String, dynamic> _$WebApiModulesInventoryAssetItemToJson(
   'QcByUsersId': ?instance.qcByUsersId,
   'QcByUser': ?instance.qcByUser,
   'AllowFlexibleContainer': ?instance.allowFlexibleContainer,
+  'ShipWeightLbs': ?instance.shipWeightLbs,
+  'ShipWeightOz': ?instance.shipWeightOz,
+  'ShipWeightKg': ?instance.shipWeightKg,
+  'ShipWeightG': ?instance.shipWeightG,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -30105,10 +30426,10 @@ Map<String, dynamic> _$WebApiModulesInventoryAssetItemToJson(
   'ModifiedDateTime': ?instance.modifiedDateTime,
 };
 
-WebApiModulesInventoryAssetItemByBarCodeResponse
-_$WebApiModulesInventoryAssetItemByBarCodeResponseFromJson(
+WebApiModulesInventoryAssetItemByCodeResponse
+_$WebApiModulesInventoryAssetItemByCodeResponseFromJson(
   Map<String, dynamic> json,
-) => WebApiModulesInventoryAssetItemByBarCodeResponse(
+) => WebApiModulesInventoryAssetItemByCodeResponse(
   status: (json['status'] as num?)?.toInt(),
   success: json['success'] as bool?,
   msg: json['msg'] as String?,
@@ -30119,8 +30440,8 @@ _$WebApiModulesInventoryAssetItemByBarCodeResponseFromJson(
         ),
 );
 
-Map<String, dynamic> _$WebApiModulesInventoryAssetItemByBarCodeResponseToJson(
-  WebApiModulesInventoryAssetItemByBarCodeResponse instance,
+Map<String, dynamic> _$WebApiModulesInventoryAssetItemByCodeResponseToJson(
+  WebApiModulesInventoryAssetItemByCodeResponse instance,
 ) => <String, dynamic>{
   'status': ?instance.status,
   'success': ?instance.success,
@@ -30411,6 +30732,7 @@ _$WebApiModulesInventoryContainerItemContainerItemFromJson(
   containerItemId: json['ContainerItemId'] as String?,
   containerItemItemId: json['ContainerItemItemId'] as String?,
   containerBarCode: json['ContainerBarCode'] as String?,
+  containerTrackedByCode: json['ContainerTrackedByCode'] as String?,
   containerStatusDate: json['ContainerStatusDate'] as String?,
   fixedAsset: json['FixedAsset'] as bool?,
   rank: json['Rank'] as String?,
@@ -30528,6 +30850,7 @@ _$WebApiModulesInventoryContainerItemContainerItemFromJson(
   opening: json['Opening'] as String?,
   responsiblePersonId: json['ResponsiblePersonId'] as String?,
   responsiblePerson: json['ResponsiblePerson'] as String?,
+  expectedReturnDate: json['ExpectedReturnDate'] as String?,
   buyerId: json['BuyerId'] as String?,
   buyer: json['Buyer'] as String?,
   receiptNumber: json['ReceiptNumber'] as String?,
@@ -30576,6 +30899,10 @@ _$WebApiModulesInventoryContainerItemContainerItemFromJson(
   inventoryTypeIsWardrobe: json['InventoryTypeIsWardrobe'] as bool?,
   orderLocationId: json['OrderLocationId'] as String?,
   containerNumber: json['ContainerNumber'] as String?,
+  shippingCaseWeightLastOrderLbs:
+      (json['ShippingCaseWeightLastOrderLbs'] as num?)?.toDouble(),
+  shippingCaseWeightLastOrderKg: (json['ShippingCaseWeightLastOrderKg'] as num?)
+      ?.toDouble(),
   isWardrobe: json['IsWardrobe'] as bool?,
   isProps: json['IsProps'] as bool?,
   dailyRate: (json['DailyRate'] as num?)?.toDouble(),
@@ -30640,6 +30967,10 @@ _$WebApiModulesInventoryContainerItemContainerItemFromJson(
   qcByUsersId: json['QcByUsersId'] as String?,
   qcByUser: json['QcByUser'] as String?,
   allowFlexibleContainer: json['AllowFlexibleContainer'] as bool?,
+  shipWeightLbs: (json['ShipWeightLbs'] as num?)?.toInt(),
+  shipWeightOz: (json['ShipWeightOz'] as num?)?.toInt(),
+  shipWeightKg: (json['ShipWeightKg'] as num?)?.toInt(),
+  shipWeightG: (json['ShipWeightG'] as num?)?.toInt(),
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -30726,6 +31057,7 @@ Map<String, dynamic> _$WebApiModulesInventoryContainerItemContainerItemToJson(
   'ContainerItemId': ?instance.containerItemId,
   'ContainerItemItemId': ?instance.containerItemItemId,
   'ContainerBarCode': ?instance.containerBarCode,
+  'ContainerTrackedByCode': ?instance.containerTrackedByCode,
   'ContainerStatusDate': ?instance.containerStatusDate,
   'FixedAsset': ?instance.fixedAsset,
   'Rank': ?instance.rank,
@@ -30838,6 +31170,7 @@ Map<String, dynamic> _$WebApiModulesInventoryContainerItemContainerItemToJson(
   'Opening': ?instance.opening,
   'ResponsiblePersonId': ?instance.responsiblePersonId,
   'ResponsiblePerson': ?instance.responsiblePerson,
+  'ExpectedReturnDate': ?instance.expectedReturnDate,
   'BuyerId': ?instance.buyerId,
   'Buyer': ?instance.buyer,
   'ReceiptNumber': ?instance.receiptNumber,
@@ -30885,6 +31218,8 @@ Map<String, dynamic> _$WebApiModulesInventoryContainerItemContainerItemToJson(
   'InventoryTypeIsWardrobe': ?instance.inventoryTypeIsWardrobe,
   'OrderLocationId': ?instance.orderLocationId,
   'ContainerNumber': ?instance.containerNumber,
+  'ShippingCaseWeightLastOrderLbs': ?instance.shippingCaseWeightLastOrderLbs,
+  'ShippingCaseWeightLastOrderKg': ?instance.shippingCaseWeightLastOrderKg,
   'IsWardrobe': ?instance.isWardrobe,
   'IsProps': ?instance.isProps,
   'DailyRate': ?instance.dailyRate,
@@ -30949,6 +31284,10 @@ Map<String, dynamic> _$WebApiModulesInventoryContainerItemContainerItemToJson(
   'QcByUsersId': ?instance.qcByUsersId,
   'QcByUser': ?instance.qcByUser,
   'AllowFlexibleContainer': ?instance.allowFlexibleContainer,
+  'ShipWeightLbs': ?instance.shipWeightLbs,
+  'ShipWeightOz': ?instance.shipWeightOz,
+  'ShipWeightKg': ?instance.shipWeightKg,
+  'ShipWeightG': ?instance.shipWeightG,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -31966,6 +32305,11 @@ _$WebApiModulesInventoryInventoryContainerItemInventoryContainerItemFromJson(
   itemClass: json['ItemClass'] as String?,
   ident: (json['Ident'] as num?)?.toInt(),
   dateStamp: json['DateStamp'] as String?,
+  autoCheckInWithScannableItem: json['AutoCheckInWithScannableItem'] as bool?,
+  autoRebuildAtCheckIn: json['AutoRebuildAtCheckIn'] as bool?,
+  autoTransferInWithScannableItem:
+      json['AutoTransferInWithScannableItem'] as bool?,
+  autoRebuildAtTransferIn: json['AutoRebuildAtTransferIn'] as bool?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
   urlIdentifier: json['UrlIdentifier'],
@@ -32039,6 +32383,10 @@ _$WebApiModulesInventoryInventoryContainerItemInventoryContainerItemToJson(
   'ItemClass': ?instance.itemClass,
   'Ident': ?instance.ident,
   'DateStamp': ?instance.dateStamp,
+  'AutoCheckInWithScannableItem': ?instance.autoCheckInWithScannableItem,
+  'AutoRebuildAtCheckIn': ?instance.autoRebuildAtCheckIn,
+  'AutoTransferInWithScannableItem': ?instance.autoTransferInWithScannableItem,
+  'AutoRebuildAtTransferIn': ?instance.autoRebuildAtTransferIn,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
   'UrlIdentifier': ?instance.urlIdentifier,
@@ -32085,6 +32433,7 @@ _$WebApiModulesInventoryInventoryLocationTaxInventoryLocationTaxFromJson(
   Map<String, dynamic> json,
 ) => WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax(
   inventoryId: json['InventoryId'] as String?,
+  locationOrderBy: (json['LocationOrderBy'] as num?)?.toInt(),
   id: (json['Id'] as num?)?.toInt(),
   internalChar: json['InternalChar'] as String?,
   locationId: json['LocationId'] as String?,
@@ -32152,6 +32501,7 @@ _$WebApiModulesInventoryInventoryLocationTaxInventoryLocationTaxToJson(
   WebApiModulesInventoryInventoryLocationTaxInventoryLocationTax instance,
 ) => <String, dynamic>{
   'InventoryId': ?instance.inventoryId,
+  'LocationOrderBy': ?instance.locationOrderBy,
   'Id': ?instance.id,
   'InternalChar': ?instance.internalChar,
   'LocationId': ?instance.locationId,
@@ -33888,6 +34238,12 @@ _$WebApiModulesInventoryInventorySearchInventorySearchFromJson(
       ? null
       : DateTime.parse(json['ConflictDateRegion'] as String),
   availabilityStateRegion: json['AvailabilityStateRegion'] as String?,
+  quantityAvailableCountry: (json['QuantityAvailableCountry'] as num?)
+      ?.toDouble(),
+  conflictDateCountry: json['ConflictDateCountry'] == null
+      ? null
+      : DateTime.parse(json['ConflictDateCountry'] as String),
+  availabilityStateCountry: json['AvailabilityStateCountry'] as String?,
   quantityAvailableAllWarehouses:
       (json['QuantityAvailableAllWarehouses'] as num?)?.toDouble(),
   conflictDateAllWarehouses: json['ConflictDateAllWarehouses'] == null
@@ -33971,6 +34327,9 @@ _$WebApiModulesInventoryInventorySearchInventorySearchToJson(
   'QuantityAvailableRegion': ?instance.quantityAvailableRegion,
   'ConflictDateRegion': ?instance.conflictDateRegion?.toIso8601String(),
   'AvailabilityStateRegion': ?instance.availabilityStateRegion,
+  'QuantityAvailableCountry': ?instance.quantityAvailableCountry,
+  'ConflictDateCountry': ?instance.conflictDateCountry?.toIso8601String(),
+  'AvailabilityStateCountry': ?instance.availabilityStateCountry,
   'QuantityAvailableAllWarehouses': ?instance.quantityAvailableAllWarehouses,
   'ConflictDateAllWarehouses': ?instance.conflictDateAllWarehouses
       ?.toIso8601String(),
@@ -34124,6 +34483,7 @@ _$WebApiModulesInventoryInventorySearchInventorySearchRequestFromJson(
   orderId: json['OrderId'] as String?,
   availableFor: json['AvailableFor'] as String?,
   warehouseId: json['WarehouseId'] as String?,
+  userDepartmentId: json['UserDepartmentId'] as String?,
   languageId: json['LanguageId'] as String?,
   currencyId: json['CurrencyId'] as String?,
   inventoryTypeId: json['InventoryTypeId'] as String?,
@@ -34167,6 +34527,7 @@ _$WebApiModulesInventoryInventorySearchInventorySearchRequestToJson(
   'OrderId': ?instance.orderId,
   'AvailableFor': ?instance.availableFor,
   'WarehouseId': ?instance.warehouseId,
+  'UserDepartmentId': ?instance.userDepartmentId,
   'LanguageId': ?instance.languageId,
   'CurrencyId': ?instance.currencyId,
   'InventoryTypeId': ?instance.inventoryTypeId,
@@ -35016,7 +35377,8 @@ _$WebApiModulesInventoryItemAttributeValueMassUpdateItemAttributesRequestFromJso
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
-  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toDouble(),
+  locale: json['Locale'] as String?,
 );
 
 Map<String, dynamic>
@@ -35053,6 +35415,7 @@ _$WebApiModulesInventoryItemAttributeValueMassUpdateItemAttributesRequestToJson(
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
   'timezoneOffset': ?instance.timezoneOffset,
+  'Locale': ?instance.locale,
 };
 
 WebApiModulesInventoryItemAttributeValueMassUpdateItemAttributesResponse
@@ -35342,6 +35705,8 @@ _$WebApiModulesInventoryPartsInventoryPartsInventoryFromJson(
       json['AutomaticallyCountAllItemsWhenPhysicalInventoryInitiated'] as bool?,
   automaticallyTransferInEntireContainerWithScannableItem:
       json['AutomaticallyTransferInEntireContainerWithScannableItem'] as bool?,
+  specifyContainerItemSettingsPerItem:
+      json['SpecifyContainerItemSettingsPerItem'] as bool?,
   containerStagingRule: json['ContainerStagingRule'] as String?,
   excludeContainedItemsFromAvailability:
       json['ExcludeContainedItemsFromAvailability'] as bool?,
@@ -35658,6 +36023,8 @@ Map<String, dynamic> _$WebApiModulesInventoryPartsInventoryPartsInventoryToJson(
       ?instance.automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
   'AutomaticallyTransferInEntireContainerWithScannableItem':
       ?instance.automaticallyTransferInEntireContainerWithScannableItem,
+  'SpecifyContainerItemSettingsPerItem':
+      ?instance.specifyContainerItemSettingsPerItem,
   'ContainerStagingRule': ?instance.containerStagingRule,
   'ExcludeContainedItemsFromAvailability':
       ?instance.excludeContainedItemsFromAvailability,
@@ -36338,6 +36705,7 @@ _$WebApiModulesInventoryPhysicalInventoryPhysicalInventoryCloseRequestFromJson(
 ) => WebApiModulesInventoryPhysicalInventoryPhysicalInventoryCloseRequest(
   physicalInventoryId: json['PhysicalInventoryId'] as String?,
   addAndRetireInventory: json['AddAndRetireInventory'] as bool?,
+  emptyContainers: json['EmptyContainers'] as bool?,
 );
 
 Map<String, dynamic>
@@ -36346,6 +36714,7 @@ _$WebApiModulesInventoryPhysicalInventoryPhysicalInventoryCloseRequestToJson(
 ) => <String, dynamic>{
   'PhysicalInventoryId': ?instance.physicalInventoryId,
   'AddAndRetireInventory': ?instance.addAndRetireInventory,
+  'EmptyContainers': ?instance.emptyContainers,
 };
 
 WebApiModulesInventoryPhysicalInventoryPhysicalInventoryCloseResponse
@@ -38137,6 +38506,9 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
   hourlyAvailabilityMyWarehouse: json['HourlyAvailabilityMyWarehouse'] as bool?,
   hourlyAvailabilityAllWarehouses:
       json['HourlyAvailabilityAllWarehouses'] as bool?,
+  assetAvailabilityMyWarehouse: json['AssetAvailabilityMyWarehouse'] as bool?,
+  assetAvailabilityAllWarehouses:
+      json['AssetAvailabilityAllWarehouses'] as bool?,
   inventoryTypeId: json['InventoryTypeId'] as String?,
   inventoryType: json['InventoryType'] as String?,
   availableFrom: json['AvailableFrom'] as String?,
@@ -38278,6 +38650,8 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
       json['AutomaticallyCountAllItemsWhenPhysicalInventoryInitiated'] as bool?,
   automaticallyTransferInEntireContainerWithScannableItem:
       json['AutomaticallyTransferInEntireContainerWithScannableItem'] as bool?,
+  specifyContainerItemSettingsPerItem:
+      json['SpecifyContainerItemSettingsPerItem'] as bool?,
   containerStagingRule: json['ContainerStagingRule'] as String?,
   excludeContainedItemsFromAvailability:
       json['ExcludeContainedItemsFromAvailability'] as bool?,
@@ -38522,6 +38896,8 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'ReplacementCostForAllWarehouses': ?instance.replacementCostForAllWarehouses,
   'HourlyAvailabilityMyWarehouse': ?instance.hourlyAvailabilityMyWarehouse,
   'HourlyAvailabilityAllWarehouses': ?instance.hourlyAvailabilityAllWarehouses,
+  'AssetAvailabilityMyWarehouse': ?instance.assetAvailabilityMyWarehouse,
+  'AssetAvailabilityAllWarehouses': ?instance.assetAvailabilityAllWarehouses,
   'InventoryTypeId': ?instance.inventoryTypeId,
   'InventoryType': ?instance.inventoryType,
   'AvailableFrom': ?instance.availableFrom,
@@ -38634,6 +39010,8 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
       ?instance.automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
   'AutomaticallyTransferInEntireContainerWithScannableItem':
       ?instance.automaticallyTransferInEntireContainerWithScannableItem,
+  'SpecifyContainerItemSettingsPerItem':
+      ?instance.specifyContainerItemSettingsPerItem,
   'ContainerStagingRule': ?instance.containerStagingRule,
   'ExcludeContainedItemsFromAvailability':
       ?instance.excludeContainedItemsFromAvailability,
@@ -38846,6 +39224,9 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryDetailResponseFromJson(
   hourlyAvailabilityMyWarehouse: json['HourlyAvailabilityMyWarehouse'] as bool?,
   hourlyAvailabilityAllWarehouses:
       json['HourlyAvailabilityAllWarehouses'] as bool?,
+  assetAvailabilityMyWarehouse: json['AssetAvailabilityMyWarehouse'] as bool?,
+  assetAvailabilityAllWarehouses:
+      json['AssetAvailabilityAllWarehouses'] as bool?,
   inventoryTypeId: json['InventoryTypeId'] as String?,
   inventoryType: json['InventoryType'] as String?,
   availableFrom: json['AvailableFrom'] as String?,
@@ -38987,6 +39368,8 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryDetailResponseFromJson(
       json['AutomaticallyCountAllItemsWhenPhysicalInventoryInitiated'] as bool?,
   automaticallyTransferInEntireContainerWithScannableItem:
       json['AutomaticallyTransferInEntireContainerWithScannableItem'] as bool?,
+  specifyContainerItemSettingsPerItem:
+      json['SpecifyContainerItemSettingsPerItem'] as bool?,
   containerStagingRule: json['ContainerStagingRule'] as String?,
   excludeContainedItemsFromAvailability:
       json['ExcludeContainedItemsFromAvailability'] as bool?,
@@ -39241,6 +39624,8 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryDetailResponseToJson(
   'ReplacementCostForAllWarehouses': ?instance.replacementCostForAllWarehouses,
   'HourlyAvailabilityMyWarehouse': ?instance.hourlyAvailabilityMyWarehouse,
   'HourlyAvailabilityAllWarehouses': ?instance.hourlyAvailabilityAllWarehouses,
+  'AssetAvailabilityMyWarehouse': ?instance.assetAvailabilityMyWarehouse,
+  'AssetAvailabilityAllWarehouses': ?instance.assetAvailabilityAllWarehouses,
   'InventoryTypeId': ?instance.inventoryTypeId,
   'InventoryType': ?instance.inventoryType,
   'AvailableFrom': ?instance.availableFrom,
@@ -39353,6 +39738,8 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryDetailResponseToJson(
       ?instance.automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
   'AutomaticallyTransferInEntireContainerWithScannableItem':
       ?instance.automaticallyTransferInEntireContainerWithScannableItem,
+  'SpecifyContainerItemSettingsPerItem':
+      ?instance.specifyContainerItemSettingsPerItem,
   'ContainerStagingRule': ?instance.containerStagingRule,
   'ExcludeContainedItemsFromAvailability':
       ?instance.excludeContainedItemsFromAvailability,
@@ -40158,6 +40545,19 @@ _$WebApiModulesInventoryRepairKissFlowRepairOrderSubmissionRequestToJson(
   'GoToUrl': ?instance.goToUrl,
 };
 
+WebApiModulesInventoryRepairKissFlowUpdateRepairOrderOutsideRepairRequest
+_$WebApiModulesInventoryRepairKissFlowUpdateRepairOrderOutsideRepairRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesInventoryRepairKissFlowUpdateRepairOrderOutsideRepairRequest(
+  repairNumber: json['RepairNumber'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesInventoryRepairKissFlowUpdateRepairOrderOutsideRepairRequestToJson(
+  WebApiModulesInventoryRepairKissFlowUpdateRepairOrderOutsideRepairRequest
+  instance,
+) => <String, dynamic>{'RepairNumber': ?instance.repairNumber};
+
 WebApiModulesInventoryRepairKissFlowUpdateRepairOrderPoRequest
 _$WebApiModulesInventoryRepairKissFlowUpdateRepairOrderPoRequestFromJson(
   Map<String, dynamic> json,
@@ -40220,6 +40620,8 @@ WebApiModulesInventoryRepairRepair _$WebApiModulesInventoryRepairRepairFromJson(
   barCode: json['BarCode'] as String?,
   serialNumber: json['SerialNumber'] as String?,
   rfId: json['RfId'] as String?,
+  purchaseDate: json['PurchaseDate'] as String?,
+  receiveDate: json['ReceiveDate'] as String?,
   barCodeColor: json['BarCodeColor'] as String?,
   inventoryId: json['InventoryId'] as String?,
   availFor: json['AvailFor'] as String?,
@@ -40266,6 +40668,8 @@ WebApiModulesInventoryRepairRepair _$WebApiModulesInventoryRepairRepairFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   status: json['Status'] as String?,
   statusColor: json['StatusColor'] as String?,
   statusDate: json['StatusDate'] as String?,
@@ -40409,6 +40813,8 @@ Map<String, dynamic> _$WebApiModulesInventoryRepairRepairToJson(
   'BarCode': ?instance.barCode,
   'SerialNumber': ?instance.serialNumber,
   'RfId': ?instance.rfId,
+  'PurchaseDate': ?instance.purchaseDate,
+  'ReceiveDate': ?instance.receiveDate,
   'BarCodeColor': ?instance.barCodeColor,
   'InventoryId': ?instance.inventoryId,
   'AvailFor': ?instance.availFor,
@@ -40454,6 +40860,8 @@ Map<String, dynamic> _$WebApiModulesInventoryRepairRepairToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'Status': ?instance.status,
   'StatusColor': ?instance.statusColor,
   'StatusDate': ?instance.statusDate,
@@ -41908,6 +42316,8 @@ _$WebApiModulesInventorySalesInventorySalesInventoryFromJson(
       json['AutomaticallyCountAllItemsWhenPhysicalInventoryInitiated'] as bool?,
   automaticallyTransferInEntireContainerWithScannableItem:
       json['AutomaticallyTransferInEntireContainerWithScannableItem'] as bool?,
+  specifyContainerItemSettingsPerItem:
+      json['SpecifyContainerItemSettingsPerItem'] as bool?,
   containerStagingRule: json['ContainerStagingRule'] as String?,
   excludeContainedItemsFromAvailability:
       json['ExcludeContainedItemsFromAvailability'] as bool?,
@@ -42227,6 +42637,8 @@ Map<String, dynamic> _$WebApiModulesInventorySalesInventorySalesInventoryToJson(
       ?instance.automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
   'AutomaticallyTransferInEntireContainerWithScannableItem':
       ?instance.automaticallyTransferInEntireContainerWithScannableItem,
+  'SpecifyContainerItemSettingsPerItem':
+      ?instance.specifyContainerItemSettingsPerItem,
   'ContainerStagingRule': ?instance.containerStagingRule,
   'ExcludeContainedItemsFromAvailability':
       ?instance.excludeContainedItemsFromAvailability,
@@ -43036,6 +43448,34 @@ Map<String, dynamic> _$WebApiModulesPluginsFreightPopFreightPopPayloadToJson(
   WebApiModulesPluginsFreightPopFreightPopPayload instance,
 ) => <String, dynamic>{'OrderId': ?instance.orderId};
 
+WebApiModulesPluginsLassoLassoPayload
+_$WebApiModulesPluginsLassoLassoPayloadFromJson(Map<String, dynamic> json) =>
+    WebApiModulesPluginsLassoLassoPayload(
+      orderId: json['OrderId'] as String?,
+      eventName: json['EventName'] as String?,
+      dateBegin: json['DateBegin'] as String?,
+      dateEnd: json['DateEnd'] as String?,
+      $Client: json['Client'] as String?,
+      orderNumber: json['OrderNumber'] as String?,
+      venue: json['Venue'] as String?,
+      laborCoordinator: json['LaborCoordinator'] as String?,
+      description: json['Description'] as String?,
+    );
+
+Map<String, dynamic> _$WebApiModulesPluginsLassoLassoPayloadToJson(
+  WebApiModulesPluginsLassoLassoPayload instance,
+) => <String, dynamic>{
+  'OrderId': ?instance.orderId,
+  'EventName': ?instance.eventName,
+  'DateBegin': ?instance.dateBegin,
+  'DateEnd': ?instance.dateEnd,
+  'Client': ?instance.$Client,
+  'OrderNumber': ?instance.orderNumber,
+  'Venue': ?instance.venue,
+  'LaborCoordinator': ?instance.laborCoordinator,
+  'Description': ?instance.description,
+};
+
 WebApiModulesPluginsQuickbooksOnlineRwToQBOLogicLocationSyncData
 _$WebApiModulesPluginsQuickbooksOnlineRwToQBOLogicLocationSyncDataFromJson(
   Map<String, dynamic> json,
@@ -43446,6 +43886,7 @@ _$WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocationFromJso
   logoImageWidth: (json['LogoImageWidth'] as num?)?.toInt(),
   autoProcessQuikSaleInvoice: json['AutoProcessQuikSaleInvoice'] as bool?,
   useCompleteDescription: json['UseCompleteDescription'] as bool?,
+  includePaymentActiveLink: json['IncludePaymentActiveLink'] as bool?,
   inactive: json['Inactive'] as bool?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
@@ -43618,6 +44059,7 @@ _$WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocationToJson(
   'LogoImageWidth': ?instance.logoImageWidth,
   'AutoProcessQuikSaleInvoice': ?instance.autoProcessQuikSaleInvoice,
   'UseCompleteDescription': ?instance.useCompleteDescription,
+  'IncludePaymentActiveLink': ?instance.includePaymentActiveLink,
   'Inactive': ?instance.inactive,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
@@ -46470,6 +46912,8 @@ _$WebApiModulesWarehouseCheckOutAddMiscItemRequestFromJson(
   inventoryId: json['InventoryId'] as String?,
   quantity: (json['Quantity'] as num?)?.toInt(),
   description: json['Description'] as String?,
+  shippingCaseItemId: json['ShippingCaseItemId'] as String?,
+  contractId: json['ContractId'] as String?,
 );
 
 Map<String, dynamic> _$WebApiModulesWarehouseCheckOutAddMiscItemRequestToJson(
@@ -46480,6 +46924,8 @@ Map<String, dynamic> _$WebApiModulesWarehouseCheckOutAddMiscItemRequestToJson(
   'InventoryId': ?instance.inventoryId,
   'Quantity': ?instance.quantity,
   'Description': ?instance.description,
+  'ShippingCaseItemId': ?instance.shippingCaseItemId,
+  'ContractId': ?instance.contractId,
 };
 
 WebApiModulesWarehouseCheckOutAddToShippingCaseRequest
@@ -46775,6 +47221,8 @@ _$WebApiModulesWarehouseCheckOutIsValidShippingCaseRequestFromJson(
   barcode: json['Barcode'] as String?,
   warehouseId: json['WarehouseId'] as String?,
   orderId: json['OrderId'] as String?,
+  contractId: json['ContractId'] as String?,
+  spaceId: json['SpaceId'] as String?,
 );
 
 Map<String, dynamic>
@@ -46784,6 +47232,8 @@ _$WebApiModulesWarehouseCheckOutIsValidShippingCaseRequestToJson(
   'Barcode': ?instance.barcode,
   'WarehouseId': ?instance.warehouseId,
   'OrderId': ?instance.orderId,
+  'ContractId': ?instance.contractId,
+  'SpaceId': ?instance.spaceId,
 };
 
 WebApiModulesWarehouseCheckOutIsValidShippingCaseResponse
@@ -46795,9 +47245,13 @@ _$WebApiModulesWarehouseCheckOutIsValidShippingCaseResponseFromJson(
   description: json['Description'] as String?,
   shippingCaseDescription: json['ShippingCaseDescription'] as String?,
   shippingCaseNumber: json['ShippingCaseNumber'] as String?,
+  shippingCaseWeightLbs: (json['ShippingCaseWeightLbs'] as num?)?.toDouble(),
+  shippingCaseWeightKg: (json['ShippingCaseWeightKg'] as num?)?.toDouble(),
   shippingCaseId: (json['ShippingCaseId'] as num?)?.toInt(),
   status: (json['Status'] as num?)?.toInt(),
   message: json['Message'] as String?,
+  automaticallyAssignShippingCaseNumber:
+      json['AutomaticallyAssignShippingCaseNumber'] as bool?,
 );
 
 Map<String, dynamic>
@@ -46809,9 +47263,13 @@ _$WebApiModulesWarehouseCheckOutIsValidShippingCaseResponseToJson(
   'Description': ?instance.description,
   'ShippingCaseDescription': ?instance.shippingCaseDescription,
   'ShippingCaseNumber': ?instance.shippingCaseNumber,
+  'ShippingCaseWeightLbs': ?instance.shippingCaseWeightLbs,
+  'ShippingCaseWeightKg': ?instance.shippingCaseWeightKg,
   'ShippingCaseId': ?instance.shippingCaseId,
   'Status': ?instance.status,
   'Message': ?instance.message,
+  'AutomaticallyAssignShippingCaseNumber':
+      ?instance.automaticallyAssignShippingCaseNumber,
 };
 
 WebApiModulesWarehouseCheckOutIsValidStorageContainerRequest
@@ -47000,6 +47458,46 @@ _$WebApiModulesWarehouseCheckOutRemoveFromShippingCaseRequestToJson(
       .toList(),
 };
 
+WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemRequest
+_$WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemRequest(
+  orderId: json['OrderId'] as String,
+  warehouseId: json['WarehouseId'] as String,
+  consignorId: json['ConsignorId'] as String?,
+  consignorAgreementId: json['ConsignorAgreementId'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemRequestToJson(
+  WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemRequest
+  instance,
+) => <String, dynamic>{
+  'OrderId': instance.orderId,
+  'WarehouseId': instance.warehouseId,
+  'ConsignorId': ?instance.consignorId,
+  'ConsignorAgreementId': ?instance.consignorAgreementId,
+};
+
+WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemResponse
+_$WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemResponse(
+  status: (json['status'] as num?)?.toInt(),
+  success: json['success'] as bool?,
+  msg: json['msg'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemResponseToJson(
+  WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemResponse
+  instance,
+) => <String, dynamic>{
+  'status': ?instance.status,
+  'success': ?instance.success,
+  'msg': ?instance.msg,
+};
+
 WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequest
 _$WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemRequestFromJson(
   Map<String, dynamic> json,
@@ -47077,6 +47575,7 @@ _$WebApiModulesWarehouseCheckOutShippingCaseStagedItemModelFromJson(
   Map<String, dynamic> json,
 ) => WebApiModulesWarehouseCheckOutShippingCaseStagedItemModel(
   orderId: json['OrderId'] as String?,
+  contractId: json['ContractId'] as String?,
   orderItemId: json['OrderItemId'] as String?,
   currentShippingCaseItemId: json['CurrentShippingCaseItemId'] as String?,
   itemId: json['ItemId'] as String?,
@@ -47089,11 +47588,35 @@ _$WebApiModulesWarehouseCheckOutShippingCaseStagedItemModelToJson(
   WebApiModulesWarehouseCheckOutShippingCaseStagedItemModel instance,
 ) => <String, dynamic>{
   'OrderId': ?instance.orderId,
+  'ContractId': ?instance.contractId,
   'OrderItemId': ?instance.orderItemId,
   'CurrentShippingCaseItemId': ?instance.currentShippingCaseItemId,
   'ItemId': ?instance.itemId,
   'ShippingCaseItemId': ?instance.shippingCaseItemId,
   'VendorId': ?instance.vendorId,
+};
+
+WebApiModulesWarehouseCheckOutShippingNoteRequest
+_$WebApiModulesWarehouseCheckOutShippingNoteRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseCheckOutShippingNoteRequest(
+  contractNoteId: json['ContractNoteId'] as String?,
+  contractId: json['ContractId'] as String?,
+  orderId: json['OrderId'] as String?,
+  orderItemId: json['OrderItemId'] as String?,
+  itemId: json['ItemId'] as String?,
+  note: json['Note'] as String?,
+);
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckOutShippingNoteRequestToJson(
+  WebApiModulesWarehouseCheckOutShippingNoteRequest instance,
+) => <String, dynamic>{
+  'ContractNoteId': ?instance.contractNoteId,
+  'ContractId': ?instance.contractId,
+  'OrderId': ?instance.orderId,
+  'OrderItemId': ?instance.orderItemId,
+  'ItemId': ?instance.itemId,
+  'Note': ?instance.note,
 };
 
 WebApiModulesWarehouseCheckOutStageItemRequest
@@ -47120,6 +47643,7 @@ _$WebApiModulesWarehouseCheckOutStageItemRequestFromJson(
   spaceId: json['SpaceId'] as String?,
   shippingCaseItemId: json['ShippingCaseItemId'] as String?,
   completeKitOrderItemId: json['CompleteKitOrderItemId'] as String?,
+  contractId: json['ContractId'] as String?,
 );
 
 Map<String, dynamic> _$WebApiModulesWarehouseCheckOutStageItemRequestToJson(
@@ -47145,6 +47669,7 @@ Map<String, dynamic> _$WebApiModulesWarehouseCheckOutStageItemRequestToJson(
   'SpaceId': ?instance.spaceId,
   'ShippingCaseItemId': ?instance.shippingCaseItemId,
   'CompleteKitOrderItemId': ?instance.completeKitOrderItemId,
+  'ContractId': ?instance.contractId,
 };
 
 WebApiModulesWarehouseCheckOutStageItemResponse
@@ -47317,6 +47842,222 @@ Map<String, dynamic> _$WebApiModulesWarehouseCheckOutStageSerialNumberToJson(
   'ModifiedDateTime': ?instance.modifiedDateTime,
 };
 
+WebApiModulesWarehouseCheckOutStageShippingCase
+_$WebApiModulesWarehouseCheckOutStageShippingCaseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseCheckOutStageShippingCase(
+  orderShippingCaseId: (json['OrderShippingCaseId'] as num?)?.toInt(),
+  orderId: json['OrderId'] as String?,
+  inventoryid: json['Inventoryid'] as String?,
+  iCode: json['ICode'] as String?,
+  barcode: json['Barcode'] as String?,
+  description: json['Description'] as String?,
+  itemCount: (json['ItemCount'] as num?)?.toInt(),
+  shippingCaseNumber: json['ShippingCaseNumber'] as String?,
+  itemId: json['ItemId'] as String?,
+  shippingCaseWeightLbs: (json['ShippingCaseWeightLbs'] as num?)?.toInt(),
+  shippingCaseWeightKg: (json['ShippingCaseWeightKg'] as num?)?.toInt(),
+  recType: json['RecType'] as String?,
+  auditNote: json['AuditNote'] as String?,
+  recordTitle: json['RecordTitle'] as String?,
+  urlIdentifier: json['UrlIdentifier'],
+  fields:
+      (json['_Fields'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+  custom:
+      (json['_Custom'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      [],
+  defaultFieldAttributes:
+      (json['_DefaultFieldAttributes'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwDefaultAttribute.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  original: json['_Original'] == null
+      ? null
+      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+          json['_Original'] as Map<String, dynamic>,
+        ),
+  translation:
+      (json['_Translation'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwTranslatedValue.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
+  createdByUserId: json['CreatedByUserId'] as String?,
+  createdByUserName: json['CreatedByUserName'] as String?,
+  createdDateTime: json['CreatedDateTime'] as String?,
+  modifiedByUserId: json['ModifiedByUserId'] as String?,
+  modifiedByUserName: json['ModifiedByUserName'] as String?,
+  modifiedDateTime: json['ModifiedDateTime'] as String?,
+);
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckOutStageShippingCaseToJson(
+  WebApiModulesWarehouseCheckOutStageShippingCase instance,
+) => <String, dynamic>{
+  'OrderShippingCaseId': ?instance.orderShippingCaseId,
+  'OrderId': ?instance.orderId,
+  'Inventoryid': ?instance.inventoryid,
+  'ICode': ?instance.iCode,
+  'Barcode': ?instance.barcode,
+  'Description': ?instance.description,
+  'ItemCount': ?instance.itemCount,
+  'ShippingCaseNumber': ?instance.shippingCaseNumber,
+  'ItemId': ?instance.itemId,
+  'ShippingCaseWeightLbs': ?instance.shippingCaseWeightLbs,
+  'ShippingCaseWeightKg': ?instance.shippingCaseWeightKg,
+  'RecType': ?instance.recType,
+  'AuditNote': ?instance.auditNote,
+  'RecordTitle': ?instance.recordTitle,
+  'UrlIdentifier': ?instance.urlIdentifier,
+  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
+  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
+  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
+      ?.map((e) => e.toJson())
+      .toList(),
+  '_Original': ?instance.original?.toJson(),
+  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
+  '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
+  'CreatedByUserId': ?instance.createdByUserId,
+  'CreatedByUserName': ?instance.createdByUserName,
+  'CreatedDateTime': ?instance.createdDateTime,
+  'ModifiedByUserId': ?instance.modifiedByUserId,
+  'ModifiedByUserName': ?instance.modifiedByUserName,
+  'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
+WebApiModulesWarehouseCheckOutStageShippingNote
+_$WebApiModulesWarehouseCheckOutStageShippingNoteFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseCheckOutStageShippingNote(
+  contractNoteId: (json['ContractNoteId'] as num?)?.toInt(),
+  contractId: json['ContractId'] as String?,
+  orderId: json['OrderId'] as String?,
+  orderItemId: json['OrderItemId'] as String?,
+  inventoryid: json['Inventoryid'] as String?,
+  iCode: json['ICode'] as String?,
+  description: json['Description'] as String?,
+  staged: (json['Staged'] as num?)?.toInt(),
+  barcode: json['Barcode'] as String?,
+  serialNumber: json['SerialNumber'] as String?,
+  rfid: json['RFID'] as String?,
+  shippingCaseNumber: json['ShippingCaseNumber'] as String?,
+  itemId: json['ItemId'] as String?,
+  note: json['Note'] as String?,
+  shippingCaseItemId: json['ShippingCaseItemId'] as String?,
+  auditNote: json['AuditNote'] as String?,
+  recordTitle: json['RecordTitle'] as String?,
+  urlIdentifier: json['UrlIdentifier'],
+  fields:
+      (json['_Fields'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+  custom:
+      (json['_Custom'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      [],
+  defaultFieldAttributes:
+      (json['_DefaultFieldAttributes'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwDefaultAttribute.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  original: json['_Original'] == null
+      ? null
+      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+          json['_Original'] as Map<String, dynamic>,
+        ),
+  translation:
+      (json['_Translation'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwTranslatedValue.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
+  createdByUserId: json['CreatedByUserId'] as String?,
+  createdByUserName: json['CreatedByUserName'] as String?,
+  createdDateTime: json['CreatedDateTime'] as String?,
+  modifiedByUserId: json['ModifiedByUserId'] as String?,
+  modifiedByUserName: json['ModifiedByUserName'] as String?,
+  modifiedDateTime: json['ModifiedDateTime'] as String?,
+);
+
+Map<String, dynamic> _$WebApiModulesWarehouseCheckOutStageShippingNoteToJson(
+  WebApiModulesWarehouseCheckOutStageShippingNote instance,
+) => <String, dynamic>{
+  'ContractNoteId': ?instance.contractNoteId,
+  'ContractId': ?instance.contractId,
+  'OrderId': ?instance.orderId,
+  'OrderItemId': ?instance.orderItemId,
+  'Inventoryid': ?instance.inventoryid,
+  'ICode': ?instance.iCode,
+  'Description': ?instance.description,
+  'Staged': ?instance.staged,
+  'Barcode': ?instance.barcode,
+  'SerialNumber': ?instance.serialNumber,
+  'RFID': ?instance.rfid,
+  'ShippingCaseNumber': ?instance.shippingCaseNumber,
+  'ItemId': ?instance.itemId,
+  'Note': ?instance.note,
+  'ShippingCaseItemId': ?instance.shippingCaseItemId,
+  'AuditNote': ?instance.auditNote,
+  'RecordTitle': ?instance.recordTitle,
+  'UrlIdentifier': ?instance.urlIdentifier,
+  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
+  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
+  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
+      ?.map((e) => e.toJson())
+      .toList(),
+  '_Original': ?instance.original?.toJson(),
+  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
+  '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
+  'CreatedByUserId': ?instance.createdByUserId,
+  'CreatedByUserName': ?instance.createdByUserName,
+  'CreatedDateTime': ?instance.createdDateTime,
+  'ModifiedByUserId': ?instance.modifiedByUserId,
+  'ModifiedByUserName': ?instance.modifiedByUserName,
+  'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
 WebApiModulesWarehouseCheckOutStagingAddSubstituteItemToSessionRequest
 _$WebApiModulesWarehouseCheckOutStagingAddSubstituteItemToSessionRequestFromJson(
   Map<String, dynamic> json,
@@ -47455,6 +48196,8 @@ _$WebApiModulesWarehouseCheckOutStagingTabsResponseFromJson(
   serialTab: json['SerialTab'] as bool?,
   usageTab: json['UsageTab'] as bool?,
   consignmentTab: json['ConsignmentTab'] as bool?,
+  shippingCaseTab: json['ShippingCaseTab'] as bool?,
+  shippingNoteTab: json['ShippingNoteTab'] as bool?,
 );
 
 Map<String, dynamic> _$WebApiModulesWarehouseCheckOutStagingTabsResponseToJson(
@@ -47468,6 +48211,8 @@ Map<String, dynamic> _$WebApiModulesWarehouseCheckOutStagingTabsResponseToJson(
   'SerialTab': ?instance.serialTab,
   'UsageTab': ?instance.usageTab,
   'ConsignmentTab': ?instance.consignmentTab,
+  'ShippingCaseTab': ?instance.shippingCaseTab,
+  'ShippingNoteTab': ?instance.shippingNoteTab,
 };
 
 WebApiModulesWarehouseCheckOutStorageContainerGrid
@@ -47855,20 +48600,26 @@ _$WebApiModulesWarehouseCheckOutUpdatePickupLocationResponseToJson(
   WebApiModulesWarehouseCheckOutUpdatePickupLocationResponse instance,
 ) => <String, dynamic>{'Message': ?instance.message};
 
-WebApiModulesWarehouseCheckOutUpdateShippingCaseNumberRequest
-_$WebApiModulesWarehouseCheckOutUpdateShippingCaseNumberRequestFromJson(
+WebApiModulesWarehouseCheckOutUpdateShippingCaseRequest
+_$WebApiModulesWarehouseCheckOutUpdateShippingCaseRequestFromJson(
   Map<String, dynamic> json,
-) => WebApiModulesWarehouseCheckOutUpdateShippingCaseNumberRequest(
-  shippingCaseItemId: json['ShippingCaseItemId'] as String?,
+) => WebApiModulesWarehouseCheckOutUpdateShippingCaseRequest(
+  shippingCaseId: (json['ShippingCaseId'] as num?)?.toInt(),
   shippingCaseNumber: json['ShippingCaseNumber'] as String?,
+  description: json['Description'] as String?,
+  shippingCaseWeightLbs: (json['ShippingCaseWeightLbs'] as num?)?.toDouble(),
+  shippingCaseWeightKg: (json['ShippingCaseWeightKg'] as num?)?.toDouble(),
 );
 
 Map<String, dynamic>
-_$WebApiModulesWarehouseCheckOutUpdateShippingCaseNumberRequestToJson(
-  WebApiModulesWarehouseCheckOutUpdateShippingCaseNumberRequest instance,
+_$WebApiModulesWarehouseCheckOutUpdateShippingCaseRequestToJson(
+  WebApiModulesWarehouseCheckOutUpdateShippingCaseRequest instance,
 ) => <String, dynamic>{
-  'ShippingCaseItemId': ?instance.shippingCaseItemId,
+  'ShippingCaseId': ?instance.shippingCaseId,
   'ShippingCaseNumber': ?instance.shippingCaseNumber,
+  'Description': ?instance.description,
+  'ShippingCaseWeightLbs': ?instance.shippingCaseWeightLbs,
+  'ShippingCaseWeightKg': ?instance.shippingCaseWeightKg,
 };
 
 WebApiModulesWarehouseContractCancelContractRequest
@@ -47882,6 +48633,194 @@ Map<String, dynamic>
 _$WebApiModulesWarehouseContractCancelContractRequestToJson(
   WebApiModulesWarehouseContractCancelContractRequest instance,
 ) => <String, dynamic>{'ContractId': ?instance.contractId};
+
+WebApiModulesWarehouseContractContainerContractDocument
+_$WebApiModulesWarehouseContractContainerContractDocumentFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseContractContainerContractDocument(
+  contractId: json['ContractId'] as String?,
+  copying: json['copying'] as bool?,
+  documentId: json['DocumentId'] as String?,
+  documentTypeId: json['DocumentTypeId'] as String?,
+  uniqueId1: json['UniqueId1'] as String?,
+  uniqueId2: json['UniqueId2'] as String?,
+  uniqueId1Int: (json['UniqueId1Int'] as num?)?.toInt(),
+  description: json['Description'] as String?,
+  inputByUsersId: json['InputByUsersId'] as String?,
+  attachDate: json['AttachDate'] as String?,
+  attachTime: json['AttachTime'] as String?,
+  attachToEmail: json['AttachToEmail'] as bool?,
+  inactive: json['Inactive'] as bool?,
+  dateStamp: json['DateStamp'] as String?,
+  extension: json['Extension'] as String?,
+  fileExtension: json['FileExtension'] as String?,
+  documentType: json['DocumentType'] as String?,
+  inputBy: json['InputBy'] as String?,
+  hasImage: json['HasImage'] as bool?,
+  hasFile: json['HasFile'] as bool?,
+  imageDocumentCount: (json['ImageDocumentCount'] as num?)?.toInt(),
+  fileIsModified: json['FileIsModified'] as bool?,
+  fileDataUrl: json['FileDataUrl'] as String?,
+  filePath: json['FilePath'] as String?,
+  auditNote: json['AuditNote'] as String?,
+  recordTitle: json['RecordTitle'] as String?,
+  urlIdentifier: json['UrlIdentifier'],
+  fields:
+      (json['_Fields'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+  custom:
+      (json['_Custom'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      [],
+  defaultFieldAttributes:
+      (json['_DefaultFieldAttributes'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwDefaultAttribute.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  original: json['_Original'] == null
+      ? null
+      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+          json['_Original'] as Map<String, dynamic>,
+        ),
+  translation:
+      (json['_Translation'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwTranslatedValue.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
+  createdByUserId: json['CreatedByUserId'] as String?,
+  createdByUserName: json['CreatedByUserName'] as String?,
+  createdDateTime: json['CreatedDateTime'] as String?,
+  modifiedByUserId: json['ModifiedByUserId'] as String?,
+  modifiedByUserName: json['ModifiedByUserName'] as String?,
+  modifiedDateTime: json['ModifiedDateTime'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesWarehouseContractContainerContractDocumentToJson(
+  WebApiModulesWarehouseContractContainerContractDocument instance,
+) => <String, dynamic>{
+  'ContractId': ?instance.contractId,
+  'copying': ?instance.copying,
+  'DocumentId': ?instance.documentId,
+  'DocumentTypeId': ?instance.documentTypeId,
+  'UniqueId1': ?instance.uniqueId1,
+  'UniqueId2': ?instance.uniqueId2,
+  'UniqueId1Int': ?instance.uniqueId1Int,
+  'Description': ?instance.description,
+  'InputByUsersId': ?instance.inputByUsersId,
+  'AttachDate': ?instance.attachDate,
+  'AttachTime': ?instance.attachTime,
+  'AttachToEmail': ?instance.attachToEmail,
+  'Inactive': ?instance.inactive,
+  'DateStamp': ?instance.dateStamp,
+  'Extension': ?instance.extension,
+  'FileExtension': ?instance.fileExtension,
+  'DocumentType': ?instance.documentType,
+  'InputBy': ?instance.inputBy,
+  'HasImage': ?instance.hasImage,
+  'HasFile': ?instance.hasFile,
+  'ImageDocumentCount': ?instance.imageDocumentCount,
+  'FileIsModified': ?instance.fileIsModified,
+  'FileDataUrl': ?instance.fileDataUrl,
+  'FilePath': ?instance.filePath,
+  'AuditNote': ?instance.auditNote,
+  'RecordTitle': ?instance.recordTitle,
+  'UrlIdentifier': ?instance.urlIdentifier,
+  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
+  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
+  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
+      ?.map((e) => e.toJson())
+      .toList(),
+  '_Original': ?instance.original?.toJson(),
+  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
+  '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
+  'CreatedByUserId': ?instance.createdByUserId,
+  'CreatedByUserName': ?instance.createdByUserName,
+  'CreatedDateTime': ?instance.createdDateTime,
+  'ModifiedByUserId': ?instance.modifiedByUserId,
+  'ModifiedByUserName': ?instance.modifiedByUserName,
+  'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
+WebApiModulesWarehouseContractContainerContractDocumentPostRequest
+_$WebApiModulesWarehouseContractContainerContractDocumentPostRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseContractContainerContractDocumentPostRequest(
+  contractId: json['ContractId'] as String?,
+  documentTypeId: json['DocumentTypeId'] as String?,
+  description: json['Description'] as String?,
+  attachToEmail: json['AttachToEmail'] as bool?,
+  inactive: json['Inactive'] as bool?,
+  fileIsModified: json['FileIsModified'] as bool?,
+  fileDataUrl: json['FileDataUrl'] as String?,
+  filePath: json['FilePath'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesWarehouseContractContainerContractDocumentPostRequestToJson(
+  WebApiModulesWarehouseContractContainerContractDocumentPostRequest instance,
+) => <String, dynamic>{
+  'ContractId': ?instance.contractId,
+  'DocumentTypeId': ?instance.documentTypeId,
+  'Description': ?instance.description,
+  'AttachToEmail': ?instance.attachToEmail,
+  'Inactive': ?instance.inactive,
+  'FileIsModified': ?instance.fileIsModified,
+  'FileDataUrl': ?instance.fileDataUrl,
+  'FilePath': ?instance.filePath,
+};
+
+WebApiModulesWarehouseContractContainerContractDocumentPutRequest
+_$WebApiModulesWarehouseContractContainerContractDocumentPutRequestFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseContractContainerContractDocumentPutRequest(
+  contractId: json['ContractId'] as String?,
+  documentId: json['DocumentId'] as String?,
+  documentTypeId: json['DocumentTypeId'] as String?,
+  description: json['Description'] as String?,
+  attachToEmail: json['AttachToEmail'] as bool?,
+  inactive: json['Inactive'] as bool?,
+  fileIsModified: json['FileIsModified'] as bool?,
+  fileDataUrl: json['FileDataUrl'] as String?,
+  filePath: json['FilePath'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesWarehouseContractContainerContractDocumentPutRequestToJson(
+  WebApiModulesWarehouseContractContainerContractDocumentPutRequest instance,
+) => <String, dynamic>{
+  'ContractId': ?instance.contractId,
+  'DocumentId': ?instance.documentId,
+  'DocumentTypeId': ?instance.documentTypeId,
+  'Description': ?instance.description,
+  'AttachToEmail': ?instance.attachToEmail,
+  'Inactive': ?instance.inactive,
+  'FileIsModified': ?instance.fileIsModified,
+  'FileDataUrl': ?instance.fileDataUrl,
+  'FilePath': ?instance.filePath,
+};
 
 WebApiModulesWarehouseContractContract
 _$WebApiModulesWarehouseContractContractFromJson(
@@ -48032,6 +48971,8 @@ _$WebApiModulesWarehouseContractContractFromJson(
   enableExpectedReturnDate: json['EnableExpectedReturnDate'] as bool?,
   expectedReturnDate: json['ExpectedReturnDate'] as String?,
   enableExpectedReturnAlert: json['EnableExpectedReturnAlert'] as bool?,
+  hasShippingCase: json['HasShippingCase'] as bool?,
+  hasShippingNote: json['HasShippingNote'] as bool?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -48228,6 +49169,8 @@ Map<String, dynamic> _$WebApiModulesWarehouseContractContractToJson(
   'EnableExpectedReturnDate': ?instance.enableExpectedReturnDate,
   'ExpectedReturnDate': ?instance.expectedReturnDate,
   'EnableExpectedReturnAlert': ?instance.enableExpectedReturnAlert,
+  'HasShippingCase': ?instance.hasShippingCase,
+  'HasShippingNote': ?instance.hasShippingNote,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -48398,6 +49341,8 @@ _$WebApiModulesWarehouseContractContractDetailResponseFromJson(
   enableExpectedReturnDate: json['EnableExpectedReturnDate'] as bool?,
   expectedReturnDate: json['ExpectedReturnDate'] as String?,
   enableExpectedReturnAlert: json['EnableExpectedReturnAlert'] as bool?,
+  hasShippingCase: json['HasShippingCase'] as bool?,
+  hasShippingNote: json['HasShippingNote'] as bool?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -48605,6 +49550,8 @@ _$WebApiModulesWarehouseContractContractDetailResponseToJson(
   'EnableExpectedReturnDate': ?instance.enableExpectedReturnDate,
   'ExpectedReturnDate': ?instance.expectedReturnDate,
   'EnableExpectedReturnAlert': ?instance.enableExpectedReturnAlert,
+  'HasShippingCase': ?instance.hasShippingCase,
+  'HasShippingNote': ?instance.hasShippingNote,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -48812,6 +49759,226 @@ _$WebApiModulesWarehouseContractContractDocumentPutRequestToJson(
   'FileIsModified': ?instance.fileIsModified,
   'FileDataUrl': ?instance.fileDataUrl,
   'FilePath': ?instance.filePath,
+};
+
+WebApiModulesWarehouseContractContractShippingCase
+_$WebApiModulesWarehouseContractContractShippingCaseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseContractContractShippingCase(
+  orderShippingCaseId: (json['OrderShippingCaseId'] as num?)?.toInt(),
+  contractId: json['ContractId'] as String?,
+  orderId: json['OrderId'] as String?,
+  inventoryid: json['Inventoryid'] as String?,
+  iCode: json['ICode'] as String?,
+  barcode: json['Barcode'] as String?,
+  description: json['Description'] as String?,
+  itemCount: (json['ItemCount'] as num?)?.toInt(),
+  shippingCaseNumber: json['ShippingCaseNumber'] as String?,
+  itemId: json['ItemId'] as String?,
+  shippingCaseWeightLbs: (json['ShippingCaseWeightLbs'] as num?)?.toInt(),
+  shippingCaseWeightKg: (json['ShippingCaseWeightKg'] as num?)?.toInt(),
+  recType: json['RecType'] as String?,
+  auditNote: json['AuditNote'] as String?,
+  recordTitle: json['RecordTitle'] as String?,
+  urlIdentifier: json['UrlIdentifier'],
+  fields:
+      (json['_Fields'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+  custom:
+      (json['_Custom'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      [],
+  defaultFieldAttributes:
+      (json['_DefaultFieldAttributes'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwDefaultAttribute.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  original: json['_Original'] == null
+      ? null
+      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+          json['_Original'] as Map<String, dynamic>,
+        ),
+  translation:
+      (json['_Translation'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwTranslatedValue.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
+  createdByUserId: json['CreatedByUserId'] as String?,
+  createdByUserName: json['CreatedByUserName'] as String?,
+  createdDateTime: json['CreatedDateTime'] as String?,
+  modifiedByUserId: json['ModifiedByUserId'] as String?,
+  modifiedByUserName: json['ModifiedByUserName'] as String?,
+  modifiedDateTime: json['ModifiedDateTime'] as String?,
+);
+
+Map<String, dynamic> _$WebApiModulesWarehouseContractContractShippingCaseToJson(
+  WebApiModulesWarehouseContractContractShippingCase instance,
+) => <String, dynamic>{
+  'OrderShippingCaseId': ?instance.orderShippingCaseId,
+  'ContractId': ?instance.contractId,
+  'OrderId': ?instance.orderId,
+  'Inventoryid': ?instance.inventoryid,
+  'ICode': ?instance.iCode,
+  'Barcode': ?instance.barcode,
+  'Description': ?instance.description,
+  'ItemCount': ?instance.itemCount,
+  'ShippingCaseNumber': ?instance.shippingCaseNumber,
+  'ItemId': ?instance.itemId,
+  'ShippingCaseWeightLbs': ?instance.shippingCaseWeightLbs,
+  'ShippingCaseWeightKg': ?instance.shippingCaseWeightKg,
+  'RecType': ?instance.recType,
+  'AuditNote': ?instance.auditNote,
+  'RecordTitle': ?instance.recordTitle,
+  'UrlIdentifier': ?instance.urlIdentifier,
+  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
+  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
+  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
+      ?.map((e) => e.toJson())
+      .toList(),
+  '_Original': ?instance.original?.toJson(),
+  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
+  '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
+  'CreatedByUserId': ?instance.createdByUserId,
+  'CreatedByUserName': ?instance.createdByUserName,
+  'CreatedDateTime': ?instance.createdDateTime,
+  'ModifiedByUserId': ?instance.modifiedByUserId,
+  'ModifiedByUserName': ?instance.modifiedByUserName,
+  'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
+WebApiModulesWarehouseContractContractShippingNote
+_$WebApiModulesWarehouseContractContractShippingNoteFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesWarehouseContractContractShippingNote(
+  contractNoteId: (json['ContractNoteId'] as num?)?.toInt(),
+  contractId: json['ContractId'] as String?,
+  orderId: json['OrderId'] as String?,
+  orderItemId: json['OrderItemId'] as String?,
+  inventoryid: json['Inventoryid'] as String?,
+  iCode: json['ICode'] as String?,
+  description: json['Description'] as String?,
+  staged: (json['Staged'] as num?)?.toInt(),
+  barcode: json['Barcode'] as String?,
+  serialNumber: json['SerialNumber'] as String?,
+  rfid: json['RFID'] as String?,
+  shippingCaseNumber: json['ShippingCaseNumber'] as String?,
+  itemId: json['ItemId'] as String?,
+  note: json['Note'] as String?,
+  shippingCaseItemId: json['ShippingCaseItemId'] as String?,
+  recType: json['RecType'] as String?,
+  auditNote: json['AuditNote'] as String?,
+  recordTitle: json['RecordTitle'] as String?,
+  urlIdentifier: json['UrlIdentifier'],
+  fields:
+      (json['_Fields'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+  custom:
+      (json['_Custom'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
+          )
+          .toList() ??
+      [],
+  defaultFieldAttributes:
+      (json['_DefaultFieldAttributes'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwDefaultAttribute.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  original: json['_Original'] == null
+      ? null
+      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
+          json['_Original'] as Map<String, dynamic>,
+        ),
+  translation:
+      (json['_Translation'] as List<dynamic>?)
+          ?.map(
+            (e) => FwStandardDataFwTranslatedValue.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList() ??
+      [],
+  hasImport: json['_HasImport'] as bool?,
+  hasDocuments: json['_HasDocuments'] as bool?,
+  createdByUserId: json['CreatedByUserId'] as String?,
+  createdByUserName: json['CreatedByUserName'] as String?,
+  createdDateTime: json['CreatedDateTime'] as String?,
+  modifiedByUserId: json['ModifiedByUserId'] as String?,
+  modifiedByUserName: json['ModifiedByUserName'] as String?,
+  modifiedDateTime: json['ModifiedDateTime'] as String?,
+);
+
+Map<String, dynamic> _$WebApiModulesWarehouseContractContractShippingNoteToJson(
+  WebApiModulesWarehouseContractContractShippingNote instance,
+) => <String, dynamic>{
+  'ContractNoteId': ?instance.contractNoteId,
+  'ContractId': ?instance.contractId,
+  'OrderId': ?instance.orderId,
+  'OrderItemId': ?instance.orderItemId,
+  'Inventoryid': ?instance.inventoryid,
+  'ICode': ?instance.iCode,
+  'Description': ?instance.description,
+  'Staged': ?instance.staged,
+  'Barcode': ?instance.barcode,
+  'SerialNumber': ?instance.serialNumber,
+  'RFID': ?instance.rfid,
+  'ShippingCaseNumber': ?instance.shippingCaseNumber,
+  'ItemId': ?instance.itemId,
+  'Note': ?instance.note,
+  'ShippingCaseItemId': ?instance.shippingCaseItemId,
+  'RecType': ?instance.recType,
+  'AuditNote': ?instance.auditNote,
+  'RecordTitle': ?instance.recordTitle,
+  'UrlIdentifier': ?instance.urlIdentifier,
+  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
+  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
+  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
+      ?.map((e) => e.toJson())
+      .toList(),
+  '_Original': ?instance.original?.toJson(),
+  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
+  '_HasImport': ?instance.hasImport,
+  '_HasDocuments': ?instance.hasDocuments,
+  'CreatedByUserId': ?instance.createdByUserId,
+  'CreatedByUserName': ?instance.createdByUserName,
+  'CreatedDateTime': ?instance.createdDateTime,
+  'ModifiedByUserId': ?instance.modifiedByUserId,
+  'ModifiedByUserName': ?instance.modifiedByUserName,
+  'ModifiedDateTime': ?instance.modifiedDateTime,
 };
 
 WebApiModulesWarehouseContractCreateCheckInContractResponse
@@ -49081,6 +50248,7 @@ _$WebApiModulesWarehouseContractItemDetailContractItemDetailFromJson(
   nestingLevel: (json['NestingLevel'] as num?)?.toInt(),
   vendorConsignorId: json['VendorConsignorId'] as String?,
   vendorConsignor: json['VendorConsignor'] as String?,
+  voidItemId: json['VoidItemId'] as String?,
   exception: json['Exception'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -49198,6 +50366,7 @@ _$WebApiModulesWarehouseContractItemDetailContractItemDetailToJson(
   'NestingLevel': ?instance.nestingLevel,
   'VendorConsignorId': ?instance.vendorConsignorId,
   'VendorConsignor': ?instance.vendorConsignor,
+  'VoidItemId': ?instance.voidItemId,
   'Exception': ?instance.exception,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -50924,6 +52093,7 @@ _$WebApiServicesAvailabilityServiceAvailabilityCalendarAndScheduleRequestFromJso
           .toList() ??
       [],
   regionId: json['RegionId'] as String?,
+  countryId: json['CountryId'] as String?,
   fromDate: json['FromDate'] == null
       ? null
       : DateTime.parse(json['FromDate'] as String),
@@ -50950,6 +52120,7 @@ _$WebApiServicesAvailabilityServiceAvailabilityCalendarAndScheduleRequestToJson(
   'InventoryId': ?instance.inventoryId,
   'WarehouseId': ?instance.warehouseId,
   'RegionId': ?instance.regionId,
+  'CountryId': ?instance.countryId,
   'FromDate': ?instance.fromDate?.toIso8601String(),
   'ToDate': ?instance.toDate?.toIso8601String(),
   'IncludeHours': ?instance.includeHours,
@@ -51104,6 +52275,7 @@ _$WebApiServicesAvailabilityServiceAvailabilityInventoryWarehouseRequestFromJson
   inventoryId: json['InventoryId'] as String?,
   warehouseId: json['WarehouseId'] as String?,
   regionId: json['RegionId'] as String?,
+  countryId: json['CountryId'] as String?,
   fromDate: json['FromDate'] == null
       ? null
       : DateTime.parse(json['FromDate'] as String),
@@ -51121,6 +52293,7 @@ _$WebApiServicesAvailabilityServiceAvailabilityInventoryWarehouseRequestToJson(
   'InventoryId': ?instance.inventoryId,
   'WarehouseId': ?instance.warehouseId,
   'RegionId': ?instance.regionId,
+  'CountryId': ?instance.countryId,
   'FromDate': ?instance.fromDate?.toIso8601String(),
   'ToDate': ?instance.toDate?.toIso8601String(),
   'RefreshIfNeeded': ?instance.refreshIfNeeded,
@@ -51161,6 +52334,11 @@ _$WebApiServicesAvailabilityServiceMinAvailabilityResponseFromJson(
       : WebApiServicesAvailabilityServiceTInventoryWarehouseAvailabilityMinimum.fromJson(
           json['RegionMinimumAvailable'] as Map<String, dynamic>,
         ),
+  countryMinimumAvailable: json['CountryMinimumAvailable'] == null
+      ? null
+      : WebApiServicesAvailabilityServiceTInventoryWarehouseAvailabilityMinimum.fromJson(
+          json['CountryMinimumAvailable'] as Map<String, dynamic>,
+        ),
   allWarehousesMinimumAvailable: json['AllWarehousesMinimumAvailable'] == null
       ? null
       : WebApiServicesAvailabilityServiceTInventoryWarehouseAvailabilityMinimum.fromJson(
@@ -51175,6 +52353,7 @@ _$WebApiServicesAvailabilityServiceMinAvailabilityResponseToJson(
   'InventoryId': ?instance.inventoryId,
   'WarehouseMinimumAvailable': ?instance.warehouseMinimumAvailable?.toJson(),
   'RegionMinimumAvailable': ?instance.regionMinimumAvailable?.toJson(),
+  'CountryMinimumAvailable': ?instance.countryMinimumAvailable?.toJson(),
   'AllWarehousesMinimumAvailable': ?instance.allWarehousesMinimumAvailable
       ?.toJson(),
 };
@@ -51483,6 +52662,7 @@ _$WebApiServicesAvailabilityServiceTInventoryWarehouseFromJson(
   inventoryId: json['InventoryId'] as String?,
   warehouseId: json['WarehouseId'] as String?,
   regionId: json['RegionId'] as String?,
+  countryId: json['CountryId'] as String?,
   availableFor: json['AvailableFor'] as String?,
   iCode: json['ICode'] as String?,
   description: json['Description'] as String?,
@@ -51529,6 +52709,7 @@ _$WebApiServicesAvailabilityServiceTInventoryWarehouseToJson(
   'InventoryId': ?instance.inventoryId,
   'WarehouseId': ?instance.warehouseId,
   'RegionId': ?instance.regionId,
+  'CountryId': ?instance.countryId,
   'AvailableFor': ?instance.availableFor,
   'ICode': ?instance.iCode,
   'Description': ?instance.description,
@@ -51683,6 +52864,7 @@ _$WebApiServicesAvailabilityServiceTInventoryWarehouseAvailabilityFromJson(
   hasPositiveConflict: json['HasPositiveConflict'] as bool?,
   hasNegativeConflict: json['HasNegativeConflict'] as bool?,
   isRegion: json['IsRegion'] as bool?,
+  isCountry: json['IsCountry'] as bool?,
   isAllWarehouses: json['IsAllWarehouses'] as bool?,
   keepInCache: json['KeepInCache'] as bool?,
 );
@@ -51719,6 +52901,7 @@ _$WebApiServicesAvailabilityServiceTInventoryWarehouseAvailabilityToJson(
   'HasPositiveConflict': ?instance.hasPositiveConflict,
   'HasNegativeConflict': ?instance.hasNegativeConflict,
   'IsRegion': ?instance.isRegion,
+  'IsCountry': ?instance.isCountry,
   'IsAllWarehouses': ?instance.isAllWarehouses,
   'KeepInCache': ?instance.keepInCache,
 };
@@ -52339,4 +53522,1044 @@ _$WebApiServicesAvailabilityServiceTPendingRepairOrderToJson(
   'WarehouseId': ?instance.warehouseId,
   'Quantity': ?instance.quantity?.toJson(),
   'DamageOrderToDateTime': ?instance.damageOrderToDateTime?.toIso8601String(),
+};
+
+ContactContactidDocumentDocumentidImageformuploadPost$RequestBody
+_$ContactContactidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => ContactContactidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$ContactContactidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  ContactContactidDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+ContactContactidDocumentDocumentidFileformuploadPut$RequestBody
+_$ContactContactidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => ContactContactidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$ContactContactidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  ContactContactidDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+ContainercontractContractidDocumentDocumentidImageformuploadPost$RequestBody
+_$ContainercontractContractidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    ContainercontractContractidDocumentDocumentidImageformuploadPost$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$ContainercontractContractidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  ContainercontractContractidDocumentDocumentidImageformuploadPost$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+ContainercontractContractidDocumentDocumentidFileformuploadPut$RequestBody
+_$ContainercontractContractidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => ContainercontractContractidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$ContainercontractContractidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  ContainercontractContractidDocumentDocumentidFileformuploadPut$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+ContractContractidDocumentDocumentidImageformuploadPost$RequestBody
+_$ContractContractidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => ContractContractidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$ContractContractidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  ContractContractidDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+ContractContractidDocumentDocumentidFileformuploadPut$RequestBody
+_$ContractContractidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => ContractContractidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$ContractContractidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  ContractContractidDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+CustomerCustomeridDocumentDocumentidImageformuploadPost$RequestBody
+_$CustomerCustomeridDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => CustomerCustomeridDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$CustomerCustomeridDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  CustomerCustomeridDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+CustomerCustomeridDocumentDocumentidFileformuploadPut$RequestBody
+_$CustomerCustomeridDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => CustomerCustomeridDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$CustomerCustomeridDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  CustomerCustomeridDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+DealDealidDocumentDocumentidImageformuploadPost$RequestBody
+_$DealDealidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => DealDealidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$DealDealidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  DealDealidDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+DealDealidDocumentDocumentidFileformuploadPut$RequestBody
+_$DealDealidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => DealDealidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$DealDealidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  DealDealidDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+InvoiceInvoiceidDocumentDocumentidImageformuploadPost$RequestBody
+_$InvoiceInvoiceidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => InvoiceInvoiceidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$InvoiceInvoiceidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  InvoiceInvoiceidDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+InvoiceInvoiceidDocumentDocumentidFileformuploadPut$RequestBody
+_$InvoiceInvoiceidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => InvoiceInvoiceidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$InvoiceInvoiceidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  InvoiceInvoiceidDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+ItemItemidDocumentDocumentidImageformuploadPost$RequestBody
+_$ItemItemidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => ItemItemidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$ItemItemidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  ItemItemidDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+ItemItemidDocumentDocumentidFileformuploadPut$RequestBody
+_$ItemItemidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => ItemItemidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$ItemItemidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  ItemItemidDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+OrderOrderidDocumentDocumentidImageformuploadPost$RequestBody
+_$OrderOrderidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => OrderOrderidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$OrderOrderidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  OrderOrderidDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+OrderOrderidDocumentDocumentidFileformuploadPut$RequestBody
+_$OrderOrderidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => OrderOrderidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$OrderOrderidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  OrderOrderidDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+PartsinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBody
+_$PartsinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => PartsinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$PartsinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  PartsinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+PartsinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBody
+_$PartsinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => PartsinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$PartsinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  PartsinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+ProjectProjectidDocumentDocumentidImageformuploadPost$RequestBody
+_$ProjectProjectidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => ProjectProjectidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$ProjectProjectidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  ProjectProjectidDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+ProjectProjectidDocumentDocumentidFileformuploadPut$RequestBody
+_$ProjectProjectidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => ProjectProjectidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$ProjectProjectidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  ProjectProjectidDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+PurchaseorderPurchaseorderidDocumentDocumentidImageformuploadPost$RequestBody
+_$PurchaseorderPurchaseorderidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    PurchaseorderPurchaseorderidDocumentDocumentidImageformuploadPost$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$PurchaseorderPurchaseorderidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  PurchaseorderPurchaseorderidDocumentDocumentidImageformuploadPost$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+PurchaseorderPurchaseorderidDocumentDocumentidFileformuploadPut$RequestBody
+_$PurchaseorderPurchaseorderidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    PurchaseorderPurchaseorderidDocumentDocumentidFileformuploadPut$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$PurchaseorderPurchaseorderidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  PurchaseorderPurchaseorderidDocumentDocumentidFileformuploadPut$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+QuoteQuoteidDocumentDocumentidImageformuploadPost$RequestBody
+_$QuoteQuoteidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => QuoteQuoteidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$QuoteQuoteidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  QuoteQuoteidDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+QuoteQuoteidDocumentDocumentidFileformuploadPut$RequestBody
+_$QuoteQuoteidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => QuoteQuoteidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$QuoteQuoteidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  QuoteQuoteidDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+RentalinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBody
+_$RentalinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    RentalinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$RentalinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  RentalinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+RentalinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBody
+_$RentalinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => RentalinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$RentalinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  RentalinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+RentalinventoryInventoryidSethistoryDocumentidImageformuploadPost$RequestBody
+_$RentalinventoryInventoryidSethistoryDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    RentalinventoryInventoryidSethistoryDocumentidImageformuploadPost$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$RentalinventoryInventoryidSethistoryDocumentidImageformuploadPost$RequestBodyToJson(
+  RentalinventoryInventoryidSethistoryDocumentidImageformuploadPost$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+RentalinventoryInventoryidSethistoryDocumentidFileformuploadPut$RequestBody
+_$RentalinventoryInventoryidSethistoryDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    RentalinventoryInventoryidSethistoryDocumentidFileformuploadPut$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$RentalinventoryInventoryidSethistoryDocumentidFileformuploadPut$RequestBodyToJson(
+  RentalinventoryInventoryidSethistoryDocumentidFileformuploadPut$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+RentalinventoryInventoryidWallimagehistoryDocumentidImageformuploadPost$RequestBody
+_$RentalinventoryInventoryidWallimagehistoryDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    RentalinventoryInventoryidWallimagehistoryDocumentidImageformuploadPost$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$RentalinventoryInventoryidWallimagehistoryDocumentidImageformuploadPost$RequestBodyToJson(
+  RentalinventoryInventoryidWallimagehistoryDocumentidImageformuploadPost$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+RentalinventoryInventoryidWallimagehistoryDocumentidFileformuploadPut$RequestBody
+_$RentalinventoryInventoryidWallimagehistoryDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    RentalinventoryInventoryidWallimagehistoryDocumentidFileformuploadPut$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$RentalinventoryInventoryidWallimagehistoryDocumentidFileformuploadPut$RequestBodyToJson(
+  RentalinventoryInventoryidWallimagehistoryDocumentidFileformuploadPut$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+RepairRepairidDocumentDocumentidImageformuploadPost$RequestBody
+_$RepairRepairidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => RepairRepairidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$RepairRepairidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  RepairRepairidDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+RepairRepairidDocumentDocumentidFileformuploadPut$RequestBody
+_$RepairRepairidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => RepairRepairidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$RepairRepairidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  RepairRepairidDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+SalesinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBody
+_$SalesinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => SalesinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$SalesinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  SalesinventoryInventoryidDocumentDocumentidImageformuploadPost$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+SalesinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBody
+_$SalesinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => SalesinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$SalesinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  SalesinventoryInventoryidDocumentDocumentidFileformuploadPut$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+SetimagehistoryInventoryidSetimagehistoryitemDocumentidImageformuploadPost$RequestBody
+_$SetimagehistoryInventoryidSetimagehistoryitemDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    SetimagehistoryInventoryidSetimagehistoryitemDocumentidImageformuploadPost$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$SetimagehistoryInventoryidSetimagehistoryitemDocumentidImageformuploadPost$RequestBodyToJson(
+  SetimagehistoryInventoryidSetimagehistoryitemDocumentidImageformuploadPost$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+SetimagehistoryInventoryidSetimagehistoryitemDocumentidFileformuploadPut$RequestBody
+_$SetimagehistoryInventoryidSetimagehistoryitemDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    SetimagehistoryInventoryidSetimagehistoryitemDocumentidFileformuploadPut$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$SetimagehistoryInventoryidSetimagehistoryitemDocumentidFileformuploadPut$RequestBodyToJson(
+  SetimagehistoryInventoryidSetimagehistoryitemDocumentidFileformuploadPut$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+TransferorderTransferidDocumentDocumentidImageformuploadPost$RequestBody
+_$TransferorderTransferidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => TransferorderTransferidDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$TransferorderTransferidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  TransferorderTransferidDocumentDocumentidImageformuploadPost$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+TransferorderTransferidDocumentDocumentidFileformuploadPut$RequestBody
+_$TransferorderTransferidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => TransferorderTransferidDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$TransferorderTransferidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  TransferorderTransferidDocumentDocumentidFileformuploadPut$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+VendorVendoridDocumentDocumentidImageformuploadPost$RequestBody
+_$VendorVendoridDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => VendorVendoridDocumentDocumentidImageformuploadPost$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$VendorVendoridDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  VendorVendoridDocumentDocumentidImageformuploadPost$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+VendorVendoridDocumentDocumentidFileformuploadPut$RequestBody
+_$VendorVendoridDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) => VendorVendoridDocumentDocumentidFileformuploadPut$RequestBody(
+  contentType: json['ContentType'] as String?,
+  contentDisposition: json['ContentDisposition'] as String?,
+  headers: json['Headers'] as Map<String, dynamic>?,
+  length: (json['Length'] as num?)?.toInt(),
+  name: json['Name'] as String?,
+  fileName: json['FileName'] as String?,
+);
+
+Map<String, dynamic>
+_$VendorVendoridDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  VendorVendoridDocumentDocumentidFileformuploadPut$RequestBody instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+VendorinvoiceVendorinvoiceidDocumentDocumentidImageformuploadPost$RequestBody
+_$VendorinvoiceVendorinvoiceidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    VendorinvoiceVendorinvoiceidDocumentDocumentidImageformuploadPost$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$VendorinvoiceVendorinvoiceidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+  VendorinvoiceVendorinvoiceidDocumentDocumentidImageformuploadPost$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
+};
+
+VendorinvoiceVendorinvoiceidDocumentDocumentidFileformuploadPut$RequestBody
+_$VendorinvoiceVendorinvoiceidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+  Map<String, dynamic> json,
+) =>
+    VendorinvoiceVendorinvoiceidDocumentDocumentidFileformuploadPut$RequestBody(
+      contentType: json['ContentType'] as String?,
+      contentDisposition: json['ContentDisposition'] as String?,
+      headers: json['Headers'] as Map<String, dynamic>?,
+      length: (json['Length'] as num?)?.toInt(),
+      name: json['Name'] as String?,
+      fileName: json['FileName'] as String?,
+    );
+
+Map<String, dynamic>
+_$VendorinvoiceVendorinvoiceidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+  VendorinvoiceVendorinvoiceidDocumentDocumentidFileformuploadPut$RequestBody
+  instance,
+) => <String, dynamic>{
+  'ContentType': ?instance.contentType,
+  'ContentDisposition': ?instance.contentDisposition,
+  'Headers': ?instance.headers,
+  'Length': ?instance.length,
+  'Name': ?instance.name,
+  'FileName': ?instance.fileName,
 };

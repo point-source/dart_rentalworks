@@ -5,15 +5,19 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:json_annotation/json_annotation.dart' as json;
 import 'package:collection/collection.dart';
+
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
 
 import 'client_mapping.dart';
+
 import 'dart:async';
+
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
+
 import 'administrator.enums.swagger.dart' as enums;
 import 'administrator.metadata.swagger.dart';
 export 'administrator.enums.swagger.dart';
@@ -287,6 +291,51 @@ abstract class Administrator extends ChopperService {
   @DELETE(path: '/alert/{id}')
   Future<chopper.Response<bool>> _alertIdDelete({
     @Path('id') required String? id,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Alert"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<
+    chopper.Response<
+      List<
+        MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic
+      >
+    >
+  >
+  alertManyPost({
+    required List<FwStandardModulesAdministratorAlertAlertLogic>? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic,
+      () =>
+          MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic
+              .fromJsonFactory,
+    );
+
+    return _alertManyPost(body: body);
+  }
+
+  ///
+  @POST(path: '/alert/many', optionalBody: true)
+  Future<
+    chopper.Response<
+      List<
+        MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic
+      >
+    >
+  >
+  _alertManyPost({
+    @Body() required List<FwStandardModulesAdministratorAlertAlertLogic>? body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -2064,6 +2113,54 @@ abstract class Administrator extends ChopperService {
   _customformIdCopyPost({
     @Path('id') required String? id,
     @Body() required FwStandardModelsCopyLogicRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CustomForm"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response> customformOrderitemgridshowfieldsGet() {
+    return _customformOrderitemgridshowfieldsGet();
+  }
+
+  ///
+  @GET(path: '/customform/orderitemgridshowfields')
+  Future<chopper.Response> _customformOrderitemgridshowfieldsGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CustomForm"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<bool>> customformLastusedtemplatePost({
+    required WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest?
+    body,
+  }) {
+    return _customformLastusedtemplatePost(body: body);
+  }
+
+  ///
+  @POST(path: '/customform/lastusedtemplate', optionalBody: true)
+  Future<chopper.Response<bool>> _customformLastusedtemplatePost({
+    @Body()
+    required WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest?
+    body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -5463,6 +5560,34 @@ abstract class Administrator extends ChopperService {
   });
 
   ///
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  fwutilityServerutcdatetimeGet() {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      () => FwCoreControllersGetServerUtcDateTimeResponse.fromJsonFactory,
+    );
+
+    return _fwutilityServerutcdatetimeGet();
+  }
+
+  ///
+  @GET(path: '/fwutility/serverutcdatetime')
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FwUtility"],
+      deprecated: false,
+    ),
+  });
+
+  ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>> groupBrowsePost({
     required FwStandardModelsBrowseRequest? body,
   }) {
@@ -6452,8 +6577,7 @@ abstract class Administrator extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary:
-          'Returns an array of plugin names that are available to this instance.',
+      summary: 'Returns an array of plugin names that are available to this instance.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -6610,6 +6734,95 @@ abstract class Administrator extends ChopperService {
       produces: [],
       security: [],
       tags: ["Plugin"],
+      deprecated: false,
+    ),
+  });
+
+  ///Returns Portal settings.
+  Future<
+    chopper.Response<
+      List<WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema>
+    >
+  >
+  portalsetupSettingsSchemaGet() {
+    generatedMapping.putIfAbsent(
+      WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema,
+      () => WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema
+          .fromJsonFactory,
+    );
+
+    return _portalsetupSettingsSchemaGet();
+  }
+
+  ///Returns Portal settings.
+  @GET(path: '/portalsetup/settings/schema')
+  Future<
+    chopper.Response<
+      List<WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema>
+    >
+  >
+  _portalsetupSettingsSchemaGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns Portal settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PortalSetup"],
+      deprecated: false,
+    ),
+  });
+
+  ///Returns quikscan settings.
+  Future<chopper.Response<WebApiModulesAdministratorPortalSetupPortalSettings>>
+  portalsetupSettingsGet() {
+    generatedMapping.putIfAbsent(
+      WebApiModulesAdministratorPortalSetupPortalSettings,
+      () => WebApiModulesAdministratorPortalSetupPortalSettings.fromJsonFactory,
+    );
+
+    return _portalsetupSettingsGet();
+  }
+
+  ///Returns quikscan settings.
+  @GET(path: '/portalsetup/settings')
+  Future<chopper.Response<WebApiModulesAdministratorPortalSetupPortalSettings>>
+  _portalsetupSettingsGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns quikscan settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PortalSetup"],
+      deprecated: false,
+    ),
+  });
+
+  ///Update quikscan settings.
+  Future<chopper.Response> portalsetupSettingsPut({
+    required WebApiModulesAdministratorPortalSetupPortalSettings? body,
+  }) {
+    return _portalsetupSettingsPut(body: body);
+  }
+
+  ///Update quikscan settings.
+  @PUT(path: '/portalsetup/settings', optionalBody: true)
+  Future<chopper.Response> _portalsetupSettingsPut({
+    @Body() required WebApiModulesAdministratorPortalSetupPortalSettings? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Update quikscan settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PortalSetup"],
       deprecated: false,
     ),
   });
@@ -6900,6 +7113,101 @@ abstract class Administrator extends ChopperService {
     ),
   });
 
+  ///Returns storefront settings.
+  Future<
+    chopper.Response<
+      List<WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema>
+    >
+  >
+  storefrontsetupSettingsSchemaGet() {
+    generatedMapping.putIfAbsent(
+      WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema,
+      () => WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema
+          .fromJsonFactory,
+    );
+
+    return _storefrontsetupSettingsSchemaGet();
+  }
+
+  ///Returns storefront settings.
+  @GET(path: '/storefrontsetup/settings/schema')
+  Future<
+    chopper.Response<
+      List<WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema>
+    >
+  >
+  _storefrontsetupSettingsSchemaGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns storefront settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StorefrontSetup"],
+      deprecated: false,
+    ),
+  });
+
+  ///Returns storefront settings.
+  Future<
+    chopper.Response<WebApiModulesIntegrationsStorefrontStorefrontSettings>
+  >
+  storefrontsetupSettingsGet() {
+    generatedMapping.putIfAbsent(
+      WebApiModulesIntegrationsStorefrontStorefrontSettings,
+      () =>
+          WebApiModulesIntegrationsStorefrontStorefrontSettings.fromJsonFactory,
+    );
+
+    return _storefrontsetupSettingsGet();
+  }
+
+  ///Returns storefront settings.
+  @GET(path: '/storefrontsetup/settings')
+  Future<
+    chopper.Response<WebApiModulesIntegrationsStorefrontStorefrontSettings>
+  >
+  _storefrontsetupSettingsGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns storefront settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StorefrontSetup"],
+      deprecated: false,
+    ),
+  });
+
+  ///Update storefront settings.
+  Future<chopper.Response> storefrontsetupSettingsPut({
+    required WebApiModulesIntegrationsStorefrontStorefrontSettings? body,
+  }) {
+    return _storefrontsetupSettingsPut(body: body);
+  }
+
+  ///Update storefront settings.
+  @PUT(path: '/storefrontsetup/settings', optionalBody: true)
+  Future<chopper.Response> _storefrontsetupSettingsPut({
+    @Body()
+    required WebApiModulesIntegrationsStorefrontStorefrontSettings? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Update storefront settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StorefrontSetup"],
+      deprecated: false,
+    ),
+  });
+
   ///
   Future<
     chopper.Response<
@@ -7101,49 +7409,6 @@ abstract class Administrator extends ChopperService {
   _systemupdateApplyupdatePost({
     @Body()
     required FwStandardModulesAdministratorSystemUpdateApplyUpdateRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SystemUpdate"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<
-    chopper.Response<
-      FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse
-    >
-  >
-  systemupdateNextqaversionPost({
-    required FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest?
-    body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse,
-      () => FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse
-          .fromJsonFactory,
-    );
-
-    return _systemupdateNextqaversionPost(body: body);
-  }
-
-  ///
-  @POST(path: '/systemupdate/nextqaversion', optionalBody: true)
-  Future<
-    chopper.Response<
-      FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse
-    >
-  >
-  _systemupdateNextqaversionPost({
-    @Body()
-    required FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest?
-    body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -7599,261 +7864,6 @@ abstract class Administrator extends ChopperService {
       produces: [],
       security: [],
       tags: ["SystemUpdateHistoryLog"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardSqlServerFwJsonDataTable,
-      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsBrowsePost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/browse', optionalBody: true)
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      () =>
-          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsExportexcelxlsxPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/exportexcelxlsx', optionalBody: true)
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      () =>
-          FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsGet(
-      pageno: pageno,
-      pagesize: pagesize,
-      sort: sort,
-      filter: filter,
-    );
-  }
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  @GET(path: '/taskscheduler/tasksteps')
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    @Query('pageno') int? pageno,
-    @Query('pagesize') int? pagesize,
-    @Query('sort') String? sort,
-    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdGet({required String? id}) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdGet(id: id);
-  }
-
-  ///
-  ///@param id
-  @GET(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdPut(id: id, body: body);
-  }
-
-  ///
-  ///@param id
-  @PUT(path: '/taskscheduler/tasksteps/{id}', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    @Path('id') required String? id,
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<bool>> taskschedulerTaskstepsIdDelete({
-    required String? id,
-  }) {
-    return _taskschedulerTaskstepsIdDelete(id: id);
-  }
-
-  ///
-  ///@param id
-  @DELETE(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<bool>> _taskschedulerTaskstepsIdDelete({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
       deprecated: false,
     ),
   });
@@ -10084,6 +10094,65 @@ extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResu
 }
 
 @JsonSerializable(explicitToJson: true)
+class FwCoreControllersGetServerUtcDateTimeResponse {
+  const FwCoreControllersGetServerUtcDateTimeResponse({this.serverUtcDateTime});
+
+  factory FwCoreControllersGetServerUtcDateTimeResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$FwCoreControllersGetServerUtcDateTimeResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson(this);
+
+  @JsonKey(name: 'ServerUtcDateTime', includeIfNull: false)
+  final DateTime? serverUtcDateTime;
+  static const fromJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is FwCoreControllersGetServerUtcDateTimeResponse &&
+            (identical(other.serverUtcDateTime, serverUtcDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.serverUtcDateTime,
+                  serverUtcDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(serverUtcDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $FwCoreControllersGetServerUtcDateTimeResponseExtension
+    on FwCoreControllersGetServerUtcDateTimeResponse {
+  FwCoreControllersGetServerUtcDateTimeResponse copyWith({
+    DateTime? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: serverUtcDateTime ?? this.serverUtcDateTime,
+    );
+  }
+
+  FwCoreControllersGetServerUtcDateTimeResponse copyWithWrapped({
+    Wrapped<DateTime?>? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: (serverUtcDateTime != null
+          ? serverUtcDateTime.value
+          : this.serverUtcDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class FwStandardAppManagerFwAmSecurityTreeNode {
   const FwStandardAppManagerFwAmSecurityTreeNode({
     this.id,
@@ -11067,6 +11136,7 @@ class FwStandardModelsBrowseRequest {
     this.totalfields,
     this.activeviewfields,
     this.timezoneOffset,
+    this.locale,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -11156,7 +11226,9 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
   @JsonKey(name: 'timezoneOffset', includeIfNull: false)
-  final int? timezoneOffset;
+  final double? timezoneOffset;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -11285,7 +11357,9 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.timezoneOffset,
                   timezoneOffset,
-                )));
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)));
   }
 
   @override
@@ -11320,6 +11394,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
       const DeepCollectionEquality().hash(timezoneOffset) ^
+      const DeepCollectionEquality().hash(locale) ^
       runtimeType.hashCode;
 }
 
@@ -11352,7 +11427,8 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
-    int? timezoneOffset,
+    double? timezoneOffset,
+    String? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -11382,6 +11458,7 @@ extension $FwStandardModelsBrowseRequestExtension
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
       timezoneOffset: timezoneOffset ?? this.timezoneOffset,
+      locale: locale ?? this.locale,
     );
   }
 
@@ -11412,7 +11489,8 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
-    Wrapped<int?>? timezoneOffset,
+    Wrapped<double?>? timezoneOffset,
+    Wrapped<String?>? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -11468,6 +11546,7 @@ extension $FwStandardModelsBrowseRequestExtension
       timezoneOffset: (timezoneOffset != null
           ? timezoneOffset.value
           : this.timezoneOffset),
+      locale: (locale != null ? locale.value : this.locale),
     );
   }
 }
@@ -11958,8 +12037,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLog
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertAlertLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12074,8 +12152,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditio
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertConditionAlertConditionLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12195,8 +12272,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsers
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorAlertWebUsersAlertWebUsersLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12313,8 +12389,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormCus
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormCustomFormLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormCustomFormLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12431,8 +12506,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormGro
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormGroupCustomFormGroupLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12552,8 +12626,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormUse
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormUserCustomFormUserLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomFormUserCustomFormUserLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12677,8 +12750,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportL
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorCustomReportLayoutCustomReportLayoutLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12802,8 +12874,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRule
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorDuplicateRuleDuplicateRuleLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12922,8 +12993,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplate
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorEmailTemplateEmailTemplateLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -13040,8 +13110,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWe
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesAdministratorWebAlertLogWebAlertLogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -13156,8 +13225,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetGroupWidgetG
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetGroupWidgetGroupLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetGroupWidgetGroupLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -13271,8 +13339,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetUserWidgetUs
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetUserWidgetUserLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetUserWidgetUserLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -13392,8 +13459,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -13521,8 +13587,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryLogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorCreateNewSystemHistoryLogCreateNewSystemHistoryLogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -13644,8 +13709,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustom
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorCustomFieldCustomFieldLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -13759,8 +13823,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHea
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorDataHealthDataHealthLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -13876,8 +13939,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFiel
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorDuplicateRuleFieldDuplicateRuleFieldLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -13994,8 +14056,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmail
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorEmailHistoryEmailHistoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -14109,8 +14170,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorGroupGroupLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -14223,8 +14283,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorHotfixHotfixLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -14337,8 +14396,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorPluginPluginLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -14453,8 +14511,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistorySystemUpdateHistoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -14578,8 +14635,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHisto
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -14658,121 +14714,6 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdate
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  const FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic({
-    this.items,
-    this.pageNo,
-    this.pageSize,
-    this.totalItems,
-    this.sort,
-  });
-
-  factory FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-        this,
-      );
-
-  @JsonKey(
-    name: 'Items',
-    includeIfNull: false,
-    defaultValue: <WebApiModulesAdministratorTaskSchedulerTaskSteps>[],
-  )
-  final List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items;
-  @JsonKey(name: 'PageNo', includeIfNull: false)
-  final int? pageNo;
-  @JsonKey(name: 'PageSize', includeIfNull: false)
-  final int? pageSize;
-  @JsonKey(name: 'TotalItems', includeIfNull: false)
-  final int? totalItems;
-  @JsonKey(name: 'Sort', includeIfNull: false)
-  final String? sort;
-  static const fromJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic &&
-            (identical(other.items, items) ||
-                const DeepCollectionEquality().equals(other.items, items)) &&
-            (identical(other.pageNo, pageNo) ||
-                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
-            (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality().equals(
-                  other.pageSize,
-                  pageSize,
-                )) &&
-            (identical(other.totalItems, totalItems) ||
-                const DeepCollectionEquality().equals(
-                  other.totalItems,
-                  totalItems,
-                )) &&
-            (identical(other.sort, sort) ||
-                const DeepCollectionEquality().equals(other.sort, sort)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(items) ^
-      const DeepCollectionEquality().hash(pageNo) ^
-      const DeepCollectionEquality().hash(pageSize) ^
-      const DeepCollectionEquality().hash(totalItems) ^
-      const DeepCollectionEquality().hash(sort) ^
-      runtimeType.hashCode;
-}
-
-extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicExtension
-    on
-        FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWith({
-    List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items,
-    int? pageNo,
-    int? pageSize,
-    int? totalItems,
-    String? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: items ?? this.items,
-      pageNo: pageNo ?? this.pageNo,
-      pageSize: pageSize ?? this.pageSize,
-      totalItems: totalItems ?? this.totalItems,
-      sort: sort ?? this.sort,
-    );
-  }
-
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWithWrapped({
-    Wrapped<List<WebApiModulesAdministratorTaskSchedulerTaskSteps>?>? items,
-    Wrapped<int?>? pageNo,
-    Wrapped<int?>? pageSize,
-    Wrapped<int?>? totalItems,
-    Wrapped<String?>? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: (items != null ? items.value : this.items),
-      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
-      sort: (sort != null ? sort.value : this.sort),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic {
   const FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic({
     this.items,
@@ -14816,8 +14757,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -14930,8 +14870,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserCo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserContactUserContactLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -15046,8 +14985,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomMod
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomModuleCustomModuleLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -15168,8 +15106,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomRep
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGroupLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -15297,8 +15234,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUserLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -15420,8 +15356,7 @@ class FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupR
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse &&
+        (other is FwStandardModelsGetResponseFwStandardModulesAdministratorGroupLookupGroupResponse &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -17124,7 +17059,8 @@ class FwStandardModulesAdministratorCreateNewSystemCreateNewSystemResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModulesAdministratorCreateNewSystemCreateNewSystemResponse &&
+        (other
+                is FwStandardModulesAdministratorCreateNewSystemCreateNewSystemResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -17269,7 +17205,8 @@ class FwStandardModulesAdministratorCreateNewSystemGetDefaultsResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModulesAdministratorCreateNewSystemGetDefaultsResponse &&
+        (other
+                is FwStandardModulesAdministratorCreateNewSystemGetDefaultsResponse &&
             (identical(other.databaseName, databaseName) ||
                 const DeepCollectionEquality().equals(
                   other.databaseName,
@@ -17339,6 +17276,8 @@ class FwStandardModulesAdministratorCustomFormCustomFormLogic {
     this.active,
     this.inactive,
     this.assignTo,
+    this.metaData1,
+    this.metaData2,
     this.selfAssign,
     this.dateStamp,
     this.auditNote,
@@ -17386,6 +17325,10 @@ class FwStandardModulesAdministratorCustomFormCustomFormLogic {
   final bool? inactive;
   @JsonKey(name: 'AssignTo', includeIfNull: false)
   final String? assignTo;
+  @JsonKey(name: 'MetaData1', includeIfNull: false)
+  final String? metaData1;
+  @JsonKey(name: 'MetaData2', includeIfNull: false)
+  final String? metaData2;
   @JsonKey(name: 'SelfAssign', includeIfNull: false)
   final bool? selfAssign;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
@@ -17483,6 +17426,16 @@ class FwStandardModulesAdministratorCustomFormCustomFormLogic {
                 const DeepCollectionEquality().equals(
                   other.assignTo,
                   assignTo,
+                )) &&
+            (identical(other.metaData1, metaData1) ||
+                const DeepCollectionEquality().equals(
+                  other.metaData1,
+                  metaData1,
+                )) &&
+            (identical(other.metaData2, metaData2) ||
+                const DeepCollectionEquality().equals(
+                  other.metaData2,
+                  metaData2,
                 )) &&
             (identical(other.selfAssign, selfAssign) ||
                 const DeepCollectionEquality().equals(
@@ -17584,6 +17537,8 @@ class FwStandardModulesAdministratorCustomFormCustomFormLogic {
       const DeepCollectionEquality().hash(active) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(assignTo) ^
+      const DeepCollectionEquality().hash(metaData1) ^
+      const DeepCollectionEquality().hash(metaData2) ^
       const DeepCollectionEquality().hash(selfAssign) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(auditNote) ^
@@ -17617,6 +17572,8 @@ extension $FwStandardModulesAdministratorCustomFormCustomFormLogicExtension
     bool? active,
     bool? inactive,
     String? assignTo,
+    String? metaData1,
+    String? metaData2,
     bool? selfAssign,
     String? dateStamp,
     String? auditNote,
@@ -17646,6 +17603,8 @@ extension $FwStandardModulesAdministratorCustomFormCustomFormLogicExtension
       active: active ?? this.active,
       inactive: inactive ?? this.inactive,
       assignTo: assignTo ?? this.assignTo,
+      metaData1: metaData1 ?? this.metaData1,
+      metaData2: metaData2 ?? this.metaData2,
       selfAssign: selfAssign ?? this.selfAssign,
       dateStamp: dateStamp ?? this.dateStamp,
       auditNote: auditNote ?? this.auditNote,
@@ -17678,6 +17637,8 @@ extension $FwStandardModulesAdministratorCustomFormCustomFormLogicExtension
     Wrapped<bool?>? active,
     Wrapped<bool?>? inactive,
     Wrapped<String?>? assignTo,
+    Wrapped<String?>? metaData1,
+    Wrapped<String?>? metaData2,
     Wrapped<bool?>? selfAssign,
     Wrapped<String?>? dateStamp,
     Wrapped<String?>? auditNote,
@@ -17710,6 +17671,8 @@ extension $FwStandardModulesAdministratorCustomFormCustomFormLogicExtension
       active: (active != null ? active.value : this.active),
       inactive: (inactive != null ? inactive.value : this.inactive),
       assignTo: (assignTo != null ? assignTo.value : this.assignTo),
+      metaData1: (metaData1 != null ? metaData1.value : this.metaData1),
+      metaData2: (metaData2 != null ? metaData2.value : this.metaData2),
       selfAssign: (selfAssign != null ? selfAssign.value : this.selfAssign),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
@@ -19907,8 +19870,7 @@ class FwStandardModulesAdministratorEmailTemplateEmailTemplateFieldsResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModulesAdministratorEmailTemplateEmailTemplateFieldsResponse &&
+        (other is FwStandardModulesAdministratorEmailTemplateEmailTemplateFieldsResponse &&
             (identical(other.fields, fields) ||
                 const DeepCollectionEquality().equals(other.fields, fields)));
   }
@@ -21322,7 +21284,8 @@ class FwStandardModulesAdministratorSystemUpdateApplyUpdateResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModulesAdministratorSystemUpdateApplyUpdateResponse &&
+        (other
+                is FwStandardModulesAdministratorSystemUpdateApplyUpdateResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -21984,8 +21947,7 @@ class FwStandardModulesAdministratorSystemUpdateDownloadBuildDocumentRequest {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModulesAdministratorSystemUpdateDownloadBuildDocumentRequest &&
+        (other is FwStandardModulesAdministratorSystemUpdateDownloadBuildDocumentRequest &&
             (identical(other.version, version) ||
                 const DeepCollectionEquality().equals(other.version, version)));
   }
@@ -22260,136 +22222,6 @@ extension $FwStandardModulesAdministratorSystemUpdateGetVersionHotfixResponseExt
       success: (success != null ? success.value : this.success),
       msg: (msg != null ? msg.value : this.msg),
       hotfix: (hotfix != null ? hotfix.value : this.hotfix),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest {
-  const FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest({
-    this.currentVersion,
-  });
-
-  factory FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest.fromJson(
-    Map<String, dynamic> json,
-  ) => _$FwStandardModulesAdministratorSystemUpdateNextQaVersionRequestFromJson(
-    json,
-  );
-
-  static const toJsonFactory =
-      _$FwStandardModulesAdministratorSystemUpdateNextQaVersionRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModulesAdministratorSystemUpdateNextQaVersionRequestToJson(
-        this,
-      );
-
-  @JsonKey(name: 'CurrentVersion', includeIfNull: false)
-  final String? currentVersion;
-  static const fromJsonFactory =
-      _$FwStandardModulesAdministratorSystemUpdateNextQaVersionRequestFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest &&
-            (identical(other.currentVersion, currentVersion) ||
-                const DeepCollectionEquality().equals(
-                  other.currentVersion,
-                  currentVersion,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(currentVersion) ^
-      runtimeType.hashCode;
-}
-
-extension $FwStandardModulesAdministratorSystemUpdateNextQaVersionRequestExtension
-    on FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest {
-  FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest copyWith({
-    String? currentVersion,
-  }) {
-    return FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest(
-      currentVersion: currentVersion ?? this.currentVersion,
-    );
-  }
-
-  FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest
-  copyWithWrapped({Wrapped<String?>? currentVersion}) {
-    return FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest(
-      currentVersion: (currentVersion != null
-          ? currentVersion.value
-          : this.currentVersion),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse {
-  const FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse({
-    this.nextQaVersion,
-  });
-
-  factory FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$FwStandardModulesAdministratorSystemUpdateNextQaVersionResponseFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$FwStandardModulesAdministratorSystemUpdateNextQaVersionResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModulesAdministratorSystemUpdateNextQaVersionResponseToJson(
-        this,
-      );
-
-  @JsonKey(name: 'NextQaVersion', includeIfNull: false)
-  final String? nextQaVersion;
-  static const fromJsonFactory =
-      _$FwStandardModulesAdministratorSystemUpdateNextQaVersionResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse &&
-            (identical(other.nextQaVersion, nextQaVersion) ||
-                const DeepCollectionEquality().equals(
-                  other.nextQaVersion,
-                  nextQaVersion,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(nextQaVersion) ^ runtimeType.hashCode;
-}
-
-extension $FwStandardModulesAdministratorSystemUpdateNextQaVersionResponseExtension
-    on FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse {
-  FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse copyWith({
-    String? nextQaVersion,
-  }) {
-    return FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse(
-      nextQaVersion: nextQaVersion ?? this.nextQaVersion,
-    );
-  }
-
-  FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse
-  copyWithWrapped({Wrapped<String?>? nextQaVersion}) {
-    return FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse(
-      nextQaVersion: (nextQaVersion != null
-          ? nextQaVersion.value
-          : this.nextQaVersion),
     );
   }
 }
@@ -25069,6 +24901,101 @@ extension $FwStandardSqlServerTSpStatusResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+class MicrosoftAspNetCoreMvcActionResult {
+  const MicrosoftAspNetCoreMvcActionResult();
+
+  factory MicrosoftAspNetCoreMvcActionResult.fromJson(
+    Map<String, dynamic> json,
+  ) => _$MicrosoftAspNetCoreMvcActionResultFromJson(json);
+
+  static const toJsonFactory = _$MicrosoftAspNetCoreMvcActionResultToJson;
+  Map<String, dynamic> toJson() =>
+      _$MicrosoftAspNetCoreMvcActionResultToJson(this);
+
+  static const fromJsonFactory = _$MicrosoftAspNetCoreMvcActionResultFromJson;
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+@JsonSerializable(explicitToJson: true)
+class MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic {
+  const MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic({
+    this.result,
+    this.value,
+  });
+
+  factory MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogicFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogicToJson;
+  Map<String, dynamic> toJson() =>
+      _$MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogicToJson(
+        this,
+      );
+
+  @JsonKey(name: 'Result', includeIfNull: false)
+  final MicrosoftAspNetCoreMvcActionResult? result;
+  @JsonKey(name: 'Value', includeIfNull: false)
+  final FwStandardModulesAdministratorAlertAlertLogic? value;
+  static const fromJsonFactory =
+      _$MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogicFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic &&
+            (identical(other.result, result) ||
+                const DeepCollectionEquality().equals(other.result, result)) &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(result) ^
+      const DeepCollectionEquality().hash(value) ^
+      runtimeType.hashCode;
+}
+
+extension $MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogicExtension
+    on
+        MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic {
+  MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic
+  copyWith({
+    MicrosoftAspNetCoreMvcActionResult? result,
+    FwStandardModulesAdministratorAlertAlertLogic? value,
+  }) {
+    return MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic(
+      result: result ?? this.result,
+      value: value ?? this.value,
+    );
+  }
+
+  MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic
+  copyWithWrapped({
+    Wrapped<MicrosoftAspNetCoreMvcActionResult?>? result,
+    Wrapped<FwStandardModulesAdministratorAlertAlertLogic?>? value,
+  }) {
+    return MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic(
+      result: (result != null ? result.value : this.result),
+      value: (value != null ? value.value : this.value),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory {
   const WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory({
     this.createNewSystemHistoryId,
@@ -26323,6 +26250,137 @@ extension $WebApiModulesAdministratorCustomFieldCustomFieldExtension
       modifiedDateTime: (modifiedDateTime != null
           ? modifiedDateTime.value
           : this.modifiedDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest {
+  const WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest({
+    this.baseForm,
+    this.metaData1,
+    this.metaData2,
+    this.customFormId,
+    this.summary,
+    this.rollup,
+  });
+
+  factory WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequestFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequestToJson(
+        this,
+      );
+
+  @JsonKey(name: 'BaseForm', includeIfNull: false)
+  final String? baseForm;
+  @JsonKey(name: 'MetaData1', includeIfNull: false)
+  final String? metaData1;
+  @JsonKey(name: 'MetaData2', includeIfNull: false)
+  final String? metaData2;
+  @JsonKey(name: 'CustomFormId', includeIfNull: false)
+  final String? customFormId;
+  @JsonKey(name: 'Summary', includeIfNull: false)
+  final bool? summary;
+  @JsonKey(name: 'Rollup', includeIfNull: false)
+  final bool? rollup;
+  static const fromJsonFactory =
+      _$WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest &&
+            (identical(other.baseForm, baseForm) ||
+                const DeepCollectionEquality().equals(
+                  other.baseForm,
+                  baseForm,
+                )) &&
+            (identical(other.metaData1, metaData1) ||
+                const DeepCollectionEquality().equals(
+                  other.metaData1,
+                  metaData1,
+                )) &&
+            (identical(other.metaData2, metaData2) ||
+                const DeepCollectionEquality().equals(
+                  other.metaData2,
+                  metaData2,
+                )) &&
+            (identical(other.customFormId, customFormId) ||
+                const DeepCollectionEquality().equals(
+                  other.customFormId,
+                  customFormId,
+                )) &&
+            (identical(other.summary, summary) ||
+                const DeepCollectionEquality().equals(
+                  other.summary,
+                  summary,
+                )) &&
+            (identical(other.rollup, rollup) ||
+                const DeepCollectionEquality().equals(other.rollup, rollup)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(baseForm) ^
+      const DeepCollectionEquality().hash(metaData1) ^
+      const DeepCollectionEquality().hash(metaData2) ^
+      const DeepCollectionEquality().hash(customFormId) ^
+      const DeepCollectionEquality().hash(summary) ^
+      const DeepCollectionEquality().hash(rollup) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequestExtension
+    on
+        WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest {
+  WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest
+  copyWith({
+    String? baseForm,
+    String? metaData1,
+    String? metaData2,
+    String? customFormId,
+    bool? summary,
+    bool? rollup,
+  }) {
+    return WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest(
+      baseForm: baseForm ?? this.baseForm,
+      metaData1: metaData1 ?? this.metaData1,
+      metaData2: metaData2 ?? this.metaData2,
+      customFormId: customFormId ?? this.customFormId,
+      summary: summary ?? this.summary,
+      rollup: rollup ?? this.rollup,
+    );
+  }
+
+  WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest
+  copyWithWrapped({
+    Wrapped<String?>? baseForm,
+    Wrapped<String?>? metaData1,
+    Wrapped<String?>? metaData2,
+    Wrapped<String?>? customFormId,
+    Wrapped<bool?>? summary,
+    Wrapped<bool?>? rollup,
+  }) {
+    return WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest(
+      baseForm: (baseForm != null ? baseForm.value : this.baseForm),
+      metaData1: (metaData1 != null ? metaData1.value : this.metaData1),
+      metaData2: (metaData2 != null ? metaData2.value : this.metaData2),
+      customFormId: (customFormId != null
+          ? customFormId.value
+          : this.customFormId),
+      summary: (summary != null ? summary.value : this.summary),
+      rollup: (rollup != null ? rollup.value : this.rollup),
     );
   }
 }
@@ -28961,6 +29019,195 @@ extension $WebApiModulesAdministratorPluginStatusResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+class WebApiModulesAdministratorPortalSetupPortalSettings {
+  const WebApiModulesAdministratorPortalSetupPortalSettings({
+    this.enablePortal,
+  });
+
+  factory WebApiModulesAdministratorPortalSetupPortalSettings.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesAdministratorPortalSetupPortalSettingsFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesAdministratorPortalSetupPortalSettingsToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAdministratorPortalSetupPortalSettingsToJson(this);
+
+  @JsonKey(name: 'EnablePortal', includeIfNull: false)
+  final bool? enablePortal;
+  static const fromJsonFactory =
+      _$WebApiModulesAdministratorPortalSetupPortalSettingsFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesAdministratorPortalSetupPortalSettings &&
+            (identical(other.enablePortal, enablePortal) ||
+                const DeepCollectionEquality().equals(
+                  other.enablePortal,
+                  enablePortal,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(enablePortal) ^ runtimeType.hashCode;
+}
+
+extension $WebApiModulesAdministratorPortalSetupPortalSettingsExtension
+    on WebApiModulesAdministratorPortalSetupPortalSettings {
+  WebApiModulesAdministratorPortalSetupPortalSettings copyWith({
+    bool? enablePortal,
+  }) {
+    return WebApiModulesAdministratorPortalSetupPortalSettings(
+      enablePortal: enablePortal ?? this.enablePortal,
+    );
+  }
+
+  WebApiModulesAdministratorPortalSetupPortalSettings copyWithWrapped({
+    Wrapped<bool?>? enablePortal,
+  }) {
+    return WebApiModulesAdministratorPortalSetupPortalSettings(
+      enablePortal: (enablePortal != null
+          ? enablePortal.value
+          : this.enablePortal),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema {
+  const WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema({
+    this.group,
+    this.caption,
+    this.propertyName,
+    this.dataType,
+    this.description,
+  });
+
+  factory WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchemaFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchemaToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchemaToJson(
+        this,
+      );
+
+  @JsonKey(name: 'Group', includeIfNull: false)
+  final String? group;
+  @JsonKey(name: 'Caption', includeIfNull: false)
+  final String? caption;
+  @JsonKey(name: 'PropertyName', includeIfNull: false)
+  final String? propertyName;
+  @JsonKey(
+    name: 'DataType',
+    includeIfNull: false,
+    toJson:
+        webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesNullableToJson,
+    fromJson:
+        webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesNullableFromJson,
+  )
+  final enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes?
+  dataType;
+  @JsonKey(name: 'Description', includeIfNull: false)
+  final String? description;
+  static const fromJsonFactory =
+      _$WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchemaFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema &&
+            (identical(other.group, group) ||
+                const DeepCollectionEquality().equals(other.group, group)) &&
+            (identical(other.caption, caption) ||
+                const DeepCollectionEquality().equals(
+                  other.caption,
+                  caption,
+                )) &&
+            (identical(other.propertyName, propertyName) ||
+                const DeepCollectionEquality().equals(
+                  other.propertyName,
+                  propertyName,
+                )) &&
+            (identical(other.dataType, dataType) ||
+                const DeepCollectionEquality().equals(
+                  other.dataType,
+                  dataType,
+                )) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality().equals(
+                  other.description,
+                  description,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(group) ^
+      const DeepCollectionEquality().hash(caption) ^
+      const DeepCollectionEquality().hash(propertyName) ^
+      const DeepCollectionEquality().hash(dataType) ^
+      const DeepCollectionEquality().hash(description) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchemaExtension
+    on WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema {
+  WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema copyWith({
+    String? group,
+    String? caption,
+    String? propertyName,
+    enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes?
+    dataType,
+    String? description,
+  }) {
+    return WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema(
+      group: group ?? this.group,
+      caption: caption ?? this.caption,
+      propertyName: propertyName ?? this.propertyName,
+      dataType: dataType ?? this.dataType,
+      description: description ?? this.description,
+    );
+  }
+
+  WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema
+  copyWithWrapped({
+    Wrapped<String?>? group,
+    Wrapped<String?>? caption,
+    Wrapped<String?>? propertyName,
+    Wrapped<
+      enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes?
+    >?
+    dataType,
+    Wrapped<String?>? description,
+  }) {
+    return WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema(
+      group: (group != null ? group.value : this.group),
+      caption: (caption != null ? caption.value : this.caption),
+      propertyName: (propertyName != null
+          ? propertyName.value
+          : this.propertyName),
+      dataType: (dataType != null ? dataType.value : this.dataType),
+      description: (description != null ? description.value : this.description),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class WebApiModulesAdministratorQuikScanSetupQuikScanSettings {
   const WebApiModulesAdministratorQuikScanSetupQuikScanSettings({
     this.closeStatusPopupAfterScanningCheckOut,
@@ -30131,554 +30378,6 @@ extension $WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLo
           ? systemUpdateHistoryId.value
           : this.systemUpdateHistoryId),
       messsage: (messsage != null ? messsage.value : this.messsage),
-      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
-      urlIdentifier: (urlIdentifier != null
-          ? urlIdentifier.value
-          : this.urlIdentifier),
-      fields: (fields != null ? fields.value : this.fields),
-      custom: (custom != null ? custom.value : this.custom),
-      defaultFieldAttributes: (defaultFieldAttributes != null
-          ? defaultFieldAttributes.value
-          : this.defaultFieldAttributes),
-      original: (original != null ? original.value : this.original),
-      translation: (translation != null ? translation.value : this.translation),
-      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-      hasDocuments: (hasDocuments != null
-          ? hasDocuments.value
-          : this.hasDocuments),
-      createdByUserId: (createdByUserId != null
-          ? createdByUserId.value
-          : this.createdByUserId),
-      createdByUserName: (createdByUserName != null
-          ? createdByUserName.value
-          : this.createdByUserName),
-      createdDateTime: (createdDateTime != null
-          ? createdDateTime.value
-          : this.createdDateTime),
-      modifiedByUserId: (modifiedByUserId != null
-          ? modifiedByUserId.value
-          : this.modifiedByUserId),
-      modifiedByUserName: (modifiedByUserName != null
-          ? modifiedByUserName.value
-          : this.modifiedByUserName),
-      modifiedDateTime: (modifiedDateTime != null
-          ? modifiedDateTime.value
-          : this.modifiedDateTime),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  const WebApiModulesAdministratorTaskSchedulerTaskSteps({
-    this.taskStepsId,
-    this.taskId,
-    this.name,
-    this.stepNumber,
-    this.type,
-    this.command,
-    this.onSuccessActionDisplay,
-    this.onFailureActionDisplay,
-    this.onSuccessAction,
-    this.retryAttempts,
-    this.retryInterval,
-    this.onFailureAction,
-    this.onSuccessTaskStepsId,
-    this.onFailureTaskStepsId,
-    this.outputFilename,
-    this.lastRunOutcome,
-    this.lastRunDuration,
-    this.lastRunRetries,
-    this.dateStamp,
-    this.auditNote,
-    this.recordTitle,
-    this.urlIdentifier,
-    this.fields,
-    this.custom,
-    this.defaultFieldAttributes,
-    this.original,
-    this.translation,
-    this.hasImport,
-    this.hasDocuments,
-    this.createdByUserId,
-    this.createdByUserName,
-    this.createdDateTime,
-    this.modifiedByUserId,
-    this.modifiedByUserName,
-    this.modifiedDateTime,
-  });
-
-  factory WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-    Map<String, dynamic> json,
-  ) => _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(json);
-
-  static const toJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(this);
-
-  @JsonKey(name: 'TaskStepsId', includeIfNull: false)
-  final int? taskStepsId;
-  @JsonKey(name: 'TaskId', includeIfNull: false)
-  final int? taskId;
-  @JsonKey(name: 'Name', includeIfNull: false)
-  final String? name;
-  @JsonKey(name: 'StepNumber', includeIfNull: false)
-  final int? stepNumber;
-  @JsonKey(name: 'Type', includeIfNull: false)
-  final String? type;
-  @JsonKey(name: 'Command', includeIfNull: false)
-  final String? command;
-  @JsonKey(name: 'OnSuccessActionDisplay', includeIfNull: false)
-  final String? onSuccessActionDisplay;
-  @JsonKey(name: 'OnFailureActionDisplay', includeIfNull: false)
-  final String? onFailureActionDisplay;
-  @JsonKey(name: 'OnSuccessAction', includeIfNull: false)
-  final int? onSuccessAction;
-  @JsonKey(name: 'RetryAttempts', includeIfNull: false)
-  final int? retryAttempts;
-  @JsonKey(name: 'RetryInterval', includeIfNull: false)
-  final int? retryInterval;
-  @JsonKey(name: 'OnFailureAction', includeIfNull: false)
-  final int? onFailureAction;
-  @JsonKey(name: 'OnSuccessTaskStepsId', includeIfNull: false)
-  final int? onSuccessTaskStepsId;
-  @JsonKey(name: 'OnFailureTaskStepsId', includeIfNull: false)
-  final int? onFailureTaskStepsId;
-  @JsonKey(name: 'OutputFilename', includeIfNull: false)
-  final String? outputFilename;
-  @JsonKey(name: 'LastRunOutcome', includeIfNull: false)
-  final int? lastRunOutcome;
-  @JsonKey(name: 'LastRunDuration', includeIfNull: false)
-  final int? lastRunDuration;
-  @JsonKey(name: 'LastRunRetries', includeIfNull: false)
-  final int? lastRunRetries;
-  @JsonKey(name: 'DateStamp', includeIfNull: false)
-  final String? dateStamp;
-  @JsonKey(name: 'AuditNote', includeIfNull: false)
-  final String? auditNote;
-  @JsonKey(name: 'RecordTitle', includeIfNull: false)
-  final String? recordTitle;
-  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
-  final dynamic urlIdentifier;
-  @JsonKey(
-    name: '_Fields',
-    includeIfNull: false,
-    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
-  )
-  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(
-    name: '_Custom',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwCustomValue>[],
-  )
-  final List<FwStandardDataFwCustomValue>? custom;
-  @JsonKey(
-    name: '_DefaultFieldAttributes',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwDefaultAttribute>[],
-  )
-  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
-  @JsonKey(name: '_Original', includeIfNull: false)
-  final FwStandardBusinessLogicFwBusinessLogic? original;
-  @JsonKey(
-    name: '_Translation',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwTranslatedValue>[],
-  )
-  final List<FwStandardDataFwTranslatedValue>? translation;
-  @JsonKey(name: '_HasImport', includeIfNull: false)
-  final bool? hasImport;
-  @JsonKey(name: '_HasDocuments', includeIfNull: false)
-  final bool? hasDocuments;
-  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
-  final String? createdByUserId;
-  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
-  final String? createdByUserName;
-  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
-  final String? createdDateTime;
-  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
-  final String? modifiedByUserId;
-  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
-  final String? modifiedByUserName;
-  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
-  final String? modifiedDateTime;
-  static const fromJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is WebApiModulesAdministratorTaskSchedulerTaskSteps &&
-            (identical(other.taskStepsId, taskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.taskStepsId,
-                  taskStepsId,
-                )) &&
-            (identical(other.taskId, taskId) ||
-                const DeepCollectionEquality().equals(other.taskId, taskId)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.stepNumber, stepNumber) ||
-                const DeepCollectionEquality().equals(
-                  other.stepNumber,
-                  stepNumber,
-                )) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.command, command) ||
-                const DeepCollectionEquality().equals(
-                  other.command,
-                  command,
-                )) &&
-            (identical(other.onSuccessActionDisplay, onSuccessActionDisplay) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessActionDisplay,
-                  onSuccessActionDisplay,
-                )) &&
-            (identical(other.onFailureActionDisplay, onFailureActionDisplay) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureActionDisplay,
-                  onFailureActionDisplay,
-                )) &&
-            (identical(other.onSuccessAction, onSuccessAction) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessAction,
-                  onSuccessAction,
-                )) &&
-            (identical(other.retryAttempts, retryAttempts) ||
-                const DeepCollectionEquality().equals(
-                  other.retryAttempts,
-                  retryAttempts,
-                )) &&
-            (identical(other.retryInterval, retryInterval) ||
-                const DeepCollectionEquality().equals(
-                  other.retryInterval,
-                  retryInterval,
-                )) &&
-            (identical(other.onFailureAction, onFailureAction) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureAction,
-                  onFailureAction,
-                )) &&
-            (identical(other.onSuccessTaskStepsId, onSuccessTaskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessTaskStepsId,
-                  onSuccessTaskStepsId,
-                )) &&
-            (identical(other.onFailureTaskStepsId, onFailureTaskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureTaskStepsId,
-                  onFailureTaskStepsId,
-                )) &&
-            (identical(other.outputFilename, outputFilename) ||
-                const DeepCollectionEquality().equals(
-                  other.outputFilename,
-                  outputFilename,
-                )) &&
-            (identical(other.lastRunOutcome, lastRunOutcome) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunOutcome,
-                  lastRunOutcome,
-                )) &&
-            (identical(other.lastRunDuration, lastRunDuration) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunDuration,
-                  lastRunDuration,
-                )) &&
-            (identical(other.lastRunRetries, lastRunRetries) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunRetries,
-                  lastRunRetries,
-                )) &&
-            (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality().equals(
-                  other.dateStamp,
-                  dateStamp,
-                )) &&
-            (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality().equals(
-                  other.auditNote,
-                  auditNote,
-                )) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality().equals(
-                  other.recordTitle,
-                  recordTitle,
-                )) &&
-            (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality().equals(
-                  other.urlIdentifier,
-                  urlIdentifier,
-                )) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                  other.defaultFieldAttributes,
-                  defaultFieldAttributes,
-                )) &&
-            (identical(other.original, original) ||
-                const DeepCollectionEquality().equals(
-                  other.original,
-                  original,
-                )) &&
-            (identical(other.translation, translation) ||
-                const DeepCollectionEquality().equals(
-                  other.translation,
-                  translation,
-                )) &&
-            (identical(other.hasImport, hasImport) ||
-                const DeepCollectionEquality().equals(
-                  other.hasImport,
-                  hasImport,
-                )) &&
-            (identical(other.hasDocuments, hasDocuments) ||
-                const DeepCollectionEquality().equals(
-                  other.hasDocuments,
-                  hasDocuments,
-                )) &&
-            (identical(other.createdByUserId, createdByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserId,
-                  createdByUserId,
-                )) &&
-            (identical(other.createdByUserName, createdByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserName,
-                  createdByUserName,
-                )) &&
-            (identical(other.createdDateTime, createdDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.createdDateTime,
-                  createdDateTime,
-                )) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserId,
-                  modifiedByUserId,
-                )) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserName,
-                  modifiedByUserName,
-                )) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedDateTime,
-                  modifiedDateTime,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(taskStepsId) ^
-      const DeepCollectionEquality().hash(taskId) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(stepNumber) ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(command) ^
-      const DeepCollectionEquality().hash(onSuccessActionDisplay) ^
-      const DeepCollectionEquality().hash(onFailureActionDisplay) ^
-      const DeepCollectionEquality().hash(onSuccessAction) ^
-      const DeepCollectionEquality().hash(retryAttempts) ^
-      const DeepCollectionEquality().hash(retryInterval) ^
-      const DeepCollectionEquality().hash(onFailureAction) ^
-      const DeepCollectionEquality().hash(onSuccessTaskStepsId) ^
-      const DeepCollectionEquality().hash(onFailureTaskStepsId) ^
-      const DeepCollectionEquality().hash(outputFilename) ^
-      const DeepCollectionEquality().hash(lastRunOutcome) ^
-      const DeepCollectionEquality().hash(lastRunDuration) ^
-      const DeepCollectionEquality().hash(lastRunRetries) ^
-      const DeepCollectionEquality().hash(dateStamp) ^
-      const DeepCollectionEquality().hash(auditNote) ^
-      const DeepCollectionEquality().hash(recordTitle) ^
-      const DeepCollectionEquality().hash(urlIdentifier) ^
-      const DeepCollectionEquality().hash(fields) ^
-      const DeepCollectionEquality().hash(custom) ^
-      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
-      const DeepCollectionEquality().hash(original) ^
-      const DeepCollectionEquality().hash(translation) ^
-      const DeepCollectionEquality().hash(hasImport) ^
-      const DeepCollectionEquality().hash(hasDocuments) ^
-      const DeepCollectionEquality().hash(createdByUserId) ^
-      const DeepCollectionEquality().hash(createdByUserName) ^
-      const DeepCollectionEquality().hash(createdDateTime) ^
-      const DeepCollectionEquality().hash(modifiedByUserId) ^
-      const DeepCollectionEquality().hash(modifiedByUserName) ^
-      const DeepCollectionEquality().hash(modifiedDateTime) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
-    on WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWith({
-    int? taskStepsId,
-    int? taskId,
-    String? name,
-    int? stepNumber,
-    String? type,
-    String? command,
-    String? onSuccessActionDisplay,
-    String? onFailureActionDisplay,
-    int? onSuccessAction,
-    int? retryAttempts,
-    int? retryInterval,
-    int? onFailureAction,
-    int? onSuccessTaskStepsId,
-    int? onFailureTaskStepsId,
-    String? outputFilename,
-    int? lastRunOutcome,
-    int? lastRunDuration,
-    int? lastRunRetries,
-    String? dateStamp,
-    String? auditNote,
-    String? recordTitle,
-    dynamic urlIdentifier,
-    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-    List<FwStandardDataFwCustomValue>? custom,
-    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-    FwStandardBusinessLogicFwBusinessLogic? original,
-    List<FwStandardDataFwTranslatedValue>? translation,
-    bool? hasImport,
-    bool? hasDocuments,
-    String? createdByUserId,
-    String? createdByUserName,
-    String? createdDateTime,
-    String? modifiedByUserId,
-    String? modifiedByUserName,
-    String? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: taskStepsId ?? this.taskStepsId,
-      taskId: taskId ?? this.taskId,
-      name: name ?? this.name,
-      stepNumber: stepNumber ?? this.stepNumber,
-      type: type ?? this.type,
-      command: command ?? this.command,
-      onSuccessActionDisplay:
-          onSuccessActionDisplay ?? this.onSuccessActionDisplay,
-      onFailureActionDisplay:
-          onFailureActionDisplay ?? this.onFailureActionDisplay,
-      onSuccessAction: onSuccessAction ?? this.onSuccessAction,
-      retryAttempts: retryAttempts ?? this.retryAttempts,
-      retryInterval: retryInterval ?? this.retryInterval,
-      onFailureAction: onFailureAction ?? this.onFailureAction,
-      onSuccessTaskStepsId: onSuccessTaskStepsId ?? this.onSuccessTaskStepsId,
-      onFailureTaskStepsId: onFailureTaskStepsId ?? this.onFailureTaskStepsId,
-      outputFilename: outputFilename ?? this.outputFilename,
-      lastRunOutcome: lastRunOutcome ?? this.lastRunOutcome,
-      lastRunDuration: lastRunDuration ?? this.lastRunDuration,
-      lastRunRetries: lastRunRetries ?? this.lastRunRetries,
-      dateStamp: dateStamp ?? this.dateStamp,
-      auditNote: auditNote ?? this.auditNote,
-      recordTitle: recordTitle ?? this.recordTitle,
-      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-      fields: fields ?? this.fields,
-      custom: custom ?? this.custom,
-      defaultFieldAttributes:
-          defaultFieldAttributes ?? this.defaultFieldAttributes,
-      original: original ?? this.original,
-      translation: translation ?? this.translation,
-      hasImport: hasImport ?? this.hasImport,
-      hasDocuments: hasDocuments ?? this.hasDocuments,
-      createdByUserId: createdByUserId ?? this.createdByUserId,
-      createdByUserName: createdByUserName ?? this.createdByUserName,
-      createdDateTime: createdDateTime ?? this.createdDateTime,
-      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
-    );
-  }
-
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWithWrapped({
-    Wrapped<int?>? taskStepsId,
-    Wrapped<int?>? taskId,
-    Wrapped<String?>? name,
-    Wrapped<int?>? stepNumber,
-    Wrapped<String?>? type,
-    Wrapped<String?>? command,
-    Wrapped<String?>? onSuccessActionDisplay,
-    Wrapped<String?>? onFailureActionDisplay,
-    Wrapped<int?>? onSuccessAction,
-    Wrapped<int?>? retryAttempts,
-    Wrapped<int?>? retryInterval,
-    Wrapped<int?>? onFailureAction,
-    Wrapped<int?>? onSuccessTaskStepsId,
-    Wrapped<int?>? onFailureTaskStepsId,
-    Wrapped<String?>? outputFilename,
-    Wrapped<int?>? lastRunOutcome,
-    Wrapped<int?>? lastRunDuration,
-    Wrapped<int?>? lastRunRetries,
-    Wrapped<String?>? dateStamp,
-    Wrapped<String?>? auditNote,
-    Wrapped<String?>? recordTitle,
-    Wrapped<dynamic>? urlIdentifier,
-    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-    fields,
-    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-    Wrapped<bool?>? hasImport,
-    Wrapped<bool?>? hasDocuments,
-    Wrapped<String?>? createdByUserId,
-    Wrapped<String?>? createdByUserName,
-    Wrapped<String?>? createdDateTime,
-    Wrapped<String?>? modifiedByUserId,
-    Wrapped<String?>? modifiedByUserName,
-    Wrapped<String?>? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: (taskStepsId != null ? taskStepsId.value : this.taskStepsId),
-      taskId: (taskId != null ? taskId.value : this.taskId),
-      name: (name != null ? name.value : this.name),
-      stepNumber: (stepNumber != null ? stepNumber.value : this.stepNumber),
-      type: (type != null ? type.value : this.type),
-      command: (command != null ? command.value : this.command),
-      onSuccessActionDisplay: (onSuccessActionDisplay != null
-          ? onSuccessActionDisplay.value
-          : this.onSuccessActionDisplay),
-      onFailureActionDisplay: (onFailureActionDisplay != null
-          ? onFailureActionDisplay.value
-          : this.onFailureActionDisplay),
-      onSuccessAction: (onSuccessAction != null
-          ? onSuccessAction.value
-          : this.onSuccessAction),
-      retryAttempts: (retryAttempts != null
-          ? retryAttempts.value
-          : this.retryAttempts),
-      retryInterval: (retryInterval != null
-          ? retryInterval.value
-          : this.retryInterval),
-      onFailureAction: (onFailureAction != null
-          ? onFailureAction.value
-          : this.onFailureAction),
-      onSuccessTaskStepsId: (onSuccessTaskStepsId != null
-          ? onSuccessTaskStepsId.value
-          : this.onSuccessTaskStepsId),
-      onFailureTaskStepsId: (onFailureTaskStepsId != null
-          ? onFailureTaskStepsId.value
-          : this.onFailureTaskStepsId),
-      outputFilename: (outputFilename != null
-          ? outputFilename.value
-          : this.outputFilename),
-      lastRunOutcome: (lastRunOutcome != null
-          ? lastRunOutcome.value
-          : this.lastRunOutcome),
-      lastRunDuration: (lastRunDuration != null
-          ? lastRunDuration.value
-          : this.lastRunDuration),
-      lastRunRetries: (lastRunRetries != null
-          ? lastRunRetries.value
-          : this.lastRunRetries),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
@@ -36750,6 +36449,1104 @@ extension $WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReport
 }
 
 @JsonSerializable(explicitToJson: true)
+class WebApiModulesIntegrationsStorefrontStorefrontSettings {
+  const WebApiModulesIntegrationsStorefrontStorefrontSettings({
+    this.isStorefrontEnabled,
+    this.isAnonymousAccessEnabled,
+    this.registerEnabled,
+    this.separateQuoteRequestsByCatalog,
+    this.makeQuoteRequestIntoOrderOnSubmission,
+    this.filterCatalogsByLocation,
+    this.phoneNoRequiredOnRegistrationForm,
+    this.showDescriptionOnCheckout,
+    this.isUniversity,
+    this.studentIdRequiredOnRegistrationForm,
+    this.autoplaySpeed,
+    this.autoplayImagesOnLandingPage,
+    this.autoplayImagesOnProductBrowser,
+    this.autoplayImagesOnProductDetails,
+    this.imagesTransitionEffect,
+    this.imagesTransitionSpeed,
+    this.homepageShowSiteHeader,
+    this.homepageShowHeroSection,
+    this.homepageHeroSectionHeading1,
+    this.homepageHeroSectionHeading2,
+    this.homepageHeroSectionHeading3,
+    this.homepageCatalogItemWidth,
+    this.homepageCatalogItemHeight,
+    this.homepageShowFooter,
+    this.homepageFooterText,
+    this.landingPageShowCategoryBrowser,
+    this.landingPageCategoryBrowserItemWidth,
+    this.showReservationHourFields,
+    this.toDateAdjustmentDays,
+    this.enableHoursOfOperation,
+    this.openTime,
+    this.closeTime,
+    this.enableOpenDays,
+    this.openSunday,
+    this.openMonday,
+    this.openTuesday,
+    this.openWednesday,
+    this.openThursday,
+    this.openFriday,
+    this.openSaturday,
+    this.showOwnedQty,
+    this.showAvailabilityCalendar,
+    this.initialAvailabilityCalendarView,
+  });
+
+  factory WebApiModulesIntegrationsStorefrontStorefrontSettings.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesIntegrationsStorefrontStorefrontSettingsFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsToJson(this);
+
+  @JsonKey(name: 'IsStorefrontEnabled', includeIfNull: false)
+  final bool? isStorefrontEnabled;
+  @JsonKey(name: 'IsAnonymousAccessEnabled', includeIfNull: false)
+  final bool? isAnonymousAccessEnabled;
+  @JsonKey(name: 'RegisterEnabled', includeIfNull: false)
+  final bool? registerEnabled;
+  @JsonKey(name: 'SeparateQuoteRequestsByCatalog', includeIfNull: false)
+  final bool? separateQuoteRequestsByCatalog;
+  @JsonKey(name: 'MakeQuoteRequestIntoOrderOnSubmission', includeIfNull: false)
+  final bool? makeQuoteRequestIntoOrderOnSubmission;
+  @JsonKey(name: 'FilterCatalogsByLocation', includeIfNull: false)
+  final bool? filterCatalogsByLocation;
+  @JsonKey(name: 'PhoneNoRequiredOnRegistrationForm', includeIfNull: false)
+  final bool? phoneNoRequiredOnRegistrationForm;
+  @JsonKey(name: 'ShowDescriptionOnCheckout', includeIfNull: false)
+  final bool? showDescriptionOnCheckout;
+  @JsonKey(name: 'IsUniversity', includeIfNull: false)
+  final bool? isUniversity;
+  @JsonKey(name: 'StudentIdRequiredOnRegistrationForm', includeIfNull: false)
+  final bool? studentIdRequiredOnRegistrationForm;
+  @JsonKey(name: 'AutoplaySpeed', includeIfNull: false)
+  final double? autoplaySpeed;
+  @JsonKey(name: 'AutoplayImagesOnLandingPage', includeIfNull: false)
+  final bool? autoplayImagesOnLandingPage;
+  @JsonKey(name: 'AutoplayImagesOnProductBrowser', includeIfNull: false)
+  final bool? autoplayImagesOnProductBrowser;
+  @JsonKey(name: 'AutoplayImagesOnProductDetails', includeIfNull: false)
+  final bool? autoplayImagesOnProductDetails;
+  @JsonKey(name: 'ImagesTransitionEffect', includeIfNull: false)
+  final String? imagesTransitionEffect;
+  @JsonKey(name: 'ImagesTransitionSpeed', includeIfNull: false)
+  final String? imagesTransitionSpeed;
+  @JsonKey(name: 'HomepageShowSiteHeader', includeIfNull: false)
+  final bool? homepageShowSiteHeader;
+  @JsonKey(name: 'HomepageShowHeroSection', includeIfNull: false)
+  final bool? homepageShowHeroSection;
+  @JsonKey(name: 'HomepageHeroSectionHeading1', includeIfNull: false)
+  final WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+  homepageHeroSectionHeading1;
+  @JsonKey(name: 'HomepageHeroSectionHeading2', includeIfNull: false)
+  final WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+  homepageHeroSectionHeading2;
+  @JsonKey(name: 'HomepageHeroSectionHeading3', includeIfNull: false)
+  final WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+  homepageHeroSectionHeading3;
+  @JsonKey(name: 'HomepageCatalogItemWidth', includeIfNull: false)
+  final String? homepageCatalogItemWidth;
+  @JsonKey(name: 'HomepageCatalogItemHeight', includeIfNull: false)
+  final String? homepageCatalogItemHeight;
+  @JsonKey(name: 'HomepageShowFooter', includeIfNull: false)
+  final bool? homepageShowFooter;
+  @JsonKey(name: 'HomepageFooterText', includeIfNull: false)
+  final WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+  homepageFooterText;
+  @JsonKey(name: 'LandingPageShowCategoryBrowser', includeIfNull: false)
+  final bool? landingPageShowCategoryBrowser;
+  @JsonKey(name: 'LandingPageCategoryBrowserItemWidth', includeIfNull: false)
+  final String? landingPageCategoryBrowserItemWidth;
+  @JsonKey(name: 'ShowReservationHourFields', includeIfNull: false)
+  final bool? showReservationHourFields;
+  @JsonKey(name: 'ToDateAdjustmentDays', includeIfNull: false)
+  final double? toDateAdjustmentDays;
+  @JsonKey(name: 'EnableHoursOfOperation', includeIfNull: false)
+  final bool? enableHoursOfOperation;
+  @JsonKey(name: 'OpenTime', includeIfNull: false)
+  final String? openTime;
+  @JsonKey(name: 'CloseTime', includeIfNull: false)
+  final String? closeTime;
+  @JsonKey(name: 'EnableOpenDays', includeIfNull: false)
+  final bool? enableOpenDays;
+  @JsonKey(name: 'OpenSunday', includeIfNull: false)
+  final bool? openSunday;
+  @JsonKey(name: 'OpenMonday', includeIfNull: false)
+  final bool? openMonday;
+  @JsonKey(name: 'OpenTuesday', includeIfNull: false)
+  final bool? openTuesday;
+  @JsonKey(name: 'OpenWednesday', includeIfNull: false)
+  final bool? openWednesday;
+  @JsonKey(name: 'OpenThursday', includeIfNull: false)
+  final bool? openThursday;
+  @JsonKey(name: 'OpenFriday', includeIfNull: false)
+  final bool? openFriday;
+  @JsonKey(name: 'OpenSaturday', includeIfNull: false)
+  final bool? openSaturday;
+  @JsonKey(name: 'ShowOwnedQty', includeIfNull: false)
+  final bool? showOwnedQty;
+  @JsonKey(name: 'ShowAvailabilityCalendar', includeIfNull: false)
+  final bool? showAvailabilityCalendar;
+  @JsonKey(name: 'InitialAvailabilityCalendarView', includeIfNull: false)
+  final String? initialAvailabilityCalendarView;
+  static const fromJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesIntegrationsStorefrontStorefrontSettings &&
+            (identical(other.isStorefrontEnabled, isStorefrontEnabled) ||
+                const DeepCollectionEquality().equals(
+                  other.isStorefrontEnabled,
+                  isStorefrontEnabled,
+                )) &&
+            (identical(
+                  other.isAnonymousAccessEnabled,
+                  isAnonymousAccessEnabled,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.isAnonymousAccessEnabled,
+                  isAnonymousAccessEnabled,
+                )) &&
+            (identical(other.registerEnabled, registerEnabled) ||
+                const DeepCollectionEquality().equals(
+                  other.registerEnabled,
+                  registerEnabled,
+                )) &&
+            (identical(
+                  other.separateQuoteRequestsByCatalog,
+                  separateQuoteRequestsByCatalog,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.separateQuoteRequestsByCatalog,
+                  separateQuoteRequestsByCatalog,
+                )) &&
+            (identical(
+                  other.makeQuoteRequestIntoOrderOnSubmission,
+                  makeQuoteRequestIntoOrderOnSubmission,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.makeQuoteRequestIntoOrderOnSubmission,
+                  makeQuoteRequestIntoOrderOnSubmission,
+                )) &&
+            (identical(
+                  other.filterCatalogsByLocation,
+                  filterCatalogsByLocation,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.filterCatalogsByLocation,
+                  filterCatalogsByLocation,
+                )) &&
+            (identical(
+                  other.phoneNoRequiredOnRegistrationForm,
+                  phoneNoRequiredOnRegistrationForm,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.phoneNoRequiredOnRegistrationForm,
+                  phoneNoRequiredOnRegistrationForm,
+                )) &&
+            (identical(
+                  other.showDescriptionOnCheckout,
+                  showDescriptionOnCheckout,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.showDescriptionOnCheckout,
+                  showDescriptionOnCheckout,
+                )) &&
+            (identical(other.isUniversity, isUniversity) ||
+                const DeepCollectionEquality().equals(
+                  other.isUniversity,
+                  isUniversity,
+                )) &&
+            (identical(
+                  other.studentIdRequiredOnRegistrationForm,
+                  studentIdRequiredOnRegistrationForm,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.studentIdRequiredOnRegistrationForm,
+                  studentIdRequiredOnRegistrationForm,
+                )) &&
+            (identical(other.autoplaySpeed, autoplaySpeed) ||
+                const DeepCollectionEquality().equals(
+                  other.autoplaySpeed,
+                  autoplaySpeed,
+                )) &&
+            (identical(
+                  other.autoplayImagesOnLandingPage,
+                  autoplayImagesOnLandingPage,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.autoplayImagesOnLandingPage,
+                  autoplayImagesOnLandingPage,
+                )) &&
+            (identical(
+                  other.autoplayImagesOnProductBrowser,
+                  autoplayImagesOnProductBrowser,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.autoplayImagesOnProductBrowser,
+                  autoplayImagesOnProductBrowser,
+                )) &&
+            (identical(
+                  other.autoplayImagesOnProductDetails,
+                  autoplayImagesOnProductDetails,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.autoplayImagesOnProductDetails,
+                  autoplayImagesOnProductDetails,
+                )) &&
+            (identical(other.imagesTransitionEffect, imagesTransitionEffect) ||
+                const DeepCollectionEquality().equals(
+                  other.imagesTransitionEffect,
+                  imagesTransitionEffect,
+                )) &&
+            (identical(other.imagesTransitionSpeed, imagesTransitionSpeed) ||
+                const DeepCollectionEquality().equals(
+                  other.imagesTransitionSpeed,
+                  imagesTransitionSpeed,
+                )) &&
+            (identical(other.homepageShowSiteHeader, homepageShowSiteHeader) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageShowSiteHeader,
+                  homepageShowSiteHeader,
+                )) &&
+            (identical(
+                  other.homepageShowHeroSection,
+                  homepageShowHeroSection,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageShowHeroSection,
+                  homepageShowHeroSection,
+                )) &&
+            (identical(
+                  other.homepageHeroSectionHeading1,
+                  homepageHeroSectionHeading1,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageHeroSectionHeading1,
+                  homepageHeroSectionHeading1,
+                )) &&
+            (identical(
+                  other.homepageHeroSectionHeading2,
+                  homepageHeroSectionHeading2,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageHeroSectionHeading2,
+                  homepageHeroSectionHeading2,
+                )) &&
+            (identical(
+                  other.homepageHeroSectionHeading3,
+                  homepageHeroSectionHeading3,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageHeroSectionHeading3,
+                  homepageHeroSectionHeading3,
+                )) &&
+            (identical(
+                  other.homepageCatalogItemWidth,
+                  homepageCatalogItemWidth,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageCatalogItemWidth,
+                  homepageCatalogItemWidth,
+                )) &&
+            (identical(
+                  other.homepageCatalogItemHeight,
+                  homepageCatalogItemHeight,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageCatalogItemHeight,
+                  homepageCatalogItemHeight,
+                )) &&
+            (identical(other.homepageShowFooter, homepageShowFooter) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageShowFooter,
+                  homepageShowFooter,
+                )) &&
+            (identical(other.homepageFooterText, homepageFooterText) ||
+                const DeepCollectionEquality().equals(
+                  other.homepageFooterText,
+                  homepageFooterText,
+                )) &&
+            (identical(
+                  other.landingPageShowCategoryBrowser,
+                  landingPageShowCategoryBrowser,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.landingPageShowCategoryBrowser,
+                  landingPageShowCategoryBrowser,
+                )) &&
+            (identical(
+                  other.landingPageCategoryBrowserItemWidth,
+                  landingPageCategoryBrowserItemWidth,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.landingPageCategoryBrowserItemWidth,
+                  landingPageCategoryBrowserItemWidth,
+                )) &&
+            (identical(
+                  other.showReservationHourFields,
+                  showReservationHourFields,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.showReservationHourFields,
+                  showReservationHourFields,
+                )) &&
+            (identical(other.toDateAdjustmentDays, toDateAdjustmentDays) ||
+                const DeepCollectionEquality().equals(
+                  other.toDateAdjustmentDays,
+                  toDateAdjustmentDays,
+                )) &&
+            (identical(other.enableHoursOfOperation, enableHoursOfOperation) ||
+                const DeepCollectionEquality().equals(
+                  other.enableHoursOfOperation,
+                  enableHoursOfOperation,
+                )) &&
+            (identical(other.openTime, openTime) ||
+                const DeepCollectionEquality().equals(
+                  other.openTime,
+                  openTime,
+                )) &&
+            (identical(other.closeTime, closeTime) ||
+                const DeepCollectionEquality().equals(
+                  other.closeTime,
+                  closeTime,
+                )) &&
+            (identical(other.enableOpenDays, enableOpenDays) ||
+                const DeepCollectionEquality().equals(
+                  other.enableOpenDays,
+                  enableOpenDays,
+                )) &&
+            (identical(other.openSunday, openSunday) ||
+                const DeepCollectionEquality().equals(
+                  other.openSunday,
+                  openSunday,
+                )) &&
+            (identical(other.openMonday, openMonday) ||
+                const DeepCollectionEquality().equals(
+                  other.openMonday,
+                  openMonday,
+                )) &&
+            (identical(other.openTuesday, openTuesday) ||
+                const DeepCollectionEquality().equals(
+                  other.openTuesday,
+                  openTuesday,
+                )) &&
+            (identical(other.openWednesday, openWednesday) ||
+                const DeepCollectionEquality().equals(
+                  other.openWednesday,
+                  openWednesday,
+                )) &&
+            (identical(other.openThursday, openThursday) ||
+                const DeepCollectionEquality().equals(
+                  other.openThursday,
+                  openThursday,
+                )) &&
+            (identical(other.openFriday, openFriday) ||
+                const DeepCollectionEquality().equals(
+                  other.openFriday,
+                  openFriday,
+                )) &&
+            (identical(other.openSaturday, openSaturday) ||
+                const DeepCollectionEquality().equals(
+                  other.openSaturday,
+                  openSaturday,
+                )) &&
+            (identical(other.showOwnedQty, showOwnedQty) ||
+                const DeepCollectionEquality().equals(
+                  other.showOwnedQty,
+                  showOwnedQty,
+                )) &&
+            (identical(
+                  other.showAvailabilityCalendar,
+                  showAvailabilityCalendar,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.showAvailabilityCalendar,
+                  showAvailabilityCalendar,
+                )) &&
+            (identical(
+                  other.initialAvailabilityCalendarView,
+                  initialAvailabilityCalendarView,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.initialAvailabilityCalendarView,
+                  initialAvailabilityCalendarView,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(isStorefrontEnabled) ^
+      const DeepCollectionEquality().hash(isAnonymousAccessEnabled) ^
+      const DeepCollectionEquality().hash(registerEnabled) ^
+      const DeepCollectionEquality().hash(separateQuoteRequestsByCatalog) ^
+      const DeepCollectionEquality().hash(
+        makeQuoteRequestIntoOrderOnSubmission,
+      ) ^
+      const DeepCollectionEquality().hash(filterCatalogsByLocation) ^
+      const DeepCollectionEquality().hash(phoneNoRequiredOnRegistrationForm) ^
+      const DeepCollectionEquality().hash(showDescriptionOnCheckout) ^
+      const DeepCollectionEquality().hash(isUniversity) ^
+      const DeepCollectionEquality().hash(studentIdRequiredOnRegistrationForm) ^
+      const DeepCollectionEquality().hash(autoplaySpeed) ^
+      const DeepCollectionEquality().hash(autoplayImagesOnLandingPage) ^
+      const DeepCollectionEquality().hash(autoplayImagesOnProductBrowser) ^
+      const DeepCollectionEquality().hash(autoplayImagesOnProductDetails) ^
+      const DeepCollectionEquality().hash(imagesTransitionEffect) ^
+      const DeepCollectionEquality().hash(imagesTransitionSpeed) ^
+      const DeepCollectionEquality().hash(homepageShowSiteHeader) ^
+      const DeepCollectionEquality().hash(homepageShowHeroSection) ^
+      const DeepCollectionEquality().hash(homepageHeroSectionHeading1) ^
+      const DeepCollectionEquality().hash(homepageHeroSectionHeading2) ^
+      const DeepCollectionEquality().hash(homepageHeroSectionHeading3) ^
+      const DeepCollectionEquality().hash(homepageCatalogItemWidth) ^
+      const DeepCollectionEquality().hash(homepageCatalogItemHeight) ^
+      const DeepCollectionEquality().hash(homepageShowFooter) ^
+      const DeepCollectionEquality().hash(homepageFooterText) ^
+      const DeepCollectionEquality().hash(landingPageShowCategoryBrowser) ^
+      const DeepCollectionEquality().hash(landingPageCategoryBrowserItemWidth) ^
+      const DeepCollectionEquality().hash(showReservationHourFields) ^
+      const DeepCollectionEquality().hash(toDateAdjustmentDays) ^
+      const DeepCollectionEquality().hash(enableHoursOfOperation) ^
+      const DeepCollectionEquality().hash(openTime) ^
+      const DeepCollectionEquality().hash(closeTime) ^
+      const DeepCollectionEquality().hash(enableOpenDays) ^
+      const DeepCollectionEquality().hash(openSunday) ^
+      const DeepCollectionEquality().hash(openMonday) ^
+      const DeepCollectionEquality().hash(openTuesday) ^
+      const DeepCollectionEquality().hash(openWednesday) ^
+      const DeepCollectionEquality().hash(openThursday) ^
+      const DeepCollectionEquality().hash(openFriday) ^
+      const DeepCollectionEquality().hash(openSaturday) ^
+      const DeepCollectionEquality().hash(showOwnedQty) ^
+      const DeepCollectionEquality().hash(showAvailabilityCalendar) ^
+      const DeepCollectionEquality().hash(initialAvailabilityCalendarView) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsExtension
+    on WebApiModulesIntegrationsStorefrontStorefrontSettings {
+  WebApiModulesIntegrationsStorefrontStorefrontSettings copyWith({
+    bool? isStorefrontEnabled,
+    bool? isAnonymousAccessEnabled,
+    bool? registerEnabled,
+    bool? separateQuoteRequestsByCatalog,
+    bool? makeQuoteRequestIntoOrderOnSubmission,
+    bool? filterCatalogsByLocation,
+    bool? phoneNoRequiredOnRegistrationForm,
+    bool? showDescriptionOnCheckout,
+    bool? isUniversity,
+    bool? studentIdRequiredOnRegistrationForm,
+    double? autoplaySpeed,
+    bool? autoplayImagesOnLandingPage,
+    bool? autoplayImagesOnProductBrowser,
+    bool? autoplayImagesOnProductDetails,
+    String? imagesTransitionEffect,
+    String? imagesTransitionSpeed,
+    bool? homepageShowSiteHeader,
+    bool? homepageShowHeroSection,
+    WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+    homepageHeroSectionHeading1,
+    WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+    homepageHeroSectionHeading2,
+    WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+    homepageHeroSectionHeading3,
+    String? homepageCatalogItemWidth,
+    String? homepageCatalogItemHeight,
+    bool? homepageShowFooter,
+    WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?
+    homepageFooterText,
+    bool? landingPageShowCategoryBrowser,
+    String? landingPageCategoryBrowserItemWidth,
+    bool? showReservationHourFields,
+    double? toDateAdjustmentDays,
+    bool? enableHoursOfOperation,
+    String? openTime,
+    String? closeTime,
+    bool? enableOpenDays,
+    bool? openSunday,
+    bool? openMonday,
+    bool? openTuesday,
+    bool? openWednesday,
+    bool? openThursday,
+    bool? openFriday,
+    bool? openSaturday,
+    bool? showOwnedQty,
+    bool? showAvailabilityCalendar,
+    String? initialAvailabilityCalendarView,
+  }) {
+    return WebApiModulesIntegrationsStorefrontStorefrontSettings(
+      isStorefrontEnabled: isStorefrontEnabled ?? this.isStorefrontEnabled,
+      isAnonymousAccessEnabled:
+          isAnonymousAccessEnabled ?? this.isAnonymousAccessEnabled,
+      registerEnabled: registerEnabled ?? this.registerEnabled,
+      separateQuoteRequestsByCatalog:
+          separateQuoteRequestsByCatalog ?? this.separateQuoteRequestsByCatalog,
+      makeQuoteRequestIntoOrderOnSubmission:
+          makeQuoteRequestIntoOrderOnSubmission ??
+          this.makeQuoteRequestIntoOrderOnSubmission,
+      filterCatalogsByLocation:
+          filterCatalogsByLocation ?? this.filterCatalogsByLocation,
+      phoneNoRequiredOnRegistrationForm:
+          phoneNoRequiredOnRegistrationForm ??
+          this.phoneNoRequiredOnRegistrationForm,
+      showDescriptionOnCheckout:
+          showDescriptionOnCheckout ?? this.showDescriptionOnCheckout,
+      isUniversity: isUniversity ?? this.isUniversity,
+      studentIdRequiredOnRegistrationForm:
+          studentIdRequiredOnRegistrationForm ??
+          this.studentIdRequiredOnRegistrationForm,
+      autoplaySpeed: autoplaySpeed ?? this.autoplaySpeed,
+      autoplayImagesOnLandingPage:
+          autoplayImagesOnLandingPage ?? this.autoplayImagesOnLandingPage,
+      autoplayImagesOnProductBrowser:
+          autoplayImagesOnProductBrowser ?? this.autoplayImagesOnProductBrowser,
+      autoplayImagesOnProductDetails:
+          autoplayImagesOnProductDetails ?? this.autoplayImagesOnProductDetails,
+      imagesTransitionEffect:
+          imagesTransitionEffect ?? this.imagesTransitionEffect,
+      imagesTransitionSpeed:
+          imagesTransitionSpeed ?? this.imagesTransitionSpeed,
+      homepageShowSiteHeader:
+          homepageShowSiteHeader ?? this.homepageShowSiteHeader,
+      homepageShowHeroSection:
+          homepageShowHeroSection ?? this.homepageShowHeroSection,
+      homepageHeroSectionHeading1:
+          homepageHeroSectionHeading1 ?? this.homepageHeroSectionHeading1,
+      homepageHeroSectionHeading2:
+          homepageHeroSectionHeading2 ?? this.homepageHeroSectionHeading2,
+      homepageHeroSectionHeading3:
+          homepageHeroSectionHeading3 ?? this.homepageHeroSectionHeading3,
+      homepageCatalogItemWidth:
+          homepageCatalogItemWidth ?? this.homepageCatalogItemWidth,
+      homepageCatalogItemHeight:
+          homepageCatalogItemHeight ?? this.homepageCatalogItemHeight,
+      homepageShowFooter: homepageShowFooter ?? this.homepageShowFooter,
+      homepageFooterText: homepageFooterText ?? this.homepageFooterText,
+      landingPageShowCategoryBrowser:
+          landingPageShowCategoryBrowser ?? this.landingPageShowCategoryBrowser,
+      landingPageCategoryBrowserItemWidth:
+          landingPageCategoryBrowserItemWidth ??
+          this.landingPageCategoryBrowserItemWidth,
+      showReservationHourFields:
+          showReservationHourFields ?? this.showReservationHourFields,
+      toDateAdjustmentDays: toDateAdjustmentDays ?? this.toDateAdjustmentDays,
+      enableHoursOfOperation:
+          enableHoursOfOperation ?? this.enableHoursOfOperation,
+      openTime: openTime ?? this.openTime,
+      closeTime: closeTime ?? this.closeTime,
+      enableOpenDays: enableOpenDays ?? this.enableOpenDays,
+      openSunday: openSunday ?? this.openSunday,
+      openMonday: openMonday ?? this.openMonday,
+      openTuesday: openTuesday ?? this.openTuesday,
+      openWednesday: openWednesday ?? this.openWednesday,
+      openThursday: openThursday ?? this.openThursday,
+      openFriday: openFriday ?? this.openFriday,
+      openSaturday: openSaturday ?? this.openSaturday,
+      showOwnedQty: showOwnedQty ?? this.showOwnedQty,
+      showAvailabilityCalendar:
+          showAvailabilityCalendar ?? this.showAvailabilityCalendar,
+      initialAvailabilityCalendarView:
+          initialAvailabilityCalendarView ??
+          this.initialAvailabilityCalendarView,
+    );
+  }
+
+  WebApiModulesIntegrationsStorefrontStorefrontSettings copyWithWrapped({
+    Wrapped<bool?>? isStorefrontEnabled,
+    Wrapped<bool?>? isAnonymousAccessEnabled,
+    Wrapped<bool?>? registerEnabled,
+    Wrapped<bool?>? separateQuoteRequestsByCatalog,
+    Wrapped<bool?>? makeQuoteRequestIntoOrderOnSubmission,
+    Wrapped<bool?>? filterCatalogsByLocation,
+    Wrapped<bool?>? phoneNoRequiredOnRegistrationForm,
+    Wrapped<bool?>? showDescriptionOnCheckout,
+    Wrapped<bool?>? isUniversity,
+    Wrapped<bool?>? studentIdRequiredOnRegistrationForm,
+    Wrapped<double?>? autoplaySpeed,
+    Wrapped<bool?>? autoplayImagesOnLandingPage,
+    Wrapped<bool?>? autoplayImagesOnProductBrowser,
+    Wrapped<bool?>? autoplayImagesOnProductDetails,
+    Wrapped<String?>? imagesTransitionEffect,
+    Wrapped<String?>? imagesTransitionSpeed,
+    Wrapped<bool?>? homepageShowSiteHeader,
+    Wrapped<bool?>? homepageShowHeroSection,
+    Wrapped<WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?>?
+    homepageHeroSectionHeading1,
+    Wrapped<WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?>?
+    homepageHeroSectionHeading2,
+    Wrapped<WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?>?
+    homepageHeroSectionHeading3,
+    Wrapped<String?>? homepageCatalogItemWidth,
+    Wrapped<String?>? homepageCatalogItemHeight,
+    Wrapped<bool?>? homepageShowFooter,
+    Wrapped<WebApiModulesIntegrationsStorefrontStorefrontTranslatedText?>?
+    homepageFooterText,
+    Wrapped<bool?>? landingPageShowCategoryBrowser,
+    Wrapped<String?>? landingPageCategoryBrowserItemWidth,
+    Wrapped<bool?>? showReservationHourFields,
+    Wrapped<double?>? toDateAdjustmentDays,
+    Wrapped<bool?>? enableHoursOfOperation,
+    Wrapped<String?>? openTime,
+    Wrapped<String?>? closeTime,
+    Wrapped<bool?>? enableOpenDays,
+    Wrapped<bool?>? openSunday,
+    Wrapped<bool?>? openMonday,
+    Wrapped<bool?>? openTuesday,
+    Wrapped<bool?>? openWednesday,
+    Wrapped<bool?>? openThursday,
+    Wrapped<bool?>? openFriday,
+    Wrapped<bool?>? openSaturday,
+    Wrapped<bool?>? showOwnedQty,
+    Wrapped<bool?>? showAvailabilityCalendar,
+    Wrapped<String?>? initialAvailabilityCalendarView,
+  }) {
+    return WebApiModulesIntegrationsStorefrontStorefrontSettings(
+      isStorefrontEnabled: (isStorefrontEnabled != null
+          ? isStorefrontEnabled.value
+          : this.isStorefrontEnabled),
+      isAnonymousAccessEnabled: (isAnonymousAccessEnabled != null
+          ? isAnonymousAccessEnabled.value
+          : this.isAnonymousAccessEnabled),
+      registerEnabled: (registerEnabled != null
+          ? registerEnabled.value
+          : this.registerEnabled),
+      separateQuoteRequestsByCatalog: (separateQuoteRequestsByCatalog != null
+          ? separateQuoteRequestsByCatalog.value
+          : this.separateQuoteRequestsByCatalog),
+      makeQuoteRequestIntoOrderOnSubmission:
+          (makeQuoteRequestIntoOrderOnSubmission != null
+          ? makeQuoteRequestIntoOrderOnSubmission.value
+          : this.makeQuoteRequestIntoOrderOnSubmission),
+      filterCatalogsByLocation: (filterCatalogsByLocation != null
+          ? filterCatalogsByLocation.value
+          : this.filterCatalogsByLocation),
+      phoneNoRequiredOnRegistrationForm:
+          (phoneNoRequiredOnRegistrationForm != null
+          ? phoneNoRequiredOnRegistrationForm.value
+          : this.phoneNoRequiredOnRegistrationForm),
+      showDescriptionOnCheckout: (showDescriptionOnCheckout != null
+          ? showDescriptionOnCheckout.value
+          : this.showDescriptionOnCheckout),
+      isUniversity: (isUniversity != null
+          ? isUniversity.value
+          : this.isUniversity),
+      studentIdRequiredOnRegistrationForm:
+          (studentIdRequiredOnRegistrationForm != null
+          ? studentIdRequiredOnRegistrationForm.value
+          : this.studentIdRequiredOnRegistrationForm),
+      autoplaySpeed: (autoplaySpeed != null
+          ? autoplaySpeed.value
+          : this.autoplaySpeed),
+      autoplayImagesOnLandingPage: (autoplayImagesOnLandingPage != null
+          ? autoplayImagesOnLandingPage.value
+          : this.autoplayImagesOnLandingPage),
+      autoplayImagesOnProductBrowser: (autoplayImagesOnProductBrowser != null
+          ? autoplayImagesOnProductBrowser.value
+          : this.autoplayImagesOnProductBrowser),
+      autoplayImagesOnProductDetails: (autoplayImagesOnProductDetails != null
+          ? autoplayImagesOnProductDetails.value
+          : this.autoplayImagesOnProductDetails),
+      imagesTransitionEffect: (imagesTransitionEffect != null
+          ? imagesTransitionEffect.value
+          : this.imagesTransitionEffect),
+      imagesTransitionSpeed: (imagesTransitionSpeed != null
+          ? imagesTransitionSpeed.value
+          : this.imagesTransitionSpeed),
+      homepageShowSiteHeader: (homepageShowSiteHeader != null
+          ? homepageShowSiteHeader.value
+          : this.homepageShowSiteHeader),
+      homepageShowHeroSection: (homepageShowHeroSection != null
+          ? homepageShowHeroSection.value
+          : this.homepageShowHeroSection),
+      homepageHeroSectionHeading1: (homepageHeroSectionHeading1 != null
+          ? homepageHeroSectionHeading1.value
+          : this.homepageHeroSectionHeading1),
+      homepageHeroSectionHeading2: (homepageHeroSectionHeading2 != null
+          ? homepageHeroSectionHeading2.value
+          : this.homepageHeroSectionHeading2),
+      homepageHeroSectionHeading3: (homepageHeroSectionHeading3 != null
+          ? homepageHeroSectionHeading3.value
+          : this.homepageHeroSectionHeading3),
+      homepageCatalogItemWidth: (homepageCatalogItemWidth != null
+          ? homepageCatalogItemWidth.value
+          : this.homepageCatalogItemWidth),
+      homepageCatalogItemHeight: (homepageCatalogItemHeight != null
+          ? homepageCatalogItemHeight.value
+          : this.homepageCatalogItemHeight),
+      homepageShowFooter: (homepageShowFooter != null
+          ? homepageShowFooter.value
+          : this.homepageShowFooter),
+      homepageFooterText: (homepageFooterText != null
+          ? homepageFooterText.value
+          : this.homepageFooterText),
+      landingPageShowCategoryBrowser: (landingPageShowCategoryBrowser != null
+          ? landingPageShowCategoryBrowser.value
+          : this.landingPageShowCategoryBrowser),
+      landingPageCategoryBrowserItemWidth:
+          (landingPageCategoryBrowserItemWidth != null
+          ? landingPageCategoryBrowserItemWidth.value
+          : this.landingPageCategoryBrowserItemWidth),
+      showReservationHourFields: (showReservationHourFields != null
+          ? showReservationHourFields.value
+          : this.showReservationHourFields),
+      toDateAdjustmentDays: (toDateAdjustmentDays != null
+          ? toDateAdjustmentDays.value
+          : this.toDateAdjustmentDays),
+      enableHoursOfOperation: (enableHoursOfOperation != null
+          ? enableHoursOfOperation.value
+          : this.enableHoursOfOperation),
+      openTime: (openTime != null ? openTime.value : this.openTime),
+      closeTime: (closeTime != null ? closeTime.value : this.closeTime),
+      enableOpenDays: (enableOpenDays != null
+          ? enableOpenDays.value
+          : this.enableOpenDays),
+      openSunday: (openSunday != null ? openSunday.value : this.openSunday),
+      openMonday: (openMonday != null ? openMonday.value : this.openMonday),
+      openTuesday: (openTuesday != null ? openTuesday.value : this.openTuesday),
+      openWednesday: (openWednesday != null
+          ? openWednesday.value
+          : this.openWednesday),
+      openThursday: (openThursday != null
+          ? openThursday.value
+          : this.openThursday),
+      openFriday: (openFriday != null ? openFriday.value : this.openFriday),
+      openSaturday: (openSaturday != null
+          ? openSaturday.value
+          : this.openSaturday),
+      showOwnedQty: (showOwnedQty != null
+          ? showOwnedQty.value
+          : this.showOwnedQty),
+      showAvailabilityCalendar: (showAvailabilityCalendar != null
+          ? showAvailabilityCalendar.value
+          : this.showAvailabilityCalendar),
+      initialAvailabilityCalendarView: (initialAvailabilityCalendarView != null
+          ? initialAvailabilityCalendarView.value
+          : this.initialAvailabilityCalendarView),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema {
+  const WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema({
+    this.group,
+    this.caption,
+    this.propertyName,
+    this.dataType,
+    this.description,
+    this.validValues,
+  });
+
+  factory WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaToJson(
+        this,
+      );
+
+  @JsonKey(name: 'Group', includeIfNull: false)
+  final String? group;
+  @JsonKey(name: 'Caption', includeIfNull: false)
+  final String? caption;
+  @JsonKey(name: 'PropertyName', includeIfNull: false)
+  final String? propertyName;
+  @JsonKey(
+    name: 'DataType',
+    includeIfNull: false,
+    toJson:
+        webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesNullableToJson,
+    fromJson:
+        webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesNullableFromJson,
+  )
+  final enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes?
+  dataType;
+  @JsonKey(name: 'Description', includeIfNull: false)
+  final String? description;
+  @JsonKey(
+    name: 'ValidValues',
+    includeIfNull: false,
+    defaultValue:
+        <
+          WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+        >[],
+  )
+  final List<
+    WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+  >?
+  validValues;
+  static const fromJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema &&
+            (identical(other.group, group) ||
+                const DeepCollectionEquality().equals(other.group, group)) &&
+            (identical(other.caption, caption) ||
+                const DeepCollectionEquality().equals(
+                  other.caption,
+                  caption,
+                )) &&
+            (identical(other.propertyName, propertyName) ||
+                const DeepCollectionEquality().equals(
+                  other.propertyName,
+                  propertyName,
+                )) &&
+            (identical(other.dataType, dataType) ||
+                const DeepCollectionEquality().equals(
+                  other.dataType,
+                  dataType,
+                )) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality().equals(
+                  other.description,
+                  description,
+                )) &&
+            (identical(other.validValues, validValues) ||
+                const DeepCollectionEquality().equals(
+                  other.validValues,
+                  validValues,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(group) ^
+      const DeepCollectionEquality().hash(caption) ^
+      const DeepCollectionEquality().hash(propertyName) ^
+      const DeepCollectionEquality().hash(dataType) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(validValues) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaExtension
+    on WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema {
+  WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema copyWith({
+    String? group,
+    String? caption,
+    String? propertyName,
+    enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes?
+    dataType,
+    String? description,
+    List<
+      WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+    >?
+    validValues,
+  }) {
+    return WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema(
+      group: group ?? this.group,
+      caption: caption ?? this.caption,
+      propertyName: propertyName ?? this.propertyName,
+      dataType: dataType ?? this.dataType,
+      description: description ?? this.description,
+      validValues: validValues ?? this.validValues,
+    );
+  }
+
+  WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema
+  copyWithWrapped({
+    Wrapped<String?>? group,
+    Wrapped<String?>? caption,
+    Wrapped<String?>? propertyName,
+    Wrapped<
+      enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes?
+    >?
+    dataType,
+    Wrapped<String?>? description,
+    Wrapped<
+      List<
+        WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+      >?
+    >?
+    validValues,
+  }) {
+    return WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema(
+      group: (group != null ? group.value : this.group),
+      caption: (caption != null ? caption.value : this.caption),
+      propertyName: (propertyName != null
+          ? propertyName.value
+          : this.propertyName),
+      dataType: (dataType != null ? dataType.value : this.dataType),
+      description: (description != null ? description.value : this.description),
+      validValues: (validValues != null ? validValues.value : this.validValues),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue {
+  const WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue({
+    this.caption,
+    this.value,
+  });
+
+  factory WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueToJson(
+        this,
+      );
+
+  @JsonKey(name: 'caption', includeIfNull: false)
+  final String? caption;
+  @JsonKey(name: 'value', includeIfNull: false)
+  final String? value;
+  static const fromJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue &&
+            (identical(other.caption, caption) ||
+                const DeepCollectionEquality().equals(
+                  other.caption,
+                  caption,
+                )) &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(caption) ^
+      const DeepCollectionEquality().hash(value) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueExtension
+    on WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue {
+  WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+  copyWith({String? caption, String? value}) {
+    return WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue(
+      caption: caption ?? this.caption,
+      value: value ?? this.value,
+    );
+  }
+
+  WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+  copyWithWrapped({Wrapped<String?>? caption, Wrapped<String?>? value}) {
+    return WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue(
+      caption: (caption != null ? caption.value : this.caption),
+      value: (value != null ? value.value : this.value),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesIntegrationsStorefrontStorefrontTranslatedText {
+  const WebApiModulesIntegrationsStorefrontStorefrontTranslatedText({
+    this.en,
+    this.es,
+    this.fr,
+  });
+
+  factory WebApiModulesIntegrationsStorefrontStorefrontTranslatedText.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextToJson(this);
+
+  @JsonKey(name: 'en', includeIfNull: false)
+  final String? en;
+  @JsonKey(name: 'es', includeIfNull: false)
+  final String? es;
+  @JsonKey(name: 'fr', includeIfNull: false)
+  final String? fr;
+  static const fromJsonFactory =
+      _$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesIntegrationsStorefrontStorefrontTranslatedText &&
+            (identical(other.en, en) ||
+                const DeepCollectionEquality().equals(other.en, en)) &&
+            (identical(other.es, es) ||
+                const DeepCollectionEquality().equals(other.es, es)) &&
+            (identical(other.fr, fr) ||
+                const DeepCollectionEquality().equals(other.fr, fr)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(en) ^
+      const DeepCollectionEquality().hash(es) ^
+      const DeepCollectionEquality().hash(fr) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextExtension
+    on WebApiModulesIntegrationsStorefrontStorefrontTranslatedText {
+  WebApiModulesIntegrationsStorefrontStorefrontTranslatedText copyWith({
+    String? en,
+    String? es,
+    String? fr,
+  }) {
+    return WebApiModulesIntegrationsStorefrontStorefrontTranslatedText(
+      en: en ?? this.en,
+      es: es ?? this.es,
+      fr: fr ?? this.fr,
+    );
+  }
+
+  WebApiModulesIntegrationsStorefrontStorefrontTranslatedText copyWithWrapped({
+    Wrapped<String?>? en,
+    Wrapped<String?>? es,
+    Wrapped<String?>? fr,
+  }) {
+    return WebApiModulesIntegrationsStorefrontStorefrontTranslatedText(
+      en: (en != null ? en.value : this.en),
+      es: (es != null ? es.value : this.es),
+      fr: (fr != null ? fr.value : this.fr),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser {
   const WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser({
     this.customReportLayoutUserId,
@@ -37324,6 +38121,145 @@ fwStandardSqlServerFwDataTypesNullableListFromJson(
 }
 
 String?
+webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesNullableToJson(
+  enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes?
+  webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes,
+) {
+  return webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+      ?.value;
+}
+
+String?
+webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesToJson(
+  enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+  webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes,
+) {
+  return webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+      .value;
+}
+
+enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesFromJson(
+  Object?
+  webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes, [
+  enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes?
+  defaultValue,
+]) {
+  return enums
+          .WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+          .values
+          .firstWhereOrNull(
+            (e) =>
+                e.value ==
+                webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes,
+          ) ??
+      defaultValue ??
+      enums
+          .WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+          .swaggerGeneratedUnknown;
+}
+
+enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes?
+webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesNullableFromJson(
+  Object?
+  webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes, [
+  enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes?
+  defaultValue,
+]) {
+  if (webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes ==
+      null) {
+    return null;
+  }
+  return enums
+          .WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+          .values
+          .firstWhereOrNull(
+            (e) =>
+                e.value ==
+                webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes,
+          ) ??
+      defaultValue;
+}
+
+String
+webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesExplodedListToJson(
+  List<
+    enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+  >?
+  webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes,
+) {
+  return webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+          ?.map((e) => e.value!)
+          .join(',') ??
+      '';
+}
+
+List<String>
+webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesListToJson(
+  List<
+    enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+  >?
+  webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes,
+) {
+  if (webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes ==
+      null) {
+    return [];
+  }
+
+  return webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+      .map((e) => e.value!)
+      .toList();
+}
+
+List<enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes>
+webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesListFromJson(
+  List? webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes, [
+  List<
+    enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+  >?
+  defaultValue,
+]) {
+  if (webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes ==
+      null) {
+    return defaultValue ?? [];
+  }
+
+  return webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+      .map(
+        (e) =>
+            webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesFromJson(
+              e.toString(),
+            ),
+      )
+      .toList();
+}
+
+List<
+  enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+>?
+webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesNullableListFromJson(
+  List? webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes, [
+  List<
+    enums.WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+  >?
+  defaultValue,
+]) {
+  if (webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes ==
+      null) {
+    return defaultValue;
+  }
+
+  return webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes
+      .map(
+        (e) =>
+            webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesFromJson(
+              e.toString(),
+            ),
+      )
+      .toList();
+}
+
+String?
 webApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertyDataTypesNullableToJson(
   enums.WebApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertyDataTypes?
   webApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertyDataTypes,
@@ -37466,6 +38402,149 @@ webApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertyDataTypesNullable
       .toList();
 }
 
+String?
+webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesNullableToJson(
+  enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes?
+  webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes,
+) {
+  return webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+      ?.value;
+}
+
+String?
+webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesToJson(
+  enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+  webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes,
+) {
+  return webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+      .value;
+}
+
+enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesFromJson(
+  Object?
+  webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes, [
+  enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes?
+  defaultValue,
+]) {
+  return enums
+          .WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+          .values
+          .firstWhereOrNull(
+            (e) =>
+                e.value ==
+                webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes,
+          ) ??
+      defaultValue ??
+      enums
+          .WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+          .swaggerGeneratedUnknown;
+}
+
+enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes?
+webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesNullableFromJson(
+  Object?
+  webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes, [
+  enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes?
+  defaultValue,
+]) {
+  if (webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes ==
+      null) {
+    return null;
+  }
+  return enums
+          .WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+          .values
+          .firstWhereOrNull(
+            (e) =>
+                e.value ==
+                webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes,
+          ) ??
+      defaultValue;
+}
+
+String
+webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesExplodedListToJson(
+  List<
+    enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+  >?
+  webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes,
+) {
+  return webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+          ?.map((e) => e.value!)
+          .join(',') ??
+      '';
+}
+
+List<String>
+webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesListToJson(
+  List<
+    enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+  >?
+  webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes,
+) {
+  if (webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes ==
+      null) {
+    return [];
+  }
+
+  return webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+      .map((e) => e.value!)
+      .toList();
+}
+
+List<
+  enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+>
+webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesListFromJson(
+  List?
+  webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes, [
+  List<
+    enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+  >?
+  defaultValue,
+]) {
+  if (webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes ==
+      null) {
+    return defaultValue ?? [];
+  }
+
+  return webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+      .map(
+        (e) =>
+            webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesFromJson(
+              e.toString(),
+            ),
+      )
+      .toList();
+}
+
+List<
+  enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+>?
+webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesNullableListFromJson(
+  List?
+  webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes, [
+  List<
+    enums.WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+  >?
+  defaultValue,
+]) {
+  if (webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes ==
+      null) {
+    return defaultValue;
+  }
+
+  return webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes
+      .map(
+        (e) =>
+            webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesFromJson(
+              e.toString(),
+            ),
+      )
+      .toList();
+}
+
 typedef $JsonFactory<T> = T Function(Map<String, dynamic> json);
 
 class $CustomJsonDecoder {
@@ -37527,9 +38606,9 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
 
     if (ResultType == DateTime) {
       return response.copyWith(
-        body:
-            DateTime.parse((response.body as String).replaceAll('"', ''))
-                as ResultType,
+        body: DateTime.parse(
+          (response.body as String).replaceAll('"', ''),
+        ) as ResultType,
       );
     }
 

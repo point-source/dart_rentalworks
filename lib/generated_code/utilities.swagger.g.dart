@@ -27,6 +27,43 @@ _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
   instance,
 ) => <String, dynamic>{'downloadUrl': ?instance.downloadUrl};
 
+FwCoreControllersGetServerUtcDateTimeResponse
+_$FwCoreControllersGetServerUtcDateTimeResponseFromJson(
+  Map<String, dynamic> json,
+) => FwCoreControllersGetServerUtcDateTimeResponse(
+  serverUtcDateTime: json['ServerUtcDateTime'] == null
+      ? null
+      : DateTime.parse(json['ServerUtcDateTime'] as String),
+);
+
+Map<String, dynamic> _$FwCoreControllersGetServerUtcDateTimeResponseToJson(
+  FwCoreControllersGetServerUtcDateTimeResponse instance,
+) => <String, dynamic>{
+  'ServerUtcDateTime': ?instance.serverUtcDateTime?.toIso8601String(),
+};
+
+FwCoreServicesJobFwJobStatusResponse
+_$FwCoreServicesJobFwJobStatusResponseFromJson(Map<String, dynamic> json) =>
+    FwCoreServicesJobFwJobStatusResponse(
+      isComplete: json['IsComplete'] as bool?,
+      isError: json['IsError'] as bool?,
+      errorMessage: json['ErrorMessage'] as String?,
+      statusMessage: json['StatusMessage'] as String?,
+      percentComplete: (json['PercentComplete'] as num?)?.toInt(),
+      result: json['Result'],
+    );
+
+Map<String, dynamic> _$FwCoreServicesJobFwJobStatusResponseToJson(
+  FwCoreServicesJobFwJobStatusResponse instance,
+) => <String, dynamic>{
+  'IsComplete': ?instance.isComplete,
+  'IsError': ?instance.isError,
+  'ErrorMessage': ?instance.errorMessage,
+  'StatusMessage': ?instance.statusMessage,
+  'PercentComplete': ?instance.percentComplete,
+  'Result': ?instance.result,
+};
+
 FwStandardBusinessLogicFwAppImageLogicEmailRequest
 _$FwStandardBusinessLogicFwAppImageLogicEmailRequestFromJson(
   Map<String, dynamic> json,
@@ -310,7 +347,8 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
-  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toDouble(),
+  locale: json['Locale'] as String?,
 );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -343,6 +381,7 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
   'timezoneOffset': ?instance.timezoneOffset,
+  'Locale': ?instance.locale,
 };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
@@ -423,39 +462,6 @@ Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
   'Field': instance.field,
   'Op': instance.op,
   'Value': ?instance.value,
-};
-
-FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-  Map<String, dynamic> json,
-) =>
-    FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items:
-          (json['Items'] as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-                      e as Map<String, dynamic>,
-                    ),
-              )
-              .toList() ??
-          [],
-      pageNo: (json['PageNo'] as num?)?.toInt(),
-      pageSize: (json['PageSize'] as num?)?.toInt(),
-      totalItems: (json['TotalItems'] as num?)?.toInt(),
-      sort: json['Sort'] as String?,
-    );
-
-Map<String, dynamic>
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  instance,
-) => <String, dynamic>{
-  'Items': ?instance.items?.map((e) => e.toJson()).toList(),
-  'PageNo': ?instance.pageNo,
-  'PageSize': ?instance.pageSize,
-  'TotalItems': ?instance.totalItems,
-  'Sort': ?instance.sort,
 };
 
 FwStandardModelsFwQueryResponseWebApiModulesAgentDealDealLogic
@@ -1075,7 +1081,7 @@ _$FwStandardModulesSettingsWidgetSettingsWidgetWidgetFromJson(
   toDate: json['toDate'] == null
       ? null
       : DateTime.parse(json['toDate'] as String),
-  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toDouble(),
   type: json['type'] as String?,
   data: json['data'] == null
       ? null
@@ -1950,125 +1956,6 @@ _$MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesWebImportRecordWebImpo
   'Value': ?instance.value?.toJson(),
 };
 
-WebApiModulesAdministratorTaskSchedulerTaskSteps
-_$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesAdministratorTaskSchedulerTaskSteps(
-  taskStepsId: (json['TaskStepsId'] as num?)?.toInt(),
-  taskId: (json['TaskId'] as num?)?.toInt(),
-  name: json['Name'] as String?,
-  stepNumber: (json['StepNumber'] as num?)?.toInt(),
-  type: json['Type'] as String?,
-  command: json['Command'] as String?,
-  onSuccessActionDisplay: json['OnSuccessActionDisplay'] as String?,
-  onFailureActionDisplay: json['OnFailureActionDisplay'] as String?,
-  onSuccessAction: (json['OnSuccessAction'] as num?)?.toInt(),
-  retryAttempts: (json['RetryAttempts'] as num?)?.toInt(),
-  retryInterval: (json['RetryInterval'] as num?)?.toInt(),
-  onFailureAction: (json['OnFailureAction'] as num?)?.toInt(),
-  onSuccessTaskStepsId: (json['OnSuccessTaskStepsId'] as num?)?.toInt(),
-  onFailureTaskStepsId: (json['OnFailureTaskStepsId'] as num?)?.toInt(),
-  outputFilename: json['OutputFilename'] as String?,
-  lastRunOutcome: (json['LastRunOutcome'] as num?)?.toInt(),
-  lastRunDuration: (json['LastRunDuration'] as num?)?.toInt(),
-  lastRunRetries: (json['LastRunRetries'] as num?)?.toInt(),
-  dateStamp: json['DateStamp'] as String?,
-  auditNote: json['AuditNote'] as String?,
-  recordTitle: json['RecordTitle'] as String?,
-  urlIdentifier: json['UrlIdentifier'],
-  fields:
-      (json['_Fields'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  custom:
-      (json['_Custom'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      [],
-  defaultFieldAttributes:
-      (json['_DefaultFieldAttributes'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwDefaultAttribute.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  original: json['_Original'] == null
-      ? null
-      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          json['_Original'] as Map<String, dynamic>,
-        ),
-  translation:
-      (json['_Translation'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwTranslatedValue.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  hasImport: json['_HasImport'] as bool?,
-  hasDocuments: json['_HasDocuments'] as bool?,
-  createdByUserId: json['CreatedByUserId'] as String?,
-  createdByUserName: json['CreatedByUserName'] as String?,
-  createdDateTime: json['CreatedDateTime'] as String?,
-  modifiedByUserId: json['ModifiedByUserId'] as String?,
-  modifiedByUserName: json['ModifiedByUserName'] as String?,
-  modifiedDateTime: json['ModifiedDateTime'] as String?,
-);
-
-Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
-  WebApiModulesAdministratorTaskSchedulerTaskSteps instance,
-) => <String, dynamic>{
-  'TaskStepsId': ?instance.taskStepsId,
-  'TaskId': ?instance.taskId,
-  'Name': ?instance.name,
-  'StepNumber': ?instance.stepNumber,
-  'Type': ?instance.type,
-  'Command': ?instance.command,
-  'OnSuccessActionDisplay': ?instance.onSuccessActionDisplay,
-  'OnFailureActionDisplay': ?instance.onFailureActionDisplay,
-  'OnSuccessAction': ?instance.onSuccessAction,
-  'RetryAttempts': ?instance.retryAttempts,
-  'RetryInterval': ?instance.retryInterval,
-  'OnFailureAction': ?instance.onFailureAction,
-  'OnSuccessTaskStepsId': ?instance.onSuccessTaskStepsId,
-  'OnFailureTaskStepsId': ?instance.onFailureTaskStepsId,
-  'OutputFilename': ?instance.outputFilename,
-  'LastRunOutcome': ?instance.lastRunOutcome,
-  'LastRunDuration': ?instance.lastRunDuration,
-  'LastRunRetries': ?instance.lastRunRetries,
-  'DateStamp': ?instance.dateStamp,
-  'AuditNote': ?instance.auditNote,
-  'RecordTitle': ?instance.recordTitle,
-  'UrlIdentifier': ?instance.urlIdentifier,
-  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
-  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
-      ?.map((e) => e.toJson())
-      .toList(),
-  '_Original': ?instance.original?.toJson(),
-  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
-  '_HasImport': ?instance.hasImport,
-  '_HasDocuments': ?instance.hasDocuments,
-  'CreatedByUserId': ?instance.createdByUserId,
-  'CreatedByUserName': ?instance.createdByUserName,
-  'CreatedDateTime': ?instance.createdDateTime,
-  'ModifiedByUserId': ?instance.modifiedByUserId,
-  'ModifiedByUserName': ?instance.modifiedByUserName,
-  'ModifiedDateTime': ?instance.modifiedDateTime,
-};
-
 WebApiModulesAgentDealDeal _$WebApiModulesAgentDealDealFromJson(
   Map<String, dynamic> json,
 ) => WebApiModulesAgentDealDeal(
@@ -2283,6 +2170,9 @@ WebApiModulesAgentDealDeal _$WebApiModulesAgentDealDealFromJson(
   email: json['Email'] as String?,
   paymentTypeType: json['PaymentTypeType'] as String?,
   taxOption: json['TaxOption'] as String?,
+  hasNotes: json['HasNotes'] as bool?,
+  minEquipmentRequestHours: (json['MinEquipmentRequestHours'] as num?)?.toInt(),
+  maxEquipmentRequestHours: (json['MaxEquipmentRequestHours'] as num?)?.toInt(),
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -2544,6 +2434,9 @@ Map<String, dynamic> _$WebApiModulesAgentDealDealToJson(
   'Email': ?instance.email,
   'PaymentTypeType': ?instance.paymentTypeType,
   'TaxOption': ?instance.taxOption,
+  'HasNotes': ?instance.hasNotes,
+  'MinEquipmentRequestHours': ?instance.minEquipmentRequestHours,
+  'MaxEquipmentRequestHours': ?instance.maxEquipmentRequestHours,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -3280,6 +3173,9 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
   hourlyAvailabilityMyWarehouse: json['HourlyAvailabilityMyWarehouse'] as bool?,
   hourlyAvailabilityAllWarehouses:
       json['HourlyAvailabilityAllWarehouses'] as bool?,
+  assetAvailabilityMyWarehouse: json['AssetAvailabilityMyWarehouse'] as bool?,
+  assetAvailabilityAllWarehouses:
+      json['AssetAvailabilityAllWarehouses'] as bool?,
   inventoryTypeId: json['InventoryTypeId'] as String?,
   inventoryType: json['InventoryType'] as String?,
   availableFrom: json['AvailableFrom'] as String?,
@@ -3421,6 +3317,8 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryFromJson(
       json['AutomaticallyCountAllItemsWhenPhysicalInventoryInitiated'] as bool?,
   automaticallyTransferInEntireContainerWithScannableItem:
       json['AutomaticallyTransferInEntireContainerWithScannableItem'] as bool?,
+  specifyContainerItemSettingsPerItem:
+      json['SpecifyContainerItemSettingsPerItem'] as bool?,
   containerStagingRule: json['ContainerStagingRule'] as String?,
   excludeContainedItemsFromAvailability:
       json['ExcludeContainedItemsFromAvailability'] as bool?,
@@ -3665,6 +3563,8 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'ReplacementCostForAllWarehouses': ?instance.replacementCostForAllWarehouses,
   'HourlyAvailabilityMyWarehouse': ?instance.hourlyAvailabilityMyWarehouse,
   'HourlyAvailabilityAllWarehouses': ?instance.hourlyAvailabilityAllWarehouses,
+  'AssetAvailabilityMyWarehouse': ?instance.assetAvailabilityMyWarehouse,
+  'AssetAvailabilityAllWarehouses': ?instance.assetAvailabilityAllWarehouses,
   'InventoryTypeId': ?instance.inventoryTypeId,
   'InventoryType': ?instance.inventoryType,
   'AvailableFrom': ?instance.availableFrom,
@@ -3777,6 +3677,8 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
       ?instance.automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
   'AutomaticallyTransferInEntireContainerWithScannableItem':
       ?instance.automaticallyTransferInEntireContainerWithScannableItem,
+  'SpecifyContainerItemSettingsPerItem':
+      ?instance.specifyContainerItemSettingsPerItem,
   'ContainerStagingRule': ?instance.containerStagingRule,
   'ExcludeContainedItemsFromAvailability':
       ?instance.excludeContainedItemsFromAvailability,
@@ -3917,166 +3819,6 @@ _$WebApiModulesInventoryRentalInventoryRentalInventoryToJson(
   'TaxableForMyLocation': ?instance.taxableForMyLocation,
   'MyLocationId': ?instance.myLocationId,
   'TaxableForAllLocations': ?instance.taxableForAllLocations,
-  'AuditNote': ?instance.auditNote,
-  'RecordTitle': ?instance.recordTitle,
-  'UrlIdentifier': ?instance.urlIdentifier,
-  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
-  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
-      ?.map((e) => e.toJson())
-      .toList(),
-  '_Original': ?instance.original?.toJson(),
-  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
-  '_HasImport': ?instance.hasImport,
-  '_HasDocuments': ?instance.hasDocuments,
-  'CreatedByUserId': ?instance.createdByUserId,
-  'CreatedByUserName': ?instance.createdByUserName,
-  'CreatedDateTime': ?instance.createdDateTime,
-  'ModifiedByUserId': ?instance.modifiedByUserId,
-  'ModifiedByUserName': ?instance.modifiedByUserName,
-  'ModifiedDateTime': ?instance.modifiedDateTime,
-};
-
-WebApiModulesInventoryReservedRentalItemReservedRentalItem
-_$WebApiModulesInventoryReservedRentalItemReservedRentalItemFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesInventoryReservedRentalItemReservedRentalItem(
-  reservedRentalItemId: (json['ReservedRentalItemId'] as num?)?.toInt(),
-  orderId: json['OrderId'] as String?,
-  orderItemId: json['OrderItemId'] as String?,
-  rentalItemId: json['RentalItemId'] as String?,
-  inventoryId: json['InventoryId'] as String?,
-  iCode: json['ICode'] as String?,
-  description: json['Description'] as String?,
-  inventoryTypeId: json['InventoryTypeId'] as String?,
-  categoryId: json['CategoryId'] as String?,
-  subCategoryId: json['SubCategoryId'] as String?,
-  warehouseId: json['WarehouseId'] as String?,
-  returnToWarehouseId: json['ReturnToWarehouseId'] as String?,
-  usersId: json['UsersId'] as String?,
-  barCode: json['BarCode'] as String?,
-  serialNumber: json['SerialNumber'] as String?,
-  trackedByCode: json['TrackedByCode'] as String?,
-  ownership: json['Ownership'] as String?,
-  ownershipSort: json['OwnershipSort'] as String?,
-  consignorId: json['ConsignorId'] as String?,
-  consignor: json['Consignor'] as String?,
-  orderNumber: json['OrderNumber'] as String?,
-  orderDescription: json['OrderDescription'] as String?,
-  orderType: json['OrderType'] as String?,
-  orderStatus: json['OrderStatus'] as String?,
-  dealId: json['DealId'] as String?,
-  deal: json['Deal'] as String?,
-  nameFml: json['NameFml'] as String?,
-  fromDateTime: json['FromDateTime'] == null
-      ? null
-      : DateTime.parse(json['FromDateTime'] as String),
-  toDateTime: json['ToDateTime'] == null
-      ? null
-      : DateTime.parse(json['ToDateTime'] as String),
-  conflict: json['Conflict'] as String?,
-  forceConflict: json['ForceConflict'] as String?,
-  positiveConflict: json['PositiveConflict'] as String?,
-  availabilityColor: json['AvailabilityColor'] as String?,
-  availabilityOrderColor: json['AvailabilityOrderColor'] as String?,
-  availabilityOrderWhiteText: json['AvailabilityOrderWhiteText'] as String?,
-  availabilityByHour: json['AvailabilityByHour'] as String?,
-  itemStatus: json['ItemStatus'] as String?,
-  auditNote: json['AuditNote'] as String?,
-  recordTitle: json['RecordTitle'] as String?,
-  urlIdentifier: json['UrlIdentifier'],
-  fields:
-      (json['_Fields'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  custom:
-      (json['_Custom'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      [],
-  defaultFieldAttributes:
-      (json['_DefaultFieldAttributes'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwDefaultAttribute.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  original: json['_Original'] == null
-      ? null
-      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          json['_Original'] as Map<String, dynamic>,
-        ),
-  translation:
-      (json['_Translation'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwTranslatedValue.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  hasImport: json['_HasImport'] as bool?,
-  hasDocuments: json['_HasDocuments'] as bool?,
-  createdByUserId: json['CreatedByUserId'] as String?,
-  createdByUserName: json['CreatedByUserName'] as String?,
-  createdDateTime: json['CreatedDateTime'] as String?,
-  modifiedByUserId: json['ModifiedByUserId'] as String?,
-  modifiedByUserName: json['ModifiedByUserName'] as String?,
-  modifiedDateTime: json['ModifiedDateTime'] as String?,
-);
-
-Map<String, dynamic>
-_$WebApiModulesInventoryReservedRentalItemReservedRentalItemToJson(
-  WebApiModulesInventoryReservedRentalItemReservedRentalItem instance,
-) => <String, dynamic>{
-  'ReservedRentalItemId': ?instance.reservedRentalItemId,
-  'OrderId': ?instance.orderId,
-  'OrderItemId': ?instance.orderItemId,
-  'RentalItemId': ?instance.rentalItemId,
-  'InventoryId': ?instance.inventoryId,
-  'ICode': ?instance.iCode,
-  'Description': ?instance.description,
-  'InventoryTypeId': ?instance.inventoryTypeId,
-  'CategoryId': ?instance.categoryId,
-  'SubCategoryId': ?instance.subCategoryId,
-  'WarehouseId': ?instance.warehouseId,
-  'ReturnToWarehouseId': ?instance.returnToWarehouseId,
-  'UsersId': ?instance.usersId,
-  'BarCode': ?instance.barCode,
-  'SerialNumber': ?instance.serialNumber,
-  'TrackedByCode': ?instance.trackedByCode,
-  'Ownership': ?instance.ownership,
-  'OwnershipSort': ?instance.ownershipSort,
-  'ConsignorId': ?instance.consignorId,
-  'Consignor': ?instance.consignor,
-  'OrderNumber': ?instance.orderNumber,
-  'OrderDescription': ?instance.orderDescription,
-  'OrderType': ?instance.orderType,
-  'OrderStatus': ?instance.orderStatus,
-  'DealId': ?instance.dealId,
-  'Deal': ?instance.deal,
-  'NameFml': ?instance.nameFml,
-  'FromDateTime': ?instance.fromDateTime?.toIso8601String(),
-  'ToDateTime': ?instance.toDateTime?.toIso8601String(),
-  'Conflict': ?instance.conflict,
-  'ForceConflict': ?instance.forceConflict,
-  'PositiveConflict': ?instance.positiveConflict,
-  'AvailabilityColor': ?instance.availabilityColor,
-  'AvailabilityOrderColor': ?instance.availabilityOrderColor,
-  'AvailabilityOrderWhiteText': ?instance.availabilityOrderWhiteText,
-  'AvailabilityByHour': ?instance.availabilityByHour,
-  'ItemStatus': ?instance.itemStatus,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
   'UrlIdentifier': ?instance.urlIdentifier,
@@ -4447,6 +4189,9 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseFromJson(
   laborTaxRate1: (json['LaborTaxRate1'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
   laborExempt: json['LaborExempt'] as bool?,
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
+  miscExempt: json['MiscExempt'] as bool?,
   attention: json['Attention'] as String?,
   address1: json['Address1'] as String?,
   address2: json['Address2'] as String?,
@@ -4572,8 +4317,12 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseFromJson(
   storageContainerStagingEnable: json['StorageContainerStagingEnable'] as bool?,
   storageContainerRescanRequired:
       json['StorageContainerRescanRequired'] as bool?,
+  preventUnstageItemInContainer: json['PreventUnstageItemInContainer'] as bool?,
   quikReceiptTermsConditionsId: json['QuikReceiptTermsConditionsId'] as String?,
   quikReceiptTermsConditions: json['QuikReceiptTermsConditions'] as String?,
+  automaticallyAssignShippingCaseNumber:
+      json['AutomaticallyAssignShippingCaseNumber'] as bool?,
+  defaultShippingCaseWeight: json['DefaultShippingCaseWeight'] as bool?,
   disableSubstituteNote: json['DisableSubstituteNote'] as bool?,
   daysToExpireSuspendedSessions: (json['DaysToExpireSuspendedSessions'] as num?)
       ?.toInt(),
@@ -4590,6 +4339,7 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseFromJson(
   internalOrderDeal: json['InternalOrderDeal'] as String?,
   flexibleContainerStagingRule: json['FlexibleContainerStagingRule'] as String?,
   internalOrderGracePeriod: (json['InternalOrderGracePeriod'] as num?)?.toInt(),
+  allowUserToAddShippingNote: json['AllowUserToAddShippingNote'] as bool?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
   urlIdentifier: json['UrlIdentifier'],
@@ -4664,6 +4414,9 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseToJson(
   'LaborTaxRate1': ?instance.laborTaxRate1,
   'LaborTaxRate2': ?instance.laborTaxRate2,
   'LaborExempt': ?instance.laborExempt,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
+  'MiscExempt': ?instance.miscExempt,
   'Attention': ?instance.attention,
   'Address1': ?instance.address1,
   'Address2': ?instance.address2,
@@ -4782,8 +4535,12 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseToJson(
   'StorageContainerCheckInEnable': ?instance.storageContainerCheckInEnable,
   'StorageContainerStagingEnable': ?instance.storageContainerStagingEnable,
   'StorageContainerRescanRequired': ?instance.storageContainerRescanRequired,
+  'PreventUnstageItemInContainer': ?instance.preventUnstageItemInContainer,
   'QuikReceiptTermsConditionsId': ?instance.quikReceiptTermsConditionsId,
   'QuikReceiptTermsConditions': ?instance.quikReceiptTermsConditions,
+  'AutomaticallyAssignShippingCaseNumber':
+      ?instance.automaticallyAssignShippingCaseNumber,
+  'DefaultShippingCaseWeight': ?instance.defaultShippingCaseWeight,
   'DisableSubstituteNote': ?instance.disableSubstituteNote,
   'DaysToExpireSuspendedSessions': ?instance.daysToExpireSuspendedSessions,
   'Inactive': ?instance.inactive,
@@ -4799,6 +4556,7 @@ _$WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseToJson(
   'InternalOrderDeal': ?instance.internalOrderDeal,
   'FlexibleContainerStagingRule': ?instance.flexibleContainerStagingRule,
   'InternalOrderGracePeriod': ?instance.internalOrderGracePeriod,
+  'AllowUserToAddShippingNote': ?instance.allowUserToAddShippingNote,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
   'UrlIdentifier': ?instance.urlIdentifier,
@@ -5668,6 +5426,9 @@ _$WebApiModulesUtilitiesLabelDesignBarcodeLabelFromJson(
   trackedby: json['TRACKEDBY'] as String?,
   manufacturer: json['MANUFACTURER'] as String?,
   manufacturerpartnumber: json['MANUFACTURERPARTNUMBER'] as String?,
+  aisle: json['AISLE'] as String?,
+  shelf: json['SHELF'] as String?,
+  aisleshelf: json['AISLESHELF'] as String?,
 );
 
 Map<String, dynamic> _$WebApiModulesUtilitiesLabelDesignBarcodeLabelToJson(
@@ -5683,6 +5444,9 @@ Map<String, dynamic> _$WebApiModulesUtilitiesLabelDesignBarcodeLabelToJson(
   'TRACKEDBY': ?instance.trackedby,
   'MANUFACTURER': ?instance.manufacturer,
   'MANUFACTURERPARTNUMBER': ?instance.manufacturerpartnumber,
+  'AISLE': ?instance.aisle,
+  'SHELF': ?instance.shelf,
+  'AISLESHELF': ?instance.aisleshelf,
 };
 
 WebApiModulesUtilitiesLabelDesignLabelDesign
@@ -5857,49 +5621,6 @@ _$WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequestToJson(
   'CheckItemsOut': ?instance.checkItemsOut,
 };
 
-WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse
-_$WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponseFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse(
-  status: (json['status'] as num?)?.toInt(),
-  success: json['success'] as bool?,
-  msg: json['msg'] as String?,
-  contractIds: json['ContractIds'] as String?,
-  contracts:
-      (json['Contracts'] as List<dynamic>?)
-          ?.map(
-            (e) => WebApiModulesWarehouseContractContract.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  reservedRentalItems:
-      (json['ReservedRentalItems'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                WebApiModulesInventoryReservedRentalItemReservedRentalItem.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-);
-
-Map<String, dynamic>
-_$WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponseToJson(
-  WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse instance,
-) => <String, dynamic>{
-  'status': ?instance.status,
-  'success': ?instance.success,
-  'msg': ?instance.msg,
-  'ContractIds': ?instance.contractIds,
-  'Contracts': ?instance.contracts?.map((e) => e.toJson()).toList(),
-  'ReservedRentalItems': ?instance.reservedRentalItems
-      ?.map((e) => e.toJson())
-      .toList(),
-};
-
 WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequest
 _$WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemRequestFromJson(
   Map<String, dynamic> json,
@@ -5949,6 +5670,18 @@ _$WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponseToJson(
   'success': ?instance.success,
   'msg': ?instance.msg,
 };
+
+WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse
+_$WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponseFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse(
+  jobId: json['JobId'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponseToJson(
+  WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse instance,
+) => <String, dynamic>{'JobId': ?instance.jobId};
 
 WebApiModulesUtilitiesMigrateStartMigrateSessionRequest
 _$WebApiModulesUtilitiesMigrateStartMigrateSessionRequestFromJson(
@@ -8160,369 +7893,3 @@ Map<String, dynamic>
 _$WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponseToJson(
   WebApiModulesUtilitiesControlsUtilityFunctionsNewSessionIdResponse instance,
 ) => <String, dynamic>{'SessionId': ?instance.sessionId};
-
-WebApiModulesWarehouseContractContract
-_$WebApiModulesWarehouseContractContractFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesWarehouseContractContract(
-  contractId: json['ContractId'] as String?,
-  contractNumber: json['ContractNumber'] as String?,
-  contractType: json['ContractType'] as String?,
-  contractDate: json['ContractDate'] as String?,
-  contractTime: json['ContractTime'] as String?,
-  locationId: json['LocationId'] as String?,
-  locationCode: json['LocationCode'] as String?,
-  location: json['Location'] as String?,
-  warehouseId: json['WarehouseId'] as String?,
-  warehouseCode: json['WarehouseCode'] as String?,
-  warehouse: json['Warehouse'] as String?,
-  customerId: json['CustomerId'] as String?,
-  customer: json['Customer'] as String?,
-  dealId: json['DealId'] as String?,
-  deal: json['Deal'] as String?,
-  orderId: json['OrderId'] as String?,
-  orderNumber: json['OrderNumber'] as String?,
-  departmentId: json['DepartmentId'] as String?,
-  department: json['Department'] as String?,
-  purchaseOrderId: json['PurchaseOrderId'] as String?,
-  purchaseOrderNumber: json['PurchaseOrderNumber'] as String?,
-  requisitionNumber: json['RequisitionNumber'] as String?,
-  vendorId: json['VendorId'] as String?,
-  vendor: json['Vendor'] as String?,
-  isMigrated: json['IsMigrated'] as bool?,
-  unassigned: json['Unassigned'] as bool?,
-  needReconcile: json['NeedReconcile'] as bool?,
-  pendingExchange: json['PendingExchange'] as bool?,
-  exchangeContractId: json['ExchangeContractId'] as String?,
-  hasSwaps: json['HasSwaps'] as bool?,
-  rental: json['Rental'] as bool?,
-  sales: json['Sales'] as bool?,
-  parts: json['Parts'] as bool?,
-  exchange: json['Exchange'] as bool?,
-  inputByUserId: json['InputByUserId'] as String?,
-  inputByUser: json['InputByUser'] as String?,
-  dealInactive: json['DealInactive'] as bool?,
-  truck: json['Truck'] as bool?,
-  billingDate: json['BillingDate'] as String?,
-  billingDateChangeReason: json['BillingDateChangeReason'] as String?,
-  lastBillingDateChangeReason: json['LastBillingDateChangeReason'] as String?,
-  billingDateAdjusted: json['BillingDateAdjusted'] as bool?,
-  hasVoId: json['HasVoId'] as bool?,
-  hasTransfer: json['HasTransfer'] as bool?,
-  sessionId: json['SessionId'] as String?,
-  orderDescription: json['OrderDescription'] as String?,
-  poOrderDescription: json['PoOrderDescription'] as String?,
-  deliveryId: json['DeliveryId'] as String?,
-  deliveryDeliveryType: json['DeliveryDeliveryType'] as String?,
-  deliveryRequiredDate: json['DeliveryRequiredDate'] as String?,
-  deliveryRequiredTime: json['DeliveryRequiredTime'] as String?,
-  deliveryTargetShipDate: json['DeliveryTargetShipDate'] as String?,
-  deliveryTargetShipTime: json['DeliveryTargetShipTime'] as String?,
-  deliveryDirection: json['DeliveryDirection'] as String?,
-  deliveryAddressType: json['DeliveryAddressType'] as String?,
-  deliveryFromLocation: json['DeliveryFromLocation'] as String?,
-  deliveryFromContact: json['DeliveryFromContact'] as String?,
-  deliveryFromContactPhone: json['DeliveryFromContactPhone'] as String?,
-  deliveryFromAlternateContact: json['DeliveryFromAlternateContact'] as String?,
-  deliveryFromAlternateContactPhone:
-      json['DeliveryFromAlternateContactPhone'] as String?,
-  deliveryFromAttention: json['DeliveryFromAttention'] as String?,
-  deliveryFromAddress1: json['DeliveryFromAddress1'] as String?,
-  deliveryFromAddress2: json['DeliveryFromAddress2'] as String?,
-  deliveryFromCity: json['DeliveryFromCity'] as String?,
-  deliveryFromState: json['DeliveryFromState'] as String?,
-  deliveryFromZipCode: json['DeliveryFromZipCode'] as String?,
-  deliveryFromCountry: json['DeliveryFromCountry'] as String?,
-  deliveryFromCityStateZipCodeCountry:
-      json['DeliveryFromCityStateZipCodeCountry'] as String?,
-  deliveryFromCountryCodeIsoAlpha2:
-      json['DeliveryFromCountryCodeIsoAlpha2'] as String?,
-  deliveryFromCountryCodePhone: (json['DeliveryFromCountryCodePhone'] as num?)
-      ?.toInt(),
-  deliveryFromCountryId: json['DeliveryFromCountryId'] as String?,
-  deliveryFromCrossStreets: json['DeliveryFromCrossStreets'] as String?,
-  deliveryToLocation: json['DeliveryToLocation'] as String?,
-  deliveryToContact: json['DeliveryToContact'] as String?,
-  deliveryToContactPhone: json['DeliveryToContactPhone'] as String?,
-  deliveryToAlternateContact: json['DeliveryToAlternateContact'] as String?,
-  deliveryToAlternateContactPhone:
-      json['DeliveryToAlternateContactPhone'] as String?,
-  deliveryToAttention: json['DeliveryToAttention'] as String?,
-  deliveryToAddress1: json['DeliveryToAddress1'] as String?,
-  deliveryToAddress2: json['DeliveryToAddress2'] as String?,
-  deliveryToCity: json['DeliveryToCity'] as String?,
-  deliveryToState: json['DeliveryToState'] as String?,
-  deliveryToZipCode: json['DeliveryToZipCode'] as String?,
-  deliveryToCountryId: json['DeliveryToCountryId'] as String?,
-  deliveryToCountry: json['DeliveryToCountry'] as String?,
-  deliveryToCityStateZipCodeCountry:
-      json['DeliveryToCityStateZipCodeCountry'] as String?,
-  deliveryToCountryCodeIsoAlpha2:
-      json['DeliveryToCountryCodeIsoAlpha2'] as String?,
-  deliveryToCountryCodePhone: (json['DeliveryToCountryCodePhone'] as num?)
-      ?.toInt(),
-  deliveryToContactFax: json['DeliveryToContactFax'] as String?,
-  deliveryToCrossStreets: json['DeliveryToCrossStreets'] as String?,
-  deliveryDeliveryNotes: json['DeliveryDeliveryNotes'] as String?,
-  deliveryCarrierId: json['DeliveryCarrierId'] as String?,
-  deliveryCarrier: json['DeliveryCarrier'] as String?,
-  deliveryCarrierAccount: json['DeliveryCarrierAccount'] as String?,
-  deliveryShipViaId: json['DeliveryShipViaId'] as String?,
-  deliveryShipVia: json['DeliveryShipVia'] as String?,
-  deliveryInvoiceId: json['DeliveryInvoiceId'] as String?,
-  deliveryVendorInvoiceId: json['DeliveryVendorInvoiceId'] as String?,
-  deliveryEstimatedFreight: (json['DeliveryEstimatedFreight'] as num?)
-      ?.toDouble(),
-  deliveryFreightInvoiceAmount: (json['DeliveryFreightInvoiceAmount'] as num?)
-      ?.toDouble(),
-  deliveryChargeType: json['DeliveryChargeType'] as String?,
-  deliveryFreightTrackingNumber:
-      json['DeliveryFreightTrackingNumber'] as String?,
-  deliveryFreightTrackingUrl: json['DeliveryFreightTrackingUrl'] as String?,
-  deliveryDropShip: json['DeliveryDropShip'] as bool?,
-  deliveryPackageCode: json['DeliveryPackageCode'] as String?,
-  deliveryBillPoFreightOnOrder: json['DeliveryBillPoFreightOnOrder'] as bool?,
-  deliveryOnlineOrderNumber: json['DeliveryOnlineOrderNumber'] as String?,
-  deliveryOnlineOrderStatus: json['DeliveryOnlineOrderStatus'] as String?,
-  deliveryToVenue: json['DeliveryToVenue'] as String?,
-  deliveryToVenueId: json['DeliveryToVenueId'] as String?,
-  deliveryDateStamp: json['DeliveryDateStamp'] as String?,
-  note: json['Note'] as String?,
-  printNoteOnOrder: json['PrintNoteOnOrder'] as bool?,
-  termsConditionsId: json['TermsConditionsId'] as String?,
-  quikReceiptTermsConditionsId: json['QuikReceiptTermsConditionsId'] as String?,
-  quikReceiptTermsConditions: json['QuikReceiptTermsConditions'] as String?,
-  termsConditions: json['TermsConditions'] as String?,
-  containerId: json['ContainerId'] as String?,
-  containerItemId: json['ContainerItemId'] as String?,
-  containerDescription: json['ContainerDescription'] as String?,
-  containerScannableBarCode: json['ContainerScannableBarCode'] as String?,
-  containerScannableItemId: json['ContainerScannableItemId'] as String?,
-  responsiblePersonId: json['ResponsiblePersonId'] as String?,
-  responsiblePerson: json['ResponsiblePerson'] as String?,
-  responsiblePersonEmail: json['ResponsiblePersonEmail'] as String?,
-  responsiblePersonMobilePhone: json['ResponsiblePersonMobilePhone'] as String?,
-  responsiblePersonOfficePhone: json['ResponsiblePersonOfficePhone'] as String?,
-  responsiblePersonOfficeExtension:
-      json['ResponsiblePersonOfficeExtension'] as String?,
-  hasPrintableBarCodes: json['HasPrintableBarCodes'] as bool?,
-  purchaseOrderAgentEmail: json['PurchaseOrderAgentEmail'] as String?,
-  enableExpectedReturnDate: json['EnableExpectedReturnDate'] as bool?,
-  expectedReturnDate: json['ExpectedReturnDate'] as String?,
-  enableExpectedReturnAlert: json['EnableExpectedReturnAlert'] as bool?,
-  dateStamp: json['DateStamp'] as String?,
-  auditNote: json['AuditNote'] as String?,
-  recordTitle: json['RecordTitle'] as String?,
-  urlIdentifier: json['UrlIdentifier'],
-  fields:
-      (json['_Fields'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  custom:
-      (json['_Custom'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      [],
-  defaultFieldAttributes:
-      (json['_DefaultFieldAttributes'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwDefaultAttribute.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  original: json['_Original'] == null
-      ? null
-      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          json['_Original'] as Map<String, dynamic>,
-        ),
-  translation:
-      (json['_Translation'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwTranslatedValue.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  hasImport: json['_HasImport'] as bool?,
-  hasDocuments: json['_HasDocuments'] as bool?,
-  createdByUserId: json['CreatedByUserId'] as String?,
-  createdByUserName: json['CreatedByUserName'] as String?,
-  createdDateTime: json['CreatedDateTime'] as String?,
-  modifiedByUserId: json['ModifiedByUserId'] as String?,
-  modifiedByUserName: json['ModifiedByUserName'] as String?,
-  modifiedDateTime: json['ModifiedDateTime'] as String?,
-);
-
-Map<String, dynamic> _$WebApiModulesWarehouseContractContractToJson(
-  WebApiModulesWarehouseContractContract instance,
-) => <String, dynamic>{
-  'ContractId': ?instance.contractId,
-  'ContractNumber': ?instance.contractNumber,
-  'ContractType': ?instance.contractType,
-  'ContractDate': ?instance.contractDate,
-  'ContractTime': ?instance.contractTime,
-  'LocationId': ?instance.locationId,
-  'LocationCode': ?instance.locationCode,
-  'Location': ?instance.location,
-  'WarehouseId': ?instance.warehouseId,
-  'WarehouseCode': ?instance.warehouseCode,
-  'Warehouse': ?instance.warehouse,
-  'CustomerId': ?instance.customerId,
-  'Customer': ?instance.customer,
-  'DealId': ?instance.dealId,
-  'Deal': ?instance.deal,
-  'OrderId': ?instance.orderId,
-  'OrderNumber': ?instance.orderNumber,
-  'DepartmentId': ?instance.departmentId,
-  'Department': ?instance.department,
-  'PurchaseOrderId': ?instance.purchaseOrderId,
-  'PurchaseOrderNumber': ?instance.purchaseOrderNumber,
-  'RequisitionNumber': ?instance.requisitionNumber,
-  'VendorId': ?instance.vendorId,
-  'Vendor': ?instance.vendor,
-  'IsMigrated': ?instance.isMigrated,
-  'Unassigned': ?instance.unassigned,
-  'NeedReconcile': ?instance.needReconcile,
-  'PendingExchange': ?instance.pendingExchange,
-  'ExchangeContractId': ?instance.exchangeContractId,
-  'HasSwaps': ?instance.hasSwaps,
-  'Rental': ?instance.rental,
-  'Sales': ?instance.sales,
-  'Parts': ?instance.parts,
-  'Exchange': ?instance.exchange,
-  'InputByUserId': ?instance.inputByUserId,
-  'InputByUser': ?instance.inputByUser,
-  'DealInactive': ?instance.dealInactive,
-  'Truck': ?instance.truck,
-  'BillingDate': ?instance.billingDate,
-  'BillingDateChangeReason': ?instance.billingDateChangeReason,
-  'LastBillingDateChangeReason': ?instance.lastBillingDateChangeReason,
-  'BillingDateAdjusted': ?instance.billingDateAdjusted,
-  'HasVoId': ?instance.hasVoId,
-  'HasTransfer': ?instance.hasTransfer,
-  'SessionId': ?instance.sessionId,
-  'OrderDescription': ?instance.orderDescription,
-  'PoOrderDescription': ?instance.poOrderDescription,
-  'DeliveryId': ?instance.deliveryId,
-  'DeliveryDeliveryType': ?instance.deliveryDeliveryType,
-  'DeliveryRequiredDate': ?instance.deliveryRequiredDate,
-  'DeliveryRequiredTime': ?instance.deliveryRequiredTime,
-  'DeliveryTargetShipDate': ?instance.deliveryTargetShipDate,
-  'DeliveryTargetShipTime': ?instance.deliveryTargetShipTime,
-  'DeliveryDirection': ?instance.deliveryDirection,
-  'DeliveryAddressType': ?instance.deliveryAddressType,
-  'DeliveryFromLocation': ?instance.deliveryFromLocation,
-  'DeliveryFromContact': ?instance.deliveryFromContact,
-  'DeliveryFromContactPhone': ?instance.deliveryFromContactPhone,
-  'DeliveryFromAlternateContact': ?instance.deliveryFromAlternateContact,
-  'DeliveryFromAlternateContactPhone':
-      ?instance.deliveryFromAlternateContactPhone,
-  'DeliveryFromAttention': ?instance.deliveryFromAttention,
-  'DeliveryFromAddress1': ?instance.deliveryFromAddress1,
-  'DeliveryFromAddress2': ?instance.deliveryFromAddress2,
-  'DeliveryFromCity': ?instance.deliveryFromCity,
-  'DeliveryFromState': ?instance.deliveryFromState,
-  'DeliveryFromZipCode': ?instance.deliveryFromZipCode,
-  'DeliveryFromCountry': ?instance.deliveryFromCountry,
-  'DeliveryFromCityStateZipCodeCountry':
-      ?instance.deliveryFromCityStateZipCodeCountry,
-  'DeliveryFromCountryCodeIsoAlpha2':
-      ?instance.deliveryFromCountryCodeIsoAlpha2,
-  'DeliveryFromCountryCodePhone': ?instance.deliveryFromCountryCodePhone,
-  'DeliveryFromCountryId': ?instance.deliveryFromCountryId,
-  'DeliveryFromCrossStreets': ?instance.deliveryFromCrossStreets,
-  'DeliveryToLocation': ?instance.deliveryToLocation,
-  'DeliveryToContact': ?instance.deliveryToContact,
-  'DeliveryToContactPhone': ?instance.deliveryToContactPhone,
-  'DeliveryToAlternateContact': ?instance.deliveryToAlternateContact,
-  'DeliveryToAlternateContactPhone': ?instance.deliveryToAlternateContactPhone,
-  'DeliveryToAttention': ?instance.deliveryToAttention,
-  'DeliveryToAddress1': ?instance.deliveryToAddress1,
-  'DeliveryToAddress2': ?instance.deliveryToAddress2,
-  'DeliveryToCity': ?instance.deliveryToCity,
-  'DeliveryToState': ?instance.deliveryToState,
-  'DeliveryToZipCode': ?instance.deliveryToZipCode,
-  'DeliveryToCountryId': ?instance.deliveryToCountryId,
-  'DeliveryToCountry': ?instance.deliveryToCountry,
-  'DeliveryToCityStateZipCodeCountry':
-      ?instance.deliveryToCityStateZipCodeCountry,
-  'DeliveryToCountryCodeIsoAlpha2': ?instance.deliveryToCountryCodeIsoAlpha2,
-  'DeliveryToCountryCodePhone': ?instance.deliveryToCountryCodePhone,
-  'DeliveryToContactFax': ?instance.deliveryToContactFax,
-  'DeliveryToCrossStreets': ?instance.deliveryToCrossStreets,
-  'DeliveryDeliveryNotes': ?instance.deliveryDeliveryNotes,
-  'DeliveryCarrierId': ?instance.deliveryCarrierId,
-  'DeliveryCarrier': ?instance.deliveryCarrier,
-  'DeliveryCarrierAccount': ?instance.deliveryCarrierAccount,
-  'DeliveryShipViaId': ?instance.deliveryShipViaId,
-  'DeliveryShipVia': ?instance.deliveryShipVia,
-  'DeliveryInvoiceId': ?instance.deliveryInvoiceId,
-  'DeliveryVendorInvoiceId': ?instance.deliveryVendorInvoiceId,
-  'DeliveryEstimatedFreight': ?instance.deliveryEstimatedFreight,
-  'DeliveryFreightInvoiceAmount': ?instance.deliveryFreightInvoiceAmount,
-  'DeliveryChargeType': ?instance.deliveryChargeType,
-  'DeliveryFreightTrackingNumber': ?instance.deliveryFreightTrackingNumber,
-  'DeliveryFreightTrackingUrl': ?instance.deliveryFreightTrackingUrl,
-  'DeliveryDropShip': ?instance.deliveryDropShip,
-  'DeliveryPackageCode': ?instance.deliveryPackageCode,
-  'DeliveryBillPoFreightOnOrder': ?instance.deliveryBillPoFreightOnOrder,
-  'DeliveryOnlineOrderNumber': ?instance.deliveryOnlineOrderNumber,
-  'DeliveryOnlineOrderStatus': ?instance.deliveryOnlineOrderStatus,
-  'DeliveryToVenue': ?instance.deliveryToVenue,
-  'DeliveryToVenueId': ?instance.deliveryToVenueId,
-  'DeliveryDateStamp': ?instance.deliveryDateStamp,
-  'Note': ?instance.note,
-  'PrintNoteOnOrder': ?instance.printNoteOnOrder,
-  'TermsConditionsId': ?instance.termsConditionsId,
-  'QuikReceiptTermsConditionsId': ?instance.quikReceiptTermsConditionsId,
-  'QuikReceiptTermsConditions': ?instance.quikReceiptTermsConditions,
-  'TermsConditions': ?instance.termsConditions,
-  'ContainerId': ?instance.containerId,
-  'ContainerItemId': ?instance.containerItemId,
-  'ContainerDescription': ?instance.containerDescription,
-  'ContainerScannableBarCode': ?instance.containerScannableBarCode,
-  'ContainerScannableItemId': ?instance.containerScannableItemId,
-  'ResponsiblePersonId': ?instance.responsiblePersonId,
-  'ResponsiblePerson': ?instance.responsiblePerson,
-  'ResponsiblePersonEmail': ?instance.responsiblePersonEmail,
-  'ResponsiblePersonMobilePhone': ?instance.responsiblePersonMobilePhone,
-  'ResponsiblePersonOfficePhone': ?instance.responsiblePersonOfficePhone,
-  'ResponsiblePersonOfficeExtension':
-      ?instance.responsiblePersonOfficeExtension,
-  'HasPrintableBarCodes': ?instance.hasPrintableBarCodes,
-  'PurchaseOrderAgentEmail': ?instance.purchaseOrderAgentEmail,
-  'EnableExpectedReturnDate': ?instance.enableExpectedReturnDate,
-  'ExpectedReturnDate': ?instance.expectedReturnDate,
-  'EnableExpectedReturnAlert': ?instance.enableExpectedReturnAlert,
-  'DateStamp': ?instance.dateStamp,
-  'AuditNote': ?instance.auditNote,
-  'RecordTitle': ?instance.recordTitle,
-  'UrlIdentifier': ?instance.urlIdentifier,
-  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
-  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
-      ?.map((e) => e.toJson())
-      .toList(),
-  '_Original': ?instance.original?.toJson(),
-  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
-  '_HasImport': ?instance.hasImport,
-  '_HasDocuments': ?instance.hasDocuments,
-  'CreatedByUserId': ?instance.createdByUserId,
-  'CreatedByUserName': ?instance.createdByUserName,
-  'CreatedDateTime': ?instance.createdDateTime,
-  'ModifiedByUserId': ?instance.modifiedByUserId,
-  'ModifiedByUserName': ?instance.modifiedByUserName,
-  'ModifiedDateTime': ?instance.modifiedDateTime,
-};

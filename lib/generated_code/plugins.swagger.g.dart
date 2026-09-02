@@ -27,6 +27,21 @@ _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
   instance,
 ) => <String, dynamic>{'downloadUrl': ?instance.downloadUrl};
 
+FwCoreControllersGetServerUtcDateTimeResponse
+_$FwCoreControllersGetServerUtcDateTimeResponseFromJson(
+  Map<String, dynamic> json,
+) => FwCoreControllersGetServerUtcDateTimeResponse(
+  serverUtcDateTime: json['ServerUtcDateTime'] == null
+      ? null
+      : DateTime.parse(json['ServerUtcDateTime'] as String),
+);
+
+Map<String, dynamic> _$FwCoreControllersGetServerUtcDateTimeResponseToJson(
+  FwCoreControllersGetServerUtcDateTimeResponse instance,
+) => <String, dynamic>{
+  'ServerUtcDateTime': ?instance.serverUtcDateTime?.toIso8601String(),
+};
+
 FwStandardBusinessLogicFwBusinessLogic
 _$FwStandardBusinessLogicFwBusinessLogicFromJson(
   Map<String, dynamic> json,
@@ -281,7 +296,8 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
-  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toDouble(),
+  locale: json['Locale'] as String?,
 );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -314,6 +330,7 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
   'timezoneOffset': ?instance.timezoneOffset,
+  'Locale': ?instance.locale,
 };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
@@ -362,39 +379,6 @@ Map<String, dynamic> _$FwStandardModelsFwQueryFilterToJson(
   'Field': instance.field,
   'Op': instance.op,
   'Value': ?instance.value,
-};
-
-FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-  Map<String, dynamic> json,
-) =>
-    FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items:
-          (json['Items'] as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-                      e as Map<String, dynamic>,
-                    ),
-              )
-              .toList() ??
-          [],
-      pageNo: (json['PageNo'] as num?)?.toInt(),
-      pageSize: (json['PageSize'] as num?)?.toInt(),
-      totalItems: (json['TotalItems'] as num?)?.toInt(),
-      sort: json['Sort'] as String?,
-    );
-
-Map<String, dynamic>
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  instance,
-) => <String, dynamic>{
-  'Items': ?instance.items?.map((e) => e.toJson()).toList(),
-  'PageNo': ?instance.pageNo,
-  'PageSize': ?instance.pageSize,
-  'TotalItems': ?instance.totalItems,
-  'Sort': ?instance.sort,
 };
 
 FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
@@ -651,125 +635,6 @@ Map<String, dynamic> _$FwStandardSqlServerTSpStatusResponseToJson(
   'msg': ?instance.msg,
 };
 
-WebApiModulesAdministratorTaskSchedulerTaskSteps
-_$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesAdministratorTaskSchedulerTaskSteps(
-  taskStepsId: (json['TaskStepsId'] as num?)?.toInt(),
-  taskId: (json['TaskId'] as num?)?.toInt(),
-  name: json['Name'] as String?,
-  stepNumber: (json['StepNumber'] as num?)?.toInt(),
-  type: json['Type'] as String?,
-  command: json['Command'] as String?,
-  onSuccessActionDisplay: json['OnSuccessActionDisplay'] as String?,
-  onFailureActionDisplay: json['OnFailureActionDisplay'] as String?,
-  onSuccessAction: (json['OnSuccessAction'] as num?)?.toInt(),
-  retryAttempts: (json['RetryAttempts'] as num?)?.toInt(),
-  retryInterval: (json['RetryInterval'] as num?)?.toInt(),
-  onFailureAction: (json['OnFailureAction'] as num?)?.toInt(),
-  onSuccessTaskStepsId: (json['OnSuccessTaskStepsId'] as num?)?.toInt(),
-  onFailureTaskStepsId: (json['OnFailureTaskStepsId'] as num?)?.toInt(),
-  outputFilename: json['OutputFilename'] as String?,
-  lastRunOutcome: (json['LastRunOutcome'] as num?)?.toInt(),
-  lastRunDuration: (json['LastRunDuration'] as num?)?.toInt(),
-  lastRunRetries: (json['LastRunRetries'] as num?)?.toInt(),
-  dateStamp: json['DateStamp'] as String?,
-  auditNote: json['AuditNote'] as String?,
-  recordTitle: json['RecordTitle'] as String?,
-  urlIdentifier: json['UrlIdentifier'],
-  fields:
-      (json['_Fields'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  custom:
-      (json['_Custom'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      [],
-  defaultFieldAttributes:
-      (json['_DefaultFieldAttributes'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwDefaultAttribute.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  original: json['_Original'] == null
-      ? null
-      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          json['_Original'] as Map<String, dynamic>,
-        ),
-  translation:
-      (json['_Translation'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwTranslatedValue.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  hasImport: json['_HasImport'] as bool?,
-  hasDocuments: json['_HasDocuments'] as bool?,
-  createdByUserId: json['CreatedByUserId'] as String?,
-  createdByUserName: json['CreatedByUserName'] as String?,
-  createdDateTime: json['CreatedDateTime'] as String?,
-  modifiedByUserId: json['ModifiedByUserId'] as String?,
-  modifiedByUserName: json['ModifiedByUserName'] as String?,
-  modifiedDateTime: json['ModifiedDateTime'] as String?,
-);
-
-Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
-  WebApiModulesAdministratorTaskSchedulerTaskSteps instance,
-) => <String, dynamic>{
-  'TaskStepsId': ?instance.taskStepsId,
-  'TaskId': ?instance.taskId,
-  'Name': ?instance.name,
-  'StepNumber': ?instance.stepNumber,
-  'Type': ?instance.type,
-  'Command': ?instance.command,
-  'OnSuccessActionDisplay': ?instance.onSuccessActionDisplay,
-  'OnFailureActionDisplay': ?instance.onFailureActionDisplay,
-  'OnSuccessAction': ?instance.onSuccessAction,
-  'RetryAttempts': ?instance.retryAttempts,
-  'RetryInterval': ?instance.retryInterval,
-  'OnFailureAction': ?instance.onFailureAction,
-  'OnSuccessTaskStepsId': ?instance.onSuccessTaskStepsId,
-  'OnFailureTaskStepsId': ?instance.onFailureTaskStepsId,
-  'OutputFilename': ?instance.outputFilename,
-  'LastRunOutcome': ?instance.lastRunOutcome,
-  'LastRunDuration': ?instance.lastRunDuration,
-  'LastRunRetries': ?instance.lastRunRetries,
-  'DateStamp': ?instance.dateStamp,
-  'AuditNote': ?instance.auditNote,
-  'RecordTitle': ?instance.recordTitle,
-  'UrlIdentifier': ?instance.urlIdentifier,
-  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
-  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
-      ?.map((e) => e.toJson())
-      .toList(),
-  '_Original': ?instance.original?.toJson(),
-  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
-  '_HasImport': ?instance.hasImport,
-  '_HasDocuments': ?instance.hasDocuments,
-  'CreatedByUserId': ?instance.createdByUserId,
-  'CreatedByUserName': ?instance.createdByUserName,
-  'CreatedDateTime': ?instance.createdDateTime,
-  'ModifiedByUserId': ?instance.modifiedByUserId,
-  'ModifiedByUserName': ?instance.modifiedByUserName,
-  'ModifiedDateTime': ?instance.modifiedDateTime,
-};
-
 WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   Map<String, dynamic> json,
 ) => WebApiModulesAgentOrderOrder(
@@ -935,6 +800,8 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   totalTax: (json['TotalTax'] as num?)?.toDouble(),
   noCharge: json['NoCharge'] as bool?,
   noChargeReason: json['NoChargeReason'] as String?,
@@ -978,6 +845,7 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   groupNumber: (json['GroupNumber'] as num?)?.toInt(),
   groupColor: (json['GroupColor'] as num?)?.toInt(),
   groupOrderBy: (json['GroupOrderBy'] as num?)?.toDouble(),
+  groupName: json['GroupName'] as String?,
   coverLetterId: json['CoverLetterId'] as String?,
   coverLetter: json['CoverLetter'] as String?,
   termsConditionsId: json['TermsConditionsId'] as String?,
@@ -1252,6 +1120,7 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   rentalExempt: json['RentalExempt'] as bool?,
   salesExempt: json['SalesExempt'] as bool?,
   laborExempt: json['LaborExempt'] as bool?,
+  miscExempt: json['MiscExempt'] as bool?,
   enableProjects: json['EnableProjects'] as bool?,
   projectId: json['ProjectId'] as String?,
   projectNumber: json['ProjectNumber'] as String?,
@@ -1271,6 +1140,7 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   projectSyncMarket: json['ProjectSyncMarket'] as bool?,
   projectSyncDeliverShip: json['ProjectSyncDeliverShip'] as bool?,
   projectSyncBilling: json['ProjectSyncBilling'] as bool?,
+  projectSyncSchedule: json['ProjectSyncSchedule'] as bool?,
   inputByUserId: json['InputByUserId'] as String?,
   modByUserId: json['ModByUserId'] as String?,
   webUserId: json['WebUserId'] as String?,
@@ -1342,6 +1212,7 @@ WebApiModulesAgentOrderOrder _$WebApiModulesAgentOrderOrderFromJson(
   totalWeightKg: (json['TotalWeightKg'] as num?)?.toInt(),
   totalWeightG: (json['TotalWeightG'] as num?)?.toInt(),
   shipmentNumber: (json['ShipmentNumber'] as num?)?.toInt(),
+  lassoEventId: json['LassoEventId'] as String?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -1543,6 +1414,8 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'TotalTax': ?instance.totalTax,
   'NoCharge': ?instance.noCharge,
   'NoChargeReason': ?instance.noChargeReason,
@@ -1586,6 +1459,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
   'GroupNumber': ?instance.groupNumber,
   'GroupColor': ?instance.groupColor,
   'GroupOrderBy': ?instance.groupOrderBy,
+  'GroupName': ?instance.groupName,
   'CoverLetterId': ?instance.coverLetterId,
   'CoverLetter': ?instance.coverLetter,
   'TermsConditionsId': ?instance.termsConditionsId,
@@ -1837,6 +1711,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
   'RentalExempt': ?instance.rentalExempt,
   'SalesExempt': ?instance.salesExempt,
   'LaborExempt': ?instance.laborExempt,
+  'MiscExempt': ?instance.miscExempt,
   'EnableProjects': ?instance.enableProjects,
   'ProjectId': ?instance.projectId,
   'ProjectNumber': ?instance.projectNumber,
@@ -1856,6 +1731,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
   'ProjectSyncMarket': ?instance.projectSyncMarket,
   'ProjectSyncDeliverShip': ?instance.projectSyncDeliverShip,
   'ProjectSyncBilling': ?instance.projectSyncBilling,
+  'ProjectSyncSchedule': ?instance.projectSyncSchedule,
   'InputByUserId': ?instance.inputByUserId,
   'ModByUserId': ?instance.modByUserId,
   'WebUserId': ?instance.webUserId,
@@ -1920,6 +1796,7 @@ Map<String, dynamic> _$WebApiModulesAgentOrderOrderToJson(
   'TotalWeightKg': ?instance.totalWeightKg,
   'TotalWeightG': ?instance.totalWeightG,
   'ShipmentNumber': ?instance.shipmentNumber,
+  'LassoEventId': ?instance.lassoEventId,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -2128,6 +2005,7 @@ WebApiModulesAgentProjectProject _$WebApiModulesAgentProjectProjectFromJson(
   marketSegmentJob: json['MarketSegmentJob'] as String?,
   syncMarket: json['SyncMarket'] as bool?,
   syncDeliverShip: json['SyncDeliverShip'] as bool?,
+  syncSchedule: json['SyncSchedule'] as bool?,
   outDeliveryId: json['OutDeliveryId'] as String?,
   outDeliveryDeliveryType: json['OutDeliveryDeliveryType'] as String?,
   outDeliveryRequiredDate: json['OutDeliveryRequiredDate'] as String?,
@@ -2332,6 +2210,8 @@ WebApiModulesAgentProjectProject _$WebApiModulesAgentProjectProjectFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   determineQuantitiesToBillBasedOn:
       json['DetermineQuantitiesToBillBasedOn'] as String?,
   includePrepFeesInRentalRate: json['IncludePrepFeesInRentalRate'] as bool?,
@@ -2370,6 +2250,10 @@ WebApiModulesAgentProjectProject _$WebApiModulesAgentProjectProjectFromJson(
   billToCountryCodePhone: (json['BillToCountryCodePhone'] as num?)?.toInt(),
   noCharge: json['NoCharge'] as bool?,
   noChargeReason: json['NoChargeReason'] as String?,
+  coverLetterId: json['CoverLetterId'] as String?,
+  coverLetter: json['CoverLetter'] as String?,
+  termsConditionsId: json['TermsConditionsId'] as String?,
+  termsConditions: json['TermsConditions'] as String?,
   activityDatesAndTimes:
       (json['ActivityDatesAndTimes'] as List<dynamic>?)
           ?.map(
@@ -2495,6 +2379,7 @@ Map<String, dynamic> _$WebApiModulesAgentProjectProjectToJson(
   'MarketSegmentJob': ?instance.marketSegmentJob,
   'SyncMarket': ?instance.syncMarket,
   'SyncDeliverShip': ?instance.syncDeliverShip,
+  'SyncSchedule': ?instance.syncSchedule,
   'OutDeliveryId': ?instance.outDeliveryId,
   'OutDeliveryDeliveryType': ?instance.outDeliveryDeliveryType,
   'OutDeliveryRequiredDate': ?instance.outDeliveryRequiredDate,
@@ -2682,6 +2567,8 @@ Map<String, dynamic> _$WebApiModulesAgentProjectProjectToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'DetermineQuantitiesToBillBasedOn':
       ?instance.determineQuantitiesToBillBasedOn,
   'IncludePrepFeesInRentalRate': ?instance.includePrepFeesInRentalRate,
@@ -2720,6 +2607,10 @@ Map<String, dynamic> _$WebApiModulesAgentProjectProjectToJson(
   'BillToCountryCodePhone': ?instance.billToCountryCodePhone,
   'NoCharge': ?instance.noCharge,
   'NoChargeReason': ?instance.noChargeReason,
+  'CoverLetterId': ?instance.coverLetterId,
+  'CoverLetter': ?instance.coverLetter,
+  'TermsConditionsId': ?instance.termsConditionsId,
+  'TermsConditions': ?instance.termsConditions,
   'ActivityDatesAndTimes': ?instance.activityDatesAndTimes
       ?.map((e) => e.toJson())
       .toList(),
@@ -2905,6 +2796,8 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   rentalTaxRate2: (json['RentalTaxRate2'] as num?)?.toDouble(),
   salesTaxRate2: (json['SalesTaxRate2'] as num?)?.toDouble(),
   laborTaxRate2: (json['LaborTaxRate2'] as num?)?.toDouble(),
+  miscTaxRate1: (json['MiscTaxRate1'] as num?)?.toDouble(),
+  miscTaxRate2: (json['MiscTaxRate2'] as num?)?.toDouble(),
   totalTax: (json['TotalTax'] as num?)?.toDouble(),
   noCharge: json['NoCharge'] as bool?,
   noChargeReason: json['NoChargeReason'] as String?,
@@ -2948,6 +2841,7 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   groupNumber: (json['GroupNumber'] as num?)?.toInt(),
   groupColor: (json['GroupColor'] as num?)?.toInt(),
   groupOrderBy: (json['GroupOrderBy'] as num?)?.toDouble(),
+  groupName: json['GroupName'] as String?,
   coverLetterId: json['CoverLetterId'] as String?,
   coverLetter: json['CoverLetter'] as String?,
   termsConditionsId: json['TermsConditionsId'] as String?,
@@ -3222,6 +3116,7 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   rentalExempt: json['RentalExempt'] as bool?,
   salesExempt: json['SalesExempt'] as bool?,
   laborExempt: json['LaborExempt'] as bool?,
+  miscExempt: json['MiscExempt'] as bool?,
   enableProjects: json['EnableProjects'] as bool?,
   projectId: json['ProjectId'] as String?,
   projectNumber: json['ProjectNumber'] as String?,
@@ -3241,6 +3136,7 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   projectSyncMarket: json['ProjectSyncMarket'] as bool?,
   projectSyncDeliverShip: json['ProjectSyncDeliverShip'] as bool?,
   projectSyncBilling: json['ProjectSyncBilling'] as bool?,
+  projectSyncSchedule: json['ProjectSyncSchedule'] as bool?,
   inputByUserId: json['InputByUserId'] as String?,
   modByUserId: json['ModByUserId'] as String?,
   webUserId: json['WebUserId'] as String?,
@@ -3312,6 +3208,7 @@ WebApiModulesAgentQuoteQuote _$WebApiModulesAgentQuoteQuoteFromJson(
   totalWeightKg: (json['TotalWeightKg'] as num?)?.toInt(),
   totalWeightG: (json['TotalWeightG'] as num?)?.toInt(),
   shipmentNumber: (json['ShipmentNumber'] as num?)?.toInt(),
+  lassoEventId: json['LassoEventId'] as String?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
   recordTitle: json['RecordTitle'] as String?,
@@ -3508,6 +3405,8 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   'RentalTaxRate2': ?instance.rentalTaxRate2,
   'SalesTaxRate2': ?instance.salesTaxRate2,
   'LaborTaxRate2': ?instance.laborTaxRate2,
+  'MiscTaxRate1': ?instance.miscTaxRate1,
+  'MiscTaxRate2': ?instance.miscTaxRate2,
   'TotalTax': ?instance.totalTax,
   'NoCharge': ?instance.noCharge,
   'NoChargeReason': ?instance.noChargeReason,
@@ -3551,6 +3450,7 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   'GroupNumber': ?instance.groupNumber,
   'GroupColor': ?instance.groupColor,
   'GroupOrderBy': ?instance.groupOrderBy,
+  'GroupName': ?instance.groupName,
   'CoverLetterId': ?instance.coverLetterId,
   'CoverLetter': ?instance.coverLetter,
   'TermsConditionsId': ?instance.termsConditionsId,
@@ -3802,6 +3702,7 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   'RentalExempt': ?instance.rentalExempt,
   'SalesExempt': ?instance.salesExempt,
   'LaborExempt': ?instance.laborExempt,
+  'MiscExempt': ?instance.miscExempt,
   'EnableProjects': ?instance.enableProjects,
   'ProjectId': ?instance.projectId,
   'ProjectNumber': ?instance.projectNumber,
@@ -3821,6 +3722,7 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   'ProjectSyncMarket': ?instance.projectSyncMarket,
   'ProjectSyncDeliverShip': ?instance.projectSyncDeliverShip,
   'ProjectSyncBilling': ?instance.projectSyncBilling,
+  'ProjectSyncSchedule': ?instance.projectSyncSchedule,
   'InputByUserId': ?instance.inputByUserId,
   'ModByUserId': ?instance.modByUserId,
   'WebUserId': ?instance.webUserId,
@@ -3885,6 +3787,7 @@ Map<String, dynamic> _$WebApiModulesAgentQuoteQuoteToJson(
   'TotalWeightKg': ?instance.totalWeightKg,
   'TotalWeightG': ?instance.totalWeightG,
   'ShipmentNumber': ?instance.shipmentNumber,
+  'LassoEventId': ?instance.lassoEventId,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -3915,6 +3818,8 @@ WebApiModulesBillingReceiptReceipt _$WebApiModulesBillingReceiptReceiptFromJson(
   locationCode: json['LocationCode'] as String?,
   location: json['Location'] as String?,
   customerId: json['CustomerId'] as String?,
+  contactId: json['ContactId'] as String?,
+  contactName: json['ContactName'] as String?,
   customer: json['Customer'] as String?,
   dealId: json['DealId'] as String?,
   deal: json['Deal'] as String?,
@@ -3974,6 +3879,7 @@ WebApiModulesBillingReceiptReceipt _$WebApiModulesBillingReceiptReceiptFromJson(
   creditCardExpirationDate: json['CreditCardExpirationDate'] as String?,
   creditCardName: json['CreditCardName'] as String?,
   creditCardAccountId: json['CreditCardAccountId'] as String?,
+  paymentByPortal: json['PaymentByPortal'] as bool?,
   creditCardPaymentMode: json['CreditCardPaymentMode'] as String?,
   creditCardPinPadId: (json['CreditCardPinPadId'] as num?)?.toInt(),
   newCreditCardAccountToken: json['NewCreditCardAccountToken'] as String?,
@@ -4061,6 +3967,8 @@ Map<String, dynamic> _$WebApiModulesBillingReceiptReceiptToJson(
   'LocationCode': ?instance.locationCode,
   'Location': ?instance.location,
   'CustomerId': ?instance.customerId,
+  'ContactId': ?instance.contactId,
+  'ContactName': ?instance.contactName,
   'Customer': ?instance.customer,
   'DealId': ?instance.dealId,
   'Deal': ?instance.deal,
@@ -4102,6 +4010,7 @@ Map<String, dynamic> _$WebApiModulesBillingReceiptReceiptToJson(
   'CreditCardExpirationDate': ?instance.creditCardExpirationDate,
   'CreditCardName': ?instance.creditCardName,
   'CreditCardAccountId': ?instance.creditCardAccountId,
+  'PaymentByPortal': ?instance.paymentByPortal,
   'CreditCardPaymentMode': ?instance.creditCardPaymentMode,
   'CreditCardPinPadId': ?instance.creditCardPinPadId,
   'NewCreditCardAccountToken': ?instance.newCreditCardAccountToken,
@@ -6787,6 +6696,7 @@ _$WebApiModulesPluginsTeamupTeamupSettingsFromJson(
   success: json['success'] as bool?,
   msg: json['msg'] as String?,
   teamupApiKey: json['TeamupApiKey'] as String?,
+  useDeliverShipDatesForTeamup: json['UseDeliverShipDatesForTeamup'] as bool?,
 );
 
 Map<String, dynamic> _$WebApiModulesPluginsTeamupTeamupSettingsToJson(
@@ -6797,4 +6707,5 @@ Map<String, dynamic> _$WebApiModulesPluginsTeamupTeamupSettingsToJson(
   'success': ?instance.success,
   'msg': ?instance.msg,
   'TeamupApiKey': ?instance.teamupApiKey,
+  'UseDeliverShipDatesForTeamup': ?instance.useDeliverShipDatesForTeamup,
 };

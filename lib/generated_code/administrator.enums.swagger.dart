@@ -92,6 +92,24 @@ enum FwStandardSqlServerFwDataTypes {
   const FwStandardSqlServerFwDataTypes(this.value);
 }
 
+enum WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
+  @JsonValue('Boolean')
+  boolean('Boolean'),
+  @JsonValue('Text')
+  text('Text'),
+  @JsonValue('Number')
+  number('Number');
+
+  final String? value;
+
+  const WebApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypes(
+    this.value,
+  );
+}
+
 enum WebApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertyDataTypes {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -106,6 +124,30 @@ enum WebApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertyDataTypes {
   final String? value;
 
   const WebApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertyDataTypes(
+    this.value,
+  );
+}
+
+enum WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
+  @JsonValue('Boolean')
+  boolean('Boolean'),
+  @JsonValue('Text')
+  text('Text'),
+  @JsonValue('TranslatedText')
+  translatedtext('TranslatedText'),
+  @JsonValue('DropDown')
+  dropdown('DropDown'),
+  @JsonValue('Number')
+  number('Number'),
+  @JsonValue('TimePicker24')
+  timepicker24('TimePicker24');
+
+  final String? value;
+
+  const WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes(
     this.value,
   );
 }

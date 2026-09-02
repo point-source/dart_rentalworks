@@ -273,6 +273,235 @@ final class _$Plugins extends Plugins {
   @override
   Future<
     Response<
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+    >
+  >
+  _creditcardpluginProfileContactContactidLocationLocationidAccountGet({
+    required String? locationid,
+    required String? contactid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get contact credit card accounts.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/creditcardplugin/profile/contact/${contactid}/location/${locationid}/account',
+    );
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount,
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse
+    >
+  >
+  _creditcardpluginProfileContactContactidLocationLocationidAccountPost({
+    required String? locationid,
+    required String? contactid,
+    required WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Create/update a contact credit card account.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/creditcardplugin/profile/contact/${contactid}/location/${locationid}/account',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse,
+      WebApiModulesPluginsCreditCardCreditCardPluginCreateOrUpdateAccountResponse
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+    >
+  >
+  _creditcardpluginProfileContactContactidLocationLocationidAuthorizedaccountGet({
+    required String? locationid,
+    required String? contactid,
+    int? pageno,
+    int? pagesize,
+    String? sort,
+    List<FwStandardModelsFwQueryFilter>? filter,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary:
+          'Get contact credit card accounts that have card on file permission from the customer.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/creditcardplugin/profile/contact/${contactid}/location/${locationid}/authorizedaccount',
+    );
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+      'sort': sort,
+      'filter': filter,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount,
+      FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardAccount
+    >($request);
+  }
+
+  @override
+  Future<Response<dynamic>>
+  _creditcardpluginProfileContactContactidLocationLocationidDefaultaccountGet({
+    required String? locationid,
+    required String? dealid,
+    required String? contactid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get contact default credit card account.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/creditcardplugin/profile/contact/${contactid}/location/${locationid}/defaultaccount',
+    );
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesPluginsCreditCardAccount>>
+  _creditcardpluginProfileContactContactidLocationLocationidAccountAccountidGet({
+    required String? locationid,
+    required String? contactid,
+    required String? accountid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get contact credit card account.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/creditcardplugin/profile/contact/${contactid}/location/${locationid}/account/${accountid}',
+    );
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesPluginsCreditCardAccount,
+      WebApiModulesPluginsCreditCardAccount
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse
+    >
+  >
+  _creditcardpluginProfileContactContactidLocationLocationidAccountAccountidDelete({
+    required String? locationid,
+    required String? contactid,
+    required String? accountid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Delete a contact credit card account.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CreditCardPlugin"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/creditcardplugin/profile/contact/${contactid}/location/${locationid}/account/${accountid}',
+    );
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse,
+      WebApiModulesPluginsCreditCardCreditCardPluginDeleteAccountResponse
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
       FwStandardModelsFwQueryResponseWebApiModulesPluginsCreditCardCreditCardLogLogic
     >
   >
@@ -2017,6 +2246,33 @@ final class _$Plugins extends Plugins {
   }
 
   @override
+  Future<Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FwUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/fwutility/serverutcdatetime');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      FwCoreControllersGetServerUtcDateTimeResponse
+    >($request);
+  }
+
+  @override
   Future<Response<WebApiModulesPluginsKissFlowProjectResponse>>
   _kissflowpluginProjectGet({
     String? quoteOrderProjectNo,
@@ -2519,225 +2775,6 @@ final class _$Plugins extends Plugins {
       tag: swaggerMetaData,
     );
     return client.send<String, String>($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _taskschedulerTaskstepsIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
   }
 
   @override

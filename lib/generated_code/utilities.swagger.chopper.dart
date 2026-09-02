@@ -930,7 +930,7 @@ final class _$Utilities extends Utilities {
     DateTime? toDate,
     bool? stacked,
     bool? displayNumbers,
-    int? timezoneOffset,
+    num? timezoneOffset,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -1393,6 +1393,33 @@ final class _$Utilities extends Utilities {
       tag: swaggerMetaData,
     );
     return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FwUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/fwutility/serverutcdatetime');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      FwCoreControllersGetServerUtcDateTimeResponse
+    >($request);
   }
 
   @override
@@ -3265,6 +3292,29 @@ final class _$Utilities extends Utilities {
   }
 
   @override
+  Future<Response<List<String>>> _labeldesignFieldnamesIcodelabelGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get field names for designing I-Code labels.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["LabelDesign"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/labeldesign/fieldnames/icodelabel');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<List<String>, String>($request);
+  }
+
+  @override
   Future<Response<String>>
   _labeldesignBarcodesContractReceivecontractidWarehouseWarehouseidGet({
     required String? receivecontractid,
@@ -3500,7 +3550,7 @@ final class _$Utilities extends Utilities {
     required String? warehouseid,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Get field replacements for printing an asset labels.',
+      summary: 'Get field replacements for printing an asset label.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -3512,6 +3562,34 @@ final class _$Utilities extends Utilities {
     final Uri $url = Uri.parse(
       '/labeldesign/labeldata/asset/barcode/${barcode}/warehouse/${warehouseid}',
     );
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesUtilitiesLabelDesignBarcodeLabel,
+      WebApiModulesUtilitiesLabelDesignBarcodeLabel
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
+  _labeldesignLabeldataIcodeIcodeIcodeGet({
+    required String? icode,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get field replacements for printing an I-Code label.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["LabelDesign"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/labeldesign/labeldata/icode/icode/${icode}');
     final Request $request = Request(
       'GET',
       $url,
@@ -3746,8 +3824,10 @@ final class _$Utilities extends Utilities {
   }
 
   @override
-  Future<Response<WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse>>
-  _migrateCompletesession2Post({
+  Future<
+    Response<WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse>
+  >
+  _migrateStartcompletesession2Post({
     required WebApiModulesUtilitiesMigrateCompleteMigrateSessionRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -3760,7 +3840,7 @@ final class _$Utilities extends Utilities {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/migrate/completesession2');
+    final Uri $url = Uri.parse('/migrate/startcompletesession2');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -3770,8 +3850,8 @@ final class _$Utilities extends Utilities {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse,
-      WebApiModulesUtilitiesMigrateCompleteMigrateSessionResponse
+      WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse,
+      WebApiModulesUtilitiesMigrateStartCompleteMigrateSessionResponse
     >($request);
   }
 
@@ -6083,225 +6163,6 @@ final class _$Utilities extends Utilities {
   }
 
   @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _taskschedulerTaskstepsIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
-  }
-
-  @override
   Future<
     Response<
       WebApiModulesUtilitiesUnlockMultiOrderContractOrdersUtilityUnlockMultiOrderContractOrdersResponse
@@ -6589,12 +6450,9 @@ final class _$Utilities extends Utilities {
   }
 
   @override
-  Future<Response<bool>> _utilityfunctionsSendmailPost({
-    String? from,
-    String? to,
-    String? cc,
-    String? subject,
-    String? body,
+  Future<Response<FwCoreServicesJobFwJobStatusResponse>>
+  _utilityfunctionsJobstatusJobidGet({
+    required String? jobId,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -6606,22 +6464,17 @@ final class _$Utilities extends Utilities {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/utilityfunctions/sendmail');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'from': from,
-      'to': to,
-      'cc': cc,
-      'subject': subject,
-      'body': body,
-    };
+    final Uri $url = Uri.parse('/utilityfunctions/jobstatus/{jobid}');
     final Request $request = Request(
-      'POST',
+      'GET',
       $url,
       client.baseUrl,
-      parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<bool, bool>($request);
+    return client.send<
+      FwCoreServicesJobFwJobStatusResponse,
+      FwCoreServicesJobFwJobStatusResponse
+    >($request);
   }
 
   @override

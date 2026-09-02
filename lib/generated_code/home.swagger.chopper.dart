@@ -1649,8 +1649,8 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesBillingBillingCreateInvoicesResponse>>
-  _billingCreategroupinvoicesPost({
+  Future<Response<WebApiModulesBillingBillingStartCreateGroupInvoicesResponse>>
+  _billingStartcreategroupinvoicesPost({
     required WebApiModulesBillingBillingCreateGroupInvoicesRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1663,7 +1663,7 @@ final class _$Home extends Home {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/billing/creategroupinvoices');
+    final Uri $url = Uri.parse('/billing/startcreategroupinvoices');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -1673,36 +1673,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesBillingBillingCreateInvoicesResponse,
-      WebApiModulesBillingBillingCreateInvoicesResponse
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesBillingBillingGetOrderBillingDatesResponse>>
-  _billingGetorderbillingdatesIdPost({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["Billing"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/billing/getorderbillingdates/${id}');
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesBillingBillingGetOrderBillingDatesResponse,
-      WebApiModulesBillingBillingGetOrderBillingDatesResponse
+      WebApiModulesBillingBillingStartCreateGroupInvoicesResponse,
+      WebApiModulesBillingBillingStartCreateGroupInvoicesResponse
     >($request);
   }
 
@@ -5083,9 +5055,8 @@ final class _$Home extends Home {
 
   @override
   Future<Response<FwStandardSqlServerTSpStatusResponse>>
-  _checkoutUpdateshippingcasenoPost({
-    required WebApiModulesWarehouseCheckOutUpdateShippingCaseNumberRequest?
-    body,
+  _checkoutUpdateshippingcasePost({
+    required WebApiModulesWarehouseCheckOutUpdateShippingCaseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -5097,7 +5068,7 @@ final class _$Home extends Home {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/checkout/updateshippingcaseno');
+    final Uri $url = Uri.parse('/checkout/updateshippingcase');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -5795,6 +5766,76 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<
+    Response<
+      WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemResponse
+    >
+  >
+  _checkoutStageconsignmentitemSelectallPost({
+    required WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/stageconsignmentitem/selectall');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemResponse,
+      WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemResponse
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemResponse
+    >
+  >
+  _checkoutStageconsignmentitemSelectnonePost({
+    required WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/stageconsignmentitem/selectnone');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemResponse,
+      WebApiModulesWarehouseCheckOutSelectAllNoneStageConsignmentItemResponse
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _checkoutStageholdingitemBrowsePost({
     required FwStandardModelsBrowseRequest? body,
@@ -6345,6 +6386,242 @@ final class _$Home extends Home {
     return client.send<
       WebApiModulesWarehouseCheckOutStageItemResponse,
       WebApiModulesWarehouseCheckOutStageItemResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _checkoutShippingcaseBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/shippingcase/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _checkoutShippingcaseExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/shippingcase/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _checkoutShippingcaseEmptyobjectGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/shippingcase/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesWarehouseCheckOutStageShippingCase>>
+  _checkoutShippingcaseIdPut({
+    required int? id,
+    required WebApiModulesWarehouseCheckOutStageShippingCase? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/shippingcase/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseCheckOutStageShippingCase,
+      WebApiModulesWarehouseCheckOutStageShippingCase
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _checkoutShippingnoteBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/shippingnote/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _checkoutShippingnoteExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/shippingnote/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _checkoutShippingnoteEmptyobjectGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/shippingnote/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesWarehouseCheckOutStageShippingNote>>
+  _checkoutShippingnoteIdPut({
+    required int? id,
+    required WebApiModulesWarehouseCheckOutShippingNoteRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CheckOut"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/checkout/shippingnote/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseCheckOutStageShippingNote,
+      WebApiModulesWarehouseCheckOutStageShippingNote
     >($request);
   }
 
@@ -8826,7 +9103,12 @@ final class _$Home extends Home {
   _contactContactidDocumentDocumentidImageformuploadPost({
     required String? contactid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -8841,12 +9123,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/contact/${contactid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -8940,7 +9230,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _contactContactidDocumentDocumentidFileformuploadPut({
     required String? contactid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -8955,12 +9250,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/contact/${contactid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -8988,6 +9291,124 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _contactPortalaccessBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contact"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contact/portalaccess/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _contactPortalaccessExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contact"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contact/portalaccess/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _contactPortalaccessEmptyobjectGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contact"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contact/portalaccess/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentContactPortalAccess>>
+  _contactPortalaccessIdPut({
+    required String? id,
+    required WebApiModulesAgentContactPortalAccess? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contact"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contact/portalaccess/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesAgentContactPortalAccess,
+      WebApiModulesAgentContactPortalAccess
+    >($request);
   }
 
   @override
@@ -9364,6 +9785,693 @@ final class _$Home extends Home {
     return client.send<
       WebApiModulesContainersContainerContainer,
       WebApiModulesContainersContainerContainer
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _containercontractContractidDocumentBrowsePost({
+    required String? contractid,
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get documents.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/browse',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _containercontractContractidDocumentExportexcelxlsxPost({
+    required String? contractid,
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Export documents to Excel.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/exportexcelxlsx',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse
+    >
+  >
+  _containercontractContractidDocumentsGet({
+    required String? contractid,
+    String? documentTypeId,
+    String? description,
+    String? dateStamp,
+    int? pageNo,
+    int? pageSize,
+    String? sort,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get documents.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/containercontract/${contractid}/documents');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'DocumentTypeId': documentTypeId,
+      'Description': description,
+      'DateStamp': dateStamp,
+      'PageNo': pageNo,
+      'PageSize': pageSize,
+      'Sort': sort,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse,
+      FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesWarehouseContractContainerContractDocument>>
+  _containercontractContractidDocumentDocumentidGet({
+    required String? contractid,
+    required String? documentid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get a document.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}',
+    );
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseContractContainerContractDocument,
+      WebApiModulesWarehouseContractContainerContractDocument
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesWarehouseContractContainerContractDocument>>
+  _containercontractContractidDocumentDocumentidPut({
+    required String? contractid,
+    required String? documentid,
+    required WebApiModulesWarehouseContractContainerContractDocumentPutRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Update a document.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseContractContainerContractDocument,
+      WebApiModulesWarehouseContractContainerContractDocument
+    >($request);
+  }
+
+  @override
+  Future<Response<bool>> _containercontractContractidDocumentDocumentidDelete({
+    required String? contractid,
+    required String? documentid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Delete a document.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}',
+    );
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesWarehouseContractContainerContractDocument>>
+  _containercontractContractidDocumentPost({
+    required String? contractid,
+    required WebApiModulesWarehouseContractContainerContractDocumentPostRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Create a new document.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/containercontract/${contractid}/document');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseContractContainerContractDocument,
+      WebApiModulesWarehouseContractContainerContractDocument
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>>
+  _containercontractContractidDocumentDocumentidThumbnailsGet({
+    required String? contractid,
+    required String? documentid,
+    int? pageno,
+    int? pagesize,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get thumbnails for any images attached to the document.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}/thumbnails',
+    );
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'pageno': pageno,
+      'pagesize': pagesize,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardGridsAppDocumentGetDocumentThumbnailsResponse,
+      FwStandardGridsAppDocumentGetDocumentThumbnailsResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardGridsAppDocumentGetDocumentImageResponse>>
+  _containercontractContractidDocumentDocumentidImageImageidGet({
+    required String? contractid,
+    required String? documentid,
+    required String? imageid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get a fullsize image.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}/image/${imageid}',
+    );
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardGridsAppDocumentGetDocumentImageResponse,
+      FwStandardGridsAppDocumentGetDocumentImageResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<bool>>
+  _containercontractContractidDocumentDocumentidImageImageidDelete({
+    required String? contractid,
+    required String? documentid,
+    required String? imageid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Delete an attached image.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}/image/${imageid}',
+    );
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+  _containercontractContractidDocumentDocumentidImagePost({
+    required String? contractid,
+    required String? documentid,
+    required FwStandardGridsAppDocumentPostDocumentImageRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Attach an image from a dataurl.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}/image',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+  _containercontractContractidDocumentDocumentidImageformuploadPost({
+    required String? contractid,
+    required String? documentid,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Attach an image from a form submission.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}/imageformupload',
+    );
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      parts: $parts,
+      multipart: true,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<dynamic>>
+  _containercontractContractidDocumentDocumentidFileGet({
+    required String? contractid,
+    required String? documentid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get the attached file.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}/file',
+    );
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<bool>> _containercontractContractidDocumentDocumentidFilePut({
+    required String? contractid,
+    required String? documentid,
+    required FwStandardGridsAppDocumentPutDocumentFileRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Update the attached file from a dataurl.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}/file',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+  _containercontractContractidDocumentDocumentidFileDelete({
+    required String? contractid,
+    required String? documentid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Delete attached file.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}/file',
+    );
+    final Request $request = Request(
+      'DELETE',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>>
+  _containercontractContractidDocumentDocumentidFileformuploadPut({
+    required String? contractid,
+    required String? documentid,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Update attached file from a form submission.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/${documentid}/fileformupload',
+    );
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      parts: $parts,
+      multipart: true,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _containercontractContractidDocumentEmptyobjectGet({
+    required String? contractid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/containercontract/${contractid}/document/emptyobject',
+    );
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _containercontractBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/containercontract/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<Object>> _containercontractLegendGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/containercontract/legend');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<Object, Object>($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _containercontractExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/containercontract/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesWarehouseContractContract>>
+  _containercontractIdGet({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ContainerContract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/containercontract/${id}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseContractContract,
+      WebApiModulesWarehouseContractContract
     >($request);
   }
 
@@ -10866,7 +11974,12 @@ final class _$Home extends Home {
   _contractContractidDocumentDocumentidImageformuploadPost({
     required String? contractid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -10881,12 +11994,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/contract/${contractid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -10981,7 +12102,12 @@ final class _$Home extends Home {
   _contractContractidDocumentDocumentidFileformuploadPut({
     required String? contractid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -10996,12 +12122,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/contract/${contractid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -11029,6 +12163,242 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _contractShippingcaseBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contract/shippingcase/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _contractShippingcaseExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contract/shippingcase/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _contractShippingcaseEmptyobjectGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contract/shippingcase/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesWarehouseContractContractShippingCase>>
+  _contractShippingcaseIdPut({
+    required int? id,
+    required WebApiModulesWarehouseContractContractShippingCase? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contract/shippingcase/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseContractContractShippingCase,
+      WebApiModulesWarehouseContractContractShippingCase
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _contractShippingnoteBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contract/shippingnote/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _contractShippingnoteExportexcelxlsxPost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contract/shippingnote/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _contractShippingnoteEmptyobjectGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contract/shippingnote/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesWarehouseContractContractShippingNote>>
+  _contractShippingnoteIdPut({
+    required int? id,
+    required WebApiModulesWarehouseContractContractShippingNote? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Contract"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/contract/shippingnote/${id}');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesWarehouseContractContractShippingNote,
+      WebApiModulesWarehouseContractContractShippingNote
+    >($request);
   }
 
   @override
@@ -11627,7 +12997,12 @@ final class _$Home extends Home {
   _customerCustomeridDocumentDocumentidImageformuploadPost({
     required String? customerid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -11642,12 +13017,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/customer/${customerid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -11742,7 +13125,12 @@ final class _$Home extends Home {
   _customerCustomeridDocumentDocumentidFileformuploadPut({
     required String? customerid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -11757,12 +13145,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/customer/${customerid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -13156,7 +14552,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _dealDealidDocumentDocumentidImageformuploadPost({
     required String? dealid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -13171,12 +14572,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/deal/${dealid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -13264,7 +14673,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _dealDealidDocumentDocumentidFileformuploadPut({
     required String? dealid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -13279,12 +14693,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/deal/${dealid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -16281,6 +17703,63 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _fillcontainerValidateicoderentalBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FillContainer"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/fillcontainer/validateicoderental/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FwUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/fwutility/serverutcdatetime');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      FwCoreControllersGetServerUtcDateTimeResponse
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _generalitemBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -18610,6 +20089,47 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<
+    Response<
+      List<
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic
+      >
+    >
+  >
+  _inventorycontaineritemManyPost({
+    required List<
+      WebApiModulesInventoryInventoryContainerItemInventoryContainerItem
+    >?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InventoryContainerItem"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/inventorycontaineritem/many');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic
+      >,
+      MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic
+    >($request);
+  }
+
+  @override
   Future<Response<WebApiLogicSortItemsResponse>>
   _inventorycontaineritemSortPost({
     required WebApiModulesInventoryInventoryContainerItemSortContainerItemsRequest?
@@ -19688,6 +21208,47 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<
+    Response<
+      List<
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic
+      >
+    >
+  >
+  _inventorypackageinventoryManyPost({
+    required List<
+      WebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventory
+    >?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InventoryPackageInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/inventorypackageinventory/many');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<
+        MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic
+      >,
+      MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic
+    >($request);
   }
 
   @override
@@ -24751,8 +26312,8 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse>>
-  _invoiceIdApprovePost({
+  Future<Response<WebApiModulesBillingInvoiceStartApproveInvoiceResponse>>
+  _invoiceIdStartapprovePost({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -24765,7 +26326,7 @@ final class _$Home extends Home {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/invoice/${id}/approve');
+    final Uri $url = Uri.parse('/invoice/${id}/startapprove');
     final Request $request = Request(
       'POST',
       $url,
@@ -24773,8 +26334,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse,
-      WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse
+      WebApiModulesBillingInvoiceStartApproveInvoiceResponse,
+      WebApiModulesBillingInvoiceStartApproveInvoiceResponse
     >($request);
   }
 
@@ -24811,8 +26372,8 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse>>
-  _invoiceIdUnapprovePost({
+  Future<Response<WebApiModulesBillingInvoiceStartUnapproveInvoiceResponse>>
+  _invoiceIdStartunapprovePost({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -24825,7 +26386,7 @@ final class _$Home extends Home {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/invoice/${id}/unapprove');
+    final Uri $url = Uri.parse('/invoice/${id}/startunapprove');
     final Request $request = Request(
       'POST',
       $url,
@@ -24833,8 +26394,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse,
-      WebApiModulesBillingInvoiceToggleInvoiceApprovedResponse
+      WebApiModulesBillingInvoiceStartUnapproveInvoiceResponse,
+      WebApiModulesBillingInvoiceStartUnapproveInvoiceResponse
     >($request);
   }
 
@@ -25789,7 +27350,12 @@ final class _$Home extends Home {
   _invoiceInvoiceidDocumentDocumentidImageformuploadPost({
     required String? invoiceid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -25804,12 +27370,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/invoice/${invoiceid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -25903,7 +27477,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _invoiceInvoiceidDocumentDocumentidFileformuploadPut({
     required String? invoiceid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -25918,12 +27497,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/invoice/${invoiceid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -27629,7 +29216,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _itemItemidDocumentDocumentidImageformuploadPost({
     required String? itemid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -27644,12 +29236,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/item/${itemid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -27737,7 +29337,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _itemItemidDocumentDocumentidFileformuploadPut({
     required String? itemid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -27752,12 +29357,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/item/${itemid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -28002,9 +29615,9 @@ final class _$Home extends Home {
   }
 
   @override
-  Future<Response<WebApiModulesInventoryAssetItemByBarCodeResponse>>
-  _itemBybarcodeGet({
-    String? barCode,
+  Future<Response<WebApiModulesInventoryAssetItemByCodeResponse>>
+  _itemBycodeGet({
+    String? barCodeOrRfid,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -28016,8 +29629,10 @@ final class _$Home extends Home {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/item/bybarcode');
-    final Map<String, dynamic> $params = <String, dynamic>{'barCode': barCode};
+    final Uri $url = Uri.parse('/item/bycode');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'barCodeOrRfid': barCodeOrRfid,
+    };
     final Request $request = Request(
       'GET',
       $url,
@@ -28026,8 +29641,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesInventoryAssetItemByBarCodeResponse,
-      WebApiModulesInventoryAssetItemByBarCodeResponse
+      WebApiModulesInventoryAssetItemByCodeResponse,
+      WebApiModulesInventoryAssetItemByCodeResponse
     >($request);
   }
 
@@ -29130,9 +30745,9 @@ final class _$Home extends Home {
 
   @override
   Future<
-    Response<WebApiModulesAgentLossAndDamageRetireLossAndDamageItemResponse>
+    Response<WebApiModulesAgentLossAndDamageStartRetireLossAndDamageResponse>
   >
-  _lossanddamageRetirePost({
+  _lossanddamageStartretirePost({
     required WebApiModulesAgentLossAndDamageRetireLossAndDamageItemRequest?
     body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -29146,7 +30761,7 @@ final class _$Home extends Home {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/lossanddamage/retire');
+    final Uri $url = Uri.parse('/lossanddamage/startretire');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -29156,8 +30771,8 @@ final class _$Home extends Home {
       tag: swaggerMetaData,
     );
     return client.send<
-      WebApiModulesAgentLossAndDamageRetireLossAndDamageItemResponse,
-      WebApiModulesAgentLossAndDamageRetireLossAndDamageItemResponse
+      WebApiModulesAgentLossAndDamageStartRetireLossAndDamageResponse,
+      WebApiModulesAgentLossAndDamageStartRetireLossAndDamageResponse
     >($request);
   }
 
@@ -29891,7 +31506,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _orderOrderidDocumentDocumentidImageformuploadPost({
     required String? orderid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -29906,12 +31526,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/order/${orderid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -29999,7 +31627,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _orderOrderidDocumentDocumentidFileformuploadPut({
     required String? orderid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -30014,12 +31647,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/order/${orderid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -32166,6 +33807,62 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<WebApiModulesBillingBillingGetOrderBillingDatesResponse>>
+  _orderGetorderbillingdatesIdPost({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Order"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/order/getorderbillingdates/${id}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesBillingBillingGetOrderBillingDatesResponse,
+      WebApiModulesBillingBillingGetOrderBillingDatesResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesBillingBillingGetOrderBillingEventDateResponse>>
+  _orderGetorderbillingeventdateIdPost({
+    required String? id,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Order"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/order/getorderbillingeventdate/${id}');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesBillingBillingGetOrderBillingEventDateResponse,
+      WebApiModulesBillingBillingGetOrderBillingEventDateResponse
+    >($request);
+  }
+
+  @override
   Future<Response<WebApiModulesAgentOrderVerifyManualSortItemsResponse>>
   _orderVerifymanualsortitemsGet({
     String? orderId,
@@ -32231,7 +33928,7 @@ final class _$Home extends Home {
 
   @override
   Future<Response<bool>> _orderSubmittokissfloworderpartialreturnPost({
-    String? orderId,
+    required WebApiModulesAgentOrderKissFlowOrderSubmissionRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -32244,12 +33941,12 @@ final class _$Home extends Home {
     ),
   }) {
     final Uri $url = Uri.parse('/order/submittokissfloworderpartialreturn');
-    final Map<String, dynamic> $params = <String, dynamic>{'orderId': orderId};
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      parameters: $params,
+      body: $body,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -32258,7 +33955,7 @@ final class _$Home extends Home {
   @override
   Future<Response<FwStandardSqlServerTSpStatusResponse>>
   _orderSubmittokissflowordernoreturnPost({
-    String? orderId,
+    required WebApiModulesAgentOrderKissFlowOrderSubmissionRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '',
@@ -32271,12 +33968,12 @@ final class _$Home extends Home {
     ),
   }) {
     final Uri $url = Uri.parse('/order/submittokissflowordernoreturn');
-    final Map<String, dynamic> $params = <String, dynamic>{'orderId': orderId};
+    final $body = body;
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      parameters: $params,
+      body: $body,
       tag: swaggerMetaData,
     );
     return client.send<
@@ -32391,6 +34088,36 @@ final class _$Home extends Home {
     ),
   }) {
     final Uri $url = Uri.parse('/order/postshipmentdata');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerTSpStatusResponse,
+      FwStandardSqlServerTSpStatusResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerTSpStatusResponse>>
+  _orderPosteventtolassoPost({
+    required WebApiModulesPluginsLassoLassoPayload? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Order"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/order/posteventtolasso');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -35156,6 +36883,81 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<
+    Response<
+      List<
+        WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+      >
+    >
+  >
+  _ordermanifestManifestWithDocumentsOrderidOrderidOutcontractidOutcontractidPost({
+    required String? orderid,
+    required String? outcontractid,
+    required FwStandardReportingFwReportRenderRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary:
+          'Get a list of URLs for Manifest documents associated to an order (for printing).',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderManifest"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/ordermanifest/manifest-with-documents/orderid/${orderid}/outcontractid/${outcontractid}',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<
+        WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+      >,
+      WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+    >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _ordermanifestFileGet({
+    String? orderid,
+    String? appdocumentid,
+    String? outcontractid,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Downloads the file (not image) associated with an appdocument.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderManifest"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/ordermanifest/file');
+    final Map<String, dynamic> $params = <String, dynamic>{
+      'orderid': orderid,
+      'appdocumentid': appdocumentid,
+      'outcontractid': outcontractid,
+    };
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      parameters: $params,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _ordernoteBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -36729,7 +38531,12 @@ final class _$Home extends Home {
   _partsinventoryInventoryidDocumentDocumentidImageformuploadPost({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -36744,12 +38551,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/partsinventory/${inventoryid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -36846,7 +38661,12 @@ final class _$Home extends Home {
   _partsinventoryInventoryidDocumentDocumentidFileformuploadPut({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -36861,12 +38681,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/partsinventory/${inventoryid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -42232,7 +44060,12 @@ final class _$Home extends Home {
   _projectProjectidDocumentDocumentidImageformuploadPost({
     required String? projectid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -42247,12 +44080,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/project/${projectid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -42346,7 +44187,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _projectProjectidDocumentDocumentidFileformuploadPut({
     required String? projectid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -42361,12 +44207,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/project/${projectid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -42942,6 +44796,66 @@ final class _$Home extends Home {
   }
 
   @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _projectValidatecoverletterBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Project"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/project/validatecoverletter/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _projectValidatetermsconditionsBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Project"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/project/validatetermsconditions/browse');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerTSpStatusResponse>>
   _projectApplybottomlinetotalPost({
     required WebApiModulesAgentProjectProjectBottomLineTotalRequest? body,
@@ -43321,6 +45235,37 @@ final class _$Home extends Home {
     final $body = body;
     final Request $request = Request(
       'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesAgentProjectContactProjectContact,
+      WebApiModulesAgentProjectContactProjectContact
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAgentProjectContactProjectContact>>
+  _projectcontactPut({
+    required String? id,
+    required WebApiModulesAgentProjectContactProjectContact? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["ProjectContact"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/projectcontact');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
       $url,
       client.baseUrl,
       body: $body,
@@ -44097,7 +46042,12 @@ final class _$Home extends Home {
   _purchaseorderPurchaseorderidDocumentDocumentidImageformuploadPost({
     required String? purchaseorderid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -44112,12 +46062,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/purchaseorder/${purchaseorderid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -44215,7 +46173,12 @@ final class _$Home extends Home {
   _purchaseorderPurchaseorderidDocumentDocumentidFileformuploadPut({
     required String? purchaseorderid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -44230,12 +46193,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/purchaseorder/${purchaseorderid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -48072,7 +50043,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _quoteQuoteidDocumentDocumentidImageformuploadPost({
     required String? quoteid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -48087,12 +50063,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/quote/${quoteid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -48180,7 +50164,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _quoteQuoteidDocumentDocumentidFileformuploadPut({
     required String? quoteid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -48195,12 +50184,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/quote/${quoteid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -52177,7 +54174,12 @@ final class _$Home extends Home {
   _rentalinventoryInventoryidDocumentDocumentidImageformuploadPost({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -52192,12 +54194,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/rentalinventory/${inventoryid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -52294,7 +54304,12 @@ final class _$Home extends Home {
   _rentalinventoryInventoryidDocumentDocumentidFileformuploadPut({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -52309,12 +54324,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/rentalinventory/${inventoryid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -52724,7 +54747,12 @@ final class _$Home extends Home {
   _rentalinventoryInventoryidSethistoryDocumentidImageformuploadPost({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -52739,12 +54767,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/rentalinventory/${inventoryid}/sethistory/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -52842,7 +54878,12 @@ final class _$Home extends Home {
   _rentalinventoryInventoryidSethistoryDocumentidFileformuploadPut({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -52857,12 +54898,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/rentalinventory/${inventoryid}/sethistory/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -55112,7 +57161,12 @@ final class _$Home extends Home {
   _rentalinventoryInventoryidWallimagehistoryDocumentidImageformuploadPost({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -55127,12 +57181,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -55230,7 +57292,12 @@ final class _$Home extends Home {
   _rentalinventoryInventoryidWallimagehistoryDocumentidFileformuploadPut({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -55245,12 +57312,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/rentalinventory/${inventoryid}/wallimagehistory/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -55645,7 +57720,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _repairRepairidDocumentDocumentidImageformuploadPost({
     required String? repairid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -55660,12 +57740,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/repair/${repairid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -55759,7 +57847,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _repairRepairidDocumentDocumentidFileformuploadPut({
     required String? repairid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -55774,12 +57867,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/repair/${repairid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -56699,6 +58800,33 @@ final class _$Home extends Home {
     ),
   }) {
     final Uri $url = Uri.parse('/repair/updaterepairordertransferinfo');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
+  }
+
+  @override
+  Future<Response<bool>> _repairUpdaterepairorderoutsiderepairPost({
+    required WebApiModulesInventoryRepairKissFlowUpdateRepairOrderOutsideRepairRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Repair"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/repair/updaterepairorderoutsiderepair');
     final $body = body;
     final Request $request = Request(
       'POST',
@@ -58864,7 +60992,12 @@ final class _$Home extends Home {
   _salesinventoryInventoryidDocumentDocumentidImageformuploadPost({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -58879,12 +61012,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/salesinventory/${inventoryid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -58981,7 +61122,12 @@ final class _$Home extends Home {
   _salesinventoryInventoryidDocumentDocumentidFileformuploadPut({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -58996,12 +61142,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/salesinventory/${inventoryid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -59863,6 +62017,212 @@ final class _$Home extends Home {
     return client.send<
       WebApiModulesPluginsQuickbooksOnlineRwToQBOLogicQBOSyncResponse,
       WebApiModulesPluginsQuickbooksOnlineRwToQBOLogicQBOSyncResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesComponentsTagsTagsResponse>>
+  _salesinventoryTagsLoadalltagsPost({
+    required WebApiModulesComponentsTagsTagRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SalesInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/salesinventory/tags/loadalltags');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesComponentsTagsTagsResponse,
+      WebApiModulesComponentsTagsTagsResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<List<WebApiModulesComponentsTagsTag>>>
+  _salesinventoryTagsSearchtagsPost({
+    required WebApiModulesComponentsTagsTagRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SalesInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/salesinventory/tags/searchtags');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<WebApiModulesComponentsTagsTag>,
+      WebApiModulesComponentsTagsTag
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesComponentsTagsTag>>
+  _salesinventoryTagsAddmaintagPost({
+    required WebApiModulesComponentsTagsTagRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SalesInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/salesinventory/tags/addmaintag');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client
+        .send<WebApiModulesComponentsTagsTag, WebApiModulesComponentsTagsTag>(
+          $request,
+        );
+  }
+
+  @override
+  Future<Response<WebApiModulesComponentsTagsTagsResponse>>
+  _salesinventoryTagsAddtagtomodulePost({
+    required WebApiModulesComponentsTagsTagRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SalesInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/salesinventory/tags/addtagtomodule');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesComponentsTagsTagsResponse,
+      WebApiModulesComponentsTagsTagsResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<String>> _salesinventoryTagsCandeletemaintagPost({
+    required WebApiModulesComponentsTagsTagRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SalesInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/salesinventory/tags/candeletemaintag');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<String, String>($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesComponentsTagsTagsResponse>>
+  _salesinventoryTagsDeletemaintagPost({
+    required WebApiModulesComponentsTagsTagRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SalesInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/salesinventory/tags/deletemaintag');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesComponentsTagsTagsResponse,
+      WebApiModulesComponentsTagsTagsResponse
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesComponentsTagsTagsResponse>>
+  _salesinventoryTagsDeletemoduletagPost({
+    required WebApiModulesComponentsTagsTagRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["SalesInventory"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/salesinventory/tags/deletemoduletag');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesComponentsTagsTagsResponse,
+      WebApiModulesComponentsTagsTagsResponse
     >($request);
   }
 
@@ -61239,7 +63599,12 @@ final class _$Home extends Home {
   _setimagehistoryInventoryidSetimagehistoryitemDocumentidImageformuploadPost({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -61254,12 +63619,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -61357,7 +63730,12 @@ final class _$Home extends Home {
   _setimagehistoryInventoryidSetimagehistoryitemDocumentidFileformuploadPut({
     required String? inventoryid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -61372,12 +63750,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/setimagehistory/${inventoryid}/setimagehistoryitem/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -61925,225 +64311,6 @@ final class _$Home extends Home {
       FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
       FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
     >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _taskschedulerTaskstepsIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
   }
 
   @override
@@ -63719,7 +65886,12 @@ final class _$Home extends Home {
   _transferorderTransferidDocumentDocumentidImageformuploadPost({
     required String? transferid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -63734,12 +65906,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/transferorder/${transferid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -63834,7 +66014,12 @@ final class _$Home extends Home {
   _transferorderTransferidDocumentDocumentidFileformuploadPut({
     required String? transferid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -63849,12 +66034,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/transferorder/${transferid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -65401,7 +67594,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _vendorVendoridDocumentDocumentidImageformuploadPost({
     required String? vendorid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -65416,12 +67614,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/vendor/${vendorid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -65515,7 +67721,12 @@ final class _$Home extends Home {
   Future<Response<bool>> _vendorVendoridDocumentDocumentidFileformuploadPut({
     required String? vendorid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -65530,12 +67741,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/vendor/${vendorid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -66580,7 +68799,12 @@ final class _$Home extends Home {
   _vendorinvoiceVendorinvoiceidDocumentDocumentidImageformuploadPost({
     required String? vendorinvoiceid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Attach an image from a form submission.',
@@ -66595,12 +68819,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/vendorinvoice/${vendorinvoiceid}/document/${documentid}/imageformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);
@@ -66698,7 +68930,12 @@ final class _$Home extends Home {
   _vendorinvoiceVendorinvoiceidDocumentDocumentidFileformuploadPut({
     required String? vendorinvoiceid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'Update attached file from a form submission.',
@@ -66713,12 +68950,20 @@ final class _$Home extends Home {
     final Uri $url = Uri.parse(
       '/vendorinvoice/${vendorinvoiceid}/document/${documentid}/fileformupload',
     );
-    final $body = body;
+    final List<PartValue> $parts = <PartValue>[
+      PartValue<String?>('ContentType', contentType),
+      PartValue<String?>('ContentDisposition', contentDisposition),
+      PartValue<Object?>('Headers', headers),
+      PartValue<int?>('Length', length),
+      PartValue<String?>('Name', name),
+      PartValue<String?>('FileName', fileName),
+    ];
     final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
-      body: $body,
+      parts: $parts,
+      multipart: true,
       tag: swaggerMetaData,
     );
     return client.send<bool, bool>($request);

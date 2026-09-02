@@ -9080,6 +9080,33 @@ final class _$Reports extends Reports {
   }
 
   @override
+  Future<Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FwUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/fwutility/serverutcdatetime');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      FwCoreControllersGetServerUtcDateTimeResponse
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardReportingFwReportRenderResponse>>
   _gldistributionreportRenderPost({
     required FwStandardReportingFwReportRenderRequest? body,
@@ -12723,6 +12750,62 @@ final class _$Reports extends Reports {
   }
 
   @override
+  Future<Response<WebApiModulesBillingInvoiceInvoice>>
+  _invoicereportInvoiceInvoiceidGet({
+    required String? invoiceId,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InvoiceReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/invoicereport/invoice/{invoiceid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesBillingInvoiceInvoice,
+      WebApiModulesBillingInvoiceInvoice
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse>>
+  _invoicereportPaymentlinkOfficelocationidGet({
+    required String? officeLocationId,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InvoiceReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/invoicereport/paymentlink/{officelocationid}');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse,
+      WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _invoicereportEmptyobjectGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -15378,6 +15461,263 @@ final class _$Reports extends Reports {
     ),
   }) {
     final Uri $url = Uri.parse('/ordersbydealreport/preview');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardReportingFwReportRenderResponse>>
+  _ordershippingmanifestreportRenderPost({
+    required FwStandardReportingFwReportRenderRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/ordershippingmanifestreport/render');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardReportingFwReportRenderResponse,
+      FwStandardReportingFwReportRenderResponse
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _ordershippingmanifestreportExportexcelxlsxPost({
+    required WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/ordershippingmanifestreport/exportexcelxlsx');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiDataAppReportResponse>>
+  _ordershippingmanifestreportRunreportPost({
+    required WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/ordershippingmanifestreport/runreport');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client
+        .send<WebApiDataAppReportResponse, WebApiDataAppReportResponse>(
+          $request,
+        );
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _ordershippingmanifestreportValidateorderBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/ordershippingmanifestreport/validateorder/browse',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _ordershippingmanifestreportValidatecontractBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/ordershippingmanifestreport/validatecontract/browse',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<
+    Response<
+      List<
+        WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+      >
+    >
+  >
+  _ordershippingmanifestreportRenderWithDocumentsOrderidOrderidOutcontractidOutcontractidPost({
+    required String? orderid,
+    required String? outcontractid,
+    required FwStandardReportingFwReportRenderRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary:
+          'Get a list of URLs for Manifest documents associated to an order (for printing).',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/ordershippingmanifestreport/render-with-documents/orderid/${orderid}/outcontractid/${outcontractid}',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<
+        WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+      >,
+      WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _ordershippingmanifestreportEmptyobjectGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/ordershippingmanifestreport/emptyobject');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _ordershippingmanifestreportPreviewGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/ordershippingmanifestreport/preview');
     final Request $request = Request(
       'GET',
       $url,
@@ -23688,6 +24028,38 @@ final class _$Reports extends Reports {
 
   @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _purchaseorderreturnlistValidatecontractBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PurchaseOrderReturnList"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/purchaseorderreturnlist/validatecontract/browse',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _purchaseorderreturnlistEmptyobjectGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -30379,6 +30751,38 @@ final class _$Reports extends Reports {
   }) {
     final Uri $url = Uri.parse(
       '/rentalinventoryqcrequiredreport/validateinventory/browse',
+    );
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwStandardSqlServerFwJsonDataTable,
+      FwStandardSqlServerFwJsonDataTable
+    >($request);
+  }
+
+  @override
+  Future<Response<FwStandardSqlServerFwJsonDataTable>>
+  _rentalinventoryqcrequiredreportValidatecontractBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryQCRequiredReport"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/rentalinventoryqcrequiredreport/validatecontract/browse',
     );
     final $body = body;
     final Request $request = Request(
@@ -43046,225 +43450,6 @@ final class _$Reports extends Reports {
       FwStandardSqlServerFwJsonDataTable,
       FwStandardSqlServerFwJsonDataTable
     >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _taskschedulerTaskstepsIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
   }
 
   @override

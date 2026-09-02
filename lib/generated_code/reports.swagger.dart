@@ -5,15 +5,19 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:json_annotation/json_annotation.dart' as json;
 import 'package:collection/collection.dart';
+
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
 
 import 'client_mapping.dart';
+
 import 'dart:async';
+
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
+
 import 'reports.enums.swagger.dart' as enums;
 import 'reports.metadata.swagger.dart';
 export 'reports.enums.swagger.dart';
@@ -297,8 +301,7 @@ abstract class Reports extends ChopperService {
 
   ///
   @POST(
-    path:
-        '/activeorderswithuncontracteditemsreport/validateofficelocation/browse',
+    path: '/activeorderswithuncontracteditemsreport/validateofficelocation/browse',
     optionalBody: true,
   )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
@@ -4025,8 +4028,7 @@ abstract class Reports extends ChopperService {
 
   ///
   @POST(
-    path:
-        '/consignedinventoryorderhistoryreport/validateconsignoragreement/browse',
+    path: '/consignedinventoryorderhistoryreport/validateconsignoragreement/browse',
     optionalBody: true,
   )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
@@ -4715,8 +4717,7 @@ abstract class Reports extends ChopperService {
 
   ///
   @POST(
-    path:
-        '/consignorinventorystatusandlocationreport/validateconsignoragreement/browse',
+    path: '/consignorinventorystatusandlocationreport/validateconsignoragreement/browse',
     optionalBody: true,
   )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
@@ -9942,6 +9943,34 @@ abstract class Reports extends ChopperService {
   });
 
   ///
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  fwutilityServerutcdatetimeGet() {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      () => FwCoreControllersGetServerUtcDateTimeResponse.fromJsonFactory,
+    );
+
+    return _fwutilityServerutcdatetimeGet();
+  }
+
+  ///
+  @GET(path: '/fwutility/serverutcdatetime')
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FwUtility"],
+      deprecated: false,
+    ),
+  });
+
+  ///
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
   gldistributionreportRenderPost({
     required FwStandardReportingFwReportRenderRequest? body,
@@ -13917,6 +13946,81 @@ abstract class Reports extends ChopperService {
   });
 
   ///
+  ///@param invoiceId
+  Future<chopper.Response<WebApiModulesBillingInvoiceInvoice>>
+  invoicereportInvoiceInvoiceidGet({required String? invoiceId}) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesBillingInvoiceInvoice,
+      () => WebApiModulesBillingInvoiceInvoice.fromJsonFactory,
+    );
+
+    return _invoicereportInvoiceInvoiceidGet(invoiceId: invoiceId);
+  }
+
+  ///
+  ///@param invoiceId
+  @GET(path: '/invoicereport/invoice/{invoiceid}')
+  Future<chopper.Response<WebApiModulesBillingInvoiceInvoice>>
+  _invoicereportInvoiceInvoiceidGet({
+    @Path('invoiceId') required String? invoiceId,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InvoiceReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  ///@param officeLocationId
+  Future<
+    chopper.Response<
+      WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse
+    >
+  >
+  invoicereportPaymentlinkOfficelocationidGet({
+    required String? officeLocationId,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse,
+      () => WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse
+          .fromJsonFactory,
+    );
+
+    return _invoicereportPaymentlinkOfficelocationidGet(
+      officeLocationId: officeLocationId,
+    );
+  }
+
+  ///
+  ///@param officeLocationId
+  @GET(path: '/invoicereport/paymentlink/{officelocationid}')
+  Future<
+    chopper.Response<
+      WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse
+    >
+  >
+  _invoicereportPaymentlinkOfficelocationidGet({
+    @Path('officeLocationId') required String? officeLocationId,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["InvoiceReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   invoicereportEmptyobjectGet() {
     generatedMapping.putIfAbsent(
@@ -16795,6 +16899,302 @@ abstract class Reports extends ChopperService {
       produces: [],
       security: [],
       tags: ["OrdersByDealReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  ordershippingmanifestreportRenderPost({
+    required FwStandardReportingFwReportRenderRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardReportingFwReportRenderResponse,
+      () => FwStandardReportingFwReportRenderResponse.fromJsonFactory,
+    );
+
+    return _ordershippingmanifestreportRenderPost(body: body);
+  }
+
+  ///
+  @POST(path: '/ordershippingmanifestreport/render', optionalBody: true)
+  Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
+  _ordershippingmanifestreportRenderPost({
+    @Body() required FwStandardReportingFwReportRenderRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  ordershippingmanifestreportExportexcelxlsxPost({
+    required WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
+      () =>
+          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+              .fromJsonFactory,
+    );
+
+    return _ordershippingmanifestreportExportexcelxlsxPost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/ordershippingmanifestreport/exportexcelxlsx',
+    optionalBody: true,
+  )
+  Future<
+    chopper.Response<
+      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+    >
+  >
+  _ordershippingmanifestreportExportexcelxlsxPost({
+    @Body()
+    required WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  ordershippingmanifestreportRunreportPost({
+    required WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest?
+    body,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiDataAppReportResponse,
+      () => WebApiDataAppReportResponse.fromJsonFactory,
+    );
+
+    return _ordershippingmanifestreportRunreportPost(body: body);
+  }
+
+  ///
+  @POST(path: '/ordershippingmanifestreport/runreport', optionalBody: true)
+  Future<chopper.Response<WebApiDataAppReportResponse>>
+  _ordershippingmanifestreportRunreportPost({
+    @Body()
+    required WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest?
+    body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  ordershippingmanifestreportValidateorderBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _ordershippingmanifestreportValidateorderBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/ordershippingmanifestreport/validateorder/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _ordershippingmanifestreportValidateorderBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  ordershippingmanifestreportValidatecontractBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _ordershippingmanifestreportValidatecontractBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/ordershippingmanifestreport/validatecontract/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _ordershippingmanifestreportValidatecontractBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///Get a list of URLs for Manifest documents associated to an order (for printing).
+  ///@param orderid
+  ///@param outcontractid
+  Future<
+    chopper.Response<
+      List<
+        WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+      >
+    >
+  >
+  ordershippingmanifestreportRenderWithDocumentsOrderidOrderidOutcontractidOutcontractidPost({
+    required String? orderid,
+    required String? outcontractid,
+    required FwStandardReportingFwReportRenderRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl,
+      () =>
+          WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+              .fromJsonFactory,
+    );
+
+    return _ordershippingmanifestreportRenderWithDocumentsOrderidOrderidOutcontractidOutcontractidPost(
+      orderid: orderid,
+      outcontractid: outcontractid,
+      body: body,
+    );
+  }
+
+  ///Get a list of URLs for Manifest documents associated to an order (for printing).
+  ///@param orderid
+  ///@param outcontractid
+  @POST(
+    path: '/ordershippingmanifestreport/render-with-documents/orderid/{orderid}/outcontractid/{outcontractid}',
+    optionalBody: true,
+  )
+  Future<
+    chopper.Response<
+      List<
+        WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+      >
+    >
+  >
+  _ordershippingmanifestreportRenderWithDocumentsOrderidOrderidOutcontractidOutcontractidPost({
+    @Path('orderid') required String? orderid,
+    @Path('outcontractid') required String? outcontractid,
+    @Body() required FwStandardReportingFwReportRenderRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get a list of URLs for Manifest documents associated to an order (for printing).',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  ordershippingmanifestreportEmptyobjectGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _ordershippingmanifestreportEmptyobjectGet();
+  }
+
+  ///
+  @GET(path: '/ordershippingmanifestreport/emptyobject')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _ordershippingmanifestreportEmptyobjectGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  ordershippingmanifestreportPreviewGet() {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _ordershippingmanifestreportPreviewGet();
+  }
+
+  ///
+  @GET(path: '/ordershippingmanifestreport/preview')
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _ordershippingmanifestreportPreviewGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["OrderShippingManifestReport"],
       deprecated: false,
     ),
   });
@@ -25892,6 +26292,40 @@ abstract class Reports extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  purchaseorderreturnlistValidatecontractBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _purchaseorderreturnlistValidatecontractBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/purchaseorderreturnlist/validatecontract/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _purchaseorderreturnlistValidatecontractBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PurchaseOrderReturnList"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   purchaseorderreturnlistEmptyobjectGet() {
     generatedMapping.putIfAbsent(
       FwStandardSqlServerFwJsonDataTable,
@@ -33270,6 +33704,42 @@ abstract class Reports extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  rentalinventoryqcrequiredreportValidatecontractBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _rentalinventoryqcrequiredreportValidatecontractBrowsePost(
+      body: body,
+    );
+  }
+
+  ///
+  @POST(
+    path: '/rentalinventoryqcrequiredreport/validatecontract/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _rentalinventoryqcrequiredreportValidatecontractBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["RentalInventoryQCRequiredReport"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   rentalinventoryqcrequiredreportEmptyobjectGet() {
     generatedMapping.putIfAbsent(
       FwStandardSqlServerFwJsonDataTable,
@@ -36066,8 +36536,7 @@ abstract class Reports extends ChopperService {
 
   ///
   @POST(
-    path:
-        '/rentallostanddamagedbillinghistoryreport/validateinventorytype/browse',
+    path: '/rentallostanddamagedbillinghistoryreport/validateinventorytype/browse',
     optionalBody: true,
   )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
@@ -36211,8 +36680,7 @@ abstract class Reports extends ChopperService {
 
   ///
   @POST(
-    path:
-        '/rentallostanddamagedbillinghistoryreport/validateretiredreason/browse',
+    path: '/rentallostanddamagedbillinghistoryreport/validateretiredreason/browse',
     optionalBody: true,
   )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
@@ -36284,8 +36752,7 @@ abstract class Reports extends ChopperService {
 
   ///
   @POST(
-    path:
-        '/rentallostanddamagedbillinghistoryreport/validateunretiredreason/browse',
+    path: '/rentallostanddamagedbillinghistoryreport/validateunretiredreason/browse',
     optionalBody: true,
   )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
@@ -47190,261 +47657,6 @@ abstract class Reports extends ChopperService {
   });
 
   ///
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardSqlServerFwJsonDataTable,
-      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsBrowsePost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/browse', optionalBody: true)
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      () =>
-          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsExportexcelxlsxPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/exportexcelxlsx', optionalBody: true)
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      () =>
-          FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsGet(
-      pageno: pageno,
-      pagesize: pagesize,
-      sort: sort,
-      filter: filter,
-    );
-  }
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  @GET(path: '/taskscheduler/tasksteps')
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    @Query('pageno') int? pageno,
-    @Query('pagesize') int? pagesize,
-    @Query('sort') String? sort,
-    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdGet({required String? id}) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdGet(id: id);
-  }
-
-  ///
-  ///@param id
-  @GET(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdPut(id: id, body: body);
-  }
-
-  ///
-  ///@param id
-  @PUT(path: '/taskscheduler/tasksteps/{id}', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    @Path('id') required String? id,
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<bool>> taskschedulerTaskstepsIdDelete({
-    required String? id,
-  }) {
-    return _taskschedulerTaskstepsIdDelete(id: id);
-  }
-
-  ///
-  ///@param id
-  @DELETE(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<bool>> _taskschedulerTaskstepsIdDelete({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
   Future<chopper.Response<FwStandardReportingFwReportRenderResponse>>
   taxespaidreportRenderPost({
     required FwStandardReportingFwReportRenderRequest? body,
@@ -51166,6 +51378,65 @@ extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResu
 }
 
 @JsonSerializable(explicitToJson: true)
+class FwCoreControllersGetServerUtcDateTimeResponse {
+  const FwCoreControllersGetServerUtcDateTimeResponse({this.serverUtcDateTime});
+
+  factory FwCoreControllersGetServerUtcDateTimeResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$FwCoreControllersGetServerUtcDateTimeResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson(this);
+
+  @JsonKey(name: 'ServerUtcDateTime', includeIfNull: false)
+  final DateTime? serverUtcDateTime;
+  static const fromJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is FwCoreControllersGetServerUtcDateTimeResponse &&
+            (identical(other.serverUtcDateTime, serverUtcDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.serverUtcDateTime,
+                  serverUtcDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(serverUtcDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $FwCoreControllersGetServerUtcDateTimeResponseExtension
+    on FwCoreControllersGetServerUtcDateTimeResponse {
+  FwCoreControllersGetServerUtcDateTimeResponse copyWith({
+    DateTime? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: serverUtcDateTime ?? this.serverUtcDateTime,
+    );
+  }
+
+  FwCoreControllersGetServerUtcDateTimeResponse copyWithWrapped({
+    Wrapped<DateTime?>? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: (serverUtcDateTime != null
+          ? serverUtcDateTime.value
+          : this.serverUtcDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class FwStandardBusinessLogicFwBusinessLogic {
   const FwStandardBusinessLogicFwBusinessLogic({
     this.auditNote,
@@ -52316,6 +52587,7 @@ class FwStandardModelsBrowseRequest {
     this.totalfields,
     this.activeviewfields,
     this.timezoneOffset,
+    this.locale,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -52405,7 +52677,9 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
   @JsonKey(name: 'timezoneOffset', includeIfNull: false)
-  final int? timezoneOffset;
+  final double? timezoneOffset;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -52534,7 +52808,9 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.timezoneOffset,
                   timezoneOffset,
-                )));
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)));
   }
 
   @override
@@ -52569,6 +52845,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
       const DeepCollectionEquality().hash(timezoneOffset) ^
+      const DeepCollectionEquality().hash(locale) ^
       runtimeType.hashCode;
 }
 
@@ -52601,7 +52878,8 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
-    int? timezoneOffset,
+    double? timezoneOffset,
+    String? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -52631,6 +52909,7 @@ extension $FwStandardModelsBrowseRequestExtension
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
       timezoneOffset: timezoneOffset ?? this.timezoneOffset,
+      locale: locale ?? this.locale,
     );
   }
 
@@ -52661,7 +52940,8 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
-    Wrapped<int?>? timezoneOffset,
+    Wrapped<double?>? timezoneOffset,
+    Wrapped<String?>? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -52717,6 +52997,7 @@ extension $FwStandardModelsBrowseRequestExtension
       timezoneOffset: (timezoneOffset != null
           ? timezoneOffset.value
           : this.timezoneOffset),
+      locale: (locale != null ? locale.value : this.locale),
     );
   }
 }
@@ -52952,121 +53233,6 @@ extension $FwStandardModelsFwQueryFilterExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  const FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic({
-    this.items,
-    this.pageNo,
-    this.pageSize,
-    this.totalItems,
-    this.sort,
-  });
-
-  factory FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-        this,
-      );
-
-  @JsonKey(
-    name: 'Items',
-    includeIfNull: false,
-    defaultValue: <WebApiModulesAdministratorTaskSchedulerTaskSteps>[],
-  )
-  final List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items;
-  @JsonKey(name: 'PageNo', includeIfNull: false)
-  final int? pageNo;
-  @JsonKey(name: 'PageSize', includeIfNull: false)
-  final int? pageSize;
-  @JsonKey(name: 'TotalItems', includeIfNull: false)
-  final int? totalItems;
-  @JsonKey(name: 'Sort', includeIfNull: false)
-  final String? sort;
-  static const fromJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic &&
-            (identical(other.items, items) ||
-                const DeepCollectionEquality().equals(other.items, items)) &&
-            (identical(other.pageNo, pageNo) ||
-                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
-            (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality().equals(
-                  other.pageSize,
-                  pageSize,
-                )) &&
-            (identical(other.totalItems, totalItems) ||
-                const DeepCollectionEquality().equals(
-                  other.totalItems,
-                  totalItems,
-                )) &&
-            (identical(other.sort, sort) ||
-                const DeepCollectionEquality().equals(other.sort, sort)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(items) ^
-      const DeepCollectionEquality().hash(pageNo) ^
-      const DeepCollectionEquality().hash(pageSize) ^
-      const DeepCollectionEquality().hash(totalItems) ^
-      const DeepCollectionEquality().hash(sort) ^
-      runtimeType.hashCode;
-}
-
-extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicExtension
-    on
-        FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWith({
-    List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items,
-    int? pageNo,
-    int? pageSize,
-    int? totalItems,
-    String? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: items ?? this.items,
-      pageNo: pageNo ?? this.pageNo,
-      pageSize: pageSize ?? this.pageSize,
-      totalItems: totalItems ?? this.totalItems,
-      sort: sort ?? this.sort,
-    );
-  }
-
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWithWrapped({
-    Wrapped<List<WebApiModulesAdministratorTaskSchedulerTaskSteps>?>? items,
-    Wrapped<int?>? pageNo,
-    Wrapped<int?>? pageSize,
-    Wrapped<int?>? totalItems,
-    Wrapped<String?>? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: (items != null ? items.value : this.items),
-      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
-      sort: (sort != null ? sort.value : this.sort),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic {
   const FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic({
     this.items,
@@ -53110,8 +53276,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsRep
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesReportsSharedReportSettingsReportSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -54477,26 +54642,282 @@ extension $WebApiDataAppReportResponseExtension on WebApiDataAppReportResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
-class WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  const WebApiModulesAdministratorTaskSchedulerTaskSteps({
-    this.taskStepsId,
-    this.taskId,
-    this.name,
-    this.stepNumber,
-    this.type,
-    this.command,
-    this.onSuccessActionDisplay,
-    this.onFailureActionDisplay,
-    this.onSuccessAction,
-    this.retryAttempts,
-    this.retryInterval,
-    this.onFailureAction,
-    this.onSuccessTaskStepsId,
-    this.onFailureTaskStepsId,
-    this.outputFilename,
-    this.lastRunOutcome,
-    this.lastRunDuration,
-    this.lastRunRetries,
+class WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl {
+  const WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl({
+    this.appimageid,
+    this.appdocumentid,
+    this.filename,
+    this.url,
+  });
+
+  factory WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrlFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrlToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrlToJson(
+        this,
+      );
+
+  @JsonKey(name: 'appimageid', includeIfNull: false)
+  final String? appimageid;
+  @JsonKey(name: 'appdocumentid', includeIfNull: false)
+  final String? appdocumentid;
+  @JsonKey(name: 'filename', includeIfNull: false)
+  final String? filename;
+  @JsonKey(name: 'url', includeIfNull: false)
+  final String? url;
+  static const fromJsonFactory =
+      _$WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrlFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl &&
+            (identical(other.appimageid, appimageid) ||
+                const DeepCollectionEquality().equals(
+                  other.appimageid,
+                  appimageid,
+                )) &&
+            (identical(other.appdocumentid, appdocumentid) ||
+                const DeepCollectionEquality().equals(
+                  other.appdocumentid,
+                  appdocumentid,
+                )) &&
+            (identical(other.filename, filename) ||
+                const DeepCollectionEquality().equals(
+                  other.filename,
+                  filename,
+                )) &&
+            (identical(other.url, url) ||
+                const DeepCollectionEquality().equals(other.url, url)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(appimageid) ^
+      const DeepCollectionEquality().hash(appdocumentid) ^
+      const DeepCollectionEquality().hash(filename) ^
+      const DeepCollectionEquality().hash(url) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrlExtension
+    on WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl {
+  WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+  copyWith({
+    String? appimageid,
+    String? appdocumentid,
+    String? filename,
+    String? url,
+  }) {
+    return WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl(
+      appimageid: appimageid ?? this.appimageid,
+      appdocumentid: appdocumentid ?? this.appdocumentid,
+      filename: filename ?? this.filename,
+      url: url ?? this.url,
+    );
+  }
+
+  WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl
+  copyWithWrapped({
+    Wrapped<String?>? appimageid,
+    Wrapped<String?>? appdocumentid,
+    Wrapped<String?>? filename,
+    Wrapped<String?>? url,
+  }) {
+    return WebApiModulesAgentOrderManifestOrderManifestFuncShippingManifestDocumentUrl(
+      appimageid: (appimageid != null ? appimageid.value : this.appimageid),
+      appdocumentid: (appdocumentid != null
+          ? appdocumentid.value
+          : this.appdocumentid),
+      filename: (filename != null ? filename.value : this.filename),
+      url: (url != null ? url.value : this.url),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesBillingInvoiceInvoice {
+  const WebApiModulesBillingInvoiceInvoice({
+    this.invoiceId,
+    this.invoiceNumber,
+    this.invoiceDate,
+    this.invoiceDueDate,
+    this.invoiceType,
+    this.billingStartDate,
+    this.billingEndDate,
+    this.usageStartDate,
+    this.usageEndDate,
+    this.orderId,
+    this.orderNumber,
+    this.orderDescription,
+    this.orderDate,
+    this.orderLocation,
+    this.invoiceDescription,
+    this.creditingInvoiceId,
+    this.creditingInvoiceNumber,
+    this.customerId,
+    this.customer,
+    this.customerTypeId,
+    this.customerType,
+    this.dealId,
+    this.deal,
+    this.dealNumber,
+    this.dealTypeId,
+    this.dealType,
+    this.departmentId,
+    this.department,
+    this.purchaseOrderNumber,
+    this.workAuthorizationNumber,
+    this.status,
+    this.statusDate,
+    this.isNoCharge,
+    this.isAdjusted,
+    this.isBilledHiatus,
+    this.episodeNumber,
+    this.hasLockedTotal,
+    this.isAlteredDates,
+    this.officeLocationId,
+    this.officeLocation,
+    this.invoiceCreationBatchId,
+    this.invoiceCreationBatchNumber,
+    this.invoiceGroupNumber,
+    this.rentalSale,
+    this.lossAndDamage,
+    this.repair,
+    this.inputByUserId,
+    this.flatPoId,
+    this.orderType,
+    this.rebateCustomerId,
+    this.orbitsapchgmajor,
+    this.orbitsapchgsub,
+    this.orbitsapchgdetail,
+    this.orbitsapchgdeal,
+    this.orbitsapchgset,
+    this.excludeFromFlatPo,
+    this.isSplitRental,
+    this.isRebateRental,
+    this.invoiceListTotal,
+    this.invoiceGrossTotal,
+    this.invoiceDiscountTotal,
+    this.invoiceDaysPerWeekDiscountTotal,
+    this.referenceNumber,
+    this.agentId,
+    this.agent,
+    this.projectManagerId,
+    this.projectManager,
+    this.billToAddressId,
+    this.billToName,
+    this.billToAttention1,
+    this.billToAttention2,
+    this.billToAddress1,
+    this.billToAddress2,
+    this.billToCity,
+    this.billToState,
+    this.billToZipCode,
+    this.billToCountryId,
+    this.billToCountry,
+    this.billToCountryCodeIsoAlpha2,
+    this.billToCountryCodePhone,
+    this.invoiceClass,
+    this.printNotes,
+    this.paymentTermsId,
+    this.paymentTerms,
+    this.paymentTermsColor,
+    this.paymentTypeId,
+    this.paymentType,
+    this.taxId,
+    this.taxOptionId,
+    this.taxOption,
+    this.tax1Name,
+    this.tax2Name,
+    this.rentalTaxAlias,
+    this.salesTaxAlias,
+    this.laborTaxAlias,
+    this.miscTaxAlias,
+    this.rentalTaxRate1,
+    this.salesTaxRate1,
+    this.laborTaxRate1,
+    this.rentalTaxRate2,
+    this.salesTaxRate2,
+    this.laborTaxRate2,
+    this.miscTaxRate1,
+    this.miscTaxRate2,
+    this.taxItemCode,
+    this.taxVendor,
+    this.taxCountry,
+    this.chargeBatchId,
+    this.chargeBatchNumber,
+    this.quikPayDiscount,
+    this.quikPayRentalTotal,
+    this.quikPayTotal,
+    this.receivedTotal,
+    this.rateType,
+    this.consignmentRevenue,
+    this.isNonBillable,
+    this.currencyId,
+    this.currencyCode,
+    this.currencySymbol,
+    this.officeLocationDefaultCurrencyId,
+    this.divisionId,
+    this.outsideSalesRepresentativeId,
+    this.outsideSalesRepresentative,
+    this.exportTaxAsLineItem,
+    this.invoiceNumberColor,
+    this.statusColor,
+    this.orderNumberColor,
+    this.purchaseOrderNumberColor,
+    this.dealColor,
+    this.billingStartDateColor,
+    this.invoiceTotalColor,
+    this.descriptionColor,
+    this.hasRentalItem,
+    this.hasMeterItem,
+    this.hasSalesItem,
+    this.hasLaborItem,
+    this.hasMiscellaneousItem,
+    this.hasFacilityItem,
+    this.hasTransportationItem,
+    this.hasRentalSaleItem,
+    this.hasRepairItem,
+    this.hasConsignment,
+    this.hasLossAndDamageItem,
+    this.hasInternalInvoice,
+    this.isInternal,
+    this.rentalTotal,
+    this.salesTotal,
+    this.facilitiesTotal,
+    this.miscellaneousTotal,
+    this.laborTotal,
+    this.partsTotal,
+    this.assetSaleTotal,
+    this.invoiceSubTotal,
+    this.invoiceTax1,
+    this.invoiceTax2,
+    this.invoiceTax,
+    this.invoiceTotal,
+    this.remainingTotal,
+    this.isStandAloneInvoice,
+    this.warehouseId,
+    this.termsConditionsId,
+    this.termsConditions,
+    this.projectId,
+    this.projectNumber,
+    this.project,
+    this.sourceId,
+    this.sourceDate,
+    this.csrId,
+    this.csr,
     this.dateStamp,
     this.auditNote,
     this.recordTitle,
@@ -54516,51 +54937,352 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
     this.modifiedDateTime,
   });
 
-  factory WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
+  factory WebApiModulesBillingInvoiceInvoice.fromJson(
     Map<String, dynamic> json,
-  ) => _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(json);
+  ) => _$WebApiModulesBillingInvoiceInvoiceFromJson(json);
 
-  static const toJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson;
+  static const toJsonFactory = _$WebApiModulesBillingInvoiceInvoiceToJson;
   Map<String, dynamic> toJson() =>
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(this);
+      _$WebApiModulesBillingInvoiceInvoiceToJson(this);
 
-  @JsonKey(name: 'TaskStepsId', includeIfNull: false)
-  final int? taskStepsId;
-  @JsonKey(name: 'TaskId', includeIfNull: false)
-  final int? taskId;
-  @JsonKey(name: 'Name', includeIfNull: false)
-  final String? name;
-  @JsonKey(name: 'StepNumber', includeIfNull: false)
-  final int? stepNumber;
-  @JsonKey(name: 'Type', includeIfNull: false)
-  final String? type;
-  @JsonKey(name: 'Command', includeIfNull: false)
-  final String? command;
-  @JsonKey(name: 'OnSuccessActionDisplay', includeIfNull: false)
-  final String? onSuccessActionDisplay;
-  @JsonKey(name: 'OnFailureActionDisplay', includeIfNull: false)
-  final String? onFailureActionDisplay;
-  @JsonKey(name: 'OnSuccessAction', includeIfNull: false)
-  final int? onSuccessAction;
-  @JsonKey(name: 'RetryAttempts', includeIfNull: false)
-  final int? retryAttempts;
-  @JsonKey(name: 'RetryInterval', includeIfNull: false)
-  final int? retryInterval;
-  @JsonKey(name: 'OnFailureAction', includeIfNull: false)
-  final int? onFailureAction;
-  @JsonKey(name: 'OnSuccessTaskStepsId', includeIfNull: false)
-  final int? onSuccessTaskStepsId;
-  @JsonKey(name: 'OnFailureTaskStepsId', includeIfNull: false)
-  final int? onFailureTaskStepsId;
-  @JsonKey(name: 'OutputFilename', includeIfNull: false)
-  final String? outputFilename;
-  @JsonKey(name: 'LastRunOutcome', includeIfNull: false)
-  final int? lastRunOutcome;
-  @JsonKey(name: 'LastRunDuration', includeIfNull: false)
-  final int? lastRunDuration;
-  @JsonKey(name: 'LastRunRetries', includeIfNull: false)
-  final int? lastRunRetries;
+  @JsonKey(name: 'InvoiceId', includeIfNull: false)
+  final String? invoiceId;
+  @JsonKey(name: 'InvoiceNumber', includeIfNull: false)
+  final String? invoiceNumber;
+  @JsonKey(name: 'InvoiceDate', includeIfNull: false)
+  final String? invoiceDate;
+  @JsonKey(name: 'InvoiceDueDate', includeIfNull: false)
+  final String? invoiceDueDate;
+  @JsonKey(name: 'InvoiceType', includeIfNull: false)
+  final String? invoiceType;
+  @JsonKey(name: 'BillingStartDate', includeIfNull: false)
+  final String? billingStartDate;
+  @JsonKey(name: 'BillingEndDate', includeIfNull: false)
+  final String? billingEndDate;
+  @JsonKey(name: 'UsageStartDate', includeIfNull: false)
+  final String? usageStartDate;
+  @JsonKey(name: 'UsageEndDate', includeIfNull: false)
+  final String? usageEndDate;
+  @JsonKey(name: 'OrderId', includeIfNull: false)
+  final String? orderId;
+  @JsonKey(name: 'OrderNumber', includeIfNull: false)
+  final String? orderNumber;
+  @JsonKey(name: 'OrderDescription', includeIfNull: false)
+  final String? orderDescription;
+  @JsonKey(name: 'OrderDate', includeIfNull: false)
+  final String? orderDate;
+  @JsonKey(name: 'OrderLocation', includeIfNull: false)
+  final String? orderLocation;
+  @JsonKey(name: 'InvoiceDescription', includeIfNull: false)
+  final String? invoiceDescription;
+  @JsonKey(name: 'CreditingInvoiceId', includeIfNull: false)
+  final String? creditingInvoiceId;
+  @JsonKey(name: 'CreditingInvoiceNumber', includeIfNull: false)
+  final String? creditingInvoiceNumber;
+  @JsonKey(name: 'CustomerId', includeIfNull: false)
+  final String? customerId;
+  @JsonKey(name: 'Customer', includeIfNull: false)
+  final String? customer;
+  @JsonKey(name: 'CustomerTypeId', includeIfNull: false)
+  final String? customerTypeId;
+  @JsonKey(name: 'CustomerType', includeIfNull: false)
+  final String? customerType;
+  @JsonKey(name: 'DealId', includeIfNull: false)
+  final String? dealId;
+  @JsonKey(name: 'Deal', includeIfNull: false)
+  final String? deal;
+  @JsonKey(name: 'DealNumber', includeIfNull: false)
+  final String? dealNumber;
+  @JsonKey(name: 'DealTypeId', includeIfNull: false)
+  final String? dealTypeId;
+  @JsonKey(name: 'DealType', includeIfNull: false)
+  final String? dealType;
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
+  final String? departmentId;
+  @JsonKey(name: 'Department', includeIfNull: false)
+  final String? department;
+  @JsonKey(name: 'PurchaseOrderNumber', includeIfNull: false)
+  final String? purchaseOrderNumber;
+  @JsonKey(name: 'WorkAuthorizationNumber', includeIfNull: false)
+  final String? workAuthorizationNumber;
+  @JsonKey(name: 'Status', includeIfNull: false)
+  final String? status;
+  @JsonKey(name: 'StatusDate', includeIfNull: false)
+  final String? statusDate;
+  @JsonKey(name: 'IsNoCharge', includeIfNull: false)
+  final bool? isNoCharge;
+  @JsonKey(name: 'IsAdjusted', includeIfNull: false)
+  final bool? isAdjusted;
+  @JsonKey(name: 'IsBilledHiatus', includeIfNull: false)
+  final bool? isBilledHiatus;
+  @JsonKey(name: 'EpisodeNumber', includeIfNull: false)
+  final int? episodeNumber;
+  @JsonKey(name: 'HasLockedTotal', includeIfNull: false)
+  final bool? hasLockedTotal;
+  @JsonKey(name: 'IsAlteredDates', includeIfNull: false)
+  final bool? isAlteredDates;
+  @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
+  final String? officeLocationId;
+  @JsonKey(name: 'OfficeLocation', includeIfNull: false)
+  final String? officeLocation;
+  @JsonKey(name: 'InvoiceCreationBatchId', includeIfNull: false)
+  final String? invoiceCreationBatchId;
+  @JsonKey(name: 'InvoiceCreationBatchNumber', includeIfNull: false)
+  final int? invoiceCreationBatchNumber;
+  @JsonKey(name: 'InvoiceGroupNumber', includeIfNull: false)
+  final String? invoiceGroupNumber;
+  @JsonKey(name: 'RentalSale', includeIfNull: false)
+  final bool? rentalSale;
+  @JsonKey(name: 'LossAndDamage', includeIfNull: false)
+  final bool? lossAndDamage;
+  @JsonKey(name: 'Repair', includeIfNull: false)
+  final bool? repair;
+  @JsonKey(name: 'InputByUserId', includeIfNull: false)
+  final String? inputByUserId;
+  @JsonKey(name: 'FlatPoId', includeIfNull: false)
+  final String? flatPoId;
+  @JsonKey(name: 'OrderType', includeIfNull: false)
+  final String? orderType;
+  @JsonKey(name: 'RebateCustomerId', includeIfNull: false)
+  final String? rebateCustomerId;
+  @JsonKey(name: 'Orbitsapchgmajor', includeIfNull: false)
+  final String? orbitsapchgmajor;
+  @JsonKey(name: 'Orbitsapchgsub', includeIfNull: false)
+  final String? orbitsapchgsub;
+  @JsonKey(name: 'Orbitsapchgdetail', includeIfNull: false)
+  final String? orbitsapchgdetail;
+  @JsonKey(name: 'Orbitsapchgdeal', includeIfNull: false)
+  final String? orbitsapchgdeal;
+  @JsonKey(name: 'Orbitsapchgset', includeIfNull: false)
+  final String? orbitsapchgset;
+  @JsonKey(name: 'ExcludeFromFlatPo', includeIfNull: false)
+  final bool? excludeFromFlatPo;
+  @JsonKey(name: 'IsSplitRental', includeIfNull: false)
+  final bool? isSplitRental;
+  @JsonKey(name: 'IsRebateRental', includeIfNull: false)
+  final bool? isRebateRental;
+  @JsonKey(name: 'InvoiceListTotal', includeIfNull: false)
+  final double? invoiceListTotal;
+  @JsonKey(name: 'InvoiceGrossTotal', includeIfNull: false)
+  final double? invoiceGrossTotal;
+  @JsonKey(name: 'InvoiceDiscountTotal', includeIfNull: false)
+  final double? invoiceDiscountTotal;
+  @JsonKey(name: 'InvoiceDaysPerWeekDiscountTotal', includeIfNull: false)
+  final double? invoiceDaysPerWeekDiscountTotal;
+  @JsonKey(name: 'ReferenceNumber', includeIfNull: false)
+  final String? referenceNumber;
+  @JsonKey(name: 'AgentId', includeIfNull: false)
+  final String? agentId;
+  @JsonKey(name: 'Agent', includeIfNull: false)
+  final String? agent;
+  @JsonKey(name: 'ProjectManagerId', includeIfNull: false)
+  final String? projectManagerId;
+  @JsonKey(name: 'ProjectManager', includeIfNull: false)
+  final String? projectManager;
+  @JsonKey(name: 'BillToAddressId', includeIfNull: false)
+  final String? billToAddressId;
+  @JsonKey(name: 'BillToName', includeIfNull: false)
+  final String? billToName;
+  @JsonKey(name: 'BillToAttention1', includeIfNull: false)
+  final String? billToAttention1;
+  @JsonKey(name: 'BillToAttention2', includeIfNull: false)
+  final String? billToAttention2;
+  @JsonKey(name: 'BillToAddress1', includeIfNull: false)
+  final String? billToAddress1;
+  @JsonKey(name: 'BillToAddress2', includeIfNull: false)
+  final String? billToAddress2;
+  @JsonKey(name: 'BillToCity', includeIfNull: false)
+  final String? billToCity;
+  @JsonKey(name: 'BillToState', includeIfNull: false)
+  final String? billToState;
+  @JsonKey(name: 'BillToZipCode', includeIfNull: false)
+  final String? billToZipCode;
+  @JsonKey(name: 'BillToCountryId', includeIfNull: false)
+  final String? billToCountryId;
+  @JsonKey(name: 'BillToCountry', includeIfNull: false)
+  final String? billToCountry;
+  @JsonKey(name: 'BillToCountryCodeIsoAlpha2', includeIfNull: false)
+  final String? billToCountryCodeIsoAlpha2;
+  @JsonKey(name: 'BillToCountryCodePhone', includeIfNull: false)
+  final int? billToCountryCodePhone;
+  @JsonKey(name: 'InvoiceClass', includeIfNull: false)
+  final String? invoiceClass;
+  @JsonKey(name: 'PrintNotes', includeIfNull: false)
+  final String? printNotes;
+  @JsonKey(name: 'PaymentTermsId', includeIfNull: false)
+  final String? paymentTermsId;
+  @JsonKey(name: 'PaymentTerms', includeIfNull: false)
+  final String? paymentTerms;
+  @JsonKey(name: 'PaymentTermsColor', includeIfNull: false)
+  final String? paymentTermsColor;
+  @JsonKey(name: 'PaymentTypeId', includeIfNull: false)
+  final String? paymentTypeId;
+  @JsonKey(name: 'PaymentType', includeIfNull: false)
+  final String? paymentType;
+  @JsonKey(name: 'TaxId', includeIfNull: false)
+  final String? taxId;
+  @JsonKey(name: 'TaxOptionId', includeIfNull: false)
+  final String? taxOptionId;
+  @JsonKey(name: 'TaxOption', includeIfNull: false)
+  final String? taxOption;
+  @JsonKey(name: 'Tax1Name', includeIfNull: false)
+  final String? tax1Name;
+  @JsonKey(name: 'Tax2Name', includeIfNull: false)
+  final String? tax2Name;
+  @JsonKey(name: 'RentalTaxAlias', includeIfNull: false)
+  final String? rentalTaxAlias;
+  @JsonKey(name: 'SalesTaxAlias', includeIfNull: false)
+  final String? salesTaxAlias;
+  @JsonKey(name: 'LaborTaxAlias', includeIfNull: false)
+  final String? laborTaxAlias;
+  @JsonKey(name: 'MiscTaxAlias', includeIfNull: false)
+  final String? miscTaxAlias;
+  @JsonKey(name: 'RentalTaxRate1', includeIfNull: false)
+  final double? rentalTaxRate1;
+  @JsonKey(name: 'SalesTaxRate1', includeIfNull: false)
+  final double? salesTaxRate1;
+  @JsonKey(name: 'LaborTaxRate1', includeIfNull: false)
+  final double? laborTaxRate1;
+  @JsonKey(name: 'RentalTaxRate2', includeIfNull: false)
+  final double? rentalTaxRate2;
+  @JsonKey(name: 'SalesTaxRate2', includeIfNull: false)
+  final double? salesTaxRate2;
+  @JsonKey(name: 'LaborTaxRate2', includeIfNull: false)
+  final double? laborTaxRate2;
+  @JsonKey(name: 'MiscTaxRate1', includeIfNull: false)
+  final double? miscTaxRate1;
+  @JsonKey(name: 'MiscTaxRate2', includeIfNull: false)
+  final double? miscTaxRate2;
+  @JsonKey(name: 'TaxItemCode', includeIfNull: false)
+  final String? taxItemCode;
+  @JsonKey(name: 'TaxVendor', includeIfNull: false)
+  final String? taxVendor;
+  @JsonKey(name: 'TaxCountry', includeIfNull: false)
+  final String? taxCountry;
+  @JsonKey(name: 'ChargeBatchId', includeIfNull: false)
+  final String? chargeBatchId;
+  @JsonKey(name: 'ChargeBatchNumber', includeIfNull: false)
+  final String? chargeBatchNumber;
+  @JsonKey(name: 'QuikPayDiscount', includeIfNull: false)
+  final bool? quikPayDiscount;
+  @JsonKey(name: 'QuikPayRentalTotal', includeIfNull: false)
+  final double? quikPayRentalTotal;
+  @JsonKey(name: 'QuikPayTotal', includeIfNull: false)
+  final double? quikPayTotal;
+  @JsonKey(name: 'ReceivedTotal', includeIfNull: false)
+  final double? receivedTotal;
+  @JsonKey(name: 'RateType', includeIfNull: false)
+  final String? rateType;
+  @JsonKey(name: 'ConsignmentRevenue', includeIfNull: false)
+  final double? consignmentRevenue;
+  @JsonKey(name: 'IsNonBillable', includeIfNull: false)
+  final bool? isNonBillable;
+  @JsonKey(name: 'CurrencyId', includeIfNull: false)
+  final String? currencyId;
+  @JsonKey(name: 'CurrencyCode', includeIfNull: false)
+  final String? currencyCode;
+  @JsonKey(name: 'CurrencySymbol', includeIfNull: false)
+  final String? currencySymbol;
+  @JsonKey(name: 'OfficeLocationDefaultCurrencyId', includeIfNull: false)
+  final String? officeLocationDefaultCurrencyId;
+  @JsonKey(name: 'DivisionId', includeIfNull: false)
+  final String? divisionId;
+  @JsonKey(name: 'OutsideSalesRepresentativeId', includeIfNull: false)
+  final String? outsideSalesRepresentativeId;
+  @JsonKey(name: 'OutsideSalesRepresentative', includeIfNull: false)
+  final String? outsideSalesRepresentative;
+  @JsonKey(name: 'ExportTaxAsLineItem', includeIfNull: false)
+  final bool? exportTaxAsLineItem;
+  @JsonKey(name: 'InvoiceNumberColor', includeIfNull: false)
+  final String? invoiceNumberColor;
+  @JsonKey(name: 'StatusColor', includeIfNull: false)
+  final String? statusColor;
+  @JsonKey(name: 'OrderNumberColor', includeIfNull: false)
+  final String? orderNumberColor;
+  @JsonKey(name: 'PurchaseOrderNumberColor', includeIfNull: false)
+  final String? purchaseOrderNumberColor;
+  @JsonKey(name: 'DealColor', includeIfNull: false)
+  final String? dealColor;
+  @JsonKey(name: 'BillingStartDateColor', includeIfNull: false)
+  final String? billingStartDateColor;
+  @JsonKey(name: 'InvoiceTotalColor', includeIfNull: false)
+  final String? invoiceTotalColor;
+  @JsonKey(name: 'DescriptionColor', includeIfNull: false)
+  final String? descriptionColor;
+  @JsonKey(name: 'HasRentalItem', includeIfNull: false)
+  final bool? hasRentalItem;
+  @JsonKey(name: 'HasMeterItem', includeIfNull: false)
+  final bool? hasMeterItem;
+  @JsonKey(name: 'HasSalesItem', includeIfNull: false)
+  final bool? hasSalesItem;
+  @JsonKey(name: 'HasLaborItem', includeIfNull: false)
+  final bool? hasLaborItem;
+  @JsonKey(name: 'HasMiscellaneousItem', includeIfNull: false)
+  final bool? hasMiscellaneousItem;
+  @JsonKey(name: 'HasFacilityItem', includeIfNull: false)
+  final bool? hasFacilityItem;
+  @JsonKey(name: 'HasTransportationItem', includeIfNull: false)
+  final bool? hasTransportationItem;
+  @JsonKey(name: 'HasRentalSaleItem', includeIfNull: false)
+  final bool? hasRentalSaleItem;
+  @JsonKey(name: 'HasRepairItem', includeIfNull: false)
+  final bool? hasRepairItem;
+  @JsonKey(name: 'HasConsignment', includeIfNull: false)
+  final bool? hasConsignment;
+  @JsonKey(name: 'HasLossAndDamageItem', includeIfNull: false)
+  final bool? hasLossAndDamageItem;
+  @JsonKey(name: 'HasInternalInvoice', includeIfNull: false)
+  final bool? hasInternalInvoice;
+  @JsonKey(name: 'IsInternal', includeIfNull: false)
+  final bool? isInternal;
+  @JsonKey(name: 'RentalTotal', includeIfNull: false)
+  final double? rentalTotal;
+  @JsonKey(name: 'SalesTotal', includeIfNull: false)
+  final double? salesTotal;
+  @JsonKey(name: 'FacilitiesTotal', includeIfNull: false)
+  final double? facilitiesTotal;
+  @JsonKey(name: 'MiscellaneousTotal', includeIfNull: false)
+  final double? miscellaneousTotal;
+  @JsonKey(name: 'LaborTotal', includeIfNull: false)
+  final double? laborTotal;
+  @JsonKey(name: 'PartsTotal', includeIfNull: false)
+  final double? partsTotal;
+  @JsonKey(name: 'AssetSaleTotal', includeIfNull: false)
+  final double? assetSaleTotal;
+  @JsonKey(name: 'InvoiceSubTotal', includeIfNull: false)
+  final double? invoiceSubTotal;
+  @JsonKey(name: 'InvoiceTax1', includeIfNull: false)
+  final double? invoiceTax1;
+  @JsonKey(name: 'InvoiceTax2', includeIfNull: false)
+  final double? invoiceTax2;
+  @JsonKey(name: 'InvoiceTax', includeIfNull: false)
+  final double? invoiceTax;
+  @JsonKey(name: 'InvoiceTotal', includeIfNull: false)
+  final double? invoiceTotal;
+  @JsonKey(name: 'RemainingTotal', includeIfNull: false)
+  final double? remainingTotal;
+  @JsonKey(name: 'IsStandAloneInvoice', includeIfNull: false)
+  final bool? isStandAloneInvoice;
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
+  final String? warehouseId;
+  @JsonKey(name: 'TermsConditionsId', includeIfNull: false)
+  final String? termsConditionsId;
+  @JsonKey(name: 'TermsConditions', includeIfNull: false)
+  final String? termsConditions;
+  @JsonKey(name: 'ProjectId', includeIfNull: false)
+  final String? projectId;
+  @JsonKey(name: 'ProjectNumber', includeIfNull: false)
+  final String? projectNumber;
+  @JsonKey(name: 'Project', includeIfNull: false)
+  final String? project;
+  @JsonKey(name: 'SourceId', includeIfNull: false)
+  final String? sourceId;
+  @JsonKey(name: 'SourceDate', includeIfNull: false)
+  final String? sourceDate;
+  @JsonKey(name: 'CsrId', includeIfNull: false)
+  final String? csrId;
+  @JsonKey(name: 'Csr', includeIfNull: false)
+  final String? csr;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
   final String? dateStamp;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
@@ -54611,94 +55333,857 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
   final String? modifiedByUserName;
   @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
   final String? modifiedDateTime;
-  static const fromJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson;
+  static const fromJsonFactory = _$WebApiModulesBillingInvoiceInvoiceFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesAdministratorTaskSchedulerTaskSteps &&
-            (identical(other.taskStepsId, taskStepsId) ||
+        (other is WebApiModulesBillingInvoiceInvoice &&
+            (identical(other.invoiceId, invoiceId) ||
                 const DeepCollectionEquality().equals(
-                  other.taskStepsId,
-                  taskStepsId,
+                  other.invoiceId,
+                  invoiceId,
                 )) &&
-            (identical(other.taskId, taskId) ||
-                const DeepCollectionEquality().equals(other.taskId, taskId)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.stepNumber, stepNumber) ||
+            (identical(other.invoiceNumber, invoiceNumber) ||
                 const DeepCollectionEquality().equals(
-                  other.stepNumber,
-                  stepNumber,
+                  other.invoiceNumber,
+                  invoiceNumber,
                 )) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.command, command) ||
+            (identical(other.invoiceDate, invoiceDate) ||
                 const DeepCollectionEquality().equals(
-                  other.command,
-                  command,
+                  other.invoiceDate,
+                  invoiceDate,
                 )) &&
-            (identical(other.onSuccessActionDisplay, onSuccessActionDisplay) ||
+            (identical(other.invoiceDueDate, invoiceDueDate) ||
                 const DeepCollectionEquality().equals(
-                  other.onSuccessActionDisplay,
-                  onSuccessActionDisplay,
+                  other.invoiceDueDate,
+                  invoiceDueDate,
                 )) &&
-            (identical(other.onFailureActionDisplay, onFailureActionDisplay) ||
+            (identical(other.invoiceType, invoiceType) ||
                 const DeepCollectionEquality().equals(
-                  other.onFailureActionDisplay,
-                  onFailureActionDisplay,
+                  other.invoiceType,
+                  invoiceType,
                 )) &&
-            (identical(other.onSuccessAction, onSuccessAction) ||
+            (identical(other.billingStartDate, billingStartDate) ||
                 const DeepCollectionEquality().equals(
-                  other.onSuccessAction,
-                  onSuccessAction,
+                  other.billingStartDate,
+                  billingStartDate,
                 )) &&
-            (identical(other.retryAttempts, retryAttempts) ||
+            (identical(other.billingEndDate, billingEndDate) ||
                 const DeepCollectionEquality().equals(
-                  other.retryAttempts,
-                  retryAttempts,
+                  other.billingEndDate,
+                  billingEndDate,
                 )) &&
-            (identical(other.retryInterval, retryInterval) ||
+            (identical(other.usageStartDate, usageStartDate) ||
                 const DeepCollectionEquality().equals(
-                  other.retryInterval,
-                  retryInterval,
+                  other.usageStartDate,
+                  usageStartDate,
                 )) &&
-            (identical(other.onFailureAction, onFailureAction) ||
+            (identical(other.usageEndDate, usageEndDate) ||
                 const DeepCollectionEquality().equals(
-                  other.onFailureAction,
-                  onFailureAction,
+                  other.usageEndDate,
+                  usageEndDate,
                 )) &&
-            (identical(other.onSuccessTaskStepsId, onSuccessTaskStepsId) ||
+            (identical(other.orderId, orderId) ||
                 const DeepCollectionEquality().equals(
-                  other.onSuccessTaskStepsId,
-                  onSuccessTaskStepsId,
+                  other.orderId,
+                  orderId,
                 )) &&
-            (identical(other.onFailureTaskStepsId, onFailureTaskStepsId) ||
+            (identical(other.orderNumber, orderNumber) ||
                 const DeepCollectionEquality().equals(
-                  other.onFailureTaskStepsId,
-                  onFailureTaskStepsId,
+                  other.orderNumber,
+                  orderNumber,
                 )) &&
-            (identical(other.outputFilename, outputFilename) ||
+            (identical(other.orderDescription, orderDescription) ||
                 const DeepCollectionEquality().equals(
-                  other.outputFilename,
-                  outputFilename,
+                  other.orderDescription,
+                  orderDescription,
                 )) &&
-            (identical(other.lastRunOutcome, lastRunOutcome) ||
+            (identical(other.orderDate, orderDate) ||
                 const DeepCollectionEquality().equals(
-                  other.lastRunOutcome,
-                  lastRunOutcome,
+                  other.orderDate,
+                  orderDate,
                 )) &&
-            (identical(other.lastRunDuration, lastRunDuration) ||
+            (identical(other.orderLocation, orderLocation) ||
                 const DeepCollectionEquality().equals(
-                  other.lastRunDuration,
-                  lastRunDuration,
+                  other.orderLocation,
+                  orderLocation,
                 )) &&
-            (identical(other.lastRunRetries, lastRunRetries) ||
+            (identical(other.invoiceDescription, invoiceDescription) ||
                 const DeepCollectionEquality().equals(
-                  other.lastRunRetries,
-                  lastRunRetries,
+                  other.invoiceDescription,
+                  invoiceDescription,
                 )) &&
+            (identical(other.creditingInvoiceId, creditingInvoiceId) ||
+                const DeepCollectionEquality().equals(
+                  other.creditingInvoiceId,
+                  creditingInvoiceId,
+                )) &&
+            (identical(other.creditingInvoiceNumber, creditingInvoiceNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.creditingInvoiceNumber,
+                  creditingInvoiceNumber,
+                )) &&
+            (identical(other.customerId, customerId) ||
+                const DeepCollectionEquality().equals(
+                  other.customerId,
+                  customerId,
+                )) &&
+            (identical(other.customer, customer) ||
+                const DeepCollectionEquality().equals(
+                  other.customer,
+                  customer,
+                )) &&
+            (identical(other.customerTypeId, customerTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.customerTypeId,
+                  customerTypeId,
+                )) &&
+            (identical(other.customerType, customerType) ||
+                const DeepCollectionEquality().equals(
+                  other.customerType,
+                  customerType,
+                )) &&
+            (identical(other.dealId, dealId) ||
+                const DeepCollectionEquality().equals(other.dealId, dealId)) &&
+            (identical(other.deal, deal) ||
+                const DeepCollectionEquality().equals(other.deal, deal)) &&
+            (identical(other.dealNumber, dealNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.dealNumber,
+                  dealNumber,
+                )) &&
+            (identical(other.dealTypeId, dealTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.dealTypeId,
+                  dealTypeId,
+                )) &&
+            (identical(other.dealType, dealType) ||
+                const DeepCollectionEquality().equals(
+                  other.dealType,
+                  dealType,
+                )) &&
+            (identical(other.departmentId, departmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.departmentId,
+                  departmentId,
+                )) &&
+            (identical(other.department, department) ||
+                const DeepCollectionEquality().equals(
+                  other.department,
+                  department,
+                )) &&
+            (identical(other.purchaseOrderNumber, purchaseOrderNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.purchaseOrderNumber,
+                  purchaseOrderNumber,
+                )) &&
+            (identical(
+                  other.workAuthorizationNumber,
+                  workAuthorizationNumber,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.workAuthorizationNumber,
+                  workAuthorizationNumber,
+                )) &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.statusDate, statusDate) ||
+                const DeepCollectionEquality().equals(
+                  other.statusDate,
+                  statusDate,
+                )) &&
+            (identical(other.isNoCharge, isNoCharge) ||
+                const DeepCollectionEquality().equals(
+                  other.isNoCharge,
+                  isNoCharge,
+                )) &&
+            (identical(other.isAdjusted, isAdjusted) ||
+                const DeepCollectionEquality().equals(
+                  other.isAdjusted,
+                  isAdjusted,
+                )) &&
+            (identical(other.isBilledHiatus, isBilledHiatus) ||
+                const DeepCollectionEquality().equals(
+                  other.isBilledHiatus,
+                  isBilledHiatus,
+                )) &&
+            (identical(other.episodeNumber, episodeNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.episodeNumber,
+                  episodeNumber,
+                )) &&
+            (identical(other.hasLockedTotal, hasLockedTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.hasLockedTotal,
+                  hasLockedTotal,
+                )) &&
+            (identical(other.isAlteredDates, isAlteredDates) ||
+                const DeepCollectionEquality().equals(
+                  other.isAlteredDates,
+                  isAlteredDates,
+                )) &&
+            (identical(other.officeLocationId, officeLocationId) ||
+                const DeepCollectionEquality().equals(
+                  other.officeLocationId,
+                  officeLocationId,
+                )) &&
+            (identical(other.officeLocation, officeLocation) ||
+                const DeepCollectionEquality().equals(
+                  other.officeLocation,
+                  officeLocation,
+                )) &&
+            (identical(other.invoiceCreationBatchId, invoiceCreationBatchId) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceCreationBatchId,
+                  invoiceCreationBatchId,
+                )) &&
+            (identical(
+                  other.invoiceCreationBatchNumber,
+                  invoiceCreationBatchNumber,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceCreationBatchNumber,
+                  invoiceCreationBatchNumber,
+                )) &&
+            (identical(other.invoiceGroupNumber, invoiceGroupNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceGroupNumber,
+                  invoiceGroupNumber,
+                )) &&
+            (identical(other.rentalSale, rentalSale) ||
+                const DeepCollectionEquality().equals(
+                  other.rentalSale,
+                  rentalSale,
+                )) &&
+            (identical(other.lossAndDamage, lossAndDamage) ||
+                const DeepCollectionEquality().equals(
+                  other.lossAndDamage,
+                  lossAndDamage,
+                )) &&
+            (identical(other.repair, repair) ||
+                const DeepCollectionEquality().equals(other.repair, repair)) &&
+            (identical(other.inputByUserId, inputByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.inputByUserId,
+                  inputByUserId,
+                )) &&
+            (identical(other.flatPoId, flatPoId) ||
+                const DeepCollectionEquality().equals(
+                  other.flatPoId,
+                  flatPoId,
+                )) &&
+            (identical(other.orderType, orderType) ||
+                const DeepCollectionEquality().equals(
+                  other.orderType,
+                  orderType,
+                )) &&
+            (identical(other.rebateCustomerId, rebateCustomerId) ||
+                const DeepCollectionEquality().equals(
+                  other.rebateCustomerId,
+                  rebateCustomerId,
+                )) &&
+            (identical(other.orbitsapchgmajor, orbitsapchgmajor) ||
+                const DeepCollectionEquality().equals(
+                  other.orbitsapchgmajor,
+                  orbitsapchgmajor,
+                )) &&
+            (identical(other.orbitsapchgsub, orbitsapchgsub) ||
+                const DeepCollectionEquality().equals(
+                  other.orbitsapchgsub,
+                  orbitsapchgsub,
+                )) &&
+            (identical(other.orbitsapchgdetail, orbitsapchgdetail) ||
+                const DeepCollectionEquality().equals(
+                  other.orbitsapchgdetail,
+                  orbitsapchgdetail,
+                )) &&
+            (identical(other.orbitsapchgdeal, orbitsapchgdeal) ||
+                const DeepCollectionEquality().equals(
+                  other.orbitsapchgdeal,
+                  orbitsapchgdeal,
+                )) &&
+            (identical(other.orbitsapchgset, orbitsapchgset) ||
+                const DeepCollectionEquality().equals(
+                  other.orbitsapchgset,
+                  orbitsapchgset,
+                )) &&
+            (identical(other.excludeFromFlatPo, excludeFromFlatPo) ||
+                const DeepCollectionEquality().equals(
+                  other.excludeFromFlatPo,
+                  excludeFromFlatPo,
+                )) &&
+            (identical(other.isSplitRental, isSplitRental) ||
+                const DeepCollectionEquality().equals(
+                  other.isSplitRental,
+                  isSplitRental,
+                )) &&
+            (identical(other.isRebateRental, isRebateRental) ||
+                const DeepCollectionEquality().equals(
+                  other.isRebateRental,
+                  isRebateRental,
+                )) &&
+            (identical(other.invoiceListTotal, invoiceListTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceListTotal,
+                  invoiceListTotal,
+                )) &&
+            (identical(other.invoiceGrossTotal, invoiceGrossTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceGrossTotal,
+                  invoiceGrossTotal,
+                )) &&
+            (identical(other.invoiceDiscountTotal, invoiceDiscountTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceDiscountTotal,
+                  invoiceDiscountTotal,
+                )) &&
+            (identical(
+                  other.invoiceDaysPerWeekDiscountTotal,
+                  invoiceDaysPerWeekDiscountTotal,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceDaysPerWeekDiscountTotal,
+                  invoiceDaysPerWeekDiscountTotal,
+                )) &&
+            (identical(other.referenceNumber, referenceNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.referenceNumber,
+                  referenceNumber,
+                )) &&
+            (identical(other.agentId, agentId) ||
+                const DeepCollectionEquality().equals(
+                  other.agentId,
+                  agentId,
+                )) &&
+            (identical(other.agent, agent) ||
+                const DeepCollectionEquality().equals(other.agent, agent)) &&
+            (identical(other.projectManagerId, projectManagerId) ||
+                const DeepCollectionEquality().equals(
+                  other.projectManagerId,
+                  projectManagerId,
+                )) &&
+            (identical(other.projectManager, projectManager) ||
+                const DeepCollectionEquality().equals(
+                  other.projectManager,
+                  projectManager,
+                )) &&
+            (identical(other.billToAddressId, billToAddressId) ||
+                const DeepCollectionEquality().equals(
+                  other.billToAddressId,
+                  billToAddressId,
+                )) &&
+            (identical(other.billToName, billToName) ||
+                const DeepCollectionEquality().equals(
+                  other.billToName,
+                  billToName,
+                )) &&
+            (identical(other.billToAttention1, billToAttention1) ||
+                const DeepCollectionEquality().equals(
+                  other.billToAttention1,
+                  billToAttention1,
+                )) &&
+            (identical(other.billToAttention2, billToAttention2) ||
+                const DeepCollectionEquality().equals(
+                  other.billToAttention2,
+                  billToAttention2,
+                )) &&
+            (identical(other.billToAddress1, billToAddress1) ||
+                const DeepCollectionEquality().equals(
+                  other.billToAddress1,
+                  billToAddress1,
+                )) &&
+            (identical(other.billToAddress2, billToAddress2) ||
+                const DeepCollectionEquality().equals(
+                  other.billToAddress2,
+                  billToAddress2,
+                )) &&
+            (identical(other.billToCity, billToCity) ||
+                const DeepCollectionEquality().equals(
+                  other.billToCity,
+                  billToCity,
+                )) &&
+            (identical(other.billToState, billToState) ||
+                const DeepCollectionEquality().equals(
+                  other.billToState,
+                  billToState,
+                )) &&
+            (identical(other.billToZipCode, billToZipCode) ||
+                const DeepCollectionEquality().equals(
+                  other.billToZipCode,
+                  billToZipCode,
+                )) &&
+            (identical(other.billToCountryId, billToCountryId) ||
+                const DeepCollectionEquality().equals(
+                  other.billToCountryId,
+                  billToCountryId,
+                )) &&
+            (identical(other.billToCountry, billToCountry) ||
+                const DeepCollectionEquality().equals(
+                  other.billToCountry,
+                  billToCountry,
+                )) &&
+            (identical(
+                  other.billToCountryCodeIsoAlpha2,
+                  billToCountryCodeIsoAlpha2,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.billToCountryCodeIsoAlpha2,
+                  billToCountryCodeIsoAlpha2,
+                )) &&
+            (identical(other.billToCountryCodePhone, billToCountryCodePhone) ||
+                const DeepCollectionEquality().equals(
+                  other.billToCountryCodePhone,
+                  billToCountryCodePhone,
+                )) &&
+            (identical(other.invoiceClass, invoiceClass) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceClass,
+                  invoiceClass,
+                )) &&
+            (identical(other.printNotes, printNotes) ||
+                const DeepCollectionEquality().equals(
+                  other.printNotes,
+                  printNotes,
+                )) &&
+            (identical(other.paymentTermsId, paymentTermsId) ||
+                const DeepCollectionEquality().equals(
+                  other.paymentTermsId,
+                  paymentTermsId,
+                )) &&
+            (identical(other.paymentTerms, paymentTerms) ||
+                const DeepCollectionEquality().equals(
+                  other.paymentTerms,
+                  paymentTerms,
+                )) &&
+            (identical(other.paymentTermsColor, paymentTermsColor) ||
+                const DeepCollectionEquality().equals(
+                  other.paymentTermsColor,
+                  paymentTermsColor,
+                )) &&
+            (identical(other.paymentTypeId, paymentTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.paymentTypeId,
+                  paymentTypeId,
+                )) &&
+            (identical(other.paymentType, paymentType) ||
+                const DeepCollectionEquality().equals(
+                  other.paymentType,
+                  paymentType,
+                )) &&
+            (identical(other.taxId, taxId) ||
+                const DeepCollectionEquality().equals(other.taxId, taxId)) &&
+            (identical(other.taxOptionId, taxOptionId) ||
+                const DeepCollectionEquality().equals(
+                  other.taxOptionId,
+                  taxOptionId,
+                )) &&
+            (identical(other.taxOption, taxOption) ||
+                const DeepCollectionEquality().equals(
+                  other.taxOption,
+                  taxOption,
+                )) &&
+            (identical(other.tax1Name, tax1Name) ||
+                const DeepCollectionEquality().equals(
+                  other.tax1Name,
+                  tax1Name,
+                )) &&
+            (identical(other.tax2Name, tax2Name) ||
+                const DeepCollectionEquality().equals(
+                  other.tax2Name,
+                  tax2Name,
+                )) &&
+            (identical(other.rentalTaxAlias, rentalTaxAlias) ||
+                const DeepCollectionEquality().equals(
+                  other.rentalTaxAlias,
+                  rentalTaxAlias,
+                )) &&
+            (identical(other.salesTaxAlias, salesTaxAlias) ||
+                const DeepCollectionEquality().equals(
+                  other.salesTaxAlias,
+                  salesTaxAlias,
+                )) &&
+            (identical(other.laborTaxAlias, laborTaxAlias) ||
+                const DeepCollectionEquality().equals(
+                  other.laborTaxAlias,
+                  laborTaxAlias,
+                )) &&
+            (identical(other.miscTaxAlias, miscTaxAlias) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxAlias,
+                  miscTaxAlias,
+                )) &&
+            (identical(other.rentalTaxRate1, rentalTaxRate1) ||
+                const DeepCollectionEquality().equals(
+                  other.rentalTaxRate1,
+                  rentalTaxRate1,
+                )) &&
+            (identical(other.salesTaxRate1, salesTaxRate1) ||
+                const DeepCollectionEquality().equals(
+                  other.salesTaxRate1,
+                  salesTaxRate1,
+                )) &&
+            (identical(other.laborTaxRate1, laborTaxRate1) ||
+                const DeepCollectionEquality().equals(
+                  other.laborTaxRate1,
+                  laborTaxRate1,
+                )) &&
+            (identical(other.rentalTaxRate2, rentalTaxRate2) ||
+                const DeepCollectionEquality().equals(
+                  other.rentalTaxRate2,
+                  rentalTaxRate2,
+                )) &&
+            (identical(other.salesTaxRate2, salesTaxRate2) ||
+                const DeepCollectionEquality().equals(
+                  other.salesTaxRate2,
+                  salesTaxRate2,
+                )) &&
+            (identical(other.laborTaxRate2, laborTaxRate2) ||
+                const DeepCollectionEquality().equals(
+                  other.laborTaxRate2,
+                  laborTaxRate2,
+                )) &&
+            (identical(other.miscTaxRate1, miscTaxRate1) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate1,
+                  miscTaxRate1,
+                )) &&
+            (identical(other.miscTaxRate2, miscTaxRate2) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate2,
+                  miscTaxRate2,
+                )) &&
+            (identical(other.taxItemCode, taxItemCode) ||
+                const DeepCollectionEquality().equals(
+                  other.taxItemCode,
+                  taxItemCode,
+                )) &&
+            (identical(other.taxVendor, taxVendor) ||
+                const DeepCollectionEquality().equals(
+                  other.taxVendor,
+                  taxVendor,
+                )) &&
+            (identical(other.taxCountry, taxCountry) ||
+                const DeepCollectionEquality().equals(
+                  other.taxCountry,
+                  taxCountry,
+                )) &&
+            (identical(other.chargeBatchId, chargeBatchId) ||
+                const DeepCollectionEquality().equals(
+                  other.chargeBatchId,
+                  chargeBatchId,
+                )) &&
+            (identical(other.chargeBatchNumber, chargeBatchNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.chargeBatchNumber,
+                  chargeBatchNumber,
+                )) &&
+            (identical(other.quikPayDiscount, quikPayDiscount) ||
+                const DeepCollectionEquality().equals(
+                  other.quikPayDiscount,
+                  quikPayDiscount,
+                )) &&
+            (identical(other.quikPayRentalTotal, quikPayRentalTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.quikPayRentalTotal,
+                  quikPayRentalTotal,
+                )) &&
+            (identical(other.quikPayTotal, quikPayTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.quikPayTotal,
+                  quikPayTotal,
+                )) &&
+            (identical(other.receivedTotal, receivedTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.receivedTotal,
+                  receivedTotal,
+                )) &&
+            (identical(other.rateType, rateType) ||
+                const DeepCollectionEquality().equals(
+                  other.rateType,
+                  rateType,
+                )) &&
+            (identical(other.consignmentRevenue, consignmentRevenue) ||
+                const DeepCollectionEquality().equals(
+                  other.consignmentRevenue,
+                  consignmentRevenue,
+                )) &&
+            (identical(other.isNonBillable, isNonBillable) ||
+                const DeepCollectionEquality().equals(
+                  other.isNonBillable,
+                  isNonBillable,
+                )) &&
+            (identical(other.currencyId, currencyId) ||
+                const DeepCollectionEquality().equals(
+                  other.currencyId,
+                  currencyId,
+                )) &&
+            (identical(other.currencyCode, currencyCode) ||
+                const DeepCollectionEquality().equals(
+                  other.currencyCode,
+                  currencyCode,
+                )) &&
+            (identical(other.currencySymbol, currencySymbol) ||
+                const DeepCollectionEquality().equals(
+                  other.currencySymbol,
+                  currencySymbol,
+                )) &&
+            (identical(
+                  other.officeLocationDefaultCurrencyId,
+                  officeLocationDefaultCurrencyId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.officeLocationDefaultCurrencyId,
+                  officeLocationDefaultCurrencyId,
+                )) &&
+            (identical(other.divisionId, divisionId) ||
+                const DeepCollectionEquality().equals(
+                  other.divisionId,
+                  divisionId,
+                )) &&
+            (identical(
+                  other.outsideSalesRepresentativeId,
+                  outsideSalesRepresentativeId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.outsideSalesRepresentativeId,
+                  outsideSalesRepresentativeId,
+                )) &&
+            (identical(
+                  other.outsideSalesRepresentative,
+                  outsideSalesRepresentative,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.outsideSalesRepresentative,
+                  outsideSalesRepresentative,
+                )) &&
+            (identical(other.exportTaxAsLineItem, exportTaxAsLineItem) ||
+                const DeepCollectionEquality().equals(
+                  other.exportTaxAsLineItem,
+                  exportTaxAsLineItem,
+                )) &&
+            (identical(other.invoiceNumberColor, invoiceNumberColor) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceNumberColor,
+                  invoiceNumberColor,
+                )) &&
+            (identical(other.statusColor, statusColor) ||
+                const DeepCollectionEquality().equals(
+                  other.statusColor,
+                  statusColor,
+                )) &&
+            (identical(other.orderNumberColor, orderNumberColor) ||
+                const DeepCollectionEquality().equals(
+                  other.orderNumberColor,
+                  orderNumberColor,
+                )) &&
+            (identical(
+                  other.purchaseOrderNumberColor,
+                  purchaseOrderNumberColor,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.purchaseOrderNumberColor,
+                  purchaseOrderNumberColor,
+                )) &&
+            (identical(other.dealColor, dealColor) ||
+                const DeepCollectionEquality().equals(
+                  other.dealColor,
+                  dealColor,
+                )) &&
+            (identical(other.billingStartDateColor, billingStartDateColor) ||
+                const DeepCollectionEquality().equals(
+                  other.billingStartDateColor,
+                  billingStartDateColor,
+                )) &&
+            (identical(other.invoiceTotalColor, invoiceTotalColor) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceTotalColor,
+                  invoiceTotalColor,
+                )) &&
+            (identical(other.descriptionColor, descriptionColor) ||
+                const DeepCollectionEquality().equals(
+                  other.descriptionColor,
+                  descriptionColor,
+                )) &&
+            (identical(other.hasRentalItem, hasRentalItem) ||
+                const DeepCollectionEquality().equals(
+                  other.hasRentalItem,
+                  hasRentalItem,
+                )) &&
+            (identical(other.hasMeterItem, hasMeterItem) ||
+                const DeepCollectionEquality().equals(
+                  other.hasMeterItem,
+                  hasMeterItem,
+                )) &&
+            (identical(other.hasSalesItem, hasSalesItem) ||
+                const DeepCollectionEquality().equals(
+                  other.hasSalesItem,
+                  hasSalesItem,
+                )) &&
+            (identical(other.hasLaborItem, hasLaborItem) ||
+                const DeepCollectionEquality().equals(
+                  other.hasLaborItem,
+                  hasLaborItem,
+                )) &&
+            (identical(other.hasMiscellaneousItem, hasMiscellaneousItem) ||
+                const DeepCollectionEquality().equals(
+                  other.hasMiscellaneousItem,
+                  hasMiscellaneousItem,
+                )) &&
+            (identical(other.hasFacilityItem, hasFacilityItem) ||
+                const DeepCollectionEquality().equals(
+                  other.hasFacilityItem,
+                  hasFacilityItem,
+                )) &&
+            (identical(other.hasTransportationItem, hasTransportationItem) ||
+                const DeepCollectionEquality().equals(
+                  other.hasTransportationItem,
+                  hasTransportationItem,
+                )) &&
+            (identical(other.hasRentalSaleItem, hasRentalSaleItem) ||
+                const DeepCollectionEquality().equals(
+                  other.hasRentalSaleItem,
+                  hasRentalSaleItem,
+                )) &&
+            (identical(other.hasRepairItem, hasRepairItem) ||
+                const DeepCollectionEquality().equals(
+                  other.hasRepairItem,
+                  hasRepairItem,
+                )) &&
+            (identical(other.hasConsignment, hasConsignment) ||
+                const DeepCollectionEquality().equals(
+                  other.hasConsignment,
+                  hasConsignment,
+                )) &&
+            (identical(other.hasLossAndDamageItem, hasLossAndDamageItem) ||
+                const DeepCollectionEquality().equals(
+                  other.hasLossAndDamageItem,
+                  hasLossAndDamageItem,
+                )) &&
+            (identical(other.hasInternalInvoice, hasInternalInvoice) ||
+                const DeepCollectionEquality().equals(
+                  other.hasInternalInvoice,
+                  hasInternalInvoice,
+                )) &&
+            (identical(other.isInternal, isInternal) ||
+                const DeepCollectionEquality().equals(
+                  other.isInternal,
+                  isInternal,
+                )) &&
+            (identical(other.rentalTotal, rentalTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.rentalTotal,
+                  rentalTotal,
+                )) &&
+            (identical(other.salesTotal, salesTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.salesTotal,
+                  salesTotal,
+                )) &&
+            (identical(other.facilitiesTotal, facilitiesTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.facilitiesTotal,
+                  facilitiesTotal,
+                )) &&
+            (identical(other.miscellaneousTotal, miscellaneousTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.miscellaneousTotal,
+                  miscellaneousTotal,
+                )) &&
+            (identical(other.laborTotal, laborTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.laborTotal,
+                  laborTotal,
+                )) &&
+            (identical(other.partsTotal, partsTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.partsTotal,
+                  partsTotal,
+                )) &&
+            (identical(other.assetSaleTotal, assetSaleTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.assetSaleTotal,
+                  assetSaleTotal,
+                )) &&
+            (identical(other.invoiceSubTotal, invoiceSubTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceSubTotal,
+                  invoiceSubTotal,
+                )) &&
+            (identical(other.invoiceTax1, invoiceTax1) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceTax1,
+                  invoiceTax1,
+                )) &&
+            (identical(other.invoiceTax2, invoiceTax2) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceTax2,
+                  invoiceTax2,
+                )) &&
+            (identical(other.invoiceTax, invoiceTax) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceTax,
+                  invoiceTax,
+                )) &&
+            (identical(other.invoiceTotal, invoiceTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceTotal,
+                  invoiceTotal,
+                )) &&
+            (identical(other.remainingTotal, remainingTotal) ||
+                const DeepCollectionEquality().equals(
+                  other.remainingTotal,
+                  remainingTotal,
+                )) &&
+            (identical(other.isStandAloneInvoice, isStandAloneInvoice) ||
+                const DeepCollectionEquality().equals(
+                  other.isStandAloneInvoice,
+                  isStandAloneInvoice,
+                )) &&
+            (identical(other.warehouseId, warehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.warehouseId,
+                  warehouseId,
+                )) &&
+            (identical(other.termsConditionsId, termsConditionsId) ||
+                const DeepCollectionEquality().equals(
+                  other.termsConditionsId,
+                  termsConditionsId,
+                )) &&
+            (identical(other.termsConditions, termsConditions) ||
+                const DeepCollectionEquality().equals(
+                  other.termsConditions,
+                  termsConditions,
+                )) &&
+            (identical(other.projectId, projectId) ||
+                const DeepCollectionEquality().equals(
+                  other.projectId,
+                  projectId,
+                )) &&
+            (identical(other.projectNumber, projectNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.projectNumber,
+                  projectNumber,
+                )) &&
+            (identical(other.project, project) ||
+                const DeepCollectionEquality().equals(
+                  other.project,
+                  project,
+                )) &&
+            (identical(other.sourceId, sourceId) ||
+                const DeepCollectionEquality().equals(
+                  other.sourceId,
+                  sourceId,
+                )) &&
+            (identical(other.sourceDate, sourceDate) ||
+                const DeepCollectionEquality().equals(
+                  other.sourceDate,
+                  sourceDate,
+                )) &&
+            (identical(other.csrId, csrId) ||
+                const DeepCollectionEquality().equals(other.csrId, csrId)) &&
+            (identical(other.csr, csr) ||
+                const DeepCollectionEquality().equals(other.csr, csr)) &&
             (identical(other.dateStamp, dateStamp) ||
                 const DeepCollectionEquality().equals(
                   other.dateStamp,
@@ -54785,24 +56270,175 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
 
   @override
   int get hashCode =>
-      const DeepCollectionEquality().hash(taskStepsId) ^
-      const DeepCollectionEquality().hash(taskId) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(stepNumber) ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(command) ^
-      const DeepCollectionEquality().hash(onSuccessActionDisplay) ^
-      const DeepCollectionEquality().hash(onFailureActionDisplay) ^
-      const DeepCollectionEquality().hash(onSuccessAction) ^
-      const DeepCollectionEquality().hash(retryAttempts) ^
-      const DeepCollectionEquality().hash(retryInterval) ^
-      const DeepCollectionEquality().hash(onFailureAction) ^
-      const DeepCollectionEquality().hash(onSuccessTaskStepsId) ^
-      const DeepCollectionEquality().hash(onFailureTaskStepsId) ^
-      const DeepCollectionEquality().hash(outputFilename) ^
-      const DeepCollectionEquality().hash(lastRunOutcome) ^
-      const DeepCollectionEquality().hash(lastRunDuration) ^
-      const DeepCollectionEquality().hash(lastRunRetries) ^
+      const DeepCollectionEquality().hash(invoiceId) ^
+      const DeepCollectionEquality().hash(invoiceNumber) ^
+      const DeepCollectionEquality().hash(invoiceDate) ^
+      const DeepCollectionEquality().hash(invoiceDueDate) ^
+      const DeepCollectionEquality().hash(invoiceType) ^
+      const DeepCollectionEquality().hash(billingStartDate) ^
+      const DeepCollectionEquality().hash(billingEndDate) ^
+      const DeepCollectionEquality().hash(usageStartDate) ^
+      const DeepCollectionEquality().hash(usageEndDate) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(orderNumber) ^
+      const DeepCollectionEquality().hash(orderDescription) ^
+      const DeepCollectionEquality().hash(orderDate) ^
+      const DeepCollectionEquality().hash(orderLocation) ^
+      const DeepCollectionEquality().hash(invoiceDescription) ^
+      const DeepCollectionEquality().hash(creditingInvoiceId) ^
+      const DeepCollectionEquality().hash(creditingInvoiceNumber) ^
+      const DeepCollectionEquality().hash(customerId) ^
+      const DeepCollectionEquality().hash(customer) ^
+      const DeepCollectionEquality().hash(customerTypeId) ^
+      const DeepCollectionEquality().hash(customerType) ^
+      const DeepCollectionEquality().hash(dealId) ^
+      const DeepCollectionEquality().hash(deal) ^
+      const DeepCollectionEquality().hash(dealNumber) ^
+      const DeepCollectionEquality().hash(dealTypeId) ^
+      const DeepCollectionEquality().hash(dealType) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(department) ^
+      const DeepCollectionEquality().hash(purchaseOrderNumber) ^
+      const DeepCollectionEquality().hash(workAuthorizationNumber) ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(statusDate) ^
+      const DeepCollectionEquality().hash(isNoCharge) ^
+      const DeepCollectionEquality().hash(isAdjusted) ^
+      const DeepCollectionEquality().hash(isBilledHiatus) ^
+      const DeepCollectionEquality().hash(episodeNumber) ^
+      const DeepCollectionEquality().hash(hasLockedTotal) ^
+      const DeepCollectionEquality().hash(isAlteredDates) ^
+      const DeepCollectionEquality().hash(officeLocationId) ^
+      const DeepCollectionEquality().hash(officeLocation) ^
+      const DeepCollectionEquality().hash(invoiceCreationBatchId) ^
+      const DeepCollectionEquality().hash(invoiceCreationBatchNumber) ^
+      const DeepCollectionEquality().hash(invoiceGroupNumber) ^
+      const DeepCollectionEquality().hash(rentalSale) ^
+      const DeepCollectionEquality().hash(lossAndDamage) ^
+      const DeepCollectionEquality().hash(repair) ^
+      const DeepCollectionEquality().hash(inputByUserId) ^
+      const DeepCollectionEquality().hash(flatPoId) ^
+      const DeepCollectionEquality().hash(orderType) ^
+      const DeepCollectionEquality().hash(rebateCustomerId) ^
+      const DeepCollectionEquality().hash(orbitsapchgmajor) ^
+      const DeepCollectionEquality().hash(orbitsapchgsub) ^
+      const DeepCollectionEquality().hash(orbitsapchgdetail) ^
+      const DeepCollectionEquality().hash(orbitsapchgdeal) ^
+      const DeepCollectionEquality().hash(orbitsapchgset) ^
+      const DeepCollectionEquality().hash(excludeFromFlatPo) ^
+      const DeepCollectionEquality().hash(isSplitRental) ^
+      const DeepCollectionEquality().hash(isRebateRental) ^
+      const DeepCollectionEquality().hash(invoiceListTotal) ^
+      const DeepCollectionEquality().hash(invoiceGrossTotal) ^
+      const DeepCollectionEquality().hash(invoiceDiscountTotal) ^
+      const DeepCollectionEquality().hash(invoiceDaysPerWeekDiscountTotal) ^
+      const DeepCollectionEquality().hash(referenceNumber) ^
+      const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(agent) ^
+      const DeepCollectionEquality().hash(projectManagerId) ^
+      const DeepCollectionEquality().hash(projectManager) ^
+      const DeepCollectionEquality().hash(billToAddressId) ^
+      const DeepCollectionEquality().hash(billToName) ^
+      const DeepCollectionEquality().hash(billToAttention1) ^
+      const DeepCollectionEquality().hash(billToAttention2) ^
+      const DeepCollectionEquality().hash(billToAddress1) ^
+      const DeepCollectionEquality().hash(billToAddress2) ^
+      const DeepCollectionEquality().hash(billToCity) ^
+      const DeepCollectionEquality().hash(billToState) ^
+      const DeepCollectionEquality().hash(billToZipCode) ^
+      const DeepCollectionEquality().hash(billToCountryId) ^
+      const DeepCollectionEquality().hash(billToCountry) ^
+      const DeepCollectionEquality().hash(billToCountryCodeIsoAlpha2) ^
+      const DeepCollectionEquality().hash(billToCountryCodePhone) ^
+      const DeepCollectionEquality().hash(invoiceClass) ^
+      const DeepCollectionEquality().hash(printNotes) ^
+      const DeepCollectionEquality().hash(paymentTermsId) ^
+      const DeepCollectionEquality().hash(paymentTerms) ^
+      const DeepCollectionEquality().hash(paymentTermsColor) ^
+      const DeepCollectionEquality().hash(paymentTypeId) ^
+      const DeepCollectionEquality().hash(paymentType) ^
+      const DeepCollectionEquality().hash(taxId) ^
+      const DeepCollectionEquality().hash(taxOptionId) ^
+      const DeepCollectionEquality().hash(taxOption) ^
+      const DeepCollectionEquality().hash(tax1Name) ^
+      const DeepCollectionEquality().hash(tax2Name) ^
+      const DeepCollectionEquality().hash(rentalTaxAlias) ^
+      const DeepCollectionEquality().hash(salesTaxAlias) ^
+      const DeepCollectionEquality().hash(laborTaxAlias) ^
+      const DeepCollectionEquality().hash(miscTaxAlias) ^
+      const DeepCollectionEquality().hash(rentalTaxRate1) ^
+      const DeepCollectionEquality().hash(salesTaxRate1) ^
+      const DeepCollectionEquality().hash(laborTaxRate1) ^
+      const DeepCollectionEquality().hash(rentalTaxRate2) ^
+      const DeepCollectionEquality().hash(salesTaxRate2) ^
+      const DeepCollectionEquality().hash(laborTaxRate2) ^
+      const DeepCollectionEquality().hash(miscTaxRate1) ^
+      const DeepCollectionEquality().hash(miscTaxRate2) ^
+      const DeepCollectionEquality().hash(taxItemCode) ^
+      const DeepCollectionEquality().hash(taxVendor) ^
+      const DeepCollectionEquality().hash(taxCountry) ^
+      const DeepCollectionEquality().hash(chargeBatchId) ^
+      const DeepCollectionEquality().hash(chargeBatchNumber) ^
+      const DeepCollectionEquality().hash(quikPayDiscount) ^
+      const DeepCollectionEquality().hash(quikPayRentalTotal) ^
+      const DeepCollectionEquality().hash(quikPayTotal) ^
+      const DeepCollectionEquality().hash(receivedTotal) ^
+      const DeepCollectionEquality().hash(rateType) ^
+      const DeepCollectionEquality().hash(consignmentRevenue) ^
+      const DeepCollectionEquality().hash(isNonBillable) ^
+      const DeepCollectionEquality().hash(currencyId) ^
+      const DeepCollectionEquality().hash(currencyCode) ^
+      const DeepCollectionEquality().hash(currencySymbol) ^
+      const DeepCollectionEquality().hash(officeLocationDefaultCurrencyId) ^
+      const DeepCollectionEquality().hash(divisionId) ^
+      const DeepCollectionEquality().hash(outsideSalesRepresentativeId) ^
+      const DeepCollectionEquality().hash(outsideSalesRepresentative) ^
+      const DeepCollectionEquality().hash(exportTaxAsLineItem) ^
+      const DeepCollectionEquality().hash(invoiceNumberColor) ^
+      const DeepCollectionEquality().hash(statusColor) ^
+      const DeepCollectionEquality().hash(orderNumberColor) ^
+      const DeepCollectionEquality().hash(purchaseOrderNumberColor) ^
+      const DeepCollectionEquality().hash(dealColor) ^
+      const DeepCollectionEquality().hash(billingStartDateColor) ^
+      const DeepCollectionEquality().hash(invoiceTotalColor) ^
+      const DeepCollectionEquality().hash(descriptionColor) ^
+      const DeepCollectionEquality().hash(hasRentalItem) ^
+      const DeepCollectionEquality().hash(hasMeterItem) ^
+      const DeepCollectionEquality().hash(hasSalesItem) ^
+      const DeepCollectionEquality().hash(hasLaborItem) ^
+      const DeepCollectionEquality().hash(hasMiscellaneousItem) ^
+      const DeepCollectionEquality().hash(hasFacilityItem) ^
+      const DeepCollectionEquality().hash(hasTransportationItem) ^
+      const DeepCollectionEquality().hash(hasRentalSaleItem) ^
+      const DeepCollectionEquality().hash(hasRepairItem) ^
+      const DeepCollectionEquality().hash(hasConsignment) ^
+      const DeepCollectionEquality().hash(hasLossAndDamageItem) ^
+      const DeepCollectionEquality().hash(hasInternalInvoice) ^
+      const DeepCollectionEquality().hash(isInternal) ^
+      const DeepCollectionEquality().hash(rentalTotal) ^
+      const DeepCollectionEquality().hash(salesTotal) ^
+      const DeepCollectionEquality().hash(facilitiesTotal) ^
+      const DeepCollectionEquality().hash(miscellaneousTotal) ^
+      const DeepCollectionEquality().hash(laborTotal) ^
+      const DeepCollectionEquality().hash(partsTotal) ^
+      const DeepCollectionEquality().hash(assetSaleTotal) ^
+      const DeepCollectionEquality().hash(invoiceSubTotal) ^
+      const DeepCollectionEquality().hash(invoiceTax1) ^
+      const DeepCollectionEquality().hash(invoiceTax2) ^
+      const DeepCollectionEquality().hash(invoiceTax) ^
+      const DeepCollectionEquality().hash(invoiceTotal) ^
+      const DeepCollectionEquality().hash(remainingTotal) ^
+      const DeepCollectionEquality().hash(isStandAloneInvoice) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(termsConditionsId) ^
+      const DeepCollectionEquality().hash(termsConditions) ^
+      const DeepCollectionEquality().hash(projectId) ^
+      const DeepCollectionEquality().hash(projectNumber) ^
+      const DeepCollectionEquality().hash(project) ^
+      const DeepCollectionEquality().hash(sourceId) ^
+      const DeepCollectionEquality().hash(sourceDate) ^
+      const DeepCollectionEquality().hash(csrId) ^
+      const DeepCollectionEquality().hash(csr) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
@@ -54823,27 +56459,178 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
       runtimeType.hashCode;
 }
 
-extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
-    on WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWith({
-    int? taskStepsId,
-    int? taskId,
-    String? name,
-    int? stepNumber,
-    String? type,
-    String? command,
-    String? onSuccessActionDisplay,
-    String? onFailureActionDisplay,
-    int? onSuccessAction,
-    int? retryAttempts,
-    int? retryInterval,
-    int? onFailureAction,
-    int? onSuccessTaskStepsId,
-    int? onFailureTaskStepsId,
-    String? outputFilename,
-    int? lastRunOutcome,
-    int? lastRunDuration,
-    int? lastRunRetries,
+extension $WebApiModulesBillingInvoiceInvoiceExtension
+    on WebApiModulesBillingInvoiceInvoice {
+  WebApiModulesBillingInvoiceInvoice copyWith({
+    String? invoiceId,
+    String? invoiceNumber,
+    String? invoiceDate,
+    String? invoiceDueDate,
+    String? invoiceType,
+    String? billingStartDate,
+    String? billingEndDate,
+    String? usageStartDate,
+    String? usageEndDate,
+    String? orderId,
+    String? orderNumber,
+    String? orderDescription,
+    String? orderDate,
+    String? orderLocation,
+    String? invoiceDescription,
+    String? creditingInvoiceId,
+    String? creditingInvoiceNumber,
+    String? customerId,
+    String? customer,
+    String? customerTypeId,
+    String? customerType,
+    String? dealId,
+    String? deal,
+    String? dealNumber,
+    String? dealTypeId,
+    String? dealType,
+    String? departmentId,
+    String? department,
+    String? purchaseOrderNumber,
+    String? workAuthorizationNumber,
+    String? status,
+    String? statusDate,
+    bool? isNoCharge,
+    bool? isAdjusted,
+    bool? isBilledHiatus,
+    int? episodeNumber,
+    bool? hasLockedTotal,
+    bool? isAlteredDates,
+    String? officeLocationId,
+    String? officeLocation,
+    String? invoiceCreationBatchId,
+    int? invoiceCreationBatchNumber,
+    String? invoiceGroupNumber,
+    bool? rentalSale,
+    bool? lossAndDamage,
+    bool? repair,
+    String? inputByUserId,
+    String? flatPoId,
+    String? orderType,
+    String? rebateCustomerId,
+    String? orbitsapchgmajor,
+    String? orbitsapchgsub,
+    String? orbitsapchgdetail,
+    String? orbitsapchgdeal,
+    String? orbitsapchgset,
+    bool? excludeFromFlatPo,
+    bool? isSplitRental,
+    bool? isRebateRental,
+    double? invoiceListTotal,
+    double? invoiceGrossTotal,
+    double? invoiceDiscountTotal,
+    double? invoiceDaysPerWeekDiscountTotal,
+    String? referenceNumber,
+    String? agentId,
+    String? agent,
+    String? projectManagerId,
+    String? projectManager,
+    String? billToAddressId,
+    String? billToName,
+    String? billToAttention1,
+    String? billToAttention2,
+    String? billToAddress1,
+    String? billToAddress2,
+    String? billToCity,
+    String? billToState,
+    String? billToZipCode,
+    String? billToCountryId,
+    String? billToCountry,
+    String? billToCountryCodeIsoAlpha2,
+    int? billToCountryCodePhone,
+    String? invoiceClass,
+    String? printNotes,
+    String? paymentTermsId,
+    String? paymentTerms,
+    String? paymentTermsColor,
+    String? paymentTypeId,
+    String? paymentType,
+    String? taxId,
+    String? taxOptionId,
+    String? taxOption,
+    String? tax1Name,
+    String? tax2Name,
+    String? rentalTaxAlias,
+    String? salesTaxAlias,
+    String? laborTaxAlias,
+    String? miscTaxAlias,
+    double? rentalTaxRate1,
+    double? salesTaxRate1,
+    double? laborTaxRate1,
+    double? rentalTaxRate2,
+    double? salesTaxRate2,
+    double? laborTaxRate2,
+    double? miscTaxRate1,
+    double? miscTaxRate2,
+    String? taxItemCode,
+    String? taxVendor,
+    String? taxCountry,
+    String? chargeBatchId,
+    String? chargeBatchNumber,
+    bool? quikPayDiscount,
+    double? quikPayRentalTotal,
+    double? quikPayTotal,
+    double? receivedTotal,
+    String? rateType,
+    double? consignmentRevenue,
+    bool? isNonBillable,
+    String? currencyId,
+    String? currencyCode,
+    String? currencySymbol,
+    String? officeLocationDefaultCurrencyId,
+    String? divisionId,
+    String? outsideSalesRepresentativeId,
+    String? outsideSalesRepresentative,
+    bool? exportTaxAsLineItem,
+    String? invoiceNumberColor,
+    String? statusColor,
+    String? orderNumberColor,
+    String? purchaseOrderNumberColor,
+    String? dealColor,
+    String? billingStartDateColor,
+    String? invoiceTotalColor,
+    String? descriptionColor,
+    bool? hasRentalItem,
+    bool? hasMeterItem,
+    bool? hasSalesItem,
+    bool? hasLaborItem,
+    bool? hasMiscellaneousItem,
+    bool? hasFacilityItem,
+    bool? hasTransportationItem,
+    bool? hasRentalSaleItem,
+    bool? hasRepairItem,
+    bool? hasConsignment,
+    bool? hasLossAndDamageItem,
+    bool? hasInternalInvoice,
+    bool? isInternal,
+    double? rentalTotal,
+    double? salesTotal,
+    double? facilitiesTotal,
+    double? miscellaneousTotal,
+    double? laborTotal,
+    double? partsTotal,
+    double? assetSaleTotal,
+    double? invoiceSubTotal,
+    double? invoiceTax1,
+    double? invoiceTax2,
+    double? invoiceTax,
+    double? invoiceTotal,
+    double? remainingTotal,
+    bool? isStandAloneInvoice,
+    String? warehouseId,
+    String? termsConditionsId,
+    String? termsConditions,
+    String? projectId,
+    String? projectNumber,
+    String? project,
+    String? sourceId,
+    String? sourceDate,
+    String? csrId,
+    String? csr,
     String? dateStamp,
     String? auditNote,
     String? recordTitle,
@@ -54862,27 +56649,191 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     String? modifiedByUserName,
     String? modifiedDateTime,
   }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: taskStepsId ?? this.taskStepsId,
-      taskId: taskId ?? this.taskId,
-      name: name ?? this.name,
-      stepNumber: stepNumber ?? this.stepNumber,
-      type: type ?? this.type,
-      command: command ?? this.command,
-      onSuccessActionDisplay:
-          onSuccessActionDisplay ?? this.onSuccessActionDisplay,
-      onFailureActionDisplay:
-          onFailureActionDisplay ?? this.onFailureActionDisplay,
-      onSuccessAction: onSuccessAction ?? this.onSuccessAction,
-      retryAttempts: retryAttempts ?? this.retryAttempts,
-      retryInterval: retryInterval ?? this.retryInterval,
-      onFailureAction: onFailureAction ?? this.onFailureAction,
-      onSuccessTaskStepsId: onSuccessTaskStepsId ?? this.onSuccessTaskStepsId,
-      onFailureTaskStepsId: onFailureTaskStepsId ?? this.onFailureTaskStepsId,
-      outputFilename: outputFilename ?? this.outputFilename,
-      lastRunOutcome: lastRunOutcome ?? this.lastRunOutcome,
-      lastRunDuration: lastRunDuration ?? this.lastRunDuration,
-      lastRunRetries: lastRunRetries ?? this.lastRunRetries,
+    return WebApiModulesBillingInvoiceInvoice(
+      invoiceId: invoiceId ?? this.invoiceId,
+      invoiceNumber: invoiceNumber ?? this.invoiceNumber,
+      invoiceDate: invoiceDate ?? this.invoiceDate,
+      invoiceDueDate: invoiceDueDate ?? this.invoiceDueDate,
+      invoiceType: invoiceType ?? this.invoiceType,
+      billingStartDate: billingStartDate ?? this.billingStartDate,
+      billingEndDate: billingEndDate ?? this.billingEndDate,
+      usageStartDate: usageStartDate ?? this.usageStartDate,
+      usageEndDate: usageEndDate ?? this.usageEndDate,
+      orderId: orderId ?? this.orderId,
+      orderNumber: orderNumber ?? this.orderNumber,
+      orderDescription: orderDescription ?? this.orderDescription,
+      orderDate: orderDate ?? this.orderDate,
+      orderLocation: orderLocation ?? this.orderLocation,
+      invoiceDescription: invoiceDescription ?? this.invoiceDescription,
+      creditingInvoiceId: creditingInvoiceId ?? this.creditingInvoiceId,
+      creditingInvoiceNumber:
+          creditingInvoiceNumber ?? this.creditingInvoiceNumber,
+      customerId: customerId ?? this.customerId,
+      customer: customer ?? this.customer,
+      customerTypeId: customerTypeId ?? this.customerTypeId,
+      customerType: customerType ?? this.customerType,
+      dealId: dealId ?? this.dealId,
+      deal: deal ?? this.deal,
+      dealNumber: dealNumber ?? this.dealNumber,
+      dealTypeId: dealTypeId ?? this.dealTypeId,
+      dealType: dealType ?? this.dealType,
+      departmentId: departmentId ?? this.departmentId,
+      department: department ?? this.department,
+      purchaseOrderNumber: purchaseOrderNumber ?? this.purchaseOrderNumber,
+      workAuthorizationNumber:
+          workAuthorizationNumber ?? this.workAuthorizationNumber,
+      status: status ?? this.status,
+      statusDate: statusDate ?? this.statusDate,
+      isNoCharge: isNoCharge ?? this.isNoCharge,
+      isAdjusted: isAdjusted ?? this.isAdjusted,
+      isBilledHiatus: isBilledHiatus ?? this.isBilledHiatus,
+      episodeNumber: episodeNumber ?? this.episodeNumber,
+      hasLockedTotal: hasLockedTotal ?? this.hasLockedTotal,
+      isAlteredDates: isAlteredDates ?? this.isAlteredDates,
+      officeLocationId: officeLocationId ?? this.officeLocationId,
+      officeLocation: officeLocation ?? this.officeLocation,
+      invoiceCreationBatchId:
+          invoiceCreationBatchId ?? this.invoiceCreationBatchId,
+      invoiceCreationBatchNumber:
+          invoiceCreationBatchNumber ?? this.invoiceCreationBatchNumber,
+      invoiceGroupNumber: invoiceGroupNumber ?? this.invoiceGroupNumber,
+      rentalSale: rentalSale ?? this.rentalSale,
+      lossAndDamage: lossAndDamage ?? this.lossAndDamage,
+      repair: repair ?? this.repair,
+      inputByUserId: inputByUserId ?? this.inputByUserId,
+      flatPoId: flatPoId ?? this.flatPoId,
+      orderType: orderType ?? this.orderType,
+      rebateCustomerId: rebateCustomerId ?? this.rebateCustomerId,
+      orbitsapchgmajor: orbitsapchgmajor ?? this.orbitsapchgmajor,
+      orbitsapchgsub: orbitsapchgsub ?? this.orbitsapchgsub,
+      orbitsapchgdetail: orbitsapchgdetail ?? this.orbitsapchgdetail,
+      orbitsapchgdeal: orbitsapchgdeal ?? this.orbitsapchgdeal,
+      orbitsapchgset: orbitsapchgset ?? this.orbitsapchgset,
+      excludeFromFlatPo: excludeFromFlatPo ?? this.excludeFromFlatPo,
+      isSplitRental: isSplitRental ?? this.isSplitRental,
+      isRebateRental: isRebateRental ?? this.isRebateRental,
+      invoiceListTotal: invoiceListTotal ?? this.invoiceListTotal,
+      invoiceGrossTotal: invoiceGrossTotal ?? this.invoiceGrossTotal,
+      invoiceDiscountTotal: invoiceDiscountTotal ?? this.invoiceDiscountTotal,
+      invoiceDaysPerWeekDiscountTotal:
+          invoiceDaysPerWeekDiscountTotal ??
+          this.invoiceDaysPerWeekDiscountTotal,
+      referenceNumber: referenceNumber ?? this.referenceNumber,
+      agentId: agentId ?? this.agentId,
+      agent: agent ?? this.agent,
+      projectManagerId: projectManagerId ?? this.projectManagerId,
+      projectManager: projectManager ?? this.projectManager,
+      billToAddressId: billToAddressId ?? this.billToAddressId,
+      billToName: billToName ?? this.billToName,
+      billToAttention1: billToAttention1 ?? this.billToAttention1,
+      billToAttention2: billToAttention2 ?? this.billToAttention2,
+      billToAddress1: billToAddress1 ?? this.billToAddress1,
+      billToAddress2: billToAddress2 ?? this.billToAddress2,
+      billToCity: billToCity ?? this.billToCity,
+      billToState: billToState ?? this.billToState,
+      billToZipCode: billToZipCode ?? this.billToZipCode,
+      billToCountryId: billToCountryId ?? this.billToCountryId,
+      billToCountry: billToCountry ?? this.billToCountry,
+      billToCountryCodeIsoAlpha2:
+          billToCountryCodeIsoAlpha2 ?? this.billToCountryCodeIsoAlpha2,
+      billToCountryCodePhone:
+          billToCountryCodePhone ?? this.billToCountryCodePhone,
+      invoiceClass: invoiceClass ?? this.invoiceClass,
+      printNotes: printNotes ?? this.printNotes,
+      paymentTermsId: paymentTermsId ?? this.paymentTermsId,
+      paymentTerms: paymentTerms ?? this.paymentTerms,
+      paymentTermsColor: paymentTermsColor ?? this.paymentTermsColor,
+      paymentTypeId: paymentTypeId ?? this.paymentTypeId,
+      paymentType: paymentType ?? this.paymentType,
+      taxId: taxId ?? this.taxId,
+      taxOptionId: taxOptionId ?? this.taxOptionId,
+      taxOption: taxOption ?? this.taxOption,
+      tax1Name: tax1Name ?? this.tax1Name,
+      tax2Name: tax2Name ?? this.tax2Name,
+      rentalTaxAlias: rentalTaxAlias ?? this.rentalTaxAlias,
+      salesTaxAlias: salesTaxAlias ?? this.salesTaxAlias,
+      laborTaxAlias: laborTaxAlias ?? this.laborTaxAlias,
+      miscTaxAlias: miscTaxAlias ?? this.miscTaxAlias,
+      rentalTaxRate1: rentalTaxRate1 ?? this.rentalTaxRate1,
+      salesTaxRate1: salesTaxRate1 ?? this.salesTaxRate1,
+      laborTaxRate1: laborTaxRate1 ?? this.laborTaxRate1,
+      rentalTaxRate2: rentalTaxRate2 ?? this.rentalTaxRate2,
+      salesTaxRate2: salesTaxRate2 ?? this.salesTaxRate2,
+      laborTaxRate2: laborTaxRate2 ?? this.laborTaxRate2,
+      miscTaxRate1: miscTaxRate1 ?? this.miscTaxRate1,
+      miscTaxRate2: miscTaxRate2 ?? this.miscTaxRate2,
+      taxItemCode: taxItemCode ?? this.taxItemCode,
+      taxVendor: taxVendor ?? this.taxVendor,
+      taxCountry: taxCountry ?? this.taxCountry,
+      chargeBatchId: chargeBatchId ?? this.chargeBatchId,
+      chargeBatchNumber: chargeBatchNumber ?? this.chargeBatchNumber,
+      quikPayDiscount: quikPayDiscount ?? this.quikPayDiscount,
+      quikPayRentalTotal: quikPayRentalTotal ?? this.quikPayRentalTotal,
+      quikPayTotal: quikPayTotal ?? this.quikPayTotal,
+      receivedTotal: receivedTotal ?? this.receivedTotal,
+      rateType: rateType ?? this.rateType,
+      consignmentRevenue: consignmentRevenue ?? this.consignmentRevenue,
+      isNonBillable: isNonBillable ?? this.isNonBillable,
+      currencyId: currencyId ?? this.currencyId,
+      currencyCode: currencyCode ?? this.currencyCode,
+      currencySymbol: currencySymbol ?? this.currencySymbol,
+      officeLocationDefaultCurrencyId:
+          officeLocationDefaultCurrencyId ??
+          this.officeLocationDefaultCurrencyId,
+      divisionId: divisionId ?? this.divisionId,
+      outsideSalesRepresentativeId:
+          outsideSalesRepresentativeId ?? this.outsideSalesRepresentativeId,
+      outsideSalesRepresentative:
+          outsideSalesRepresentative ?? this.outsideSalesRepresentative,
+      exportTaxAsLineItem: exportTaxAsLineItem ?? this.exportTaxAsLineItem,
+      invoiceNumberColor: invoiceNumberColor ?? this.invoiceNumberColor,
+      statusColor: statusColor ?? this.statusColor,
+      orderNumberColor: orderNumberColor ?? this.orderNumberColor,
+      purchaseOrderNumberColor:
+          purchaseOrderNumberColor ?? this.purchaseOrderNumberColor,
+      dealColor: dealColor ?? this.dealColor,
+      billingStartDateColor:
+          billingStartDateColor ?? this.billingStartDateColor,
+      invoiceTotalColor: invoiceTotalColor ?? this.invoiceTotalColor,
+      descriptionColor: descriptionColor ?? this.descriptionColor,
+      hasRentalItem: hasRentalItem ?? this.hasRentalItem,
+      hasMeterItem: hasMeterItem ?? this.hasMeterItem,
+      hasSalesItem: hasSalesItem ?? this.hasSalesItem,
+      hasLaborItem: hasLaborItem ?? this.hasLaborItem,
+      hasMiscellaneousItem: hasMiscellaneousItem ?? this.hasMiscellaneousItem,
+      hasFacilityItem: hasFacilityItem ?? this.hasFacilityItem,
+      hasTransportationItem:
+          hasTransportationItem ?? this.hasTransportationItem,
+      hasRentalSaleItem: hasRentalSaleItem ?? this.hasRentalSaleItem,
+      hasRepairItem: hasRepairItem ?? this.hasRepairItem,
+      hasConsignment: hasConsignment ?? this.hasConsignment,
+      hasLossAndDamageItem: hasLossAndDamageItem ?? this.hasLossAndDamageItem,
+      hasInternalInvoice: hasInternalInvoice ?? this.hasInternalInvoice,
+      isInternal: isInternal ?? this.isInternal,
+      rentalTotal: rentalTotal ?? this.rentalTotal,
+      salesTotal: salesTotal ?? this.salesTotal,
+      facilitiesTotal: facilitiesTotal ?? this.facilitiesTotal,
+      miscellaneousTotal: miscellaneousTotal ?? this.miscellaneousTotal,
+      laborTotal: laborTotal ?? this.laborTotal,
+      partsTotal: partsTotal ?? this.partsTotal,
+      assetSaleTotal: assetSaleTotal ?? this.assetSaleTotal,
+      invoiceSubTotal: invoiceSubTotal ?? this.invoiceSubTotal,
+      invoiceTax1: invoiceTax1 ?? this.invoiceTax1,
+      invoiceTax2: invoiceTax2 ?? this.invoiceTax2,
+      invoiceTax: invoiceTax ?? this.invoiceTax,
+      invoiceTotal: invoiceTotal ?? this.invoiceTotal,
+      remainingTotal: remainingTotal ?? this.remainingTotal,
+      isStandAloneInvoice: isStandAloneInvoice ?? this.isStandAloneInvoice,
+      warehouseId: warehouseId ?? this.warehouseId,
+      termsConditionsId: termsConditionsId ?? this.termsConditionsId,
+      termsConditions: termsConditions ?? this.termsConditions,
+      projectId: projectId ?? this.projectId,
+      projectNumber: projectNumber ?? this.projectNumber,
+      project: project ?? this.project,
+      sourceId: sourceId ?? this.sourceId,
+      sourceDate: sourceDate ?? this.sourceDate,
+      csrId: csrId ?? this.csrId,
+      csr: csr ?? this.csr,
       dateStamp: dateStamp ?? this.dateStamp,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
@@ -54904,25 +56855,176 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     );
   }
 
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWithWrapped({
-    Wrapped<int?>? taskStepsId,
-    Wrapped<int?>? taskId,
-    Wrapped<String?>? name,
-    Wrapped<int?>? stepNumber,
-    Wrapped<String?>? type,
-    Wrapped<String?>? command,
-    Wrapped<String?>? onSuccessActionDisplay,
-    Wrapped<String?>? onFailureActionDisplay,
-    Wrapped<int?>? onSuccessAction,
-    Wrapped<int?>? retryAttempts,
-    Wrapped<int?>? retryInterval,
-    Wrapped<int?>? onFailureAction,
-    Wrapped<int?>? onSuccessTaskStepsId,
-    Wrapped<int?>? onFailureTaskStepsId,
-    Wrapped<String?>? outputFilename,
-    Wrapped<int?>? lastRunOutcome,
-    Wrapped<int?>? lastRunDuration,
-    Wrapped<int?>? lastRunRetries,
+  WebApiModulesBillingInvoiceInvoice copyWithWrapped({
+    Wrapped<String?>? invoiceId,
+    Wrapped<String?>? invoiceNumber,
+    Wrapped<String?>? invoiceDate,
+    Wrapped<String?>? invoiceDueDate,
+    Wrapped<String?>? invoiceType,
+    Wrapped<String?>? billingStartDate,
+    Wrapped<String?>? billingEndDate,
+    Wrapped<String?>? usageStartDate,
+    Wrapped<String?>? usageEndDate,
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? orderNumber,
+    Wrapped<String?>? orderDescription,
+    Wrapped<String?>? orderDate,
+    Wrapped<String?>? orderLocation,
+    Wrapped<String?>? invoiceDescription,
+    Wrapped<String?>? creditingInvoiceId,
+    Wrapped<String?>? creditingInvoiceNumber,
+    Wrapped<String?>? customerId,
+    Wrapped<String?>? customer,
+    Wrapped<String?>? customerTypeId,
+    Wrapped<String?>? customerType,
+    Wrapped<String?>? dealId,
+    Wrapped<String?>? deal,
+    Wrapped<String?>? dealNumber,
+    Wrapped<String?>? dealTypeId,
+    Wrapped<String?>? dealType,
+    Wrapped<String?>? departmentId,
+    Wrapped<String?>? department,
+    Wrapped<String?>? purchaseOrderNumber,
+    Wrapped<String?>? workAuthorizationNumber,
+    Wrapped<String?>? status,
+    Wrapped<String?>? statusDate,
+    Wrapped<bool?>? isNoCharge,
+    Wrapped<bool?>? isAdjusted,
+    Wrapped<bool?>? isBilledHiatus,
+    Wrapped<int?>? episodeNumber,
+    Wrapped<bool?>? hasLockedTotal,
+    Wrapped<bool?>? isAlteredDates,
+    Wrapped<String?>? officeLocationId,
+    Wrapped<String?>? officeLocation,
+    Wrapped<String?>? invoiceCreationBatchId,
+    Wrapped<int?>? invoiceCreationBatchNumber,
+    Wrapped<String?>? invoiceGroupNumber,
+    Wrapped<bool?>? rentalSale,
+    Wrapped<bool?>? lossAndDamage,
+    Wrapped<bool?>? repair,
+    Wrapped<String?>? inputByUserId,
+    Wrapped<String?>? flatPoId,
+    Wrapped<String?>? orderType,
+    Wrapped<String?>? rebateCustomerId,
+    Wrapped<String?>? orbitsapchgmajor,
+    Wrapped<String?>? orbitsapchgsub,
+    Wrapped<String?>? orbitsapchgdetail,
+    Wrapped<String?>? orbitsapchgdeal,
+    Wrapped<String?>? orbitsapchgset,
+    Wrapped<bool?>? excludeFromFlatPo,
+    Wrapped<bool?>? isSplitRental,
+    Wrapped<bool?>? isRebateRental,
+    Wrapped<double?>? invoiceListTotal,
+    Wrapped<double?>? invoiceGrossTotal,
+    Wrapped<double?>? invoiceDiscountTotal,
+    Wrapped<double?>? invoiceDaysPerWeekDiscountTotal,
+    Wrapped<String?>? referenceNumber,
+    Wrapped<String?>? agentId,
+    Wrapped<String?>? agent,
+    Wrapped<String?>? projectManagerId,
+    Wrapped<String?>? projectManager,
+    Wrapped<String?>? billToAddressId,
+    Wrapped<String?>? billToName,
+    Wrapped<String?>? billToAttention1,
+    Wrapped<String?>? billToAttention2,
+    Wrapped<String?>? billToAddress1,
+    Wrapped<String?>? billToAddress2,
+    Wrapped<String?>? billToCity,
+    Wrapped<String?>? billToState,
+    Wrapped<String?>? billToZipCode,
+    Wrapped<String?>? billToCountryId,
+    Wrapped<String?>? billToCountry,
+    Wrapped<String?>? billToCountryCodeIsoAlpha2,
+    Wrapped<int?>? billToCountryCodePhone,
+    Wrapped<String?>? invoiceClass,
+    Wrapped<String?>? printNotes,
+    Wrapped<String?>? paymentTermsId,
+    Wrapped<String?>? paymentTerms,
+    Wrapped<String?>? paymentTermsColor,
+    Wrapped<String?>? paymentTypeId,
+    Wrapped<String?>? paymentType,
+    Wrapped<String?>? taxId,
+    Wrapped<String?>? taxOptionId,
+    Wrapped<String?>? taxOption,
+    Wrapped<String?>? tax1Name,
+    Wrapped<String?>? tax2Name,
+    Wrapped<String?>? rentalTaxAlias,
+    Wrapped<String?>? salesTaxAlias,
+    Wrapped<String?>? laborTaxAlias,
+    Wrapped<String?>? miscTaxAlias,
+    Wrapped<double?>? rentalTaxRate1,
+    Wrapped<double?>? salesTaxRate1,
+    Wrapped<double?>? laborTaxRate1,
+    Wrapped<double?>? rentalTaxRate2,
+    Wrapped<double?>? salesTaxRate2,
+    Wrapped<double?>? laborTaxRate2,
+    Wrapped<double?>? miscTaxRate1,
+    Wrapped<double?>? miscTaxRate2,
+    Wrapped<String?>? taxItemCode,
+    Wrapped<String?>? taxVendor,
+    Wrapped<String?>? taxCountry,
+    Wrapped<String?>? chargeBatchId,
+    Wrapped<String?>? chargeBatchNumber,
+    Wrapped<bool?>? quikPayDiscount,
+    Wrapped<double?>? quikPayRentalTotal,
+    Wrapped<double?>? quikPayTotal,
+    Wrapped<double?>? receivedTotal,
+    Wrapped<String?>? rateType,
+    Wrapped<double?>? consignmentRevenue,
+    Wrapped<bool?>? isNonBillable,
+    Wrapped<String?>? currencyId,
+    Wrapped<String?>? currencyCode,
+    Wrapped<String?>? currencySymbol,
+    Wrapped<String?>? officeLocationDefaultCurrencyId,
+    Wrapped<String?>? divisionId,
+    Wrapped<String?>? outsideSalesRepresentativeId,
+    Wrapped<String?>? outsideSalesRepresentative,
+    Wrapped<bool?>? exportTaxAsLineItem,
+    Wrapped<String?>? invoiceNumberColor,
+    Wrapped<String?>? statusColor,
+    Wrapped<String?>? orderNumberColor,
+    Wrapped<String?>? purchaseOrderNumberColor,
+    Wrapped<String?>? dealColor,
+    Wrapped<String?>? billingStartDateColor,
+    Wrapped<String?>? invoiceTotalColor,
+    Wrapped<String?>? descriptionColor,
+    Wrapped<bool?>? hasRentalItem,
+    Wrapped<bool?>? hasMeterItem,
+    Wrapped<bool?>? hasSalesItem,
+    Wrapped<bool?>? hasLaborItem,
+    Wrapped<bool?>? hasMiscellaneousItem,
+    Wrapped<bool?>? hasFacilityItem,
+    Wrapped<bool?>? hasTransportationItem,
+    Wrapped<bool?>? hasRentalSaleItem,
+    Wrapped<bool?>? hasRepairItem,
+    Wrapped<bool?>? hasConsignment,
+    Wrapped<bool?>? hasLossAndDamageItem,
+    Wrapped<bool?>? hasInternalInvoice,
+    Wrapped<bool?>? isInternal,
+    Wrapped<double?>? rentalTotal,
+    Wrapped<double?>? salesTotal,
+    Wrapped<double?>? facilitiesTotal,
+    Wrapped<double?>? miscellaneousTotal,
+    Wrapped<double?>? laborTotal,
+    Wrapped<double?>? partsTotal,
+    Wrapped<double?>? assetSaleTotal,
+    Wrapped<double?>? invoiceSubTotal,
+    Wrapped<double?>? invoiceTax1,
+    Wrapped<double?>? invoiceTax2,
+    Wrapped<double?>? invoiceTax,
+    Wrapped<double?>? invoiceTotal,
+    Wrapped<double?>? remainingTotal,
+    Wrapped<bool?>? isStandAloneInvoice,
+    Wrapped<String?>? warehouseId,
+    Wrapped<String?>? termsConditionsId,
+    Wrapped<String?>? termsConditions,
+    Wrapped<String?>? projectId,
+    Wrapped<String?>? projectNumber,
+    Wrapped<String?>? project,
+    Wrapped<String?>? sourceId,
+    Wrapped<String?>? sourceDate,
+    Wrapped<String?>? csrId,
+    Wrapped<String?>? csr,
     Wrapped<String?>? dateStamp,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
@@ -54942,49 +57044,400 @@ extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
     Wrapped<String?>? modifiedByUserName,
     Wrapped<String?>? modifiedDateTime,
   }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: (taskStepsId != null ? taskStepsId.value : this.taskStepsId),
-      taskId: (taskId != null ? taskId.value : this.taskId),
-      name: (name != null ? name.value : this.name),
-      stepNumber: (stepNumber != null ? stepNumber.value : this.stepNumber),
-      type: (type != null ? type.value : this.type),
-      command: (command != null ? command.value : this.command),
-      onSuccessActionDisplay: (onSuccessActionDisplay != null
-          ? onSuccessActionDisplay.value
-          : this.onSuccessActionDisplay),
-      onFailureActionDisplay: (onFailureActionDisplay != null
-          ? onFailureActionDisplay.value
-          : this.onFailureActionDisplay),
-      onSuccessAction: (onSuccessAction != null
-          ? onSuccessAction.value
-          : this.onSuccessAction),
-      retryAttempts: (retryAttempts != null
-          ? retryAttempts.value
-          : this.retryAttempts),
-      retryInterval: (retryInterval != null
-          ? retryInterval.value
-          : this.retryInterval),
-      onFailureAction: (onFailureAction != null
-          ? onFailureAction.value
-          : this.onFailureAction),
-      onSuccessTaskStepsId: (onSuccessTaskStepsId != null
-          ? onSuccessTaskStepsId.value
-          : this.onSuccessTaskStepsId),
-      onFailureTaskStepsId: (onFailureTaskStepsId != null
-          ? onFailureTaskStepsId.value
-          : this.onFailureTaskStepsId),
-      outputFilename: (outputFilename != null
-          ? outputFilename.value
-          : this.outputFilename),
-      lastRunOutcome: (lastRunOutcome != null
-          ? lastRunOutcome.value
-          : this.lastRunOutcome),
-      lastRunDuration: (lastRunDuration != null
-          ? lastRunDuration.value
-          : this.lastRunDuration),
-      lastRunRetries: (lastRunRetries != null
-          ? lastRunRetries.value
-          : this.lastRunRetries),
+    return WebApiModulesBillingInvoiceInvoice(
+      invoiceId: (invoiceId != null ? invoiceId.value : this.invoiceId),
+      invoiceNumber: (invoiceNumber != null
+          ? invoiceNumber.value
+          : this.invoiceNumber),
+      invoiceDate: (invoiceDate != null ? invoiceDate.value : this.invoiceDate),
+      invoiceDueDate: (invoiceDueDate != null
+          ? invoiceDueDate.value
+          : this.invoiceDueDate),
+      invoiceType: (invoiceType != null ? invoiceType.value : this.invoiceType),
+      billingStartDate: (billingStartDate != null
+          ? billingStartDate.value
+          : this.billingStartDate),
+      billingEndDate: (billingEndDate != null
+          ? billingEndDate.value
+          : this.billingEndDate),
+      usageStartDate: (usageStartDate != null
+          ? usageStartDate.value
+          : this.usageStartDate),
+      usageEndDate: (usageEndDate != null
+          ? usageEndDate.value
+          : this.usageEndDate),
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      orderNumber: (orderNumber != null ? orderNumber.value : this.orderNumber),
+      orderDescription: (orderDescription != null
+          ? orderDescription.value
+          : this.orderDescription),
+      orderDate: (orderDate != null ? orderDate.value : this.orderDate),
+      orderLocation: (orderLocation != null
+          ? orderLocation.value
+          : this.orderLocation),
+      invoiceDescription: (invoiceDescription != null
+          ? invoiceDescription.value
+          : this.invoiceDescription),
+      creditingInvoiceId: (creditingInvoiceId != null
+          ? creditingInvoiceId.value
+          : this.creditingInvoiceId),
+      creditingInvoiceNumber: (creditingInvoiceNumber != null
+          ? creditingInvoiceNumber.value
+          : this.creditingInvoiceNumber),
+      customerId: (customerId != null ? customerId.value : this.customerId),
+      customer: (customer != null ? customer.value : this.customer),
+      customerTypeId: (customerTypeId != null
+          ? customerTypeId.value
+          : this.customerTypeId),
+      customerType: (customerType != null
+          ? customerType.value
+          : this.customerType),
+      dealId: (dealId != null ? dealId.value : this.dealId),
+      deal: (deal != null ? deal.value : this.deal),
+      dealNumber: (dealNumber != null ? dealNumber.value : this.dealNumber),
+      dealTypeId: (dealTypeId != null ? dealTypeId.value : this.dealTypeId),
+      dealType: (dealType != null ? dealType.value : this.dealType),
+      departmentId: (departmentId != null
+          ? departmentId.value
+          : this.departmentId),
+      department: (department != null ? department.value : this.department),
+      purchaseOrderNumber: (purchaseOrderNumber != null
+          ? purchaseOrderNumber.value
+          : this.purchaseOrderNumber),
+      workAuthorizationNumber: (workAuthorizationNumber != null
+          ? workAuthorizationNumber.value
+          : this.workAuthorizationNumber),
+      status: (status != null ? status.value : this.status),
+      statusDate: (statusDate != null ? statusDate.value : this.statusDate),
+      isNoCharge: (isNoCharge != null ? isNoCharge.value : this.isNoCharge),
+      isAdjusted: (isAdjusted != null ? isAdjusted.value : this.isAdjusted),
+      isBilledHiatus: (isBilledHiatus != null
+          ? isBilledHiatus.value
+          : this.isBilledHiatus),
+      episodeNumber: (episodeNumber != null
+          ? episodeNumber.value
+          : this.episodeNumber),
+      hasLockedTotal: (hasLockedTotal != null
+          ? hasLockedTotal.value
+          : this.hasLockedTotal),
+      isAlteredDates: (isAlteredDates != null
+          ? isAlteredDates.value
+          : this.isAlteredDates),
+      officeLocationId: (officeLocationId != null
+          ? officeLocationId.value
+          : this.officeLocationId),
+      officeLocation: (officeLocation != null
+          ? officeLocation.value
+          : this.officeLocation),
+      invoiceCreationBatchId: (invoiceCreationBatchId != null
+          ? invoiceCreationBatchId.value
+          : this.invoiceCreationBatchId),
+      invoiceCreationBatchNumber: (invoiceCreationBatchNumber != null
+          ? invoiceCreationBatchNumber.value
+          : this.invoiceCreationBatchNumber),
+      invoiceGroupNumber: (invoiceGroupNumber != null
+          ? invoiceGroupNumber.value
+          : this.invoiceGroupNumber),
+      rentalSale: (rentalSale != null ? rentalSale.value : this.rentalSale),
+      lossAndDamage: (lossAndDamage != null
+          ? lossAndDamage.value
+          : this.lossAndDamage),
+      repair: (repair != null ? repair.value : this.repair),
+      inputByUserId: (inputByUserId != null
+          ? inputByUserId.value
+          : this.inputByUserId),
+      flatPoId: (flatPoId != null ? flatPoId.value : this.flatPoId),
+      orderType: (orderType != null ? orderType.value : this.orderType),
+      rebateCustomerId: (rebateCustomerId != null
+          ? rebateCustomerId.value
+          : this.rebateCustomerId),
+      orbitsapchgmajor: (orbitsapchgmajor != null
+          ? orbitsapchgmajor.value
+          : this.orbitsapchgmajor),
+      orbitsapchgsub: (orbitsapchgsub != null
+          ? orbitsapchgsub.value
+          : this.orbitsapchgsub),
+      orbitsapchgdetail: (orbitsapchgdetail != null
+          ? orbitsapchgdetail.value
+          : this.orbitsapchgdetail),
+      orbitsapchgdeal: (orbitsapchgdeal != null
+          ? orbitsapchgdeal.value
+          : this.orbitsapchgdeal),
+      orbitsapchgset: (orbitsapchgset != null
+          ? orbitsapchgset.value
+          : this.orbitsapchgset),
+      excludeFromFlatPo: (excludeFromFlatPo != null
+          ? excludeFromFlatPo.value
+          : this.excludeFromFlatPo),
+      isSplitRental: (isSplitRental != null
+          ? isSplitRental.value
+          : this.isSplitRental),
+      isRebateRental: (isRebateRental != null
+          ? isRebateRental.value
+          : this.isRebateRental),
+      invoiceListTotal: (invoiceListTotal != null
+          ? invoiceListTotal.value
+          : this.invoiceListTotal),
+      invoiceGrossTotal: (invoiceGrossTotal != null
+          ? invoiceGrossTotal.value
+          : this.invoiceGrossTotal),
+      invoiceDiscountTotal: (invoiceDiscountTotal != null
+          ? invoiceDiscountTotal.value
+          : this.invoiceDiscountTotal),
+      invoiceDaysPerWeekDiscountTotal: (invoiceDaysPerWeekDiscountTotal != null
+          ? invoiceDaysPerWeekDiscountTotal.value
+          : this.invoiceDaysPerWeekDiscountTotal),
+      referenceNumber: (referenceNumber != null
+          ? referenceNumber.value
+          : this.referenceNumber),
+      agentId: (agentId != null ? agentId.value : this.agentId),
+      agent: (agent != null ? agent.value : this.agent),
+      projectManagerId: (projectManagerId != null
+          ? projectManagerId.value
+          : this.projectManagerId),
+      projectManager: (projectManager != null
+          ? projectManager.value
+          : this.projectManager),
+      billToAddressId: (billToAddressId != null
+          ? billToAddressId.value
+          : this.billToAddressId),
+      billToName: (billToName != null ? billToName.value : this.billToName),
+      billToAttention1: (billToAttention1 != null
+          ? billToAttention1.value
+          : this.billToAttention1),
+      billToAttention2: (billToAttention2 != null
+          ? billToAttention2.value
+          : this.billToAttention2),
+      billToAddress1: (billToAddress1 != null
+          ? billToAddress1.value
+          : this.billToAddress1),
+      billToAddress2: (billToAddress2 != null
+          ? billToAddress2.value
+          : this.billToAddress2),
+      billToCity: (billToCity != null ? billToCity.value : this.billToCity),
+      billToState: (billToState != null ? billToState.value : this.billToState),
+      billToZipCode: (billToZipCode != null
+          ? billToZipCode.value
+          : this.billToZipCode),
+      billToCountryId: (billToCountryId != null
+          ? billToCountryId.value
+          : this.billToCountryId),
+      billToCountry: (billToCountry != null
+          ? billToCountry.value
+          : this.billToCountry),
+      billToCountryCodeIsoAlpha2: (billToCountryCodeIsoAlpha2 != null
+          ? billToCountryCodeIsoAlpha2.value
+          : this.billToCountryCodeIsoAlpha2),
+      billToCountryCodePhone: (billToCountryCodePhone != null
+          ? billToCountryCodePhone.value
+          : this.billToCountryCodePhone),
+      invoiceClass: (invoiceClass != null
+          ? invoiceClass.value
+          : this.invoiceClass),
+      printNotes: (printNotes != null ? printNotes.value : this.printNotes),
+      paymentTermsId: (paymentTermsId != null
+          ? paymentTermsId.value
+          : this.paymentTermsId),
+      paymentTerms: (paymentTerms != null
+          ? paymentTerms.value
+          : this.paymentTerms),
+      paymentTermsColor: (paymentTermsColor != null
+          ? paymentTermsColor.value
+          : this.paymentTermsColor),
+      paymentTypeId: (paymentTypeId != null
+          ? paymentTypeId.value
+          : this.paymentTypeId),
+      paymentType: (paymentType != null ? paymentType.value : this.paymentType),
+      taxId: (taxId != null ? taxId.value : this.taxId),
+      taxOptionId: (taxOptionId != null ? taxOptionId.value : this.taxOptionId),
+      taxOption: (taxOption != null ? taxOption.value : this.taxOption),
+      tax1Name: (tax1Name != null ? tax1Name.value : this.tax1Name),
+      tax2Name: (tax2Name != null ? tax2Name.value : this.tax2Name),
+      rentalTaxAlias: (rentalTaxAlias != null
+          ? rentalTaxAlias.value
+          : this.rentalTaxAlias),
+      salesTaxAlias: (salesTaxAlias != null
+          ? salesTaxAlias.value
+          : this.salesTaxAlias),
+      laborTaxAlias: (laborTaxAlias != null
+          ? laborTaxAlias.value
+          : this.laborTaxAlias),
+      miscTaxAlias: (miscTaxAlias != null
+          ? miscTaxAlias.value
+          : this.miscTaxAlias),
+      rentalTaxRate1: (rentalTaxRate1 != null
+          ? rentalTaxRate1.value
+          : this.rentalTaxRate1),
+      salesTaxRate1: (salesTaxRate1 != null
+          ? salesTaxRate1.value
+          : this.salesTaxRate1),
+      laborTaxRate1: (laborTaxRate1 != null
+          ? laborTaxRate1.value
+          : this.laborTaxRate1),
+      rentalTaxRate2: (rentalTaxRate2 != null
+          ? rentalTaxRate2.value
+          : this.rentalTaxRate2),
+      salesTaxRate2: (salesTaxRate2 != null
+          ? salesTaxRate2.value
+          : this.salesTaxRate2),
+      laborTaxRate2: (laborTaxRate2 != null
+          ? laborTaxRate2.value
+          : this.laborTaxRate2),
+      miscTaxRate1: (miscTaxRate1 != null
+          ? miscTaxRate1.value
+          : this.miscTaxRate1),
+      miscTaxRate2: (miscTaxRate2 != null
+          ? miscTaxRate2.value
+          : this.miscTaxRate2),
+      taxItemCode: (taxItemCode != null ? taxItemCode.value : this.taxItemCode),
+      taxVendor: (taxVendor != null ? taxVendor.value : this.taxVendor),
+      taxCountry: (taxCountry != null ? taxCountry.value : this.taxCountry),
+      chargeBatchId: (chargeBatchId != null
+          ? chargeBatchId.value
+          : this.chargeBatchId),
+      chargeBatchNumber: (chargeBatchNumber != null
+          ? chargeBatchNumber.value
+          : this.chargeBatchNumber),
+      quikPayDiscount: (quikPayDiscount != null
+          ? quikPayDiscount.value
+          : this.quikPayDiscount),
+      quikPayRentalTotal: (quikPayRentalTotal != null
+          ? quikPayRentalTotal.value
+          : this.quikPayRentalTotal),
+      quikPayTotal: (quikPayTotal != null
+          ? quikPayTotal.value
+          : this.quikPayTotal),
+      receivedTotal: (receivedTotal != null
+          ? receivedTotal.value
+          : this.receivedTotal),
+      rateType: (rateType != null ? rateType.value : this.rateType),
+      consignmentRevenue: (consignmentRevenue != null
+          ? consignmentRevenue.value
+          : this.consignmentRevenue),
+      isNonBillable: (isNonBillable != null
+          ? isNonBillable.value
+          : this.isNonBillable),
+      currencyId: (currencyId != null ? currencyId.value : this.currencyId),
+      currencyCode: (currencyCode != null
+          ? currencyCode.value
+          : this.currencyCode),
+      currencySymbol: (currencySymbol != null
+          ? currencySymbol.value
+          : this.currencySymbol),
+      officeLocationDefaultCurrencyId: (officeLocationDefaultCurrencyId != null
+          ? officeLocationDefaultCurrencyId.value
+          : this.officeLocationDefaultCurrencyId),
+      divisionId: (divisionId != null ? divisionId.value : this.divisionId),
+      outsideSalesRepresentativeId: (outsideSalesRepresentativeId != null
+          ? outsideSalesRepresentativeId.value
+          : this.outsideSalesRepresentativeId),
+      outsideSalesRepresentative: (outsideSalesRepresentative != null
+          ? outsideSalesRepresentative.value
+          : this.outsideSalesRepresentative),
+      exportTaxAsLineItem: (exportTaxAsLineItem != null
+          ? exportTaxAsLineItem.value
+          : this.exportTaxAsLineItem),
+      invoiceNumberColor: (invoiceNumberColor != null
+          ? invoiceNumberColor.value
+          : this.invoiceNumberColor),
+      statusColor: (statusColor != null ? statusColor.value : this.statusColor),
+      orderNumberColor: (orderNumberColor != null
+          ? orderNumberColor.value
+          : this.orderNumberColor),
+      purchaseOrderNumberColor: (purchaseOrderNumberColor != null
+          ? purchaseOrderNumberColor.value
+          : this.purchaseOrderNumberColor),
+      dealColor: (dealColor != null ? dealColor.value : this.dealColor),
+      billingStartDateColor: (billingStartDateColor != null
+          ? billingStartDateColor.value
+          : this.billingStartDateColor),
+      invoiceTotalColor: (invoiceTotalColor != null
+          ? invoiceTotalColor.value
+          : this.invoiceTotalColor),
+      descriptionColor: (descriptionColor != null
+          ? descriptionColor.value
+          : this.descriptionColor),
+      hasRentalItem: (hasRentalItem != null
+          ? hasRentalItem.value
+          : this.hasRentalItem),
+      hasMeterItem: (hasMeterItem != null
+          ? hasMeterItem.value
+          : this.hasMeterItem),
+      hasSalesItem: (hasSalesItem != null
+          ? hasSalesItem.value
+          : this.hasSalesItem),
+      hasLaborItem: (hasLaborItem != null
+          ? hasLaborItem.value
+          : this.hasLaborItem),
+      hasMiscellaneousItem: (hasMiscellaneousItem != null
+          ? hasMiscellaneousItem.value
+          : this.hasMiscellaneousItem),
+      hasFacilityItem: (hasFacilityItem != null
+          ? hasFacilityItem.value
+          : this.hasFacilityItem),
+      hasTransportationItem: (hasTransportationItem != null
+          ? hasTransportationItem.value
+          : this.hasTransportationItem),
+      hasRentalSaleItem: (hasRentalSaleItem != null
+          ? hasRentalSaleItem.value
+          : this.hasRentalSaleItem),
+      hasRepairItem: (hasRepairItem != null
+          ? hasRepairItem.value
+          : this.hasRepairItem),
+      hasConsignment: (hasConsignment != null
+          ? hasConsignment.value
+          : this.hasConsignment),
+      hasLossAndDamageItem: (hasLossAndDamageItem != null
+          ? hasLossAndDamageItem.value
+          : this.hasLossAndDamageItem),
+      hasInternalInvoice: (hasInternalInvoice != null
+          ? hasInternalInvoice.value
+          : this.hasInternalInvoice),
+      isInternal: (isInternal != null ? isInternal.value : this.isInternal),
+      rentalTotal: (rentalTotal != null ? rentalTotal.value : this.rentalTotal),
+      salesTotal: (salesTotal != null ? salesTotal.value : this.salesTotal),
+      facilitiesTotal: (facilitiesTotal != null
+          ? facilitiesTotal.value
+          : this.facilitiesTotal),
+      miscellaneousTotal: (miscellaneousTotal != null
+          ? miscellaneousTotal.value
+          : this.miscellaneousTotal),
+      laborTotal: (laborTotal != null ? laborTotal.value : this.laborTotal),
+      partsTotal: (partsTotal != null ? partsTotal.value : this.partsTotal),
+      assetSaleTotal: (assetSaleTotal != null
+          ? assetSaleTotal.value
+          : this.assetSaleTotal),
+      invoiceSubTotal: (invoiceSubTotal != null
+          ? invoiceSubTotal.value
+          : this.invoiceSubTotal),
+      invoiceTax1: (invoiceTax1 != null ? invoiceTax1.value : this.invoiceTax1),
+      invoiceTax2: (invoiceTax2 != null ? invoiceTax2.value : this.invoiceTax2),
+      invoiceTax: (invoiceTax != null ? invoiceTax.value : this.invoiceTax),
+      invoiceTotal: (invoiceTotal != null
+          ? invoiceTotal.value
+          : this.invoiceTotal),
+      remainingTotal: (remainingTotal != null
+          ? remainingTotal.value
+          : this.remainingTotal),
+      isStandAloneInvoice: (isStandAloneInvoice != null
+          ? isStandAloneInvoice.value
+          : this.isStandAloneInvoice),
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      termsConditionsId: (termsConditionsId != null
+          ? termsConditionsId.value
+          : this.termsConditionsId),
+      termsConditions: (termsConditions != null
+          ? termsConditions.value
+          : this.termsConditions),
+      projectId: (projectId != null ? projectId.value : this.projectId),
+      projectNumber: (projectNumber != null
+          ? projectNumber.value
+          : this.projectNumber),
+      project: (project != null ? project.value : this.project),
+      sourceId: (sourceId != null ? sourceId.value : this.sourceId),
+      sourceDate: (sourceDate != null ? sourceDate.value : this.sourceDate),
+      csrId: (csrId != null ? csrId.value : this.csrId),
+      csr: (csr != null ? csr.value : this.csr),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
@@ -55035,6 +57488,7 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
     this.dealId,
     this.csrId,
     this.agentId,
+    this.pastDueTermsType,
     this.userDepartmentId,
     this.userLocationId,
     this.userWarehouseId,
@@ -55078,6 +57532,8 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
   final String? csrId;
   @JsonKey(name: 'AgentId', includeIfNull: false)
   final String? agentId;
+  @JsonKey(name: 'PastDueTermsType', includeIfNull: false)
+  final String? pastDueTermsType;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
   final String? userDepartmentId;
   @JsonKey(name: 'UserLocationId', includeIfNull: false)
@@ -55145,6 +57601,11 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
                 const DeepCollectionEquality().equals(
                   other.agentId,
                   agentId,
+                )) &&
+            (identical(other.pastDueTermsType, pastDueTermsType) ||
+                const DeepCollectionEquality().equals(
+                  other.pastDueTermsType,
+                  pastDueTermsType,
                 )) &&
             (identical(other.userDepartmentId, userDepartmentId) ||
                 const DeepCollectionEquality().equals(
@@ -55216,6 +57677,7 @@ class WebApiModulesReportsAccountingReportsArAgingReportArAgingReportRequest {
       const DeepCollectionEquality().hash(dealId) ^
       const DeepCollectionEquality().hash(csrId) ^
       const DeepCollectionEquality().hash(agentId) ^
+      const DeepCollectionEquality().hash(pastDueTermsType) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
       const DeepCollectionEquality().hash(userLocationId) ^
       const DeepCollectionEquality().hash(userWarehouseId) ^
@@ -55242,6 +57704,7 @@ extension $WebApiModulesReportsAccountingReportsArAgingReportArAgingReportReques
     String? dealId,
     String? csrId,
     String? agentId,
+    String? pastDueTermsType,
     String? userDepartmentId,
     String? userLocationId,
     String? userWarehouseId,
@@ -55263,6 +57726,7 @@ extension $WebApiModulesReportsAccountingReportsArAgingReportArAgingReportReques
       dealId: dealId ?? this.dealId,
       csrId: csrId ?? this.csrId,
       agentId: agentId ?? this.agentId,
+      pastDueTermsType: pastDueTermsType ?? this.pastDueTermsType,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
       userLocationId: userLocationId ?? this.userLocationId,
       userWarehouseId: userWarehouseId ?? this.userWarehouseId,
@@ -55288,6 +57752,7 @@ extension $WebApiModulesReportsAccountingReportsArAgingReportArAgingReportReques
     Wrapped<String?>? dealId,
     Wrapped<String?>? csrId,
     Wrapped<String?>? agentId,
+    Wrapped<String?>? pastDueTermsType,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
     Wrapped<String?>? userWarehouseId,
@@ -55311,6 +57776,9 @@ extension $WebApiModulesReportsAccountingReportsArAgingReportArAgingReportReques
       dealId: (dealId != null ? dealId.value : this.dealId),
       csrId: (csrId != null ? csrId.value : this.csrId),
       agentId: (agentId != null ? agentId.value : this.agentId),
+      pastDueTermsType: (pastDueTermsType != null
+          ? pastDueTermsType.value
+          : this.pastDueTermsType),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -59749,6 +62217,7 @@ class WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest {
     this.invoiceId,
     this.rollUpPeriods,
     this.printZeroExtended,
+    this.includePaymentPortalActiveLink,
     this.userDepartmentId,
     this.userLocationId,
     this.userWarehouseId,
@@ -59781,6 +62250,8 @@ class WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest {
   final bool? rollUpPeriods;
   @JsonKey(name: 'PrintZeroExtended', includeIfNull: false)
   final bool? printZeroExtended;
+  @JsonKey(name: 'IncludePaymentPortalActiveLink', includeIfNull: false)
+  final bool? includePaymentPortalActiveLink;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
   final String? userDepartmentId;
   @JsonKey(name: 'UserLocationId', includeIfNull: false)
@@ -59829,6 +62300,14 @@ class WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest {
                 const DeepCollectionEquality().equals(
                   other.printZeroExtended,
                   printZeroExtended,
+                )) &&
+            (identical(
+                  other.includePaymentPortalActiveLink,
+                  includePaymentPortalActiveLink,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.includePaymentPortalActiveLink,
+                  includePaymentPortalActiveLink,
                 )) &&
             (identical(other.userDepartmentId, userDepartmentId) ||
                 const DeepCollectionEquality().equals(
@@ -59895,6 +62374,7 @@ class WebApiModulesReportsBillingInvoiceReportInvoiceReportRequest {
       const DeepCollectionEquality().hash(invoiceId) ^
       const DeepCollectionEquality().hash(rollUpPeriods) ^
       const DeepCollectionEquality().hash(printZeroExtended) ^
+      const DeepCollectionEquality().hash(includePaymentPortalActiveLink) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
       const DeepCollectionEquality().hash(userLocationId) ^
       const DeepCollectionEquality().hash(userWarehouseId) ^
@@ -59915,6 +62395,7 @@ extension $WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestExtension
     String? invoiceId,
     bool? rollUpPeriods,
     bool? printZeroExtended,
+    bool? includePaymentPortalActiveLink,
     String? userDepartmentId,
     String? userLocationId,
     String? userWarehouseId,
@@ -59931,6 +62412,8 @@ extension $WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestExtension
       invoiceId: invoiceId ?? this.invoiceId,
       rollUpPeriods: rollUpPeriods ?? this.rollUpPeriods,
       printZeroExtended: printZeroExtended ?? this.printZeroExtended,
+      includePaymentPortalActiveLink:
+          includePaymentPortalActiveLink ?? this.includePaymentPortalActiveLink,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
       userLocationId: userLocationId ?? this.userLocationId,
       userWarehouseId: userWarehouseId ?? this.userWarehouseId,
@@ -59950,6 +62433,7 @@ extension $WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestExtension
     Wrapped<String?>? invoiceId,
     Wrapped<bool?>? rollUpPeriods,
     Wrapped<bool?>? printZeroExtended,
+    Wrapped<bool?>? includePaymentPortalActiveLink,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
     Wrapped<String?>? userWarehouseId,
@@ -59970,6 +62454,9 @@ extension $WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestExtension
       printZeroExtended: (printZeroExtended != null
           ? printZeroExtended.value
           : this.printZeroExtended),
+      includePaymentPortalActiveLink: (includePaymentPortalActiveLink != null
+          ? includePaymentPortalActiveLink.value
+          : this.includePaymentPortalActiveLink),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -59995,6 +62482,73 @@ extension $WebApiModulesReportsBillingInvoiceReportInvoiceReportRequestExtension
       useEmailTemplate: (useEmailTemplate != null
           ? useEmailTemplate.value
           : this.useEmailTemplate),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse {
+  const WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse({
+    this.includePaymentActiveLink,
+  });
+
+  factory WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesReportsBillingInvoiceReportPaymentLinkResponseFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$WebApiModulesReportsBillingInvoiceReportPaymentLinkResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesReportsBillingInvoiceReportPaymentLinkResponseToJson(this);
+
+  @JsonKey(name: 'IncludePaymentActiveLink', includeIfNull: false)
+  final bool? includePaymentActiveLink;
+  static const fromJsonFactory =
+      _$WebApiModulesReportsBillingInvoiceReportPaymentLinkResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse &&
+            (identical(
+                  other.includePaymentActiveLink,
+                  includePaymentActiveLink,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.includePaymentActiveLink,
+                  includePaymentActiveLink,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(includePaymentActiveLink) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesReportsBillingInvoiceReportPaymentLinkResponseExtension
+    on WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse {
+  WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse copyWith({
+    bool? includePaymentActiveLink,
+  }) {
+    return WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse(
+      includePaymentActiveLink:
+          includePaymentActiveLink ?? this.includePaymentActiveLink,
+    );
+  }
+
+  WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse copyWithWrapped({
+    Wrapped<bool?>? includePaymentActiveLink,
+  }) {
+    return WebApiModulesReportsBillingInvoiceReportPaymentLinkResponse(
+      includePaymentActiveLink: (includePaymentActiveLink != null
+          ? includePaymentActiveLink.value
+          : this.includePaymentActiveLink),
     );
   }
 }
@@ -61560,6 +64114,7 @@ class WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresenta
     this.toDate,
     this.dateType,
     this.includeNoCharge,
+    this.excludeNoSalesRepresentative,
     this.officeLocationId,
     this.departmentId,
     this.salesRepresentativeId,
@@ -61600,6 +64155,8 @@ class WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresenta
   final String? dateType;
   @JsonKey(name: 'IncludeNoCharge', includeIfNull: false)
   final bool? includeNoCharge;
+  @JsonKey(name: 'ExcludeNoSalesRepresentative', includeIfNull: false)
+  final bool? excludeNoSalesRepresentative;
   @JsonKey(name: 'OfficeLocationId', includeIfNull: false)
   final String? officeLocationId;
   @JsonKey(name: 'DepartmentId', includeIfNull: false)
@@ -61660,6 +64217,14 @@ class WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresenta
                 const DeepCollectionEquality().equals(
                   other.includeNoCharge,
                   includeNoCharge,
+                )) &&
+            (identical(
+                  other.excludeNoSalesRepresentative,
+                  excludeNoSalesRepresentative,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.excludeNoSalesRepresentative,
+                  excludeNoSalesRepresentative,
                 )) &&
             (identical(other.officeLocationId, officeLocationId) ||
                 const DeepCollectionEquality().equals(
@@ -61749,6 +64314,7 @@ class WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepresenta
       const DeepCollectionEquality().hash(toDate) ^
       const DeepCollectionEquality().hash(dateType) ^
       const DeepCollectionEquality().hash(includeNoCharge) ^
+      const DeepCollectionEquality().hash(excludeNoSalesRepresentative) ^
       const DeepCollectionEquality().hash(officeLocationId) ^
       const DeepCollectionEquality().hash(departmentId) ^
       const DeepCollectionEquality().hash(salesRepresentativeId) ^
@@ -61777,6 +64343,7 @@ extension $WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepre
     DateTime? toDate,
     String? dateType,
     bool? includeNoCharge,
+    bool? excludeNoSalesRepresentative,
     String? officeLocationId,
     String? departmentId,
     String? salesRepresentativeId,
@@ -61799,6 +64366,8 @@ extension $WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepre
       toDate: toDate ?? this.toDate,
       dateType: dateType ?? this.dateType,
       includeNoCharge: includeNoCharge ?? this.includeNoCharge,
+      excludeNoSalesRepresentative:
+          excludeNoSalesRepresentative ?? this.excludeNoSalesRepresentative,
       officeLocationId: officeLocationId ?? this.officeLocationId,
       departmentId: departmentId ?? this.departmentId,
       salesRepresentativeId:
@@ -61826,6 +64395,7 @@ extension $WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepre
     Wrapped<DateTime?>? toDate,
     Wrapped<String?>? dateType,
     Wrapped<bool?>? includeNoCharge,
+    Wrapped<bool?>? excludeNoSalesRepresentative,
     Wrapped<String?>? officeLocationId,
     Wrapped<String?>? departmentId,
     Wrapped<String?>? salesRepresentativeId,
@@ -61850,6 +64420,9 @@ extension $WebApiModulesReportsBillingSalesRepresentativeBillingReportSalesRepre
       includeNoCharge: (includeNoCharge != null
           ? includeNoCharge.value
           : this.includeNoCharge),
+      excludeNoSalesRepresentative: (excludeNoSalesRepresentative != null
+          ? excludeNoSalesRepresentative.value
+          : this.excludeNoSalesRepresentative),
       officeLocationId: (officeLocationId != null
           ? officeLocationId.value
           : this.officeLocationId),
@@ -62830,7 +65403,7 @@ class WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditReportRe
   @JsonKey(name: 'ToDate', includeIfNull: false)
   final DateTime? toDate;
   @JsonKey(name: 'HoursOffsetFromUTC', includeIfNull: false)
-  final int? hoursOffsetFromUTC;
+  final double? hoursOffsetFromUTC;
   @JsonKey(name: 'ModuleName', includeIfNull: false)
   final String? moduleName;
   @JsonKey(name: 'WebUsersId', includeIfNull: false)
@@ -62999,7 +65572,7 @@ extension $WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditRep
   copyWith({
     DateTime? fromDate,
     DateTime? toDate,
-    int? hoursOffsetFromUTC,
+    double? hoursOffsetFromUTC,
     String? moduleName,
     String? webUsersId,
     String? keyword,
@@ -63043,7 +65616,7 @@ extension $WebApiModulesReportsChangeAuditReportsChangeAuditReportChangeAuditRep
   copyWithWrapped({
     Wrapped<DateTime?>? fromDate,
     Wrapped<DateTime?>? toDate,
-    Wrapped<int?>? hoursOffsetFromUTC,
+    Wrapped<double?>? hoursOffsetFromUTC,
     Wrapped<String?>? moduleName,
     Wrapped<String?>? webUsersId,
     Wrapped<String?>? keyword,
@@ -74695,7 +77268,7 @@ class WebApiModulesReportsOrderChangeReportOrderChangeReportRequest {
   @JsonKey(name: 'FilterBy', includeIfNull: false)
   final String? filterBy;
   @JsonKey(name: 'HoursOffsetFromUTC', includeIfNull: false)
-  final int? hoursOffsetFromUTC;
+  final double? hoursOffsetFromUTC;
   @JsonKey(name: 'ExcludeZeroVariance', includeIfNull: false)
   final bool? excludeZeroVariance;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
@@ -74873,7 +77446,7 @@ extension $WebApiModulesReportsOrderChangeReportOrderChangeReportRequestExtensio
     String? toDate,
     String? toTime,
     String? filterBy,
-    int? hoursOffsetFromUTC,
+    double? hoursOffsetFromUTC,
     bool? excludeZeroVariance,
     String? userDepartmentId,
     String? userLocationId,
@@ -74923,7 +77496,7 @@ extension $WebApiModulesReportsOrderChangeReportOrderChangeReportRequestExtensio
     Wrapped<String?>? toDate,
     Wrapped<String?>? toTime,
     Wrapped<String?>? filterBy,
-    Wrapped<int?>? hoursOffsetFromUTC,
+    Wrapped<double?>? hoursOffsetFromUTC,
     Wrapped<bool?>? excludeZeroVariance,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
@@ -77219,6 +79792,7 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
     this.id,
     this.reportView,
     this.printEntireGroup,
+    this.newPagePerQuoteOrder,
     this.printInventoryType,
     this.printCategory,
     this.printTotalReplacementCost,
@@ -77283,6 +79857,8 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
   reportView;
   @JsonKey(name: 'PrintEntireGroup', includeIfNull: false)
   final bool? printEntireGroup;
+  @JsonKey(name: 'NewPagePerQuoteOrder', includeIfNull: false)
+  final bool? newPagePerQuoteOrder;
   @JsonKey(name: 'PrintInventoryType', includeIfNull: false)
   final bool? printInventoryType;
   @JsonKey(name: 'PrintCategory', includeIfNull: false)
@@ -77377,6 +79953,11 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
                 const DeepCollectionEquality().equals(
                   other.printEntireGroup,
                   printEntireGroup,
+                )) &&
+            (identical(other.newPagePerQuoteOrder, newPagePerQuoteOrder) ||
+                const DeepCollectionEquality().equals(
+                  other.newPagePerQuoteOrder,
+                  newPagePerQuoteOrder,
                 )) &&
             (identical(other.printInventoryType, printInventoryType) ||
                 const DeepCollectionEquality().equals(
@@ -77566,6 +80147,7 @@ class WebApiModulesReportsOrderReportsOrderReportOrderReportRequest {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(reportView) ^
       const DeepCollectionEquality().hash(printEntireGroup) ^
+      const DeepCollectionEquality().hash(newPagePerQuoteOrder) ^
       const DeepCollectionEquality().hash(printInventoryType) ^
       const DeepCollectionEquality().hash(printCategory) ^
       const DeepCollectionEquality().hash(printTotalReplacementCost) ^
@@ -77609,6 +80191,7 @@ extension $WebApiModulesReportsOrderReportsOrderReportOrderReportRequestExtensio
     String? id,
     enums.WebApiModulesReportsOrderReportsOrderReportReportViewType? reportView,
     bool? printEntireGroup,
+    bool? newPagePerQuoteOrder,
     bool? printInventoryType,
     bool? printCategory,
     bool? printTotalReplacementCost,
@@ -77648,6 +80231,7 @@ extension $WebApiModulesReportsOrderReportsOrderReportOrderReportRequestExtensio
       id: id ?? this.id,
       reportView: reportView ?? this.reportView,
       printEntireGroup: printEntireGroup ?? this.printEntireGroup,
+      newPagePerQuoteOrder: newPagePerQuoteOrder ?? this.newPagePerQuoteOrder,
       printInventoryType: printInventoryType ?? this.printInventoryType,
       printCategory: printCategory ?? this.printCategory,
       printTotalReplacementCost:
@@ -77697,6 +80281,7 @@ extension $WebApiModulesReportsOrderReportsOrderReportOrderReportRequestExtensio
     Wrapped<enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?>?
     reportView,
     Wrapped<bool?>? printEntireGroup,
+    Wrapped<bool?>? newPagePerQuoteOrder,
     Wrapped<bool?>? printInventoryType,
     Wrapped<bool?>? printCategory,
     Wrapped<bool?>? printTotalReplacementCost,
@@ -77738,6 +80323,9 @@ extension $WebApiModulesReportsOrderReportsOrderReportOrderReportRequestExtensio
       printEntireGroup: (printEntireGroup != null
           ? printEntireGroup.value
           : this.printEntireGroup),
+      newPagePerQuoteOrder: (newPagePerQuoteOrder != null
+          ? newPagePerQuoteOrder.value
+          : this.newPagePerQuoteOrder),
       printInventoryType: (printInventoryType != null
           ? printInventoryType.value
           : this.printInventoryType),
@@ -79184,6 +81772,7 @@ class WebApiModulesReportsOrderReportsProjectReportProjectReportRequest {
     this.id,
     this.reportView,
     this.printEntireGroup,
+    this.newPagePerQuoteOrder,
     this.printInventoryType,
     this.printCategory,
     this.printTotalReplacementCost,
@@ -79249,6 +81838,8 @@ class WebApiModulesReportsOrderReportsProjectReportProjectReportRequest {
   reportView;
   @JsonKey(name: 'PrintEntireGroup', includeIfNull: false)
   final bool? printEntireGroup;
+  @JsonKey(name: 'NewPagePerQuoteOrder', includeIfNull: false)
+  final bool? newPagePerQuoteOrder;
   @JsonKey(name: 'PrintInventoryType', includeIfNull: false)
   final bool? printInventoryType;
   @JsonKey(name: 'PrintCategory', includeIfNull: false)
@@ -79343,6 +81934,11 @@ class WebApiModulesReportsOrderReportsProjectReportProjectReportRequest {
                 const DeepCollectionEquality().equals(
                   other.printEntireGroup,
                   printEntireGroup,
+                )) &&
+            (identical(other.newPagePerQuoteOrder, newPagePerQuoteOrder) ||
+                const DeepCollectionEquality().equals(
+                  other.newPagePerQuoteOrder,
+                  newPagePerQuoteOrder,
                 )) &&
             (identical(other.printInventoryType, printInventoryType) ||
                 const DeepCollectionEquality().equals(
@@ -79532,6 +82128,7 @@ class WebApiModulesReportsOrderReportsProjectReportProjectReportRequest {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(reportView) ^
       const DeepCollectionEquality().hash(printEntireGroup) ^
+      const DeepCollectionEquality().hash(newPagePerQuoteOrder) ^
       const DeepCollectionEquality().hash(printInventoryType) ^
       const DeepCollectionEquality().hash(printCategory) ^
       const DeepCollectionEquality().hash(printTotalReplacementCost) ^
@@ -79575,6 +82172,7 @@ extension $WebApiModulesReportsOrderReportsProjectReportProjectReportRequestExte
     String? id,
     enums.WebApiModulesReportsOrderReportsOrderReportReportViewType? reportView,
     bool? printEntireGroup,
+    bool? newPagePerQuoteOrder,
     bool? printInventoryType,
     bool? printCategory,
     bool? printTotalReplacementCost,
@@ -79614,6 +82212,7 @@ extension $WebApiModulesReportsOrderReportsProjectReportProjectReportRequestExte
       id: id ?? this.id,
       reportView: reportView ?? this.reportView,
       printEntireGroup: printEntireGroup ?? this.printEntireGroup,
+      newPagePerQuoteOrder: newPagePerQuoteOrder ?? this.newPagePerQuoteOrder,
       printInventoryType: printInventoryType ?? this.printInventoryType,
       printCategory: printCategory ?? this.printCategory,
       printTotalReplacementCost:
@@ -79663,6 +82262,7 @@ extension $WebApiModulesReportsOrderReportsProjectReportProjectReportRequestExte
     Wrapped<enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?>?
     reportView,
     Wrapped<bool?>? printEntireGroup,
+    Wrapped<bool?>? newPagePerQuoteOrder,
     Wrapped<bool?>? printInventoryType,
     Wrapped<bool?>? printCategory,
     Wrapped<bool?>? printTotalReplacementCost,
@@ -79704,6 +82304,9 @@ extension $WebApiModulesReportsOrderReportsProjectReportProjectReportRequestExte
       printEntireGroup: (printEntireGroup != null
           ? printEntireGroup.value
           : this.printEntireGroup),
+      newPagePerQuoteOrder: (newPagePerQuoteOrder != null
+          ? newPagePerQuoteOrder.value
+          : this.newPagePerQuoteOrder),
       printInventoryType: (printInventoryType != null
           ? printInventoryType.value
           : this.printInventoryType),
@@ -80581,6 +83184,7 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
     this.id,
     this.reportView,
     this.printEntireGroup,
+    this.newPagePerQuoteOrder,
     this.printInventoryType,
     this.printCategory,
     this.printTotalReplacementCost,
@@ -80645,6 +83249,8 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
   reportView;
   @JsonKey(name: 'PrintEntireGroup', includeIfNull: false)
   final bool? printEntireGroup;
+  @JsonKey(name: 'NewPagePerQuoteOrder', includeIfNull: false)
+  final bool? newPagePerQuoteOrder;
   @JsonKey(name: 'PrintInventoryType', includeIfNull: false)
   final bool? printInventoryType;
   @JsonKey(name: 'PrintCategory', includeIfNull: false)
@@ -80739,6 +83345,11 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
                 const DeepCollectionEquality().equals(
                   other.printEntireGroup,
                   printEntireGroup,
+                )) &&
+            (identical(other.newPagePerQuoteOrder, newPagePerQuoteOrder) ||
+                const DeepCollectionEquality().equals(
+                  other.newPagePerQuoteOrder,
+                  newPagePerQuoteOrder,
                 )) &&
             (identical(other.printInventoryType, printInventoryType) ||
                 const DeepCollectionEquality().equals(
@@ -80928,6 +83539,7 @@ class WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequest {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(reportView) ^
       const DeepCollectionEquality().hash(printEntireGroup) ^
+      const DeepCollectionEquality().hash(newPagePerQuoteOrder) ^
       const DeepCollectionEquality().hash(printInventoryType) ^
       const DeepCollectionEquality().hash(printCategory) ^
       const DeepCollectionEquality().hash(printTotalReplacementCost) ^
@@ -80971,6 +83583,7 @@ extension $WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestExtensio
     String? id,
     enums.WebApiModulesReportsOrderReportsOrderReportReportViewType? reportView,
     bool? printEntireGroup,
+    bool? newPagePerQuoteOrder,
     bool? printInventoryType,
     bool? printCategory,
     bool? printTotalReplacementCost,
@@ -81010,6 +83623,7 @@ extension $WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestExtensio
       id: id ?? this.id,
       reportView: reportView ?? this.reportView,
       printEntireGroup: printEntireGroup ?? this.printEntireGroup,
+      newPagePerQuoteOrder: newPagePerQuoteOrder ?? this.newPagePerQuoteOrder,
       printInventoryType: printInventoryType ?? this.printInventoryType,
       printCategory: printCategory ?? this.printCategory,
       printTotalReplacementCost:
@@ -81059,6 +83673,7 @@ extension $WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestExtensio
     Wrapped<enums.WebApiModulesReportsOrderReportsOrderReportReportViewType?>?
     reportView,
     Wrapped<bool?>? printEntireGroup,
+    Wrapped<bool?>? newPagePerQuoteOrder,
     Wrapped<bool?>? printInventoryType,
     Wrapped<bool?>? printCategory,
     Wrapped<bool?>? printTotalReplacementCost,
@@ -81100,6 +83715,9 @@ extension $WebApiModulesReportsOrderReportsQuoteReportQuoteReportRequestExtensio
       printEntireGroup: (printEntireGroup != null
           ? printEntireGroup.value
           : this.printEntireGroup),
+      newPagePerQuoteOrder: (newPagePerQuoteOrder != null
+          ? newPagePerQuoteOrder.value
+          : this.newPagePerQuoteOrder),
       printInventoryType: (printInventoryType != null
           ? printInventoryType.value
           : this.printInventoryType),
@@ -82104,6 +84722,340 @@ extension $WebApiModulesReportsOrderReportsSubSalesStagedItemsReportSubSalesStag
       inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
       ranks: (ranks != null ? ranks.value : this.ranks),
       trackedBys: (trackedBys != null ? trackedBys.value : this.trackedBys),
+      userDepartmentId: (userDepartmentId != null
+          ? userDepartmentId.value
+          : this.userDepartmentId),
+      userLocationId: (userLocationId != null
+          ? userLocationId.value
+          : this.userLocationId),
+      userWarehouseId: (userWarehouseId != null
+          ? userWarehouseId.value
+          : this.userWarehouseId),
+      customReportLayoutId: (customReportLayoutId != null
+          ? customReportLayoutId.value
+          : this.customReportLayoutId),
+      isSummary: (isSummary != null ? isSummary.value : this.isSummary),
+      includeSubHeadingsAndSubTotals: (includeSubHeadingsAndSubTotals != null
+          ? includeSubHeadingsAndSubTotals.value
+          : this.includeSubHeadingsAndSubTotals),
+      includeIdColumns: (includeIdColumns != null
+          ? includeIdColumns.value
+          : this.includeIdColumns),
+      locale: (locale != null ? locale.value : this.locale),
+      excelfields: (excelfields != null ? excelfields.value : this.excelfields),
+      reportName: (reportName != null ? reportName.value : this.reportName),
+      useEmailTemplate: (useEmailTemplate != null
+          ? useEmailTemplate.value
+          : this.useEmailTemplate),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest {
+  const WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest({
+    this.orderId,
+    this.outContractId,
+    this.excludeZeroValueItems,
+    this.ownedSubbedValue,
+    this.printShippingNotes,
+    this.sortShippingCases,
+    this.rentalValue,
+    this.weightDimensions,
+    this.userDepartmentId,
+    this.userLocationId,
+    this.userWarehouseId,
+    this.customReportLayoutId,
+    this.isSummary,
+    this.includeSubHeadingsAndSubTotals,
+    this.includeIdColumns,
+    this.locale,
+    this.excelfields,
+    this.reportName,
+    this.useEmailTemplate,
+  });
+
+  factory WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequestFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequestToJson(
+        this,
+      );
+
+  @JsonKey(name: 'OrderId', includeIfNull: false)
+  final String? orderId;
+  @JsonKey(name: 'OutContractId', includeIfNull: false)
+  final String? outContractId;
+  @JsonKey(name: 'ExcludeZeroValueItems', includeIfNull: false)
+  final bool? excludeZeroValueItems;
+  @JsonKey(name: 'OwnedSubbedValue', includeIfNull: false)
+  final bool? ownedSubbedValue;
+  @JsonKey(name: 'PrintShippingNotes', includeIfNull: false)
+  final bool? printShippingNotes;
+  @JsonKey(name: 'SortShippingCases', includeIfNull: false)
+  final bool? sortShippingCases;
+  @JsonKey(name: 'RentalValue', includeIfNull: false)
+  final String? rentalValue;
+  @JsonKey(name: 'WeightDimensions', includeIfNull: false)
+  final String? weightDimensions;
+  @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
+  final String? userDepartmentId;
+  @JsonKey(name: 'UserLocationId', includeIfNull: false)
+  final String? userLocationId;
+  @JsonKey(name: 'UserWarehouseId', includeIfNull: false)
+  final String? userWarehouseId;
+  @JsonKey(name: 'CustomReportLayoutId', includeIfNull: false)
+  final String? customReportLayoutId;
+  @JsonKey(name: 'IsSummary', includeIfNull: false)
+  final bool? isSummary;
+  @JsonKey(name: 'IncludeSubHeadingsAndSubTotals', includeIfNull: false)
+  final bool? includeSubHeadingsAndSubTotals;
+  @JsonKey(name: 'IncludeIdColumns', includeIfNull: false)
+  final bool? includeIdColumns;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
+  @JsonKey(
+    name: 'excelfields',
+    includeIfNull: false,
+    defaultValue: <FwStandardModelsCheckBoxListItem>[],
+  )
+  final List<FwStandardModelsCheckBoxListItem>? excelfields;
+  @JsonKey(name: 'ReportName', includeIfNull: false)
+  final String? reportName;
+  @JsonKey(name: 'UseEmailTemplate', includeIfNull: false)
+  final bool? useEmailTemplate;
+  static const fromJsonFactory =
+      _$WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.outContractId, outContractId) ||
+                const DeepCollectionEquality().equals(
+                  other.outContractId,
+                  outContractId,
+                )) &&
+            (identical(other.excludeZeroValueItems, excludeZeroValueItems) ||
+                const DeepCollectionEquality().equals(
+                  other.excludeZeroValueItems,
+                  excludeZeroValueItems,
+                )) &&
+            (identical(other.ownedSubbedValue, ownedSubbedValue) ||
+                const DeepCollectionEquality().equals(
+                  other.ownedSubbedValue,
+                  ownedSubbedValue,
+                )) &&
+            (identical(other.printShippingNotes, printShippingNotes) ||
+                const DeepCollectionEquality().equals(
+                  other.printShippingNotes,
+                  printShippingNotes,
+                )) &&
+            (identical(other.sortShippingCases, sortShippingCases) ||
+                const DeepCollectionEquality().equals(
+                  other.sortShippingCases,
+                  sortShippingCases,
+                )) &&
+            (identical(other.rentalValue, rentalValue) ||
+                const DeepCollectionEquality().equals(
+                  other.rentalValue,
+                  rentalValue,
+                )) &&
+            (identical(other.weightDimensions, weightDimensions) ||
+                const DeepCollectionEquality().equals(
+                  other.weightDimensions,
+                  weightDimensions,
+                )) &&
+            (identical(other.userDepartmentId, userDepartmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.userDepartmentId,
+                  userDepartmentId,
+                )) &&
+            (identical(other.userLocationId, userLocationId) ||
+                const DeepCollectionEquality().equals(
+                  other.userLocationId,
+                  userLocationId,
+                )) &&
+            (identical(other.userWarehouseId, userWarehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.userWarehouseId,
+                  userWarehouseId,
+                )) &&
+            (identical(other.customReportLayoutId, customReportLayoutId) ||
+                const DeepCollectionEquality().equals(
+                  other.customReportLayoutId,
+                  customReportLayoutId,
+                )) &&
+            (identical(other.isSummary, isSummary) ||
+                const DeepCollectionEquality().equals(
+                  other.isSummary,
+                  isSummary,
+                )) &&
+            (identical(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.includeSubHeadingsAndSubTotals,
+                  includeSubHeadingsAndSubTotals,
+                )) &&
+            (identical(other.includeIdColumns, includeIdColumns) ||
+                const DeepCollectionEquality().equals(
+                  other.includeIdColumns,
+                  includeIdColumns,
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)) &&
+            (identical(other.excelfields, excelfields) ||
+                const DeepCollectionEquality().equals(
+                  other.excelfields,
+                  excelfields,
+                )) &&
+            (identical(other.reportName, reportName) ||
+                const DeepCollectionEquality().equals(
+                  other.reportName,
+                  reportName,
+                )) &&
+            (identical(other.useEmailTemplate, useEmailTemplate) ||
+                const DeepCollectionEquality().equals(
+                  other.useEmailTemplate,
+                  useEmailTemplate,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(outContractId) ^
+      const DeepCollectionEquality().hash(excludeZeroValueItems) ^
+      const DeepCollectionEquality().hash(ownedSubbedValue) ^
+      const DeepCollectionEquality().hash(printShippingNotes) ^
+      const DeepCollectionEquality().hash(sortShippingCases) ^
+      const DeepCollectionEquality().hash(rentalValue) ^
+      const DeepCollectionEquality().hash(weightDimensions) ^
+      const DeepCollectionEquality().hash(userDepartmentId) ^
+      const DeepCollectionEquality().hash(userLocationId) ^
+      const DeepCollectionEquality().hash(userWarehouseId) ^
+      const DeepCollectionEquality().hash(customReportLayoutId) ^
+      const DeepCollectionEquality().hash(isSummary) ^
+      const DeepCollectionEquality().hash(includeSubHeadingsAndSubTotals) ^
+      const DeepCollectionEquality().hash(includeIdColumns) ^
+      const DeepCollectionEquality().hash(locale) ^
+      const DeepCollectionEquality().hash(excelfields) ^
+      const DeepCollectionEquality().hash(reportName) ^
+      const DeepCollectionEquality().hash(useEmailTemplate) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequestExtension
+    on
+        WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest {
+  WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest
+  copyWith({
+    String? orderId,
+    String? outContractId,
+    bool? excludeZeroValueItems,
+    bool? ownedSubbedValue,
+    bool? printShippingNotes,
+    bool? sortShippingCases,
+    String? rentalValue,
+    String? weightDimensions,
+    String? userDepartmentId,
+    String? userLocationId,
+    String? userWarehouseId,
+    String? customReportLayoutId,
+    bool? isSummary,
+    bool? includeSubHeadingsAndSubTotals,
+    bool? includeIdColumns,
+    String? locale,
+    List<FwStandardModelsCheckBoxListItem>? excelfields,
+    String? reportName,
+    bool? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest(
+      orderId: orderId ?? this.orderId,
+      outContractId: outContractId ?? this.outContractId,
+      excludeZeroValueItems:
+          excludeZeroValueItems ?? this.excludeZeroValueItems,
+      ownedSubbedValue: ownedSubbedValue ?? this.ownedSubbedValue,
+      printShippingNotes: printShippingNotes ?? this.printShippingNotes,
+      sortShippingCases: sortShippingCases ?? this.sortShippingCases,
+      rentalValue: rentalValue ?? this.rentalValue,
+      weightDimensions: weightDimensions ?? this.weightDimensions,
+      userDepartmentId: userDepartmentId ?? this.userDepartmentId,
+      userLocationId: userLocationId ?? this.userLocationId,
+      userWarehouseId: userWarehouseId ?? this.userWarehouseId,
+      customReportLayoutId: customReportLayoutId ?? this.customReportLayoutId,
+      isSummary: isSummary ?? this.isSummary,
+      includeSubHeadingsAndSubTotals:
+          includeSubHeadingsAndSubTotals ?? this.includeSubHeadingsAndSubTotals,
+      includeIdColumns: includeIdColumns ?? this.includeIdColumns,
+      locale: locale ?? this.locale,
+      excelfields: excelfields ?? this.excelfields,
+      reportName: reportName ?? this.reportName,
+      useEmailTemplate: useEmailTemplate ?? this.useEmailTemplate,
+    );
+  }
+
+  WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest
+  copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? outContractId,
+    Wrapped<bool?>? excludeZeroValueItems,
+    Wrapped<bool?>? ownedSubbedValue,
+    Wrapped<bool?>? printShippingNotes,
+    Wrapped<bool?>? sortShippingCases,
+    Wrapped<String?>? rentalValue,
+    Wrapped<String?>? weightDimensions,
+    Wrapped<String?>? userDepartmentId,
+    Wrapped<String?>? userLocationId,
+    Wrapped<String?>? userWarehouseId,
+    Wrapped<String?>? customReportLayoutId,
+    Wrapped<bool?>? isSummary,
+    Wrapped<bool?>? includeSubHeadingsAndSubTotals,
+    Wrapped<bool?>? includeIdColumns,
+    Wrapped<String?>? locale,
+    Wrapped<List<FwStandardModelsCheckBoxListItem>?>? excelfields,
+    Wrapped<String?>? reportName,
+    Wrapped<bool?>? useEmailTemplate,
+  }) {
+    return WebApiModulesReportsOrderShippingManifestReportOrderShippingManifestReportRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      outContractId: (outContractId != null
+          ? outContractId.value
+          : this.outContractId),
+      excludeZeroValueItems: (excludeZeroValueItems != null
+          ? excludeZeroValueItems.value
+          : this.excludeZeroValueItems),
+      ownedSubbedValue: (ownedSubbedValue != null
+          ? ownedSubbedValue.value
+          : this.ownedSubbedValue),
+      printShippingNotes: (printShippingNotes != null
+          ? printShippingNotes.value
+          : this.printShippingNotes),
+      sortShippingCases: (sortShippingCases != null
+          ? sortShippingCases.value
+          : this.sortShippingCases),
+      rentalValue: (rentalValue != null ? rentalValue.value : this.rentalValue),
+      weightDimensions: (weightDimensions != null
+          ? weightDimensions.value
+          : this.weightDimensions),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -87561,6 +90513,7 @@ class WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrd
   const WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest({
     this.purchaseOrderId,
     this.warehouseId,
+    this.inContractId,
     this.userDepartmentId,
     this.userLocationId,
     this.userWarehouseId,
@@ -87592,6 +90545,8 @@ class WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrd
   final String? purchaseOrderId;
   @JsonKey(name: 'WarehouseId', includeIfNull: false)
   final String? warehouseId;
+  @JsonKey(name: 'InContractId', includeIfNull: false)
+  final String? inContractId;
   @JsonKey(name: 'UserDepartmentId', includeIfNull: false)
   final String? userDepartmentId;
   @JsonKey(name: 'UserLocationId', includeIfNull: false)
@@ -87635,6 +90590,11 @@ class WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrd
                 const DeepCollectionEquality().equals(
                   other.warehouseId,
                   warehouseId,
+                )) &&
+            (identical(other.inContractId, inContractId) ||
+                const DeepCollectionEquality().equals(
+                  other.inContractId,
+                  inContractId,
                 )) &&
             (identical(other.userDepartmentId, userDepartmentId) ||
                 const DeepCollectionEquality().equals(
@@ -87700,6 +90660,7 @@ class WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrd
   int get hashCode =>
       const DeepCollectionEquality().hash(purchaseOrderId) ^
       const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(inContractId) ^
       const DeepCollectionEquality().hash(userDepartmentId) ^
       const DeepCollectionEquality().hash(userLocationId) ^
       const DeepCollectionEquality().hash(userWarehouseId) ^
@@ -87721,6 +90682,7 @@ extension $WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurcha
   copyWith({
     String? purchaseOrderId,
     String? warehouseId,
+    String? inContractId,
     String? userDepartmentId,
     String? userLocationId,
     String? userWarehouseId,
@@ -87736,6 +90698,7 @@ extension $WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurcha
     return WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurchaseOrderReturnListRequest(
       purchaseOrderId: purchaseOrderId ?? this.purchaseOrderId,
       warehouseId: warehouseId ?? this.warehouseId,
+      inContractId: inContractId ?? this.inContractId,
       userDepartmentId: userDepartmentId ?? this.userDepartmentId,
       userLocationId: userLocationId ?? this.userLocationId,
       userWarehouseId: userWarehouseId ?? this.userWarehouseId,
@@ -87755,6 +90718,7 @@ extension $WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurcha
   copyWithWrapped({
     Wrapped<String?>? purchaseOrderId,
     Wrapped<String?>? warehouseId,
+    Wrapped<String?>? inContractId,
     Wrapped<String?>? userDepartmentId,
     Wrapped<String?>? userLocationId,
     Wrapped<String?>? userWarehouseId,
@@ -87772,6 +90736,9 @@ extension $WebApiModulesReportsPurchaseOrderReportsPurchaseOrderReturnListPurcha
           ? purchaseOrderId.value
           : this.purchaseOrderId),
       warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      inContractId: (inContractId != null
+          ? inContractId.value
+          : this.inContractId),
       userDepartmentId: (userDepartmentId != null
           ? userDepartmentId.value
           : this.userDepartmentId),
@@ -107180,8 +110147,7 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData &&
+        (other is WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptMetaData &&
             (identical(other.personSignature, personSignature) ||
                 const DeepCollectionEquality().equals(
                   other.personSignature,
@@ -107622,13 +110588,21 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
     this.orderTypeDescription,
     this.orderDescription,
     this.orderNumberAndDescription,
+    this.orderEstimatedStartDate,
+    this.orderEstimatedStartTime,
+    this.orderEstimatedStopDate,
+    this.orderEstimatedStopTime,
     this.orderBillingStartDate,
     this.orderBillingEndDate,
     this.orderLocation,
-    this.deliveryTargetShipDate,
-    this.deliveryRequiredDate,
-    this.deliveryDeliveryType,
-    this.deliveryDeliveryNotes,
+    this.contractDeliveryTargetShipDate,
+    this.contractDeliveryRequiredDate,
+    this.contractDeliveryDeliveryType,
+    this.contractDeliveryDeliveryNotes,
+    this.orderOutgoingDeliveryRequiredDate,
+    this.orderOutgoingDeliveryRequiredTime,
+    this.orderIncomingDeliveryRequiredDate,
+    this.orderIncomingDeliveryRequiredTime,
     this.rowType,
     this.contractId,
     this.contractNumber,
@@ -107669,6 +110643,9 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
     this.issuedToPhone,
     this.issuedToFax,
     this.usageDates,
+    this.usageDateFrom,
+    this.usageDateTo,
+    this.billingCycleId,
     this.billingCycle,
     this.paymentTerms,
     this.agent,
@@ -107786,20 +110763,36 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
   final String? orderDescription;
   @JsonKey(name: 'OrderNumberAndDescription', includeIfNull: false)
   final String? orderNumberAndDescription;
+  @JsonKey(name: 'OrderEstimatedStartDate', includeIfNull: false)
+  final String? orderEstimatedStartDate;
+  @JsonKey(name: 'OrderEstimatedStartTime', includeIfNull: false)
+  final String? orderEstimatedStartTime;
+  @JsonKey(name: 'OrderEstimatedStopDate', includeIfNull: false)
+  final String? orderEstimatedStopDate;
+  @JsonKey(name: 'OrderEstimatedStopTime', includeIfNull: false)
+  final String? orderEstimatedStopTime;
   @JsonKey(name: 'OrderBillingStartDate', includeIfNull: false)
   final String? orderBillingStartDate;
   @JsonKey(name: 'OrderBillingEndDate', includeIfNull: false)
   final String? orderBillingEndDate;
   @JsonKey(name: 'OrderLocation', includeIfNull: false)
   final String? orderLocation;
-  @JsonKey(name: 'DeliveryTargetShipDate', includeIfNull: false)
-  final String? deliveryTargetShipDate;
-  @JsonKey(name: 'DeliveryRequiredDate', includeIfNull: false)
-  final String? deliveryRequiredDate;
-  @JsonKey(name: 'DeliveryDeliveryType', includeIfNull: false)
-  final String? deliveryDeliveryType;
-  @JsonKey(name: 'DeliveryDeliveryNotes', includeIfNull: false)
-  final String? deliveryDeliveryNotes;
+  @JsonKey(name: 'ContractDeliveryTargetShipDate', includeIfNull: false)
+  final String? contractDeliveryTargetShipDate;
+  @JsonKey(name: 'ContractDeliveryRequiredDate', includeIfNull: false)
+  final String? contractDeliveryRequiredDate;
+  @JsonKey(name: 'ContractDeliveryDeliveryType', includeIfNull: false)
+  final String? contractDeliveryDeliveryType;
+  @JsonKey(name: 'ContractDeliveryDeliveryNotes', includeIfNull: false)
+  final String? contractDeliveryDeliveryNotes;
+  @JsonKey(name: 'OrderOutgoingDeliveryRequiredDate', includeIfNull: false)
+  final String? orderOutgoingDeliveryRequiredDate;
+  @JsonKey(name: 'OrderOutgoingDeliveryRequiredTime', includeIfNull: false)
+  final String? orderOutgoingDeliveryRequiredTime;
+  @JsonKey(name: 'OrderIncomingDeliveryRequiredDate', includeIfNull: false)
+  final String? orderIncomingDeliveryRequiredDate;
+  @JsonKey(name: 'OrderIncomingDeliveryRequiredTime', includeIfNull: false)
+  final String? orderIncomingDeliveryRequiredTime;
   @JsonKey(name: 'RowType', includeIfNull: false)
   final String? rowType;
   @JsonKey(name: 'ContractId', includeIfNull: false)
@@ -107880,6 +110873,12 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
   final String? issuedToFax;
   @JsonKey(name: 'UsageDates', includeIfNull: false)
   final String? usageDates;
+  @JsonKey(name: 'UsageDateFrom', includeIfNull: false)
+  final String? usageDateFrom;
+  @JsonKey(name: 'UsageDateTo', includeIfNull: false)
+  final String? usageDateTo;
+  @JsonKey(name: 'BillingCycleId', includeIfNull: false)
+  final String? billingCycleId;
   @JsonKey(name: 'BillingCycle', includeIfNull: false)
   final String? billingCycle;
   @JsonKey(name: 'PaymentTerms', includeIfNull: false)
@@ -108099,6 +111098,32 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
                   other.orderNumberAndDescription,
                   orderNumberAndDescription,
                 )) &&
+            (identical(
+                  other.orderEstimatedStartDate,
+                  orderEstimatedStartDate,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.orderEstimatedStartDate,
+                  orderEstimatedStartDate,
+                )) &&
+            (identical(
+                  other.orderEstimatedStartTime,
+                  orderEstimatedStartTime,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.orderEstimatedStartTime,
+                  orderEstimatedStartTime,
+                )) &&
+            (identical(other.orderEstimatedStopDate, orderEstimatedStopDate) ||
+                const DeepCollectionEquality().equals(
+                  other.orderEstimatedStopDate,
+                  orderEstimatedStopDate,
+                )) &&
+            (identical(other.orderEstimatedStopTime, orderEstimatedStopTime) ||
+                const DeepCollectionEquality().equals(
+                  other.orderEstimatedStopTime,
+                  orderEstimatedStopTime,
+                )) &&
             (identical(other.orderBillingStartDate, orderBillingStartDate) ||
                 const DeepCollectionEquality().equals(
                   other.orderBillingStartDate,
@@ -108114,25 +111139,69 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
                   other.orderLocation,
                   orderLocation,
                 )) &&
-            (identical(other.deliveryTargetShipDate, deliveryTargetShipDate) ||
+            (identical(
+                  other.contractDeliveryTargetShipDate,
+                  contractDeliveryTargetShipDate,
+                ) ||
                 const DeepCollectionEquality().equals(
-                  other.deliveryTargetShipDate,
-                  deliveryTargetShipDate,
+                  other.contractDeliveryTargetShipDate,
+                  contractDeliveryTargetShipDate,
                 )) &&
-            (identical(other.deliveryRequiredDate, deliveryRequiredDate) ||
+            (identical(
+                  other.contractDeliveryRequiredDate,
+                  contractDeliveryRequiredDate,
+                ) ||
                 const DeepCollectionEquality().equals(
-                  other.deliveryRequiredDate,
-                  deliveryRequiredDate,
+                  other.contractDeliveryRequiredDate,
+                  contractDeliveryRequiredDate,
                 )) &&
-            (identical(other.deliveryDeliveryType, deliveryDeliveryType) ||
+            (identical(
+                  other.contractDeliveryDeliveryType,
+                  contractDeliveryDeliveryType,
+                ) ||
                 const DeepCollectionEquality().equals(
-                  other.deliveryDeliveryType,
-                  deliveryDeliveryType,
+                  other.contractDeliveryDeliveryType,
+                  contractDeliveryDeliveryType,
                 )) &&
-            (identical(other.deliveryDeliveryNotes, deliveryDeliveryNotes) ||
+            (identical(
+                  other.contractDeliveryDeliveryNotes,
+                  contractDeliveryDeliveryNotes,
+                ) ||
                 const DeepCollectionEquality().equals(
-                  other.deliveryDeliveryNotes,
-                  deliveryDeliveryNotes,
+                  other.contractDeliveryDeliveryNotes,
+                  contractDeliveryDeliveryNotes,
+                )) &&
+            (identical(
+                  other.orderOutgoingDeliveryRequiredDate,
+                  orderOutgoingDeliveryRequiredDate,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.orderOutgoingDeliveryRequiredDate,
+                  orderOutgoingDeliveryRequiredDate,
+                )) &&
+            (identical(
+                  other.orderOutgoingDeliveryRequiredTime,
+                  orderOutgoingDeliveryRequiredTime,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.orderOutgoingDeliveryRequiredTime,
+                  orderOutgoingDeliveryRequiredTime,
+                )) &&
+            (identical(
+                  other.orderIncomingDeliveryRequiredDate,
+                  orderIncomingDeliveryRequiredDate,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.orderIncomingDeliveryRequiredDate,
+                  orderIncomingDeliveryRequiredDate,
+                )) &&
+            (identical(
+                  other.orderIncomingDeliveryRequiredTime,
+                  orderIncomingDeliveryRequiredTime,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.orderIncomingDeliveryRequiredTime,
+                  orderIncomingDeliveryRequiredTime,
                 )) &&
             (identical(other.rowType, rowType) ||
                 const DeepCollectionEquality().equals(
@@ -108345,6 +111414,21 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
                 const DeepCollectionEquality().equals(
                   other.usageDates,
                   usageDates,
+                )) &&
+            (identical(other.usageDateFrom, usageDateFrom) ||
+                const DeepCollectionEquality().equals(
+                  other.usageDateFrom,
+                  usageDateFrom,
+                )) &&
+            (identical(other.usageDateTo, usageDateTo) ||
+                const DeepCollectionEquality().equals(
+                  other.usageDateTo,
+                  usageDateTo,
+                )) &&
+            (identical(other.billingCycleId, billingCycleId) ||
+                const DeepCollectionEquality().equals(
+                  other.billingCycleId,
+                  billingCycleId,
                 )) &&
             (identical(other.billingCycle, billingCycle) ||
                 const DeepCollectionEquality().equals(
@@ -108602,13 +111686,21 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
       const DeepCollectionEquality().hash(orderTypeDescription) ^
       const DeepCollectionEquality().hash(orderDescription) ^
       const DeepCollectionEquality().hash(orderNumberAndDescription) ^
+      const DeepCollectionEquality().hash(orderEstimatedStartDate) ^
+      const DeepCollectionEquality().hash(orderEstimatedStartTime) ^
+      const DeepCollectionEquality().hash(orderEstimatedStopDate) ^
+      const DeepCollectionEquality().hash(orderEstimatedStopTime) ^
       const DeepCollectionEquality().hash(orderBillingStartDate) ^
       const DeepCollectionEquality().hash(orderBillingEndDate) ^
       const DeepCollectionEquality().hash(orderLocation) ^
-      const DeepCollectionEquality().hash(deliveryTargetShipDate) ^
-      const DeepCollectionEquality().hash(deliveryRequiredDate) ^
-      const DeepCollectionEquality().hash(deliveryDeliveryType) ^
-      const DeepCollectionEquality().hash(deliveryDeliveryNotes) ^
+      const DeepCollectionEquality().hash(contractDeliveryTargetShipDate) ^
+      const DeepCollectionEquality().hash(contractDeliveryRequiredDate) ^
+      const DeepCollectionEquality().hash(contractDeliveryDeliveryType) ^
+      const DeepCollectionEquality().hash(contractDeliveryDeliveryNotes) ^
+      const DeepCollectionEquality().hash(orderOutgoingDeliveryRequiredDate) ^
+      const DeepCollectionEquality().hash(orderOutgoingDeliveryRequiredTime) ^
+      const DeepCollectionEquality().hash(orderIncomingDeliveryRequiredDate) ^
+      const DeepCollectionEquality().hash(orderIncomingDeliveryRequiredTime) ^
       const DeepCollectionEquality().hash(rowType) ^
       const DeepCollectionEquality().hash(contractId) ^
       const DeepCollectionEquality().hash(contractNumber) ^
@@ -108651,6 +111743,9 @@ class WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptReportL {
       const DeepCollectionEquality().hash(issuedToPhone) ^
       const DeepCollectionEquality().hash(issuedToFax) ^
       const DeepCollectionEquality().hash(usageDates) ^
+      const DeepCollectionEquality().hash(usageDateFrom) ^
+      const DeepCollectionEquality().hash(usageDateTo) ^
+      const DeepCollectionEquality().hash(billingCycleId) ^
       const DeepCollectionEquality().hash(billingCycle) ^
       const DeepCollectionEquality().hash(paymentTerms) ^
       const DeepCollectionEquality().hash(agent) ^
@@ -108730,13 +111825,21 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
     String? orderTypeDescription,
     String? orderDescription,
     String? orderNumberAndDescription,
+    String? orderEstimatedStartDate,
+    String? orderEstimatedStartTime,
+    String? orderEstimatedStopDate,
+    String? orderEstimatedStopTime,
     String? orderBillingStartDate,
     String? orderBillingEndDate,
     String? orderLocation,
-    String? deliveryTargetShipDate,
-    String? deliveryRequiredDate,
-    String? deliveryDeliveryType,
-    String? deliveryDeliveryNotes,
+    String? contractDeliveryTargetShipDate,
+    String? contractDeliveryRequiredDate,
+    String? contractDeliveryDeliveryType,
+    String? contractDeliveryDeliveryNotes,
+    String? orderOutgoingDeliveryRequiredDate,
+    String? orderOutgoingDeliveryRequiredTime,
+    String? orderIncomingDeliveryRequiredDate,
+    String? orderIncomingDeliveryRequiredTime,
     String? rowType,
     String? contractId,
     String? contractNumber,
@@ -108777,6 +111880,9 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
     String? issuedToPhone,
     String? issuedToFax,
     String? usageDates,
+    String? usageDateFrom,
+    String? usageDateTo,
+    String? billingCycleId,
     String? billingCycle,
     String? paymentTerms,
     String? agent,
@@ -108849,16 +111955,38 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
       orderDescription: orderDescription ?? this.orderDescription,
       orderNumberAndDescription:
           orderNumberAndDescription ?? this.orderNumberAndDescription,
+      orderEstimatedStartDate:
+          orderEstimatedStartDate ?? this.orderEstimatedStartDate,
+      orderEstimatedStartTime:
+          orderEstimatedStartTime ?? this.orderEstimatedStartTime,
+      orderEstimatedStopDate:
+          orderEstimatedStopDate ?? this.orderEstimatedStopDate,
+      orderEstimatedStopTime:
+          orderEstimatedStopTime ?? this.orderEstimatedStopTime,
       orderBillingStartDate:
           orderBillingStartDate ?? this.orderBillingStartDate,
       orderBillingEndDate: orderBillingEndDate ?? this.orderBillingEndDate,
       orderLocation: orderLocation ?? this.orderLocation,
-      deliveryTargetShipDate:
-          deliveryTargetShipDate ?? this.deliveryTargetShipDate,
-      deliveryRequiredDate: deliveryRequiredDate ?? this.deliveryRequiredDate,
-      deliveryDeliveryType: deliveryDeliveryType ?? this.deliveryDeliveryType,
-      deliveryDeliveryNotes:
-          deliveryDeliveryNotes ?? this.deliveryDeliveryNotes,
+      contractDeliveryTargetShipDate:
+          contractDeliveryTargetShipDate ?? this.contractDeliveryTargetShipDate,
+      contractDeliveryRequiredDate:
+          contractDeliveryRequiredDate ?? this.contractDeliveryRequiredDate,
+      contractDeliveryDeliveryType:
+          contractDeliveryDeliveryType ?? this.contractDeliveryDeliveryType,
+      contractDeliveryDeliveryNotes:
+          contractDeliveryDeliveryNotes ?? this.contractDeliveryDeliveryNotes,
+      orderOutgoingDeliveryRequiredDate:
+          orderOutgoingDeliveryRequiredDate ??
+          this.orderOutgoingDeliveryRequiredDate,
+      orderOutgoingDeliveryRequiredTime:
+          orderOutgoingDeliveryRequiredTime ??
+          this.orderOutgoingDeliveryRequiredTime,
+      orderIncomingDeliveryRequiredDate:
+          orderIncomingDeliveryRequiredDate ??
+          this.orderIncomingDeliveryRequiredDate,
+      orderIncomingDeliveryRequiredTime:
+          orderIncomingDeliveryRequiredTime ??
+          this.orderIncomingDeliveryRequiredTime,
       rowType: rowType ?? this.rowType,
       contractId: contractId ?? this.contractId,
       contractNumber: contractNumber ?? this.contractNumber,
@@ -108908,6 +112036,9 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
       issuedToPhone: issuedToPhone ?? this.issuedToPhone,
       issuedToFax: issuedToFax ?? this.issuedToFax,
       usageDates: usageDates ?? this.usageDates,
+      usageDateFrom: usageDateFrom ?? this.usageDateFrom,
+      usageDateTo: usageDateTo ?? this.usageDateTo,
+      billingCycleId: billingCycleId ?? this.billingCycleId,
       billingCycle: billingCycle ?? this.billingCycle,
       paymentTerms: paymentTerms ?? this.paymentTerms,
       agent: agent ?? this.agent,
@@ -108994,13 +112125,21 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
     Wrapped<String?>? orderTypeDescription,
     Wrapped<String?>? orderDescription,
     Wrapped<String?>? orderNumberAndDescription,
+    Wrapped<String?>? orderEstimatedStartDate,
+    Wrapped<String?>? orderEstimatedStartTime,
+    Wrapped<String?>? orderEstimatedStopDate,
+    Wrapped<String?>? orderEstimatedStopTime,
     Wrapped<String?>? orderBillingStartDate,
     Wrapped<String?>? orderBillingEndDate,
     Wrapped<String?>? orderLocation,
-    Wrapped<String?>? deliveryTargetShipDate,
-    Wrapped<String?>? deliveryRequiredDate,
-    Wrapped<String?>? deliveryDeliveryType,
-    Wrapped<String?>? deliveryDeliveryNotes,
+    Wrapped<String?>? contractDeliveryTargetShipDate,
+    Wrapped<String?>? contractDeliveryRequiredDate,
+    Wrapped<String?>? contractDeliveryDeliveryType,
+    Wrapped<String?>? contractDeliveryDeliveryNotes,
+    Wrapped<String?>? orderOutgoingDeliveryRequiredDate,
+    Wrapped<String?>? orderOutgoingDeliveryRequiredTime,
+    Wrapped<String?>? orderIncomingDeliveryRequiredDate,
+    Wrapped<String?>? orderIncomingDeliveryRequiredTime,
     Wrapped<String?>? rowType,
     Wrapped<String?>? contractId,
     Wrapped<String?>? contractNumber,
@@ -109041,6 +112180,9 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
     Wrapped<String?>? issuedToPhone,
     Wrapped<String?>? issuedToFax,
     Wrapped<String?>? usageDates,
+    Wrapped<String?>? usageDateFrom,
+    Wrapped<String?>? usageDateTo,
+    Wrapped<String?>? billingCycleId,
     Wrapped<String?>? billingCycle,
     Wrapped<String?>? paymentTerms,
     Wrapped<String?>? agent,
@@ -109125,6 +112267,18 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
       orderNumberAndDescription: (orderNumberAndDescription != null
           ? orderNumberAndDescription.value
           : this.orderNumberAndDescription),
+      orderEstimatedStartDate: (orderEstimatedStartDate != null
+          ? orderEstimatedStartDate.value
+          : this.orderEstimatedStartDate),
+      orderEstimatedStartTime: (orderEstimatedStartTime != null
+          ? orderEstimatedStartTime.value
+          : this.orderEstimatedStartTime),
+      orderEstimatedStopDate: (orderEstimatedStopDate != null
+          ? orderEstimatedStopDate.value
+          : this.orderEstimatedStopDate),
+      orderEstimatedStopTime: (orderEstimatedStopTime != null
+          ? orderEstimatedStopTime.value
+          : this.orderEstimatedStopTime),
       orderBillingStartDate: (orderBillingStartDate != null
           ? orderBillingStartDate.value
           : this.orderBillingStartDate),
@@ -109134,18 +112288,34 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
       orderLocation: (orderLocation != null
           ? orderLocation.value
           : this.orderLocation),
-      deliveryTargetShipDate: (deliveryTargetShipDate != null
-          ? deliveryTargetShipDate.value
-          : this.deliveryTargetShipDate),
-      deliveryRequiredDate: (deliveryRequiredDate != null
-          ? deliveryRequiredDate.value
-          : this.deliveryRequiredDate),
-      deliveryDeliveryType: (deliveryDeliveryType != null
-          ? deliveryDeliveryType.value
-          : this.deliveryDeliveryType),
-      deliveryDeliveryNotes: (deliveryDeliveryNotes != null
-          ? deliveryDeliveryNotes.value
-          : this.deliveryDeliveryNotes),
+      contractDeliveryTargetShipDate: (contractDeliveryTargetShipDate != null
+          ? contractDeliveryTargetShipDate.value
+          : this.contractDeliveryTargetShipDate),
+      contractDeliveryRequiredDate: (contractDeliveryRequiredDate != null
+          ? contractDeliveryRequiredDate.value
+          : this.contractDeliveryRequiredDate),
+      contractDeliveryDeliveryType: (contractDeliveryDeliveryType != null
+          ? contractDeliveryDeliveryType.value
+          : this.contractDeliveryDeliveryType),
+      contractDeliveryDeliveryNotes: (contractDeliveryDeliveryNotes != null
+          ? contractDeliveryDeliveryNotes.value
+          : this.contractDeliveryDeliveryNotes),
+      orderOutgoingDeliveryRequiredDate:
+          (orderOutgoingDeliveryRequiredDate != null
+          ? orderOutgoingDeliveryRequiredDate.value
+          : this.orderOutgoingDeliveryRequiredDate),
+      orderOutgoingDeliveryRequiredTime:
+          (orderOutgoingDeliveryRequiredTime != null
+          ? orderOutgoingDeliveryRequiredTime.value
+          : this.orderOutgoingDeliveryRequiredTime),
+      orderIncomingDeliveryRequiredDate:
+          (orderIncomingDeliveryRequiredDate != null
+          ? orderIncomingDeliveryRequiredDate.value
+          : this.orderIncomingDeliveryRequiredDate),
+      orderIncomingDeliveryRequiredTime:
+          (orderIncomingDeliveryRequiredTime != null
+          ? orderIncomingDeliveryRequiredTime.value
+          : this.orderIncomingDeliveryRequiredTime),
       rowType: (rowType != null ? rowType.value : this.rowType),
       contractId: (contractId != null ? contractId.value : this.contractId),
       contractNumber: (contractNumber != null
@@ -109252,6 +112422,13 @@ extension $WebApiModulesReportsWarehouseReportsQuikReceiptReportQuikReceiptRepor
           : this.issuedToPhone),
       issuedToFax: (issuedToFax != null ? issuedToFax.value : this.issuedToFax),
       usageDates: (usageDates != null ? usageDates.value : this.usageDates),
+      usageDateFrom: (usageDateFrom != null
+          ? usageDateFrom.value
+          : this.usageDateFrom),
+      usageDateTo: (usageDateTo != null ? usageDateTo.value : this.usageDateTo),
+      billingCycleId: (billingCycleId != null
+          ? billingCycleId.value
+          : this.billingCycleId),
       billingCycle: (billingCycle != null
           ? billingCycle.value
           : this.billingCycle),
@@ -111333,9 +114510,9 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
 
     if (ResultType == DateTime) {
       return response.copyWith(
-        body:
-            DateTime.parse((response.body as String).replaceAll('"', ''))
-                as ResultType,
+        body: DateTime.parse(
+          (response.body as String).replaceAll('"', ''),
+        ) as ResultType,
       );
     }
 

@@ -415,6 +415,66 @@
         }
       }
     },
+    "/alert/many": {
+      "post": {
+        "tags": [
+          "Alert"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.Alert.AlertLogic"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ActionResult_FwStandard.Modules.Administrator.Alert.AlertLogic"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/alertcondition/browse": {
       "post": {
         "tags": [
@@ -3012,6 +3072,98 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FwStandard.Models.CopyLogicResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customform/orderitemgridshowfields": {
+      "get": {
+        "tags": [
+          "CustomForm"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customform/lastusedtemplate": {
+      "post": {
+        "tags": [
+          "CustomForm"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Administrator.CustomForm.CustomFormController_LastUsedTemplateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
                 }
               }
             }
@@ -8000,6 +8152,51 @@
         }
       }
     },
+    "/fwutility/serverutcdatetime": {
+      "get": {
+        "tags": [
+          "FwUtility"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Controllers.GetServerUtcDateTimeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/group/browse": {
       "post": {
         "tags": [
@@ -9848,6 +10045,147 @@
         }
       }
     },
+    "/portalsetup/settings/schema": {
+      "get": {
+        "tags": [
+          "PortalSetup"
+        ],
+        "summary": "Returns Portal settings.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Administrator.PortalSetup.PortalSettingsPropertySchema"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portalsetup/settings": {
+      "get": {
+        "tags": [
+          "PortalSetup"
+        ],
+        "summary": "Returns quikscan settings.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.PortalSetup.PortalSettings"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PortalSetup"
+        ],
+        "summary": "Update quikscan settings.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Administrator.PortalSetup.PortalSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/quikscansetup/settings/schema": {
       "get": {
         "tags": [
@@ -10350,6 +10688,147 @@
         }
       }
     },
+    "/storefrontsetup/settings/schema": {
+      "get": {
+        "tags": [
+          "StorefrontSetup"
+        ],
+        "summary": "Returns storefront settings.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertySchema"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/storefrontsetup/settings": {
+      "get": {
+        "tags": [
+          "StorefrontSetup"
+        ],
+        "summary": "Returns storefront settings.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontSettings"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "StorefrontSetup"
+        ],
+        "summary": "Update storefront settings.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized (jwt token is invalid)"
+          },
+          "403": {
+            "description": "Forbidden (jwt token is valid, but you don't have permission)"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/systemupdate/versionhotfix": {
       "post": {
         "tags": [
@@ -10587,60 +11066,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FwStandard.Modules.Administrator.SystemUpdate.ApplyUpdateResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/systemupdate/nextqaversion": {
-      "post": {
-        "tags": [
-          "SystemUpdate"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FwStandard.Modules.Administrator.SystemUpdate.NextQaVersionRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Modules.Administrator.SystemUpdate.NextQaVersionResponse"
                 }
               }
             }
@@ -11278,416 +11703,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/WebApi.Modules.Administrator.SystemUpdateHistoryLog.SystemUpdateHistoryLog"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/taskscheduler/tasksteps/browse": {
-      "post": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.SqlServer.FwJsonDataTable"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/taskscheduler/tasksteps/exportexcelxlsx": {
-      "post": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/FwStandard.Models.BrowseRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Controllers.FwDataController_DoExportExcelXlsxExportFileAsyncResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/taskscheduler/tasksteps": {
-      "get": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "parameters": [
-          {
-            "name": "pageno",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "pagesize",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "sort",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "filter",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/FwStandard.Models.FwQueryFilter"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.TaskScheduler.TaskStepsLogic"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/taskscheduler/tasksteps/{id}": {
-      "get": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwCore.Api.Swashbuckle.BadRequestResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized (jwt token is invalid)"
-          },
-          "403": {
-            "description": "Forbidden (jwt token is valid, but you don't have permission)"
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FwStandard.Models.FwApiException"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "TaskScheduler"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "boolean"
                 }
               }
             }
@@ -15257,6 +15272,16 @@
         },
         "additionalProperties": false
       },
+      "FwCore.Controllers.GetServerUtcDateTimeResponse": {
+        "type": "object",
+        "properties": {
+          "ServerUtcDateTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "FwStandard.AppManager.FwAmSecurityTreeNode": {
         "type": "object",
         "properties": {
@@ -15638,8 +15663,12 @@
             "nullable": true
           },
           "timezoneOffset": {
-            "type": "integer",
-            "format": "int32",
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "Locale": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -16421,35 +16450,6 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.TaskScheduler.TaskStepsLogic": {
-        "type": "object",
-        "properties": {
-          "Items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/WebApi.Modules.Administrator.TaskScheduler.TaskSteps"
-            },
-            "nullable": true
-          },
-          "PageNo": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "PageSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "TotalItems": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "Sort": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "FwStandard.Models.FwQueryResponse_WebApi.Modules.Administrator.User.UserLogic": {
         "type": "object",
         "properties": {
@@ -17147,6 +17147,14 @@
             "nullable": true
           },
           "AssignTo": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaData1": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaData2": {
             "type": "string",
             "nullable": true
           },
@@ -18400,26 +18408,6 @@
         },
         "additionalProperties": false
       },
-      "FwStandard.Modules.Administrator.SystemUpdate.NextQaVersionRequest": {
-        "type": "object",
-        "properties": {
-          "CurrentVersion": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "FwStandard.Modules.Administrator.SystemUpdate.NextQaVersionResponse": {
-        "type": "object",
-        "properties": {
-          "NextQaVersion": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "FwStandard.Modules.Administrator.SystemUpdate.RestartRequest": {
         "type": "object",
         "properties": {
@@ -19238,6 +19226,22 @@
         },
         "additionalProperties": false
       },
+      "Microsoft.AspNetCore.Mvc.ActionResult": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "Microsoft.AspNetCore.Mvc.ActionResult_FwStandard.Modules.Administrator.Alert.AlertLogic": {
+        "type": "object",
+        "properties": {
+          "Result": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ActionResult"
+          },
+          "Value": {
+            "$ref": "#/components/schemas/FwStandard.Modules.Administrator.Alert.AlertLogic"
+          }
+        },
+        "additionalProperties": false
+      },
       "WebApi.Modules.Administrator.CreateNewSystemHistory.CreateNewSystemHistory": {
         "type": "object",
         "properties": {
@@ -19628,6 +19632,36 @@
           },
           "ModifiedDateTime": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Administrator.CustomForm.CustomFormController_LastUsedTemplateRequest": {
+        "type": "object",
+        "properties": {
+          "BaseForm": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaData1": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaData2": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomFormId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Summary": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Rollup": {
+            "type": "boolean",
             "nullable": true
           }
         },
@@ -20437,6 +20471,49 @@
         },
         "additionalProperties": false
       },
+      "WebApi.Modules.Administrator.PortalSetup.PortalSettings": {
+        "type": "object",
+        "properties": {
+          "EnablePortal": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Administrator.PortalSetup.PortalSettingsPropertyDataTypes": {
+        "enum": [
+          "Boolean",
+          "Text",
+          "Number"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Administrator.PortalSetup.PortalSettingsPropertySchema": {
+        "type": "object",
+        "properties": {
+          "Group": {
+            "type": "string",
+            "nullable": true
+          },
+          "Caption": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropertyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataType": {
+            "$ref": "#/components/schemas/WebApi.Modules.Administrator.PortalSetup.PortalSettingsPropertyDataTypes"
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "WebApi.Modules.Administrator.QuikScanSetup.QuikScanSettings": {
         "type": "object",
         "properties": {
@@ -20675,175 +20752,6 @@
           "DateStamp": {
             "type": "string",
             "description": "Format: UTCDateTime",
-            "nullable": true
-          },
-          "AuditNote": {
-            "type": "string",
-            "nullable": true
-          },
-          "RecordTitle": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          },
-          "UrlIdentifier": {
-            "nullable": true,
-            "readOnly": true
-          },
-          "_Fields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogicFieldDefinition"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "_Custom": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FwStandard.Data.FwCustomValue"
-            },
-            "nullable": true
-          },
-          "_DefaultFieldAttributes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FwStandard.Data.FwDefaultAttribute"
-            },
-            "nullable": true
-          },
-          "_Original": {
-            "$ref": "#/components/schemas/FwStandard.BusinessLogic.FwBusinessLogic"
-          },
-          "_Translation": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/FwStandard.Data.FwTranslatedValue"
-            },
-            "nullable": true
-          },
-          "_HasImport": {
-            "type": "boolean"
-          },
-          "_HasDocuments": {
-            "type": "boolean"
-          },
-          "CreatedByUserId": {
-            "type": "string",
-            "nullable": true
-          },
-          "CreatedByUserName": {
-            "type": "string",
-            "nullable": true
-          },
-          "CreatedDateTime": {
-            "type": "string",
-            "nullable": true
-          },
-          "ModifiedByUserId": {
-            "type": "string",
-            "nullable": true
-          },
-          "ModifiedByUserName": {
-            "type": "string",
-            "nullable": true
-          },
-          "ModifiedDateTime": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WebApi.Modules.Administrator.TaskScheduler.TaskSteps": {
-        "type": "object",
-        "properties": {
-          "TaskStepsId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "TaskId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "Name": {
-            "type": "string",
-            "nullable": true
-          },
-          "StepNumber": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "Type": {
-            "type": "string",
-            "nullable": true
-          },
-          "Command": {
-            "type": "string",
-            "nullable": true
-          },
-          "OnSuccessActionDisplay": {
-            "type": "string",
-            "nullable": true
-          },
-          "OnFailureActionDisplay": {
-            "type": "string",
-            "nullable": true
-          },
-          "OnSuccessAction": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "RetryAttempts": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "RetryInterval": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "OnFailureAction": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "OnSuccessTaskStepsId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "OnFailureTaskStepsId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "OutputFilename": {
-            "type": "string",
-            "nullable": true
-          },
-          "LastRunOutcome": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "LastRunDuration": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "LastRunRetries": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "DateStamp": {
-            "type": "string",
             "nullable": true
           },
           "AuditNote": {
@@ -22686,6 +22594,257 @@
             "nullable": true
           },
           "ModifiedDateTime": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontSettings": {
+        "type": "object",
+        "properties": {
+          "IsStorefrontEnabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "IsAnonymousAccessEnabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "RegisterEnabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "SeparateQuoteRequestsByCatalog": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "MakeQuoteRequestIntoOrderOnSubmission": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "FilterCatalogsByLocation": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "PhoneNoRequiredOnRegistrationForm": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ShowDescriptionOnCheckout": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "IsUniversity": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "StudentIdRequiredOnRegistrationForm": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AutoplaySpeed": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "AutoplayImagesOnLandingPage": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AutoplayImagesOnProductBrowser": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AutoplayImagesOnProductDetails": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ImagesTransitionEffect": {
+            "type": "string",
+            "nullable": true
+          },
+          "ImagesTransitionSpeed": {
+            "type": "string",
+            "nullable": true
+          },
+          "HomepageShowSiteHeader": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HomepageShowHeroSection": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HomepageHeroSectionHeading1": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontTranslatedText"
+          },
+          "HomepageHeroSectionHeading2": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontTranslatedText"
+          },
+          "HomepageHeroSectionHeading3": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontTranslatedText"
+          },
+          "HomepageCatalogItemWidth": {
+            "type": "string",
+            "nullable": true
+          },
+          "HomepageCatalogItemHeight": {
+            "type": "string",
+            "nullable": true
+          },
+          "HomepageShowFooter": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "HomepageFooterText": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontTranslatedText"
+          },
+          "LandingPageShowCategoryBrowser": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "LandingPageCategoryBrowserItemWidth": {
+            "type": "string",
+            "nullable": true
+          },
+          "ShowReservationHourFields": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ToDateAdjustmentDays": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "EnableHoursOfOperation": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "OpenTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "CloseTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "EnableOpenDays": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "OpenSunday": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "OpenMonday": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "OpenTuesday": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "OpenWednesday": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "OpenThursday": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "OpenFriday": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "OpenSaturday": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ShowOwnedQty": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ShowAvailabilityCalendar": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "InitialAvailabilityCalendarView": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertyDataTypes": {
+        "enum": [
+          "Boolean",
+          "Text",
+          "TranslatedText",
+          "DropDown",
+          "Number",
+          "TimePicker24"
+        ],
+        "type": "string"
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertySchema": {
+        "type": "object",
+        "properties": {
+          "Group": {
+            "type": "string",
+            "nullable": true
+          },
+          "Caption": {
+            "type": "string",
+            "nullable": true
+          },
+          "PropertyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "DataType": {
+            "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertyDataTypes"
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertySchemaValidValue"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontSettingsPropertySchemaValidValue": {
+        "type": "object",
+        "properties": {
+          "caption": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WebApi.Modules.Integrations.Storefront.StorefrontTranslatedText": {
+        "type": "object",
+        "properties": {
+          "en": {
+            "type": "string",
+            "nullable": true
+          },
+          "es": {
+            "type": "string",
+            "nullable": true
+          },
+          "fr": {
             "type": "string",
             "nullable": true
           }

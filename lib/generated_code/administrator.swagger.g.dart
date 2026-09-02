@@ -27,6 +27,21 @@ _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
   instance,
 ) => <String, dynamic>{'downloadUrl': ?instance.downloadUrl};
 
+FwCoreControllersGetServerUtcDateTimeResponse
+_$FwCoreControllersGetServerUtcDateTimeResponseFromJson(
+  Map<String, dynamic> json,
+) => FwCoreControllersGetServerUtcDateTimeResponse(
+  serverUtcDateTime: json['ServerUtcDateTime'] == null
+      ? null
+      : DateTime.parse(json['ServerUtcDateTime'] as String),
+);
+
+Map<String, dynamic> _$FwCoreControllersGetServerUtcDateTimeResponseToJson(
+  FwCoreControllersGetServerUtcDateTimeResponse instance,
+) => <String, dynamic>{
+  'ServerUtcDateTime': ?instance.serverUtcDateTime?.toIso8601String(),
+};
+
 FwStandardAppManagerFwAmSecurityTreeNode
 _$FwStandardAppManagerFwAmSecurityTreeNodeFromJson(Map<String, dynamic> json) =>
     FwStandardAppManagerFwAmSecurityTreeNode(
@@ -309,7 +324,8 @@ FwStandardModelsBrowseRequest _$FwStandardModelsBrowseRequestFromJson(
           .toList() ??
       [],
   activeviewfields: json['activeviewfields'] as Map<String, dynamic>?,
-  timezoneOffset: (json['timezoneOffset'] as num?)?.toInt(),
+  timezoneOffset: (json['timezoneOffset'] as num?)?.toDouble(),
+  locale: json['Locale'] as String?,
 );
 
 Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
@@ -342,6 +358,7 @@ Map<String, dynamic> _$FwStandardModelsBrowseRequestToJson(
   'totalfields': ?instance.totalfields,
   'activeviewfields': ?instance.activeviewfields,
   'timezoneOffset': ?instance.timezoneOffset,
+  'Locale': ?instance.locale,
 };
 
 FwStandardModelsCheckBoxListItem _$FwStandardModelsCheckBoxListItemFromJson(
@@ -1185,39 +1202,6 @@ _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemUpdateHistoryLo
   'Sort': ?instance.sort,
 };
 
-FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-  Map<String, dynamic> json,
-) =>
-    FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items:
-          (json['Items'] as List<dynamic>?)
-              ?.map(
-                (e) =>
-                    WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-                      e as Map<String, dynamic>,
-                    ),
-              )
-              .toList() ??
-          [],
-      pageNo: (json['PageNo'] as num?)?.toInt(),
-      pageSize: (json['PageSize'] as num?)?.toInt(),
-      totalItems: (json['TotalItems'] as num?)?.toInt(),
-      sort: json['Sort'] as String?,
-    );
-
-Map<String, dynamic>
-_$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  instance,
-) => <String, dynamic>{
-  'Items': ?instance.items?.map((e) => e.toJson()).toList(),
-  'PageNo': ?instance.pageNo,
-  'PageSize': ?instance.pageSize,
-  'TotalItems': ?instance.totalItems,
-  'Sort': ?instance.sort,
-};
-
 FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic
 _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogicFromJson(
   Map<String, dynamic> json,
@@ -1841,6 +1825,8 @@ _$FwStandardModulesAdministratorCustomFormCustomFormLogicFromJson(
   active: json['Active'] as bool?,
   inactive: json['Inactive'] as bool?,
   assignTo: json['AssignTo'] as String?,
+  metaData1: json['MetaData1'] as String?,
+  metaData2: json['MetaData2'] as String?,
   selfAssign: json['SelfAssign'] as bool?,
   dateStamp: json['DateStamp'] as String?,
   auditNote: json['AuditNote'] as String?,
@@ -1910,6 +1896,8 @@ _$FwStandardModulesAdministratorCustomFormCustomFormLogicToJson(
   'Active': ?instance.active,
   'Inactive': ?instance.inactive,
   'AssignTo': ?instance.assignTo,
+  'MetaData1': ?instance.metaData1,
+  'MetaData2': ?instance.metaData2,
   'SelfAssign': ?instance.selfAssign,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
@@ -2984,30 +2972,6 @@ _$FwStandardModulesAdministratorSystemUpdateGetVersionHotfixResponseToJson(
   'Hotfix': ?instance.hotfix,
 };
 
-FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest
-_$FwStandardModulesAdministratorSystemUpdateNextQaVersionRequestFromJson(
-  Map<String, dynamic> json,
-) => FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest(
-  currentVersion: json['CurrentVersion'] as String?,
-);
-
-Map<String, dynamic>
-_$FwStandardModulesAdministratorSystemUpdateNextQaVersionRequestToJson(
-  FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest instance,
-) => <String, dynamic>{'CurrentVersion': ?instance.currentVersion};
-
-FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse
-_$FwStandardModulesAdministratorSystemUpdateNextQaVersionResponseFromJson(
-  Map<String, dynamic> json,
-) => FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse(
-  nextQaVersion: json['NextQaVersion'] as String?,
-);
-
-Map<String, dynamic>
-_$FwStandardModulesAdministratorSystemUpdateNextQaVersionResponseToJson(
-  FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse instance,
-) => <String, dynamic>{'NextQaVersion': ?instance.nextQaVersion};
-
 FwStandardModulesAdministratorSystemUpdateRestartRequest
 _$FwStandardModulesAdministratorSystemUpdateRestartRequestFromJson(
   Map<String, dynamic> json,
@@ -3653,6 +3617,40 @@ Map<String, dynamic> _$FwStandardSqlServerTSpStatusResponseToJson(
   'msg': ?instance.msg,
 };
 
+MicrosoftAspNetCoreMvcActionResult _$MicrosoftAspNetCoreMvcActionResultFromJson(
+  Map<String, dynamic> json,
+) => MicrosoftAspNetCoreMvcActionResult();
+
+Map<String, dynamic> _$MicrosoftAspNetCoreMvcActionResultToJson(
+  MicrosoftAspNetCoreMvcActionResult instance,
+) => <String, dynamic>{};
+
+MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic
+_$MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogicFromJson(
+  Map<String, dynamic> json,
+) =>
+    MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic(
+      result: json['Result'] == null
+          ? null
+          : MicrosoftAspNetCoreMvcActionResult.fromJson(
+              json['Result'] as Map<String, dynamic>,
+            ),
+      value: json['Value'] == null
+          ? null
+          : FwStandardModulesAdministratorAlertAlertLogic.fromJson(
+              json['Value'] as Map<String, dynamic>,
+            ),
+    );
+
+Map<String, dynamic>
+_$MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogicToJson(
+  MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic
+  instance,
+) => <String, dynamic>{
+  'Result': ?instance.result?.toJson(),
+  'Value': ?instance.value?.toJson(),
+};
+
 WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistory
 _$WebApiModulesAdministratorCreateNewSystemHistoryCreateNewSystemHistoryFromJson(
   Map<String, dynamic> json,
@@ -3953,6 +3951,32 @@ Map<String, dynamic> _$WebApiModulesAdministratorCustomFieldCustomFieldToJson(
   'ModifiedByUserId': ?instance.modifiedByUserId,
   'ModifiedByUserName': ?instance.modifiedByUserName,
   'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
+WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest
+_$WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequestFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest(
+      baseForm: json['BaseForm'] as String?,
+      metaData1: json['MetaData1'] as String?,
+      metaData2: json['MetaData2'] as String?,
+      customFormId: json['CustomFormId'] as String?,
+      summary: json['Summary'] as bool?,
+      rollup: json['Rollup'] as bool?,
+    );
+
+Map<String, dynamic>
+_$WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequestToJson(
+  WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest
+  instance,
+) => <String, dynamic>{
+  'BaseForm': ?instance.baseForm,
+  'MetaData1': ?instance.metaData1,
+  'MetaData2': ?instance.metaData2,
+  'CustomFormId': ?instance.customFormId,
+  'Summary': ?instance.summary,
+  'Rollup': ?instance.rollup,
 };
 
 WebApiModulesAdministratorCustomReportLayoutCustomReportLayoutControllerCustomReportLayoutResponse
@@ -4595,6 +4619,46 @@ Map<String, dynamic> _$WebApiModulesAdministratorPluginStatusResponseToJson(
   'ResponseText': ?instance.responseText,
 };
 
+WebApiModulesAdministratorPortalSetupPortalSettings
+_$WebApiModulesAdministratorPortalSetupPortalSettingsFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesAdministratorPortalSetupPortalSettings(
+  enablePortal: json['EnablePortal'] as bool?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesAdministratorPortalSetupPortalSettingsToJson(
+  WebApiModulesAdministratorPortalSetupPortalSettings instance,
+) => <String, dynamic>{'EnablePortal': ?instance.enablePortal};
+
+WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema
+_$WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchemaFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema(
+  group: json['Group'] as String?,
+  caption: json['Caption'] as String?,
+  propertyName: json['PropertyName'] as String?,
+  dataType:
+      webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesNullableFromJson(
+        json['DataType'],
+      ),
+  description: json['Description'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchemaToJson(
+  WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema instance,
+) => <String, dynamic>{
+  'Group': ?instance.group,
+  'Caption': ?instance.caption,
+  'PropertyName': ?instance.propertyName,
+  'DataType':
+      ?webApiModulesAdministratorPortalSetupPortalSettingsPropertyDataTypesNullableToJson(
+        instance.dataType,
+      ),
+  'Description': ?instance.description,
+};
+
 WebApiModulesAdministratorQuikScanSetupQuikScanSettings
 _$WebApiModulesAdministratorQuikScanSetupQuikScanSettingsFromJson(
   Map<String, dynamic> json,
@@ -4859,125 +4923,6 @@ _$WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLogToJson(
   'SystemUpdateHistoryLogId': ?instance.systemUpdateHistoryLogId,
   'SystemUpdateHistoryId': ?instance.systemUpdateHistoryId,
   'Messsage': ?instance.messsage,
-  'DateStamp': ?instance.dateStamp,
-  'AuditNote': ?instance.auditNote,
-  'RecordTitle': ?instance.recordTitle,
-  'UrlIdentifier': ?instance.urlIdentifier,
-  '_Fields': ?instance.fields?.map((e) => e.toJson()).toList(),
-  '_Custom': ?instance.custom?.map((e) => e.toJson()).toList(),
-  '_DefaultFieldAttributes': ?instance.defaultFieldAttributes
-      ?.map((e) => e.toJson())
-      .toList(),
-  '_Original': ?instance.original?.toJson(),
-  '_Translation': ?instance.translation?.map((e) => e.toJson()).toList(),
-  '_HasImport': ?instance.hasImport,
-  '_HasDocuments': ?instance.hasDocuments,
-  'CreatedByUserId': ?instance.createdByUserId,
-  'CreatedByUserName': ?instance.createdByUserName,
-  'CreatedDateTime': ?instance.createdDateTime,
-  'ModifiedByUserId': ?instance.modifiedByUserId,
-  'ModifiedByUserName': ?instance.modifiedByUserName,
-  'ModifiedDateTime': ?instance.modifiedDateTime,
-};
-
-WebApiModulesAdministratorTaskSchedulerTaskSteps
-_$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(
-  Map<String, dynamic> json,
-) => WebApiModulesAdministratorTaskSchedulerTaskSteps(
-  taskStepsId: (json['TaskStepsId'] as num?)?.toInt(),
-  taskId: (json['TaskId'] as num?)?.toInt(),
-  name: json['Name'] as String?,
-  stepNumber: (json['StepNumber'] as num?)?.toInt(),
-  type: json['Type'] as String?,
-  command: json['Command'] as String?,
-  onSuccessActionDisplay: json['OnSuccessActionDisplay'] as String?,
-  onFailureActionDisplay: json['OnFailureActionDisplay'] as String?,
-  onSuccessAction: (json['OnSuccessAction'] as num?)?.toInt(),
-  retryAttempts: (json['RetryAttempts'] as num?)?.toInt(),
-  retryInterval: (json['RetryInterval'] as num?)?.toInt(),
-  onFailureAction: (json['OnFailureAction'] as num?)?.toInt(),
-  onSuccessTaskStepsId: (json['OnSuccessTaskStepsId'] as num?)?.toInt(),
-  onFailureTaskStepsId: (json['OnFailureTaskStepsId'] as num?)?.toInt(),
-  outputFilename: json['OutputFilename'] as String?,
-  lastRunOutcome: (json['LastRunOutcome'] as num?)?.toInt(),
-  lastRunDuration: (json['LastRunDuration'] as num?)?.toInt(),
-  lastRunRetries: (json['LastRunRetries'] as num?)?.toInt(),
-  dateStamp: json['DateStamp'] as String?,
-  auditNote: json['AuditNote'] as String?,
-  recordTitle: json['RecordTitle'] as String?,
-  urlIdentifier: json['UrlIdentifier'],
-  fields:
-      (json['_Fields'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardBusinessLogicFwBusinessLogicFieldDefinition.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList() ??
-      [],
-  custom:
-      (json['_Custom'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                FwStandardDataFwCustomValue.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      [],
-  defaultFieldAttributes:
-      (json['_DefaultFieldAttributes'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwDefaultAttribute.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  original: json['_Original'] == null
-      ? null
-      : FwStandardBusinessLogicFwBusinessLogic.fromJson(
-          json['_Original'] as Map<String, dynamic>,
-        ),
-  translation:
-      (json['_Translation'] as List<dynamic>?)
-          ?.map(
-            (e) => FwStandardDataFwTranslatedValue.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList() ??
-      [],
-  hasImport: json['_HasImport'] as bool?,
-  hasDocuments: json['_HasDocuments'] as bool?,
-  createdByUserId: json['CreatedByUserId'] as String?,
-  createdByUserName: json['CreatedByUserName'] as String?,
-  createdDateTime: json['CreatedDateTime'] as String?,
-  modifiedByUserId: json['ModifiedByUserId'] as String?,
-  modifiedByUserName: json['ModifiedByUserName'] as String?,
-  modifiedDateTime: json['ModifiedDateTime'] as String?,
-);
-
-Map<String, dynamic> _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(
-  WebApiModulesAdministratorTaskSchedulerTaskSteps instance,
-) => <String, dynamic>{
-  'TaskStepsId': ?instance.taskStepsId,
-  'TaskId': ?instance.taskId,
-  'Name': ?instance.name,
-  'StepNumber': ?instance.stepNumber,
-  'Type': ?instance.type,
-  'Command': ?instance.command,
-  'OnSuccessActionDisplay': ?instance.onSuccessActionDisplay,
-  'OnFailureActionDisplay': ?instance.onFailureActionDisplay,
-  'OnSuccessAction': ?instance.onSuccessAction,
-  'RetryAttempts': ?instance.retryAttempts,
-  'RetryInterval': ?instance.retryInterval,
-  'OnFailureAction': ?instance.onFailureAction,
-  'OnSuccessTaskStepsId': ?instance.onSuccessTaskStepsId,
-  'OnFailureTaskStepsId': ?instance.onFailureTaskStepsId,
-  'OutputFilename': ?instance.outputFilename,
-  'LastRunOutcome': ?instance.lastRunOutcome,
-  'LastRunDuration': ?instance.lastRunDuration,
-  'LastRunRetries': ?instance.lastRunRetries,
   'DateStamp': ?instance.dateStamp,
   'AuditNote': ?instance.auditNote,
   'RecordTitle': ?instance.recordTitle,
@@ -6028,6 +5973,208 @@ _$WebApiModulesAdministratorControlsCustomReportLayoutGroupCustomReportLayoutGro
   'ModifiedByUserId': ?instance.modifiedByUserId,
   'ModifiedByUserName': ?instance.modifiedByUserName,
   'ModifiedDateTime': ?instance.modifiedDateTime,
+};
+
+WebApiModulesIntegrationsStorefrontStorefrontSettings
+_$WebApiModulesIntegrationsStorefrontStorefrontSettingsFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesIntegrationsStorefrontStorefrontSettings(
+  isStorefrontEnabled: json['IsStorefrontEnabled'] as bool?,
+  isAnonymousAccessEnabled: json['IsAnonymousAccessEnabled'] as bool?,
+  registerEnabled: json['RegisterEnabled'] as bool?,
+  separateQuoteRequestsByCatalog:
+      json['SeparateQuoteRequestsByCatalog'] as bool?,
+  makeQuoteRequestIntoOrderOnSubmission:
+      json['MakeQuoteRequestIntoOrderOnSubmission'] as bool?,
+  filterCatalogsByLocation: json['FilterCatalogsByLocation'] as bool?,
+  phoneNoRequiredOnRegistrationForm:
+      json['PhoneNoRequiredOnRegistrationForm'] as bool?,
+  showDescriptionOnCheckout: json['ShowDescriptionOnCheckout'] as bool?,
+  isUniversity: json['IsUniversity'] as bool?,
+  studentIdRequiredOnRegistrationForm:
+      json['StudentIdRequiredOnRegistrationForm'] as bool?,
+  autoplaySpeed: (json['AutoplaySpeed'] as num?)?.toDouble(),
+  autoplayImagesOnLandingPage: json['AutoplayImagesOnLandingPage'] as bool?,
+  autoplayImagesOnProductBrowser:
+      json['AutoplayImagesOnProductBrowser'] as bool?,
+  autoplayImagesOnProductDetails:
+      json['AutoplayImagesOnProductDetails'] as bool?,
+  imagesTransitionEffect: json['ImagesTransitionEffect'] as String?,
+  imagesTransitionSpeed: json['ImagesTransitionSpeed'] as String?,
+  homepageShowSiteHeader: json['HomepageShowSiteHeader'] as bool?,
+  homepageShowHeroSection: json['HomepageShowHeroSection'] as bool?,
+  homepageHeroSectionHeading1: json['HomepageHeroSectionHeading1'] == null
+      ? null
+      : WebApiModulesIntegrationsStorefrontStorefrontTranslatedText.fromJson(
+          json['HomepageHeroSectionHeading1'] as Map<String, dynamic>,
+        ),
+  homepageHeroSectionHeading2: json['HomepageHeroSectionHeading2'] == null
+      ? null
+      : WebApiModulesIntegrationsStorefrontStorefrontTranslatedText.fromJson(
+          json['HomepageHeroSectionHeading2'] as Map<String, dynamic>,
+        ),
+  homepageHeroSectionHeading3: json['HomepageHeroSectionHeading3'] == null
+      ? null
+      : WebApiModulesIntegrationsStorefrontStorefrontTranslatedText.fromJson(
+          json['HomepageHeroSectionHeading3'] as Map<String, dynamic>,
+        ),
+  homepageCatalogItemWidth: json['HomepageCatalogItemWidth'] as String?,
+  homepageCatalogItemHeight: json['HomepageCatalogItemHeight'] as String?,
+  homepageShowFooter: json['HomepageShowFooter'] as bool?,
+  homepageFooterText: json['HomepageFooterText'] == null
+      ? null
+      : WebApiModulesIntegrationsStorefrontStorefrontTranslatedText.fromJson(
+          json['HomepageFooterText'] as Map<String, dynamic>,
+        ),
+  landingPageShowCategoryBrowser:
+      json['LandingPageShowCategoryBrowser'] as bool?,
+  landingPageCategoryBrowserItemWidth:
+      json['LandingPageCategoryBrowserItemWidth'] as String?,
+  showReservationHourFields: json['ShowReservationHourFields'] as bool?,
+  toDateAdjustmentDays: (json['ToDateAdjustmentDays'] as num?)?.toDouble(),
+  enableHoursOfOperation: json['EnableHoursOfOperation'] as bool?,
+  openTime: json['OpenTime'] as String?,
+  closeTime: json['CloseTime'] as String?,
+  enableOpenDays: json['EnableOpenDays'] as bool?,
+  openSunday: json['OpenSunday'] as bool?,
+  openMonday: json['OpenMonday'] as bool?,
+  openTuesday: json['OpenTuesday'] as bool?,
+  openWednesday: json['OpenWednesday'] as bool?,
+  openThursday: json['OpenThursday'] as bool?,
+  openFriday: json['OpenFriday'] as bool?,
+  openSaturday: json['OpenSaturday'] as bool?,
+  showOwnedQty: json['ShowOwnedQty'] as bool?,
+  showAvailabilityCalendar: json['ShowAvailabilityCalendar'] as bool?,
+  initialAvailabilityCalendarView:
+      json['InitialAvailabilityCalendarView'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesIntegrationsStorefrontStorefrontSettingsToJson(
+  WebApiModulesIntegrationsStorefrontStorefrontSettings instance,
+) => <String, dynamic>{
+  'IsStorefrontEnabled': ?instance.isStorefrontEnabled,
+  'IsAnonymousAccessEnabled': ?instance.isAnonymousAccessEnabled,
+  'RegisterEnabled': ?instance.registerEnabled,
+  'SeparateQuoteRequestsByCatalog': ?instance.separateQuoteRequestsByCatalog,
+  'MakeQuoteRequestIntoOrderOnSubmission':
+      ?instance.makeQuoteRequestIntoOrderOnSubmission,
+  'FilterCatalogsByLocation': ?instance.filterCatalogsByLocation,
+  'PhoneNoRequiredOnRegistrationForm':
+      ?instance.phoneNoRequiredOnRegistrationForm,
+  'ShowDescriptionOnCheckout': ?instance.showDescriptionOnCheckout,
+  'IsUniversity': ?instance.isUniversity,
+  'StudentIdRequiredOnRegistrationForm':
+      ?instance.studentIdRequiredOnRegistrationForm,
+  'AutoplaySpeed': ?instance.autoplaySpeed,
+  'AutoplayImagesOnLandingPage': ?instance.autoplayImagesOnLandingPage,
+  'AutoplayImagesOnProductBrowser': ?instance.autoplayImagesOnProductBrowser,
+  'AutoplayImagesOnProductDetails': ?instance.autoplayImagesOnProductDetails,
+  'ImagesTransitionEffect': ?instance.imagesTransitionEffect,
+  'ImagesTransitionSpeed': ?instance.imagesTransitionSpeed,
+  'HomepageShowSiteHeader': ?instance.homepageShowSiteHeader,
+  'HomepageShowHeroSection': ?instance.homepageShowHeroSection,
+  'HomepageHeroSectionHeading1': ?instance.homepageHeroSectionHeading1
+      ?.toJson(),
+  'HomepageHeroSectionHeading2': ?instance.homepageHeroSectionHeading2
+      ?.toJson(),
+  'HomepageHeroSectionHeading3': ?instance.homepageHeroSectionHeading3
+      ?.toJson(),
+  'HomepageCatalogItemWidth': ?instance.homepageCatalogItemWidth,
+  'HomepageCatalogItemHeight': ?instance.homepageCatalogItemHeight,
+  'HomepageShowFooter': ?instance.homepageShowFooter,
+  'HomepageFooterText': ?instance.homepageFooterText?.toJson(),
+  'LandingPageShowCategoryBrowser': ?instance.landingPageShowCategoryBrowser,
+  'LandingPageCategoryBrowserItemWidth':
+      ?instance.landingPageCategoryBrowserItemWidth,
+  'ShowReservationHourFields': ?instance.showReservationHourFields,
+  'ToDateAdjustmentDays': ?instance.toDateAdjustmentDays,
+  'EnableHoursOfOperation': ?instance.enableHoursOfOperation,
+  'OpenTime': ?instance.openTime,
+  'CloseTime': ?instance.closeTime,
+  'EnableOpenDays': ?instance.enableOpenDays,
+  'OpenSunday': ?instance.openSunday,
+  'OpenMonday': ?instance.openMonday,
+  'OpenTuesday': ?instance.openTuesday,
+  'OpenWednesday': ?instance.openWednesday,
+  'OpenThursday': ?instance.openThursday,
+  'OpenFriday': ?instance.openFriday,
+  'OpenSaturday': ?instance.openSaturday,
+  'ShowOwnedQty': ?instance.showOwnedQty,
+  'ShowAvailabilityCalendar': ?instance.showAvailabilityCalendar,
+  'InitialAvailabilityCalendarView': ?instance.initialAvailabilityCalendarView,
+};
+
+WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema
+_$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema(
+  group: json['Group'] as String?,
+  caption: json['Caption'] as String?,
+  propertyName: json['PropertyName'] as String?,
+  dataType:
+      webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesNullableFromJson(
+        json['DataType'],
+      ),
+  description: json['Description'] as String?,
+  validValues:
+      (json['ValidValues'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList() ??
+      [],
+);
+
+Map<String, dynamic>
+_$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaToJson(
+  WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema instance,
+) => <String, dynamic>{
+  'Group': ?instance.group,
+  'Caption': ?instance.caption,
+  'PropertyName': ?instance.propertyName,
+  'DataType':
+      ?webApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypesNullableToJson(
+        instance.dataType,
+      ),
+  'Description': ?instance.description,
+  'ValidValues': ?instance.validValues?.map((e) => e.toJson()).toList(),
+};
+
+WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+_$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueFromJson(
+  Map<String, dynamic> json,
+) =>
+    WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue(
+      caption: json['caption'] as String?,
+      value: json['value'] as String?,
+    );
+
+Map<String, dynamic>
+_$WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValueToJson(
+  WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchemaValidValue
+  instance,
+) => <String, dynamic>{'caption': ?instance.caption, 'value': ?instance.value};
+
+WebApiModulesIntegrationsStorefrontStorefrontTranslatedText
+_$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextFromJson(
+  Map<String, dynamic> json,
+) => WebApiModulesIntegrationsStorefrontStorefrontTranslatedText(
+  en: json['en'] as String?,
+  es: json['es'] as String?,
+  fr: json['fr'] as String?,
+);
+
+Map<String, dynamic>
+_$WebApiModulesIntegrationsStorefrontStorefrontTranslatedTextToJson(
+  WebApiModulesIntegrationsStorefrontStorefrontTranslatedText instance,
+) => <String, dynamic>{
+  'en': ?instance.en,
+  'es': ?instance.es,
+  'fr': ?instance.fr,
 };
 
 WebApiModulesSharedControlsCustomReportLayoutUserCustomReportLayoutUser

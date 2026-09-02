@@ -234,6 +234,44 @@ final class _$Administrator extends Administrator {
   }
 
   @override
+  Future<
+    Response<
+      List<
+        MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic
+      >
+    >
+  >
+  _alertManyPost({
+    required List<FwStandardModulesAdministratorAlertAlertLogic>? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Alert"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/alert/many');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<
+        MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic
+      >,
+      MicrosoftAspNetCoreMvcActionResultFwStandardModulesAdministratorAlertAlertLogic
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>>
   _alertconditionBrowsePost({
     required FwStandardModelsBrowseRequest? body,
@@ -1685,6 +1723,56 @@ final class _$Administrator extends Administrator {
       FwStandardModelsCopyLogicResponse,
       FwStandardModelsCopyLogicResponse
     >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _customformOrderitemgridshowfieldsGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CustomForm"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/customform/orderitemgridshowfields');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<Response<bool>> _customformLastusedtemplatePost({
+    required WebApiModulesAdministratorCustomFormCustomFormControllerLastUsedTemplateRequest?
+    body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["CustomForm"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/customform/lastusedtemplate');
+    final $body = body;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<bool, bool>($request);
   }
 
   @override
@@ -4449,6 +4537,33 @@ final class _$Administrator extends Administrator {
   }
 
   @override
+  Future<Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FwUtility"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/fwutility/serverutcdatetime');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      FwCoreControllersGetServerUtcDateTimeResponse
+    >($request);
+  }
+
+  @override
   Future<Response<FwStandardSqlServerFwJsonDataTable>> _groupBrowsePost({
     required FwStandardModelsBrowseRequest? body,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -5431,6 +5546,90 @@ final class _$Administrator extends Administrator {
   @override
   Future<
     Response<
+      List<WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema>
+    >
+  >
+  _portalsetupSettingsSchemaGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns Portal settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PortalSetup"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/portalsetup/settings/schema');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema>,
+      WebApiModulesAdministratorPortalSetupPortalSettingsPropertySchema
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesAdministratorPortalSetupPortalSettings>>
+  _portalsetupSettingsGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns quikscan settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PortalSetup"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/portalsetup/settings');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesAdministratorPortalSetupPortalSettings,
+      WebApiModulesAdministratorPortalSetupPortalSettings
+    >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _portalsetupSettingsPut({
+    required WebApiModulesAdministratorPortalSetupPortalSettings? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Update quikscan settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PortalSetup"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/portalsetup/settings');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<
+    Response<
       List<
         WebApiModulesAdministratorQuikScanSetupQuikScanSettingsPropertySchema
       >
@@ -5700,6 +5899,90 @@ final class _$Administrator extends Administrator {
 
   @override
   Future<
+    Response<
+      List<WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema>
+    >
+  >
+  _storefrontsetupSettingsSchemaGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns storefront settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StorefrontSetup"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/storefrontsetup/settings/schema');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      List<WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema>,
+      WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertySchema
+    >($request);
+  }
+
+  @override
+  Future<Response<WebApiModulesIntegrationsStorefrontStorefrontSettings>>
+  _storefrontsetupSettingsGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Returns storefront settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StorefrontSetup"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/storefrontsetup/settings');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      WebApiModulesIntegrationsStorefrontStorefrontSettings,
+      WebApiModulesIntegrationsStorefrontStorefrontSettings
+    >($request);
+  }
+
+  @override
+  Future<Response<dynamic>> _storefrontsetupSettingsPut({
+    required WebApiModulesIntegrationsStorefrontStorefrontSettings? body,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Update storefront settings.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["StorefrontSetup"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/storefrontsetup/settings');
+    final $body = body;
+    final Request $request = Request(
+      'PUT',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
+  Future<
     Response<FwStandardModulesAdministratorSystemUpdateGetVersionHotfixResponse>
   >
   _systemupdateVersionhotfixPost({
@@ -5863,39 +6146,6 @@ final class _$Administrator extends Administrator {
     return client.send<
       FwStandardModulesAdministratorSystemUpdateApplyUpdateResponse,
       FwStandardModulesAdministratorSystemUpdateApplyUpdateResponse
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse>
-  >
-  _systemupdateNextqaversionPost({
-    required FwStandardModulesAdministratorSystemUpdateNextQaVersionRequest?
-    body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["SystemUpdate"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/systemupdate/nextqaversion');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse,
-      FwStandardModulesAdministratorSystemUpdateNextQaVersionResponse
     >($request);
   }
 
@@ -6257,225 +6507,6 @@ final class _$Administrator extends Administrator {
       WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog,
       WebApiModulesAdministratorSystemUpdateHistoryLogSystemUpdateHistoryLog
     >($request);
-  }
-
-  @override
-  Future<Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/browse');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardSqlServerFwJsonDataTable,
-      FwStandardSqlServerFwJsonDataTable
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/exportexcelxlsx');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >($request);
-  }
-
-  @override
-  Future<
-    Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
-    final Map<String, dynamic> $params = <String, dynamic>{
-      'pageno': pageno,
-      'pagesize': pagesize,
-      'sort': sort,
-      'filter': filter,
-    };
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      parameters: $params,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps');
-    final $body = body;
-    final Request $request = Request(
-      'POST',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final Request $request = Request(
-      'GET',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final $body = body;
-    final Request $request = Request(
-      'PUT',
-      $url,
-      client.baseUrl,
-      body: $body,
-      tag: swaggerMetaData,
-    );
-    return client.send<
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      WebApiModulesAdministratorTaskSchedulerTaskSteps
-    >($request);
-  }
-
-  @override
-  Future<Response<bool>> _taskschedulerTaskstepsIdDelete({
-    required String? id,
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  }) {
-    final Uri $url = Uri.parse('/taskscheduler/tasksteps/${id}');
-    final Request $request = Request(
-      'DELETE',
-      $url,
-      client.baseUrl,
-      tag: swaggerMetaData,
-    );
-    return client.send<bool, bool>($request);
   }
 
   @override

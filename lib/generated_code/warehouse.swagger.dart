@@ -5,15 +5,19 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:json_annotation/json_annotation.dart' as json;
 import 'package:collection/collection.dart';
+
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
 
 import 'client_mapping.dart';
+
 import 'dart:async';
+
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
+
 import 'warehouse.enums.swagger.dart' as enums;
 import 'warehouse.metadata.swagger.dart';
 export 'warehouse.enums.swagger.dart';
@@ -438,23 +442,20 @@ abstract class Warehouse extends ChopperService {
   });
 
   ///
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  fwutilityServerutcdatetimeGet() {
     generatedMapping.putIfAbsent(
-      FwStandardSqlServerFwJsonDataTable,
-      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      () => FwCoreControllersGetServerUtcDateTimeResponse.fromJsonFactory,
     );
 
-    return _taskschedulerTaskstepsBrowsePost(body: body);
+    return _fwutilityServerutcdatetimeGet();
   }
 
   ///
-  @POST(path: '/taskscheduler/tasksteps/browse', optionalBody: true)
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    @Body() required FwStandardModelsBrowseRequest? body,
+  @GET(path: '/fwutility/serverutcdatetime')
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -463,231 +464,7 @@ abstract class Warehouse extends ChopperService {
       consumes: [],
       produces: [],
       security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      () =>
-          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsExportexcelxlsxPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/exportexcelxlsx', optionalBody: true)
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      () =>
-          FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsGet(
-      pageno: pageno,
-      pagesize: pagesize,
-      sort: sort,
-      filter: filter,
-    );
-  }
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  @GET(path: '/taskscheduler/tasksteps')
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    @Query('pageno') int? pageno,
-    @Query('pagesize') int? pagesize,
-    @Query('sort') String? sort,
-    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdGet({required String? id}) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdGet(id: id);
-  }
-
-  ///
-  ///@param id
-  @GET(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdPut(id: id, body: body);
-  }
-
-  ///
-  ///@param id
-  @PUT(path: '/taskscheduler/tasksteps/{id}', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    @Path('id') required String? id,
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<bool>> taskschedulerTaskstepsIdDelete({
-    required String? id,
-  }) {
-    return _taskschedulerTaskstepsIdDelete(id: id);
-  }
-
-  ///
-  ///@param id
-  @DELETE(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<bool>> _taskschedulerTaskstepsIdDelete({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
+      tags: ["FwUtility"],
       deprecated: false,
     ),
   });
@@ -773,6 +550,65 @@ extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResu
   copyWithWrapped({Wrapped<String?>? downloadUrl}) {
     return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
       downloadUrl: (downloadUrl != null ? downloadUrl.value : this.downloadUrl),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class FwCoreControllersGetServerUtcDateTimeResponse {
+  const FwCoreControllersGetServerUtcDateTimeResponse({this.serverUtcDateTime});
+
+  factory FwCoreControllersGetServerUtcDateTimeResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$FwCoreControllersGetServerUtcDateTimeResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson(this);
+
+  @JsonKey(name: 'ServerUtcDateTime', includeIfNull: false)
+  final DateTime? serverUtcDateTime;
+  static const fromJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is FwCoreControllersGetServerUtcDateTimeResponse &&
+            (identical(other.serverUtcDateTime, serverUtcDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.serverUtcDateTime,
+                  serverUtcDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(serverUtcDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $FwCoreControllersGetServerUtcDateTimeResponseExtension
+    on FwCoreControllersGetServerUtcDateTimeResponse {
+  FwCoreControllersGetServerUtcDateTimeResponse copyWith({
+    DateTime? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: serverUtcDateTime ?? this.serverUtcDateTime,
+    );
+  }
+
+  FwCoreControllersGetServerUtcDateTimeResponse copyWithWrapped({
+    Wrapped<DateTime?>? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: (serverUtcDateTime != null
+          ? serverUtcDateTime.value
+          : this.serverUtcDateTime),
     );
   }
 }
@@ -1650,6 +1486,7 @@ class FwStandardModelsBrowseRequest {
     this.totalfields,
     this.activeviewfields,
     this.timezoneOffset,
+    this.locale,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -1739,7 +1576,9 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
   @JsonKey(name: 'timezoneOffset', includeIfNull: false)
-  final int? timezoneOffset;
+  final double? timezoneOffset;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -1868,7 +1707,9 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.timezoneOffset,
                   timezoneOffset,
-                )));
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)));
   }
 
   @override
@@ -1903,6 +1744,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
       const DeepCollectionEquality().hash(timezoneOffset) ^
+      const DeepCollectionEquality().hash(locale) ^
       runtimeType.hashCode;
 }
 
@@ -1935,7 +1777,8 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
-    int? timezoneOffset,
+    double? timezoneOffset,
+    String? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -1965,6 +1808,7 @@ extension $FwStandardModelsBrowseRequestExtension
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
       timezoneOffset: timezoneOffset ?? this.timezoneOffset,
+      locale: locale ?? this.locale,
     );
   }
 
@@ -1995,7 +1839,8 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
-    Wrapped<int?>? timezoneOffset,
+    Wrapped<double?>? timezoneOffset,
+    Wrapped<String?>? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -2051,6 +1896,7 @@ extension $FwStandardModelsBrowseRequestExtension
       timezoneOffset: (timezoneOffset != null
           ? timezoneOffset.value
           : this.timezoneOffset),
+      locale: (locale != null ? locale.value : this.locale),
     );
   }
 }
@@ -2286,121 +2132,6 @@ extension $FwStandardModelsFwQueryFilterExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  const FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic({
-    this.items,
-    this.pageNo,
-    this.pageSize,
-    this.totalItems,
-    this.sort,
-  });
-
-  factory FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-        this,
-      );
-
-  @JsonKey(
-    name: 'Items',
-    includeIfNull: false,
-    defaultValue: <WebApiModulesAdministratorTaskSchedulerTaskSteps>[],
-  )
-  final List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items;
-  @JsonKey(name: 'PageNo', includeIfNull: false)
-  final int? pageNo;
-  @JsonKey(name: 'PageSize', includeIfNull: false)
-  final int? pageSize;
-  @JsonKey(name: 'TotalItems', includeIfNull: false)
-  final int? totalItems;
-  @JsonKey(name: 'Sort', includeIfNull: false)
-  final String? sort;
-  static const fromJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic &&
-            (identical(other.items, items) ||
-                const DeepCollectionEquality().equals(other.items, items)) &&
-            (identical(other.pageNo, pageNo) ||
-                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
-            (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality().equals(
-                  other.pageSize,
-                  pageSize,
-                )) &&
-            (identical(other.totalItems, totalItems) ||
-                const DeepCollectionEquality().equals(
-                  other.totalItems,
-                  totalItems,
-                )) &&
-            (identical(other.sort, sort) ||
-                const DeepCollectionEquality().equals(other.sort, sort)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(items) ^
-      const DeepCollectionEquality().hash(pageNo) ^
-      const DeepCollectionEquality().hash(pageSize) ^
-      const DeepCollectionEquality().hash(totalItems) ^
-      const DeepCollectionEquality().hash(sort) ^
-      runtimeType.hashCode;
-}
-
-extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicExtension
-    on
-        FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWith({
-    List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items,
-    int? pageNo,
-    int? pageSize,
-    int? totalItems,
-    String? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: items ?? this.items,
-      pageNo: pageNo ?? this.pageNo,
-      pageSize: pageSize ?? this.pageSize,
-      totalItems: totalItems ?? this.totalItems,
-      sort: sort ?? this.sort,
-    );
-  }
-
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWithWrapped({
-    Wrapped<List<WebApiModulesAdministratorTaskSchedulerTaskSteps>?>? items,
-    Wrapped<int?>? pageNo,
-    Wrapped<int?>? pageSize,
-    Wrapped<int?>? totalItems,
-    Wrapped<String?>? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: (items != null ? items.value : this.items),
-      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
-      sort: (sort != null ? sort.value : this.sort),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryResponseWebApiModulesWarehouseActivityActivityLogic {
   const FwStandardModelsFwQueryResponseWebApiModulesWarehouseActivityActivityLogic({
     this.items,
@@ -2444,8 +2175,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesWarehouseActivityActivityLogic
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesWarehouseActivityActivityLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesWarehouseActivityActivityLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -2881,8 +2611,7 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesWarehouseActivityActivityLo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultWebApiModulesWarehouseActivityActivityLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesWarehouseActivityActivityLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -2920,554 +2649,6 @@ extension $MicrosoftAspNetCoreMvcActionResultWebApiModulesWarehouseActivityActiv
     return MicrosoftAspNetCoreMvcActionResultWebApiModulesWarehouseActivityActivityLogic(
       result: (result != null ? result.value : this.result),
       value: (value != null ? value.value : this.value),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  const WebApiModulesAdministratorTaskSchedulerTaskSteps({
-    this.taskStepsId,
-    this.taskId,
-    this.name,
-    this.stepNumber,
-    this.type,
-    this.command,
-    this.onSuccessActionDisplay,
-    this.onFailureActionDisplay,
-    this.onSuccessAction,
-    this.retryAttempts,
-    this.retryInterval,
-    this.onFailureAction,
-    this.onSuccessTaskStepsId,
-    this.onFailureTaskStepsId,
-    this.outputFilename,
-    this.lastRunOutcome,
-    this.lastRunDuration,
-    this.lastRunRetries,
-    this.dateStamp,
-    this.auditNote,
-    this.recordTitle,
-    this.urlIdentifier,
-    this.fields,
-    this.custom,
-    this.defaultFieldAttributes,
-    this.original,
-    this.translation,
-    this.hasImport,
-    this.hasDocuments,
-    this.createdByUserId,
-    this.createdByUserName,
-    this.createdDateTime,
-    this.modifiedByUserId,
-    this.modifiedByUserName,
-    this.modifiedDateTime,
-  });
-
-  factory WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-    Map<String, dynamic> json,
-  ) => _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(json);
-
-  static const toJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(this);
-
-  @JsonKey(name: 'TaskStepsId', includeIfNull: false)
-  final int? taskStepsId;
-  @JsonKey(name: 'TaskId', includeIfNull: false)
-  final int? taskId;
-  @JsonKey(name: 'Name', includeIfNull: false)
-  final String? name;
-  @JsonKey(name: 'StepNumber', includeIfNull: false)
-  final int? stepNumber;
-  @JsonKey(name: 'Type', includeIfNull: false)
-  final String? type;
-  @JsonKey(name: 'Command', includeIfNull: false)
-  final String? command;
-  @JsonKey(name: 'OnSuccessActionDisplay', includeIfNull: false)
-  final String? onSuccessActionDisplay;
-  @JsonKey(name: 'OnFailureActionDisplay', includeIfNull: false)
-  final String? onFailureActionDisplay;
-  @JsonKey(name: 'OnSuccessAction', includeIfNull: false)
-  final int? onSuccessAction;
-  @JsonKey(name: 'RetryAttempts', includeIfNull: false)
-  final int? retryAttempts;
-  @JsonKey(name: 'RetryInterval', includeIfNull: false)
-  final int? retryInterval;
-  @JsonKey(name: 'OnFailureAction', includeIfNull: false)
-  final int? onFailureAction;
-  @JsonKey(name: 'OnSuccessTaskStepsId', includeIfNull: false)
-  final int? onSuccessTaskStepsId;
-  @JsonKey(name: 'OnFailureTaskStepsId', includeIfNull: false)
-  final int? onFailureTaskStepsId;
-  @JsonKey(name: 'OutputFilename', includeIfNull: false)
-  final String? outputFilename;
-  @JsonKey(name: 'LastRunOutcome', includeIfNull: false)
-  final int? lastRunOutcome;
-  @JsonKey(name: 'LastRunDuration', includeIfNull: false)
-  final int? lastRunDuration;
-  @JsonKey(name: 'LastRunRetries', includeIfNull: false)
-  final int? lastRunRetries;
-  @JsonKey(name: 'DateStamp', includeIfNull: false)
-  final String? dateStamp;
-  @JsonKey(name: 'AuditNote', includeIfNull: false)
-  final String? auditNote;
-  @JsonKey(name: 'RecordTitle', includeIfNull: false)
-  final String? recordTitle;
-  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
-  final dynamic urlIdentifier;
-  @JsonKey(
-    name: '_Fields',
-    includeIfNull: false,
-    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
-  )
-  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(
-    name: '_Custom',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwCustomValue>[],
-  )
-  final List<FwStandardDataFwCustomValue>? custom;
-  @JsonKey(
-    name: '_DefaultFieldAttributes',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwDefaultAttribute>[],
-  )
-  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
-  @JsonKey(name: '_Original', includeIfNull: false)
-  final FwStandardBusinessLogicFwBusinessLogic? original;
-  @JsonKey(
-    name: '_Translation',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwTranslatedValue>[],
-  )
-  final List<FwStandardDataFwTranslatedValue>? translation;
-  @JsonKey(name: '_HasImport', includeIfNull: false)
-  final bool? hasImport;
-  @JsonKey(name: '_HasDocuments', includeIfNull: false)
-  final bool? hasDocuments;
-  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
-  final String? createdByUserId;
-  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
-  final String? createdByUserName;
-  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
-  final String? createdDateTime;
-  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
-  final String? modifiedByUserId;
-  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
-  final String? modifiedByUserName;
-  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
-  final String? modifiedDateTime;
-  static const fromJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is WebApiModulesAdministratorTaskSchedulerTaskSteps &&
-            (identical(other.taskStepsId, taskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.taskStepsId,
-                  taskStepsId,
-                )) &&
-            (identical(other.taskId, taskId) ||
-                const DeepCollectionEquality().equals(other.taskId, taskId)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.stepNumber, stepNumber) ||
-                const DeepCollectionEquality().equals(
-                  other.stepNumber,
-                  stepNumber,
-                )) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.command, command) ||
-                const DeepCollectionEquality().equals(
-                  other.command,
-                  command,
-                )) &&
-            (identical(other.onSuccessActionDisplay, onSuccessActionDisplay) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessActionDisplay,
-                  onSuccessActionDisplay,
-                )) &&
-            (identical(other.onFailureActionDisplay, onFailureActionDisplay) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureActionDisplay,
-                  onFailureActionDisplay,
-                )) &&
-            (identical(other.onSuccessAction, onSuccessAction) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessAction,
-                  onSuccessAction,
-                )) &&
-            (identical(other.retryAttempts, retryAttempts) ||
-                const DeepCollectionEquality().equals(
-                  other.retryAttempts,
-                  retryAttempts,
-                )) &&
-            (identical(other.retryInterval, retryInterval) ||
-                const DeepCollectionEquality().equals(
-                  other.retryInterval,
-                  retryInterval,
-                )) &&
-            (identical(other.onFailureAction, onFailureAction) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureAction,
-                  onFailureAction,
-                )) &&
-            (identical(other.onSuccessTaskStepsId, onSuccessTaskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessTaskStepsId,
-                  onSuccessTaskStepsId,
-                )) &&
-            (identical(other.onFailureTaskStepsId, onFailureTaskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureTaskStepsId,
-                  onFailureTaskStepsId,
-                )) &&
-            (identical(other.outputFilename, outputFilename) ||
-                const DeepCollectionEquality().equals(
-                  other.outputFilename,
-                  outputFilename,
-                )) &&
-            (identical(other.lastRunOutcome, lastRunOutcome) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunOutcome,
-                  lastRunOutcome,
-                )) &&
-            (identical(other.lastRunDuration, lastRunDuration) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunDuration,
-                  lastRunDuration,
-                )) &&
-            (identical(other.lastRunRetries, lastRunRetries) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunRetries,
-                  lastRunRetries,
-                )) &&
-            (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality().equals(
-                  other.dateStamp,
-                  dateStamp,
-                )) &&
-            (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality().equals(
-                  other.auditNote,
-                  auditNote,
-                )) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality().equals(
-                  other.recordTitle,
-                  recordTitle,
-                )) &&
-            (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality().equals(
-                  other.urlIdentifier,
-                  urlIdentifier,
-                )) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                  other.defaultFieldAttributes,
-                  defaultFieldAttributes,
-                )) &&
-            (identical(other.original, original) ||
-                const DeepCollectionEquality().equals(
-                  other.original,
-                  original,
-                )) &&
-            (identical(other.translation, translation) ||
-                const DeepCollectionEquality().equals(
-                  other.translation,
-                  translation,
-                )) &&
-            (identical(other.hasImport, hasImport) ||
-                const DeepCollectionEquality().equals(
-                  other.hasImport,
-                  hasImport,
-                )) &&
-            (identical(other.hasDocuments, hasDocuments) ||
-                const DeepCollectionEquality().equals(
-                  other.hasDocuments,
-                  hasDocuments,
-                )) &&
-            (identical(other.createdByUserId, createdByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserId,
-                  createdByUserId,
-                )) &&
-            (identical(other.createdByUserName, createdByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserName,
-                  createdByUserName,
-                )) &&
-            (identical(other.createdDateTime, createdDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.createdDateTime,
-                  createdDateTime,
-                )) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserId,
-                  modifiedByUserId,
-                )) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserName,
-                  modifiedByUserName,
-                )) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedDateTime,
-                  modifiedDateTime,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(taskStepsId) ^
-      const DeepCollectionEquality().hash(taskId) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(stepNumber) ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(command) ^
-      const DeepCollectionEquality().hash(onSuccessActionDisplay) ^
-      const DeepCollectionEquality().hash(onFailureActionDisplay) ^
-      const DeepCollectionEquality().hash(onSuccessAction) ^
-      const DeepCollectionEquality().hash(retryAttempts) ^
-      const DeepCollectionEquality().hash(retryInterval) ^
-      const DeepCollectionEquality().hash(onFailureAction) ^
-      const DeepCollectionEquality().hash(onSuccessTaskStepsId) ^
-      const DeepCollectionEquality().hash(onFailureTaskStepsId) ^
-      const DeepCollectionEquality().hash(outputFilename) ^
-      const DeepCollectionEquality().hash(lastRunOutcome) ^
-      const DeepCollectionEquality().hash(lastRunDuration) ^
-      const DeepCollectionEquality().hash(lastRunRetries) ^
-      const DeepCollectionEquality().hash(dateStamp) ^
-      const DeepCollectionEquality().hash(auditNote) ^
-      const DeepCollectionEquality().hash(recordTitle) ^
-      const DeepCollectionEquality().hash(urlIdentifier) ^
-      const DeepCollectionEquality().hash(fields) ^
-      const DeepCollectionEquality().hash(custom) ^
-      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
-      const DeepCollectionEquality().hash(original) ^
-      const DeepCollectionEquality().hash(translation) ^
-      const DeepCollectionEquality().hash(hasImport) ^
-      const DeepCollectionEquality().hash(hasDocuments) ^
-      const DeepCollectionEquality().hash(createdByUserId) ^
-      const DeepCollectionEquality().hash(createdByUserName) ^
-      const DeepCollectionEquality().hash(createdDateTime) ^
-      const DeepCollectionEquality().hash(modifiedByUserId) ^
-      const DeepCollectionEquality().hash(modifiedByUserName) ^
-      const DeepCollectionEquality().hash(modifiedDateTime) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
-    on WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWith({
-    int? taskStepsId,
-    int? taskId,
-    String? name,
-    int? stepNumber,
-    String? type,
-    String? command,
-    String? onSuccessActionDisplay,
-    String? onFailureActionDisplay,
-    int? onSuccessAction,
-    int? retryAttempts,
-    int? retryInterval,
-    int? onFailureAction,
-    int? onSuccessTaskStepsId,
-    int? onFailureTaskStepsId,
-    String? outputFilename,
-    int? lastRunOutcome,
-    int? lastRunDuration,
-    int? lastRunRetries,
-    String? dateStamp,
-    String? auditNote,
-    String? recordTitle,
-    dynamic urlIdentifier,
-    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-    List<FwStandardDataFwCustomValue>? custom,
-    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-    FwStandardBusinessLogicFwBusinessLogic? original,
-    List<FwStandardDataFwTranslatedValue>? translation,
-    bool? hasImport,
-    bool? hasDocuments,
-    String? createdByUserId,
-    String? createdByUserName,
-    String? createdDateTime,
-    String? modifiedByUserId,
-    String? modifiedByUserName,
-    String? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: taskStepsId ?? this.taskStepsId,
-      taskId: taskId ?? this.taskId,
-      name: name ?? this.name,
-      stepNumber: stepNumber ?? this.stepNumber,
-      type: type ?? this.type,
-      command: command ?? this.command,
-      onSuccessActionDisplay:
-          onSuccessActionDisplay ?? this.onSuccessActionDisplay,
-      onFailureActionDisplay:
-          onFailureActionDisplay ?? this.onFailureActionDisplay,
-      onSuccessAction: onSuccessAction ?? this.onSuccessAction,
-      retryAttempts: retryAttempts ?? this.retryAttempts,
-      retryInterval: retryInterval ?? this.retryInterval,
-      onFailureAction: onFailureAction ?? this.onFailureAction,
-      onSuccessTaskStepsId: onSuccessTaskStepsId ?? this.onSuccessTaskStepsId,
-      onFailureTaskStepsId: onFailureTaskStepsId ?? this.onFailureTaskStepsId,
-      outputFilename: outputFilename ?? this.outputFilename,
-      lastRunOutcome: lastRunOutcome ?? this.lastRunOutcome,
-      lastRunDuration: lastRunDuration ?? this.lastRunDuration,
-      lastRunRetries: lastRunRetries ?? this.lastRunRetries,
-      dateStamp: dateStamp ?? this.dateStamp,
-      auditNote: auditNote ?? this.auditNote,
-      recordTitle: recordTitle ?? this.recordTitle,
-      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-      fields: fields ?? this.fields,
-      custom: custom ?? this.custom,
-      defaultFieldAttributes:
-          defaultFieldAttributes ?? this.defaultFieldAttributes,
-      original: original ?? this.original,
-      translation: translation ?? this.translation,
-      hasImport: hasImport ?? this.hasImport,
-      hasDocuments: hasDocuments ?? this.hasDocuments,
-      createdByUserId: createdByUserId ?? this.createdByUserId,
-      createdByUserName: createdByUserName ?? this.createdByUserName,
-      createdDateTime: createdDateTime ?? this.createdDateTime,
-      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
-    );
-  }
-
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWithWrapped({
-    Wrapped<int?>? taskStepsId,
-    Wrapped<int?>? taskId,
-    Wrapped<String?>? name,
-    Wrapped<int?>? stepNumber,
-    Wrapped<String?>? type,
-    Wrapped<String?>? command,
-    Wrapped<String?>? onSuccessActionDisplay,
-    Wrapped<String?>? onFailureActionDisplay,
-    Wrapped<int?>? onSuccessAction,
-    Wrapped<int?>? retryAttempts,
-    Wrapped<int?>? retryInterval,
-    Wrapped<int?>? onFailureAction,
-    Wrapped<int?>? onSuccessTaskStepsId,
-    Wrapped<int?>? onFailureTaskStepsId,
-    Wrapped<String?>? outputFilename,
-    Wrapped<int?>? lastRunOutcome,
-    Wrapped<int?>? lastRunDuration,
-    Wrapped<int?>? lastRunRetries,
-    Wrapped<String?>? dateStamp,
-    Wrapped<String?>? auditNote,
-    Wrapped<String?>? recordTitle,
-    Wrapped<dynamic>? urlIdentifier,
-    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-    fields,
-    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-    Wrapped<bool?>? hasImport,
-    Wrapped<bool?>? hasDocuments,
-    Wrapped<String?>? createdByUserId,
-    Wrapped<String?>? createdByUserName,
-    Wrapped<String?>? createdDateTime,
-    Wrapped<String?>? modifiedByUserId,
-    Wrapped<String?>? modifiedByUserName,
-    Wrapped<String?>? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: (taskStepsId != null ? taskStepsId.value : this.taskStepsId),
-      taskId: (taskId != null ? taskId.value : this.taskId),
-      name: (name != null ? name.value : this.name),
-      stepNumber: (stepNumber != null ? stepNumber.value : this.stepNumber),
-      type: (type != null ? type.value : this.type),
-      command: (command != null ? command.value : this.command),
-      onSuccessActionDisplay: (onSuccessActionDisplay != null
-          ? onSuccessActionDisplay.value
-          : this.onSuccessActionDisplay),
-      onFailureActionDisplay: (onFailureActionDisplay != null
-          ? onFailureActionDisplay.value
-          : this.onFailureActionDisplay),
-      onSuccessAction: (onSuccessAction != null
-          ? onSuccessAction.value
-          : this.onSuccessAction),
-      retryAttempts: (retryAttempts != null
-          ? retryAttempts.value
-          : this.retryAttempts),
-      retryInterval: (retryInterval != null
-          ? retryInterval.value
-          : this.retryInterval),
-      onFailureAction: (onFailureAction != null
-          ? onFailureAction.value
-          : this.onFailureAction),
-      onSuccessTaskStepsId: (onSuccessTaskStepsId != null
-          ? onSuccessTaskStepsId.value
-          : this.onSuccessTaskStepsId),
-      onFailureTaskStepsId: (onFailureTaskStepsId != null
-          ? onFailureTaskStepsId.value
-          : this.onFailureTaskStepsId),
-      outputFilename: (outputFilename != null
-          ? outputFilename.value
-          : this.outputFilename),
-      lastRunOutcome: (lastRunOutcome != null
-          ? lastRunOutcome.value
-          : this.lastRunOutcome),
-      lastRunDuration: (lastRunDuration != null
-          ? lastRunDuration.value
-          : this.lastRunDuration),
-      lastRunRetries: (lastRunRetries != null
-          ? lastRunRetries.value
-          : this.lastRunRetries),
-      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
-      urlIdentifier: (urlIdentifier != null
-          ? urlIdentifier.value
-          : this.urlIdentifier),
-      fields: (fields != null ? fields.value : this.fields),
-      custom: (custom != null ? custom.value : this.custom),
-      defaultFieldAttributes: (defaultFieldAttributes != null
-          ? defaultFieldAttributes.value
-          : this.defaultFieldAttributes),
-      original: (original != null ? original.value : this.original),
-      translation: (translation != null ? translation.value : this.translation),
-      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-      hasDocuments: (hasDocuments != null
-          ? hasDocuments.value
-          : this.hasDocuments),
-      createdByUserId: (createdByUserId != null
-          ? createdByUserId.value
-          : this.createdByUserId),
-      createdByUserName: (createdByUserName != null
-          ? createdByUserName.value
-          : this.createdByUserName),
-      createdDateTime: (createdDateTime != null
-          ? createdDateTime.value
-          : this.createdDateTime),
-      modifiedByUserId: (modifiedByUserId != null
-          ? modifiedByUserId.value
-          : this.modifiedByUserId),
-      modifiedByUserName: (modifiedByUserName != null
-          ? modifiedByUserName.value
-          : this.modifiedByUserName),
-      modifiedDateTime: (modifiedDateTime != null
-          ? modifiedDateTime.value
-          : this.modifiedDateTime),
     );
   }
 }
@@ -4509,9 +3690,9 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
 
     if (ResultType == DateTime) {
       return response.copyWith(
-        body:
-            DateTime.parse((response.body as String).replaceAll('"', ''))
-                as ResultType,
+        body: DateTime.parse(
+          (response.body as String).replaceAll('"', ''),
+        ) as ResultType,
       );
     }
 

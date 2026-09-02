@@ -91,25 +91,3 @@ enum FwStandardSqlServerFwDataTypes {
 
   const FwStandardSqlServerFwDataTypes(this.value);
 }
-
-enum WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes {
-  @JsonValue(null)
-  swaggerGeneratedUnknown(null),
-
-  @JsonValue('Boolean')
-  boolean('Boolean'),
-  @JsonValue('Text')
-  text('Text'),
-  @JsonValue('TranslatedText')
-  translatedtext('TranslatedText'),
-  @JsonValue('DropDown')
-  dropdown('DropDown'),
-  @JsonValue('Number')
-  number('Number');
-
-  final String? value;
-
-  const WebApiModulesIntegrationsStorefrontStorefrontSettingsPropertyDataTypes(
-    this.value,
-  );
-}

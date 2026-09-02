@@ -5,15 +5,19 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:json_annotation/json_annotation.dart' as json;
 import 'package:collection/collection.dart';
+
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
 
 import 'client_mapping.dart';
+
 import 'dart:async';
+
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
+
 import 'settings.enums.swagger.dart' as enums;
 import 'settings.metadata.swagger.dart';
 export 'settings.enums.swagger.dart';
@@ -8076,12 +8080,22 @@ abstract class Settings extends ChopperService {
   crewContactidDocumentDocumentidImageformuploadPost({
     required String? contactid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
   }) {
     return _crewContactidDocumentDocumentidImageformuploadPost(
       contactid: contactid,
       documentid: documentid,
-      body: body,
+      contentType: contentType,
+      contentDisposition: contentDisposition,
+      headers: headers,
+      length: length,
+      name: name,
+      fileName: fileName,
     );
   }
 
@@ -8092,11 +8106,17 @@ abstract class Settings extends ChopperService {
     path: '/crew/{contactid}/document/{documentid}/imageformupload',
     optionalBody: true,
   )
+  @Multipart()
   Future<chopper.Response<bool>>
   _crewContactidDocumentDocumentidImageformuploadPost({
     @Path('contactid') required String? contactid,
     @Path('documentid') required String? documentid,
-    @Body() required Object? body,
+    @Part('ContentType') String? contentType,
+    @Part('ContentDisposition') String? contentDisposition,
+    @Part('Headers') Object? headers,
+    @Part('Length') int? length,
+    @Part('Name') String? name,
+    @Part('FileName') String? fileName,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -8219,12 +8239,22 @@ abstract class Settings extends ChopperService {
   crewContactidDocumentDocumentidFileformuploadPut({
     required String? contactid,
     required String? documentid,
-    required Object? body,
+    String? contentType,
+    String? contentDisposition,
+    Object? headers,
+    int? length,
+    String? name,
+    String? fileName,
   }) {
     return _crewContactidDocumentDocumentidFileformuploadPut(
       contactid: contactid,
       documentid: documentid,
-      body: body,
+      contentType: contentType,
+      contentDisposition: contentDisposition,
+      headers: headers,
+      length: length,
+      name: name,
+      fileName: fileName,
     );
   }
 
@@ -8235,11 +8265,17 @@ abstract class Settings extends ChopperService {
     path: '/crew/{contactid}/document/{documentid}/fileformupload',
     optionalBody: true,
   )
+  @Multipart()
   Future<chopper.Response<bool>>
   _crewContactidDocumentDocumentidFileformuploadPut({
     @Path('contactid') required String? contactid,
     @Path('documentid') required String? documentid,
-    @Body() required Object? body,
+    @Part('ContentType') String? contentType,
+    @Part('ContentDisposition') String? contentDisposition,
+    @Part('Headers') Object? headers,
+    @Part('Length') int? length,
+    @Part('Name') String? name,
+    @Part('FileName') String? fileName,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -13567,8 +13603,7 @@ abstract class Settings extends ChopperService {
   ///
   ///@param fileDownloadName
   @POST(
-    path:
-        '/departmentaccess/departmentaccessinventorytype/exportexcelxlsx/{filedownloadname}',
+    path: '/departmentaccess/departmentaccessinventorytype/exportexcelxlsx/{filedownloadname}',
     optionalBody: true,
   )
   Future<
@@ -13837,8 +13872,7 @@ abstract class Settings extends ChopperService {
 
   ///
   @POST(
-    path:
-        '/departmentaccess/departmentaccessinventorytype/validateinventorytype/browse',
+    path: '/departmentaccess/departmentaccessinventorytype/validateinventorytype/browse',
     optionalBody: true,
   )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
@@ -14694,6 +14728,40 @@ abstract class Settings extends ChopperService {
     @Body()
     required List<WebApiModulesSettingsDepartmentLocationDepartmentLocation>?
     body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["DepartmentLocation"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  departmentlocationValidatefreightrateBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _departmentlocationValidatefreightrateBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/departmentlocation/validatefreightrate/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _departmentlocationValidatefreightrateBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -17865,6 +17933,34 @@ abstract class Settings extends ChopperService {
       produces: [],
       security: [],
       tags: ["Floor"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  fwutilityServerutcdatetimeGet() {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      () => FwCoreControllersGetServerUtcDateTimeResponse.fromJsonFactory,
+    );
+
+    return _fwutilityServerutcdatetimeGet();
+  }
+
+  ///
+  @GET(path: '/fwutility/serverutcdatetime')
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FwUtility"],
       deprecated: false,
     ),
   });
@@ -34052,8 +34148,7 @@ abstract class Settings extends ChopperService {
 
   ///
   @POST(
-    path:
-        '/presentationlayeractivityoverride/validatepresentationlayeractivity/browse',
+    path: '/presentationlayeractivityoverride/validatepresentationlayeractivity/browse',
     optionalBody: true,
   )
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
@@ -44852,261 +44947,6 @@ abstract class Settings extends ChopperService {
 
   ///
   Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardSqlServerFwJsonDataTable,
-      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsBrowsePost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/browse', optionalBody: true)
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      () =>
-          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsExportexcelxlsxPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/exportexcelxlsx', optionalBody: true)
-  Future<
-    chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-    >
-  >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      () =>
-          FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-              .fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsGet(
-      pageno: pageno,
-      pagesize: pagesize,
-      sort: sort,
-      filter: filter,
-    );
-  }
-
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  @GET(path: '/taskscheduler/tasksteps')
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    @Query('pageno') int? pageno,
-    @Query('pagesize') int? pagesize,
-    @Query('sort') String? sort,
-    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsPost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdGet({required String? id}) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdGet(id: id);
-  }
-
-  ///
-  ///@param id
-  @GET(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdPut(id: id, body: body);
-  }
-
-  ///
-  ///@param id
-  @PUT(path: '/taskscheduler/tasksteps/{id}', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    @Path('id') required String? id,
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<bool>> taskschedulerTaskstepsIdDelete({
-    required String? id,
-  }) {
-    return _taskschedulerTaskstepsIdDelete(id: id);
-  }
-
-  ///
-  ///@param id
-  @DELETE(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<bool>> _taskschedulerTaskstepsIdDelete({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
   taxoptionBrowsePost({required FwStandardModelsBrowseRequest? body}) {
     generatedMapping.putIfAbsent(
       FwStandardSqlServerFwJsonDataTable,
@@ -47851,8 +47691,7 @@ abstract class Settings extends ChopperService {
   ///
   ///@param fileDownloadName
   @POST(
-    path:
-        '/useraccess/useraccess/userlocationaccess/exportexcelxlsx/{filedownloadname}',
+    path: '/useraccess/useraccess/userlocationaccess/exportexcelxlsx/{filedownloadname}',
     optionalBody: true,
   )
   Future<
@@ -56370,6 +56209,65 @@ extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResu
 }
 
 @JsonSerializable(explicitToJson: true)
+class FwCoreControllersGetServerUtcDateTimeResponse {
+  const FwCoreControllersGetServerUtcDateTimeResponse({this.serverUtcDateTime});
+
+  factory FwCoreControllersGetServerUtcDateTimeResponse.fromJson(
+    Map<String, dynamic> json,
+  ) => _$FwCoreControllersGetServerUtcDateTimeResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson(this);
+
+  @JsonKey(name: 'ServerUtcDateTime', includeIfNull: false)
+  final DateTime? serverUtcDateTime;
+  static const fromJsonFactory =
+      _$FwCoreControllersGetServerUtcDateTimeResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is FwCoreControllersGetServerUtcDateTimeResponse &&
+            (identical(other.serverUtcDateTime, serverUtcDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.serverUtcDateTime,
+                  serverUtcDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(serverUtcDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $FwCoreControllersGetServerUtcDateTimeResponseExtension
+    on FwCoreControllersGetServerUtcDateTimeResponse {
+  FwCoreControllersGetServerUtcDateTimeResponse copyWith({
+    DateTime? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: serverUtcDateTime ?? this.serverUtcDateTime,
+    );
+  }
+
+  FwCoreControllersGetServerUtcDateTimeResponse copyWithWrapped({
+    Wrapped<DateTime?>? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: (serverUtcDateTime != null
+          ? serverUtcDateTime.value
+          : this.serverUtcDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class FwStandardBusinessLogicFwBusinessLogic {
   const FwStandardBusinessLogicFwBusinessLogic({
     this.auditNote,
@@ -57753,6 +57651,7 @@ class FwStandardModelsBrowseRequest {
     this.totalfields,
     this.activeviewfields,
     this.timezoneOffset,
+    this.locale,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -57842,7 +57741,9 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
   @JsonKey(name: 'timezoneOffset', includeIfNull: false)
-  final int? timezoneOffset;
+  final double? timezoneOffset;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -57971,7 +57872,9 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.timezoneOffset,
                   timezoneOffset,
-                )));
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)));
   }
 
   @override
@@ -58006,6 +57909,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
       const DeepCollectionEquality().hash(timezoneOffset) ^
+      const DeepCollectionEquality().hash(locale) ^
       runtimeType.hashCode;
 }
 
@@ -58038,7 +57942,8 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
-    int? timezoneOffset,
+    double? timezoneOffset,
+    String? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -58068,6 +57973,7 @@ extension $FwStandardModelsBrowseRequestExtension
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
       timezoneOffset: timezoneOffset ?? this.timezoneOffset,
+      locale: locale ?? this.locale,
     );
   }
 
@@ -58098,7 +58004,8 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
-    Wrapped<int?>? timezoneOffset,
+    Wrapped<double?>? timezoneOffset,
+    Wrapped<String?>? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -58154,6 +58061,7 @@ extension $FwStandardModelsBrowseRequestExtension
       timezoneOffset: (timezoneOffset != null
           ? timezoneOffset.value
           : this.timezoneOffset),
+      locale: (locale != null ? locale.value : this.locale),
     );
   }
 }
@@ -58644,8 +58552,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesSettingsWebUserWidgetUserW
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesSettingsWebUserWidgetUserWidgetLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesSettingsWebUserWidgetUserWidgetLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -58761,8 +58668,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetCategoryWidg
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetCategoryWidgetCategoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -58877,8 +58783,7 @@ class FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetSettingsWidg
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic &&
+        (other is FwStandardModelsFwQueryResponseFwStandardModulesSettingsWidgetSettingsWidgetWidgetLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -58999,8 +58904,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessDepar
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessDepartmentAccessDepartmentAccessInventoryTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessDepartmentAccessDepartmentAccessInventoryTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -59128,8 +59032,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessDepar
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessDepartmentAccessDepartmentAccessLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessDepartmentAccessDepartmentAccessLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -59257,8 +59160,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessDepar
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessDepartmentAccessDepartmentFilterLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessDepartmentAccessDepartmentFilterLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -59381,8 +59283,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessUserA
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessUserAccessUserAccessLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessUserAccessUserAccessLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -59501,8 +59402,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessUserA
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessUserAccessUserLocationAccessLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccessUserAccessUserLocationAccessLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -59577,121 +59477,6 @@ extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorSystemAccess
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  const FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic({
-    this.items,
-    this.pageNo,
-    this.pageSize,
-    this.totalItems,
-    this.sort,
-  });
-
-  factory FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-        this,
-      );
-
-  @JsonKey(
-    name: 'Items',
-    includeIfNull: false,
-    defaultValue: <WebApiModulesAdministratorTaskSchedulerTaskSteps>[],
-  )
-  final List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items;
-  @JsonKey(name: 'PageNo', includeIfNull: false)
-  final int? pageNo;
-  @JsonKey(name: 'PageSize', includeIfNull: false)
-  final int? pageSize;
-  @JsonKey(name: 'TotalItems', includeIfNull: false)
-  final int? totalItems;
-  @JsonKey(name: 'Sort', includeIfNull: false)
-  final String? sort;
-  static const fromJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic &&
-            (identical(other.items, items) ||
-                const DeepCollectionEquality().equals(other.items, items)) &&
-            (identical(other.pageNo, pageNo) ||
-                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
-            (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality().equals(
-                  other.pageSize,
-                  pageSize,
-                )) &&
-            (identical(other.totalItems, totalItems) ||
-                const DeepCollectionEquality().equals(
-                  other.totalItems,
-                  totalItems,
-                )) &&
-            (identical(other.sort, sort) ||
-                const DeepCollectionEquality().equals(other.sort, sort)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(items) ^
-      const DeepCollectionEquality().hash(pageNo) ^
-      const DeepCollectionEquality().hash(pageSize) ^
-      const DeepCollectionEquality().hash(totalItems) ^
-      const DeepCollectionEquality().hash(sort) ^
-      runtimeType.hashCode;
-}
-
-extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicExtension
-    on
-        FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWith({
-    List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items,
-    int? pageNo,
-    int? pageSize,
-    int? totalItems,
-    String? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: items ?? this.items,
-      pageNo: pageNo ?? this.pageNo,
-      pageSize: pageSize ?? this.pageSize,
-      totalItems: totalItems ?? this.totalItems,
-      sort: sort ?? this.sort,
-    );
-  }
-
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWithWrapped({
-    Wrapped<List<WebApiModulesAdministratorTaskSchedulerTaskSteps>?>? items,
-    Wrapped<int?>? pageNo,
-    Wrapped<int?>? pageSize,
-    Wrapped<int?>? totalItems,
-    Wrapped<String?>? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: (items != null ? items.value : this.items),
-      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
-      sort: (sort != null ? sort.value : this.sort),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryResponseWebApiModulesInventoryStorageContainerStorageContainerLogic {
   const FwStandardModelsFwQueryResponseWebApiModulesInventoryStorageContainerStorageContainerLogic({
     this.items,
@@ -59735,8 +59520,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryStorageContainerStora
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesInventoryStorageContainerStorageContainerLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryStorageContainerStorageContainerLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -59851,8 +59635,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesLanguageLanguageLanguageLogic 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesLanguageLanguageLanguageLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesLanguageLanguageLanguageLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -59971,8 +59754,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAIKnowledgeScraperServ
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAIKnowledgeScraperServiceLogAIKnowledgeScraperServiceLogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAIKnowledgeScraperServiceLogAIKnowledgeScraperServiceLogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -60100,8 +59882,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsAcco
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsAccountingSettingsAccountingSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsAccountingSettingsAccountingSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -60223,8 +60004,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsGlAc
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsGlAccountGlAccountLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsGlAccountGlAccountLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -60345,8 +60125,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsGlDi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsGlDistributionRuleGlDistributionRuleLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsGlDistributionRuleGlDistributionRuleLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -60470,8 +60249,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsProf
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsProfitCenterProfitCenterLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsProfitCenterProfitCenterLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -60595,8 +60373,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsProf
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsProfitCenterOrderTypeProfitCenterOrderTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAccountingSettingsProfitCenterOrderTypeProfitCenterOrderTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -60718,8 +60495,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsActivityServiceLogActi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsActivityServiceLogActivityServiceLogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsActivityServiceLogActivityServiceLogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -60834,8 +60610,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsActivityStatusActivity
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsActivityStatusActivityStatusLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsActivityStatusActivityStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -60949,8 +60724,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsCountry
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsCountryCountryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsCountryCountryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -61064,8 +60838,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsStateSt
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsStateStateLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsStateStateLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -61179,8 +60952,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAppReportDesignerAppRe
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAppReportDesignerAppReportDesignerLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAppReportDesignerAppReportDesignerLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -61295,8 +61067,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAttributeValueAttribut
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAttributeValueAttributeValueLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAttributeValueAttributeValueLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -61412,8 +61183,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLog
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAvailabilityServiceLogAvailabilityServiceLogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -61531,8 +61301,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsBillingCycleEventBilli
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsBillingCycleEventBillingCycleEventLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsBillingCycleEventBillingCycleEventLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -61653,8 +61422,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsBillingScheduleService
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsBillingScheduleServiceLogBillingScheduleServiceLogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsBillingScheduleServiceLogBillingScheduleServiceLogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -61778,8 +61546,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCalendarSettingsBlacko
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCalendarSettingsBlackoutStatusBlackoutStatusLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCalendarSettingsBlackoutStatusBlackoutStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -61897,8 +61664,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCalendarSettingsHolida
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCalendarSettingsHolidayHolidayLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCalendarSettingsHolidayHolidayLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -62014,8 +61780,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsContactSettingsContact
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsContactSettingsContactEventContactEventLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsContactSettingsContactEventContactEventLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -62134,8 +61899,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsContactSettingsContact
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsContactSettingsContactTitleContactTitleLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsContactSettingsContactTitleContactTitleLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -62252,8 +62016,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsContactSettingsMailLis
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsContactSettingsMailListMailListLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsContactSettingsMailListMailListLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -62373,8 +62136,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCred
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaymentTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaymentTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -62502,8 +62264,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCred
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCreditCardPinPadCreditCardPinPadLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCreditCardPinPadCreditCardPinPadLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -62625,8 +62386,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCrewLocationCrewLocati
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCrewLocationCrewLocationLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCrewLocationCrewLocationLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -62740,8 +62500,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCrewPositionCrewPositi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCrewPositionCrewPositionLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCrewPositionCrewPositionLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -62857,8 +62616,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencyExchangeRateCu
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencyExchangeRateCurrencyExchangeRateLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencyExchangeRateCurrencyExchangeRateLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -62975,8 +62733,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencySettingsCurren
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencySettingsCurrencyCurrencyLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencySettingsCurrencyCurrencyLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -63097,8 +62854,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCustomerSettingsCustom
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCustomerSettingsCustomerCategoryCustomerCategoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCustomerSettingsCustomerCategoryCustomerCategoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -63220,8 +62976,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCustomerSettingsCustom
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCustomerSettingsCustomerStatusCustomerStatusLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCustomerSettingsCustomerStatusCustomerStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -63341,8 +63096,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCustomerSettingsCustom
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCustomerSettingsCustomerTypeCustomerTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCustomerSettingsCustomerTypeCustomerTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -63465,8 +63219,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsDealClassi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsDealClassificationDealClassificationLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsDealClassificationDealClassificationLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -63586,8 +63339,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsDealStatus
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsDealStatusDealStatusLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsDealStatusDealStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -63702,8 +63454,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsDealTypeDe
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsDealTypeDealTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsDealTypeDealTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -63819,8 +63570,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsProduction
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsProductionTypeProductionTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsProductionTypeProductionTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -63937,8 +63687,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsScheduleTy
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsScheduleTypeScheduleTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDealSettingsScheduleTypeScheduleTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -64053,8 +63802,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDepartmentLocationDepa
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDepartmentLocationDepartmentLocationLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDepartmentLocationDepartmentLocationLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -64171,8 +63919,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDepartmentSettingsDepa
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDepartmentSettingsDepartmentDepartmentLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDepartmentSettingsDepartmentDepartmentLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -64287,8 +64034,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDepartmentSettingsDivi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDepartmentSettingsDivisionDivisionLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDepartmentSettingsDivisionDivisionLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -64403,8 +64149,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDiscountItemDiscountIt
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDiscountItemDiscountItemLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDiscountItemDiscountItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -64524,8 +64269,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDiscountTemplateSettin
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateDiscountTemplateLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateDiscountTemplateLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -64651,8 +64395,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentBarCodeSetting
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentBarCodeSettingsDocumentBarCodeSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentBarCodeSettingsDocumentBarCodeSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -64772,8 +64515,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentSettingsCoverL
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentSettingsCoverLetterCoverLetterLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentSettingsCoverLetterCoverLetterLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -64890,8 +64632,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentSettingsDocume
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentSettingsDocumentTypeDocumentTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentSettingsDocumentTypeDocumentTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -65012,8 +64753,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentSettingsTermsC
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentSettingsTermsConditionsTermsConditionsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsDocumentSettingsTermsConditionsTermsConditionsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -65133,8 +64873,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsPhotograp
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsPhotographyTypePhotographyTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsEventSettingsPhotographyTypePhotographyTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -65256,8 +64995,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsExportSettingsDataExpo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsExportSettingsDataExportFormatDataExportFormatLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsExportSettingsDataExportFormatDataExportFormatLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -65375,8 +65113,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsBuildi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsBuildingBuildingLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsBuildingBuildingLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -65491,8 +65228,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsVenueV
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsVenueVenueLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsFacilitySettingsVenueVenueLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -65606,8 +65342,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsFiscalMonthFiscalMonth
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsFiscalMonthFiscalMonthLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsFiscalMonthFiscalMonthLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -65721,8 +65456,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsFiscalYearFiscalYearLo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsFiscalYearFiscalYearLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsFiscalYearFiscalYearLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -65951,8 +65685,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventoryGroupInventor
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventoryGroupInventoryInventoryGroupInventoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventoryGroupInventoryInventoryGroupInventoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -66070,8 +65803,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsAttri
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsAttributeAttributeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsAttributeAttributeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -66188,8 +65920,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsBarCo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsBarCodeRangeBarCodeRangeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsBarCodeRangeBarCodeRangeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -66312,8 +66043,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInven
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryAdjustmentReasonInventoryAdjustmentReasonLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryAdjustmentReasonInventoryAdjustmentReasonLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -66441,8 +66171,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInven
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryConditionInventoryConditionLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryConditionInventoryConditionLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -66568,8 +66297,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInven
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryGroupInventoryGroupLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryGroupInventoryGroupLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -66693,8 +66421,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInven
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryStatusInventoryStatusLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryStatusInventoryStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -66816,8 +66543,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInven
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryTypeInventoryTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryTypeInventoryTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -66937,8 +66663,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsParts
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsPartsCategoryPartsCategoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsPartsCategoryPartsCategoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -67060,8 +66785,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsRenta
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsRentalCategoryRentalCategoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsRentalCategoryRentalCategoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -67181,8 +66905,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsRetir
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsRetiredReasonRetiredReasonLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsRetiredReasonRetiredReasonLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -67302,8 +67025,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsSales
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsSalesCategorySalesCategoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsSalesCategorySalesCategoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -67423,8 +67145,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsStore
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsStorefrontStorefrontCatalogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -67544,8 +67265,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsTiere
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsTieredPricingTieredPricingLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsTieredPricingTieredPricingLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -67663,8 +67383,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsUnitU
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsUnitUnitLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsUnitUnitLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -67784,8 +67503,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsUnret
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsUnretiredReasonUnretiredReasonLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsUnretiredReasonUnretiredReasonLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -67911,8 +67629,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsWareh
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsWarehouseCatalogWarehouseCatalogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsWarehouseCatalogWarehouseCatalogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -68036,8 +67753,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsItemLocationHistoryIte
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsItemLocationHistoryItemLocationHistoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsItemLocationHistoryItemLocationHistoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -68152,8 +67868,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsCrewCrewL
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsCrewCrewLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsCrewCrewLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -68272,8 +67987,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsCrewSched
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsCrewScheduleStatusCrewScheduleStatusLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsCrewScheduleStatusCrewScheduleStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -68395,8 +68109,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsCrewStatu
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsCrewStatusCrewStatusLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsCrewStatusCrewStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -68513,8 +68226,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsLaborCate
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsLaborCategoryLaborCategoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsLaborCategoryLaborCategoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -68631,8 +68343,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsLaborRate
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsLaborRateLaborRateLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsLaborRateLaborRateLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -68746,8 +68457,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsLaborType
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsLaborTypeLaborTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsLaborTypeLaborTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -68861,8 +68571,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsPositionP
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsPositionPositionLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsLaborSettingsPositionPositionLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -68976,8 +68685,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsMarketSegmentJobMarket
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsMarketSegmentJobMarketSegmentJobLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsMarketSegmentJobMarketSegmentJobLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -69096,8 +68804,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsMiscellaneousSettingsM
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsMiscellaneousSettingsMiscCategoryMiscCategoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsMiscellaneousSettingsMiscCategoryMiscCategoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -69216,8 +68923,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsMiscellaneousSettingsM
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsMiscellaneousSettingsMiscRateMiscRateLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsMiscellaneousSettingsMiscRateMiscRateLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -69333,8 +69039,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsMiscellaneousSettingsM
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsMiscellaneousSettingsMiscTypeMiscTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsMiscellaneousSettingsMiscTypeMiscTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -69449,8 +69154,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsNumberFormatNumberForm
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsNumberFormatNumberFormatLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsNumberFormatNumberFormatLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -69570,8 +69274,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOfficeLocationSettings
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocationLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocationLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -69693,8 +69396,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderItemRecTypeOrderI
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderItemRecTypeOrderItemRecTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderItemRecTypeOrderItemRecTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -69810,8 +69512,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsActivityT
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsActivityTypeActivityTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsActivityTypeActivityTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -69928,8 +69629,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsDiscountR
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsDiscountReasonDiscountReasonLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsDiscountReasonDiscountReasonLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -70048,8 +69748,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsMarketSeg
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsMarketSegmentMarketSegmentLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsMarketSegmentMarketSegmentLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -70166,8 +69865,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsMarketTyp
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsMarketTypeMarketTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsMarketTypeMarketTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -70284,8 +69982,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsOrderLoca
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsOrderLocationOrderLocationLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsOrderLocationOrderLocationLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -70402,8 +70099,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsOrderSetN
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsOrderSetNoOrderSetNoLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsOrderSetNoOrderSetNoLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -70518,8 +70214,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsOrderType
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsOrderTypeOrderTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderSettingsOrderTypeOrderTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -70635,8 +70330,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeContactTitleO
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeContactTitleOrderTypeContactTitleLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeContactTitleOrderTypeContactTitleLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -70754,8 +70448,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeDateTypeOrder
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeDateTypeOrderTypeDateTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeDateTypeOrderTypeDateTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -70870,8 +70563,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeLocationOrder
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeLocationOrderTypeLocationLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeLocationOrderTypeLocationLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -70986,8 +70678,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeNoteOrderType
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeNoteOrderTypeNoteLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsOrderTypeNoteOrderTypeNoteLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -71103,8 +70794,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPayment
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPaymentTermsPaymentTermsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPaymentTermsPaymentTermsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -71222,8 +70912,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPayment
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPaymentTypePaymentTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPaymentTypePaymentTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -71338,8 +71027,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPersonnelTypePersonnel
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPersonnelTypePersonnelTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPersonnelTypePersonnelTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -71455,8 +71143,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPoAccrualServiceLogPoA
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoAccrualServiceLogPoAccrualServiceLogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoAccrualServiceLogPoAccrualServiceLogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -71573,8 +71260,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoApprovalSt
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoApprovalStatusPoApprovalStatusLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoApprovalStatusPoApprovalStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -71692,8 +71378,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoApproverPo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoApproverPoApproverLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoApproverPoApproverLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -71809,8 +71494,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoApproverRo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoApproverRolePoApproverRoleLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoApproverRolePoApproverRoleLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -71927,8 +71611,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoClassifica
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoClassificationPoClassificationLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoClassificationPoClassificationLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -72046,8 +71729,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoImportance
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoImportancePoImportanceLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoImportancePoImportanceLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -72164,8 +71846,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoRejectReas
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoRejectReasonPoRejectReasonLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoRejectReasonPoRejectReasonLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -72280,8 +71961,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoTypePoType
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoTypePoTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsPoTypePoTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -72401,8 +72081,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsVendorInvoic
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsVendorInvoiceApproverVendorInvoiceApproverLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPoSettingsVendorInvoiceApproverVendorInvoiceApproverLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -72530,8 +72209,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationLayerActiv
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationLayerActivityPresentationLayerActivityLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationLayerActivityPresentationLayerActivityLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -72659,8 +72337,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationLayerActiv
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationLayerActivityOverridePresentationLayerActivityOverrideLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationLayerActivityOverridePresentationLayerActivityOverrideLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -72784,8 +72461,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationLayerFormP
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationLayerFormPresentationLayerFormLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationLayerFormPresentationLayerFormLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -72909,8 +72585,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationSettingsPr
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationSettingsPresentationLayerPresentationLayerLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPresentationSettingsPresentationLayerPresentationLayerLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -73034,8 +72709,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProject
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectAsBuildProjectAsBuildLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectAsBuildProjectAsBuildLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -73159,8 +72833,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProject
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectCommissioningProjectCommissioningLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectCommissioningProjectCommissioningLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -73284,8 +72957,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProject
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectDepositProjectDepositLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectDepositProjectDepositLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -73407,8 +73079,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProject
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectDrawingsProjectDrawingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectDrawingsProjectDrawingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -73532,8 +73203,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProject
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectDropShipItemsProjectDropShipItemsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectDropShipItemsProjectDropShipItemsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -73661,8 +73331,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProject
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectItemsOrderedProjectItemsOrderedLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsProjectSettingsProjectItemsOrderedProjectItemsOrderedLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -73786,8 +73455,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsQuikReceiptTemplateQui
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsQuikReceiptTemplateQuikReceiptTemplateLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsQuikReceiptTemplateQuikReceiptTemplateLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -74014,8 +73682,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsRateLocationTaxRateLoc
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsRateLocationTaxRateLocationTaxLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsRateLocationTaxRateLocationTaxLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -74129,8 +73796,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsRateTypeRateTypeLogic 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsRateTypeRateTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsRateTypeRateTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -74243,8 +73909,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsRateWarehouseRateWareh
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsRateWarehouseRateWarehouseLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsRateWarehouseRateWarehouseLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -74358,8 +74023,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsRegionSettingsRegionRe
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsRegionSettingsRegionRegionLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsRegionSettingsRegionRegionLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -74477,8 +74141,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsRepairSettingsRepairIt
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsRepairSettingsRepairItemStatusRepairItemStatusLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsRepairSettingsRepairItemStatusRepairItemStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -74596,8 +74259,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSetSettingsOpeningOpen
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSetSettingsOpeningOpeningLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSetSettingsOpeningOpeningLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -74711,8 +74373,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSetSettingsSurfaceSurf
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSetSettingsSurfaceSurfaceLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSetSettingsSurfaceSurfaceLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -74826,8 +74487,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSetSettingsWallTypeWal
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSetSettingsWallTypeWallTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSetSettingsWallTypeWallTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -74941,8 +74601,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsShipViaSettingsShipVia
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsShipViaSettingsShipViaShipViaLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsShipViaSettingsShipViaShipViaLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -75056,8 +74715,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSourceSettingsSourceSo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSourceSettingsSourceSourceLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSourceSettingsSourceSourceLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -75283,8 +74941,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSubCategorySubCategory
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSubCategorySubCategoryLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSubCategorySubCategoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -75398,8 +75055,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemNumberSystemNumb
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemNumberSystemNumberLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemNumberSystemNumberLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -75519,8 +75175,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAIKnowle
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAIKnowledgeScraperServiceSettingsAIKnowledgeScraperServiceSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -75648,8 +75303,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsActivity
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsActivityServiceSettingsActivityServiceSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsActivityServiceSettingsActivityServiceSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -75777,8 +75431,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAvailabi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsAvailabilitySettingsAvailabilitySettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -75906,8 +75559,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsBillingS
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsBillingScheduleServiceSettingsBillingScheduleServiceSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsBillingScheduleServiceSettingsBillingScheduleServiceSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -76035,8 +75687,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConnecti
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConnectionHubSettingsConnectionHubSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -76164,8 +75815,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignm
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -76289,8 +75939,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsDefaultS
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsDefaultSettingsDefaultSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -76410,8 +76059,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsEmailSet
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsEmailSettingsEmailSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsEmailSettingsEmailSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -76534,8 +76182,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsInventor
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsInventorySettingsInventorySettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsInventorySettingsInventorySettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -76657,8 +76304,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsLogoSett
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsLogoSettingsLogoSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsLogoSettingsLogoSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -76779,8 +76425,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsPoAccrua
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsPoAccrualServiceSettingsPoAccrualServiceSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsPoAccrualServiceSettingsPoAccrualServiceSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -76904,8 +76549,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsSystemSe
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -77023,8 +76667,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsTaxSettingsTaxOptionTa
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsTaxSettingsTaxOptionTaxOptionLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsTaxSettingsTaxOptionTaxOptionLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -77138,8 +76781,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsTemplateSettingsTempla
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsTemplateSettingsTemplateTemplateLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsTemplateSettingsTemplateTemplateLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -77256,8 +76898,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsTransferSettingsTransf
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsTransferSettingsTransferTypeTransferTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsTransferSettingsTransferTypeTransferTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -77374,8 +77015,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundSound
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundSoundLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundSoundLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -77489,8 +77129,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfileSoundProfileLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfileSoundProfileLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -77609,8 +77248,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSoundLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSoundLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -77728,8 +77366,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsUserStatus
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsUserStatusUserStatusLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsUserSettingsUserStatusUserStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -77848,8 +77485,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsOrganiza
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsOrganizationTypeOrganizationTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsOrganizationTypeOrganizationTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -77973,8 +77609,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsSapVendo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsSapVendorInvoiceStatusSapVendorInvoiceStatusLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsSapVendorInvoiceStatusSapVendorInvoiceStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -78098,8 +77733,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsVendorCa
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsVendorCatalogVendorCatalogLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsVendorCatalogVendorCatalogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -78216,8 +77850,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsVendorCl
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsVendorClassVendorClassLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsVendorSettingsVendorClassVendorClassLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -78334,8 +77967,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardro
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeCareWardrobeCareLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeCareWardrobeCareLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -78454,8 +78086,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardro
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeColorWardrobeColorLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeColorWardrobeColorLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -78575,8 +78206,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardro
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeGenderWardrobeGenderLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeGenderWardrobeGenderLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -78696,8 +78326,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardro
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeLabelWardrobeLabelLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeLabelWardrobeLabelLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -78821,8 +78450,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardro
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeMaterialWardrobeMaterialLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeMaterialWardrobeMaterialLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -78946,8 +78574,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardro
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobePatternWardrobePatternLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobePatternWardrobePatternLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -79067,8 +78694,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardro
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobePeriodWardrobePeriodLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobePeriodWardrobePeriodLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -79188,8 +78814,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardro
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeSourceWardrobeSourceLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWardrobeSettingsWardrobeSourceWardrobeSourceLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -79309,8 +78934,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseBarCodeSkipWa
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseBarCodeSkipWarehouseBarCodeSkipLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseBarCodeSkipWarehouseBarCodeSkipLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -79429,8 +79053,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseDepartmentWar
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseDepartmentWarehouseDepartmentLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseDepartmentWarehouseDepartmentLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -79547,8 +79170,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseInventoryType
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseInventoryTypeWarehouseInventoryTypeLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseInventoryTypeWarehouseInventoryTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -79666,8 +79288,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseLocationWareh
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseLocationWarehouseLocationLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseLocationWarehouseLocationLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -79788,8 +79409,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseQuikLocateApp
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseQuikLocateApproverWarehouseQuikLocateApproverLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseQuikLocateApproverWarehouseQuikLocateApproverLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -79915,8 +79535,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsPicku
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsPickupLocationPickupLocationLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsPickupLocationPickupLocationLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -80034,8 +79653,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsWareh
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsWarehouseWarehouseLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsWarehouseWarehouseLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -80150,8 +79768,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWorkWeekSettingsWorkWe
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWorkWeekSettingsWorkWeekWorkWeekLogic &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWorkWeekSettingsWorkWeekWorkWeekLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -80266,8 +79883,7 @@ class FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyRes
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse &&
+        (other is FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -82869,8 +82485,7 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsDepartmentLocationD
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsDepartmentLocationDepartmentLocationLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsDepartmentLocationDepartmentLocationLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -82944,8 +82559,7 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsFiscalMonthFiscalMo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsFiscalMonthFiscalMonthLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsFiscalMonthFiscalMonthLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -83019,8 +82633,7 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsInventorySettingsPa
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsInventorySettingsPartsCategoryPartsCategoryLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsInventorySettingsPartsCategoryPartsCategoryLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -83096,8 +82709,7 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsInventorySettingsRe
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsInventorySettingsRentalCategoryRentalCategoryLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsInventorySettingsRentalCategoryRentalCategoryLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -83174,8 +82786,7 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsInventorySettingsSa
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsInventorySettingsSalesCategorySalesCategoryLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsInventorySettingsSalesCategorySalesCategoryLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -83250,8 +82861,7 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsTaxSettingsTaxOptio
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsTaxSettingsTaxOptionTaxOptionLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsTaxSettingsTaxOptionTaxOptionLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -83326,8 +82936,7 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsUserSettingsSoundPr
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSoundLogic &&
+        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesSettingsUserSettingsSoundProfileSoundSoundProfileSoundLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -85395,554 +85004,6 @@ extension $WebApiModulesAdministratorSystemAccessUserAccessUserLocationAccessExt
     return WebApiModulesAdministratorSystemAccessUserAccessUserLocationAccess(
       userId: (userId != null ? userId.value : this.userId),
       locationId: (locationId != null ? locationId.value : this.locationId),
-      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
-      urlIdentifier: (urlIdentifier != null
-          ? urlIdentifier.value
-          : this.urlIdentifier),
-      fields: (fields != null ? fields.value : this.fields),
-      custom: (custom != null ? custom.value : this.custom),
-      defaultFieldAttributes: (defaultFieldAttributes != null
-          ? defaultFieldAttributes.value
-          : this.defaultFieldAttributes),
-      original: (original != null ? original.value : this.original),
-      translation: (translation != null ? translation.value : this.translation),
-      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-      hasDocuments: (hasDocuments != null
-          ? hasDocuments.value
-          : this.hasDocuments),
-      createdByUserId: (createdByUserId != null
-          ? createdByUserId.value
-          : this.createdByUserId),
-      createdByUserName: (createdByUserName != null
-          ? createdByUserName.value
-          : this.createdByUserName),
-      createdDateTime: (createdDateTime != null
-          ? createdDateTime.value
-          : this.createdDateTime),
-      modifiedByUserId: (modifiedByUserId != null
-          ? modifiedByUserId.value
-          : this.modifiedByUserId),
-      modifiedByUserName: (modifiedByUserName != null
-          ? modifiedByUserName.value
-          : this.modifiedByUserName),
-      modifiedDateTime: (modifiedDateTime != null
-          ? modifiedDateTime.value
-          : this.modifiedDateTime),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  const WebApiModulesAdministratorTaskSchedulerTaskSteps({
-    this.taskStepsId,
-    this.taskId,
-    this.name,
-    this.stepNumber,
-    this.type,
-    this.command,
-    this.onSuccessActionDisplay,
-    this.onFailureActionDisplay,
-    this.onSuccessAction,
-    this.retryAttempts,
-    this.retryInterval,
-    this.onFailureAction,
-    this.onSuccessTaskStepsId,
-    this.onFailureTaskStepsId,
-    this.outputFilename,
-    this.lastRunOutcome,
-    this.lastRunDuration,
-    this.lastRunRetries,
-    this.dateStamp,
-    this.auditNote,
-    this.recordTitle,
-    this.urlIdentifier,
-    this.fields,
-    this.custom,
-    this.defaultFieldAttributes,
-    this.original,
-    this.translation,
-    this.hasImport,
-    this.hasDocuments,
-    this.createdByUserId,
-    this.createdByUserName,
-    this.createdDateTime,
-    this.modifiedByUserId,
-    this.modifiedByUserName,
-    this.modifiedDateTime,
-  });
-
-  factory WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
-    Map<String, dynamic> json,
-  ) => _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(json);
-
-  static const toJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(this);
-
-  @JsonKey(name: 'TaskStepsId', includeIfNull: false)
-  final int? taskStepsId;
-  @JsonKey(name: 'TaskId', includeIfNull: false)
-  final int? taskId;
-  @JsonKey(name: 'Name', includeIfNull: false)
-  final String? name;
-  @JsonKey(name: 'StepNumber', includeIfNull: false)
-  final int? stepNumber;
-  @JsonKey(name: 'Type', includeIfNull: false)
-  final String? type;
-  @JsonKey(name: 'Command', includeIfNull: false)
-  final String? command;
-  @JsonKey(name: 'OnSuccessActionDisplay', includeIfNull: false)
-  final String? onSuccessActionDisplay;
-  @JsonKey(name: 'OnFailureActionDisplay', includeIfNull: false)
-  final String? onFailureActionDisplay;
-  @JsonKey(name: 'OnSuccessAction', includeIfNull: false)
-  final int? onSuccessAction;
-  @JsonKey(name: 'RetryAttempts', includeIfNull: false)
-  final int? retryAttempts;
-  @JsonKey(name: 'RetryInterval', includeIfNull: false)
-  final int? retryInterval;
-  @JsonKey(name: 'OnFailureAction', includeIfNull: false)
-  final int? onFailureAction;
-  @JsonKey(name: 'OnSuccessTaskStepsId', includeIfNull: false)
-  final int? onSuccessTaskStepsId;
-  @JsonKey(name: 'OnFailureTaskStepsId', includeIfNull: false)
-  final int? onFailureTaskStepsId;
-  @JsonKey(name: 'OutputFilename', includeIfNull: false)
-  final String? outputFilename;
-  @JsonKey(name: 'LastRunOutcome', includeIfNull: false)
-  final int? lastRunOutcome;
-  @JsonKey(name: 'LastRunDuration', includeIfNull: false)
-  final int? lastRunDuration;
-  @JsonKey(name: 'LastRunRetries', includeIfNull: false)
-  final int? lastRunRetries;
-  @JsonKey(name: 'DateStamp', includeIfNull: false)
-  final String? dateStamp;
-  @JsonKey(name: 'AuditNote', includeIfNull: false)
-  final String? auditNote;
-  @JsonKey(name: 'RecordTitle', includeIfNull: false)
-  final String? recordTitle;
-  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
-  final dynamic urlIdentifier;
-  @JsonKey(
-    name: '_Fields',
-    includeIfNull: false,
-    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
-  )
-  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
-  @JsonKey(
-    name: '_Custom',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwCustomValue>[],
-  )
-  final List<FwStandardDataFwCustomValue>? custom;
-  @JsonKey(
-    name: '_DefaultFieldAttributes',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwDefaultAttribute>[],
-  )
-  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
-  @JsonKey(name: '_Original', includeIfNull: false)
-  final FwStandardBusinessLogicFwBusinessLogic? original;
-  @JsonKey(
-    name: '_Translation',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwTranslatedValue>[],
-  )
-  final List<FwStandardDataFwTranslatedValue>? translation;
-  @JsonKey(name: '_HasImport', includeIfNull: false)
-  final bool? hasImport;
-  @JsonKey(name: '_HasDocuments', includeIfNull: false)
-  final bool? hasDocuments;
-  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
-  final String? createdByUserId;
-  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
-  final String? createdByUserName;
-  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
-  final String? createdDateTime;
-  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
-  final String? modifiedByUserId;
-  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
-  final String? modifiedByUserName;
-  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
-  final String? modifiedDateTime;
-  static const fromJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is WebApiModulesAdministratorTaskSchedulerTaskSteps &&
-            (identical(other.taskStepsId, taskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.taskStepsId,
-                  taskStepsId,
-                )) &&
-            (identical(other.taskId, taskId) ||
-                const DeepCollectionEquality().equals(other.taskId, taskId)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.stepNumber, stepNumber) ||
-                const DeepCollectionEquality().equals(
-                  other.stepNumber,
-                  stepNumber,
-                )) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.command, command) ||
-                const DeepCollectionEquality().equals(
-                  other.command,
-                  command,
-                )) &&
-            (identical(other.onSuccessActionDisplay, onSuccessActionDisplay) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessActionDisplay,
-                  onSuccessActionDisplay,
-                )) &&
-            (identical(other.onFailureActionDisplay, onFailureActionDisplay) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureActionDisplay,
-                  onFailureActionDisplay,
-                )) &&
-            (identical(other.onSuccessAction, onSuccessAction) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessAction,
-                  onSuccessAction,
-                )) &&
-            (identical(other.retryAttempts, retryAttempts) ||
-                const DeepCollectionEquality().equals(
-                  other.retryAttempts,
-                  retryAttempts,
-                )) &&
-            (identical(other.retryInterval, retryInterval) ||
-                const DeepCollectionEquality().equals(
-                  other.retryInterval,
-                  retryInterval,
-                )) &&
-            (identical(other.onFailureAction, onFailureAction) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureAction,
-                  onFailureAction,
-                )) &&
-            (identical(other.onSuccessTaskStepsId, onSuccessTaskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.onSuccessTaskStepsId,
-                  onSuccessTaskStepsId,
-                )) &&
-            (identical(other.onFailureTaskStepsId, onFailureTaskStepsId) ||
-                const DeepCollectionEquality().equals(
-                  other.onFailureTaskStepsId,
-                  onFailureTaskStepsId,
-                )) &&
-            (identical(other.outputFilename, outputFilename) ||
-                const DeepCollectionEquality().equals(
-                  other.outputFilename,
-                  outputFilename,
-                )) &&
-            (identical(other.lastRunOutcome, lastRunOutcome) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunOutcome,
-                  lastRunOutcome,
-                )) &&
-            (identical(other.lastRunDuration, lastRunDuration) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunDuration,
-                  lastRunDuration,
-                )) &&
-            (identical(other.lastRunRetries, lastRunRetries) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunRetries,
-                  lastRunRetries,
-                )) &&
-            (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality().equals(
-                  other.dateStamp,
-                  dateStamp,
-                )) &&
-            (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality().equals(
-                  other.auditNote,
-                  auditNote,
-                )) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality().equals(
-                  other.recordTitle,
-                  recordTitle,
-                )) &&
-            (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality().equals(
-                  other.urlIdentifier,
-                  urlIdentifier,
-                )) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                  other.defaultFieldAttributes,
-                  defaultFieldAttributes,
-                )) &&
-            (identical(other.original, original) ||
-                const DeepCollectionEquality().equals(
-                  other.original,
-                  original,
-                )) &&
-            (identical(other.translation, translation) ||
-                const DeepCollectionEquality().equals(
-                  other.translation,
-                  translation,
-                )) &&
-            (identical(other.hasImport, hasImport) ||
-                const DeepCollectionEquality().equals(
-                  other.hasImport,
-                  hasImport,
-                )) &&
-            (identical(other.hasDocuments, hasDocuments) ||
-                const DeepCollectionEquality().equals(
-                  other.hasDocuments,
-                  hasDocuments,
-                )) &&
-            (identical(other.createdByUserId, createdByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserId,
-                  createdByUserId,
-                )) &&
-            (identical(other.createdByUserName, createdByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserName,
-                  createdByUserName,
-                )) &&
-            (identical(other.createdDateTime, createdDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.createdDateTime,
-                  createdDateTime,
-                )) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserId,
-                  modifiedByUserId,
-                )) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserName,
-                  modifiedByUserName,
-                )) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedDateTime,
-                  modifiedDateTime,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(taskStepsId) ^
-      const DeepCollectionEquality().hash(taskId) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(stepNumber) ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(command) ^
-      const DeepCollectionEquality().hash(onSuccessActionDisplay) ^
-      const DeepCollectionEquality().hash(onFailureActionDisplay) ^
-      const DeepCollectionEquality().hash(onSuccessAction) ^
-      const DeepCollectionEquality().hash(retryAttempts) ^
-      const DeepCollectionEquality().hash(retryInterval) ^
-      const DeepCollectionEquality().hash(onFailureAction) ^
-      const DeepCollectionEquality().hash(onSuccessTaskStepsId) ^
-      const DeepCollectionEquality().hash(onFailureTaskStepsId) ^
-      const DeepCollectionEquality().hash(outputFilename) ^
-      const DeepCollectionEquality().hash(lastRunOutcome) ^
-      const DeepCollectionEquality().hash(lastRunDuration) ^
-      const DeepCollectionEquality().hash(lastRunRetries) ^
-      const DeepCollectionEquality().hash(dateStamp) ^
-      const DeepCollectionEquality().hash(auditNote) ^
-      const DeepCollectionEquality().hash(recordTitle) ^
-      const DeepCollectionEquality().hash(urlIdentifier) ^
-      const DeepCollectionEquality().hash(fields) ^
-      const DeepCollectionEquality().hash(custom) ^
-      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
-      const DeepCollectionEquality().hash(original) ^
-      const DeepCollectionEquality().hash(translation) ^
-      const DeepCollectionEquality().hash(hasImport) ^
-      const DeepCollectionEquality().hash(hasDocuments) ^
-      const DeepCollectionEquality().hash(createdByUserId) ^
-      const DeepCollectionEquality().hash(createdByUserName) ^
-      const DeepCollectionEquality().hash(createdDateTime) ^
-      const DeepCollectionEquality().hash(modifiedByUserId) ^
-      const DeepCollectionEquality().hash(modifiedByUserName) ^
-      const DeepCollectionEquality().hash(modifiedDateTime) ^
-      runtimeType.hashCode;
-}
-
-extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
-    on WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWith({
-    int? taskStepsId,
-    int? taskId,
-    String? name,
-    int? stepNumber,
-    String? type,
-    String? command,
-    String? onSuccessActionDisplay,
-    String? onFailureActionDisplay,
-    int? onSuccessAction,
-    int? retryAttempts,
-    int? retryInterval,
-    int? onFailureAction,
-    int? onSuccessTaskStepsId,
-    int? onFailureTaskStepsId,
-    String? outputFilename,
-    int? lastRunOutcome,
-    int? lastRunDuration,
-    int? lastRunRetries,
-    String? dateStamp,
-    String? auditNote,
-    String? recordTitle,
-    dynamic urlIdentifier,
-    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-    List<FwStandardDataFwCustomValue>? custom,
-    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-    FwStandardBusinessLogicFwBusinessLogic? original,
-    List<FwStandardDataFwTranslatedValue>? translation,
-    bool? hasImport,
-    bool? hasDocuments,
-    String? createdByUserId,
-    String? createdByUserName,
-    String? createdDateTime,
-    String? modifiedByUserId,
-    String? modifiedByUserName,
-    String? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: taskStepsId ?? this.taskStepsId,
-      taskId: taskId ?? this.taskId,
-      name: name ?? this.name,
-      stepNumber: stepNumber ?? this.stepNumber,
-      type: type ?? this.type,
-      command: command ?? this.command,
-      onSuccessActionDisplay:
-          onSuccessActionDisplay ?? this.onSuccessActionDisplay,
-      onFailureActionDisplay:
-          onFailureActionDisplay ?? this.onFailureActionDisplay,
-      onSuccessAction: onSuccessAction ?? this.onSuccessAction,
-      retryAttempts: retryAttempts ?? this.retryAttempts,
-      retryInterval: retryInterval ?? this.retryInterval,
-      onFailureAction: onFailureAction ?? this.onFailureAction,
-      onSuccessTaskStepsId: onSuccessTaskStepsId ?? this.onSuccessTaskStepsId,
-      onFailureTaskStepsId: onFailureTaskStepsId ?? this.onFailureTaskStepsId,
-      outputFilename: outputFilename ?? this.outputFilename,
-      lastRunOutcome: lastRunOutcome ?? this.lastRunOutcome,
-      lastRunDuration: lastRunDuration ?? this.lastRunDuration,
-      lastRunRetries: lastRunRetries ?? this.lastRunRetries,
-      dateStamp: dateStamp ?? this.dateStamp,
-      auditNote: auditNote ?? this.auditNote,
-      recordTitle: recordTitle ?? this.recordTitle,
-      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-      fields: fields ?? this.fields,
-      custom: custom ?? this.custom,
-      defaultFieldAttributes:
-          defaultFieldAttributes ?? this.defaultFieldAttributes,
-      original: original ?? this.original,
-      translation: translation ?? this.translation,
-      hasImport: hasImport ?? this.hasImport,
-      hasDocuments: hasDocuments ?? this.hasDocuments,
-      createdByUserId: createdByUserId ?? this.createdByUserId,
-      createdByUserName: createdByUserName ?? this.createdByUserName,
-      createdDateTime: createdDateTime ?? this.createdDateTime,
-      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
-    );
-  }
-
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWithWrapped({
-    Wrapped<int?>? taskStepsId,
-    Wrapped<int?>? taskId,
-    Wrapped<String?>? name,
-    Wrapped<int?>? stepNumber,
-    Wrapped<String?>? type,
-    Wrapped<String?>? command,
-    Wrapped<String?>? onSuccessActionDisplay,
-    Wrapped<String?>? onFailureActionDisplay,
-    Wrapped<int?>? onSuccessAction,
-    Wrapped<int?>? retryAttempts,
-    Wrapped<int?>? retryInterval,
-    Wrapped<int?>? onFailureAction,
-    Wrapped<int?>? onSuccessTaskStepsId,
-    Wrapped<int?>? onFailureTaskStepsId,
-    Wrapped<String?>? outputFilename,
-    Wrapped<int?>? lastRunOutcome,
-    Wrapped<int?>? lastRunDuration,
-    Wrapped<int?>? lastRunRetries,
-    Wrapped<String?>? dateStamp,
-    Wrapped<String?>? auditNote,
-    Wrapped<String?>? recordTitle,
-    Wrapped<dynamic>? urlIdentifier,
-    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-    fields,
-    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-    Wrapped<bool?>? hasImport,
-    Wrapped<bool?>? hasDocuments,
-    Wrapped<String?>? createdByUserId,
-    Wrapped<String?>? createdByUserName,
-    Wrapped<String?>? createdDateTime,
-    Wrapped<String?>? modifiedByUserId,
-    Wrapped<String?>? modifiedByUserName,
-    Wrapped<String?>? modifiedDateTime,
-  }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: (taskStepsId != null ? taskStepsId.value : this.taskStepsId),
-      taskId: (taskId != null ? taskId.value : this.taskId),
-      name: (name != null ? name.value : this.name),
-      stepNumber: (stepNumber != null ? stepNumber.value : this.stepNumber),
-      type: (type != null ? type.value : this.type),
-      command: (command != null ? command.value : this.command),
-      onSuccessActionDisplay: (onSuccessActionDisplay != null
-          ? onSuccessActionDisplay.value
-          : this.onSuccessActionDisplay),
-      onFailureActionDisplay: (onFailureActionDisplay != null
-          ? onFailureActionDisplay.value
-          : this.onFailureActionDisplay),
-      onSuccessAction: (onSuccessAction != null
-          ? onSuccessAction.value
-          : this.onSuccessAction),
-      retryAttempts: (retryAttempts != null
-          ? retryAttempts.value
-          : this.retryAttempts),
-      retryInterval: (retryInterval != null
-          ? retryInterval.value
-          : this.retryInterval),
-      onFailureAction: (onFailureAction != null
-          ? onFailureAction.value
-          : this.onFailureAction),
-      onSuccessTaskStepsId: (onSuccessTaskStepsId != null
-          ? onSuccessTaskStepsId.value
-          : this.onSuccessTaskStepsId),
-      onFailureTaskStepsId: (onFailureTaskStepsId != null
-          ? onFailureTaskStepsId.value
-          : this.onFailureTaskStepsId),
-      outputFilename: (outputFilename != null
-          ? outputFilename.value
-          : this.outputFilename),
-      lastRunOutcome: (lastRunOutcome != null
-          ? lastRunOutcome.value
-          : this.lastRunOutcome),
-      lastRunDuration: (lastRunDuration != null
-          ? lastRunDuration.value
-          : this.lastRunDuration),
-      lastRunRetries: (lastRunRetries != null
-          ? lastRunRetries.value
-          : this.lastRunRetries),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
@@ -101919,11 +100980,15 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
     this.flatAmountCreditInvoiceRateId,
     this.flatAmountCreditInvoiceRateICode,
     this.flatAmountCreditInvoiceRateDescription,
+    this.freightRateId,
+    this.freightRateICode,
+    this.freightRateDescription,
     this.updateEstimatedStartAndStopDatesOnSubPurchaseOrders,
     this.promptToUpdateEstimatedStartAndStopDatesOnSubPurchaseOrders,
     this.updateBillingStartAndStopDatesOnSubPurchaseOrders,
     this.promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
     this.purchaseOrderApprovalRequiredAsOf,
+    this.purchaseOrderRequireApprovalBeforeVendorInvoice,
     this.purchaseOrderRequireFirstApproval,
     this.purchaseOrderRequireSecondApproval,
     this.purchaseOrderAllowSecondApprovalWithoutFirstApproval,
@@ -101985,6 +101050,12 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
     this.enableExpectedDate,
     this.requireExpectedDate,
     this.expectedDateAlertDefaultValue,
+    this.quoteWebReportLayoutId,
+    this.quoteWebReportDescription,
+    this.orderWebReportLayoutId,
+    this.orderWebReportDescription,
+    this.invoiceWebReportLayoutId,
+    this.invoiceWebReportDescription,
     this.auditNote,
     this.recordTitle,
     this.urlIdentifier,
@@ -102057,6 +101128,12 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
   final String? flatAmountCreditInvoiceRateICode;
   @JsonKey(name: 'FlatAmountCreditInvoiceRateDescription', includeIfNull: false)
   final String? flatAmountCreditInvoiceRateDescription;
+  @JsonKey(name: 'FreightRateId', includeIfNull: false)
+  final String? freightRateId;
+  @JsonKey(name: 'FreightRateICode', includeIfNull: false)
+  final String? freightRateICode;
+  @JsonKey(name: 'FreightRateDescription', includeIfNull: false)
+  final String? freightRateDescription;
   @JsonKey(
     name: 'UpdateEstimatedStartAndStopDatesOnSubPurchaseOrders',
     includeIfNull: false,
@@ -102079,6 +101156,11 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
   final bool? promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders;
   @JsonKey(name: 'PurchaseOrderApprovalRequiredAsOf', includeIfNull: false)
   final String? purchaseOrderApprovalRequiredAsOf;
+  @JsonKey(
+    name: 'PurchaseOrderRequireApprovalBeforeVendorInvoice',
+    includeIfNull: false,
+  )
+  final bool? purchaseOrderRequireApprovalBeforeVendorInvoice;
   @JsonKey(name: 'PurchaseOrderRequireFirstApproval', includeIfNull: false)
   final bool? purchaseOrderRequireFirstApproval;
   @JsonKey(name: 'PurchaseOrderRequireSecondApproval', includeIfNull: false)
@@ -102286,6 +101368,18 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
   final bool? requireExpectedDate;
   @JsonKey(name: 'ExpectedDateAlertDefaultValue', includeIfNull: false)
   final bool? expectedDateAlertDefaultValue;
+  @JsonKey(name: 'QuoteWebReportLayoutId', includeIfNull: false)
+  final String? quoteWebReportLayoutId;
+  @JsonKey(name: 'QuoteWebReportDescription', includeIfNull: false)
+  final String? quoteWebReportDescription;
+  @JsonKey(name: 'OrderWebReportLayoutId', includeIfNull: false)
+  final String? orderWebReportLayoutId;
+  @JsonKey(name: 'OrderWebReportDescription', includeIfNull: false)
+  final String? orderWebReportDescription;
+  @JsonKey(name: 'InvoiceWebReportLayoutId', includeIfNull: false)
+  final String? invoiceWebReportLayoutId;
+  @JsonKey(name: 'InvoiceWebReportDescription', includeIfNull: false)
+  final String? invoiceWebReportDescription;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
   final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
@@ -102475,6 +101569,21 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
                   other.flatAmountCreditInvoiceRateDescription,
                   flatAmountCreditInvoiceRateDescription,
                 )) &&
+            (identical(other.freightRateId, freightRateId) ||
+                const DeepCollectionEquality().equals(
+                  other.freightRateId,
+                  freightRateId,
+                )) &&
+            (identical(other.freightRateICode, freightRateICode) ||
+                const DeepCollectionEquality().equals(
+                  other.freightRateICode,
+                  freightRateICode,
+                )) &&
+            (identical(other.freightRateDescription, freightRateDescription) ||
+                const DeepCollectionEquality().equals(
+                  other.freightRateDescription,
+                  freightRateDescription,
+                )) &&
             (identical(
                   other.updateEstimatedStartAndStopDatesOnSubPurchaseOrders,
                   updateEstimatedStartAndStopDatesOnSubPurchaseOrders,
@@ -102518,6 +101627,14 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
                 const DeepCollectionEquality().equals(
                   other.purchaseOrderApprovalRequiredAsOf,
                   purchaseOrderApprovalRequiredAsOf,
+                )) &&
+            (identical(
+                  other.purchaseOrderRequireApprovalBeforeVendorInvoice,
+                  purchaseOrderRequireApprovalBeforeVendorInvoice,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.purchaseOrderRequireApprovalBeforeVendorInvoice,
+                  purchaseOrderRequireApprovalBeforeVendorInvoice,
                 )) &&
             (identical(
                   other.purchaseOrderRequireFirstApproval,
@@ -102973,6 +102090,48 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
                   other.expectedDateAlertDefaultValue,
                   expectedDateAlertDefaultValue,
                 )) &&
+            (identical(other.quoteWebReportLayoutId, quoteWebReportLayoutId) ||
+                const DeepCollectionEquality().equals(
+                  other.quoteWebReportLayoutId,
+                  quoteWebReportLayoutId,
+                )) &&
+            (identical(
+                  other.quoteWebReportDescription,
+                  quoteWebReportDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.quoteWebReportDescription,
+                  quoteWebReportDescription,
+                )) &&
+            (identical(other.orderWebReportLayoutId, orderWebReportLayoutId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderWebReportLayoutId,
+                  orderWebReportLayoutId,
+                )) &&
+            (identical(
+                  other.orderWebReportDescription,
+                  orderWebReportDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.orderWebReportDescription,
+                  orderWebReportDescription,
+                )) &&
+            (identical(
+                  other.invoiceWebReportLayoutId,
+                  invoiceWebReportLayoutId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceWebReportLayoutId,
+                  invoiceWebReportLayoutId,
+                )) &&
+            (identical(
+                  other.invoiceWebReportDescription,
+                  invoiceWebReportDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.invoiceWebReportDescription,
+                  invoiceWebReportDescription,
+                )) &&
             (identical(other.auditNote, auditNote) ||
                 const DeepCollectionEquality().equals(
                   other.auditNote,
@@ -103080,6 +102239,9 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
       const DeepCollectionEquality().hash(
         flatAmountCreditInvoiceRateDescription,
       ) ^
+      const DeepCollectionEquality().hash(freightRateId) ^
+      const DeepCollectionEquality().hash(freightRateICode) ^
+      const DeepCollectionEquality().hash(freightRateDescription) ^
       const DeepCollectionEquality().hash(
         updateEstimatedStartAndStopDatesOnSubPurchaseOrders,
       ) ^
@@ -103093,6 +102255,9 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
         promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
       ) ^
       const DeepCollectionEquality().hash(purchaseOrderApprovalRequiredAsOf) ^
+      const DeepCollectionEquality().hash(
+        purchaseOrderRequireApprovalBeforeVendorInvoice,
+      ) ^
       const DeepCollectionEquality().hash(purchaseOrderRequireFirstApproval) ^
       const DeepCollectionEquality().hash(purchaseOrderRequireSecondApproval) ^
       const DeepCollectionEquality().hash(
@@ -103224,6 +102389,12 @@ class WebApiModulesSettingsDepartmentLocationDepartmentLocation {
       const DeepCollectionEquality().hash(enableExpectedDate) ^
       const DeepCollectionEquality().hash(requireExpectedDate) ^
       const DeepCollectionEquality().hash(expectedDateAlertDefaultValue) ^
+      const DeepCollectionEquality().hash(quoteWebReportLayoutId) ^
+      const DeepCollectionEquality().hash(quoteWebReportDescription) ^
+      const DeepCollectionEquality().hash(orderWebReportLayoutId) ^
+      const DeepCollectionEquality().hash(orderWebReportDescription) ^
+      const DeepCollectionEquality().hash(invoiceWebReportLayoutId) ^
+      const DeepCollectionEquality().hash(invoiceWebReportDescription) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(urlIdentifier) ^
@@ -103268,11 +102439,15 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
     String? flatAmountCreditInvoiceRateId,
     String? flatAmountCreditInvoiceRateICode,
     String? flatAmountCreditInvoiceRateDescription,
+    String? freightRateId,
+    String? freightRateICode,
+    String? freightRateDescription,
     bool? updateEstimatedStartAndStopDatesOnSubPurchaseOrders,
     bool? promptToUpdateEstimatedStartAndStopDatesOnSubPurchaseOrders,
     bool? updateBillingStartAndStopDatesOnSubPurchaseOrders,
     bool? promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
     String? purchaseOrderApprovalRequiredAsOf,
+    bool? purchaseOrderRequireApprovalBeforeVendorInvoice,
     bool? purchaseOrderRequireFirstApproval,
     bool? purchaseOrderRequireSecondApproval,
     bool? purchaseOrderAllowSecondApprovalWithoutFirstApproval,
@@ -103334,6 +102509,12 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
     bool? enableExpectedDate,
     bool? requireExpectedDate,
     bool? expectedDateAlertDefaultValue,
+    String? quoteWebReportLayoutId,
+    String? quoteWebReportDescription,
+    String? orderWebReportLayoutId,
+    String? orderWebReportDescription,
+    String? invoiceWebReportLayoutId,
+    String? invoiceWebReportDescription,
     String? auditNote,
     String? recordTitle,
     dynamic urlIdentifier,
@@ -103388,6 +102569,10 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
       flatAmountCreditInvoiceRateDescription:
           flatAmountCreditInvoiceRateDescription ??
           this.flatAmountCreditInvoiceRateDescription,
+      freightRateId: freightRateId ?? this.freightRateId,
+      freightRateICode: freightRateICode ?? this.freightRateICode,
+      freightRateDescription:
+          freightRateDescription ?? this.freightRateDescription,
       updateEstimatedStartAndStopDatesOnSubPurchaseOrders:
           updateEstimatedStartAndStopDatesOnSubPurchaseOrders ??
           this.updateEstimatedStartAndStopDatesOnSubPurchaseOrders,
@@ -103403,6 +102588,9 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
       purchaseOrderApprovalRequiredAsOf:
           purchaseOrderApprovalRequiredAsOf ??
           this.purchaseOrderApprovalRequiredAsOf,
+      purchaseOrderRequireApprovalBeforeVendorInvoice:
+          purchaseOrderRequireApprovalBeforeVendorInvoice ??
+          this.purchaseOrderRequireApprovalBeforeVendorInvoice,
       purchaseOrderRequireFirstApproval:
           purchaseOrderRequireFirstApproval ??
           this.purchaseOrderRequireFirstApproval,
@@ -103556,6 +102744,18 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
       requireExpectedDate: requireExpectedDate ?? this.requireExpectedDate,
       expectedDateAlertDefaultValue:
           expectedDateAlertDefaultValue ?? this.expectedDateAlertDefaultValue,
+      quoteWebReportLayoutId:
+          quoteWebReportLayoutId ?? this.quoteWebReportLayoutId,
+      quoteWebReportDescription:
+          quoteWebReportDescription ?? this.quoteWebReportDescription,
+      orderWebReportLayoutId:
+          orderWebReportLayoutId ?? this.orderWebReportLayoutId,
+      orderWebReportDescription:
+          orderWebReportDescription ?? this.orderWebReportDescription,
+      invoiceWebReportLayoutId:
+          invoiceWebReportLayoutId ?? this.invoiceWebReportLayoutId,
+      invoiceWebReportDescription:
+          invoiceWebReportDescription ?? this.invoiceWebReportDescription,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
       urlIdentifier: urlIdentifier ?? this.urlIdentifier,
@@ -103599,11 +102799,15 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
     Wrapped<String?>? flatAmountCreditInvoiceRateId,
     Wrapped<String?>? flatAmountCreditInvoiceRateICode,
     Wrapped<String?>? flatAmountCreditInvoiceRateDescription,
+    Wrapped<String?>? freightRateId,
+    Wrapped<String?>? freightRateICode,
+    Wrapped<String?>? freightRateDescription,
     Wrapped<bool?>? updateEstimatedStartAndStopDatesOnSubPurchaseOrders,
     Wrapped<bool?>? promptToUpdateEstimatedStartAndStopDatesOnSubPurchaseOrders,
     Wrapped<bool?>? updateBillingStartAndStopDatesOnSubPurchaseOrders,
     Wrapped<bool?>? promptToUpdateBillingStartAndStopDatesOnSubPurchaseOrders,
     Wrapped<String?>? purchaseOrderApprovalRequiredAsOf,
+    Wrapped<bool?>? purchaseOrderRequireApprovalBeforeVendorInvoice,
     Wrapped<bool?>? purchaseOrderRequireFirstApproval,
     Wrapped<bool?>? purchaseOrderRequireSecondApproval,
     Wrapped<bool?>? purchaseOrderAllowSecondApprovalWithoutFirstApproval,
@@ -103666,6 +102870,12 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
     Wrapped<bool?>? enableExpectedDate,
     Wrapped<bool?>? requireExpectedDate,
     Wrapped<bool?>? expectedDateAlertDefaultValue,
+    Wrapped<String?>? quoteWebReportLayoutId,
+    Wrapped<String?>? quoteWebReportDescription,
+    Wrapped<String?>? orderWebReportLayoutId,
+    Wrapped<String?>? orderWebReportDescription,
+    Wrapped<String?>? invoiceWebReportLayoutId,
+    Wrapped<String?>? invoiceWebReportDescription,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
     Wrapped<dynamic>? urlIdentifier,
@@ -103743,6 +102953,15 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
           (flatAmountCreditInvoiceRateDescription != null
           ? flatAmountCreditInvoiceRateDescription.value
           : this.flatAmountCreditInvoiceRateDescription),
+      freightRateId: (freightRateId != null
+          ? freightRateId.value
+          : this.freightRateId),
+      freightRateICode: (freightRateICode != null
+          ? freightRateICode.value
+          : this.freightRateICode),
+      freightRateDescription: (freightRateDescription != null
+          ? freightRateDescription.value
+          : this.freightRateDescription),
       updateEstimatedStartAndStopDatesOnSubPurchaseOrders:
           (updateEstimatedStartAndStopDatesOnSubPurchaseOrders != null
           ? updateEstimatedStartAndStopDatesOnSubPurchaseOrders.value
@@ -103763,6 +102982,10 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
           (purchaseOrderApprovalRequiredAsOf != null
           ? purchaseOrderApprovalRequiredAsOf.value
           : this.purchaseOrderApprovalRequiredAsOf),
+      purchaseOrderRequireApprovalBeforeVendorInvoice:
+          (purchaseOrderRequireApprovalBeforeVendorInvoice != null
+          ? purchaseOrderRequireApprovalBeforeVendorInvoice.value
+          : this.purchaseOrderRequireApprovalBeforeVendorInvoice),
       purchaseOrderRequireFirstApproval:
           (purchaseOrderRequireFirstApproval != null
           ? purchaseOrderRequireFirstApproval.value
@@ -103984,6 +103207,24 @@ extension $WebApiModulesSettingsDepartmentLocationDepartmentLocationExtension
       expectedDateAlertDefaultValue: (expectedDateAlertDefaultValue != null
           ? expectedDateAlertDefaultValue.value
           : this.expectedDateAlertDefaultValue),
+      quoteWebReportLayoutId: (quoteWebReportLayoutId != null
+          ? quoteWebReportLayoutId.value
+          : this.quoteWebReportLayoutId),
+      quoteWebReportDescription: (quoteWebReportDescription != null
+          ? quoteWebReportDescription.value
+          : this.quoteWebReportDescription),
+      orderWebReportLayoutId: (orderWebReportLayoutId != null
+          ? orderWebReportLayoutId.value
+          : this.orderWebReportLayoutId),
+      orderWebReportDescription: (orderWebReportDescription != null
+          ? orderWebReportDescription.value
+          : this.orderWebReportDescription),
+      invoiceWebReportLayoutId: (invoiceWebReportLayoutId != null
+          ? invoiceWebReportLayoutId.value
+          : this.invoiceWebReportLayoutId),
+      invoiceWebReportDescription: (invoiceWebReportDescription != null
+          ? invoiceWebReportDescription.value
+          : this.invoiceWebReportDescription),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
       urlIdentifier: (urlIdentifier != null
@@ -105913,8 +105154,7 @@ class WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateAddAllDiscoun
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateAddAllDiscountTemplateItemsRequest &&
+        (other is WebApiModulesSettingsDiscountTemplateSettingsDiscountTemplateAddAllDiscountTemplateItemsRequest &&
             (identical(other.discountTemplateId, discountTemplateId) ||
                 const DeepCollectionEquality().equals(
                   other.discountTemplateId,
@@ -107395,6 +106635,7 @@ class WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentType {
     this.videos,
     this.panoramic,
     this.automaticallyAttachToEmail,
+    this.manifestDocument,
     this.inactive,
     this.dateStamp,
     this.auditNote,
@@ -107440,6 +106681,8 @@ class WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentType {
   final bool? panoramic;
   @JsonKey(name: 'AutomaticallyAttachToEmail', includeIfNull: false)
   final bool? automaticallyAttachToEmail;
+  @JsonKey(name: 'ManifestDocument', includeIfNull: false)
+  final bool? manifestDocument;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
@@ -107529,6 +106772,11 @@ class WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentType {
                 const DeepCollectionEquality().equals(
                   other.automaticallyAttachToEmail,
                   automaticallyAttachToEmail,
+                )) &&
+            (identical(other.manifestDocument, manifestDocument) ||
+                const DeepCollectionEquality().equals(
+                  other.manifestDocument,
+                  manifestDocument,
                 )) &&
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality().equals(
@@ -107627,6 +106875,7 @@ class WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentType {
       const DeepCollectionEquality().hash(videos) ^
       const DeepCollectionEquality().hash(panoramic) ^
       const DeepCollectionEquality().hash(automaticallyAttachToEmail) ^
+      const DeepCollectionEquality().hash(manifestDocument) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(auditNote) ^
@@ -107657,6 +106906,7 @@ extension $WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentTypeExtensio
     bool? videos,
     bool? panoramic,
     bool? automaticallyAttachToEmail,
+    bool? manifestDocument,
     bool? inactive,
     String? dateStamp,
     String? auditNote,
@@ -107684,6 +106934,7 @@ extension $WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentTypeExtensio
       panoramic: panoramic ?? this.panoramic,
       automaticallyAttachToEmail:
           automaticallyAttachToEmail ?? this.automaticallyAttachToEmail,
+      manifestDocument: manifestDocument ?? this.manifestDocument,
       inactive: inactive ?? this.inactive,
       dateStamp: dateStamp ?? this.dateStamp,
       auditNote: auditNote ?? this.auditNote,
@@ -107714,6 +106965,7 @@ extension $WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentTypeExtensio
     Wrapped<bool?>? videos,
     Wrapped<bool?>? panoramic,
     Wrapped<bool?>? automaticallyAttachToEmail,
+    Wrapped<bool?>? manifestDocument,
     Wrapped<bool?>? inactive,
     Wrapped<String?>? dateStamp,
     Wrapped<String?>? auditNote,
@@ -107747,6 +106999,9 @@ extension $WebApiModulesSettingsDocumentSettingsDocumentTypeDocumentTypeExtensio
       automaticallyAttachToEmail: (automaticallyAttachToEmail != null
           ? automaticallyAttachToEmail.value
           : this.automaticallyAttachToEmail),
+      manifestDocument: (manifestDocument != null
+          ? manifestDocument.value
+          : this.manifestDocument),
       inactive: (inactive != null ? inactive.value : this.inactive),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
@@ -109499,6 +108754,7 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
     this.countryCodePhone,
     this.phone,
     this.webAddress,
+    this.notes,
     this.taxOptionId,
     this.taxOption,
     this.tax1Name,
@@ -109512,6 +108768,8 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
     this.rentalTaxRate2,
     this.salesTaxRate2,
     this.laborTaxRate2,
+    this.miscTaxRate1,
+    this.miscTaxRate2,
     this.primaryContactId,
     this.primaryCompanyContactId,
     this.primaryContact,
@@ -109581,6 +108839,8 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
   final String? phone;
   @JsonKey(name: 'WebAddress', includeIfNull: false)
   final String? webAddress;
+  @JsonKey(name: 'Notes', includeIfNull: false)
+  final String? notes;
   @JsonKey(name: 'TaxOptionId', includeIfNull: false)
   final String? taxOptionId;
   @JsonKey(name: 'TaxOption', includeIfNull: false)
@@ -109607,6 +108867,10 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
   final double? salesTaxRate2;
   @JsonKey(name: 'LaborTaxRate2', includeIfNull: false)
   final double? laborTaxRate2;
+  @JsonKey(name: 'MiscTaxRate1', includeIfNull: false)
+  final double? miscTaxRate1;
+  @JsonKey(name: 'MiscTaxRate2', includeIfNull: false)
+  final double? miscTaxRate2;
   @JsonKey(name: 'PrimaryContactId', includeIfNull: false)
   final String? primaryContactId;
   @JsonKey(name: 'PrimaryCompanyContactId', includeIfNull: false)
@@ -109751,6 +109015,8 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
                   other.webAddress,
                   webAddress,
                 )) &&
+            (identical(other.notes, notes) ||
+                const DeepCollectionEquality().equals(other.notes, notes)) &&
             (identical(other.taxOptionId, taxOptionId) ||
                 const DeepCollectionEquality().equals(
                   other.taxOptionId,
@@ -109815,6 +109081,16 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
                 const DeepCollectionEquality().equals(
                   other.laborTaxRate2,
                   laborTaxRate2,
+                )) &&
+            (identical(other.miscTaxRate1, miscTaxRate1) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate1,
+                  miscTaxRate1,
+                )) &&
+            (identical(other.miscTaxRate2, miscTaxRate2) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate2,
+                  miscTaxRate2,
                 )) &&
             (identical(other.primaryContactId, primaryContactId) ||
                 const DeepCollectionEquality().equals(
@@ -109957,6 +109233,7 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
       const DeepCollectionEquality().hash(countryCodePhone) ^
       const DeepCollectionEquality().hash(phone) ^
       const DeepCollectionEquality().hash(webAddress) ^
+      const DeepCollectionEquality().hash(notes) ^
       const DeepCollectionEquality().hash(taxOptionId) ^
       const DeepCollectionEquality().hash(taxOption) ^
       const DeepCollectionEquality().hash(tax1Name) ^
@@ -109970,6 +109247,8 @@ class WebApiModulesSettingsFacilitySettingsVenueVenue {
       const DeepCollectionEquality().hash(rentalTaxRate2) ^
       const DeepCollectionEquality().hash(salesTaxRate2) ^
       const DeepCollectionEquality().hash(laborTaxRate2) ^
+      const DeepCollectionEquality().hash(miscTaxRate1) ^
+      const DeepCollectionEquality().hash(miscTaxRate2) ^
       const DeepCollectionEquality().hash(primaryContactId) ^
       const DeepCollectionEquality().hash(primaryCompanyContactId) ^
       const DeepCollectionEquality().hash(primaryContact) ^
@@ -110017,6 +109296,7 @@ extension $WebApiModulesSettingsFacilitySettingsVenueVenueExtension
     int? countryCodePhone,
     String? phone,
     String? webAddress,
+    String? notes,
     String? taxOptionId,
     String? taxOption,
     String? tax1Name,
@@ -110030,6 +109310,8 @@ extension $WebApiModulesSettingsFacilitySettingsVenueVenueExtension
     double? rentalTaxRate2,
     double? salesTaxRate2,
     double? laborTaxRate2,
+    double? miscTaxRate1,
+    double? miscTaxRate2,
     String? primaryContactId,
     String? primaryCompanyContactId,
     String? primaryContact,
@@ -110073,6 +109355,7 @@ extension $WebApiModulesSettingsFacilitySettingsVenueVenueExtension
       countryCodePhone: countryCodePhone ?? this.countryCodePhone,
       phone: phone ?? this.phone,
       webAddress: webAddress ?? this.webAddress,
+      notes: notes ?? this.notes,
       taxOptionId: taxOptionId ?? this.taxOptionId,
       taxOption: taxOption ?? this.taxOption,
       tax1Name: tax1Name ?? this.tax1Name,
@@ -110086,6 +109369,8 @@ extension $WebApiModulesSettingsFacilitySettingsVenueVenueExtension
       rentalTaxRate2: rentalTaxRate2 ?? this.rentalTaxRate2,
       salesTaxRate2: salesTaxRate2 ?? this.salesTaxRate2,
       laborTaxRate2: laborTaxRate2 ?? this.laborTaxRate2,
+      miscTaxRate1: miscTaxRate1 ?? this.miscTaxRate1,
+      miscTaxRate2: miscTaxRate2 ?? this.miscTaxRate2,
       primaryContactId: primaryContactId ?? this.primaryContactId,
       primaryCompanyContactId:
           primaryCompanyContactId ?? this.primaryCompanyContactId,
@@ -110133,6 +109418,7 @@ extension $WebApiModulesSettingsFacilitySettingsVenueVenueExtension
     Wrapped<int?>? countryCodePhone,
     Wrapped<String?>? phone,
     Wrapped<String?>? webAddress,
+    Wrapped<String?>? notes,
     Wrapped<String?>? taxOptionId,
     Wrapped<String?>? taxOption,
     Wrapped<String?>? tax1Name,
@@ -110146,6 +109432,8 @@ extension $WebApiModulesSettingsFacilitySettingsVenueVenueExtension
     Wrapped<double?>? rentalTaxRate2,
     Wrapped<double?>? salesTaxRate2,
     Wrapped<double?>? laborTaxRate2,
+    Wrapped<double?>? miscTaxRate1,
+    Wrapped<double?>? miscTaxRate2,
     Wrapped<String?>? primaryContactId,
     Wrapped<String?>? primaryCompanyContactId,
     Wrapped<String?>? primaryContact,
@@ -110198,6 +109486,7 @@ extension $WebApiModulesSettingsFacilitySettingsVenueVenueExtension
           : this.countryCodePhone),
       phone: (phone != null ? phone.value : this.phone),
       webAddress: (webAddress != null ? webAddress.value : this.webAddress),
+      notes: (notes != null ? notes.value : this.notes),
       taxOptionId: (taxOptionId != null ? taxOptionId.value : this.taxOptionId),
       taxOption: (taxOption != null ? taxOption.value : this.taxOption),
       tax1Name: (tax1Name != null ? tax1Name.value : this.tax1Name),
@@ -110229,6 +109518,12 @@ extension $WebApiModulesSettingsFacilitySettingsVenueVenueExtension
       laborTaxRate2: (laborTaxRate2 != null
           ? laborTaxRate2.value
           : this.laborTaxRate2),
+      miscTaxRate1: (miscTaxRate1 != null
+          ? miscTaxRate1.value
+          : this.miscTaxRate1),
+      miscTaxRate2: (miscTaxRate2 != null
+          ? miscTaxRate2.value
+          : this.miscTaxRate2),
       primaryContactId: (primaryContactId != null
           ? primaryContactId.value
           : this.primaryContactId),
@@ -119704,8 +118999,7 @@ class WebApiModulesSettingsInventorySettingsStorefrontOnlineCatalogItemReponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesSettingsInventorySettingsStorefrontOnlineCatalogItemReponse &&
+        (other is WebApiModulesSettingsInventorySettingsStorefrontOnlineCatalogItemReponse &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)));
   }
@@ -120789,8 +120083,7 @@ class WebApiModulesSettingsInventorySettingsStorefrontToggleCatalogItemRequest {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesSettingsInventorySettingsStorefrontToggleCatalogItemRequest &&
+        (other is WebApiModulesSettingsInventorySettingsStorefrontToggleCatalogItemRequest &&
             (identical(other.recType, recType) ||
                 const DeepCollectionEquality().equals(
                   other.recType,
@@ -135124,6 +134417,7 @@ class WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation {
     this.logoImageWidth,
     this.autoProcessQuikSaleInvoice,
     this.useCompleteDescription,
+    this.includePaymentActiveLink,
     this.inactive,
     this.dateStamp,
     this.auditNote,
@@ -135364,6 +134658,8 @@ class WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation {
   final bool? autoProcessQuikSaleInvoice;
   @JsonKey(name: 'UseCompleteDescription', includeIfNull: false)
   final bool? useCompleteDescription;
+  @JsonKey(name: 'IncludePaymentActiveLink', includeIfNull: false)
+  final bool? includePaymentActiveLink;
   @JsonKey(name: 'Inactive', includeIfNull: false)
   final bool? inactive;
   @JsonKey(name: 'DateStamp', includeIfNull: false)
@@ -136020,6 +135316,14 @@ class WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation {
                   other.useCompleteDescription,
                   useCompleteDescription,
                 )) &&
+            (identical(
+                  other.includePaymentActiveLink,
+                  includePaymentActiveLink,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.includePaymentActiveLink,
+                  includePaymentActiveLink,
+                )) &&
             (identical(other.inactive, inactive) ||
                 const DeepCollectionEquality().equals(
                   other.inactive,
@@ -136214,6 +135518,7 @@ class WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocation {
       const DeepCollectionEquality().hash(logoImageWidth) ^
       const DeepCollectionEquality().hash(autoProcessQuikSaleInvoice) ^
       const DeepCollectionEquality().hash(useCompleteDescription) ^
+      const DeepCollectionEquality().hash(includePaymentActiveLink) ^
       const DeepCollectionEquality().hash(inactive) ^
       const DeepCollectionEquality().hash(dateStamp) ^
       const DeepCollectionEquality().hash(auditNote) ^
@@ -136342,6 +135647,7 @@ extension $WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocati
     int? logoImageWidth,
     bool? autoProcessQuikSaleInvoice,
     bool? useCompleteDescription,
+    bool? includePaymentActiveLink,
     bool? inactive,
     String? dateStamp,
     String? auditNote,
@@ -136518,6 +135824,8 @@ extension $WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocati
           autoProcessQuikSaleInvoice ?? this.autoProcessQuikSaleInvoice,
       useCompleteDescription:
           useCompleteDescription ?? this.useCompleteDescription,
+      includePaymentActiveLink:
+          includePaymentActiveLink ?? this.includePaymentActiveLink,
       inactive: inactive ?? this.inactive,
       dateStamp: dateStamp ?? this.dateStamp,
       auditNote: auditNote ?? this.auditNote,
@@ -136645,6 +135953,7 @@ extension $WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocati
     Wrapped<int?>? logoImageWidth,
     Wrapped<bool?>? autoProcessQuikSaleInvoice,
     Wrapped<bool?>? useCompleteDescription,
+    Wrapped<bool?>? includePaymentActiveLink,
     Wrapped<bool?>? inactive,
     Wrapped<String?>? dateStamp,
     Wrapped<String?>? auditNote,
@@ -136931,6 +136240,9 @@ extension $WebApiModulesSettingsOfficeLocationSettingsOfficeLocationOfficeLocati
       useCompleteDescription: (useCompleteDescription != null
           ? useCompleteDescription.value
           : this.useCompleteDescription),
+      includePaymentActiveLink: (includePaymentActiveLink != null
+          ? includePaymentActiveLink.value
+          : this.includePaymentActiveLink),
       inactive: (inactive != null ? inactive.value : this.inactive),
       dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
@@ -160621,6 +159933,7 @@ class WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings 
     this.defaultTreatConsignedQtyAsOwned,
     this.dateStamp,
     this.defaultProcessConsignmentSelectAllInvoices,
+    this.allowBlendedKitAvailability,
     this.auditNote,
     this.recordTitle,
     this.urlIdentifier,
@@ -160707,6 +160020,8 @@ class WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings 
     includeIfNull: false,
   )
   final bool? defaultProcessConsignmentSelectAllInvoices;
+  @JsonKey(name: 'AllowBlendedKitAvailability', includeIfNull: false)
+  final bool? allowBlendedKitAvailability;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
   final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
@@ -160907,6 +160222,14 @@ class WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings 
                   other.defaultProcessConsignmentSelectAllInvoices,
                   defaultProcessConsignmentSelectAllInvoices,
                 )) &&
+            (identical(
+                  other.allowBlendedKitAvailability,
+                  allowBlendedKitAvailability,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowBlendedKitAvailability,
+                  allowBlendedKitAvailability,
+                )) &&
             (identical(other.auditNote, auditNote) ||
                 const DeepCollectionEquality().equals(
                   other.auditNote,
@@ -161019,6 +160342,7 @@ class WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSettings 
       const DeepCollectionEquality().hash(
         defaultProcessConsignmentSelectAllInvoices,
       ) ^
+      const DeepCollectionEquality().hash(allowBlendedKitAvailability) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(urlIdentifier) ^
@@ -161063,6 +160387,7 @@ extension $WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSett
     bool? defaultTreatConsignedQtyAsOwned,
     String? dateStamp,
     bool? defaultProcessConsignmentSelectAllInvoices,
+    bool? allowBlendedKitAvailability,
     String? auditNote,
     String? recordTitle,
     dynamic urlIdentifier,
@@ -161122,6 +160447,8 @@ extension $WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSett
       defaultProcessConsignmentSelectAllInvoices:
           defaultProcessConsignmentSelectAllInvoices ??
           this.defaultProcessConsignmentSelectAllInvoices,
+      allowBlendedKitAvailability:
+          allowBlendedKitAvailability ?? this.allowBlendedKitAvailability,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
       urlIdentifier: urlIdentifier ?? this.urlIdentifier,
@@ -161165,6 +160492,7 @@ extension $WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSett
     Wrapped<bool?>? defaultTreatConsignedQtyAsOwned,
     Wrapped<String?>? dateStamp,
     Wrapped<bool?>? defaultProcessConsignmentSelectAllInvoices,
+    Wrapped<bool?>? allowBlendedKitAvailability,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
     Wrapped<dynamic>? urlIdentifier,
@@ -161250,6 +160578,9 @@ extension $WebApiModulesSettingsSystemSettingsConsignmentSettingsConsignmentSett
           (defaultProcessConsignmentSelectAllInvoices != null
           ? defaultProcessConsignmentSelectAllInvoices.value
           : this.defaultProcessConsignmentSelectAllInvoices),
+      allowBlendedKitAvailability: (allowBlendedKitAvailability != null
+          ? allowBlendedKitAvailability.value
+          : this.allowBlendedKitAvailability),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
       urlIdentifier: (urlIdentifier != null
@@ -165060,6 +164391,7 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
     this.allowDeleteExportedReceipts,
     this.enableReceipts,
     this.enableVendorInvoice,
+    this.autoCreateInternalVendorInvoices,
     this.closePoReminingInvoiceAmount,
     this.enableBetaUpdates,
     this.enableQaUpdates,
@@ -165089,6 +164421,7 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
     this.deleteDataHealthDays,
     this.allCaps,
     this.enableQuikLocate,
+    this.enableOrderItemViews,
     this.quikSearchDontUpdateBottomLine,
     this.hasInternalVendors,
     this.disableCrossWarehouseCheckIn,
@@ -165160,6 +164493,8 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
   final bool? enableReceipts;
   @JsonKey(name: 'EnableVendorInvoice', includeIfNull: false)
   final bool? enableVendorInvoice;
+  @JsonKey(name: 'AutoCreateInternalVendorInvoices', includeIfNull: false)
+  final bool? autoCreateInternalVendorInvoices;
   @JsonKey(name: 'ClosePoReminingInvoiceAmount', includeIfNull: false)
   final double? closePoReminingInvoiceAmount;
   @JsonKey(name: 'EnableBetaUpdates', includeIfNull: false)
@@ -165227,6 +164562,8 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
   final bool? allCaps;
   @JsonKey(name: 'EnableQuikLocate', includeIfNull: false)
   final bool? enableQuikLocate;
+  @JsonKey(name: 'EnableOrderItemViews', includeIfNull: false)
+  final bool? enableOrderItemViews;
   @JsonKey(name: 'QuikSearchDontUpdateBottomLine', includeIfNull: false)
   final bool? quikSearchDontUpdateBottomLine;
   @JsonKey(name: 'HasInternalVendors', includeIfNull: false)
@@ -165376,6 +164713,14 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
                 const DeepCollectionEquality().equals(
                   other.enableVendorInvoice,
                   enableVendorInvoice,
+                )) &&
+            (identical(
+                  other.autoCreateInternalVendorInvoices,
+                  autoCreateInternalVendorInvoices,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.autoCreateInternalVendorInvoices,
+                  autoCreateInternalVendorInvoices,
                 )) &&
             (identical(
                   other.closePoReminingInvoiceAmount,
@@ -165575,6 +164920,11 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
                 const DeepCollectionEquality().equals(
                   other.enableQuikLocate,
                   enableQuikLocate,
+                )) &&
+            (identical(other.enableOrderItemViews, enableOrderItemViews) ||
+                const DeepCollectionEquality().equals(
+                  other.enableOrderItemViews,
+                  enableOrderItemViews,
                 )) &&
             (identical(
                   other.quikSearchDontUpdateBottomLine,
@@ -165807,6 +165157,7 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
       const DeepCollectionEquality().hash(allowDeleteExportedReceipts) ^
       const DeepCollectionEquality().hash(enableReceipts) ^
       const DeepCollectionEquality().hash(enableVendorInvoice) ^
+      const DeepCollectionEquality().hash(autoCreateInternalVendorInvoices) ^
       const DeepCollectionEquality().hash(closePoReminingInvoiceAmount) ^
       const DeepCollectionEquality().hash(enableBetaUpdates) ^
       const DeepCollectionEquality().hash(enableQaUpdates) ^
@@ -165848,6 +165199,7 @@ class WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettings {
       const DeepCollectionEquality().hash(deleteDataHealthDays) ^
       const DeepCollectionEquality().hash(allCaps) ^
       const DeepCollectionEquality().hash(enableQuikLocate) ^
+      const DeepCollectionEquality().hash(enableOrderItemViews) ^
       const DeepCollectionEquality().hash(quikSearchDontUpdateBottomLine) ^
       const DeepCollectionEquality().hash(hasInternalVendors) ^
       const DeepCollectionEquality().hash(disableCrossWarehouseCheckIn) ^
@@ -165902,6 +165254,7 @@ extension $WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsExtens
     bool? allowDeleteExportedReceipts,
     bool? enableReceipts,
     bool? enableVendorInvoice,
+    bool? autoCreateInternalVendorInvoices,
     double? closePoReminingInvoiceAmount,
     bool? enableBetaUpdates,
     bool? enableQaUpdates,
@@ -165931,6 +165284,7 @@ extension $WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsExtens
     int? deleteDataHealthDays,
     bool? allCaps,
     bool? enableQuikLocate,
+    bool? enableOrderItemViews,
     bool? quikSearchDontUpdateBottomLine,
     bool? hasInternalVendors,
     bool? disableCrossWarehouseCheckIn,
@@ -165985,6 +165339,9 @@ extension $WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsExtens
           allowDeleteExportedReceipts ?? this.allowDeleteExportedReceipts,
       enableReceipts: enableReceipts ?? this.enableReceipts,
       enableVendorInvoice: enableVendorInvoice ?? this.enableVendorInvoice,
+      autoCreateInternalVendorInvoices:
+          autoCreateInternalVendorInvoices ??
+          this.autoCreateInternalVendorInvoices,
       closePoReminingInvoiceAmount:
           closePoReminingInvoiceAmount ?? this.closePoReminingInvoiceAmount,
       enableBetaUpdates: enableBetaUpdates ?? this.enableBetaUpdates,
@@ -166044,6 +165401,7 @@ extension $WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsExtens
       deleteDataHealthDays: deleteDataHealthDays ?? this.deleteDataHealthDays,
       allCaps: allCaps ?? this.allCaps,
       enableQuikLocate: enableQuikLocate ?? this.enableQuikLocate,
+      enableOrderItemViews: enableOrderItemViews ?? this.enableOrderItemViews,
       quikSearchDontUpdateBottomLine:
           quikSearchDontUpdateBottomLine ?? this.quikSearchDontUpdateBottomLine,
       hasInternalVendors: hasInternalVendors ?? this.hasInternalVendors,
@@ -166107,6 +165465,7 @@ extension $WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsExtens
     Wrapped<bool?>? allowDeleteExportedReceipts,
     Wrapped<bool?>? enableReceipts,
     Wrapped<bool?>? enableVendorInvoice,
+    Wrapped<bool?>? autoCreateInternalVendorInvoices,
     Wrapped<double?>? closePoReminingInvoiceAmount,
     Wrapped<bool?>? enableBetaUpdates,
     Wrapped<bool?>? enableQaUpdates,
@@ -166136,6 +165495,7 @@ extension $WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsExtens
     Wrapped<int?>? deleteDataHealthDays,
     Wrapped<bool?>? allCaps,
     Wrapped<bool?>? enableQuikLocate,
+    Wrapped<bool?>? enableOrderItemViews,
     Wrapped<bool?>? quikSearchDontUpdateBottomLine,
     Wrapped<bool?>? hasInternalVendors,
     Wrapped<bool?>? disableCrossWarehouseCheckIn,
@@ -166201,6 +165561,10 @@ extension $WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsExtens
       enableVendorInvoice: (enableVendorInvoice != null
           ? enableVendorInvoice.value
           : this.enableVendorInvoice),
+      autoCreateInternalVendorInvoices:
+          (autoCreateInternalVendorInvoices != null
+          ? autoCreateInternalVendorInvoices.value
+          : this.autoCreateInternalVendorInvoices),
       closePoReminingInvoiceAmount: (closePoReminingInvoiceAmount != null
           ? closePoReminingInvoiceAmount.value
           : this.closePoReminingInvoiceAmount),
@@ -166297,6 +165661,9 @@ extension $WebApiModulesSettingsSystemSettingsSystemSettingsSystemSettingsExtens
       enableQuikLocate: (enableQuikLocate != null
           ? enableQuikLocate.value
           : this.enableQuikLocate),
+      enableOrderItemViews: (enableOrderItemViews != null
+          ? enableOrderItemViews.value
+          : this.enableOrderItemViews),
       quikSearchDontUpdateBottomLine: (quikSearchDontUpdateBottomLine != null
           ? quikSearchDontUpdateBottomLine.value
           : this.quikSearchDontUpdateBottomLine),
@@ -166427,6 +165794,11 @@ class WebApiModulesSettingsTaxSettingsTaxOptionTaxOption {
     this.laborExempt,
     this.laborTaxDisplay,
     this.laborTaxAlias,
+    this.miscTaxRate1,
+    this.miscTaxRate2,
+    this.miscExempt,
+    this.miscTaxDisplay,
+    this.miscTaxAlias,
     this.taxOnTax,
     this.taxOnTaxAccountId,
     this.taxOnTaxAccountNo,
@@ -166525,6 +165897,16 @@ class WebApiModulesSettingsTaxSettingsTaxOptionTaxOption {
   final String? laborTaxDisplay;
   @JsonKey(name: 'LaborTaxAlias', includeIfNull: false)
   final String? laborTaxAlias;
+  @JsonKey(name: 'MiscTaxRate1', includeIfNull: false)
+  final double? miscTaxRate1;
+  @JsonKey(name: 'MiscTaxRate2', includeIfNull: false)
+  final double? miscTaxRate2;
+  @JsonKey(name: 'MiscExempt', includeIfNull: false)
+  final bool? miscExempt;
+  @JsonKey(name: 'MiscTaxDisplay', includeIfNull: false)
+  final String? miscTaxDisplay;
+  @JsonKey(name: 'MiscTaxAlias', includeIfNull: false)
+  final String? miscTaxAlias;
   @JsonKey(name: 'TaxOnTax', includeIfNull: false)
   final bool? taxOnTax;
   @JsonKey(name: 'TaxOnTaxAccountId', includeIfNull: false)
@@ -166743,6 +166125,31 @@ class WebApiModulesSettingsTaxSettingsTaxOptionTaxOption {
                 const DeepCollectionEquality().equals(
                   other.laborTaxAlias,
                   laborTaxAlias,
+                )) &&
+            (identical(other.miscTaxRate1, miscTaxRate1) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate1,
+                  miscTaxRate1,
+                )) &&
+            (identical(other.miscTaxRate2, miscTaxRate2) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate2,
+                  miscTaxRate2,
+                )) &&
+            (identical(other.miscExempt, miscExempt) ||
+                const DeepCollectionEquality().equals(
+                  other.miscExempt,
+                  miscExempt,
+                )) &&
+            (identical(other.miscTaxDisplay, miscTaxDisplay) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxDisplay,
+                  miscTaxDisplay,
+                )) &&
+            (identical(other.miscTaxAlias, miscTaxAlias) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxAlias,
+                  miscTaxAlias,
                 )) &&
             (identical(other.taxOnTax, taxOnTax) ||
                 const DeepCollectionEquality().equals(
@@ -166988,6 +166395,11 @@ class WebApiModulesSettingsTaxSettingsTaxOptionTaxOption {
       const DeepCollectionEquality().hash(laborExempt) ^
       const DeepCollectionEquality().hash(laborTaxDisplay) ^
       const DeepCollectionEquality().hash(laborTaxAlias) ^
+      const DeepCollectionEquality().hash(miscTaxRate1) ^
+      const DeepCollectionEquality().hash(miscTaxRate2) ^
+      const DeepCollectionEquality().hash(miscExempt) ^
+      const DeepCollectionEquality().hash(miscTaxDisplay) ^
+      const DeepCollectionEquality().hash(miscTaxAlias) ^
       const DeepCollectionEquality().hash(taxOnTax) ^
       const DeepCollectionEquality().hash(taxOnTaxAccountId) ^
       const DeepCollectionEquality().hash(taxOnTaxAccountNo) ^
@@ -167059,6 +166471,11 @@ extension $WebApiModulesSettingsTaxSettingsTaxOptionTaxOptionExtension
     bool? laborExempt,
     String? laborTaxDisplay,
     String? laborTaxAlias,
+    double? miscTaxRate1,
+    double? miscTaxRate2,
+    bool? miscExempt,
+    String? miscTaxDisplay,
+    String? miscTaxAlias,
     bool? taxOnTax,
     String? taxOnTaxAccountId,
     String? taxOnTaxAccountNo,
@@ -167127,6 +166544,11 @@ extension $WebApiModulesSettingsTaxSettingsTaxOptionTaxOptionExtension
       laborExempt: laborExempt ?? this.laborExempt,
       laborTaxDisplay: laborTaxDisplay ?? this.laborTaxDisplay,
       laborTaxAlias: laborTaxAlias ?? this.laborTaxAlias,
+      miscTaxRate1: miscTaxRate1 ?? this.miscTaxRate1,
+      miscTaxRate2: miscTaxRate2 ?? this.miscTaxRate2,
+      miscExempt: miscExempt ?? this.miscExempt,
+      miscTaxDisplay: miscTaxDisplay ?? this.miscTaxDisplay,
+      miscTaxAlias: miscTaxAlias ?? this.miscTaxAlias,
       taxOnTax: taxOnTax ?? this.taxOnTax,
       taxOnTaxAccountId: taxOnTaxAccountId ?? this.taxOnTaxAccountId,
       taxOnTaxAccountNo: taxOnTaxAccountNo ?? this.taxOnTaxAccountNo,
@@ -167202,6 +166624,11 @@ extension $WebApiModulesSettingsTaxSettingsTaxOptionTaxOptionExtension
     Wrapped<bool?>? laborExempt,
     Wrapped<String?>? laborTaxDisplay,
     Wrapped<String?>? laborTaxAlias,
+    Wrapped<double?>? miscTaxRate1,
+    Wrapped<double?>? miscTaxRate2,
+    Wrapped<bool?>? miscExempt,
+    Wrapped<String?>? miscTaxDisplay,
+    Wrapped<String?>? miscTaxAlias,
     Wrapped<bool?>? taxOnTax,
     Wrapped<String?>? taxOnTaxAccountId,
     Wrapped<String?>? taxOnTaxAccountNo,
@@ -167302,6 +166729,19 @@ extension $WebApiModulesSettingsTaxSettingsTaxOptionTaxOptionExtension
       laborTaxAlias: (laborTaxAlias != null
           ? laborTaxAlias.value
           : this.laborTaxAlias),
+      miscTaxRate1: (miscTaxRate1 != null
+          ? miscTaxRate1.value
+          : this.miscTaxRate1),
+      miscTaxRate2: (miscTaxRate2 != null
+          ? miscTaxRate2.value
+          : this.miscTaxRate2),
+      miscExempt: (miscExempt != null ? miscExempt.value : this.miscExempt),
+      miscTaxDisplay: (miscTaxDisplay != null
+          ? miscTaxDisplay.value
+          : this.miscTaxDisplay),
+      miscTaxAlias: (miscTaxAlias != null
+          ? miscTaxAlias.value
+          : this.miscTaxAlias),
       taxOnTax: (taxOnTax != null ? taxOnTax.value : this.taxOnTax),
       taxOnTaxAccountId: (taxOnTaxAccountId != null
           ? taxOnTaxAccountId.value
@@ -175280,6 +174720,7 @@ class WebApiModulesSettingsWarehouseAvailabilitySettingsWarehouseAvailabilitySet
     this.warehouse,
     this.warehouseCode,
     this.regionId,
+    this.countryId,
     this.availabilityLateDays,
     this.availabilityLateHours,
     this.availabilityPreserveConflicts,
@@ -175331,6 +174772,8 @@ class WebApiModulesSettingsWarehouseAvailabilitySettingsWarehouseAvailabilitySet
   final String? warehouseCode;
   @JsonKey(name: 'RegionId', includeIfNull: false)
   final String? regionId;
+  @JsonKey(name: 'CountryId', includeIfNull: false)
+  final String? countryId;
   @JsonKey(name: 'AvailabilityLateDays', includeIfNull: false)
   final int? availabilityLateDays;
   @JsonKey(name: 'AvailabilityLateHours', includeIfNull: false)
@@ -175428,6 +174871,11 @@ class WebApiModulesSettingsWarehouseAvailabilitySettingsWarehouseAvailabilitySet
                 const DeepCollectionEquality().equals(
                   other.regionId,
                   regionId,
+                )) &&
+            (identical(other.countryId, countryId) ||
+                const DeepCollectionEquality().equals(
+                  other.countryId,
+                  countryId,
                 )) &&
             (identical(other.availabilityLateDays, availabilityLateDays) ||
                 const DeepCollectionEquality().equals(
@@ -175593,6 +175041,7 @@ class WebApiModulesSettingsWarehouseAvailabilitySettingsWarehouseAvailabilitySet
       const DeepCollectionEquality().hash(warehouse) ^
       const DeepCollectionEquality().hash(warehouseCode) ^
       const DeepCollectionEquality().hash(regionId) ^
+      const DeepCollectionEquality().hash(countryId) ^
       const DeepCollectionEquality().hash(availabilityLateDays) ^
       const DeepCollectionEquality().hash(availabilityLateHours) ^
       const DeepCollectionEquality().hash(availabilityPreserveConflicts) ^
@@ -175632,6 +175081,7 @@ extension $WebApiModulesSettingsWarehouseAvailabilitySettingsWarehouseAvailabili
     String? warehouse,
     String? warehouseCode,
     String? regionId,
+    String? countryId,
     int? availabilityLateDays,
     int? availabilityLateHours,
     bool? availabilityPreserveConflicts,
@@ -175665,6 +175115,7 @@ extension $WebApiModulesSettingsWarehouseAvailabilitySettingsWarehouseAvailabili
       warehouse: warehouse ?? this.warehouse,
       warehouseCode: warehouseCode ?? this.warehouseCode,
       regionId: regionId ?? this.regionId,
+      countryId: countryId ?? this.countryId,
       availabilityLateDays: availabilityLateDays ?? this.availabilityLateDays,
       availabilityLateHours:
           availabilityLateHours ?? this.availabilityLateHours,
@@ -175715,6 +175166,7 @@ extension $WebApiModulesSettingsWarehouseAvailabilitySettingsWarehouseAvailabili
     Wrapped<String?>? warehouse,
     Wrapped<String?>? warehouseCode,
     Wrapped<String?>? regionId,
+    Wrapped<String?>? countryId,
     Wrapped<int?>? availabilityLateDays,
     Wrapped<int?>? availabilityLateHours,
     Wrapped<bool?>? availabilityPreserveConflicts,
@@ -175751,6 +175203,7 @@ extension $WebApiModulesSettingsWarehouseAvailabilitySettingsWarehouseAvailabili
           ? warehouseCode.value
           : this.warehouseCode),
       regionId: (regionId != null ? regionId.value : this.regionId),
+      countryId: (countryId != null ? countryId.value : this.countryId),
       availabilityLateDays: (availabilityLateDays != null
           ? availabilityLateDays.value
           : this.availabilityLateDays),
@@ -178633,6 +178086,9 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
     this.laborTaxRate1,
     this.laborTaxRate2,
     this.laborExempt,
+    this.miscTaxRate1,
+    this.miscTaxRate2,
+    this.miscExempt,
     this.attention,
     this.address1,
     this.address2,
@@ -178734,8 +178190,11 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
     this.storageContainerCheckInEnable,
     this.storageContainerStagingEnable,
     this.storageContainerRescanRequired,
+    this.preventUnstageItemInContainer,
     this.quikReceiptTermsConditionsId,
     this.quikReceiptTermsConditions,
+    this.automaticallyAssignShippingCaseNumber,
+    this.defaultShippingCaseWeight,
     this.disableSubstituteNote,
     this.daysToExpireSuspendedSessions,
     this.inactive,
@@ -178751,6 +178210,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
     this.internalOrderDeal,
     this.flexibleContainerStagingRule,
     this.internalOrderGracePeriod,
+    this.allowUserToAddShippingNote,
     this.auditNote,
     this.recordTitle,
     this.urlIdentifier,
@@ -178810,6 +178270,12 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
   final double? laborTaxRate2;
   @JsonKey(name: 'LaborExempt', includeIfNull: false)
   final bool? laborExempt;
+  @JsonKey(name: 'MiscTaxRate1', includeIfNull: false)
+  final double? miscTaxRate1;
+  @JsonKey(name: 'MiscTaxRate2', includeIfNull: false)
+  final double? miscTaxRate2;
+  @JsonKey(name: 'MiscExempt', includeIfNull: false)
+  final bool? miscExempt;
   @JsonKey(name: 'Attention', includeIfNull: false)
   final String? attention;
   @JsonKey(name: 'Address1', includeIfNull: false)
@@ -179021,10 +178487,16 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
   final bool? storageContainerStagingEnable;
   @JsonKey(name: 'StorageContainerRescanRequired', includeIfNull: false)
   final bool? storageContainerRescanRequired;
+  @JsonKey(name: 'PreventUnstageItemInContainer', includeIfNull: false)
+  final bool? preventUnstageItemInContainer;
   @JsonKey(name: 'QuikReceiptTermsConditionsId', includeIfNull: false)
   final String? quikReceiptTermsConditionsId;
   @JsonKey(name: 'QuikReceiptTermsConditions', includeIfNull: false)
   final String? quikReceiptTermsConditions;
+  @JsonKey(name: 'AutomaticallyAssignShippingCaseNumber', includeIfNull: false)
+  final bool? automaticallyAssignShippingCaseNumber;
+  @JsonKey(name: 'DefaultShippingCaseWeight', includeIfNull: false)
+  final bool? defaultShippingCaseWeight;
   @JsonKey(name: 'DisableSubstituteNote', includeIfNull: false)
   final bool? disableSubstituteNote;
   @JsonKey(name: 'DaysToExpireSuspendedSessions', includeIfNull: false)
@@ -179055,6 +178527,8 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
   final String? flexibleContainerStagingRule;
   @JsonKey(name: 'InternalOrderGracePeriod', includeIfNull: false)
   final int? internalOrderGracePeriod;
+  @JsonKey(name: 'AllowUserToAddShippingNote', includeIfNull: false)
+  final bool? allowUserToAddShippingNote;
   @JsonKey(name: 'AuditNote', includeIfNull: false)
   final String? auditNote;
   @JsonKey(name: 'RecordTitle', includeIfNull: false)
@@ -179189,6 +178663,21 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
                 const DeepCollectionEquality().equals(
                   other.laborExempt,
                   laborExempt,
+                )) &&
+            (identical(other.miscTaxRate1, miscTaxRate1) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate1,
+                  miscTaxRate1,
+                )) &&
+            (identical(other.miscTaxRate2, miscTaxRate2) ||
+                const DeepCollectionEquality().equals(
+                  other.miscTaxRate2,
+                  miscTaxRate2,
+                )) &&
+            (identical(other.miscExempt, miscExempt) ||
+                const DeepCollectionEquality().equals(
+                  other.miscExempt,
+                  miscExempt,
                 )) &&
             (identical(other.attention, attention) ||
                 const DeepCollectionEquality().equals(
@@ -179828,6 +179317,14 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
                   storageContainerRescanRequired,
                 )) &&
             (identical(
+                  other.preventUnstageItemInContainer,
+                  preventUnstageItemInContainer,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.preventUnstageItemInContainer,
+                  preventUnstageItemInContainer,
+                )) &&
+            (identical(
                   other.quikReceiptTermsConditionsId,
                   quikReceiptTermsConditionsId,
                 ) ||
@@ -179842,6 +179339,22 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
                 const DeepCollectionEquality().equals(
                   other.quikReceiptTermsConditions,
                   quikReceiptTermsConditions,
+                )) &&
+            (identical(
+                  other.automaticallyAssignShippingCaseNumber,
+                  automaticallyAssignShippingCaseNumber,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.automaticallyAssignShippingCaseNumber,
+                  automaticallyAssignShippingCaseNumber,
+                )) &&
+            (identical(
+                  other.defaultShippingCaseWeight,
+                  defaultShippingCaseWeight,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultShippingCaseWeight,
+                  defaultShippingCaseWeight,
                 )) &&
             (identical(other.disableSubstituteNote, disableSubstituteNote) ||
                 const DeepCollectionEquality().equals(
@@ -179929,6 +179442,14 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
                 const DeepCollectionEquality().equals(
                   other.internalOrderGracePeriod,
                   internalOrderGracePeriod,
+                )) &&
+            (identical(
+                  other.allowUserToAddShippingNote,
+                  allowUserToAddShippingNote,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.allowUserToAddShippingNote,
+                  allowUserToAddShippingNote,
                 )) &&
             (identical(other.auditNote, auditNote) ||
                 const DeepCollectionEquality().equals(
@@ -180027,6 +179548,9 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
       const DeepCollectionEquality().hash(laborTaxRate1) ^
       const DeepCollectionEquality().hash(laborTaxRate2) ^
       const DeepCollectionEquality().hash(laborExempt) ^
+      const DeepCollectionEquality().hash(miscTaxRate1) ^
+      const DeepCollectionEquality().hash(miscTaxRate2) ^
+      const DeepCollectionEquality().hash(miscExempt) ^
       const DeepCollectionEquality().hash(attention) ^
       const DeepCollectionEquality().hash(address1) ^
       const DeepCollectionEquality().hash(address2) ^
@@ -180138,8 +179662,13 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
       const DeepCollectionEquality().hash(storageContainerCheckInEnable) ^
       const DeepCollectionEquality().hash(storageContainerStagingEnable) ^
       const DeepCollectionEquality().hash(storageContainerRescanRequired) ^
+      const DeepCollectionEquality().hash(preventUnstageItemInContainer) ^
       const DeepCollectionEquality().hash(quikReceiptTermsConditionsId) ^
       const DeepCollectionEquality().hash(quikReceiptTermsConditions) ^
+      const DeepCollectionEquality().hash(
+        automaticallyAssignShippingCaseNumber,
+      ) ^
+      const DeepCollectionEquality().hash(defaultShippingCaseWeight) ^
       const DeepCollectionEquality().hash(disableSubstituteNote) ^
       const DeepCollectionEquality().hash(daysToExpireSuspendedSessions) ^
       const DeepCollectionEquality().hash(inactive) ^
@@ -180155,6 +179684,7 @@ class WebApiModulesSettingsWarehouseSettingsWarehouseWarehouse {
       const DeepCollectionEquality().hash(internalOrderDeal) ^
       const DeepCollectionEquality().hash(flexibleContainerStagingRule) ^
       const DeepCollectionEquality().hash(internalOrderGracePeriod) ^
+      const DeepCollectionEquality().hash(allowUserToAddShippingNote) ^
       const DeepCollectionEquality().hash(auditNote) ^
       const DeepCollectionEquality().hash(recordTitle) ^
       const DeepCollectionEquality().hash(urlIdentifier) ^
@@ -180193,6 +179723,9 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     double? laborTaxRate1,
     double? laborTaxRate2,
     bool? laborExempt,
+    double? miscTaxRate1,
+    double? miscTaxRate2,
+    bool? miscExempt,
     String? attention,
     String? address1,
     String? address2,
@@ -180294,8 +179827,11 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     bool? storageContainerCheckInEnable,
     bool? storageContainerStagingEnable,
     bool? storageContainerRescanRequired,
+    bool? preventUnstageItemInContainer,
     String? quikReceiptTermsConditionsId,
     String? quikReceiptTermsConditions,
+    bool? automaticallyAssignShippingCaseNumber,
+    bool? defaultShippingCaseWeight,
     bool? disableSubstituteNote,
     int? daysToExpireSuspendedSessions,
     bool? inactive,
@@ -180311,6 +179847,7 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     String? internalOrderDeal,
     String? flexibleContainerStagingRule,
     int? internalOrderGracePeriod,
+    bool? allowUserToAddShippingNote,
     String? auditNote,
     String? recordTitle,
     dynamic urlIdentifier,
@@ -180345,6 +179882,9 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
       laborTaxRate1: laborTaxRate1 ?? this.laborTaxRate1,
       laborTaxRate2: laborTaxRate2 ?? this.laborTaxRate2,
       laborExempt: laborExempt ?? this.laborExempt,
+      miscTaxRate1: miscTaxRate1 ?? this.miscTaxRate1,
+      miscTaxRate2: miscTaxRate2 ?? this.miscTaxRate2,
+      miscExempt: miscExempt ?? this.miscExempt,
       attention: attention ?? this.attention,
       address1: address1 ?? this.address1,
       address2: address2 ?? this.address2,
@@ -180523,10 +180063,17 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
           storageContainerStagingEnable ?? this.storageContainerStagingEnable,
       storageContainerRescanRequired:
           storageContainerRescanRequired ?? this.storageContainerRescanRequired,
+      preventUnstageItemInContainer:
+          preventUnstageItemInContainer ?? this.preventUnstageItemInContainer,
       quikReceiptTermsConditionsId:
           quikReceiptTermsConditionsId ?? this.quikReceiptTermsConditionsId,
       quikReceiptTermsConditions:
           quikReceiptTermsConditions ?? this.quikReceiptTermsConditions,
+      automaticallyAssignShippingCaseNumber:
+          automaticallyAssignShippingCaseNumber ??
+          this.automaticallyAssignShippingCaseNumber,
+      defaultShippingCaseWeight:
+          defaultShippingCaseWeight ?? this.defaultShippingCaseWeight,
       disableSubstituteNote:
           disableSubstituteNote ?? this.disableSubstituteNote,
       daysToExpireSuspendedSessions:
@@ -180548,6 +180095,8 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
           flexibleContainerStagingRule ?? this.flexibleContainerStagingRule,
       internalOrderGracePeriod:
           internalOrderGracePeriod ?? this.internalOrderGracePeriod,
+      allowUserToAddShippingNote:
+          allowUserToAddShippingNote ?? this.allowUserToAddShippingNote,
       auditNote: auditNote ?? this.auditNote,
       recordTitle: recordTitle ?? this.recordTitle,
       urlIdentifier: urlIdentifier ?? this.urlIdentifier,
@@ -180585,6 +180134,9 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     Wrapped<double?>? laborTaxRate1,
     Wrapped<double?>? laborTaxRate2,
     Wrapped<bool?>? laborExempt,
+    Wrapped<double?>? miscTaxRate1,
+    Wrapped<double?>? miscTaxRate2,
+    Wrapped<bool?>? miscExempt,
     Wrapped<String?>? attention,
     Wrapped<String?>? address1,
     Wrapped<String?>? address2,
@@ -180686,8 +180238,11 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     Wrapped<bool?>? storageContainerCheckInEnable,
     Wrapped<bool?>? storageContainerStagingEnable,
     Wrapped<bool?>? storageContainerRescanRequired,
+    Wrapped<bool?>? preventUnstageItemInContainer,
     Wrapped<String?>? quikReceiptTermsConditionsId,
     Wrapped<String?>? quikReceiptTermsConditions,
+    Wrapped<bool?>? automaticallyAssignShippingCaseNumber,
+    Wrapped<bool?>? defaultShippingCaseWeight,
     Wrapped<bool?>? disableSubstituteNote,
     Wrapped<int?>? daysToExpireSuspendedSessions,
     Wrapped<bool?>? inactive,
@@ -180703,6 +180258,7 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
     Wrapped<String?>? internalOrderDeal,
     Wrapped<String?>? flexibleContainerStagingRule,
     Wrapped<int?>? internalOrderGracePeriod,
+    Wrapped<bool?>? allowUserToAddShippingNote,
     Wrapped<String?>? auditNote,
     Wrapped<String?>? recordTitle,
     Wrapped<dynamic>? urlIdentifier,
@@ -180754,6 +180310,13 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
           ? laborTaxRate2.value
           : this.laborTaxRate2),
       laborExempt: (laborExempt != null ? laborExempt.value : this.laborExempt),
+      miscTaxRate1: (miscTaxRate1 != null
+          ? miscTaxRate1.value
+          : this.miscTaxRate1),
+      miscTaxRate2: (miscTaxRate2 != null
+          ? miscTaxRate2.value
+          : this.miscTaxRate2),
+      miscExempt: (miscExempt != null ? miscExempt.value : this.miscExempt),
       attention: (attention != null ? attention.value : this.attention),
       address1: (address1 != null ? address1.value : this.address1),
       address2: (address2 != null ? address2.value : this.address2),
@@ -181036,12 +180599,22 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
       storageContainerRescanRequired: (storageContainerRescanRequired != null
           ? storageContainerRescanRequired.value
           : this.storageContainerRescanRequired),
+      preventUnstageItemInContainer: (preventUnstageItemInContainer != null
+          ? preventUnstageItemInContainer.value
+          : this.preventUnstageItemInContainer),
       quikReceiptTermsConditionsId: (quikReceiptTermsConditionsId != null
           ? quikReceiptTermsConditionsId.value
           : this.quikReceiptTermsConditionsId),
       quikReceiptTermsConditions: (quikReceiptTermsConditions != null
           ? quikReceiptTermsConditions.value
           : this.quikReceiptTermsConditions),
+      automaticallyAssignShippingCaseNumber:
+          (automaticallyAssignShippingCaseNumber != null
+          ? automaticallyAssignShippingCaseNumber.value
+          : this.automaticallyAssignShippingCaseNumber),
+      defaultShippingCaseWeight: (defaultShippingCaseWeight != null
+          ? defaultShippingCaseWeight.value
+          : this.defaultShippingCaseWeight),
       disableSubstituteNote: (disableSubstituteNote != null
           ? disableSubstituteNote.value
           : this.disableSubstituteNote),
@@ -181081,6 +180654,9 @@ extension $WebApiModulesSettingsWarehouseSettingsWarehouseWarehouseExtension
       internalOrderGracePeriod: (internalOrderGracePeriod != null
           ? internalOrderGracePeriod.value
           : this.internalOrderGracePeriod),
+      allowUserToAddShippingNote: (allowUserToAddShippingNote != null
+          ? allowUserToAddShippingNote.value
+          : this.allowUserToAddShippingNote),
       auditNote: (auditNote != null ? auditNote.value : this.auditNote),
       recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
       urlIdentifier: (urlIdentifier != null
@@ -181554,6 +181130,257 @@ extension $WebApiServicesAvailabilityServicePruneCacheResponseExtension
   }
 }
 
+@JsonSerializable(explicitToJson: true)
+class CrewContactidDocumentDocumentidImageformuploadPost$RequestBody {
+  const CrewContactidDocumentDocumentidImageformuploadPost$RequestBody({
+    this.contentType,
+    this.contentDisposition,
+    this.headers,
+    this.length,
+    this.name,
+    this.fileName,
+  });
+
+  factory CrewContactidDocumentDocumentidImageformuploadPost$RequestBody.fromJson(
+    Map<String, dynamic> json,
+  ) => _$CrewContactidDocumentDocumentidImageformuploadPost$RequestBodyFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$CrewContactidDocumentDocumentidImageformuploadPost$RequestBodyToJson;
+  Map<String, dynamic> toJson() =>
+      _$CrewContactidDocumentDocumentidImageformuploadPost$RequestBodyToJson(
+        this,
+      );
+
+  @JsonKey(name: 'ContentType', includeIfNull: false)
+  final String? contentType;
+  @JsonKey(name: 'ContentDisposition', includeIfNull: false)
+  final String? contentDisposition;
+  @JsonKey(name: 'Headers', includeIfNull: false)
+  final Map<String, dynamic>? headers;
+  @JsonKey(name: 'Length', includeIfNull: false)
+  final int? length;
+  @JsonKey(name: 'Name', includeIfNull: false)
+  final String? name;
+  @JsonKey(name: 'FileName', includeIfNull: false)
+  final String? fileName;
+  static const fromJsonFactory =
+      _$CrewContactidDocumentDocumentidImageformuploadPost$RequestBodyFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is CrewContactidDocumentDocumentidImageformuploadPost$RequestBody &&
+            (identical(other.contentType, contentType) ||
+                const DeepCollectionEquality().equals(
+                  other.contentType,
+                  contentType,
+                )) &&
+            (identical(other.contentDisposition, contentDisposition) ||
+                const DeepCollectionEquality().equals(
+                  other.contentDisposition,
+                  contentDisposition,
+                )) &&
+            (identical(other.headers, headers) ||
+                const DeepCollectionEquality().equals(
+                  other.headers,
+                  headers,
+                )) &&
+            (identical(other.length, length) ||
+                const DeepCollectionEquality().equals(other.length, length)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.fileName, fileName) ||
+                const DeepCollectionEquality().equals(
+                  other.fileName,
+                  fileName,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contentType) ^
+      const DeepCollectionEquality().hash(contentDisposition) ^
+      const DeepCollectionEquality().hash(headers) ^
+      const DeepCollectionEquality().hash(length) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(fileName) ^
+      runtimeType.hashCode;
+}
+
+extension $CrewContactidDocumentDocumentidImageformuploadPost$RequestBodyExtension
+    on CrewContactidDocumentDocumentidImageformuploadPost$RequestBody {
+  CrewContactidDocumentDocumentidImageformuploadPost$RequestBody copyWith({
+    String? contentType,
+    String? contentDisposition,
+    Map<String, dynamic>? headers,
+    int? length,
+    String? name,
+    String? fileName,
+  }) {
+    return CrewContactidDocumentDocumentidImageformuploadPost$RequestBody(
+      contentType: contentType ?? this.contentType,
+      contentDisposition: contentDisposition ?? this.contentDisposition,
+      headers: headers ?? this.headers,
+      length: length ?? this.length,
+      name: name ?? this.name,
+      fileName: fileName ?? this.fileName,
+    );
+  }
+
+  CrewContactidDocumentDocumentidImageformuploadPost$RequestBody
+  copyWithWrapped({
+    Wrapped<String?>? contentType,
+    Wrapped<String?>? contentDisposition,
+    Wrapped<Map<String, dynamic>?>? headers,
+    Wrapped<int?>? length,
+    Wrapped<String?>? name,
+    Wrapped<String?>? fileName,
+  }) {
+    return CrewContactidDocumentDocumentidImageformuploadPost$RequestBody(
+      contentType: (contentType != null ? contentType.value : this.contentType),
+      contentDisposition: (contentDisposition != null
+          ? contentDisposition.value
+          : this.contentDisposition),
+      headers: (headers != null ? headers.value : this.headers),
+      length: (length != null ? length.value : this.length),
+      name: (name != null ? name.value : this.name),
+      fileName: (fileName != null ? fileName.value : this.fileName),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class CrewContactidDocumentDocumentidFileformuploadPut$RequestBody {
+  const CrewContactidDocumentDocumentidFileformuploadPut$RequestBody({
+    this.contentType,
+    this.contentDisposition,
+    this.headers,
+    this.length,
+    this.name,
+    this.fileName,
+  });
+
+  factory CrewContactidDocumentDocumentidFileformuploadPut$RequestBody.fromJson(
+    Map<String, dynamic> json,
+  ) => _$CrewContactidDocumentDocumentidFileformuploadPut$RequestBodyFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$CrewContactidDocumentDocumentidFileformuploadPut$RequestBodyToJson;
+  Map<String, dynamic> toJson() =>
+      _$CrewContactidDocumentDocumentidFileformuploadPut$RequestBodyToJson(
+        this,
+      );
+
+  @JsonKey(name: 'ContentType', includeIfNull: false)
+  final String? contentType;
+  @JsonKey(name: 'ContentDisposition', includeIfNull: false)
+  final String? contentDisposition;
+  @JsonKey(name: 'Headers', includeIfNull: false)
+  final Map<String, dynamic>? headers;
+  @JsonKey(name: 'Length', includeIfNull: false)
+  final int? length;
+  @JsonKey(name: 'Name', includeIfNull: false)
+  final String? name;
+  @JsonKey(name: 'FileName', includeIfNull: false)
+  final String? fileName;
+  static const fromJsonFactory =
+      _$CrewContactidDocumentDocumentidFileformuploadPut$RequestBodyFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is CrewContactidDocumentDocumentidFileformuploadPut$RequestBody &&
+            (identical(other.contentType, contentType) ||
+                const DeepCollectionEquality().equals(
+                  other.contentType,
+                  contentType,
+                )) &&
+            (identical(other.contentDisposition, contentDisposition) ||
+                const DeepCollectionEquality().equals(
+                  other.contentDisposition,
+                  contentDisposition,
+                )) &&
+            (identical(other.headers, headers) ||
+                const DeepCollectionEquality().equals(
+                  other.headers,
+                  headers,
+                )) &&
+            (identical(other.length, length) ||
+                const DeepCollectionEquality().equals(other.length, length)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.fileName, fileName) ||
+                const DeepCollectionEquality().equals(
+                  other.fileName,
+                  fileName,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contentType) ^
+      const DeepCollectionEquality().hash(contentDisposition) ^
+      const DeepCollectionEquality().hash(headers) ^
+      const DeepCollectionEquality().hash(length) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(fileName) ^
+      runtimeType.hashCode;
+}
+
+extension $CrewContactidDocumentDocumentidFileformuploadPut$RequestBodyExtension
+    on CrewContactidDocumentDocumentidFileformuploadPut$RequestBody {
+  CrewContactidDocumentDocumentidFileformuploadPut$RequestBody copyWith({
+    String? contentType,
+    String? contentDisposition,
+    Map<String, dynamic>? headers,
+    int? length,
+    String? name,
+    String? fileName,
+  }) {
+    return CrewContactidDocumentDocumentidFileformuploadPut$RequestBody(
+      contentType: contentType ?? this.contentType,
+      contentDisposition: contentDisposition ?? this.contentDisposition,
+      headers: headers ?? this.headers,
+      length: length ?? this.length,
+      name: name ?? this.name,
+      fileName: fileName ?? this.fileName,
+    );
+  }
+
+  CrewContactidDocumentDocumentidFileformuploadPut$RequestBody copyWithWrapped({
+    Wrapped<String?>? contentType,
+    Wrapped<String?>? contentDisposition,
+    Wrapped<Map<String, dynamic>?>? headers,
+    Wrapped<int?>? length,
+    Wrapped<String?>? name,
+    Wrapped<String?>? fileName,
+  }) {
+    return CrewContactidDocumentDocumentidFileformuploadPut$RequestBody(
+      contentType: (contentType != null ? contentType.value : this.contentType),
+      contentDisposition: (contentDisposition != null
+          ? contentDisposition.value
+          : this.contentDisposition),
+      headers: (headers != null ? headers.value : this.headers),
+      length: (length != null ? length.value : this.length),
+      name: (name != null ? name.value : this.name),
+      fileName: (fileName != null ? fileName.value : this.fileName),
+    );
+  }
+}
+
 String? fwStandardSqlServerAttributesFwExcelOptionsNullableToJson(
   enums.FwStandardSqlServerAttributesFwExcelOptions?
   fwStandardSqlServerAttributesFwExcelOptions,
@@ -181795,9 +181622,9 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
 
     if (ResultType == DateTime) {
       return response.copyWith(
-        body:
-            DateTime.parse((response.body as String).replaceAll('"', ''))
-                as ResultType,
+        body: DateTime.parse(
+          (response.body as String).replaceAll('"', ''),
+        ) as ResultType,
       );
     }
 

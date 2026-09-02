@@ -5,7 +5,7 @@ Future<void> main(List<String> args) async {
   final subdomain = args.firstOrNull ?? '';
   assert(
     subdomain.isNotEmpty,
-    'Usage: dart tool/update_swaggers.dart <subdomain>',
+    'Usage: dart tool/update_swaggers.dart <subdomain> [page]',
   );
 
   const pages = [
@@ -23,10 +23,18 @@ Future<void> main(List<String> args) async {
     'integrations',
   ];
 
-  for (var page in pages) {
+  final requestedPage = args.length > 1 ? args[1] : null;
+  assert(
+    requestedPage == null || pages.contains(requestedPage),
+    'Unknown page "$requestedPage". Available pages: ${pages.join(', ')}',
+  );
+
+  final pagesToDownload = requestedPage == null ? pages : [requestedPage];
+
+  for (var page in pagesToDownload) {
     final urlPage = page.replaceAll('_', '');
     final uri = Uri.parse(
-      'https://$subdomain.rentalworksweb.com/swagger/$urlPage-v1/swagger.json',
+      'https://$subdomain.rentalworks.cloud/swagger/$urlPage-v1/swagger.json',
     );
     print('Downloading $uri');
     final response = await http.get(uri);

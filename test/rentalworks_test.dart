@@ -73,7 +73,7 @@ void main() {
     });
 
     test('/item', () async {
-      final asset = await rw!.home.itemBybarcodeGet(barCode: '001152');
+      final asset = await rw!.home.itemBycodeGet(barCodeOrRfid: '001152');
       expect(asset.base.reasonPhrase, 'OK');
       expect(asset.isSuccessful, isTrue);
     });
@@ -308,7 +308,7 @@ void main() {
     String originalInventoryId = '';
 
     setUp(() async {
-      final asset = await rw!.home.itemBybarcodeGet(barCode: '000067');
+      final asset = await rw!.home.itemBycodeGet(barCodeOrRfid: '000067');
       item = asset.body?.item;
       print('item: ${item?.barCode} // ${item?.description}');
       originalInventoryId = item?.inventoryId ?? '';

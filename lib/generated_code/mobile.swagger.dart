@@ -5,15 +5,19 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:json_annotation/json_annotation.dart' as json;
 import 'package:collection/collection.dart';
+
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
 
 import 'client_mapping.dart';
+
 import 'dart:async';
+
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
+
 import 'mobile.enums.swagger.dart' as enums;
 import 'mobile.metadata.swagger.dart';
 export 'mobile.enums.swagger.dart';
@@ -122,37 +126,6 @@ abstract class Mobile extends ChopperService {
     ),
   });
 
-  ///
-  Future<chopper.Response<FwStandardSqlServerTSpStatusResponse>>
-  quikscanExchangeCancelcontractPost({
-    required WebApiModulesWarehouseContractCancelContractRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardSqlServerTSpStatusResponse,
-      () => FwStandardSqlServerTSpStatusResponse.fromJsonFactory,
-    );
-
-    return _quikscanExchangeCancelcontractPost(body: body);
-  }
-
-  ///
-  @POST(path: '/quikscan/exchange/cancelcontract', optionalBody: true)
-  Future<chopper.Response<FwStandardSqlServerTSpStatusResponse>>
-  _quikscanExchangeCancelcontractPost({
-    @Body() required WebApiModulesWarehouseContractCancelContractRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["Exchange"],
-      deprecated: false,
-    ),
-  });
-
   ///Get a list of valid Container Descriptions.
   ///@param scannableinventoryid
   ///@param pageno
@@ -194,8 +167,7 @@ abstract class Mobile extends ChopperService {
   ///@param sort
   ///@param filter
   @GET(
-    path:
-        '/quikscan/fillcontainer/scannableitem/{scannableinventoryid}/lookuprentalinventory',
+    path: '/quikscan/fillcontainer/scannableitem/{scannableinventoryid}/lookuprentalinventory',
   )
   Future<
     chopper.Response<
@@ -222,6 +194,34 @@ abstract class Mobile extends ChopperService {
   });
 
   ///
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  fwutilityServerutcdatetimeGet() {
+    generatedMapping.putIfAbsent(
+      FwCoreControllersGetServerUtcDateTimeResponse,
+      () => FwCoreControllersGetServerUtcDateTimeResponse.fromJsonFactory,
+    );
+
+    return _fwutilityServerutcdatetimeGet();
+  }
+
+  ///
+  @GET(path: '/fwutility/serverutcdatetime')
+  Future<chopper.Response<FwCoreControllersGetServerUtcDateTimeResponse>>
+  _fwutilityServerutcdatetimeGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["FwUtility"],
+      deprecated: false,
+    ),
+  });
+
+  ///
   ///@param path
   Future<chopper.Response<Object>> mobilePost({String? path}) {
     return _mobilePost(path: path);
@@ -241,6 +241,270 @@ abstract class Mobile extends ChopperService {
       produces: [],
       security: [],
       tags: ["Mobile"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<RentalWorksQuikScanModulesPurchaseManagerProcessData>>
+  quikscanPurchasemanagerGetpodataPost({
+    required WebApiModulesPluginsPurchaseManagerGetPODataRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      RentalWorksQuikScanModulesPurchaseManagerProcessData,
+      () =>
+          RentalWorksQuikScanModulesPurchaseManagerProcessData.fromJsonFactory,
+    );
+
+    return _quikscanPurchasemanagerGetpodataPost(body: body);
+  }
+
+  ///
+  @POST(path: '/quikscan/purchasemanager/getpodata', optionalBody: true)
+  Future<chopper.Response<RentalWorksQuikScanModulesPurchaseManagerProcessData>>
+  _quikscanPurchasemanagerGetpodataPost({
+    @Body() required WebApiModulesPluginsPurchaseManagerGetPODataRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PurchaseManager"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<RentalWorksQuikScanModulesPurchaseManagerProcessData>>
+  quikscanPurchasemanagerProcesspoPost({
+    required RentalWorksQuikScanModulesPurchaseManagerProcessData? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      RentalWorksQuikScanModulesPurchaseManagerProcessData,
+      () =>
+          RentalWorksQuikScanModulesPurchaseManagerProcessData.fromJsonFactory,
+    );
+
+    return _quikscanPurchasemanagerProcesspoPost(body: body);
+  }
+
+  ///
+  @POST(path: '/quikscan/purchasemanager/processpo', optionalBody: true)
+  Future<chopper.Response<RentalWorksQuikScanModulesPurchaseManagerProcessData>>
+  _quikscanPurchasemanagerProcesspoPost({
+    @Body() required RentalWorksQuikScanModulesPurchaseManagerProcessData? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PurchaseManager"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  ///@param departmentid
+  Future<
+    chopper.Response<
+      List<WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType>
+    >
+  >
+  quikscanPurchasemanagerInventorydepartmentGet({String? departmentid}) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType,
+      () => WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType
+          .fromJsonFactory,
+    );
+
+    return _quikscanPurchasemanagerInventorydepartmentGet(
+      departmentid: departmentid,
+    );
+  }
+
+  ///
+  ///@param departmentid
+  @GET(path: '/quikscan/purchasemanager/inventorydepartment')
+  Future<
+    chopper.Response<
+      List<WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType>
+    >
+  >
+  _quikscanPurchasemanagerInventorydepartmentGet({
+    @Query('departmentid') String? departmentid,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PurchaseManager"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  ///@param inventorytypeid
+  Future<chopper.Response<List<WebApiModulesSettingsCategoryCategory>>>
+  quikscanPurchasemanagerCategoryGet({String? inventorytypeid}) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesSettingsCategoryCategory,
+      () => WebApiModulesSettingsCategoryCategory.fromJsonFactory,
+    );
+
+    return _quikscanPurchasemanagerCategoryGet(
+      inventorytypeid: inventorytypeid,
+    );
+  }
+
+  ///
+  ///@param inventorytypeid
+  @GET(path: '/quikscan/purchasemanager/category')
+  Future<chopper.Response<List<WebApiModulesSettingsCategoryCategory>>>
+  _quikscanPurchasemanagerCategoryGet({
+    @Query('inventorytypeid') String? inventorytypeid,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PurchaseManager"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  ///@param categoryid
+  Future<chopper.Response<List<WebApiModulesSettingsSubCategorySubCategory>>>
+  quikscanPurchasemanagerSubcategoryGet({String? categoryid}) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesSettingsSubCategorySubCategory,
+      () => WebApiModulesSettingsSubCategorySubCategory.fromJsonFactory,
+    );
+
+    return _quikscanPurchasemanagerSubcategoryGet(categoryid: categoryid);
+  }
+
+  ///
+  ///@param categoryid
+  @GET(path: '/quikscan/purchasemanager/subcategory')
+  Future<chopper.Response<List<WebApiModulesSettingsSubCategorySubCategory>>>
+  _quikscanPurchasemanagerSubcategoryGet({
+    @Query('categoryid') String? categoryid,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PurchaseManager"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<List<WebApiModulesSettingsInventorySettingsUnitUnit>>>
+  quikscanPurchasemanagerUnitGet() {
+    generatedMapping.putIfAbsent(
+      WebApiModulesSettingsInventorySettingsUnitUnit,
+      () => WebApiModulesSettingsInventorySettingsUnitUnit.fromJsonFactory,
+    );
+
+    return _quikscanPurchasemanagerUnitGet();
+  }
+
+  ///
+  @GET(path: '/quikscan/purchasemanager/unit')
+  Future<chopper.Response<List<WebApiModulesSettingsInventorySettingsUnitUnit>>>
+  _quikscanPurchasemanagerUnitGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PurchaseManager"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  quikscanPurchasemanagerManufacturerBrowsePost({
+    required FwStandardModelsBrowseRequest? body,
+  }) {
+    generatedMapping.putIfAbsent(
+      FwStandardSqlServerFwJsonDataTable,
+      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
+    );
+
+    return _quikscanPurchasemanagerManufacturerBrowsePost(body: body);
+  }
+
+  ///
+  @POST(
+    path: '/quikscan/purchasemanager/manufacturer/browse',
+    optionalBody: true,
+  )
+  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
+  _quikscanPurchasemanagerManufacturerBrowsePost({
+    @Body() required FwStandardModelsBrowseRequest? body,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PurchaseManager"],
+      deprecated: false,
+    ),
+  });
+
+  ///
+  Future<
+    chopper.Response<List<WebApiModulesSettingsAddressSettingsCountryCountry>>
+  >
+  quikscanPurchasemanagerCountriesGet() {
+    generatedMapping.putIfAbsent(
+      WebApiModulesSettingsAddressSettingsCountryCountry,
+      () => WebApiModulesSettingsAddressSettingsCountryCountry.fromJsonFactory,
+    );
+
+    return _quikscanPurchasemanagerCountriesGet();
+  }
+
+  ///
+  @GET(path: '/quikscan/purchasemanager/countries')
+  Future<
+    chopper.Response<List<WebApiModulesSettingsAddressSettingsCountryCountry>>
+  >
+  _quikscanPurchasemanagerCountriesGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["PurchaseManager"],
       deprecated: false,
     ),
   });
@@ -936,257 +1200,225 @@ abstract class Mobile extends ChopperService {
     ),
   });
 
-  ///
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  taskschedulerTaskstepsBrowsePost({
-    required FwStandardModelsBrowseRequest? body,
-  }) {
-    generatedMapping.putIfAbsent(
-      FwStandardSqlServerFwJsonDataTable,
-      () => FwStandardSqlServerFwJsonDataTable.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsBrowsePost(body: body);
-  }
-
-  ///
-  @POST(path: '/taskscheduler/tasksteps/browse', optionalBody: true)
-  Future<chopper.Response<FwStandardSqlServerFwJsonDataTable>>
-  _taskschedulerTaskstepsBrowsePost({
-    @Body() required FwStandardModelsBrowseRequest? body,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
+  ///Determine if the barcode number scanned has been configured as a shipping case barcode for an asset.
   Future<
     chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+      WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto
     >
   >
-  taskschedulerTaskstepsExportexcelxlsxPost({
-    required FwStandardModelsBrowseRequest? body,
+  quikscanStagingIsValidShippingCasePost({
+    required WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDto? body,
   }) {
     generatedMapping.putIfAbsent(
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult,
-      () =>
-          FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-              .fromJsonFactory,
+      WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto,
+      () => WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto
+          .fromJsonFactory,
     );
 
-    return _taskschedulerTaskstepsExportexcelxlsxPost(body: body);
+    return _quikscanStagingIsValidShippingCasePost(body: body);
   }
 
-  ///
-  @POST(path: '/taskscheduler/tasksteps/exportexcelxlsx', optionalBody: true)
+  ///Determine if the barcode number scanned has been configured as a shipping case barcode for an asset.
+  @POST(path: '/quikscan/staging/is-valid-shipping-case', optionalBody: true)
   Future<
     chopper.Response<
-      FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
+      WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto
     >
   >
-  _taskschedulerTaskstepsExportexcelxlsxPost({
-    @Body() required FwStandardModelsBrowseRequest? body,
+  _quikscanStagingIsValidShippingCasePost({
+    @Body()
+    required WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDto? body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: '',
+      summary: 'Determine if the barcode number scanned has been configured as a shipping case barcode for an asset.',
       operationId: '',
       consumes: [],
       produces: [],
       security: [],
-      tags: ["TaskScheduler"],
+      tags: ["Staging"],
       deprecated: false,
     ),
   });
 
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  taskschedulerTaskstepsGet({
-    int? pageno,
-    int? pagesize,
-    String? sort,
-    List<FwStandardModelsFwQueryFilter>? filter,
+  ///Adds an asset to a shipping case (another asset) by the asset id for both items.
+  Future<chopper.Response<WebApiModulesMobileStagingDtoTSpStatusResponseDto>>
+  quikscanStagingAddToShippingCasePost({
+    required WebApiModulesMobileStagingDtoAddToShippingCaseRequestDto? body,
   }) {
     generatedMapping.putIfAbsent(
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic,
-      () =>
-          FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-              .fromJsonFactory,
+      WebApiModulesMobileStagingDtoTSpStatusResponseDto,
+      () => WebApiModulesMobileStagingDtoTSpStatusResponseDto.fromJsonFactory,
     );
 
-    return _taskschedulerTaskstepsGet(
-      pageno: pageno,
-      pagesize: pagesize,
-      sort: sort,
-      filter: filter,
-    );
+    return _quikscanStagingAddToShippingCasePost(body: body);
   }
 
-  ///
-  ///@param pageno
-  ///@param pagesize
-  ///@param sort
-  ///@param filter
-  @GET(path: '/taskscheduler/tasksteps')
-  Future<
-    chopper.Response<
-      FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-    >
-  >
-  _taskschedulerTaskstepsGet({
-    @Query('pageno') int? pageno,
-    @Query('pagesize') int? pagesize,
-    @Query('sort') String? sort,
-    @Query('filter') List<FwStandardModelsFwQueryFilter>? filter,
+  ///Adds an asset to a shipping case (another asset) by the asset id for both items.
+  @POST(path: '/quikscan/staging/add-to-shipping-case', optionalBody: true)
+  Future<chopper.Response<WebApiModulesMobileStagingDtoTSpStatusResponseDto>>
+  _quikscanStagingAddToShippingCasePost({
+    @Body()
+    required WebApiModulesMobileStagingDtoAddToShippingCaseRequestDto? body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: '',
+      summary: 'Adds an asset to a shipping case (another asset) by the asset id for both items.',
       operationId: '',
       consumes: [],
       produces: [],
       security: [],
-      tags: ["TaskScheduler"],
+      tags: ["Staging"],
       deprecated: false,
     ),
   });
 
-  ///
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsPost({
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  ///Removes an asset from a shipping case (another asset) by the asset id for both items.
+  Future<chopper.Response<WebApiModulesMobileStagingDtoTSpStatusResponseDto>>
+  quikscanStagingRemoveFromShippingCasePost({
+    required WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDto?
+    body,
   }) {
     generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
+      WebApiModulesMobileStagingDtoTSpStatusResponseDto,
+      () => WebApiModulesMobileStagingDtoTSpStatusResponseDto.fromJsonFactory,
     );
 
-    return _taskschedulerTaskstepsPost(body: body);
+    return _quikscanStagingRemoveFromShippingCasePost(body: body);
   }
 
-  ///
-  @POST(path: '/taskscheduler/tasksteps', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsPost({
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  ///Removes an asset from a shipping case (another asset) by the asset id for both items.
+  @POST(path: '/quikscan/staging/remove-from-shipping-case', optionalBody: true)
+  Future<chopper.Response<WebApiModulesMobileStagingDtoTSpStatusResponseDto>>
+  _quikscanStagingRemoveFromShippingCasePost({
+    @Body()
+    required WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDto?
+    body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: '',
+      summary: 'Removes an asset from a shipping case (another asset) by the asset id for both items.',
       operationId: '',
       consumes: [],
       produces: [],
       security: [],
-      tags: ["TaskScheduler"],
+      tags: ["Staging"],
       deprecated: false,
     ),
   });
 
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdGet({required String? id}) {
-    generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
-    );
-
-    return _taskschedulerTaskstepsIdGet(id: id);
-  }
-
-  ///
-  ///@param id
-  @GET(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdGet({
-    @Path('id') required String? id,
-    @chopper.Tag()
-    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
-      description: '',
-      summary: '',
-      operationId: '',
-      consumes: [],
-      produces: [],
-      security: [],
-      tags: ["TaskScheduler"],
-      deprecated: false,
-    ),
-  });
-
-  ///
-  ///@param id
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  taskschedulerTaskstepsIdPut({
-    required String? id,
-    required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  ///Update a shipping case's details for an order.
+  Future<chopper.Response<WebApiModulesMobileStagingDtoTSpStatusResponseDto>>
+  quikscanStagingUpdateShippingCasePost({
+    required WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDto? body,
   }) {
     generatedMapping.putIfAbsent(
-      WebApiModulesAdministratorTaskSchedulerTaskSteps,
-      () => WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJsonFactory,
+      WebApiModulesMobileStagingDtoTSpStatusResponseDto,
+      () => WebApiModulesMobileStagingDtoTSpStatusResponseDto.fromJsonFactory,
     );
 
-    return _taskschedulerTaskstepsIdPut(id: id, body: body);
+    return _quikscanStagingUpdateShippingCasePost(body: body);
   }
 
-  ///
-  ///@param id
-  @PUT(path: '/taskscheduler/tasksteps/{id}', optionalBody: true)
-  Future<chopper.Response<WebApiModulesAdministratorTaskSchedulerTaskSteps>>
-  _taskschedulerTaskstepsIdPut({
-    @Path('id') required String? id,
-    @Body() required WebApiModulesAdministratorTaskSchedulerTaskSteps? body,
+  ///Update a shipping case's details for an order.
+  @POST(path: '/quikscan/staging/update-shipping-case', optionalBody: true)
+  Future<chopper.Response<WebApiModulesMobileStagingDtoTSpStatusResponseDto>>
+  _quikscanStagingUpdateShippingCasePost({
+    @Body()
+    required WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDto? body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: '',
+      summary: 'Update a shipping case\'s details for an order.',
       operationId: '',
       consumes: [],
       produces: [],
       security: [],
-      tags: ["TaskScheduler"],
+      tags: ["Staging"],
       deprecated: false,
     ),
   });
 
-  ///
-  ///@param id
-  Future<chopper.Response<bool>> taskschedulerTaskstepsIdDelete({
-    required String? id,
+  ///Set the shipping note for the line item that will be created on the OUT-Contract.
+  Future<chopper.Response<WebApiModulesMobileStagingDtoTSpStatusResponseDto>>
+  quikscanStagingSetShippingNotePost({
+    required WebApiModulesMobileStagingDtoSetShippingNoteRequestDto? body,
   }) {
-    return _taskschedulerTaskstepsIdDelete(id: id);
+    generatedMapping.putIfAbsent(
+      WebApiModulesMobileStagingDtoTSpStatusResponseDto,
+      () => WebApiModulesMobileStagingDtoTSpStatusResponseDto.fromJsonFactory,
+    );
+
+    return _quikscanStagingSetShippingNotePost(body: body);
   }
 
-  ///
-  ///@param id
-  @DELETE(path: '/taskscheduler/tasksteps/{id}')
-  Future<chopper.Response<bool>> _taskschedulerTaskstepsIdDelete({
-    @Path('id') required String? id,
+  ///Set the shipping note for the line item that will be created on the OUT-Contract.
+  @POST(path: '/quikscan/staging/set-shipping-note', optionalBody: true)
+  Future<chopper.Response<WebApiModulesMobileStagingDtoTSpStatusResponseDto>>
+  _quikscanStagingSetShippingNotePost({
+    @Body()
+    required WebApiModulesMobileStagingDtoSetShippingNoteRequestDto? body,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: '',
+      summary: 'Set the shipping note for the line item that will be created on the OUT-Contract.',
       operationId: '',
       consumes: [],
       produces: [],
       security: [],
-      tags: ["TaskScheduler"],
+      tags: ["Staging"],
+      deprecated: false,
+    ),
+  });
+
+  ///Get the shipping note for an item that's staged or on an OUT Contract.
+  ///@param orderid
+  ///@param orderitemid
+  ///@param contractid
+  ///@param itemid
+  Future<chopper.Response<WebApiModulesMobileStagingDtoTSpStatusResponseDto>>
+  quikscanStagingGetShippingNoteOrderidOrderidOrderitemidOrderitemidGet({
+    required String? orderid,
+    required String? orderitemid,
+    String? contractid,
+    String? itemid,
+  }) {
+    generatedMapping.putIfAbsent(
+      WebApiModulesMobileStagingDtoTSpStatusResponseDto,
+      () => WebApiModulesMobileStagingDtoTSpStatusResponseDto.fromJsonFactory,
+    );
+
+    return _quikscanStagingGetShippingNoteOrderidOrderidOrderitemidOrderitemidGet(
+      orderid: orderid,
+      orderitemid: orderitemid,
+      contractid: contractid,
+      itemid: itemid,
+    );
+  }
+
+  ///Get the shipping note for an item that's staged or on an OUT Contract.
+  ///@param orderid
+  ///@param orderitemid
+  ///@param contractid
+  ///@param itemid
+  @GET(
+    path: '/quikscan/staging/get-shipping-note/orderid/{orderid}/orderitemid/{orderitemid}',
+  )
+  Future<chopper.Response<WebApiModulesMobileStagingDtoTSpStatusResponseDto>>
+  _quikscanStagingGetShippingNoteOrderidOrderidOrderitemidOrderitemidGet({
+    @Path('orderid') required String? orderid,
+    @Path('orderitemid') required String? orderitemid,
+    @Query('contractid') String? contractid,
+    @Query('itemid') String? itemid,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: 'Get the shipping note for an item that\'s staged or on an OUT Contract.',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["Staging"],
       deprecated: false,
     ),
   });
@@ -1215,39 +1447,31 @@ class FwCoreApiSwashbuckleBadRequestResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
-  const FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult({
-    this.downloadUrl,
-  });
+class FwCoreControllersGetServerUtcDateTimeResponse {
+  const FwCoreControllersGetServerUtcDateTimeResponse({this.serverUtcDateTime});
 
-  factory FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult.fromJson(
+  factory FwCoreControllersGetServerUtcDateTimeResponse.fromJson(
     Map<String, dynamic> json,
-  ) =>
-      _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultFromJson(
-        json,
-      );
+  ) => _$FwCoreControllersGetServerUtcDateTimeResponseFromJson(json);
 
   static const toJsonFactory =
-      _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson;
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultToJson(
-        this,
-      );
+      _$FwCoreControllersGetServerUtcDateTimeResponseToJson(this);
 
-  @JsonKey(name: 'downloadUrl', includeIfNull: false)
-  final String? downloadUrl;
+  @JsonKey(name: 'ServerUtcDateTime', includeIfNull: false)
+  final DateTime? serverUtcDateTime;
   static const fromJsonFactory =
-      _$FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultFromJson;
+      _$FwCoreControllersGetServerUtcDateTimeResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult &&
-            (identical(other.downloadUrl, downloadUrl) ||
+        (other is FwCoreControllersGetServerUtcDateTimeResponse &&
+            (identical(other.serverUtcDateTime, serverUtcDateTime) ||
                 const DeepCollectionEquality().equals(
-                  other.downloadUrl,
-                  downloadUrl,
+                  other.serverUtcDateTime,
+                  serverUtcDateTime,
                 )));
   }
 
@@ -1256,22 +1480,27 @@ class FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
 
   @override
   int get hashCode =>
-      const DeepCollectionEquality().hash(downloadUrl) ^ runtimeType.hashCode;
+      const DeepCollectionEquality().hash(serverUtcDateTime) ^
+      runtimeType.hashCode;
 }
 
-extension $FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResultExtension
-    on FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult {
-  FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-  copyWith({String? downloadUrl}) {
-    return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
-      downloadUrl: downloadUrl ?? this.downloadUrl,
+extension $FwCoreControllersGetServerUtcDateTimeResponseExtension
+    on FwCoreControllersGetServerUtcDateTimeResponse {
+  FwCoreControllersGetServerUtcDateTimeResponse copyWith({
+    DateTime? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: serverUtcDateTime ?? this.serverUtcDateTime,
     );
   }
 
-  FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult
-  copyWithWrapped({Wrapped<String?>? downloadUrl}) {
-    return FwCoreControllersFwDataControllerDoExportExcelXlsxExportFileAsyncResult(
-      downloadUrl: (downloadUrl != null ? downloadUrl.value : this.downloadUrl),
+  FwCoreControllersGetServerUtcDateTimeResponse copyWithWrapped({
+    Wrapped<DateTime?>? serverUtcDateTime,
+  }) {
+    return FwCoreControllersGetServerUtcDateTimeResponse(
+      serverUtcDateTime: (serverUtcDateTime != null
+          ? serverUtcDateTime.value
+          : this.serverUtcDateTime),
     );
   }
 }
@@ -2149,6 +2378,7 @@ class FwStandardModelsBrowseRequest {
     this.totalfields,
     this.activeviewfields,
     this.timezoneOffset,
+    this.locale,
   });
 
   factory FwStandardModelsBrowseRequest.fromJson(Map<String, dynamic> json) =>
@@ -2238,7 +2468,9 @@ class FwStandardModelsBrowseRequest {
   @JsonKey(name: 'activeviewfields', includeIfNull: false)
   final Map<String, dynamic>? activeviewfields;
   @JsonKey(name: 'timezoneOffset', includeIfNull: false)
-  final int? timezoneOffset;
+  final double? timezoneOffset;
+  @JsonKey(name: 'Locale', includeIfNull: false)
+  final String? locale;
   static const fromJsonFactory = _$FwStandardModelsBrowseRequestFromJson;
 
   @override
@@ -2367,7 +2599,9 @@ class FwStandardModelsBrowseRequest {
                 const DeepCollectionEquality().equals(
                   other.timezoneOffset,
                   timezoneOffset,
-                )));
+                )) &&
+            (identical(other.locale, locale) ||
+                const DeepCollectionEquality().equals(other.locale, locale)));
   }
 
   @override
@@ -2402,6 +2636,7 @@ class FwStandardModelsBrowseRequest {
       const DeepCollectionEquality().hash(totalfields) ^
       const DeepCollectionEquality().hash(activeviewfields) ^
       const DeepCollectionEquality().hash(timezoneOffset) ^
+      const DeepCollectionEquality().hash(locale) ^
       runtimeType.hashCode;
 }
 
@@ -2434,7 +2669,8 @@ extension $FwStandardModelsBrowseRequestExtension
     List<FwStandardModelsCheckBoxListItem>? fields,
     List<String>? totalfields,
     Map<String, dynamic>? activeviewfields,
-    int? timezoneOffset,
+    double? timezoneOffset,
+    String? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: miscfields ?? this.miscfields,
@@ -2464,6 +2700,7 @@ extension $FwStandardModelsBrowseRequestExtension
       totalfields: totalfields ?? this.totalfields,
       activeviewfields: activeviewfields ?? this.activeviewfields,
       timezoneOffset: timezoneOffset ?? this.timezoneOffset,
+      locale: locale ?? this.locale,
     );
   }
 
@@ -2494,7 +2731,8 @@ extension $FwStandardModelsBrowseRequestExtension
     Wrapped<List<FwStandardModelsCheckBoxListItem>?>? fields,
     Wrapped<List<String>?>? totalfields,
     Wrapped<Map<String, dynamic>?>? activeviewfields,
-    Wrapped<int?>? timezoneOffset,
+    Wrapped<double?>? timezoneOffset,
+    Wrapped<String?>? locale,
   }) {
     return FwStandardModelsBrowseRequest(
       miscfields: (miscfields != null ? miscfields.value : this.miscfields),
@@ -2550,6 +2788,7 @@ extension $FwStandardModelsBrowseRequestExtension
       timezoneOffset: (timezoneOffset != null
           ? timezoneOffset.value
           : this.timezoneOffset),
+      locale: (locale != null ? locale.value : this.locale),
     );
   }
 }
@@ -2785,121 +3024,6 @@ extension $FwStandardModelsFwQueryFilterExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  const FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic({
-    this.items,
-    this.pageNo,
-    this.pageSize,
-    this.totalItems,
-    this.sort,
-  });
-
-  factory FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson;
-  Map<String, dynamic> toJson() =>
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicToJson(
-        this,
-      );
-
-  @JsonKey(
-    name: 'Items',
-    includeIfNull: false,
-    defaultValue: <WebApiModulesAdministratorTaskSchedulerTaskSteps>[],
-  )
-  final List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items;
-  @JsonKey(name: 'PageNo', includeIfNull: false)
-  final int? pageNo;
-  @JsonKey(name: 'PageSize', includeIfNull: false)
-  final int? pageSize;
-  @JsonKey(name: 'TotalItems', includeIfNull: false)
-  final int? totalItems;
-  @JsonKey(name: 'Sort', includeIfNull: false)
-  final String? sort;
-  static const fromJsonFactory =
-      _$FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic &&
-            (identical(other.items, items) ||
-                const DeepCollectionEquality().equals(other.items, items)) &&
-            (identical(other.pageNo, pageNo) ||
-                const DeepCollectionEquality().equals(other.pageNo, pageNo)) &&
-            (identical(other.pageSize, pageSize) ||
-                const DeepCollectionEquality().equals(
-                  other.pageSize,
-                  pageSize,
-                )) &&
-            (identical(other.totalItems, totalItems) ||
-                const DeepCollectionEquality().equals(
-                  other.totalItems,
-                  totalItems,
-                )) &&
-            (identical(other.sort, sort) ||
-                const DeepCollectionEquality().equals(other.sort, sort)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(items) ^
-      const DeepCollectionEquality().hash(pageNo) ^
-      const DeepCollectionEquality().hash(pageSize) ^
-      const DeepCollectionEquality().hash(totalItems) ^
-      const DeepCollectionEquality().hash(sort) ^
-      runtimeType.hashCode;
-}
-
-extension $FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogicExtension
-    on
-        FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic {
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWith({
-    List<WebApiModulesAdministratorTaskSchedulerTaskSteps>? items,
-    int? pageNo,
-    int? pageSize,
-    int? totalItems,
-    String? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: items ?? this.items,
-      pageNo: pageNo ?? this.pageNo,
-      pageSize: pageSize ?? this.pageSize,
-      totalItems: totalItems ?? this.totalItems,
-      sort: sort ?? this.sort,
-    );
-  }
-
-  FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic
-  copyWithWrapped({
-    Wrapped<List<WebApiModulesAdministratorTaskSchedulerTaskSteps>?>? items,
-    Wrapped<int?>? pageNo,
-    Wrapped<int?>? pageSize,
-    Wrapped<int?>? totalItems,
-    Wrapped<String?>? sort,
-  }) {
-    return FwStandardModelsFwQueryResponseWebApiModulesAdministratorTaskSchedulerTaskStepsLogic(
-      items: (items != null ? items.value : this.items),
-      pageNo: (pageNo != null ? pageNo.value : this.pageNo),
-      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
-      totalItems: (totalItems != null ? totalItems.value : this.totalItems),
-      sort: (sort != null ? sort.value : this.sort),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
 class FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse {
   const FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse({
     this.items,
@@ -2949,8 +3073,7 @@ class FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScann
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse &&
+        (other is FwStandardModelsFwQueryResponseWebApiModulesContainersContainerLookupScannableItemRentalInventoryResponse &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -3074,8 +3197,7 @@ class FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetire
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse &&
+        (other is FwStandardModelsGetResponseWebApiModulesMobileAssetDispositionLookupRetiredReasonResponse &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -3541,306 +3663,140 @@ extension $FwStandardSqlServerTSpStatusResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  const WebApiModulesAdministratorTaskSchedulerTaskSteps({
-    this.taskStepsId,
-    this.taskId,
-    this.name,
-    this.stepNumber,
-    this.type,
-    this.command,
-    this.onSuccessActionDisplay,
-    this.onFailureActionDisplay,
-    this.onSuccessAction,
-    this.retryAttempts,
-    this.retryInterval,
-    this.onFailureAction,
-    this.onSuccessTaskStepsId,
-    this.onFailureTaskStepsId,
-    this.outputFilename,
-    this.lastRunOutcome,
-    this.lastRunDuration,
-    this.lastRunRetries,
-    this.dateStamp,
-    this.auditNote,
-    this.recordTitle,
-    this.urlIdentifier,
-    this.fields,
-    this.custom,
-    this.defaultFieldAttributes,
-    this.original,
-    this.translation,
-    this.hasImport,
-    this.hasDocuments,
-    this.createdByUserId,
-    this.createdByUserName,
-    this.createdDateTime,
-    this.modifiedByUserId,
-    this.modifiedByUserName,
-    this.modifiedDateTime,
+class RentalWorksQuikScanModulesPurchaseManagerProcessData {
+  const RentalWorksQuikScanModulesPurchaseManagerProcessData({
+    this.vendorId,
+    this.pONumber,
+    this.departmentId,
+    this.usersId,
+    this.warehouseId,
+    this.locationId,
+    this.purchaseOrderId,
+    this.deliveryaddress,
+    this.purchasedetails,
+    this.vendordetailes,
+    this.accountingdetailes,
+    this.lineitemdetailes,
   });
 
-  factory WebApiModulesAdministratorTaskSchedulerTaskSteps.fromJson(
+  factory RentalWorksQuikScanModulesPurchaseManagerProcessData.fromJson(
     Map<String, dynamic> json,
-  ) => _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson(json);
+  ) => _$RentalWorksQuikScanModulesPurchaseManagerProcessDataFromJson(json);
 
   static const toJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson;
+      _$RentalWorksQuikScanModulesPurchaseManagerProcessDataToJson;
   Map<String, dynamic> toJson() =>
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsToJson(this);
+      _$RentalWorksQuikScanModulesPurchaseManagerProcessDataToJson(this);
 
-  @JsonKey(name: 'TaskStepsId', includeIfNull: false)
-  final int? taskStepsId;
-  @JsonKey(name: 'TaskId', includeIfNull: false)
-  final int? taskId;
-  @JsonKey(name: 'Name', includeIfNull: false)
-  final String? name;
-  @JsonKey(name: 'StepNumber', includeIfNull: false)
-  final int? stepNumber;
-  @JsonKey(name: 'Type', includeIfNull: false)
-  final String? type;
-  @JsonKey(name: 'Command', includeIfNull: false)
-  final String? command;
-  @JsonKey(name: 'OnSuccessActionDisplay', includeIfNull: false)
-  final String? onSuccessActionDisplay;
-  @JsonKey(name: 'OnFailureActionDisplay', includeIfNull: false)
-  final String? onFailureActionDisplay;
-  @JsonKey(name: 'OnSuccessAction', includeIfNull: false)
-  final int? onSuccessAction;
-  @JsonKey(name: 'RetryAttempts', includeIfNull: false)
-  final int? retryAttempts;
-  @JsonKey(name: 'RetryInterval', includeIfNull: false)
-  final int? retryInterval;
-  @JsonKey(name: 'OnFailureAction', includeIfNull: false)
-  final int? onFailureAction;
-  @JsonKey(name: 'OnSuccessTaskStepsId', includeIfNull: false)
-  final int? onSuccessTaskStepsId;
-  @JsonKey(name: 'OnFailureTaskStepsId', includeIfNull: false)
-  final int? onFailureTaskStepsId;
-  @JsonKey(name: 'OutputFilename', includeIfNull: false)
-  final String? outputFilename;
-  @JsonKey(name: 'LastRunOutcome', includeIfNull: false)
-  final int? lastRunOutcome;
-  @JsonKey(name: 'LastRunDuration', includeIfNull: false)
-  final int? lastRunDuration;
-  @JsonKey(name: 'LastRunRetries', includeIfNull: false)
-  final int? lastRunRetries;
-  @JsonKey(name: 'DateStamp', includeIfNull: false)
-  final String? dateStamp;
-  @JsonKey(name: 'AuditNote', includeIfNull: false)
-  final String? auditNote;
-  @JsonKey(name: 'RecordTitle', includeIfNull: false)
-  final String? recordTitle;
-  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
-  final dynamic urlIdentifier;
+  @JsonKey(name: 'VendorId', includeIfNull: false)
+  final String? vendorId;
+  @JsonKey(name: 'PONumber', includeIfNull: false)
+  final String? pONumber;
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
+  final String? departmentId;
+  @JsonKey(name: 'UsersId', includeIfNull: false)
+  final String? usersId;
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
+  final String? warehouseId;
+  @JsonKey(name: 'LocationId', includeIfNull: false)
+  final String? locationId;
+  @JsonKey(name: 'PurchaseOrderId', includeIfNull: false)
+  final String? purchaseOrderId;
+  @JsonKey(name: 'DELIVERY_ADDRESS', includeIfNull: false)
+  final WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress?
+  deliveryaddress;
+  @JsonKey(name: 'PURCHASE_DETAILS', includeIfNull: false)
+  final WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails?
+  purchasedetails;
+  @JsonKey(name: 'VENDOR_DETAILES', includeIfNull: false)
+  final WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails?
+  vendordetailes;
   @JsonKey(
-    name: '_Fields',
+    name: 'ACCOUNTING_DETAILES',
     includeIfNull: false,
-    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+    defaultValue:
+        <
+          WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails
+        >[],
   )
-  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  final List<
+    WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails
+  >?
+  accountingdetailes;
   @JsonKey(
-    name: '_Custom',
+    name: 'LINEITEM_DETAILES',
     includeIfNull: false,
-    defaultValue: <FwStandardDataFwCustomValue>[],
+    defaultValue:
+        <RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem>[],
   )
-  final List<FwStandardDataFwCustomValue>? custom;
-  @JsonKey(
-    name: '_DefaultFieldAttributes',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwDefaultAttribute>[],
-  )
-  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
-  @JsonKey(name: '_Original', includeIfNull: false)
-  final FwStandardBusinessLogicFwBusinessLogic? original;
-  @JsonKey(
-    name: '_Translation',
-    includeIfNull: false,
-    defaultValue: <FwStandardDataFwTranslatedValue>[],
-  )
-  final List<FwStandardDataFwTranslatedValue>? translation;
-  @JsonKey(name: '_HasImport', includeIfNull: false)
-  final bool? hasImport;
-  @JsonKey(name: '_HasDocuments', includeIfNull: false)
-  final bool? hasDocuments;
-  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
-  final String? createdByUserId;
-  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
-  final String? createdByUserName;
-  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
-  final String? createdDateTime;
-  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
-  final String? modifiedByUserId;
-  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
-  final String? modifiedByUserName;
-  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
-  final String? modifiedDateTime;
+  final List<RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem>?
+  lineitemdetailes;
   static const fromJsonFactory =
-      _$WebApiModulesAdministratorTaskSchedulerTaskStepsFromJson;
+      _$RentalWorksQuikScanModulesPurchaseManagerProcessDataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesAdministratorTaskSchedulerTaskSteps &&
-            (identical(other.taskStepsId, taskStepsId) ||
+        (other is RentalWorksQuikScanModulesPurchaseManagerProcessData &&
+            (identical(other.vendorId, vendorId) ||
                 const DeepCollectionEquality().equals(
-                  other.taskStepsId,
-                  taskStepsId,
+                  other.vendorId,
+                  vendorId,
                 )) &&
-            (identical(other.taskId, taskId) ||
-                const DeepCollectionEquality().equals(other.taskId, taskId)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.stepNumber, stepNumber) ||
+            (identical(other.pONumber, pONumber) ||
                 const DeepCollectionEquality().equals(
-                  other.stepNumber,
-                  stepNumber,
+                  other.pONumber,
+                  pONumber,
                 )) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.command, command) ||
+            (identical(other.departmentId, departmentId) ||
                 const DeepCollectionEquality().equals(
-                  other.command,
-                  command,
+                  other.departmentId,
+                  departmentId,
                 )) &&
-            (identical(other.onSuccessActionDisplay, onSuccessActionDisplay) ||
+            (identical(other.usersId, usersId) ||
                 const DeepCollectionEquality().equals(
-                  other.onSuccessActionDisplay,
-                  onSuccessActionDisplay,
+                  other.usersId,
+                  usersId,
                 )) &&
-            (identical(other.onFailureActionDisplay, onFailureActionDisplay) ||
+            (identical(other.warehouseId, warehouseId) ||
                 const DeepCollectionEquality().equals(
-                  other.onFailureActionDisplay,
-                  onFailureActionDisplay,
+                  other.warehouseId,
+                  warehouseId,
                 )) &&
-            (identical(other.onSuccessAction, onSuccessAction) ||
+            (identical(other.locationId, locationId) ||
                 const DeepCollectionEquality().equals(
-                  other.onSuccessAction,
-                  onSuccessAction,
+                  other.locationId,
+                  locationId,
                 )) &&
-            (identical(other.retryAttempts, retryAttempts) ||
+            (identical(other.purchaseOrderId, purchaseOrderId) ||
                 const DeepCollectionEquality().equals(
-                  other.retryAttempts,
-                  retryAttempts,
+                  other.purchaseOrderId,
+                  purchaseOrderId,
                 )) &&
-            (identical(other.retryInterval, retryInterval) ||
+            (identical(other.deliveryaddress, deliveryaddress) ||
                 const DeepCollectionEquality().equals(
-                  other.retryInterval,
-                  retryInterval,
+                  other.deliveryaddress,
+                  deliveryaddress,
                 )) &&
-            (identical(other.onFailureAction, onFailureAction) ||
+            (identical(other.purchasedetails, purchasedetails) ||
                 const DeepCollectionEquality().equals(
-                  other.onFailureAction,
-                  onFailureAction,
+                  other.purchasedetails,
+                  purchasedetails,
                 )) &&
-            (identical(other.onSuccessTaskStepsId, onSuccessTaskStepsId) ||
+            (identical(other.vendordetailes, vendordetailes) ||
                 const DeepCollectionEquality().equals(
-                  other.onSuccessTaskStepsId,
-                  onSuccessTaskStepsId,
+                  other.vendordetailes,
+                  vendordetailes,
                 )) &&
-            (identical(other.onFailureTaskStepsId, onFailureTaskStepsId) ||
+            (identical(other.accountingdetailes, accountingdetailes) ||
                 const DeepCollectionEquality().equals(
-                  other.onFailureTaskStepsId,
-                  onFailureTaskStepsId,
+                  other.accountingdetailes,
+                  accountingdetailes,
                 )) &&
-            (identical(other.outputFilename, outputFilename) ||
+            (identical(other.lineitemdetailes, lineitemdetailes) ||
                 const DeepCollectionEquality().equals(
-                  other.outputFilename,
-                  outputFilename,
-                )) &&
-            (identical(other.lastRunOutcome, lastRunOutcome) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunOutcome,
-                  lastRunOutcome,
-                )) &&
-            (identical(other.lastRunDuration, lastRunDuration) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunDuration,
-                  lastRunDuration,
-                )) &&
-            (identical(other.lastRunRetries, lastRunRetries) ||
-                const DeepCollectionEquality().equals(
-                  other.lastRunRetries,
-                  lastRunRetries,
-                )) &&
-            (identical(other.dateStamp, dateStamp) ||
-                const DeepCollectionEquality().equals(
-                  other.dateStamp,
-                  dateStamp,
-                )) &&
-            (identical(other.auditNote, auditNote) ||
-                const DeepCollectionEquality().equals(
-                  other.auditNote,
-                  auditNote,
-                )) &&
-            (identical(other.recordTitle, recordTitle) ||
-                const DeepCollectionEquality().equals(
-                  other.recordTitle,
-                  recordTitle,
-                )) &&
-            (identical(other.urlIdentifier, urlIdentifier) ||
-                const DeepCollectionEquality().equals(
-                  other.urlIdentifier,
-                  urlIdentifier,
-                )) &&
-            (identical(other.fields, fields) ||
-                const DeepCollectionEquality().equals(other.fields, fields)) &&
-            (identical(other.custom, custom) ||
-                const DeepCollectionEquality().equals(other.custom, custom)) &&
-            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
-                const DeepCollectionEquality().equals(
-                  other.defaultFieldAttributes,
-                  defaultFieldAttributes,
-                )) &&
-            (identical(other.original, original) ||
-                const DeepCollectionEquality().equals(
-                  other.original,
-                  original,
-                )) &&
-            (identical(other.translation, translation) ||
-                const DeepCollectionEquality().equals(
-                  other.translation,
-                  translation,
-                )) &&
-            (identical(other.hasImport, hasImport) ||
-                const DeepCollectionEquality().equals(
-                  other.hasImport,
-                  hasImport,
-                )) &&
-            (identical(other.hasDocuments, hasDocuments) ||
-                const DeepCollectionEquality().equals(
-                  other.hasDocuments,
-                  hasDocuments,
-                )) &&
-            (identical(other.createdByUserId, createdByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserId,
-                  createdByUserId,
-                )) &&
-            (identical(other.createdByUserName, createdByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.createdByUserName,
-                  createdByUserName,
-                )) &&
-            (identical(other.createdDateTime, createdDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.createdDateTime,
-                  createdDateTime,
-                )) &&
-            (identical(other.modifiedByUserId, modifiedByUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserId,
-                  modifiedByUserId,
-                )) &&
-            (identical(other.modifiedByUserName, modifiedByUserName) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedByUserName,
-                  modifiedByUserName,
-                )) &&
-            (identical(other.modifiedDateTime, modifiedDateTime) ||
-                const DeepCollectionEquality().equals(
-                  other.modifiedDateTime,
-                  modifiedDateTime,
+                  other.lineitemdetailes,
+                  lineitemdetailes,
                 )));
   }
 
@@ -3849,241 +3805,614 @@ class WebApiModulesAdministratorTaskSchedulerTaskSteps {
 
   @override
   int get hashCode =>
-      const DeepCollectionEquality().hash(taskStepsId) ^
-      const DeepCollectionEquality().hash(taskId) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(stepNumber) ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(command) ^
-      const DeepCollectionEquality().hash(onSuccessActionDisplay) ^
-      const DeepCollectionEquality().hash(onFailureActionDisplay) ^
-      const DeepCollectionEquality().hash(onSuccessAction) ^
-      const DeepCollectionEquality().hash(retryAttempts) ^
-      const DeepCollectionEquality().hash(retryInterval) ^
-      const DeepCollectionEquality().hash(onFailureAction) ^
-      const DeepCollectionEquality().hash(onSuccessTaskStepsId) ^
-      const DeepCollectionEquality().hash(onFailureTaskStepsId) ^
-      const DeepCollectionEquality().hash(outputFilename) ^
-      const DeepCollectionEquality().hash(lastRunOutcome) ^
-      const DeepCollectionEquality().hash(lastRunDuration) ^
-      const DeepCollectionEquality().hash(lastRunRetries) ^
-      const DeepCollectionEquality().hash(dateStamp) ^
-      const DeepCollectionEquality().hash(auditNote) ^
-      const DeepCollectionEquality().hash(recordTitle) ^
-      const DeepCollectionEquality().hash(urlIdentifier) ^
-      const DeepCollectionEquality().hash(fields) ^
-      const DeepCollectionEquality().hash(custom) ^
-      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
-      const DeepCollectionEquality().hash(original) ^
-      const DeepCollectionEquality().hash(translation) ^
-      const DeepCollectionEquality().hash(hasImport) ^
-      const DeepCollectionEquality().hash(hasDocuments) ^
-      const DeepCollectionEquality().hash(createdByUserId) ^
-      const DeepCollectionEquality().hash(createdByUserName) ^
-      const DeepCollectionEquality().hash(createdDateTime) ^
-      const DeepCollectionEquality().hash(modifiedByUserId) ^
-      const DeepCollectionEquality().hash(modifiedByUserName) ^
-      const DeepCollectionEquality().hash(modifiedDateTime) ^
+      const DeepCollectionEquality().hash(vendorId) ^
+      const DeepCollectionEquality().hash(pONumber) ^
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(usersId) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(locationId) ^
+      const DeepCollectionEquality().hash(purchaseOrderId) ^
+      const DeepCollectionEquality().hash(deliveryaddress) ^
+      const DeepCollectionEquality().hash(purchasedetails) ^
+      const DeepCollectionEquality().hash(vendordetailes) ^
+      const DeepCollectionEquality().hash(accountingdetailes) ^
+      const DeepCollectionEquality().hash(lineitemdetailes) ^
       runtimeType.hashCode;
 }
 
-extension $WebApiModulesAdministratorTaskSchedulerTaskStepsExtension
-    on WebApiModulesAdministratorTaskSchedulerTaskSteps {
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWith({
-    int? taskStepsId,
-    int? taskId,
-    String? name,
-    int? stepNumber,
-    String? type,
-    String? command,
-    String? onSuccessActionDisplay,
-    String? onFailureActionDisplay,
-    int? onSuccessAction,
-    int? retryAttempts,
-    int? retryInterval,
-    int? onFailureAction,
-    int? onSuccessTaskStepsId,
-    int? onFailureTaskStepsId,
-    String? outputFilename,
-    int? lastRunOutcome,
-    int? lastRunDuration,
-    int? lastRunRetries,
-    String? dateStamp,
-    String? auditNote,
-    String? recordTitle,
-    dynamic urlIdentifier,
-    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
-    List<FwStandardDataFwCustomValue>? custom,
-    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
-    FwStandardBusinessLogicFwBusinessLogic? original,
-    List<FwStandardDataFwTranslatedValue>? translation,
-    bool? hasImport,
-    bool? hasDocuments,
-    String? createdByUserId,
-    String? createdByUserName,
-    String? createdDateTime,
-    String? modifiedByUserId,
-    String? modifiedByUserName,
-    String? modifiedDateTime,
+extension $RentalWorksQuikScanModulesPurchaseManagerProcessDataExtension
+    on RentalWorksQuikScanModulesPurchaseManagerProcessData {
+  RentalWorksQuikScanModulesPurchaseManagerProcessData copyWith({
+    String? vendorId,
+    String? pONumber,
+    String? departmentId,
+    String? usersId,
+    String? warehouseId,
+    String? locationId,
+    String? purchaseOrderId,
+    WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress?
+    deliveryaddress,
+    WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails?
+    purchasedetails,
+    WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails?
+    vendordetailes,
+    List<WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails>?
+    accountingdetailes,
+    List<RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem>?
+    lineitemdetailes,
   }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: taskStepsId ?? this.taskStepsId,
-      taskId: taskId ?? this.taskId,
-      name: name ?? this.name,
-      stepNumber: stepNumber ?? this.stepNumber,
-      type: type ?? this.type,
-      command: command ?? this.command,
-      onSuccessActionDisplay:
-          onSuccessActionDisplay ?? this.onSuccessActionDisplay,
-      onFailureActionDisplay:
-          onFailureActionDisplay ?? this.onFailureActionDisplay,
-      onSuccessAction: onSuccessAction ?? this.onSuccessAction,
-      retryAttempts: retryAttempts ?? this.retryAttempts,
-      retryInterval: retryInterval ?? this.retryInterval,
-      onFailureAction: onFailureAction ?? this.onFailureAction,
-      onSuccessTaskStepsId: onSuccessTaskStepsId ?? this.onSuccessTaskStepsId,
-      onFailureTaskStepsId: onFailureTaskStepsId ?? this.onFailureTaskStepsId,
-      outputFilename: outputFilename ?? this.outputFilename,
-      lastRunOutcome: lastRunOutcome ?? this.lastRunOutcome,
-      lastRunDuration: lastRunDuration ?? this.lastRunDuration,
-      lastRunRetries: lastRunRetries ?? this.lastRunRetries,
-      dateStamp: dateStamp ?? this.dateStamp,
-      auditNote: auditNote ?? this.auditNote,
-      recordTitle: recordTitle ?? this.recordTitle,
-      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
-      fields: fields ?? this.fields,
-      custom: custom ?? this.custom,
-      defaultFieldAttributes:
-          defaultFieldAttributes ?? this.defaultFieldAttributes,
-      original: original ?? this.original,
-      translation: translation ?? this.translation,
-      hasImport: hasImport ?? this.hasImport,
-      hasDocuments: hasDocuments ?? this.hasDocuments,
-      createdByUserId: createdByUserId ?? this.createdByUserId,
-      createdByUserName: createdByUserName ?? this.createdByUserName,
-      createdDateTime: createdDateTime ?? this.createdDateTime,
-      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
-      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
-      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    return RentalWorksQuikScanModulesPurchaseManagerProcessData(
+      vendorId: vendorId ?? this.vendorId,
+      pONumber: pONumber ?? this.pONumber,
+      departmentId: departmentId ?? this.departmentId,
+      usersId: usersId ?? this.usersId,
+      warehouseId: warehouseId ?? this.warehouseId,
+      locationId: locationId ?? this.locationId,
+      purchaseOrderId: purchaseOrderId ?? this.purchaseOrderId,
+      deliveryaddress: deliveryaddress ?? this.deliveryaddress,
+      purchasedetails: purchasedetails ?? this.purchasedetails,
+      vendordetailes: vendordetailes ?? this.vendordetailes,
+      accountingdetailes: accountingdetailes ?? this.accountingdetailes,
+      lineitemdetailes: lineitemdetailes ?? this.lineitemdetailes,
     );
   }
 
-  WebApiModulesAdministratorTaskSchedulerTaskSteps copyWithWrapped({
-    Wrapped<int?>? taskStepsId,
-    Wrapped<int?>? taskId,
-    Wrapped<String?>? name,
-    Wrapped<int?>? stepNumber,
-    Wrapped<String?>? type,
-    Wrapped<String?>? command,
-    Wrapped<String?>? onSuccessActionDisplay,
-    Wrapped<String?>? onFailureActionDisplay,
-    Wrapped<int?>? onSuccessAction,
-    Wrapped<int?>? retryAttempts,
-    Wrapped<int?>? retryInterval,
-    Wrapped<int?>? onFailureAction,
-    Wrapped<int?>? onSuccessTaskStepsId,
-    Wrapped<int?>? onFailureTaskStepsId,
-    Wrapped<String?>? outputFilename,
-    Wrapped<int?>? lastRunOutcome,
-    Wrapped<int?>? lastRunDuration,
-    Wrapped<int?>? lastRunRetries,
-    Wrapped<String?>? dateStamp,
-    Wrapped<String?>? auditNote,
-    Wrapped<String?>? recordTitle,
-    Wrapped<dynamic>? urlIdentifier,
-    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
-    fields,
-    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
-    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
-    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
-    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
-    Wrapped<bool?>? hasImport,
-    Wrapped<bool?>? hasDocuments,
-    Wrapped<String?>? createdByUserId,
-    Wrapped<String?>? createdByUserName,
-    Wrapped<String?>? createdDateTime,
-    Wrapped<String?>? modifiedByUserId,
-    Wrapped<String?>? modifiedByUserName,
-    Wrapped<String?>? modifiedDateTime,
+  RentalWorksQuikScanModulesPurchaseManagerProcessData copyWithWrapped({
+    Wrapped<String?>? vendorId,
+    Wrapped<String?>? pONumber,
+    Wrapped<String?>? departmentId,
+    Wrapped<String?>? usersId,
+    Wrapped<String?>? warehouseId,
+    Wrapped<String?>? locationId,
+    Wrapped<String?>? purchaseOrderId,
+    Wrapped<
+      WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress?
+    >?
+    deliveryaddress,
+    Wrapped<
+      WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails?
+    >?
+    purchasedetails,
+    Wrapped<
+      WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails?
+    >?
+    vendordetailes,
+    Wrapped<
+      List<
+        WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails
+      >?
+    >?
+    accountingdetailes,
+    Wrapped<
+      List<RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem>?
+    >?
+    lineitemdetailes,
   }) {
-    return WebApiModulesAdministratorTaskSchedulerTaskSteps(
-      taskStepsId: (taskStepsId != null ? taskStepsId.value : this.taskStepsId),
-      taskId: (taskId != null ? taskId.value : this.taskId),
-      name: (name != null ? name.value : this.name),
-      stepNumber: (stepNumber != null ? stepNumber.value : this.stepNumber),
-      type: (type != null ? type.value : this.type),
-      command: (command != null ? command.value : this.command),
-      onSuccessActionDisplay: (onSuccessActionDisplay != null
-          ? onSuccessActionDisplay.value
-          : this.onSuccessActionDisplay),
-      onFailureActionDisplay: (onFailureActionDisplay != null
-          ? onFailureActionDisplay.value
-          : this.onFailureActionDisplay),
-      onSuccessAction: (onSuccessAction != null
-          ? onSuccessAction.value
-          : this.onSuccessAction),
-      retryAttempts: (retryAttempts != null
-          ? retryAttempts.value
-          : this.retryAttempts),
-      retryInterval: (retryInterval != null
-          ? retryInterval.value
-          : this.retryInterval),
-      onFailureAction: (onFailureAction != null
-          ? onFailureAction.value
-          : this.onFailureAction),
-      onSuccessTaskStepsId: (onSuccessTaskStepsId != null
-          ? onSuccessTaskStepsId.value
-          : this.onSuccessTaskStepsId),
-      onFailureTaskStepsId: (onFailureTaskStepsId != null
-          ? onFailureTaskStepsId.value
-          : this.onFailureTaskStepsId),
-      outputFilename: (outputFilename != null
-          ? outputFilename.value
-          : this.outputFilename),
-      lastRunOutcome: (lastRunOutcome != null
-          ? lastRunOutcome.value
-          : this.lastRunOutcome),
-      lastRunDuration: (lastRunDuration != null
-          ? lastRunDuration.value
-          : this.lastRunDuration),
-      lastRunRetries: (lastRunRetries != null
-          ? lastRunRetries.value
-          : this.lastRunRetries),
-      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
-      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
-      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
-      urlIdentifier: (urlIdentifier != null
-          ? urlIdentifier.value
-          : this.urlIdentifier),
-      fields: (fields != null ? fields.value : this.fields),
-      custom: (custom != null ? custom.value : this.custom),
-      defaultFieldAttributes: (defaultFieldAttributes != null
-          ? defaultFieldAttributes.value
-          : this.defaultFieldAttributes),
-      original: (original != null ? original.value : this.original),
-      translation: (translation != null ? translation.value : this.translation),
-      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
-      hasDocuments: (hasDocuments != null
-          ? hasDocuments.value
-          : this.hasDocuments),
-      createdByUserId: (createdByUserId != null
-          ? createdByUserId.value
-          : this.createdByUserId),
-      createdByUserName: (createdByUserName != null
-          ? createdByUserName.value
-          : this.createdByUserName),
-      createdDateTime: (createdDateTime != null
-          ? createdDateTime.value
-          : this.createdDateTime),
-      modifiedByUserId: (modifiedByUserId != null
-          ? modifiedByUserId.value
-          : this.modifiedByUserId),
-      modifiedByUserName: (modifiedByUserName != null
-          ? modifiedByUserName.value
-          : this.modifiedByUserName),
-      modifiedDateTime: (modifiedDateTime != null
-          ? modifiedDateTime.value
-          : this.modifiedDateTime),
+    return RentalWorksQuikScanModulesPurchaseManagerProcessData(
+      vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+      pONumber: (pONumber != null ? pONumber.value : this.pONumber),
+      departmentId: (departmentId != null
+          ? departmentId.value
+          : this.departmentId),
+      usersId: (usersId != null ? usersId.value : this.usersId),
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      locationId: (locationId != null ? locationId.value : this.locationId),
+      purchaseOrderId: (purchaseOrderId != null
+          ? purchaseOrderId.value
+          : this.purchaseOrderId),
+      deliveryaddress: (deliveryaddress != null
+          ? deliveryaddress.value
+          : this.deliveryaddress),
+      purchasedetails: (purchasedetails != null
+          ? purchasedetails.value
+          : this.purchasedetails),
+      vendordetailes: (vendordetailes != null
+          ? vendordetailes.value
+          : this.vendordetailes),
+      accountingdetailes: (accountingdetailes != null
+          ? accountingdetailes.value
+          : this.accountingdetailes),
+      lineitemdetailes: (lineitemdetailes != null
+          ? lineitemdetailes.value
+          : this.lineitemdetailes),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem {
+  const RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem({
+    this.rentalInventoryId,
+    this.orderItemId,
+    this.inventoryTypeId,
+    this.categoryId,
+    this.subCategoryId,
+    this.trackedBy,
+    this.unitId,
+    this.hazardous,
+    this.consumable,
+    this.hTSCode,
+    this.eccn,
+    this.costCenter,
+    this.wbse,
+    this.manufacturerId,
+    this.model,
+    this.manufacturer,
+    this.countryOfOriginId,
+    this.weightLbs,
+    this.lengthInch,
+    this.widthInch,
+    this.heightInch,
+    this.image,
+    this.ponumber,
+    this.itemnum,
+    this.itemtext,
+    this.itemcode,
+    this.quantity,
+    this.itemprice,
+    this.priceunit,
+    this.unitofmeasure,
+    this.effectiveprice,
+    this.chargetypecode,
+    this.deletionindicator,
+    this.procnotes,
+  });
+
+  factory RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem.fromJson(
+    Map<String, dynamic> json,
+  ) => _$RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItemFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'RentalInventoryId', includeIfNull: false)
+  final String? rentalInventoryId;
+  @JsonKey(name: 'OrderItemId', includeIfNull: false)
+  final String? orderItemId;
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
+  final String? inventoryTypeId;
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
+  final String? categoryId;
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
+  final String? subCategoryId;
+  @JsonKey(name: 'TrackedBy', includeIfNull: false)
+  final String? trackedBy;
+  @JsonKey(name: 'UnitId', includeIfNull: false)
+  final String? unitId;
+  @JsonKey(name: 'Hazardous', includeIfNull: false)
+  final String? hazardous;
+  @JsonKey(name: 'Consumable', includeIfNull: false)
+  final String? consumable;
+  @JsonKey(name: 'HTSCode', includeIfNull: false)
+  final String? hTSCode;
+  @JsonKey(name: 'ECCN', includeIfNull: false)
+  final String? eccn;
+  @JsonKey(name: 'CostCenter', includeIfNull: false)
+  final String? costCenter;
+  @JsonKey(name: 'WBSE', includeIfNull: false)
+  final String? wbse;
+  @JsonKey(name: 'ManufacturerId', includeIfNull: false)
+  final String? manufacturerId;
+  @JsonKey(name: 'Model', includeIfNull: false)
+  final String? model;
+  @JsonKey(name: 'Manufacturer', includeIfNull: false)
+  final String? manufacturer;
+  @JsonKey(name: 'CountryOfOriginId', includeIfNull: false)
+  final String? countryOfOriginId;
+  @JsonKey(name: 'WeightLbs', includeIfNull: false)
+  final double? weightLbs;
+  @JsonKey(name: 'LengthInch', includeIfNull: false)
+  final double? lengthInch;
+  @JsonKey(name: 'WidthInch', includeIfNull: false)
+  final double? widthInch;
+  @JsonKey(name: 'HeightInch', includeIfNull: false)
+  final double? heightInch;
+  @JsonKey(name: 'Image', includeIfNull: false, defaultValue: <String>[])
+  final List<String>? image;
+  @JsonKey(name: 'PO_NUMBER', includeIfNull: false)
+  final String? ponumber;
+  @JsonKey(name: 'ITEM_NUM', includeIfNull: false)
+  final String? itemnum;
+  @JsonKey(name: 'ITEM_TEXT', includeIfNull: false)
+  final String? itemtext;
+  @JsonKey(name: 'ITEM_CODE', includeIfNull: false)
+  final String? itemcode;
+  @JsonKey(name: 'QUANTITY', includeIfNull: false)
+  final String? quantity;
+  @JsonKey(name: 'ITEM_PRICE', includeIfNull: false)
+  final String? itemprice;
+  @JsonKey(name: 'PRICE_UNIT', includeIfNull: false)
+  final String? priceunit;
+  @JsonKey(name: 'UNIT_OF_MEASURE', includeIfNull: false)
+  final String? unitofmeasure;
+  @JsonKey(name: 'EFFECTIVE_PRICE', includeIfNull: false)
+  final String? effectiveprice;
+  @JsonKey(name: 'CHARGE_TYPE_CODE', includeIfNull: false)
+  final String? chargetypecode;
+  @JsonKey(name: 'DELETION_INDICATOR', includeIfNull: false)
+  final String? deletionindicator;
+  @JsonKey(name: 'PROC_NOTES', includeIfNull: false)
+  final String? procnotes;
+  static const fromJsonFactory =
+      _$RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem &&
+            (identical(other.rentalInventoryId, rentalInventoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.rentalInventoryId,
+                  rentalInventoryId,
+                )) &&
+            (identical(other.orderItemId, orderItemId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderItemId,
+                  orderItemId,
+                )) &&
+            (identical(other.inventoryTypeId, inventoryTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryTypeId,
+                  inventoryTypeId,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.subCategoryId, subCategoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.subCategoryId,
+                  subCategoryId,
+                )) &&
+            (identical(other.trackedBy, trackedBy) ||
+                const DeepCollectionEquality().equals(
+                  other.trackedBy,
+                  trackedBy,
+                )) &&
+            (identical(other.unitId, unitId) ||
+                const DeepCollectionEquality().equals(other.unitId, unitId)) &&
+            (identical(other.hazardous, hazardous) ||
+                const DeepCollectionEquality().equals(
+                  other.hazardous,
+                  hazardous,
+                )) &&
+            (identical(other.consumable, consumable) ||
+                const DeepCollectionEquality().equals(
+                  other.consumable,
+                  consumable,
+                )) &&
+            (identical(other.hTSCode, hTSCode) ||
+                const DeepCollectionEquality().equals(
+                  other.hTSCode,
+                  hTSCode,
+                )) &&
+            (identical(other.eccn, eccn) ||
+                const DeepCollectionEquality().equals(other.eccn, eccn)) &&
+            (identical(other.costCenter, costCenter) ||
+                const DeepCollectionEquality().equals(
+                  other.costCenter,
+                  costCenter,
+                )) &&
+            (identical(other.wbse, wbse) ||
+                const DeepCollectionEquality().equals(other.wbse, wbse)) &&
+            (identical(other.manufacturerId, manufacturerId) ||
+                const DeepCollectionEquality().equals(
+                  other.manufacturerId,
+                  manufacturerId,
+                )) &&
+            (identical(other.model, model) ||
+                const DeepCollectionEquality().equals(other.model, model)) &&
+            (identical(other.manufacturer, manufacturer) ||
+                const DeepCollectionEquality().equals(
+                  other.manufacturer,
+                  manufacturer,
+                )) &&
+            (identical(other.countryOfOriginId, countryOfOriginId) ||
+                const DeepCollectionEquality().equals(
+                  other.countryOfOriginId,
+                  countryOfOriginId,
+                )) &&
+            (identical(other.weightLbs, weightLbs) ||
+                const DeepCollectionEquality().equals(
+                  other.weightLbs,
+                  weightLbs,
+                )) &&
+            (identical(other.lengthInch, lengthInch) ||
+                const DeepCollectionEquality().equals(
+                  other.lengthInch,
+                  lengthInch,
+                )) &&
+            (identical(other.widthInch, widthInch) ||
+                const DeepCollectionEquality().equals(
+                  other.widthInch,
+                  widthInch,
+                )) &&
+            (identical(other.heightInch, heightInch) ||
+                const DeepCollectionEquality().equals(
+                  other.heightInch,
+                  heightInch,
+                )) &&
+            (identical(other.image, image) ||
+                const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.ponumber, ponumber) ||
+                const DeepCollectionEquality().equals(
+                  other.ponumber,
+                  ponumber,
+                )) &&
+            (identical(other.itemnum, itemnum) ||
+                const DeepCollectionEquality().equals(
+                  other.itemnum,
+                  itemnum,
+                )) &&
+            (identical(other.itemtext, itemtext) ||
+                const DeepCollectionEquality().equals(
+                  other.itemtext,
+                  itemtext,
+                )) &&
+            (identical(other.itemcode, itemcode) ||
+                const DeepCollectionEquality().equals(
+                  other.itemcode,
+                  itemcode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.itemprice, itemprice) ||
+                const DeepCollectionEquality().equals(
+                  other.itemprice,
+                  itemprice,
+                )) &&
+            (identical(other.priceunit, priceunit) ||
+                const DeepCollectionEquality().equals(
+                  other.priceunit,
+                  priceunit,
+                )) &&
+            (identical(other.unitofmeasure, unitofmeasure) ||
+                const DeepCollectionEquality().equals(
+                  other.unitofmeasure,
+                  unitofmeasure,
+                )) &&
+            (identical(other.effectiveprice, effectiveprice) ||
+                const DeepCollectionEquality().equals(
+                  other.effectiveprice,
+                  effectiveprice,
+                )) &&
+            (identical(other.chargetypecode, chargetypecode) ||
+                const DeepCollectionEquality().equals(
+                  other.chargetypecode,
+                  chargetypecode,
+                )) &&
+            (identical(other.deletionindicator, deletionindicator) ||
+                const DeepCollectionEquality().equals(
+                  other.deletionindicator,
+                  deletionindicator,
+                )) &&
+            (identical(other.procnotes, procnotes) ||
+                const DeepCollectionEquality().equals(
+                  other.procnotes,
+                  procnotes,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(rentalInventoryId) ^
+      const DeepCollectionEquality().hash(orderItemId) ^
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(trackedBy) ^
+      const DeepCollectionEquality().hash(unitId) ^
+      const DeepCollectionEquality().hash(hazardous) ^
+      const DeepCollectionEquality().hash(consumable) ^
+      const DeepCollectionEquality().hash(hTSCode) ^
+      const DeepCollectionEquality().hash(eccn) ^
+      const DeepCollectionEquality().hash(costCenter) ^
+      const DeepCollectionEquality().hash(wbse) ^
+      const DeepCollectionEquality().hash(manufacturerId) ^
+      const DeepCollectionEquality().hash(model) ^
+      const DeepCollectionEquality().hash(manufacturer) ^
+      const DeepCollectionEquality().hash(countryOfOriginId) ^
+      const DeepCollectionEquality().hash(weightLbs) ^
+      const DeepCollectionEquality().hash(lengthInch) ^
+      const DeepCollectionEquality().hash(widthInch) ^
+      const DeepCollectionEquality().hash(heightInch) ^
+      const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(ponumber) ^
+      const DeepCollectionEquality().hash(itemnum) ^
+      const DeepCollectionEquality().hash(itemtext) ^
+      const DeepCollectionEquality().hash(itemcode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(itemprice) ^
+      const DeepCollectionEquality().hash(priceunit) ^
+      const DeepCollectionEquality().hash(unitofmeasure) ^
+      const DeepCollectionEquality().hash(effectiveprice) ^
+      const DeepCollectionEquality().hash(chargetypecode) ^
+      const DeepCollectionEquality().hash(deletionindicator) ^
+      const DeepCollectionEquality().hash(procnotes) ^
+      runtimeType.hashCode;
+}
+
+extension $RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItemExtension
+    on RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem {
+  RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem copyWith({
+    String? rentalInventoryId,
+    String? orderItemId,
+    String? inventoryTypeId,
+    String? categoryId,
+    String? subCategoryId,
+    String? trackedBy,
+    String? unitId,
+    String? hazardous,
+    String? consumable,
+    String? hTSCode,
+    String? eccn,
+    String? costCenter,
+    String? wbse,
+    String? manufacturerId,
+    String? model,
+    String? manufacturer,
+    String? countryOfOriginId,
+    double? weightLbs,
+    double? lengthInch,
+    double? widthInch,
+    double? heightInch,
+    List<String>? image,
+    String? ponumber,
+    String? itemnum,
+    String? itemtext,
+    String? itemcode,
+    String? quantity,
+    String? itemprice,
+    String? priceunit,
+    String? unitofmeasure,
+    String? effectiveprice,
+    String? chargetypecode,
+    String? deletionindicator,
+    String? procnotes,
+  }) {
+    return RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem(
+      rentalInventoryId: rentalInventoryId ?? this.rentalInventoryId,
+      orderItemId: orderItemId ?? this.orderItemId,
+      inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
+      categoryId: categoryId ?? this.categoryId,
+      subCategoryId: subCategoryId ?? this.subCategoryId,
+      trackedBy: trackedBy ?? this.trackedBy,
+      unitId: unitId ?? this.unitId,
+      hazardous: hazardous ?? this.hazardous,
+      consumable: consumable ?? this.consumable,
+      hTSCode: hTSCode ?? this.hTSCode,
+      eccn: eccn ?? this.eccn,
+      costCenter: costCenter ?? this.costCenter,
+      wbse: wbse ?? this.wbse,
+      manufacturerId: manufacturerId ?? this.manufacturerId,
+      model: model ?? this.model,
+      manufacturer: manufacturer ?? this.manufacturer,
+      countryOfOriginId: countryOfOriginId ?? this.countryOfOriginId,
+      weightLbs: weightLbs ?? this.weightLbs,
+      lengthInch: lengthInch ?? this.lengthInch,
+      widthInch: widthInch ?? this.widthInch,
+      heightInch: heightInch ?? this.heightInch,
+      image: image ?? this.image,
+      ponumber: ponumber ?? this.ponumber,
+      itemnum: itemnum ?? this.itemnum,
+      itemtext: itemtext ?? this.itemtext,
+      itemcode: itemcode ?? this.itemcode,
+      quantity: quantity ?? this.quantity,
+      itemprice: itemprice ?? this.itemprice,
+      priceunit: priceunit ?? this.priceunit,
+      unitofmeasure: unitofmeasure ?? this.unitofmeasure,
+      effectiveprice: effectiveprice ?? this.effectiveprice,
+      chargetypecode: chargetypecode ?? this.chargetypecode,
+      deletionindicator: deletionindicator ?? this.deletionindicator,
+      procnotes: procnotes ?? this.procnotes,
+    );
+  }
+
+  RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem copyWithWrapped({
+    Wrapped<String?>? rentalInventoryId,
+    Wrapped<String?>? orderItemId,
+    Wrapped<String?>? inventoryTypeId,
+    Wrapped<String?>? categoryId,
+    Wrapped<String?>? subCategoryId,
+    Wrapped<String?>? trackedBy,
+    Wrapped<String?>? unitId,
+    Wrapped<String?>? hazardous,
+    Wrapped<String?>? consumable,
+    Wrapped<String?>? hTSCode,
+    Wrapped<String?>? eccn,
+    Wrapped<String?>? costCenter,
+    Wrapped<String?>? wbse,
+    Wrapped<String?>? manufacturerId,
+    Wrapped<String?>? model,
+    Wrapped<String?>? manufacturer,
+    Wrapped<String?>? countryOfOriginId,
+    Wrapped<double?>? weightLbs,
+    Wrapped<double?>? lengthInch,
+    Wrapped<double?>? widthInch,
+    Wrapped<double?>? heightInch,
+    Wrapped<List<String>?>? image,
+    Wrapped<String?>? ponumber,
+    Wrapped<String?>? itemnum,
+    Wrapped<String?>? itemtext,
+    Wrapped<String?>? itemcode,
+    Wrapped<String?>? quantity,
+    Wrapped<String?>? itemprice,
+    Wrapped<String?>? priceunit,
+    Wrapped<String?>? unitofmeasure,
+    Wrapped<String?>? effectiveprice,
+    Wrapped<String?>? chargetypecode,
+    Wrapped<String?>? deletionindicator,
+    Wrapped<String?>? procnotes,
+  }) {
+    return RentalWorksQuikScanModulesPurchaseManagerProcessDataLineItem(
+      rentalInventoryId: (rentalInventoryId != null
+          ? rentalInventoryId.value
+          : this.rentalInventoryId),
+      orderItemId: (orderItemId != null ? orderItemId.value : this.orderItemId),
+      inventoryTypeId: (inventoryTypeId != null
+          ? inventoryTypeId.value
+          : this.inventoryTypeId),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      subCategoryId: (subCategoryId != null
+          ? subCategoryId.value
+          : this.subCategoryId),
+      trackedBy: (trackedBy != null ? trackedBy.value : this.trackedBy),
+      unitId: (unitId != null ? unitId.value : this.unitId),
+      hazardous: (hazardous != null ? hazardous.value : this.hazardous),
+      consumable: (consumable != null ? consumable.value : this.consumable),
+      hTSCode: (hTSCode != null ? hTSCode.value : this.hTSCode),
+      eccn: (eccn != null ? eccn.value : this.eccn),
+      costCenter: (costCenter != null ? costCenter.value : this.costCenter),
+      wbse: (wbse != null ? wbse.value : this.wbse),
+      manufacturerId: (manufacturerId != null
+          ? manufacturerId.value
+          : this.manufacturerId),
+      model: (model != null ? model.value : this.model),
+      manufacturer: (manufacturer != null
+          ? manufacturer.value
+          : this.manufacturer),
+      countryOfOriginId: (countryOfOriginId != null
+          ? countryOfOriginId.value
+          : this.countryOfOriginId),
+      weightLbs: (weightLbs != null ? weightLbs.value : this.weightLbs),
+      lengthInch: (lengthInch != null ? lengthInch.value : this.lengthInch),
+      widthInch: (widthInch != null ? widthInch.value : this.widthInch),
+      heightInch: (heightInch != null ? heightInch.value : this.heightInch),
+      image: (image != null ? image.value : this.image),
+      ponumber: (ponumber != null ? ponumber.value : this.ponumber),
+      itemnum: (itemnum != null ? itemnum.value : this.itemnum),
+      itemtext: (itemtext != null ? itemtext.value : this.itemtext),
+      itemcode: (itemcode != null ? itemcode.value : this.itemcode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      itemprice: (itemprice != null ? itemprice.value : this.itemprice),
+      priceunit: (priceunit != null ? priceunit.value : this.priceunit),
+      unitofmeasure: (unitofmeasure != null
+          ? unitofmeasure.value
+          : this.unitofmeasure),
+      effectiveprice: (effectiveprice != null
+          ? effectiveprice.value
+          : this.effectiveprice),
+      chargetypecode: (chargetypecode != null
+          ? chargetypecode.value
+          : this.chargetypecode),
+      deletionindicator: (deletionindicator != null
+          ? deletionindicator.value
+          : this.deletionindicator),
+      procnotes: (procnotes != null ? procnotes.value : this.procnotes),
     );
   }
 }
@@ -4212,6 +4541,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.replacementCostForAllWarehouses,
     this.hourlyAvailabilityMyWarehouse,
     this.hourlyAvailabilityAllWarehouses,
+    this.assetAvailabilityMyWarehouse,
+    this.assetAvailabilityAllWarehouses,
     this.inventoryTypeId,
     this.inventoryType,
     this.availableFrom,
@@ -4307,6 +4638,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     this.automaticallyRebuildContainerAtTransferIn,
     this.automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
     this.automaticallyTransferInEntireContainerWithScannableItem,
+    this.specifyContainerItemSettingsPerItem,
     this.containerStagingRule,
     this.excludeContainedItemsFromAvailability,
     this.useContainerNumber,
@@ -4551,6 +4883,10 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
   final bool? hourlyAvailabilityMyWarehouse;
   @JsonKey(name: 'HourlyAvailabilityAllWarehouses', includeIfNull: false)
   final bool? hourlyAvailabilityAllWarehouses;
+  @JsonKey(name: 'AssetAvailabilityMyWarehouse', includeIfNull: false)
+  final bool? assetAvailabilityMyWarehouse;
+  @JsonKey(name: 'AssetAvailabilityAllWarehouses', includeIfNull: false)
+  final bool? assetAvailabilityAllWarehouses;
   @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
   final String? inventoryTypeId;
   @JsonKey(name: 'InventoryType', includeIfNull: false)
@@ -4759,6 +5095,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
     includeIfNull: false,
   )
   final bool? automaticallyTransferInEntireContainerWithScannableItem;
+  @JsonKey(name: 'SpecifyContainerItemSettingsPerItem', includeIfNull: false)
+  final bool? specifyContainerItemSettingsPerItem;
   @JsonKey(name: 'ContainerStagingRule', includeIfNull: false)
   final String? containerStagingRule;
   @JsonKey(name: 'ExcludeContainedItemsFromAvailability', includeIfNull: false)
@@ -5333,6 +5671,22 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
                 const DeepCollectionEquality().equals(
                   other.hourlyAvailabilityAllWarehouses,
                   hourlyAvailabilityAllWarehouses,
+                )) &&
+            (identical(
+                  other.assetAvailabilityMyWarehouse,
+                  assetAvailabilityMyWarehouse,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.assetAvailabilityMyWarehouse,
+                  assetAvailabilityMyWarehouse,
+                )) &&
+            (identical(
+                  other.assetAvailabilityAllWarehouses,
+                  assetAvailabilityAllWarehouses,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.assetAvailabilityAllWarehouses,
+                  assetAvailabilityAllWarehouses,
                 )) &&
             (identical(other.inventoryTypeId, inventoryTypeId) ||
                 const DeepCollectionEquality().equals(
@@ -5993,6 +6347,14 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
                 const DeepCollectionEquality().equals(
                   other.automaticallyTransferInEntireContainerWithScannableItem,
                   automaticallyTransferInEntireContainerWithScannableItem,
+                )) &&
+            (identical(
+                  other.specifyContainerItemSettingsPerItem,
+                  specifyContainerItemSettingsPerItem,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.specifyContainerItemSettingsPerItem,
+                  specifyContainerItemSettingsPerItem,
                 )) &&
             (identical(other.containerStagingRule, containerStagingRule) ||
                 const DeepCollectionEquality().equals(
@@ -6854,6 +7216,8 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(replacementCostForAllWarehouses) ^
       const DeepCollectionEquality().hash(hourlyAvailabilityMyWarehouse) ^
       const DeepCollectionEquality().hash(hourlyAvailabilityAllWarehouses) ^
+      const DeepCollectionEquality().hash(assetAvailabilityMyWarehouse) ^
+      const DeepCollectionEquality().hash(assetAvailabilityAllWarehouses) ^
       const DeepCollectionEquality().hash(inventoryTypeId) ^
       const DeepCollectionEquality().hash(inventoryType) ^
       const DeepCollectionEquality().hash(availableFrom) ^
@@ -6969,6 +7333,7 @@ class WebApiModulesInventoryRentalInventoryRentalInventory {
       const DeepCollectionEquality().hash(
         automaticallyTransferInEntireContainerWithScannableItem,
       ) ^
+      const DeepCollectionEquality().hash(specifyContainerItemSettingsPerItem) ^
       const DeepCollectionEquality().hash(containerStagingRule) ^
       const DeepCollectionEquality().hash(
         excludeContainedItemsFromAvailability,
@@ -7180,6 +7545,8 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     double? replacementCostForAllWarehouses,
     bool? hourlyAvailabilityMyWarehouse,
     bool? hourlyAvailabilityAllWarehouses,
+    bool? assetAvailabilityMyWarehouse,
+    bool? assetAvailabilityAllWarehouses,
     String? inventoryTypeId,
     String? inventoryType,
     String? availableFrom,
@@ -7275,6 +7642,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     bool? automaticallyRebuildContainerAtTransferIn,
     bool? automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
     bool? automaticallyTransferInEntireContainerWithScannableItem,
+    bool? specifyContainerItemSettingsPerItem,
     String? containerStagingRule,
     bool? excludeContainedItemsFromAvailability,
     bool? useContainerNumber,
@@ -7479,6 +7847,10 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       hourlyAvailabilityAllWarehouses:
           hourlyAvailabilityAllWarehouses ??
           this.hourlyAvailabilityAllWarehouses,
+      assetAvailabilityMyWarehouse:
+          assetAvailabilityMyWarehouse ?? this.assetAvailabilityMyWarehouse,
+      assetAvailabilityAllWarehouses:
+          assetAvailabilityAllWarehouses ?? this.assetAvailabilityAllWarehouses,
       inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
       inventoryType: inventoryType ?? this.inventoryType,
       availableFrom: availableFrom ?? this.availableFrom,
@@ -7664,6 +8036,9 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       automaticallyTransferInEntireContainerWithScannableItem:
           automaticallyTransferInEntireContainerWithScannableItem ??
           this.automaticallyTransferInEntireContainerWithScannableItem,
+      specifyContainerItemSettingsPerItem:
+          specifyContainerItemSettingsPerItem ??
+          this.specifyContainerItemSettingsPerItem,
       containerStagingRule: containerStagingRule ?? this.containerStagingRule,
       excludeContainedItemsFromAvailability:
           excludeContainedItemsFromAvailability ??
@@ -7917,6 +8292,8 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     Wrapped<double?>? replacementCostForAllWarehouses,
     Wrapped<bool?>? hourlyAvailabilityMyWarehouse,
     Wrapped<bool?>? hourlyAvailabilityAllWarehouses,
+    Wrapped<bool?>? assetAvailabilityMyWarehouse,
+    Wrapped<bool?>? assetAvailabilityAllWarehouses,
     Wrapped<String?>? inventoryTypeId,
     Wrapped<String?>? inventoryType,
     Wrapped<String?>? availableFrom,
@@ -8012,6 +8389,7 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
     Wrapped<bool?>? automaticallyRebuildContainerAtTransferIn,
     Wrapped<bool?>? automaticallyCountAllItemsWhenPhysicalInventoryInitiated,
     Wrapped<bool?>? automaticallyTransferInEntireContainerWithScannableItem,
+    Wrapped<bool?>? specifyContainerItemSettingsPerItem,
     Wrapped<String?>? containerStagingRule,
     Wrapped<bool?>? excludeContainedItemsFromAvailability,
     Wrapped<bool?>? useContainerNumber,
@@ -8252,6 +8630,12 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
       hourlyAvailabilityAllWarehouses: (hourlyAvailabilityAllWarehouses != null
           ? hourlyAvailabilityAllWarehouses.value
           : this.hourlyAvailabilityAllWarehouses),
+      assetAvailabilityMyWarehouse: (assetAvailabilityMyWarehouse != null
+          ? assetAvailabilityMyWarehouse.value
+          : this.assetAvailabilityMyWarehouse),
+      assetAvailabilityAllWarehouses: (assetAvailabilityAllWarehouses != null
+          ? assetAvailabilityAllWarehouses.value
+          : this.assetAvailabilityAllWarehouses),
       inventoryTypeId: (inventoryTypeId != null
           ? inventoryTypeId.value
           : this.inventoryTypeId),
@@ -8542,6 +8926,10 @@ extension $WebApiModulesInventoryRentalInventoryRentalInventoryExtension
           (automaticallyTransferInEntireContainerWithScannableItem != null
           ? automaticallyTransferInEntireContainerWithScannableItem.value
           : this.automaticallyTransferInEntireContainerWithScannableItem),
+      specifyContainerItemSettingsPerItem:
+          (specifyContainerItemSettingsPerItem != null
+          ? specifyContainerItemSettingsPerItem.value
+          : this.specifyContainerItemSettingsPerItem),
       containerStagingRule: (containerStagingRule != null
           ? containerStagingRule.value
           : this.containerStagingRule),
@@ -9528,8 +9916,7 @@ class WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest &&
+        (other is WebApiModulesMobileQuikAssetQuikAssetFuncQuikAssetInsertImagesRequest &&
             (identical(other.isWall, isWall) ||
                 const DeepCollectionEquality().equals(other.isWall, isWall)) &&
             (identical(other.inventoryId, inventoryId) ||
@@ -9777,6 +10164,4586 @@ extension $WebApiModulesMobileQuikAssetQuikAssetFuncUpdateUnitValueRequestExtens
       warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
       inventoryId: (inventoryId != null ? inventoryId.value : this.inventoryId),
       unitValue: (unitValue != null ? unitValue.value : this.unitValue),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesMobileStagingDtoAddToShippingCaseRequestDto {
+  const WebApiModulesMobileStagingDtoAddToShippingCaseRequestDto({
+    required this.shippingCaseStagedItems,
+  });
+
+  factory WebApiModulesMobileStagingDtoAddToShippingCaseRequestDto.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileStagingDtoAddToShippingCaseRequestDtoFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesMobileStagingDtoAddToShippingCaseRequestDtoToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileStagingDtoAddToShippingCaseRequestDtoToJson(this);
+
+  @JsonKey(
+    name: 'ShippingCaseStagedItems',
+    includeIfNull: false,
+    defaultValue:
+        <WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto>[],
+  )
+  final List<WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto>
+  shippingCaseStagedItems;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileStagingDtoAddToShippingCaseRequestDtoFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesMobileStagingDtoAddToShippingCaseRequestDto &&
+            (identical(
+                  other.shippingCaseStagedItems,
+                  shippingCaseStagedItems,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseStagedItems,
+                  shippingCaseStagedItems,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(shippingCaseStagedItems) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesMobileStagingDtoAddToShippingCaseRequestDtoExtension
+    on WebApiModulesMobileStagingDtoAddToShippingCaseRequestDto {
+  WebApiModulesMobileStagingDtoAddToShippingCaseRequestDto copyWith({
+    List<WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto>?
+    shippingCaseStagedItems,
+  }) {
+    return WebApiModulesMobileStagingDtoAddToShippingCaseRequestDto(
+      shippingCaseStagedItems:
+          shippingCaseStagedItems ?? this.shippingCaseStagedItems,
+    );
+  }
+
+  WebApiModulesMobileStagingDtoAddToShippingCaseRequestDto copyWithWrapped({
+    Wrapped<List<WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto>>?
+    shippingCaseStagedItems,
+  }) {
+    return WebApiModulesMobileStagingDtoAddToShippingCaseRequestDto(
+      shippingCaseStagedItems: (shippingCaseStagedItems != null
+          ? shippingCaseStagedItems.value
+          : this.shippingCaseStagedItems),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDto {
+  const WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDto({
+    required this.barcode,
+    required this.orderId,
+    required this.warehouseId,
+    this.contractId,
+    this.spaceId,
+  });
+
+  factory WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDto.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDtoFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDtoToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDtoToJson(this);
+
+  @JsonKey(name: 'Barcode', includeIfNull: false)
+  final String barcode;
+  @JsonKey(name: 'OrderId', includeIfNull: false)
+  final String orderId;
+  @JsonKey(name: 'WarehouseId', includeIfNull: false)
+  final String warehouseId;
+  @JsonKey(name: 'ContractId', includeIfNull: false)
+  final String? contractId;
+  @JsonKey(name: 'SpaceId', includeIfNull: false)
+  final String? spaceId;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDtoFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDto &&
+            (identical(other.barcode, barcode) ||
+                const DeepCollectionEquality().equals(
+                  other.barcode,
+                  barcode,
+                )) &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.warehouseId, warehouseId) ||
+                const DeepCollectionEquality().equals(
+                  other.warehouseId,
+                  warehouseId,
+                )) &&
+            (identical(other.contractId, contractId) ||
+                const DeepCollectionEquality().equals(
+                  other.contractId,
+                  contractId,
+                )) &&
+            (identical(other.spaceId, spaceId) ||
+                const DeepCollectionEquality().equals(other.spaceId, spaceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(barcode) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(warehouseId) ^
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(spaceId) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDtoExtension
+    on WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDto {
+  WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDto copyWith({
+    String? barcode,
+    String? orderId,
+    String? warehouseId,
+    String? contractId,
+    String? spaceId,
+  }) {
+    return WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDto(
+      barcode: barcode ?? this.barcode,
+      orderId: orderId ?? this.orderId,
+      warehouseId: warehouseId ?? this.warehouseId,
+      contractId: contractId ?? this.contractId,
+      spaceId: spaceId ?? this.spaceId,
+    );
+  }
+
+  WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDto copyWithWrapped({
+    Wrapped<String>? barcode,
+    Wrapped<String>? orderId,
+    Wrapped<String>? warehouseId,
+    Wrapped<String?>? contractId,
+    Wrapped<String?>? spaceId,
+  }) {
+    return WebApiModulesMobileStagingDtoIsValidShippingCaseRequestDto(
+      barcode: (barcode != null ? barcode.value : this.barcode),
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      warehouseId: (warehouseId != null ? warehouseId.value : this.warehouseId),
+      contractId: (contractId != null ? contractId.value : this.contractId),
+      spaceId: (spaceId != null ? spaceId.value : this.spaceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto {
+  const WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto({
+    this.shippingCaseItemId,
+    this.iCode,
+    this.description,
+    this.shippingCaseId,
+    this.shippingCaseDescription,
+    this.shippingCaseNumber,
+    this.shippingCaseWeightLbs,
+    this.shippingCaseWeightKg,
+    this.status,
+    this.message,
+    this.automaticallyAssignShippingCaseNumber,
+  });
+
+  factory WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDtoFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDtoToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDtoToJson(this);
+
+  @JsonKey(name: 'ShippingCaseItemId', includeIfNull: false)
+  final String? shippingCaseItemId;
+  @JsonKey(name: 'ICode', includeIfNull: false)
+  final String? iCode;
+  @JsonKey(name: 'Description', includeIfNull: false)
+  final String? description;
+  @JsonKey(name: 'ShippingCaseId', includeIfNull: false)
+  final int? shippingCaseId;
+  @JsonKey(name: 'ShippingCaseDescription', includeIfNull: false)
+  final String? shippingCaseDescription;
+  @JsonKey(name: 'ShippingCaseNumber', includeIfNull: false)
+  final String? shippingCaseNumber;
+  @JsonKey(name: 'ShippingCaseWeightLbs', includeIfNull: false)
+  final double? shippingCaseWeightLbs;
+  @JsonKey(name: 'ShippingCaseWeightKg', includeIfNull: false)
+  final double? shippingCaseWeightKg;
+  @JsonKey(name: 'Status', includeIfNull: false)
+  final int? status;
+  @JsonKey(name: 'Message', includeIfNull: false)
+  final String? message;
+  @JsonKey(name: 'AutomaticallyAssignShippingCaseNumber', includeIfNull: false)
+  final bool? automaticallyAssignShippingCaseNumber;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDtoFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto &&
+            (identical(other.shippingCaseItemId, shippingCaseItemId) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseItemId,
+                  shippingCaseItemId,
+                )) &&
+            (identical(other.iCode, iCode) ||
+                const DeepCollectionEquality().equals(other.iCode, iCode)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality().equals(
+                  other.description,
+                  description,
+                )) &&
+            (identical(other.shippingCaseId, shippingCaseId) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseId,
+                  shippingCaseId,
+                )) &&
+            (identical(
+                  other.shippingCaseDescription,
+                  shippingCaseDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseDescription,
+                  shippingCaseDescription,
+                )) &&
+            (identical(other.shippingCaseNumber, shippingCaseNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseNumber,
+                  shippingCaseNumber,
+                )) &&
+            (identical(other.shippingCaseWeightLbs, shippingCaseWeightLbs) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseWeightLbs,
+                  shippingCaseWeightLbs,
+                )) &&
+            (identical(other.shippingCaseWeightKg, shippingCaseWeightKg) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseWeightKg,
+                  shippingCaseWeightKg,
+                )) &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(
+                  other.automaticallyAssignShippingCaseNumber,
+                  automaticallyAssignShippingCaseNumber,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.automaticallyAssignShippingCaseNumber,
+                  automaticallyAssignShippingCaseNumber,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(shippingCaseItemId) ^
+      const DeepCollectionEquality().hash(iCode) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(shippingCaseId) ^
+      const DeepCollectionEquality().hash(shippingCaseDescription) ^
+      const DeepCollectionEquality().hash(shippingCaseNumber) ^
+      const DeepCollectionEquality().hash(shippingCaseWeightLbs) ^
+      const DeepCollectionEquality().hash(shippingCaseWeightKg) ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(
+        automaticallyAssignShippingCaseNumber,
+      ) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDtoExtension
+    on WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto {
+  WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto copyWith({
+    String? shippingCaseItemId,
+    String? iCode,
+    String? description,
+    int? shippingCaseId,
+    String? shippingCaseDescription,
+    String? shippingCaseNumber,
+    double? shippingCaseWeightLbs,
+    double? shippingCaseWeightKg,
+    int? status,
+    String? message,
+    bool? automaticallyAssignShippingCaseNumber,
+  }) {
+    return WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto(
+      shippingCaseItemId: shippingCaseItemId ?? this.shippingCaseItemId,
+      iCode: iCode ?? this.iCode,
+      description: description ?? this.description,
+      shippingCaseId: shippingCaseId ?? this.shippingCaseId,
+      shippingCaseDescription:
+          shippingCaseDescription ?? this.shippingCaseDescription,
+      shippingCaseNumber: shippingCaseNumber ?? this.shippingCaseNumber,
+      shippingCaseWeightLbs:
+          shippingCaseWeightLbs ?? this.shippingCaseWeightLbs,
+      shippingCaseWeightKg: shippingCaseWeightKg ?? this.shippingCaseWeightKg,
+      status: status ?? this.status,
+      message: message ?? this.message,
+      automaticallyAssignShippingCaseNumber:
+          automaticallyAssignShippingCaseNumber ??
+          this.automaticallyAssignShippingCaseNumber,
+    );
+  }
+
+  WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto copyWithWrapped({
+    Wrapped<String?>? shippingCaseItemId,
+    Wrapped<String?>? iCode,
+    Wrapped<String?>? description,
+    Wrapped<int?>? shippingCaseId,
+    Wrapped<String?>? shippingCaseDescription,
+    Wrapped<String?>? shippingCaseNumber,
+    Wrapped<double?>? shippingCaseWeightLbs,
+    Wrapped<double?>? shippingCaseWeightKg,
+    Wrapped<int?>? status,
+    Wrapped<String?>? message,
+    Wrapped<bool?>? automaticallyAssignShippingCaseNumber,
+  }) {
+    return WebApiModulesMobileStagingDtoIsValidShippingCaseResponseDto(
+      shippingCaseItemId: (shippingCaseItemId != null
+          ? shippingCaseItemId.value
+          : this.shippingCaseItemId),
+      iCode: (iCode != null ? iCode.value : this.iCode),
+      description: (description != null ? description.value : this.description),
+      shippingCaseId: (shippingCaseId != null
+          ? shippingCaseId.value
+          : this.shippingCaseId),
+      shippingCaseDescription: (shippingCaseDescription != null
+          ? shippingCaseDescription.value
+          : this.shippingCaseDescription),
+      shippingCaseNumber: (shippingCaseNumber != null
+          ? shippingCaseNumber.value
+          : this.shippingCaseNumber),
+      shippingCaseWeightLbs: (shippingCaseWeightLbs != null
+          ? shippingCaseWeightLbs.value
+          : this.shippingCaseWeightLbs),
+      shippingCaseWeightKg: (shippingCaseWeightKg != null
+          ? shippingCaseWeightKg.value
+          : this.shippingCaseWeightKg),
+      status: (status != null ? status.value : this.status),
+      message: (message != null ? message.value : this.message),
+      automaticallyAssignShippingCaseNumber:
+          (automaticallyAssignShippingCaseNumber != null
+          ? automaticallyAssignShippingCaseNumber.value
+          : this.automaticallyAssignShippingCaseNumber),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDto {
+  const WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDto({
+    required this.shippingCaseStagedItems,
+  });
+
+  factory WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDto.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDtoFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDtoToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDtoToJson(
+        this,
+      );
+
+  @JsonKey(
+    name: 'ShippingCaseStagedItems',
+    includeIfNull: false,
+    defaultValue:
+        <WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto>[],
+  )
+  final List<WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto>
+  shippingCaseStagedItems;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDtoFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDto &&
+            (identical(
+                  other.shippingCaseStagedItems,
+                  shippingCaseStagedItems,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseStagedItems,
+                  shippingCaseStagedItems,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(shippingCaseStagedItems) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDtoExtension
+    on WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDto {
+  WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDto copyWith({
+    List<WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto>?
+    shippingCaseStagedItems,
+  }) {
+    return WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDto(
+      shippingCaseStagedItems:
+          shippingCaseStagedItems ?? this.shippingCaseStagedItems,
+    );
+  }
+
+  WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDto
+  copyWithWrapped({
+    Wrapped<List<WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto>>?
+    shippingCaseStagedItems,
+  }) {
+    return WebApiModulesMobileStagingDtoRemoveFromShippingCaseRequestDto(
+      shippingCaseStagedItems: (shippingCaseStagedItems != null
+          ? shippingCaseStagedItems.value
+          : this.shippingCaseStagedItems),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesMobileStagingDtoSetShippingNoteRequestDto {
+  const WebApiModulesMobileStagingDtoSetShippingNoteRequestDto({
+    this.contractId,
+    required this.orderId,
+    required this.orderItemId,
+    this.itemId,
+    this.notes,
+  });
+
+  factory WebApiModulesMobileStagingDtoSetShippingNoteRequestDto.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileStagingDtoSetShippingNoteRequestDtoFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesMobileStagingDtoSetShippingNoteRequestDtoToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileStagingDtoSetShippingNoteRequestDtoToJson(this);
+
+  @JsonKey(name: 'ContractId', includeIfNull: false)
+  final String? contractId;
+  @JsonKey(name: 'OrderId', includeIfNull: false)
+  final String orderId;
+  @JsonKey(name: 'OrderItemId', includeIfNull: false)
+  final String orderItemId;
+  @JsonKey(name: 'ItemId', includeIfNull: false)
+  final String? itemId;
+  @JsonKey(name: 'Notes', includeIfNull: false)
+  final String? notes;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileStagingDtoSetShippingNoteRequestDtoFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesMobileStagingDtoSetShippingNoteRequestDto &&
+            (identical(other.contractId, contractId) ||
+                const DeepCollectionEquality().equals(
+                  other.contractId,
+                  contractId,
+                )) &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.orderItemId, orderItemId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderItemId,
+                  orderItemId,
+                )) &&
+            (identical(other.itemId, itemId) ||
+                const DeepCollectionEquality().equals(other.itemId, itemId)) &&
+            (identical(other.notes, notes) ||
+                const DeepCollectionEquality().equals(other.notes, notes)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(contractId) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(orderItemId) ^
+      const DeepCollectionEquality().hash(itemId) ^
+      const DeepCollectionEquality().hash(notes) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesMobileStagingDtoSetShippingNoteRequestDtoExtension
+    on WebApiModulesMobileStagingDtoSetShippingNoteRequestDto {
+  WebApiModulesMobileStagingDtoSetShippingNoteRequestDto copyWith({
+    String? contractId,
+    String? orderId,
+    String? orderItemId,
+    String? itemId,
+    String? notes,
+  }) {
+    return WebApiModulesMobileStagingDtoSetShippingNoteRequestDto(
+      contractId: contractId ?? this.contractId,
+      orderId: orderId ?? this.orderId,
+      orderItemId: orderItemId ?? this.orderItemId,
+      itemId: itemId ?? this.itemId,
+      notes: notes ?? this.notes,
+    );
+  }
+
+  WebApiModulesMobileStagingDtoSetShippingNoteRequestDto copyWithWrapped({
+    Wrapped<String?>? contractId,
+    Wrapped<String>? orderId,
+    Wrapped<String>? orderItemId,
+    Wrapped<String?>? itemId,
+    Wrapped<String?>? notes,
+  }) {
+    return WebApiModulesMobileStagingDtoSetShippingNoteRequestDto(
+      contractId: (contractId != null ? contractId.value : this.contractId),
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      orderItemId: (orderItemId != null ? orderItemId.value : this.orderItemId),
+      itemId: (itemId != null ? itemId.value : this.itemId),
+      notes: (notes != null ? notes.value : this.notes),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto {
+  const WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto({
+    this.orderId,
+    this.orderItemId,
+    this.currentShippingCaseItemId,
+    this.itemId,
+    this.shippingCaseItemId,
+    this.vendorId,
+  });
+
+  factory WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDtoFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDtoToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDtoToJson(this);
+
+  @JsonKey(name: 'OrderId', includeIfNull: false)
+  final String? orderId;
+  @JsonKey(name: 'OrderItemId', includeIfNull: false)
+  final String? orderItemId;
+  @JsonKey(name: 'CurrentShippingCaseItemId', includeIfNull: false)
+  final String? currentShippingCaseItemId;
+  @JsonKey(name: 'ItemId', includeIfNull: false)
+  final String? itemId;
+  @JsonKey(name: 'ShippingCaseItemId', includeIfNull: false)
+  final String? shippingCaseItemId;
+  @JsonKey(name: 'VendorId', includeIfNull: false)
+  final String? vendorId;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDtoFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.orderItemId, orderItemId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderItemId,
+                  orderItemId,
+                )) &&
+            (identical(
+                  other.currentShippingCaseItemId,
+                  currentShippingCaseItemId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.currentShippingCaseItemId,
+                  currentShippingCaseItemId,
+                )) &&
+            (identical(other.itemId, itemId) ||
+                const DeepCollectionEquality().equals(other.itemId, itemId)) &&
+            (identical(other.shippingCaseItemId, shippingCaseItemId) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseItemId,
+                  shippingCaseItemId,
+                )) &&
+            (identical(other.vendorId, vendorId) ||
+                const DeepCollectionEquality().equals(
+                  other.vendorId,
+                  vendorId,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(orderItemId) ^
+      const DeepCollectionEquality().hash(currentShippingCaseItemId) ^
+      const DeepCollectionEquality().hash(itemId) ^
+      const DeepCollectionEquality().hash(shippingCaseItemId) ^
+      const DeepCollectionEquality().hash(vendorId) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDtoExtension
+    on WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto {
+  WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto copyWith({
+    String? orderId,
+    String? orderItemId,
+    String? currentShippingCaseItemId,
+    String? itemId,
+    String? shippingCaseItemId,
+    String? vendorId,
+  }) {
+    return WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto(
+      orderId: orderId ?? this.orderId,
+      orderItemId: orderItemId ?? this.orderItemId,
+      currentShippingCaseItemId:
+          currentShippingCaseItemId ?? this.currentShippingCaseItemId,
+      itemId: itemId ?? this.itemId,
+      shippingCaseItemId: shippingCaseItemId ?? this.shippingCaseItemId,
+      vendorId: vendorId ?? this.vendorId,
+    );
+  }
+
+  WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? orderItemId,
+    Wrapped<String?>? currentShippingCaseItemId,
+    Wrapped<String?>? itemId,
+    Wrapped<String?>? shippingCaseItemId,
+    Wrapped<String?>? vendorId,
+  }) {
+    return WebApiModulesMobileStagingDtoShippingCaseStagedItemModelDto(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      orderItemId: (orderItemId != null ? orderItemId.value : this.orderItemId),
+      currentShippingCaseItemId: (currentShippingCaseItemId != null
+          ? currentShippingCaseItemId.value
+          : this.currentShippingCaseItemId),
+      itemId: (itemId != null ? itemId.value : this.itemId),
+      shippingCaseItemId: (shippingCaseItemId != null
+          ? shippingCaseItemId.value
+          : this.shippingCaseItemId),
+      vendorId: (vendorId != null ? vendorId.value : this.vendorId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesMobileStagingDtoTSpStatusResponseDto {
+  const WebApiModulesMobileStagingDtoTSpStatusResponseDto({
+    this.status,
+    this.success,
+    this.msg,
+  });
+
+  factory WebApiModulesMobileStagingDtoTSpStatusResponseDto.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesMobileStagingDtoTSpStatusResponseDtoFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesMobileStagingDtoTSpStatusResponseDtoToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileStagingDtoTSpStatusResponseDtoToJson(this);
+
+  @JsonKey(name: 'status', includeIfNull: false)
+  final int? status;
+  @JsonKey(name: 'success', includeIfNull: false)
+  final bool? success;
+  @JsonKey(name: 'msg', includeIfNull: false)
+  final String? msg;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileStagingDtoTSpStatusResponseDtoFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesMobileStagingDtoTSpStatusResponseDto &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
+            (identical(other.msg, msg) ||
+                const DeepCollectionEquality().equals(other.msg, msg)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(msg) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesMobileStagingDtoTSpStatusResponseDtoExtension
+    on WebApiModulesMobileStagingDtoTSpStatusResponseDto {
+  WebApiModulesMobileStagingDtoTSpStatusResponseDto copyWith({
+    int? status,
+    bool? success,
+    String? msg,
+  }) {
+    return WebApiModulesMobileStagingDtoTSpStatusResponseDto(
+      status: status ?? this.status,
+      success: success ?? this.success,
+      msg: msg ?? this.msg,
+    );
+  }
+
+  WebApiModulesMobileStagingDtoTSpStatusResponseDto copyWithWrapped({
+    Wrapped<int?>? status,
+    Wrapped<bool?>? success,
+    Wrapped<String?>? msg,
+  }) {
+    return WebApiModulesMobileStagingDtoTSpStatusResponseDto(
+      status: (status != null ? status.value : this.status),
+      success: (success != null ? success.value : this.success),
+      msg: (msg != null ? msg.value : this.msg),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDto {
+  const WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDto({
+    required this.shippingCaseId,
+    this.description,
+    this.shippingCaseNumber,
+    this.shippingCaseWeightLbs,
+    this.shippingCaseWeightKg,
+  });
+
+  factory WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDto.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDtoFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDtoToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDtoToJson(this);
+
+  @JsonKey(name: 'ShippingCaseId', includeIfNull: false)
+  final int shippingCaseId;
+  @JsonKey(name: 'Description', includeIfNull: false)
+  final String? description;
+  @JsonKey(name: 'ShippingCaseNumber', includeIfNull: false)
+  final String? shippingCaseNumber;
+  @JsonKey(name: 'ShippingCaseWeightLbs', includeIfNull: false)
+  final double? shippingCaseWeightLbs;
+  @JsonKey(name: 'ShippingCaseWeightKg', includeIfNull: false)
+  final double? shippingCaseWeightKg;
+  static const fromJsonFactory =
+      _$WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDtoFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDto &&
+            (identical(other.shippingCaseId, shippingCaseId) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseId,
+                  shippingCaseId,
+                )) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality().equals(
+                  other.description,
+                  description,
+                )) &&
+            (identical(other.shippingCaseNumber, shippingCaseNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseNumber,
+                  shippingCaseNumber,
+                )) &&
+            (identical(other.shippingCaseWeightLbs, shippingCaseWeightLbs) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseWeightLbs,
+                  shippingCaseWeightLbs,
+                )) &&
+            (identical(other.shippingCaseWeightKg, shippingCaseWeightKg) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseWeightKg,
+                  shippingCaseWeightKg,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(shippingCaseId) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(shippingCaseNumber) ^
+      const DeepCollectionEquality().hash(shippingCaseWeightLbs) ^
+      const DeepCollectionEquality().hash(shippingCaseWeightKg) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDtoExtension
+    on WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDto {
+  WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDto copyWith({
+    int? shippingCaseId,
+    String? description,
+    String? shippingCaseNumber,
+    double? shippingCaseWeightLbs,
+    double? shippingCaseWeightKg,
+  }) {
+    return WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDto(
+      shippingCaseId: shippingCaseId ?? this.shippingCaseId,
+      description: description ?? this.description,
+      shippingCaseNumber: shippingCaseNumber ?? this.shippingCaseNumber,
+      shippingCaseWeightLbs:
+          shippingCaseWeightLbs ?? this.shippingCaseWeightLbs,
+      shippingCaseWeightKg: shippingCaseWeightKg ?? this.shippingCaseWeightKg,
+    );
+  }
+
+  WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDto copyWithWrapped({
+    Wrapped<int>? shippingCaseId,
+    Wrapped<String?>? description,
+    Wrapped<String?>? shippingCaseNumber,
+    Wrapped<double?>? shippingCaseWeightLbs,
+    Wrapped<double?>? shippingCaseWeightKg,
+  }) {
+    return WebApiModulesMobileStagingDtoUpdateShippingCaseRequestDto(
+      shippingCaseId: (shippingCaseId != null
+          ? shippingCaseId.value
+          : this.shippingCaseId),
+      description: (description != null ? description.value : this.description),
+      shippingCaseNumber: (shippingCaseNumber != null
+          ? shippingCaseNumber.value
+          : this.shippingCaseNumber),
+      shippingCaseWeightLbs: (shippingCaseWeightLbs != null
+          ? shippingCaseWeightLbs.value
+          : this.shippingCaseWeightLbs),
+      shippingCaseWeightKg: (shippingCaseWeightKg != null
+          ? shippingCaseWeightKg.value
+          : this.shippingCaseWeightKg),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesPluginsPurchaseManagerGetPODataRequest {
+  const WebApiModulesPluginsPurchaseManagerGetPODataRequest({
+    this.departmentId,
+    this.pONumber,
+    this.usersId,
+  });
+
+  factory WebApiModulesPluginsPurchaseManagerGetPODataRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesPluginsPurchaseManagerGetPODataRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesPluginsPurchaseManagerGetPODataRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesPluginsPurchaseManagerGetPODataRequestToJson(this);
+
+  @JsonKey(name: 'DepartmentId', includeIfNull: false)
+  final String? departmentId;
+  @JsonKey(name: 'PONumber', includeIfNull: false)
+  final String? pONumber;
+  @JsonKey(name: 'UsersId', includeIfNull: false)
+  final String? usersId;
+  static const fromJsonFactory =
+      _$WebApiModulesPluginsPurchaseManagerGetPODataRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesPluginsPurchaseManagerGetPODataRequest &&
+            (identical(other.departmentId, departmentId) ||
+                const DeepCollectionEquality().equals(
+                  other.departmentId,
+                  departmentId,
+                )) &&
+            (identical(other.pONumber, pONumber) ||
+                const DeepCollectionEquality().equals(
+                  other.pONumber,
+                  pONumber,
+                )) &&
+            (identical(other.usersId, usersId) ||
+                const DeepCollectionEquality().equals(other.usersId, usersId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(departmentId) ^
+      const DeepCollectionEquality().hash(pONumber) ^
+      const DeepCollectionEquality().hash(usersId) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesPluginsPurchaseManagerGetPODataRequestExtension
+    on WebApiModulesPluginsPurchaseManagerGetPODataRequest {
+  WebApiModulesPluginsPurchaseManagerGetPODataRequest copyWith({
+    String? departmentId,
+    String? pONumber,
+    String? usersId,
+  }) {
+    return WebApiModulesPluginsPurchaseManagerGetPODataRequest(
+      departmentId: departmentId ?? this.departmentId,
+      pONumber: pONumber ?? this.pONumber,
+      usersId: usersId ?? this.usersId,
+    );
+  }
+
+  WebApiModulesPluginsPurchaseManagerGetPODataRequest copyWithWrapped({
+    Wrapped<String?>? departmentId,
+    Wrapped<String?>? pONumber,
+    Wrapped<String?>? usersId,
+  }) {
+    return WebApiModulesPluginsPurchaseManagerGetPODataRequest(
+      departmentId: (departmentId != null
+          ? departmentId.value
+          : this.departmentId),
+      pONumber: (pONumber != null ? pONumber.value : this.pONumber),
+      usersId: (usersId != null ? usersId.value : this.usersId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails {
+  const WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails({
+    this.ponumber,
+    this.itemnum,
+    this.seqnum,
+    this.glaccount,
+    this.costcenter,
+    this.projectcode,
+    this.internalorder,
+    this.profitcenter,
+  });
+
+  factory WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetailsFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetailsToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetailsToJson(
+        this,
+      );
+
+  @JsonKey(name: 'PO_NUMBER', includeIfNull: false)
+  final String? ponumber;
+  @JsonKey(name: 'ITEM_NUM', includeIfNull: false)
+  final String? itemnum;
+  @JsonKey(name: 'SEQ_NUM', includeIfNull: false)
+  final String? seqnum;
+  @JsonKey(name: 'GL_ACCOUNT', includeIfNull: false)
+  final String? glaccount;
+  @JsonKey(name: 'COST_CENTER', includeIfNull: false)
+  final String? costcenter;
+  @JsonKey(name: 'PROJECT_CODE', includeIfNull: false)
+  final String? projectcode;
+  @JsonKey(name: 'INTERNAL_ORDER', includeIfNull: false)
+  final String? internalorder;
+  @JsonKey(name: 'PROFIT_CENTER', includeIfNull: false)
+  final String? profitcenter;
+  static const fromJsonFactory =
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetailsFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails &&
+            (identical(other.ponumber, ponumber) ||
+                const DeepCollectionEquality().equals(
+                  other.ponumber,
+                  ponumber,
+                )) &&
+            (identical(other.itemnum, itemnum) ||
+                const DeepCollectionEquality().equals(
+                  other.itemnum,
+                  itemnum,
+                )) &&
+            (identical(other.seqnum, seqnum) ||
+                const DeepCollectionEquality().equals(other.seqnum, seqnum)) &&
+            (identical(other.glaccount, glaccount) ||
+                const DeepCollectionEquality().equals(
+                  other.glaccount,
+                  glaccount,
+                )) &&
+            (identical(other.costcenter, costcenter) ||
+                const DeepCollectionEquality().equals(
+                  other.costcenter,
+                  costcenter,
+                )) &&
+            (identical(other.projectcode, projectcode) ||
+                const DeepCollectionEquality().equals(
+                  other.projectcode,
+                  projectcode,
+                )) &&
+            (identical(other.internalorder, internalorder) ||
+                const DeepCollectionEquality().equals(
+                  other.internalorder,
+                  internalorder,
+                )) &&
+            (identical(other.profitcenter, profitcenter) ||
+                const DeepCollectionEquality().equals(
+                  other.profitcenter,
+                  profitcenter,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(ponumber) ^
+      const DeepCollectionEquality().hash(itemnum) ^
+      const DeepCollectionEquality().hash(seqnum) ^
+      const DeepCollectionEquality().hash(glaccount) ^
+      const DeepCollectionEquality().hash(costcenter) ^
+      const DeepCollectionEquality().hash(projectcode) ^
+      const DeepCollectionEquality().hash(internalorder) ^
+      const DeepCollectionEquality().hash(profitcenter) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetailsExtension
+    on WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails {
+  WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails
+  copyWith({
+    String? ponumber,
+    String? itemnum,
+    String? seqnum,
+    String? glaccount,
+    String? costcenter,
+    String? projectcode,
+    String? internalorder,
+    String? profitcenter,
+  }) {
+    return WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails(
+      ponumber: ponumber ?? this.ponumber,
+      itemnum: itemnum ?? this.itemnum,
+      seqnum: seqnum ?? this.seqnum,
+      glaccount: glaccount ?? this.glaccount,
+      costcenter: costcenter ?? this.costcenter,
+      projectcode: projectcode ?? this.projectcode,
+      internalorder: internalorder ?? this.internalorder,
+      profitcenter: profitcenter ?? this.profitcenter,
+    );
+  }
+
+  WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails
+  copyWithWrapped({
+    Wrapped<String?>? ponumber,
+    Wrapped<String?>? itemnum,
+    Wrapped<String?>? seqnum,
+    Wrapped<String?>? glaccount,
+    Wrapped<String?>? costcenter,
+    Wrapped<String?>? projectcode,
+    Wrapped<String?>? internalorder,
+    Wrapped<String?>? profitcenter,
+  }) {
+    return WebApiModulesPluginsPurchaseManagerPurchaseManagerDataAccountDetails(
+      ponumber: (ponumber != null ? ponumber.value : this.ponumber),
+      itemnum: (itemnum != null ? itemnum.value : this.itemnum),
+      seqnum: (seqnum != null ? seqnum.value : this.seqnum),
+      glaccount: (glaccount != null ? glaccount.value : this.glaccount),
+      costcenter: (costcenter != null ? costcenter.value : this.costcenter),
+      projectcode: (projectcode != null ? projectcode.value : this.projectcode),
+      internalorder: (internalorder != null
+          ? internalorder.value
+          : this.internalorder),
+      profitcenter: (profitcenter != null
+          ? profitcenter.value
+          : this.profitcenter),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress {
+  const WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress({
+    this.ponumber,
+    this.pobuyer,
+    this.orgcode,
+    this.addressline1,
+    this.addressline2,
+    this.street,
+    this.zip,
+    this.city,
+    this.region,
+    this.country,
+  });
+
+  factory WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddressFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddressToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddressToJson(
+        this,
+      );
+
+  @JsonKey(name: 'PO_NUMBER', includeIfNull: false)
+  final String? ponumber;
+  @JsonKey(name: 'PO_BUYER', includeIfNull: false)
+  final String? pobuyer;
+  @JsonKey(name: 'ORG_CODE', includeIfNull: false)
+  final String? orgcode;
+  @JsonKey(name: 'ADDRESS_LINE1', includeIfNull: false)
+  final String? addressline1;
+  @JsonKey(name: 'ADDRESS_LINE2', includeIfNull: false)
+  final String? addressline2;
+  @JsonKey(name: 'STREET', includeIfNull: false)
+  final String? street;
+  @JsonKey(name: 'ZIP', includeIfNull: false)
+  final String? zip;
+  @JsonKey(name: 'CITY', includeIfNull: false)
+  final String? city;
+  @JsonKey(name: 'REGION', includeIfNull: false)
+  final String? region;
+  @JsonKey(name: 'COUNTRY', includeIfNull: false)
+  final String? country;
+  static const fromJsonFactory =
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddressFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress &&
+            (identical(other.ponumber, ponumber) ||
+                const DeepCollectionEquality().equals(
+                  other.ponumber,
+                  ponumber,
+                )) &&
+            (identical(other.pobuyer, pobuyer) ||
+                const DeepCollectionEquality().equals(
+                  other.pobuyer,
+                  pobuyer,
+                )) &&
+            (identical(other.orgcode, orgcode) ||
+                const DeepCollectionEquality().equals(
+                  other.orgcode,
+                  orgcode,
+                )) &&
+            (identical(other.addressline1, addressline1) ||
+                const DeepCollectionEquality().equals(
+                  other.addressline1,
+                  addressline1,
+                )) &&
+            (identical(other.addressline2, addressline2) ||
+                const DeepCollectionEquality().equals(
+                  other.addressline2,
+                  addressline2,
+                )) &&
+            (identical(other.street, street) ||
+                const DeepCollectionEquality().equals(other.street, street)) &&
+            (identical(other.zip, zip) ||
+                const DeepCollectionEquality().equals(other.zip, zip)) &&
+            (identical(other.city, city) ||
+                const DeepCollectionEquality().equals(other.city, city)) &&
+            (identical(other.region, region) ||
+                const DeepCollectionEquality().equals(other.region, region)) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(other.country, country)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(ponumber) ^
+      const DeepCollectionEquality().hash(pobuyer) ^
+      const DeepCollectionEquality().hash(orgcode) ^
+      const DeepCollectionEquality().hash(addressline1) ^
+      const DeepCollectionEquality().hash(addressline2) ^
+      const DeepCollectionEquality().hash(street) ^
+      const DeepCollectionEquality().hash(zip) ^
+      const DeepCollectionEquality().hash(city) ^
+      const DeepCollectionEquality().hash(region) ^
+      const DeepCollectionEquality().hash(country) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddressExtension
+    on WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress {
+  WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress
+  copyWith({
+    String? ponumber,
+    String? pobuyer,
+    String? orgcode,
+    String? addressline1,
+    String? addressline2,
+    String? street,
+    String? zip,
+    String? city,
+    String? region,
+    String? country,
+  }) {
+    return WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress(
+      ponumber: ponumber ?? this.ponumber,
+      pobuyer: pobuyer ?? this.pobuyer,
+      orgcode: orgcode ?? this.orgcode,
+      addressline1: addressline1 ?? this.addressline1,
+      addressline2: addressline2 ?? this.addressline2,
+      street: street ?? this.street,
+      zip: zip ?? this.zip,
+      city: city ?? this.city,
+      region: region ?? this.region,
+      country: country ?? this.country,
+    );
+  }
+
+  WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress
+  copyWithWrapped({
+    Wrapped<String?>? ponumber,
+    Wrapped<String?>? pobuyer,
+    Wrapped<String?>? orgcode,
+    Wrapped<String?>? addressline1,
+    Wrapped<String?>? addressline2,
+    Wrapped<String?>? street,
+    Wrapped<String?>? zip,
+    Wrapped<String?>? city,
+    Wrapped<String?>? region,
+    Wrapped<String?>? country,
+  }) {
+    return WebApiModulesPluginsPurchaseManagerPurchaseManagerDataDeliveryAddress(
+      ponumber: (ponumber != null ? ponumber.value : this.ponumber),
+      pobuyer: (pobuyer != null ? pobuyer.value : this.pobuyer),
+      orgcode: (orgcode != null ? orgcode.value : this.orgcode),
+      addressline1: (addressline1 != null
+          ? addressline1.value
+          : this.addressline1),
+      addressline2: (addressline2 != null
+          ? addressline2.value
+          : this.addressline2),
+      street: (street != null ? street.value : this.street),
+      zip: (zip != null ? zip.value : this.zip),
+      city: (city != null ? city.value : this.city),
+      region: (region != null ? region.value : this.region),
+      country: (country != null ? country.value : this.country),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails {
+  const WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails({
+    this.ponumber,
+    this.creationdate,
+    this.poapprovedate,
+    this.requistionnumber,
+    this.requestername,
+    this.requesterfname,
+    this.requesterlname,
+  });
+
+  factory WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetailsFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetailsToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetailsToJson(
+        this,
+      );
+
+  @JsonKey(name: 'PO_NUMBER', includeIfNull: false)
+  final String? ponumber;
+  @JsonKey(name: 'CREATION_DATE', includeIfNull: false)
+  final String? creationdate;
+  @JsonKey(name: 'PO_APPROVEDATE', includeIfNull: false)
+  final String? poapprovedate;
+  @JsonKey(name: 'REQUISTION_NUMBER', includeIfNull: false)
+  final String? requistionnumber;
+  @JsonKey(name: 'REQUESTER_NAME', includeIfNull: false)
+  final String? requestername;
+  @JsonKey(name: 'REQUESTER_FNAME', includeIfNull: false)
+  final String? requesterfname;
+  @JsonKey(name: 'REQUESTER_LNAME', includeIfNull: false)
+  final String? requesterlname;
+  static const fromJsonFactory =
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetailsFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails &&
+            (identical(other.ponumber, ponumber) ||
+                const DeepCollectionEquality().equals(
+                  other.ponumber,
+                  ponumber,
+                )) &&
+            (identical(other.creationdate, creationdate) ||
+                const DeepCollectionEquality().equals(
+                  other.creationdate,
+                  creationdate,
+                )) &&
+            (identical(other.poapprovedate, poapprovedate) ||
+                const DeepCollectionEquality().equals(
+                  other.poapprovedate,
+                  poapprovedate,
+                )) &&
+            (identical(other.requistionnumber, requistionnumber) ||
+                const DeepCollectionEquality().equals(
+                  other.requistionnumber,
+                  requistionnumber,
+                )) &&
+            (identical(other.requestername, requestername) ||
+                const DeepCollectionEquality().equals(
+                  other.requestername,
+                  requestername,
+                )) &&
+            (identical(other.requesterfname, requesterfname) ||
+                const DeepCollectionEquality().equals(
+                  other.requesterfname,
+                  requesterfname,
+                )) &&
+            (identical(other.requesterlname, requesterlname) ||
+                const DeepCollectionEquality().equals(
+                  other.requesterlname,
+                  requesterlname,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(ponumber) ^
+      const DeepCollectionEquality().hash(creationdate) ^
+      const DeepCollectionEquality().hash(poapprovedate) ^
+      const DeepCollectionEquality().hash(requistionnumber) ^
+      const DeepCollectionEquality().hash(requestername) ^
+      const DeepCollectionEquality().hash(requesterfname) ^
+      const DeepCollectionEquality().hash(requesterlname) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetailsExtension
+    on WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails {
+  WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails
+  copyWith({
+    String? ponumber,
+    String? creationdate,
+    String? poapprovedate,
+    String? requistionnumber,
+    String? requestername,
+    String? requesterfname,
+    String? requesterlname,
+  }) {
+    return WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails(
+      ponumber: ponumber ?? this.ponumber,
+      creationdate: creationdate ?? this.creationdate,
+      poapprovedate: poapprovedate ?? this.poapprovedate,
+      requistionnumber: requistionnumber ?? this.requistionnumber,
+      requestername: requestername ?? this.requestername,
+      requesterfname: requesterfname ?? this.requesterfname,
+      requesterlname: requesterlname ?? this.requesterlname,
+    );
+  }
+
+  WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails
+  copyWithWrapped({
+    Wrapped<String?>? ponumber,
+    Wrapped<String?>? creationdate,
+    Wrapped<String?>? poapprovedate,
+    Wrapped<String?>? requistionnumber,
+    Wrapped<String?>? requestername,
+    Wrapped<String?>? requesterfname,
+    Wrapped<String?>? requesterlname,
+  }) {
+    return WebApiModulesPluginsPurchaseManagerPurchaseManagerDataPurchaseDetails(
+      ponumber: (ponumber != null ? ponumber.value : this.ponumber),
+      creationdate: (creationdate != null
+          ? creationdate.value
+          : this.creationdate),
+      poapprovedate: (poapprovedate != null
+          ? poapprovedate.value
+          : this.poapprovedate),
+      requistionnumber: (requistionnumber != null
+          ? requistionnumber.value
+          : this.requistionnumber),
+      requestername: (requestername != null
+          ? requestername.value
+          : this.requestername),
+      requesterfname: (requesterfname != null
+          ? requesterfname.value
+          : this.requesterfname),
+      requesterlname: (requesterlname != null
+          ? requesterlname.value
+          : this.requesterlname),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails {
+  const WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails({
+    this.ponumber,
+    this.vendorid,
+    this.vendorname,
+  });
+
+  factory WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetailsFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetailsToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetailsToJson(
+        this,
+      );
+
+  @JsonKey(name: 'PO_NUMBER', includeIfNull: false)
+  final String? ponumber;
+  @JsonKey(name: 'VENDOR_ID', includeIfNull: false)
+  final String? vendorid;
+  @JsonKey(name: 'VENDOR_NAME', includeIfNull: false)
+  final String? vendorname;
+  static const fromJsonFactory =
+      _$WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetailsFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails &&
+            (identical(other.ponumber, ponumber) ||
+                const DeepCollectionEquality().equals(
+                  other.ponumber,
+                  ponumber,
+                )) &&
+            (identical(other.vendorid, vendorid) ||
+                const DeepCollectionEquality().equals(
+                  other.vendorid,
+                  vendorid,
+                )) &&
+            (identical(other.vendorname, vendorname) ||
+                const DeepCollectionEquality().equals(
+                  other.vendorname,
+                  vendorname,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(ponumber) ^
+      const DeepCollectionEquality().hash(vendorid) ^
+      const DeepCollectionEquality().hash(vendorname) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetailsExtension
+    on WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails {
+  WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails copyWith({
+    String? ponumber,
+    String? vendorid,
+    String? vendorname,
+  }) {
+    return WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails(
+      ponumber: ponumber ?? this.ponumber,
+      vendorid: vendorid ?? this.vendorid,
+      vendorname: vendorname ?? this.vendorname,
+    );
+  }
+
+  WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails
+  copyWithWrapped({
+    Wrapped<String?>? ponumber,
+    Wrapped<String?>? vendorid,
+    Wrapped<String?>? vendorname,
+  }) {
+    return WebApiModulesPluginsPurchaseManagerPurchaseManagerDataVendorDetails(
+      ponumber: (ponumber != null ? ponumber.value : this.ponumber),
+      vendorid: (vendorid != null ? vendorid.value : this.vendorid),
+      vendorname: (vendorname != null ? vendorname.value : this.vendorname),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesSettingsAddressSettingsCountryCountry {
+  const WebApiModulesSettingsAddressSettingsCountryCountry({
+    this.countryId,
+    this.country,
+    this.countryISOName,
+    this.countryCodeISOAlpha2,
+    this.countryCodeISOAlpha3,
+    this.countryCodeISONumeric,
+    this.countryCodePhone,
+    this.flagImage,
+    this.metric,
+    this.currencyId,
+    this.currency,
+    this.currencyCode,
+    this.inactive,
+    this.dateStamp,
+    this.auditNote,
+    this.recordTitle,
+    this.urlIdentifier,
+    this.fields,
+    this.custom,
+    this.defaultFieldAttributes,
+    this.original,
+    this.translation,
+    this.hasImport,
+    this.hasDocuments,
+    this.createdByUserId,
+    this.createdByUserName,
+    this.createdDateTime,
+    this.modifiedByUserId,
+    this.modifiedByUserName,
+    this.modifiedDateTime,
+  });
+
+  factory WebApiModulesSettingsAddressSettingsCountryCountry.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesSettingsAddressSettingsCountryCountryFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesSettingsAddressSettingsCountryCountryToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesSettingsAddressSettingsCountryCountryToJson(this);
+
+  @JsonKey(name: 'CountryId', includeIfNull: false)
+  final String? countryId;
+  @JsonKey(name: 'Country', includeIfNull: false)
+  final String? country;
+  @JsonKey(name: 'CountryISOName', includeIfNull: false)
+  final String? countryISOName;
+  @JsonKey(name: 'CountryCodeISOAlpha2', includeIfNull: false)
+  final String? countryCodeISOAlpha2;
+  @JsonKey(name: 'CountryCodeISOAlpha3', includeIfNull: false)
+  final String? countryCodeISOAlpha3;
+  @JsonKey(name: 'CountryCodeISONumeric', includeIfNull: false)
+  final int? countryCodeISONumeric;
+  @JsonKey(name: 'CountryCodePhone', includeIfNull: false)
+  final int? countryCodePhone;
+  @JsonKey(name: 'FlagImage', includeIfNull: false)
+  final String? flagImage;
+  @JsonKey(name: 'Metric', includeIfNull: false)
+  final bool? metric;
+  @JsonKey(name: 'CurrencyId', includeIfNull: false)
+  final String? currencyId;
+  @JsonKey(name: 'Currency', includeIfNull: false)
+  final String? currency;
+  @JsonKey(name: 'CurrencyCode', includeIfNull: false)
+  final String? currencyCode;
+  @JsonKey(name: 'Inactive', includeIfNull: false)
+  final bool? inactive;
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
+  final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
+  final dynamic urlIdentifier;
+  @JsonKey(
+    name: '_Fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+  )
+  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  @JsonKey(
+    name: '_Custom',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwCustomValue>[],
+  )
+  final List<FwStandardDataFwCustomValue>? custom;
+  @JsonKey(
+    name: '_DefaultFieldAttributes',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwDefaultAttribute>[],
+  )
+  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  @JsonKey(name: '_Original', includeIfNull: false)
+  final FwStandardBusinessLogicFwBusinessLogic? original;
+  @JsonKey(
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
+  final List<FwStandardDataFwTranslatedValue>? translation;
+  @JsonKey(name: '_HasImport', includeIfNull: false)
+  final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
+  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
+  final String? createdByUserId;
+  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
+  final String? createdByUserName;
+  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
+  final String? createdDateTime;
+  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
+  final String? modifiedByUserId;
+  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
+  final String? modifiedByUserName;
+  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
+  final String? modifiedDateTime;
+  static const fromJsonFactory =
+      _$WebApiModulesSettingsAddressSettingsCountryCountryFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesSettingsAddressSettingsCountryCountry &&
+            (identical(other.countryId, countryId) ||
+                const DeepCollectionEquality().equals(
+                  other.countryId,
+                  countryId,
+                )) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(
+                  other.country,
+                  country,
+                )) &&
+            (identical(other.countryISOName, countryISOName) ||
+                const DeepCollectionEquality().equals(
+                  other.countryISOName,
+                  countryISOName,
+                )) &&
+            (identical(other.countryCodeISOAlpha2, countryCodeISOAlpha2) ||
+                const DeepCollectionEquality().equals(
+                  other.countryCodeISOAlpha2,
+                  countryCodeISOAlpha2,
+                )) &&
+            (identical(other.countryCodeISOAlpha3, countryCodeISOAlpha3) ||
+                const DeepCollectionEquality().equals(
+                  other.countryCodeISOAlpha3,
+                  countryCodeISOAlpha3,
+                )) &&
+            (identical(other.countryCodeISONumeric, countryCodeISONumeric) ||
+                const DeepCollectionEquality().equals(
+                  other.countryCodeISONumeric,
+                  countryCodeISONumeric,
+                )) &&
+            (identical(other.countryCodePhone, countryCodePhone) ||
+                const DeepCollectionEquality().equals(
+                  other.countryCodePhone,
+                  countryCodePhone,
+                )) &&
+            (identical(other.flagImage, flagImage) ||
+                const DeepCollectionEquality().equals(
+                  other.flagImage,
+                  flagImage,
+                )) &&
+            (identical(other.metric, metric) ||
+                const DeepCollectionEquality().equals(other.metric, metric)) &&
+            (identical(other.currencyId, currencyId) ||
+                const DeepCollectionEquality().equals(
+                  other.currencyId,
+                  currencyId,
+                )) &&
+            (identical(other.currency, currency) ||
+                const DeepCollectionEquality().equals(
+                  other.currency,
+                  currency,
+                )) &&
+            (identical(other.currencyCode, currencyCode) ||
+                const DeepCollectionEquality().equals(
+                  other.currencyCode,
+                  currencyCode,
+                )) &&
+            (identical(other.inactive, inactive) ||
+                const DeepCollectionEquality().equals(
+                  other.inactive,
+                  inactive,
+                )) &&
+            (identical(other.dateStamp, dateStamp) ||
+                const DeepCollectionEquality().equals(
+                  other.dateStamp,
+                  dateStamp,
+                )) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality().equals(
+                  other.auditNote,
+                  auditNote,
+                )) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )) &&
+            (identical(other.urlIdentifier, urlIdentifier) ||
+                const DeepCollectionEquality().equals(
+                  other.urlIdentifier,
+                  urlIdentifier,
+                )) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultFieldAttributes,
+                  defaultFieldAttributes,
+                )) &&
+            (identical(other.original, original) ||
+                const DeepCollectionEquality().equals(
+                  other.original,
+                  original,
+                )) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )) &&
+            (identical(other.hasImport, hasImport) ||
+                const DeepCollectionEquality().equals(
+                  other.hasImport,
+                  hasImport,
+                )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
+            (identical(other.createdByUserId, createdByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserId,
+                  createdByUserId,
+                )) &&
+            (identical(other.createdByUserName, createdByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserName,
+                  createdByUserName,
+                )) &&
+            (identical(other.createdDateTime, createdDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.createdDateTime,
+                  createdDateTime,
+                )) &&
+            (identical(other.modifiedByUserId, modifiedByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserId,
+                  modifiedByUserId,
+                )) &&
+            (identical(other.modifiedByUserName, modifiedByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserName,
+                  modifiedByUserName,
+                )) &&
+            (identical(other.modifiedDateTime, modifiedDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedDateTime,
+                  modifiedDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(countryId) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(countryISOName) ^
+      const DeepCollectionEquality().hash(countryCodeISOAlpha2) ^
+      const DeepCollectionEquality().hash(countryCodeISOAlpha3) ^
+      const DeepCollectionEquality().hash(countryCodeISONumeric) ^
+      const DeepCollectionEquality().hash(countryCodePhone) ^
+      const DeepCollectionEquality().hash(flagImage) ^
+      const DeepCollectionEquality().hash(metric) ^
+      const DeepCollectionEquality().hash(currencyId) ^
+      const DeepCollectionEquality().hash(currency) ^
+      const DeepCollectionEquality().hash(currencyCode) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(urlIdentifier) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      const DeepCollectionEquality().hash(original) ^
+      const DeepCollectionEquality().hash(translation) ^
+      const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
+      const DeepCollectionEquality().hash(createdByUserId) ^
+      const DeepCollectionEquality().hash(createdByUserName) ^
+      const DeepCollectionEquality().hash(createdDateTime) ^
+      const DeepCollectionEquality().hash(modifiedByUserId) ^
+      const DeepCollectionEquality().hash(modifiedByUserName) ^
+      const DeepCollectionEquality().hash(modifiedDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesSettingsAddressSettingsCountryCountryExtension
+    on WebApiModulesSettingsAddressSettingsCountryCountry {
+  WebApiModulesSettingsAddressSettingsCountryCountry copyWith({
+    String? countryId,
+    String? country,
+    String? countryISOName,
+    String? countryCodeISOAlpha2,
+    String? countryCodeISOAlpha3,
+    int? countryCodeISONumeric,
+    int? countryCodePhone,
+    String? flagImage,
+    bool? metric,
+    String? currencyId,
+    String? currency,
+    String? currencyCode,
+    bool? inactive,
+    String? dateStamp,
+    String? auditNote,
+    String? recordTitle,
+    dynamic urlIdentifier,
+    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+    List<FwStandardDataFwCustomValue>? custom,
+    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+    FwStandardBusinessLogicFwBusinessLogic? original,
+    List<FwStandardDataFwTranslatedValue>? translation,
+    bool? hasImport,
+    bool? hasDocuments,
+    String? createdByUserId,
+    String? createdByUserName,
+    String? createdDateTime,
+    String? modifiedByUserId,
+    String? modifiedByUserName,
+    String? modifiedDateTime,
+  }) {
+    return WebApiModulesSettingsAddressSettingsCountryCountry(
+      countryId: countryId ?? this.countryId,
+      country: country ?? this.country,
+      countryISOName: countryISOName ?? this.countryISOName,
+      countryCodeISOAlpha2: countryCodeISOAlpha2 ?? this.countryCodeISOAlpha2,
+      countryCodeISOAlpha3: countryCodeISOAlpha3 ?? this.countryCodeISOAlpha3,
+      countryCodeISONumeric:
+          countryCodeISONumeric ?? this.countryCodeISONumeric,
+      countryCodePhone: countryCodePhone ?? this.countryCodePhone,
+      flagImage: flagImage ?? this.flagImage,
+      metric: metric ?? this.metric,
+      currencyId: currencyId ?? this.currencyId,
+      currency: currency ?? this.currency,
+      currencyCode: currencyCode ?? this.currencyCode,
+      inactive: inactive ?? this.inactive,
+      dateStamp: dateStamp ?? this.dateStamp,
+      auditNote: auditNote ?? this.auditNote,
+      recordTitle: recordTitle ?? this.recordTitle,
+      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
+      fields: fields ?? this.fields,
+      custom: custom ?? this.custom,
+      defaultFieldAttributes:
+          defaultFieldAttributes ?? this.defaultFieldAttributes,
+      original: original ?? this.original,
+      translation: translation ?? this.translation,
+      hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
+      createdByUserId: createdByUserId ?? this.createdByUserId,
+      createdByUserName: createdByUserName ?? this.createdByUserName,
+      createdDateTime: createdDateTime ?? this.createdDateTime,
+      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
+      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
+      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    );
+  }
+
+  WebApiModulesSettingsAddressSettingsCountryCountry copyWithWrapped({
+    Wrapped<String?>? countryId,
+    Wrapped<String?>? country,
+    Wrapped<String?>? countryISOName,
+    Wrapped<String?>? countryCodeISOAlpha2,
+    Wrapped<String?>? countryCodeISOAlpha3,
+    Wrapped<int?>? countryCodeISONumeric,
+    Wrapped<int?>? countryCodePhone,
+    Wrapped<String?>? flagImage,
+    Wrapped<bool?>? metric,
+    Wrapped<String?>? currencyId,
+    Wrapped<String?>? currency,
+    Wrapped<String?>? currencyCode,
+    Wrapped<bool?>? inactive,
+    Wrapped<String?>? dateStamp,
+    Wrapped<String?>? auditNote,
+    Wrapped<String?>? recordTitle,
+    Wrapped<dynamic>? urlIdentifier,
+    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+    fields,
+    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+    Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
+    Wrapped<String?>? createdByUserId,
+    Wrapped<String?>? createdByUserName,
+    Wrapped<String?>? createdDateTime,
+    Wrapped<String?>? modifiedByUserId,
+    Wrapped<String?>? modifiedByUserName,
+    Wrapped<String?>? modifiedDateTime,
+  }) {
+    return WebApiModulesSettingsAddressSettingsCountryCountry(
+      countryId: (countryId != null ? countryId.value : this.countryId),
+      country: (country != null ? country.value : this.country),
+      countryISOName: (countryISOName != null
+          ? countryISOName.value
+          : this.countryISOName),
+      countryCodeISOAlpha2: (countryCodeISOAlpha2 != null
+          ? countryCodeISOAlpha2.value
+          : this.countryCodeISOAlpha2),
+      countryCodeISOAlpha3: (countryCodeISOAlpha3 != null
+          ? countryCodeISOAlpha3.value
+          : this.countryCodeISOAlpha3),
+      countryCodeISONumeric: (countryCodeISONumeric != null
+          ? countryCodeISONumeric.value
+          : this.countryCodeISONumeric),
+      countryCodePhone: (countryCodePhone != null
+          ? countryCodePhone.value
+          : this.countryCodePhone),
+      flagImage: (flagImage != null ? flagImage.value : this.flagImage),
+      metric: (metric != null ? metric.value : this.metric),
+      currencyId: (currencyId != null ? currencyId.value : this.currencyId),
+      currency: (currency != null ? currency.value : this.currency),
+      currencyCode: (currencyCode != null
+          ? currencyCode.value
+          : this.currencyCode),
+      inactive: (inactive != null ? inactive.value : this.inactive),
+      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+      urlIdentifier: (urlIdentifier != null
+          ? urlIdentifier.value
+          : this.urlIdentifier),
+      fields: (fields != null ? fields.value : this.fields),
+      custom: (custom != null ? custom.value : this.custom),
+      defaultFieldAttributes: (defaultFieldAttributes != null
+          ? defaultFieldAttributes.value
+          : this.defaultFieldAttributes),
+      original: (original != null ? original.value : this.original),
+      translation: (translation != null ? translation.value : this.translation),
+      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
+      createdByUserId: (createdByUserId != null
+          ? createdByUserId.value
+          : this.createdByUserId),
+      createdByUserName: (createdByUserName != null
+          ? createdByUserName.value
+          : this.createdByUserName),
+      createdDateTime: (createdDateTime != null
+          ? createdDateTime.value
+          : this.createdDateTime),
+      modifiedByUserId: (modifiedByUserId != null
+          ? modifiedByUserId.value
+          : this.modifiedByUserId),
+      modifiedByUserName: (modifiedByUserName != null
+          ? modifiedByUserName.value
+          : this.modifiedByUserName),
+      modifiedDateTime: (modifiedDateTime != null
+          ? modifiedDateTime.value
+          : this.modifiedDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesSettingsCategoryCategory {
+  const WebApiModulesSettingsCategoryCategory({
+    this.categoryId,
+    this.category,
+    this.recTypeDescription,
+    this.typeId,
+    this.type,
+    this.warehouseCategory,
+    this.overrideProfitAndLossCategory,
+    this.profitAndLossCategoryId,
+    this.profitAndLossCategory,
+    this.profitAndLossIncludeAsMiscExpense,
+    this.assetAccountId,
+    this.assetAccountNo,
+    this.assetAccountDescription,
+    this.incomeAccountId,
+    this.incomeAccountNo,
+    this.incomeAccountDescription,
+    this.subIncomeAccountId,
+    this.subIncomeAccountNo,
+    this.subIncomeAccountDescription,
+    this.consignmentIncomeAccountId,
+    this.consignmentIncomeAccountNo,
+    this.consignmentIncomeAccountDescription,
+    this.ldIncomeAccountId,
+    this.ldIncomeAccountNo,
+    this.ldIncomeAccountDescription,
+    this.equipmentSaleIncomeAccountId,
+    this.equipmentSaleIncomeAccountNo,
+    this.equipmentSaleIncomeAccountDescription,
+    this.expenseAccountId,
+    this.expenseAccountNo,
+    this.expenseAccountDescription,
+    this.costOfGoodsSoldExpenseAccountId,
+    this.costOfGoodsSoldExpenseAccountNo,
+    this.costOfGoodsSoldExpenseAccountDescription,
+    this.costOfGoodsRentedExpenseAccountId,
+    this.costOfGoodsRentedExpenseAccountNo,
+    this.costOfGoodsRentedExpenseAccountDescription,
+    this.depreciationMonths,
+    this.salvageValuePercent,
+    this.depreciationExpenseAccountId,
+    this.depreciationExpenseAccountNo,
+    this.depreciationExpenseAccountDescription,
+    this.accumulatedDepreciationExpenseAccountId,
+    this.accumulatedDepreciationExpenseAccountNo,
+    this.accumulatedDepreciationExpenseAccountDescription,
+    this.inventoryTypeOrderBy,
+    this.orderBy,
+    this.pickListOrderBy,
+    this.subCategoryCount,
+    this.inventoryCount,
+    this.inactive,
+    this.dateStamp,
+    this.auditNote,
+    this.recordTitle,
+    this.urlIdentifier,
+    this.fields,
+    this.custom,
+    this.defaultFieldAttributes,
+    this.original,
+    this.translation,
+    this.hasImport,
+    this.hasDocuments,
+    this.createdByUserId,
+    this.createdByUserName,
+    this.createdDateTime,
+    this.modifiedByUserId,
+    this.modifiedByUserName,
+    this.modifiedDateTime,
+  });
+
+  factory WebApiModulesSettingsCategoryCategory.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesSettingsCategoryCategoryFromJson(json);
+
+  static const toJsonFactory = _$WebApiModulesSettingsCategoryCategoryToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesSettingsCategoryCategoryToJson(this);
+
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
+  final String? categoryId;
+  @JsonKey(name: 'Category', includeIfNull: false)
+  final String? category;
+  @JsonKey(name: 'RecTypeDescription', includeIfNull: false)
+  final String? recTypeDescription;
+  @JsonKey(name: 'TypeId', includeIfNull: false)
+  final String? typeId;
+  @JsonKey(name: 'Type', includeIfNull: false)
+  final String? type;
+  @JsonKey(name: 'WarehouseCategory', includeIfNull: false)
+  final bool? warehouseCategory;
+  @JsonKey(name: 'OverrideProfitAndLossCategory', includeIfNull: false)
+  final bool? overrideProfitAndLossCategory;
+  @JsonKey(name: 'ProfitAndLossCategoryId', includeIfNull: false)
+  final String? profitAndLossCategoryId;
+  @JsonKey(name: 'ProfitAndLossCategory', includeIfNull: false)
+  final String? profitAndLossCategory;
+  @JsonKey(name: 'ProfitAndLossIncludeAsMiscExpense', includeIfNull: false)
+  final bool? profitAndLossIncludeAsMiscExpense;
+  @JsonKey(name: 'AssetAccountId', includeIfNull: false)
+  final String? assetAccountId;
+  @JsonKey(name: 'AssetAccountNo', includeIfNull: false)
+  final String? assetAccountNo;
+  @JsonKey(name: 'AssetAccountDescription', includeIfNull: false)
+  final String? assetAccountDescription;
+  @JsonKey(name: 'IncomeAccountId', includeIfNull: false)
+  final String? incomeAccountId;
+  @JsonKey(name: 'IncomeAccountNo', includeIfNull: false)
+  final String? incomeAccountNo;
+  @JsonKey(name: 'IncomeAccountDescription', includeIfNull: false)
+  final String? incomeAccountDescription;
+  @JsonKey(name: 'SubIncomeAccountId', includeIfNull: false)
+  final String? subIncomeAccountId;
+  @JsonKey(name: 'SubIncomeAccountNo', includeIfNull: false)
+  final String? subIncomeAccountNo;
+  @JsonKey(name: 'SubIncomeAccountDescription', includeIfNull: false)
+  final String? subIncomeAccountDescription;
+  @JsonKey(name: 'ConsignmentIncomeAccountId', includeIfNull: false)
+  final String? consignmentIncomeAccountId;
+  @JsonKey(name: 'ConsignmentIncomeAccountNo', includeIfNull: false)
+  final String? consignmentIncomeAccountNo;
+  @JsonKey(name: 'ConsignmentIncomeAccountDescription', includeIfNull: false)
+  final String? consignmentIncomeAccountDescription;
+  @JsonKey(name: 'LdIncomeAccountId', includeIfNull: false)
+  final String? ldIncomeAccountId;
+  @JsonKey(name: 'LdIncomeAccountNo', includeIfNull: false)
+  final String? ldIncomeAccountNo;
+  @JsonKey(name: 'LdIncomeAccountDescription', includeIfNull: false)
+  final String? ldIncomeAccountDescription;
+  @JsonKey(name: 'EquipmentSaleIncomeAccountId', includeIfNull: false)
+  final String? equipmentSaleIncomeAccountId;
+  @JsonKey(name: 'EquipmentSaleIncomeAccountNo', includeIfNull: false)
+  final String? equipmentSaleIncomeAccountNo;
+  @JsonKey(name: 'EquipmentSaleIncomeAccountDescription', includeIfNull: false)
+  final String? equipmentSaleIncomeAccountDescription;
+  @JsonKey(name: 'ExpenseAccountId', includeIfNull: false)
+  final String? expenseAccountId;
+  @JsonKey(name: 'ExpenseAccountNo', includeIfNull: false)
+  final String? expenseAccountNo;
+  @JsonKey(name: 'ExpenseAccountDescription', includeIfNull: false)
+  final String? expenseAccountDescription;
+  @JsonKey(name: 'CostOfGoodsSoldExpenseAccountId', includeIfNull: false)
+  final String? costOfGoodsSoldExpenseAccountId;
+  @JsonKey(name: 'CostOfGoodsSoldExpenseAccountNo', includeIfNull: false)
+  final String? costOfGoodsSoldExpenseAccountNo;
+  @JsonKey(
+    name: 'CostOfGoodsSoldExpenseAccountDescription',
+    includeIfNull: false,
+  )
+  final String? costOfGoodsSoldExpenseAccountDescription;
+  @JsonKey(name: 'CostOfGoodsRentedExpenseAccountId', includeIfNull: false)
+  final String? costOfGoodsRentedExpenseAccountId;
+  @JsonKey(name: 'CostOfGoodsRentedExpenseAccountNo', includeIfNull: false)
+  final String? costOfGoodsRentedExpenseAccountNo;
+  @JsonKey(
+    name: 'CostOfGoodsRentedExpenseAccountDescription',
+    includeIfNull: false,
+  )
+  final String? costOfGoodsRentedExpenseAccountDescription;
+  @JsonKey(name: 'DepreciationMonths', includeIfNull: false)
+  final int? depreciationMonths;
+  @JsonKey(name: 'SalvageValuePercent', includeIfNull: false)
+  final double? salvageValuePercent;
+  @JsonKey(name: 'DepreciationExpenseAccountId', includeIfNull: false)
+  final String? depreciationExpenseAccountId;
+  @JsonKey(name: 'DepreciationExpenseAccountNo', includeIfNull: false)
+  final String? depreciationExpenseAccountNo;
+  @JsonKey(name: 'DepreciationExpenseAccountDescription', includeIfNull: false)
+  final String? depreciationExpenseAccountDescription;
+  @JsonKey(
+    name: 'AccumulatedDepreciationExpenseAccountId',
+    includeIfNull: false,
+  )
+  final String? accumulatedDepreciationExpenseAccountId;
+  @JsonKey(
+    name: 'AccumulatedDepreciationExpenseAccountNo',
+    includeIfNull: false,
+  )
+  final String? accumulatedDepreciationExpenseAccountNo;
+  @JsonKey(
+    name: 'AccumulatedDepreciationExpenseAccountDescription',
+    includeIfNull: false,
+  )
+  final String? accumulatedDepreciationExpenseAccountDescription;
+  @JsonKey(name: 'InventoryTypeOrderBy', includeIfNull: false)
+  final double? inventoryTypeOrderBy;
+  @JsonKey(name: 'OrderBy', includeIfNull: false)
+  final double? orderBy;
+  @JsonKey(name: 'PickListOrderBy', includeIfNull: false)
+  final int? pickListOrderBy;
+  @JsonKey(name: 'SubCategoryCount', includeIfNull: false)
+  final int? subCategoryCount;
+  @JsonKey(name: 'InventoryCount', includeIfNull: false)
+  final int? inventoryCount;
+  @JsonKey(name: 'Inactive', includeIfNull: false)
+  final bool? inactive;
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
+  final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
+  final dynamic urlIdentifier;
+  @JsonKey(
+    name: '_Fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+  )
+  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  @JsonKey(
+    name: '_Custom',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwCustomValue>[],
+  )
+  final List<FwStandardDataFwCustomValue>? custom;
+  @JsonKey(
+    name: '_DefaultFieldAttributes',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwDefaultAttribute>[],
+  )
+  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  @JsonKey(name: '_Original', includeIfNull: false)
+  final FwStandardBusinessLogicFwBusinessLogic? original;
+  @JsonKey(
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
+  final List<FwStandardDataFwTranslatedValue>? translation;
+  @JsonKey(name: '_HasImport', includeIfNull: false)
+  final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
+  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
+  final String? createdByUserId;
+  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
+  final String? createdByUserName;
+  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
+  final String? createdDateTime;
+  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
+  final String? modifiedByUserId;
+  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
+  final String? modifiedByUserName;
+  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
+  final String? modifiedDateTime;
+  static const fromJsonFactory =
+      _$WebApiModulesSettingsCategoryCategoryFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesSettingsCategoryCategory &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.category, category) ||
+                const DeepCollectionEquality().equals(
+                  other.category,
+                  category,
+                )) &&
+            (identical(other.recTypeDescription, recTypeDescription) ||
+                const DeepCollectionEquality().equals(
+                  other.recTypeDescription,
+                  recTypeDescription,
+                )) &&
+            (identical(other.typeId, typeId) ||
+                const DeepCollectionEquality().equals(other.typeId, typeId)) &&
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)) &&
+            (identical(other.warehouseCategory, warehouseCategory) ||
+                const DeepCollectionEquality().equals(
+                  other.warehouseCategory,
+                  warehouseCategory,
+                )) &&
+            (identical(
+                  other.overrideProfitAndLossCategory,
+                  overrideProfitAndLossCategory,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.overrideProfitAndLossCategory,
+                  overrideProfitAndLossCategory,
+                )) &&
+            (identical(
+                  other.profitAndLossCategoryId,
+                  profitAndLossCategoryId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.profitAndLossCategoryId,
+                  profitAndLossCategoryId,
+                )) &&
+            (identical(other.profitAndLossCategory, profitAndLossCategory) ||
+                const DeepCollectionEquality().equals(
+                  other.profitAndLossCategory,
+                  profitAndLossCategory,
+                )) &&
+            (identical(
+                  other.profitAndLossIncludeAsMiscExpense,
+                  profitAndLossIncludeAsMiscExpense,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.profitAndLossIncludeAsMiscExpense,
+                  profitAndLossIncludeAsMiscExpense,
+                )) &&
+            (identical(other.assetAccountId, assetAccountId) ||
+                const DeepCollectionEquality().equals(
+                  other.assetAccountId,
+                  assetAccountId,
+                )) &&
+            (identical(other.assetAccountNo, assetAccountNo) ||
+                const DeepCollectionEquality().equals(
+                  other.assetAccountNo,
+                  assetAccountNo,
+                )) &&
+            (identical(
+                  other.assetAccountDescription,
+                  assetAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.assetAccountDescription,
+                  assetAccountDescription,
+                )) &&
+            (identical(other.incomeAccountId, incomeAccountId) ||
+                const DeepCollectionEquality().equals(
+                  other.incomeAccountId,
+                  incomeAccountId,
+                )) &&
+            (identical(other.incomeAccountNo, incomeAccountNo) ||
+                const DeepCollectionEquality().equals(
+                  other.incomeAccountNo,
+                  incomeAccountNo,
+                )) &&
+            (identical(
+                  other.incomeAccountDescription,
+                  incomeAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.incomeAccountDescription,
+                  incomeAccountDescription,
+                )) &&
+            (identical(other.subIncomeAccountId, subIncomeAccountId) ||
+                const DeepCollectionEquality().equals(
+                  other.subIncomeAccountId,
+                  subIncomeAccountId,
+                )) &&
+            (identical(other.subIncomeAccountNo, subIncomeAccountNo) ||
+                const DeepCollectionEquality().equals(
+                  other.subIncomeAccountNo,
+                  subIncomeAccountNo,
+                )) &&
+            (identical(
+                  other.subIncomeAccountDescription,
+                  subIncomeAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.subIncomeAccountDescription,
+                  subIncomeAccountDescription,
+                )) &&
+            (identical(
+                  other.consignmentIncomeAccountId,
+                  consignmentIncomeAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.consignmentIncomeAccountId,
+                  consignmentIncomeAccountId,
+                )) &&
+            (identical(
+                  other.consignmentIncomeAccountNo,
+                  consignmentIncomeAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.consignmentIncomeAccountNo,
+                  consignmentIncomeAccountNo,
+                )) &&
+            (identical(
+                  other.consignmentIncomeAccountDescription,
+                  consignmentIncomeAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.consignmentIncomeAccountDescription,
+                  consignmentIncomeAccountDescription,
+                )) &&
+            (identical(other.ldIncomeAccountId, ldIncomeAccountId) ||
+                const DeepCollectionEquality().equals(
+                  other.ldIncomeAccountId,
+                  ldIncomeAccountId,
+                )) &&
+            (identical(other.ldIncomeAccountNo, ldIncomeAccountNo) ||
+                const DeepCollectionEquality().equals(
+                  other.ldIncomeAccountNo,
+                  ldIncomeAccountNo,
+                )) &&
+            (identical(
+                  other.ldIncomeAccountDescription,
+                  ldIncomeAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.ldIncomeAccountDescription,
+                  ldIncomeAccountDescription,
+                )) &&
+            (identical(
+                  other.equipmentSaleIncomeAccountId,
+                  equipmentSaleIncomeAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.equipmentSaleIncomeAccountId,
+                  equipmentSaleIncomeAccountId,
+                )) &&
+            (identical(
+                  other.equipmentSaleIncomeAccountNo,
+                  equipmentSaleIncomeAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.equipmentSaleIncomeAccountNo,
+                  equipmentSaleIncomeAccountNo,
+                )) &&
+            (identical(
+                  other.equipmentSaleIncomeAccountDescription,
+                  equipmentSaleIncomeAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.equipmentSaleIncomeAccountDescription,
+                  equipmentSaleIncomeAccountDescription,
+                )) &&
+            (identical(other.expenseAccountId, expenseAccountId) ||
+                const DeepCollectionEquality().equals(
+                  other.expenseAccountId,
+                  expenseAccountId,
+                )) &&
+            (identical(other.expenseAccountNo, expenseAccountNo) ||
+                const DeepCollectionEquality().equals(
+                  other.expenseAccountNo,
+                  expenseAccountNo,
+                )) &&
+            (identical(
+                  other.expenseAccountDescription,
+                  expenseAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.expenseAccountDescription,
+                  expenseAccountDescription,
+                )) &&
+            (identical(
+                  other.costOfGoodsSoldExpenseAccountId,
+                  costOfGoodsSoldExpenseAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsSoldExpenseAccountId,
+                  costOfGoodsSoldExpenseAccountId,
+                )) &&
+            (identical(
+                  other.costOfGoodsSoldExpenseAccountNo,
+                  costOfGoodsSoldExpenseAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsSoldExpenseAccountNo,
+                  costOfGoodsSoldExpenseAccountNo,
+                )) &&
+            (identical(
+                  other.costOfGoodsSoldExpenseAccountDescription,
+                  costOfGoodsSoldExpenseAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsSoldExpenseAccountDescription,
+                  costOfGoodsSoldExpenseAccountDescription,
+                )) &&
+            (identical(
+                  other.costOfGoodsRentedExpenseAccountId,
+                  costOfGoodsRentedExpenseAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsRentedExpenseAccountId,
+                  costOfGoodsRentedExpenseAccountId,
+                )) &&
+            (identical(
+                  other.costOfGoodsRentedExpenseAccountNo,
+                  costOfGoodsRentedExpenseAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsRentedExpenseAccountNo,
+                  costOfGoodsRentedExpenseAccountNo,
+                )) &&
+            (identical(
+                  other.costOfGoodsRentedExpenseAccountDescription,
+                  costOfGoodsRentedExpenseAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.costOfGoodsRentedExpenseAccountDescription,
+                  costOfGoodsRentedExpenseAccountDescription,
+                )) &&
+            (identical(other.depreciationMonths, depreciationMonths) ||
+                const DeepCollectionEquality().equals(
+                  other.depreciationMonths,
+                  depreciationMonths,
+                )) &&
+            (identical(other.salvageValuePercent, salvageValuePercent) ||
+                const DeepCollectionEquality().equals(
+                  other.salvageValuePercent,
+                  salvageValuePercent,
+                )) &&
+            (identical(
+                  other.depreciationExpenseAccountId,
+                  depreciationExpenseAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.depreciationExpenseAccountId,
+                  depreciationExpenseAccountId,
+                )) &&
+            (identical(
+                  other.depreciationExpenseAccountNo,
+                  depreciationExpenseAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.depreciationExpenseAccountNo,
+                  depreciationExpenseAccountNo,
+                )) &&
+            (identical(
+                  other.depreciationExpenseAccountDescription,
+                  depreciationExpenseAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.depreciationExpenseAccountDescription,
+                  depreciationExpenseAccountDescription,
+                )) &&
+            (identical(
+                  other.accumulatedDepreciationExpenseAccountId,
+                  accumulatedDepreciationExpenseAccountId,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.accumulatedDepreciationExpenseAccountId,
+                  accumulatedDepreciationExpenseAccountId,
+                )) &&
+            (identical(
+                  other.accumulatedDepreciationExpenseAccountNo,
+                  accumulatedDepreciationExpenseAccountNo,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.accumulatedDepreciationExpenseAccountNo,
+                  accumulatedDepreciationExpenseAccountNo,
+                )) &&
+            (identical(
+                  other.accumulatedDepreciationExpenseAccountDescription,
+                  accumulatedDepreciationExpenseAccountDescription,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.accumulatedDepreciationExpenseAccountDescription,
+                  accumulatedDepreciationExpenseAccountDescription,
+                )) &&
+            (identical(other.inventoryTypeOrderBy, inventoryTypeOrderBy) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryTypeOrderBy,
+                  inventoryTypeOrderBy,
+                )) &&
+            (identical(other.orderBy, orderBy) ||
+                const DeepCollectionEquality().equals(
+                  other.orderBy,
+                  orderBy,
+                )) &&
+            (identical(other.pickListOrderBy, pickListOrderBy) ||
+                const DeepCollectionEquality().equals(
+                  other.pickListOrderBy,
+                  pickListOrderBy,
+                )) &&
+            (identical(other.subCategoryCount, subCategoryCount) ||
+                const DeepCollectionEquality().equals(
+                  other.subCategoryCount,
+                  subCategoryCount,
+                )) &&
+            (identical(other.inventoryCount, inventoryCount) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryCount,
+                  inventoryCount,
+                )) &&
+            (identical(other.inactive, inactive) ||
+                const DeepCollectionEquality().equals(
+                  other.inactive,
+                  inactive,
+                )) &&
+            (identical(other.dateStamp, dateStamp) ||
+                const DeepCollectionEquality().equals(
+                  other.dateStamp,
+                  dateStamp,
+                )) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality().equals(
+                  other.auditNote,
+                  auditNote,
+                )) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )) &&
+            (identical(other.urlIdentifier, urlIdentifier) ||
+                const DeepCollectionEquality().equals(
+                  other.urlIdentifier,
+                  urlIdentifier,
+                )) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultFieldAttributes,
+                  defaultFieldAttributes,
+                )) &&
+            (identical(other.original, original) ||
+                const DeepCollectionEquality().equals(
+                  other.original,
+                  original,
+                )) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )) &&
+            (identical(other.hasImport, hasImport) ||
+                const DeepCollectionEquality().equals(
+                  other.hasImport,
+                  hasImport,
+                )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
+            (identical(other.createdByUserId, createdByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserId,
+                  createdByUserId,
+                )) &&
+            (identical(other.createdByUserName, createdByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserName,
+                  createdByUserName,
+                )) &&
+            (identical(other.createdDateTime, createdDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.createdDateTime,
+                  createdDateTime,
+                )) &&
+            (identical(other.modifiedByUserId, modifiedByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserId,
+                  modifiedByUserId,
+                )) &&
+            (identical(other.modifiedByUserName, modifiedByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserName,
+                  modifiedByUserName,
+                )) &&
+            (identical(other.modifiedDateTime, modifiedDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedDateTime,
+                  modifiedDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(category) ^
+      const DeepCollectionEquality().hash(recTypeDescription) ^
+      const DeepCollectionEquality().hash(typeId) ^
+      const DeepCollectionEquality().hash(type) ^
+      const DeepCollectionEquality().hash(warehouseCategory) ^
+      const DeepCollectionEquality().hash(overrideProfitAndLossCategory) ^
+      const DeepCollectionEquality().hash(profitAndLossCategoryId) ^
+      const DeepCollectionEquality().hash(profitAndLossCategory) ^
+      const DeepCollectionEquality().hash(profitAndLossIncludeAsMiscExpense) ^
+      const DeepCollectionEquality().hash(assetAccountId) ^
+      const DeepCollectionEquality().hash(assetAccountNo) ^
+      const DeepCollectionEquality().hash(assetAccountDescription) ^
+      const DeepCollectionEquality().hash(incomeAccountId) ^
+      const DeepCollectionEquality().hash(incomeAccountNo) ^
+      const DeepCollectionEquality().hash(incomeAccountDescription) ^
+      const DeepCollectionEquality().hash(subIncomeAccountId) ^
+      const DeepCollectionEquality().hash(subIncomeAccountNo) ^
+      const DeepCollectionEquality().hash(subIncomeAccountDescription) ^
+      const DeepCollectionEquality().hash(consignmentIncomeAccountId) ^
+      const DeepCollectionEquality().hash(consignmentIncomeAccountNo) ^
+      const DeepCollectionEquality().hash(consignmentIncomeAccountDescription) ^
+      const DeepCollectionEquality().hash(ldIncomeAccountId) ^
+      const DeepCollectionEquality().hash(ldIncomeAccountNo) ^
+      const DeepCollectionEquality().hash(ldIncomeAccountDescription) ^
+      const DeepCollectionEquality().hash(equipmentSaleIncomeAccountId) ^
+      const DeepCollectionEquality().hash(equipmentSaleIncomeAccountNo) ^
+      const DeepCollectionEquality().hash(
+        equipmentSaleIncomeAccountDescription,
+      ) ^
+      const DeepCollectionEquality().hash(expenseAccountId) ^
+      const DeepCollectionEquality().hash(expenseAccountNo) ^
+      const DeepCollectionEquality().hash(expenseAccountDescription) ^
+      const DeepCollectionEquality().hash(costOfGoodsSoldExpenseAccountId) ^
+      const DeepCollectionEquality().hash(costOfGoodsSoldExpenseAccountNo) ^
+      const DeepCollectionEquality().hash(
+        costOfGoodsSoldExpenseAccountDescription,
+      ) ^
+      const DeepCollectionEquality().hash(costOfGoodsRentedExpenseAccountId) ^
+      const DeepCollectionEquality().hash(costOfGoodsRentedExpenseAccountNo) ^
+      const DeepCollectionEquality().hash(
+        costOfGoodsRentedExpenseAccountDescription,
+      ) ^
+      const DeepCollectionEquality().hash(depreciationMonths) ^
+      const DeepCollectionEquality().hash(salvageValuePercent) ^
+      const DeepCollectionEquality().hash(depreciationExpenseAccountId) ^
+      const DeepCollectionEquality().hash(depreciationExpenseAccountNo) ^
+      const DeepCollectionEquality().hash(
+        depreciationExpenseAccountDescription,
+      ) ^
+      const DeepCollectionEquality().hash(
+        accumulatedDepreciationExpenseAccountId,
+      ) ^
+      const DeepCollectionEquality().hash(
+        accumulatedDepreciationExpenseAccountNo,
+      ) ^
+      const DeepCollectionEquality().hash(
+        accumulatedDepreciationExpenseAccountDescription,
+      ) ^
+      const DeepCollectionEquality().hash(inventoryTypeOrderBy) ^
+      const DeepCollectionEquality().hash(orderBy) ^
+      const DeepCollectionEquality().hash(pickListOrderBy) ^
+      const DeepCollectionEquality().hash(subCategoryCount) ^
+      const DeepCollectionEquality().hash(inventoryCount) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(urlIdentifier) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      const DeepCollectionEquality().hash(original) ^
+      const DeepCollectionEquality().hash(translation) ^
+      const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
+      const DeepCollectionEquality().hash(createdByUserId) ^
+      const DeepCollectionEquality().hash(createdByUserName) ^
+      const DeepCollectionEquality().hash(createdDateTime) ^
+      const DeepCollectionEquality().hash(modifiedByUserId) ^
+      const DeepCollectionEquality().hash(modifiedByUserName) ^
+      const DeepCollectionEquality().hash(modifiedDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesSettingsCategoryCategoryExtension
+    on WebApiModulesSettingsCategoryCategory {
+  WebApiModulesSettingsCategoryCategory copyWith({
+    String? categoryId,
+    String? category,
+    String? recTypeDescription,
+    String? typeId,
+    String? type,
+    bool? warehouseCategory,
+    bool? overrideProfitAndLossCategory,
+    String? profitAndLossCategoryId,
+    String? profitAndLossCategory,
+    bool? profitAndLossIncludeAsMiscExpense,
+    String? assetAccountId,
+    String? assetAccountNo,
+    String? assetAccountDescription,
+    String? incomeAccountId,
+    String? incomeAccountNo,
+    String? incomeAccountDescription,
+    String? subIncomeAccountId,
+    String? subIncomeAccountNo,
+    String? subIncomeAccountDescription,
+    String? consignmentIncomeAccountId,
+    String? consignmentIncomeAccountNo,
+    String? consignmentIncomeAccountDescription,
+    String? ldIncomeAccountId,
+    String? ldIncomeAccountNo,
+    String? ldIncomeAccountDescription,
+    String? equipmentSaleIncomeAccountId,
+    String? equipmentSaleIncomeAccountNo,
+    String? equipmentSaleIncomeAccountDescription,
+    String? expenseAccountId,
+    String? expenseAccountNo,
+    String? expenseAccountDescription,
+    String? costOfGoodsSoldExpenseAccountId,
+    String? costOfGoodsSoldExpenseAccountNo,
+    String? costOfGoodsSoldExpenseAccountDescription,
+    String? costOfGoodsRentedExpenseAccountId,
+    String? costOfGoodsRentedExpenseAccountNo,
+    String? costOfGoodsRentedExpenseAccountDescription,
+    int? depreciationMonths,
+    double? salvageValuePercent,
+    String? depreciationExpenseAccountId,
+    String? depreciationExpenseAccountNo,
+    String? depreciationExpenseAccountDescription,
+    String? accumulatedDepreciationExpenseAccountId,
+    String? accumulatedDepreciationExpenseAccountNo,
+    String? accumulatedDepreciationExpenseAccountDescription,
+    double? inventoryTypeOrderBy,
+    double? orderBy,
+    int? pickListOrderBy,
+    int? subCategoryCount,
+    int? inventoryCount,
+    bool? inactive,
+    String? dateStamp,
+    String? auditNote,
+    String? recordTitle,
+    dynamic urlIdentifier,
+    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+    List<FwStandardDataFwCustomValue>? custom,
+    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+    FwStandardBusinessLogicFwBusinessLogic? original,
+    List<FwStandardDataFwTranslatedValue>? translation,
+    bool? hasImport,
+    bool? hasDocuments,
+    String? createdByUserId,
+    String? createdByUserName,
+    String? createdDateTime,
+    String? modifiedByUserId,
+    String? modifiedByUserName,
+    String? modifiedDateTime,
+  }) {
+    return WebApiModulesSettingsCategoryCategory(
+      categoryId: categoryId ?? this.categoryId,
+      category: category ?? this.category,
+      recTypeDescription: recTypeDescription ?? this.recTypeDescription,
+      typeId: typeId ?? this.typeId,
+      type: type ?? this.type,
+      warehouseCategory: warehouseCategory ?? this.warehouseCategory,
+      overrideProfitAndLossCategory:
+          overrideProfitAndLossCategory ?? this.overrideProfitAndLossCategory,
+      profitAndLossCategoryId:
+          profitAndLossCategoryId ?? this.profitAndLossCategoryId,
+      profitAndLossCategory:
+          profitAndLossCategory ?? this.profitAndLossCategory,
+      profitAndLossIncludeAsMiscExpense:
+          profitAndLossIncludeAsMiscExpense ??
+          this.profitAndLossIncludeAsMiscExpense,
+      assetAccountId: assetAccountId ?? this.assetAccountId,
+      assetAccountNo: assetAccountNo ?? this.assetAccountNo,
+      assetAccountDescription:
+          assetAccountDescription ?? this.assetAccountDescription,
+      incomeAccountId: incomeAccountId ?? this.incomeAccountId,
+      incomeAccountNo: incomeAccountNo ?? this.incomeAccountNo,
+      incomeAccountDescription:
+          incomeAccountDescription ?? this.incomeAccountDescription,
+      subIncomeAccountId: subIncomeAccountId ?? this.subIncomeAccountId,
+      subIncomeAccountNo: subIncomeAccountNo ?? this.subIncomeAccountNo,
+      subIncomeAccountDescription:
+          subIncomeAccountDescription ?? this.subIncomeAccountDescription,
+      consignmentIncomeAccountId:
+          consignmentIncomeAccountId ?? this.consignmentIncomeAccountId,
+      consignmentIncomeAccountNo:
+          consignmentIncomeAccountNo ?? this.consignmentIncomeAccountNo,
+      consignmentIncomeAccountDescription:
+          consignmentIncomeAccountDescription ??
+          this.consignmentIncomeAccountDescription,
+      ldIncomeAccountId: ldIncomeAccountId ?? this.ldIncomeAccountId,
+      ldIncomeAccountNo: ldIncomeAccountNo ?? this.ldIncomeAccountNo,
+      ldIncomeAccountDescription:
+          ldIncomeAccountDescription ?? this.ldIncomeAccountDescription,
+      equipmentSaleIncomeAccountId:
+          equipmentSaleIncomeAccountId ?? this.equipmentSaleIncomeAccountId,
+      equipmentSaleIncomeAccountNo:
+          equipmentSaleIncomeAccountNo ?? this.equipmentSaleIncomeAccountNo,
+      equipmentSaleIncomeAccountDescription:
+          equipmentSaleIncomeAccountDescription ??
+          this.equipmentSaleIncomeAccountDescription,
+      expenseAccountId: expenseAccountId ?? this.expenseAccountId,
+      expenseAccountNo: expenseAccountNo ?? this.expenseAccountNo,
+      expenseAccountDescription:
+          expenseAccountDescription ?? this.expenseAccountDescription,
+      costOfGoodsSoldExpenseAccountId:
+          costOfGoodsSoldExpenseAccountId ??
+          this.costOfGoodsSoldExpenseAccountId,
+      costOfGoodsSoldExpenseAccountNo:
+          costOfGoodsSoldExpenseAccountNo ??
+          this.costOfGoodsSoldExpenseAccountNo,
+      costOfGoodsSoldExpenseAccountDescription:
+          costOfGoodsSoldExpenseAccountDescription ??
+          this.costOfGoodsSoldExpenseAccountDescription,
+      costOfGoodsRentedExpenseAccountId:
+          costOfGoodsRentedExpenseAccountId ??
+          this.costOfGoodsRentedExpenseAccountId,
+      costOfGoodsRentedExpenseAccountNo:
+          costOfGoodsRentedExpenseAccountNo ??
+          this.costOfGoodsRentedExpenseAccountNo,
+      costOfGoodsRentedExpenseAccountDescription:
+          costOfGoodsRentedExpenseAccountDescription ??
+          this.costOfGoodsRentedExpenseAccountDescription,
+      depreciationMonths: depreciationMonths ?? this.depreciationMonths,
+      salvageValuePercent: salvageValuePercent ?? this.salvageValuePercent,
+      depreciationExpenseAccountId:
+          depreciationExpenseAccountId ?? this.depreciationExpenseAccountId,
+      depreciationExpenseAccountNo:
+          depreciationExpenseAccountNo ?? this.depreciationExpenseAccountNo,
+      depreciationExpenseAccountDescription:
+          depreciationExpenseAccountDescription ??
+          this.depreciationExpenseAccountDescription,
+      accumulatedDepreciationExpenseAccountId:
+          accumulatedDepreciationExpenseAccountId ??
+          this.accumulatedDepreciationExpenseAccountId,
+      accumulatedDepreciationExpenseAccountNo:
+          accumulatedDepreciationExpenseAccountNo ??
+          this.accumulatedDepreciationExpenseAccountNo,
+      accumulatedDepreciationExpenseAccountDescription:
+          accumulatedDepreciationExpenseAccountDescription ??
+          this.accumulatedDepreciationExpenseAccountDescription,
+      inventoryTypeOrderBy: inventoryTypeOrderBy ?? this.inventoryTypeOrderBy,
+      orderBy: orderBy ?? this.orderBy,
+      pickListOrderBy: pickListOrderBy ?? this.pickListOrderBy,
+      subCategoryCount: subCategoryCount ?? this.subCategoryCount,
+      inventoryCount: inventoryCount ?? this.inventoryCount,
+      inactive: inactive ?? this.inactive,
+      dateStamp: dateStamp ?? this.dateStamp,
+      auditNote: auditNote ?? this.auditNote,
+      recordTitle: recordTitle ?? this.recordTitle,
+      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
+      fields: fields ?? this.fields,
+      custom: custom ?? this.custom,
+      defaultFieldAttributes:
+          defaultFieldAttributes ?? this.defaultFieldAttributes,
+      original: original ?? this.original,
+      translation: translation ?? this.translation,
+      hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
+      createdByUserId: createdByUserId ?? this.createdByUserId,
+      createdByUserName: createdByUserName ?? this.createdByUserName,
+      createdDateTime: createdDateTime ?? this.createdDateTime,
+      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
+      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
+      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    );
+  }
+
+  WebApiModulesSettingsCategoryCategory copyWithWrapped({
+    Wrapped<String?>? categoryId,
+    Wrapped<String?>? category,
+    Wrapped<String?>? recTypeDescription,
+    Wrapped<String?>? typeId,
+    Wrapped<String?>? type,
+    Wrapped<bool?>? warehouseCategory,
+    Wrapped<bool?>? overrideProfitAndLossCategory,
+    Wrapped<String?>? profitAndLossCategoryId,
+    Wrapped<String?>? profitAndLossCategory,
+    Wrapped<bool?>? profitAndLossIncludeAsMiscExpense,
+    Wrapped<String?>? assetAccountId,
+    Wrapped<String?>? assetAccountNo,
+    Wrapped<String?>? assetAccountDescription,
+    Wrapped<String?>? incomeAccountId,
+    Wrapped<String?>? incomeAccountNo,
+    Wrapped<String?>? incomeAccountDescription,
+    Wrapped<String?>? subIncomeAccountId,
+    Wrapped<String?>? subIncomeAccountNo,
+    Wrapped<String?>? subIncomeAccountDescription,
+    Wrapped<String?>? consignmentIncomeAccountId,
+    Wrapped<String?>? consignmentIncomeAccountNo,
+    Wrapped<String?>? consignmentIncomeAccountDescription,
+    Wrapped<String?>? ldIncomeAccountId,
+    Wrapped<String?>? ldIncomeAccountNo,
+    Wrapped<String?>? ldIncomeAccountDescription,
+    Wrapped<String?>? equipmentSaleIncomeAccountId,
+    Wrapped<String?>? equipmentSaleIncomeAccountNo,
+    Wrapped<String?>? equipmentSaleIncomeAccountDescription,
+    Wrapped<String?>? expenseAccountId,
+    Wrapped<String?>? expenseAccountNo,
+    Wrapped<String?>? expenseAccountDescription,
+    Wrapped<String?>? costOfGoodsSoldExpenseAccountId,
+    Wrapped<String?>? costOfGoodsSoldExpenseAccountNo,
+    Wrapped<String?>? costOfGoodsSoldExpenseAccountDescription,
+    Wrapped<String?>? costOfGoodsRentedExpenseAccountId,
+    Wrapped<String?>? costOfGoodsRentedExpenseAccountNo,
+    Wrapped<String?>? costOfGoodsRentedExpenseAccountDescription,
+    Wrapped<int?>? depreciationMonths,
+    Wrapped<double?>? salvageValuePercent,
+    Wrapped<String?>? depreciationExpenseAccountId,
+    Wrapped<String?>? depreciationExpenseAccountNo,
+    Wrapped<String?>? depreciationExpenseAccountDescription,
+    Wrapped<String?>? accumulatedDepreciationExpenseAccountId,
+    Wrapped<String?>? accumulatedDepreciationExpenseAccountNo,
+    Wrapped<String?>? accumulatedDepreciationExpenseAccountDescription,
+    Wrapped<double?>? inventoryTypeOrderBy,
+    Wrapped<double?>? orderBy,
+    Wrapped<int?>? pickListOrderBy,
+    Wrapped<int?>? subCategoryCount,
+    Wrapped<int?>? inventoryCount,
+    Wrapped<bool?>? inactive,
+    Wrapped<String?>? dateStamp,
+    Wrapped<String?>? auditNote,
+    Wrapped<String?>? recordTitle,
+    Wrapped<dynamic>? urlIdentifier,
+    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+    fields,
+    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+    Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
+    Wrapped<String?>? createdByUserId,
+    Wrapped<String?>? createdByUserName,
+    Wrapped<String?>? createdDateTime,
+    Wrapped<String?>? modifiedByUserId,
+    Wrapped<String?>? modifiedByUserName,
+    Wrapped<String?>? modifiedDateTime,
+  }) {
+    return WebApiModulesSettingsCategoryCategory(
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      category: (category != null ? category.value : this.category),
+      recTypeDescription: (recTypeDescription != null
+          ? recTypeDescription.value
+          : this.recTypeDescription),
+      typeId: (typeId != null ? typeId.value : this.typeId),
+      type: (type != null ? type.value : this.type),
+      warehouseCategory: (warehouseCategory != null
+          ? warehouseCategory.value
+          : this.warehouseCategory),
+      overrideProfitAndLossCategory: (overrideProfitAndLossCategory != null
+          ? overrideProfitAndLossCategory.value
+          : this.overrideProfitAndLossCategory),
+      profitAndLossCategoryId: (profitAndLossCategoryId != null
+          ? profitAndLossCategoryId.value
+          : this.profitAndLossCategoryId),
+      profitAndLossCategory: (profitAndLossCategory != null
+          ? profitAndLossCategory.value
+          : this.profitAndLossCategory),
+      profitAndLossIncludeAsMiscExpense:
+          (profitAndLossIncludeAsMiscExpense != null
+          ? profitAndLossIncludeAsMiscExpense.value
+          : this.profitAndLossIncludeAsMiscExpense),
+      assetAccountId: (assetAccountId != null
+          ? assetAccountId.value
+          : this.assetAccountId),
+      assetAccountNo: (assetAccountNo != null
+          ? assetAccountNo.value
+          : this.assetAccountNo),
+      assetAccountDescription: (assetAccountDescription != null
+          ? assetAccountDescription.value
+          : this.assetAccountDescription),
+      incomeAccountId: (incomeAccountId != null
+          ? incomeAccountId.value
+          : this.incomeAccountId),
+      incomeAccountNo: (incomeAccountNo != null
+          ? incomeAccountNo.value
+          : this.incomeAccountNo),
+      incomeAccountDescription: (incomeAccountDescription != null
+          ? incomeAccountDescription.value
+          : this.incomeAccountDescription),
+      subIncomeAccountId: (subIncomeAccountId != null
+          ? subIncomeAccountId.value
+          : this.subIncomeAccountId),
+      subIncomeAccountNo: (subIncomeAccountNo != null
+          ? subIncomeAccountNo.value
+          : this.subIncomeAccountNo),
+      subIncomeAccountDescription: (subIncomeAccountDescription != null
+          ? subIncomeAccountDescription.value
+          : this.subIncomeAccountDescription),
+      consignmentIncomeAccountId: (consignmentIncomeAccountId != null
+          ? consignmentIncomeAccountId.value
+          : this.consignmentIncomeAccountId),
+      consignmentIncomeAccountNo: (consignmentIncomeAccountNo != null
+          ? consignmentIncomeAccountNo.value
+          : this.consignmentIncomeAccountNo),
+      consignmentIncomeAccountDescription:
+          (consignmentIncomeAccountDescription != null
+          ? consignmentIncomeAccountDescription.value
+          : this.consignmentIncomeAccountDescription),
+      ldIncomeAccountId: (ldIncomeAccountId != null
+          ? ldIncomeAccountId.value
+          : this.ldIncomeAccountId),
+      ldIncomeAccountNo: (ldIncomeAccountNo != null
+          ? ldIncomeAccountNo.value
+          : this.ldIncomeAccountNo),
+      ldIncomeAccountDescription: (ldIncomeAccountDescription != null
+          ? ldIncomeAccountDescription.value
+          : this.ldIncomeAccountDescription),
+      equipmentSaleIncomeAccountId: (equipmentSaleIncomeAccountId != null
+          ? equipmentSaleIncomeAccountId.value
+          : this.equipmentSaleIncomeAccountId),
+      equipmentSaleIncomeAccountNo: (equipmentSaleIncomeAccountNo != null
+          ? equipmentSaleIncomeAccountNo.value
+          : this.equipmentSaleIncomeAccountNo),
+      equipmentSaleIncomeAccountDescription:
+          (equipmentSaleIncomeAccountDescription != null
+          ? equipmentSaleIncomeAccountDescription.value
+          : this.equipmentSaleIncomeAccountDescription),
+      expenseAccountId: (expenseAccountId != null
+          ? expenseAccountId.value
+          : this.expenseAccountId),
+      expenseAccountNo: (expenseAccountNo != null
+          ? expenseAccountNo.value
+          : this.expenseAccountNo),
+      expenseAccountDescription: (expenseAccountDescription != null
+          ? expenseAccountDescription.value
+          : this.expenseAccountDescription),
+      costOfGoodsSoldExpenseAccountId: (costOfGoodsSoldExpenseAccountId != null
+          ? costOfGoodsSoldExpenseAccountId.value
+          : this.costOfGoodsSoldExpenseAccountId),
+      costOfGoodsSoldExpenseAccountNo: (costOfGoodsSoldExpenseAccountNo != null
+          ? costOfGoodsSoldExpenseAccountNo.value
+          : this.costOfGoodsSoldExpenseAccountNo),
+      costOfGoodsSoldExpenseAccountDescription:
+          (costOfGoodsSoldExpenseAccountDescription != null
+          ? costOfGoodsSoldExpenseAccountDescription.value
+          : this.costOfGoodsSoldExpenseAccountDescription),
+      costOfGoodsRentedExpenseAccountId:
+          (costOfGoodsRentedExpenseAccountId != null
+          ? costOfGoodsRentedExpenseAccountId.value
+          : this.costOfGoodsRentedExpenseAccountId),
+      costOfGoodsRentedExpenseAccountNo:
+          (costOfGoodsRentedExpenseAccountNo != null
+          ? costOfGoodsRentedExpenseAccountNo.value
+          : this.costOfGoodsRentedExpenseAccountNo),
+      costOfGoodsRentedExpenseAccountDescription:
+          (costOfGoodsRentedExpenseAccountDescription != null
+          ? costOfGoodsRentedExpenseAccountDescription.value
+          : this.costOfGoodsRentedExpenseAccountDescription),
+      depreciationMonths: (depreciationMonths != null
+          ? depreciationMonths.value
+          : this.depreciationMonths),
+      salvageValuePercent: (salvageValuePercent != null
+          ? salvageValuePercent.value
+          : this.salvageValuePercent),
+      depreciationExpenseAccountId: (depreciationExpenseAccountId != null
+          ? depreciationExpenseAccountId.value
+          : this.depreciationExpenseAccountId),
+      depreciationExpenseAccountNo: (depreciationExpenseAccountNo != null
+          ? depreciationExpenseAccountNo.value
+          : this.depreciationExpenseAccountNo),
+      depreciationExpenseAccountDescription:
+          (depreciationExpenseAccountDescription != null
+          ? depreciationExpenseAccountDescription.value
+          : this.depreciationExpenseAccountDescription),
+      accumulatedDepreciationExpenseAccountId:
+          (accumulatedDepreciationExpenseAccountId != null
+          ? accumulatedDepreciationExpenseAccountId.value
+          : this.accumulatedDepreciationExpenseAccountId),
+      accumulatedDepreciationExpenseAccountNo:
+          (accumulatedDepreciationExpenseAccountNo != null
+          ? accumulatedDepreciationExpenseAccountNo.value
+          : this.accumulatedDepreciationExpenseAccountNo),
+      accumulatedDepreciationExpenseAccountDescription:
+          (accumulatedDepreciationExpenseAccountDescription != null
+          ? accumulatedDepreciationExpenseAccountDescription.value
+          : this.accumulatedDepreciationExpenseAccountDescription),
+      inventoryTypeOrderBy: (inventoryTypeOrderBy != null
+          ? inventoryTypeOrderBy.value
+          : this.inventoryTypeOrderBy),
+      orderBy: (orderBy != null ? orderBy.value : this.orderBy),
+      pickListOrderBy: (pickListOrderBy != null
+          ? pickListOrderBy.value
+          : this.pickListOrderBy),
+      subCategoryCount: (subCategoryCount != null
+          ? subCategoryCount.value
+          : this.subCategoryCount),
+      inventoryCount: (inventoryCount != null
+          ? inventoryCount.value
+          : this.inventoryCount),
+      inactive: (inactive != null ? inactive.value : this.inactive),
+      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+      urlIdentifier: (urlIdentifier != null
+          ? urlIdentifier.value
+          : this.urlIdentifier),
+      fields: (fields != null ? fields.value : this.fields),
+      custom: (custom != null ? custom.value : this.custom),
+      defaultFieldAttributes: (defaultFieldAttributes != null
+          ? defaultFieldAttributes.value
+          : this.defaultFieldAttributes),
+      original: (original != null ? original.value : this.original),
+      translation: (translation != null ? translation.value : this.translation),
+      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
+      createdByUserId: (createdByUserId != null
+          ? createdByUserId.value
+          : this.createdByUserId),
+      createdByUserName: (createdByUserName != null
+          ? createdByUserName.value
+          : this.createdByUserName),
+      createdDateTime: (createdDateTime != null
+          ? createdDateTime.value
+          : this.createdDateTime),
+      modifiedByUserId: (modifiedByUserId != null
+          ? modifiedByUserId.value
+          : this.modifiedByUserId),
+      modifiedByUserName: (modifiedByUserName != null
+          ? modifiedByUserName.value
+          : this.modifiedByUserName),
+      modifiedDateTime: (modifiedDateTime != null
+          ? modifiedDateTime.value
+          : this.modifiedDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType {
+  const WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType({
+    this.inventoryTypeId,
+    this.inventoryType,
+    this.rental,
+    this.sales,
+    this.parts,
+    this.sets,
+    this.props,
+    this.wardrobe,
+    this.transportation,
+    this.lowAvailabilityPercent,
+    this.barCodePrintQty,
+    this.barCodePrintUseDesigner,
+    this.groupProfitLoss,
+    this.categoryCount,
+    this.orderBy,
+    this.inactive,
+    this.dateStamp,
+    this.auditNote,
+    this.recordTitle,
+    this.urlIdentifier,
+    this.fields,
+    this.custom,
+    this.defaultFieldAttributes,
+    this.original,
+    this.translation,
+    this.hasImport,
+    this.hasDocuments,
+    this.createdByUserId,
+    this.createdByUserName,
+    this.createdDateTime,
+    this.modifiedByUserId,
+    this.modifiedByUserName,
+    this.modifiedDateTime,
+  });
+
+  factory WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$WebApiModulesSettingsInventorySettingsInventoryTypeInventoryTypeFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$WebApiModulesSettingsInventorySettingsInventoryTypeInventoryTypeToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesSettingsInventorySettingsInventoryTypeInventoryTypeToJson(
+        this,
+      );
+
+  @JsonKey(name: 'InventoryTypeId', includeIfNull: false)
+  final String? inventoryTypeId;
+  @JsonKey(name: 'InventoryType', includeIfNull: false)
+  final String? inventoryType;
+  @JsonKey(name: 'Rental', includeIfNull: false)
+  final bool? rental;
+  @JsonKey(name: 'Sales', includeIfNull: false)
+  final bool? sales;
+  @JsonKey(name: 'Parts', includeIfNull: false)
+  final bool? parts;
+  @JsonKey(name: 'Sets', includeIfNull: false)
+  final bool? sets;
+  @JsonKey(name: 'Props', includeIfNull: false)
+  final bool? props;
+  @JsonKey(name: 'Wardrobe', includeIfNull: false)
+  final bool? wardrobe;
+  @JsonKey(name: 'Transportation', includeIfNull: false)
+  final bool? transportation;
+  @JsonKey(name: 'LowAvailabilityPercent', includeIfNull: false)
+  final int? lowAvailabilityPercent;
+  @JsonKey(name: 'BarCodePrintQty', includeIfNull: false)
+  final int? barCodePrintQty;
+  @JsonKey(name: 'BarCodePrintUseDesigner', includeIfNull: false)
+  final bool? barCodePrintUseDesigner;
+  @JsonKey(name: 'GroupProfitLoss', includeIfNull: false)
+  final bool? groupProfitLoss;
+  @JsonKey(name: 'CategoryCount', includeIfNull: false)
+  final int? categoryCount;
+  @JsonKey(name: 'OrderBy', includeIfNull: false)
+  final double? orderBy;
+  @JsonKey(name: 'Inactive', includeIfNull: false)
+  final bool? inactive;
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
+  final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
+  final dynamic urlIdentifier;
+  @JsonKey(
+    name: '_Fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+  )
+  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  @JsonKey(
+    name: '_Custom',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwCustomValue>[],
+  )
+  final List<FwStandardDataFwCustomValue>? custom;
+  @JsonKey(
+    name: '_DefaultFieldAttributes',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwDefaultAttribute>[],
+  )
+  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  @JsonKey(name: '_Original', includeIfNull: false)
+  final FwStandardBusinessLogicFwBusinessLogic? original;
+  @JsonKey(
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
+  final List<FwStandardDataFwTranslatedValue>? translation;
+  @JsonKey(name: '_HasImport', includeIfNull: false)
+  final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
+  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
+  final String? createdByUserId;
+  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
+  final String? createdByUserName;
+  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
+  final String? createdDateTime;
+  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
+  final String? modifiedByUserId;
+  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
+  final String? modifiedByUserName;
+  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
+  final String? modifiedDateTime;
+  static const fromJsonFactory =
+      _$WebApiModulesSettingsInventorySettingsInventoryTypeInventoryTypeFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType &&
+            (identical(other.inventoryTypeId, inventoryTypeId) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryTypeId,
+                  inventoryTypeId,
+                )) &&
+            (identical(other.inventoryType, inventoryType) ||
+                const DeepCollectionEquality().equals(
+                  other.inventoryType,
+                  inventoryType,
+                )) &&
+            (identical(other.rental, rental) ||
+                const DeepCollectionEquality().equals(other.rental, rental)) &&
+            (identical(other.sales, sales) ||
+                const DeepCollectionEquality().equals(other.sales, sales)) &&
+            (identical(other.parts, parts) ||
+                const DeepCollectionEquality().equals(other.parts, parts)) &&
+            (identical(other.sets, sets) ||
+                const DeepCollectionEquality().equals(other.sets, sets)) &&
+            (identical(other.props, props) ||
+                const DeepCollectionEquality().equals(other.props, props)) &&
+            (identical(other.wardrobe, wardrobe) ||
+                const DeepCollectionEquality().equals(
+                  other.wardrobe,
+                  wardrobe,
+                )) &&
+            (identical(other.transportation, transportation) ||
+                const DeepCollectionEquality().equals(
+                  other.transportation,
+                  transportation,
+                )) &&
+            (identical(other.lowAvailabilityPercent, lowAvailabilityPercent) ||
+                const DeepCollectionEquality().equals(
+                  other.lowAvailabilityPercent,
+                  lowAvailabilityPercent,
+                )) &&
+            (identical(other.barCodePrintQty, barCodePrintQty) ||
+                const DeepCollectionEquality().equals(
+                  other.barCodePrintQty,
+                  barCodePrintQty,
+                )) &&
+            (identical(
+                  other.barCodePrintUseDesigner,
+                  barCodePrintUseDesigner,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.barCodePrintUseDesigner,
+                  barCodePrintUseDesigner,
+                )) &&
+            (identical(other.groupProfitLoss, groupProfitLoss) ||
+                const DeepCollectionEquality().equals(
+                  other.groupProfitLoss,
+                  groupProfitLoss,
+                )) &&
+            (identical(other.categoryCount, categoryCount) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryCount,
+                  categoryCount,
+                )) &&
+            (identical(other.orderBy, orderBy) ||
+                const DeepCollectionEquality().equals(
+                  other.orderBy,
+                  orderBy,
+                )) &&
+            (identical(other.inactive, inactive) ||
+                const DeepCollectionEquality().equals(
+                  other.inactive,
+                  inactive,
+                )) &&
+            (identical(other.dateStamp, dateStamp) ||
+                const DeepCollectionEquality().equals(
+                  other.dateStamp,
+                  dateStamp,
+                )) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality().equals(
+                  other.auditNote,
+                  auditNote,
+                )) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )) &&
+            (identical(other.urlIdentifier, urlIdentifier) ||
+                const DeepCollectionEquality().equals(
+                  other.urlIdentifier,
+                  urlIdentifier,
+                )) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultFieldAttributes,
+                  defaultFieldAttributes,
+                )) &&
+            (identical(other.original, original) ||
+                const DeepCollectionEquality().equals(
+                  other.original,
+                  original,
+                )) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )) &&
+            (identical(other.hasImport, hasImport) ||
+                const DeepCollectionEquality().equals(
+                  other.hasImport,
+                  hasImport,
+                )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
+            (identical(other.createdByUserId, createdByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserId,
+                  createdByUserId,
+                )) &&
+            (identical(other.createdByUserName, createdByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserName,
+                  createdByUserName,
+                )) &&
+            (identical(other.createdDateTime, createdDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.createdDateTime,
+                  createdDateTime,
+                )) &&
+            (identical(other.modifiedByUserId, modifiedByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserId,
+                  modifiedByUserId,
+                )) &&
+            (identical(other.modifiedByUserName, modifiedByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserName,
+                  modifiedByUserName,
+                )) &&
+            (identical(other.modifiedDateTime, modifiedDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedDateTime,
+                  modifiedDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(inventoryTypeId) ^
+      const DeepCollectionEquality().hash(inventoryType) ^
+      const DeepCollectionEquality().hash(rental) ^
+      const DeepCollectionEquality().hash(sales) ^
+      const DeepCollectionEquality().hash(parts) ^
+      const DeepCollectionEquality().hash(sets) ^
+      const DeepCollectionEquality().hash(props) ^
+      const DeepCollectionEquality().hash(wardrobe) ^
+      const DeepCollectionEquality().hash(transportation) ^
+      const DeepCollectionEquality().hash(lowAvailabilityPercent) ^
+      const DeepCollectionEquality().hash(barCodePrintQty) ^
+      const DeepCollectionEquality().hash(barCodePrintUseDesigner) ^
+      const DeepCollectionEquality().hash(groupProfitLoss) ^
+      const DeepCollectionEquality().hash(categoryCount) ^
+      const DeepCollectionEquality().hash(orderBy) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(urlIdentifier) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      const DeepCollectionEquality().hash(original) ^
+      const DeepCollectionEquality().hash(translation) ^
+      const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
+      const DeepCollectionEquality().hash(createdByUserId) ^
+      const DeepCollectionEquality().hash(createdByUserName) ^
+      const DeepCollectionEquality().hash(createdDateTime) ^
+      const DeepCollectionEquality().hash(modifiedByUserId) ^
+      const DeepCollectionEquality().hash(modifiedByUserName) ^
+      const DeepCollectionEquality().hash(modifiedDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesSettingsInventorySettingsInventoryTypeInventoryTypeExtension
+    on WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType {
+  WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType copyWith({
+    String? inventoryTypeId,
+    String? inventoryType,
+    bool? rental,
+    bool? sales,
+    bool? parts,
+    bool? sets,
+    bool? props,
+    bool? wardrobe,
+    bool? transportation,
+    int? lowAvailabilityPercent,
+    int? barCodePrintQty,
+    bool? barCodePrintUseDesigner,
+    bool? groupProfitLoss,
+    int? categoryCount,
+    double? orderBy,
+    bool? inactive,
+    String? dateStamp,
+    String? auditNote,
+    String? recordTitle,
+    dynamic urlIdentifier,
+    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+    List<FwStandardDataFwCustomValue>? custom,
+    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+    FwStandardBusinessLogicFwBusinessLogic? original,
+    List<FwStandardDataFwTranslatedValue>? translation,
+    bool? hasImport,
+    bool? hasDocuments,
+    String? createdByUserId,
+    String? createdByUserName,
+    String? createdDateTime,
+    String? modifiedByUserId,
+    String? modifiedByUserName,
+    String? modifiedDateTime,
+  }) {
+    return WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType(
+      inventoryTypeId: inventoryTypeId ?? this.inventoryTypeId,
+      inventoryType: inventoryType ?? this.inventoryType,
+      rental: rental ?? this.rental,
+      sales: sales ?? this.sales,
+      parts: parts ?? this.parts,
+      sets: sets ?? this.sets,
+      props: props ?? this.props,
+      wardrobe: wardrobe ?? this.wardrobe,
+      transportation: transportation ?? this.transportation,
+      lowAvailabilityPercent:
+          lowAvailabilityPercent ?? this.lowAvailabilityPercent,
+      barCodePrintQty: barCodePrintQty ?? this.barCodePrintQty,
+      barCodePrintUseDesigner:
+          barCodePrintUseDesigner ?? this.barCodePrintUseDesigner,
+      groupProfitLoss: groupProfitLoss ?? this.groupProfitLoss,
+      categoryCount: categoryCount ?? this.categoryCount,
+      orderBy: orderBy ?? this.orderBy,
+      inactive: inactive ?? this.inactive,
+      dateStamp: dateStamp ?? this.dateStamp,
+      auditNote: auditNote ?? this.auditNote,
+      recordTitle: recordTitle ?? this.recordTitle,
+      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
+      fields: fields ?? this.fields,
+      custom: custom ?? this.custom,
+      defaultFieldAttributes:
+          defaultFieldAttributes ?? this.defaultFieldAttributes,
+      original: original ?? this.original,
+      translation: translation ?? this.translation,
+      hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
+      createdByUserId: createdByUserId ?? this.createdByUserId,
+      createdByUserName: createdByUserName ?? this.createdByUserName,
+      createdDateTime: createdDateTime ?? this.createdDateTime,
+      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
+      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
+      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    );
+  }
+
+  WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType
+  copyWithWrapped({
+    Wrapped<String?>? inventoryTypeId,
+    Wrapped<String?>? inventoryType,
+    Wrapped<bool?>? rental,
+    Wrapped<bool?>? sales,
+    Wrapped<bool?>? parts,
+    Wrapped<bool?>? sets,
+    Wrapped<bool?>? props,
+    Wrapped<bool?>? wardrobe,
+    Wrapped<bool?>? transportation,
+    Wrapped<int?>? lowAvailabilityPercent,
+    Wrapped<int?>? barCodePrintQty,
+    Wrapped<bool?>? barCodePrintUseDesigner,
+    Wrapped<bool?>? groupProfitLoss,
+    Wrapped<int?>? categoryCount,
+    Wrapped<double?>? orderBy,
+    Wrapped<bool?>? inactive,
+    Wrapped<String?>? dateStamp,
+    Wrapped<String?>? auditNote,
+    Wrapped<String?>? recordTitle,
+    Wrapped<dynamic>? urlIdentifier,
+    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+    fields,
+    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+    Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
+    Wrapped<String?>? createdByUserId,
+    Wrapped<String?>? createdByUserName,
+    Wrapped<String?>? createdDateTime,
+    Wrapped<String?>? modifiedByUserId,
+    Wrapped<String?>? modifiedByUserName,
+    Wrapped<String?>? modifiedDateTime,
+  }) {
+    return WebApiModulesSettingsInventorySettingsInventoryTypeInventoryType(
+      inventoryTypeId: (inventoryTypeId != null
+          ? inventoryTypeId.value
+          : this.inventoryTypeId),
+      inventoryType: (inventoryType != null
+          ? inventoryType.value
+          : this.inventoryType),
+      rental: (rental != null ? rental.value : this.rental),
+      sales: (sales != null ? sales.value : this.sales),
+      parts: (parts != null ? parts.value : this.parts),
+      sets: (sets != null ? sets.value : this.sets),
+      props: (props != null ? props.value : this.props),
+      wardrobe: (wardrobe != null ? wardrobe.value : this.wardrobe),
+      transportation: (transportation != null
+          ? transportation.value
+          : this.transportation),
+      lowAvailabilityPercent: (lowAvailabilityPercent != null
+          ? lowAvailabilityPercent.value
+          : this.lowAvailabilityPercent),
+      barCodePrintQty: (barCodePrintQty != null
+          ? barCodePrintQty.value
+          : this.barCodePrintQty),
+      barCodePrintUseDesigner: (barCodePrintUseDesigner != null
+          ? barCodePrintUseDesigner.value
+          : this.barCodePrintUseDesigner),
+      groupProfitLoss: (groupProfitLoss != null
+          ? groupProfitLoss.value
+          : this.groupProfitLoss),
+      categoryCount: (categoryCount != null
+          ? categoryCount.value
+          : this.categoryCount),
+      orderBy: (orderBy != null ? orderBy.value : this.orderBy),
+      inactive: (inactive != null ? inactive.value : this.inactive),
+      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+      urlIdentifier: (urlIdentifier != null
+          ? urlIdentifier.value
+          : this.urlIdentifier),
+      fields: (fields != null ? fields.value : this.fields),
+      custom: (custom != null ? custom.value : this.custom),
+      defaultFieldAttributes: (defaultFieldAttributes != null
+          ? defaultFieldAttributes.value
+          : this.defaultFieldAttributes),
+      original: (original != null ? original.value : this.original),
+      translation: (translation != null ? translation.value : this.translation),
+      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
+      createdByUserId: (createdByUserId != null
+          ? createdByUserId.value
+          : this.createdByUserId),
+      createdByUserName: (createdByUserName != null
+          ? createdByUserName.value
+          : this.createdByUserName),
+      createdDateTime: (createdDateTime != null
+          ? createdDateTime.value
+          : this.createdDateTime),
+      modifiedByUserId: (modifiedByUserId != null
+          ? modifiedByUserId.value
+          : this.modifiedByUserId),
+      modifiedByUserName: (modifiedByUserName != null
+          ? modifiedByUserName.value
+          : this.modifiedByUserName),
+      modifiedDateTime: (modifiedDateTime != null
+          ? modifiedDateTime.value
+          : this.modifiedDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesSettingsInventorySettingsUnitUnit {
+  const WebApiModulesSettingsInventorySettingsUnitUnit({
+    this.unitId,
+    this.unit,
+    this.description,
+    this.unitType,
+    this.pluralDescription,
+    this.inactive,
+    this.dateStamp,
+    this.auditNote,
+    this.recordTitle,
+    this.urlIdentifier,
+    this.fields,
+    this.custom,
+    this.defaultFieldAttributes,
+    this.original,
+    this.translation,
+    this.hasImport,
+    this.hasDocuments,
+    this.createdByUserId,
+    this.createdByUserName,
+    this.createdDateTime,
+    this.modifiedByUserId,
+    this.modifiedByUserName,
+    this.modifiedDateTime,
+  });
+
+  factory WebApiModulesSettingsInventorySettingsUnitUnit.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesSettingsInventorySettingsUnitUnitFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesSettingsInventorySettingsUnitUnitToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesSettingsInventorySettingsUnitUnitToJson(this);
+
+  @JsonKey(name: 'UnitId', includeIfNull: false)
+  final String? unitId;
+  @JsonKey(name: 'Unit', includeIfNull: false)
+  final String? unit;
+  @JsonKey(name: 'Description', includeIfNull: false)
+  final String? description;
+  @JsonKey(name: 'UnitType', includeIfNull: false)
+  final String? unitType;
+  @JsonKey(name: 'PluralDescription', includeIfNull: false)
+  final String? pluralDescription;
+  @JsonKey(name: 'Inactive', includeIfNull: false)
+  final bool? inactive;
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
+  final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
+  final dynamic urlIdentifier;
+  @JsonKey(
+    name: '_Fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+  )
+  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  @JsonKey(
+    name: '_Custom',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwCustomValue>[],
+  )
+  final List<FwStandardDataFwCustomValue>? custom;
+  @JsonKey(
+    name: '_DefaultFieldAttributes',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwDefaultAttribute>[],
+  )
+  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  @JsonKey(name: '_Original', includeIfNull: false)
+  final FwStandardBusinessLogicFwBusinessLogic? original;
+  @JsonKey(
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
+  final List<FwStandardDataFwTranslatedValue>? translation;
+  @JsonKey(name: '_HasImport', includeIfNull: false)
+  final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
+  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
+  final String? createdByUserId;
+  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
+  final String? createdByUserName;
+  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
+  final String? createdDateTime;
+  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
+  final String? modifiedByUserId;
+  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
+  final String? modifiedByUserName;
+  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
+  final String? modifiedDateTime;
+  static const fromJsonFactory =
+      _$WebApiModulesSettingsInventorySettingsUnitUnitFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesSettingsInventorySettingsUnitUnit &&
+            (identical(other.unitId, unitId) ||
+                const DeepCollectionEquality().equals(other.unitId, unitId)) &&
+            (identical(other.unit, unit) ||
+                const DeepCollectionEquality().equals(other.unit, unit)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality().equals(
+                  other.description,
+                  description,
+                )) &&
+            (identical(other.unitType, unitType) ||
+                const DeepCollectionEquality().equals(
+                  other.unitType,
+                  unitType,
+                )) &&
+            (identical(other.pluralDescription, pluralDescription) ||
+                const DeepCollectionEquality().equals(
+                  other.pluralDescription,
+                  pluralDescription,
+                )) &&
+            (identical(other.inactive, inactive) ||
+                const DeepCollectionEquality().equals(
+                  other.inactive,
+                  inactive,
+                )) &&
+            (identical(other.dateStamp, dateStamp) ||
+                const DeepCollectionEquality().equals(
+                  other.dateStamp,
+                  dateStamp,
+                )) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality().equals(
+                  other.auditNote,
+                  auditNote,
+                )) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )) &&
+            (identical(other.urlIdentifier, urlIdentifier) ||
+                const DeepCollectionEquality().equals(
+                  other.urlIdentifier,
+                  urlIdentifier,
+                )) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultFieldAttributes,
+                  defaultFieldAttributes,
+                )) &&
+            (identical(other.original, original) ||
+                const DeepCollectionEquality().equals(
+                  other.original,
+                  original,
+                )) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )) &&
+            (identical(other.hasImport, hasImport) ||
+                const DeepCollectionEquality().equals(
+                  other.hasImport,
+                  hasImport,
+                )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
+            (identical(other.createdByUserId, createdByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserId,
+                  createdByUserId,
+                )) &&
+            (identical(other.createdByUserName, createdByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserName,
+                  createdByUserName,
+                )) &&
+            (identical(other.createdDateTime, createdDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.createdDateTime,
+                  createdDateTime,
+                )) &&
+            (identical(other.modifiedByUserId, modifiedByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserId,
+                  modifiedByUserId,
+                )) &&
+            (identical(other.modifiedByUserName, modifiedByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserName,
+                  modifiedByUserName,
+                )) &&
+            (identical(other.modifiedDateTime, modifiedDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedDateTime,
+                  modifiedDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(unitId) ^
+      const DeepCollectionEquality().hash(unit) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(unitType) ^
+      const DeepCollectionEquality().hash(pluralDescription) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(urlIdentifier) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      const DeepCollectionEquality().hash(original) ^
+      const DeepCollectionEquality().hash(translation) ^
+      const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
+      const DeepCollectionEquality().hash(createdByUserId) ^
+      const DeepCollectionEquality().hash(createdByUserName) ^
+      const DeepCollectionEquality().hash(createdDateTime) ^
+      const DeepCollectionEquality().hash(modifiedByUserId) ^
+      const DeepCollectionEquality().hash(modifiedByUserName) ^
+      const DeepCollectionEquality().hash(modifiedDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesSettingsInventorySettingsUnitUnitExtension
+    on WebApiModulesSettingsInventorySettingsUnitUnit {
+  WebApiModulesSettingsInventorySettingsUnitUnit copyWith({
+    String? unitId,
+    String? unit,
+    String? description,
+    String? unitType,
+    String? pluralDescription,
+    bool? inactive,
+    String? dateStamp,
+    String? auditNote,
+    String? recordTitle,
+    dynamic urlIdentifier,
+    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+    List<FwStandardDataFwCustomValue>? custom,
+    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+    FwStandardBusinessLogicFwBusinessLogic? original,
+    List<FwStandardDataFwTranslatedValue>? translation,
+    bool? hasImport,
+    bool? hasDocuments,
+    String? createdByUserId,
+    String? createdByUserName,
+    String? createdDateTime,
+    String? modifiedByUserId,
+    String? modifiedByUserName,
+    String? modifiedDateTime,
+  }) {
+    return WebApiModulesSettingsInventorySettingsUnitUnit(
+      unitId: unitId ?? this.unitId,
+      unit: unit ?? this.unit,
+      description: description ?? this.description,
+      unitType: unitType ?? this.unitType,
+      pluralDescription: pluralDescription ?? this.pluralDescription,
+      inactive: inactive ?? this.inactive,
+      dateStamp: dateStamp ?? this.dateStamp,
+      auditNote: auditNote ?? this.auditNote,
+      recordTitle: recordTitle ?? this.recordTitle,
+      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
+      fields: fields ?? this.fields,
+      custom: custom ?? this.custom,
+      defaultFieldAttributes:
+          defaultFieldAttributes ?? this.defaultFieldAttributes,
+      original: original ?? this.original,
+      translation: translation ?? this.translation,
+      hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
+      createdByUserId: createdByUserId ?? this.createdByUserId,
+      createdByUserName: createdByUserName ?? this.createdByUserName,
+      createdDateTime: createdDateTime ?? this.createdDateTime,
+      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
+      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
+      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    );
+  }
+
+  WebApiModulesSettingsInventorySettingsUnitUnit copyWithWrapped({
+    Wrapped<String?>? unitId,
+    Wrapped<String?>? unit,
+    Wrapped<String?>? description,
+    Wrapped<String?>? unitType,
+    Wrapped<String?>? pluralDescription,
+    Wrapped<bool?>? inactive,
+    Wrapped<String?>? dateStamp,
+    Wrapped<String?>? auditNote,
+    Wrapped<String?>? recordTitle,
+    Wrapped<dynamic>? urlIdentifier,
+    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+    fields,
+    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+    Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
+    Wrapped<String?>? createdByUserId,
+    Wrapped<String?>? createdByUserName,
+    Wrapped<String?>? createdDateTime,
+    Wrapped<String?>? modifiedByUserId,
+    Wrapped<String?>? modifiedByUserName,
+    Wrapped<String?>? modifiedDateTime,
+  }) {
+    return WebApiModulesSettingsInventorySettingsUnitUnit(
+      unitId: (unitId != null ? unitId.value : this.unitId),
+      unit: (unit != null ? unit.value : this.unit),
+      description: (description != null ? description.value : this.description),
+      unitType: (unitType != null ? unitType.value : this.unitType),
+      pluralDescription: (pluralDescription != null
+          ? pluralDescription.value
+          : this.pluralDescription),
+      inactive: (inactive != null ? inactive.value : this.inactive),
+      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+      urlIdentifier: (urlIdentifier != null
+          ? urlIdentifier.value
+          : this.urlIdentifier),
+      fields: (fields != null ? fields.value : this.fields),
+      custom: (custom != null ? custom.value : this.custom),
+      defaultFieldAttributes: (defaultFieldAttributes != null
+          ? defaultFieldAttributes.value
+          : this.defaultFieldAttributes),
+      original: (original != null ? original.value : this.original),
+      translation: (translation != null ? translation.value : this.translation),
+      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
+      createdByUserId: (createdByUserId != null
+          ? createdByUserId.value
+          : this.createdByUserId),
+      createdByUserName: (createdByUserName != null
+          ? createdByUserName.value
+          : this.createdByUserName),
+      createdDateTime: (createdDateTime != null
+          ? createdDateTime.value
+          : this.createdDateTime),
+      modifiedByUserId: (modifiedByUserId != null
+          ? modifiedByUserId.value
+          : this.modifiedByUserId),
+      modifiedByUserName: (modifiedByUserName != null
+          ? modifiedByUserName.value
+          : this.modifiedByUserName),
+      modifiedDateTime: (modifiedDateTime != null
+          ? modifiedDateTime.value
+          : this.modifiedDateTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class WebApiModulesSettingsSubCategorySubCategory {
+  const WebApiModulesSettingsSubCategorySubCategory({
+    this.subCategoryId,
+    this.subCategory,
+    this.categoryId,
+    this.category,
+    this.typeId,
+    this.type,
+    this.recTypeDescription,
+    this.recType,
+    this.orderBy,
+    this.pickListOrderBy,
+    this.inactive,
+    this.dateStamp,
+    this.auditNote,
+    this.recordTitle,
+    this.urlIdentifier,
+    this.fields,
+    this.custom,
+    this.defaultFieldAttributes,
+    this.original,
+    this.translation,
+    this.hasImport,
+    this.hasDocuments,
+    this.createdByUserId,
+    this.createdByUserName,
+    this.createdDateTime,
+    this.modifiedByUserId,
+    this.modifiedByUserName,
+    this.modifiedDateTime,
+  });
+
+  factory WebApiModulesSettingsSubCategorySubCategory.fromJson(
+    Map<String, dynamic> json,
+  ) => _$WebApiModulesSettingsSubCategorySubCategoryFromJson(json);
+
+  static const toJsonFactory =
+      _$WebApiModulesSettingsSubCategorySubCategoryToJson;
+  Map<String, dynamic> toJson() =>
+      _$WebApiModulesSettingsSubCategorySubCategoryToJson(this);
+
+  @JsonKey(name: 'SubCategoryId', includeIfNull: false)
+  final String? subCategoryId;
+  @JsonKey(name: 'SubCategory', includeIfNull: false)
+  final String? subCategory;
+  @JsonKey(name: 'CategoryId', includeIfNull: false)
+  final String? categoryId;
+  @JsonKey(name: 'Category', includeIfNull: false)
+  final String? category;
+  @JsonKey(name: 'TypeId', includeIfNull: false)
+  final String? typeId;
+  @JsonKey(name: 'Type', includeIfNull: false)
+  final String? type;
+  @JsonKey(name: 'RecTypeDescription', includeIfNull: false)
+  final String? recTypeDescription;
+  @JsonKey(name: 'RecType', includeIfNull: false)
+  final String? recType;
+  @JsonKey(name: 'OrderBy', includeIfNull: false)
+  final double? orderBy;
+  @JsonKey(name: 'PickListOrderBy', includeIfNull: false)
+  final int? pickListOrderBy;
+  @JsonKey(name: 'Inactive', includeIfNull: false)
+  final bool? inactive;
+  @JsonKey(name: 'DateStamp', includeIfNull: false)
+  final String? dateStamp;
+  @JsonKey(name: 'AuditNote', includeIfNull: false)
+  final String? auditNote;
+  @JsonKey(name: 'RecordTitle', includeIfNull: false)
+  final String? recordTitle;
+  @JsonKey(name: 'UrlIdentifier', includeIfNull: false)
+  final dynamic urlIdentifier;
+  @JsonKey(
+    name: '_Fields',
+    includeIfNull: false,
+    defaultValue: <FwStandardBusinessLogicFwBusinessLogicFieldDefinition>[],
+  )
+  final List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields;
+  @JsonKey(
+    name: '_Custom',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwCustomValue>[],
+  )
+  final List<FwStandardDataFwCustomValue>? custom;
+  @JsonKey(
+    name: '_DefaultFieldAttributes',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwDefaultAttribute>[],
+  )
+  final List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes;
+  @JsonKey(name: '_Original', includeIfNull: false)
+  final FwStandardBusinessLogicFwBusinessLogic? original;
+  @JsonKey(
+    name: '_Translation',
+    includeIfNull: false,
+    defaultValue: <FwStandardDataFwTranslatedValue>[],
+  )
+  final List<FwStandardDataFwTranslatedValue>? translation;
+  @JsonKey(name: '_HasImport', includeIfNull: false)
+  final bool? hasImport;
+  @JsonKey(name: '_HasDocuments', includeIfNull: false)
+  final bool? hasDocuments;
+  @JsonKey(name: 'CreatedByUserId', includeIfNull: false)
+  final String? createdByUserId;
+  @JsonKey(name: 'CreatedByUserName', includeIfNull: false)
+  final String? createdByUserName;
+  @JsonKey(name: 'CreatedDateTime', includeIfNull: false)
+  final String? createdDateTime;
+  @JsonKey(name: 'ModifiedByUserId', includeIfNull: false)
+  final String? modifiedByUserId;
+  @JsonKey(name: 'ModifiedByUserName', includeIfNull: false)
+  final String? modifiedByUserName;
+  @JsonKey(name: 'ModifiedDateTime', includeIfNull: false)
+  final String? modifiedDateTime;
+  static const fromJsonFactory =
+      _$WebApiModulesSettingsSubCategorySubCategoryFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is WebApiModulesSettingsSubCategorySubCategory &&
+            (identical(other.subCategoryId, subCategoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.subCategoryId,
+                  subCategoryId,
+                )) &&
+            (identical(other.subCategory, subCategory) ||
+                const DeepCollectionEquality().equals(
+                  other.subCategory,
+                  subCategory,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.category, category) ||
+                const DeepCollectionEquality().equals(
+                  other.category,
+                  category,
+                )) &&
+            (identical(other.typeId, typeId) ||
+                const DeepCollectionEquality().equals(other.typeId, typeId)) &&
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)) &&
+            (identical(other.recTypeDescription, recTypeDescription) ||
+                const DeepCollectionEquality().equals(
+                  other.recTypeDescription,
+                  recTypeDescription,
+                )) &&
+            (identical(other.recType, recType) ||
+                const DeepCollectionEquality().equals(
+                  other.recType,
+                  recType,
+                )) &&
+            (identical(other.orderBy, orderBy) ||
+                const DeepCollectionEquality().equals(
+                  other.orderBy,
+                  orderBy,
+                )) &&
+            (identical(other.pickListOrderBy, pickListOrderBy) ||
+                const DeepCollectionEquality().equals(
+                  other.pickListOrderBy,
+                  pickListOrderBy,
+                )) &&
+            (identical(other.inactive, inactive) ||
+                const DeepCollectionEquality().equals(
+                  other.inactive,
+                  inactive,
+                )) &&
+            (identical(other.dateStamp, dateStamp) ||
+                const DeepCollectionEquality().equals(
+                  other.dateStamp,
+                  dateStamp,
+                )) &&
+            (identical(other.auditNote, auditNote) ||
+                const DeepCollectionEquality().equals(
+                  other.auditNote,
+                  auditNote,
+                )) &&
+            (identical(other.recordTitle, recordTitle) ||
+                const DeepCollectionEquality().equals(
+                  other.recordTitle,
+                  recordTitle,
+                )) &&
+            (identical(other.urlIdentifier, urlIdentifier) ||
+                const DeepCollectionEquality().equals(
+                  other.urlIdentifier,
+                  urlIdentifier,
+                )) &&
+            (identical(other.fields, fields) ||
+                const DeepCollectionEquality().equals(other.fields, fields)) &&
+            (identical(other.custom, custom) ||
+                const DeepCollectionEquality().equals(other.custom, custom)) &&
+            (identical(other.defaultFieldAttributes, defaultFieldAttributes) ||
+                const DeepCollectionEquality().equals(
+                  other.defaultFieldAttributes,
+                  defaultFieldAttributes,
+                )) &&
+            (identical(other.original, original) ||
+                const DeepCollectionEquality().equals(
+                  other.original,
+                  original,
+                )) &&
+            (identical(other.translation, translation) ||
+                const DeepCollectionEquality().equals(
+                  other.translation,
+                  translation,
+                )) &&
+            (identical(other.hasImport, hasImport) ||
+                const DeepCollectionEquality().equals(
+                  other.hasImport,
+                  hasImport,
+                )) &&
+            (identical(other.hasDocuments, hasDocuments) ||
+                const DeepCollectionEquality().equals(
+                  other.hasDocuments,
+                  hasDocuments,
+                )) &&
+            (identical(other.createdByUserId, createdByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserId,
+                  createdByUserId,
+                )) &&
+            (identical(other.createdByUserName, createdByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.createdByUserName,
+                  createdByUserName,
+                )) &&
+            (identical(other.createdDateTime, createdDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.createdDateTime,
+                  createdDateTime,
+                )) &&
+            (identical(other.modifiedByUserId, modifiedByUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserId,
+                  modifiedByUserId,
+                )) &&
+            (identical(other.modifiedByUserName, modifiedByUserName) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedByUserName,
+                  modifiedByUserName,
+                )) &&
+            (identical(other.modifiedDateTime, modifiedDateTime) ||
+                const DeepCollectionEquality().equals(
+                  other.modifiedDateTime,
+                  modifiedDateTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(subCategoryId) ^
+      const DeepCollectionEquality().hash(subCategory) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(category) ^
+      const DeepCollectionEquality().hash(typeId) ^
+      const DeepCollectionEquality().hash(type) ^
+      const DeepCollectionEquality().hash(recTypeDescription) ^
+      const DeepCollectionEquality().hash(recType) ^
+      const DeepCollectionEquality().hash(orderBy) ^
+      const DeepCollectionEquality().hash(pickListOrderBy) ^
+      const DeepCollectionEquality().hash(inactive) ^
+      const DeepCollectionEquality().hash(dateStamp) ^
+      const DeepCollectionEquality().hash(auditNote) ^
+      const DeepCollectionEquality().hash(recordTitle) ^
+      const DeepCollectionEquality().hash(urlIdentifier) ^
+      const DeepCollectionEquality().hash(fields) ^
+      const DeepCollectionEquality().hash(custom) ^
+      const DeepCollectionEquality().hash(defaultFieldAttributes) ^
+      const DeepCollectionEquality().hash(original) ^
+      const DeepCollectionEquality().hash(translation) ^
+      const DeepCollectionEquality().hash(hasImport) ^
+      const DeepCollectionEquality().hash(hasDocuments) ^
+      const DeepCollectionEquality().hash(createdByUserId) ^
+      const DeepCollectionEquality().hash(createdByUserName) ^
+      const DeepCollectionEquality().hash(createdDateTime) ^
+      const DeepCollectionEquality().hash(modifiedByUserId) ^
+      const DeepCollectionEquality().hash(modifiedByUserName) ^
+      const DeepCollectionEquality().hash(modifiedDateTime) ^
+      runtimeType.hashCode;
+}
+
+extension $WebApiModulesSettingsSubCategorySubCategoryExtension
+    on WebApiModulesSettingsSubCategorySubCategory {
+  WebApiModulesSettingsSubCategorySubCategory copyWith({
+    String? subCategoryId,
+    String? subCategory,
+    String? categoryId,
+    String? category,
+    String? typeId,
+    String? type,
+    String? recTypeDescription,
+    String? recType,
+    double? orderBy,
+    int? pickListOrderBy,
+    bool? inactive,
+    String? dateStamp,
+    String? auditNote,
+    String? recordTitle,
+    dynamic urlIdentifier,
+    List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>? fields,
+    List<FwStandardDataFwCustomValue>? custom,
+    List<FwStandardDataFwDefaultAttribute>? defaultFieldAttributes,
+    FwStandardBusinessLogicFwBusinessLogic? original,
+    List<FwStandardDataFwTranslatedValue>? translation,
+    bool? hasImport,
+    bool? hasDocuments,
+    String? createdByUserId,
+    String? createdByUserName,
+    String? createdDateTime,
+    String? modifiedByUserId,
+    String? modifiedByUserName,
+    String? modifiedDateTime,
+  }) {
+    return WebApiModulesSettingsSubCategorySubCategory(
+      subCategoryId: subCategoryId ?? this.subCategoryId,
+      subCategory: subCategory ?? this.subCategory,
+      categoryId: categoryId ?? this.categoryId,
+      category: category ?? this.category,
+      typeId: typeId ?? this.typeId,
+      type: type ?? this.type,
+      recTypeDescription: recTypeDescription ?? this.recTypeDescription,
+      recType: recType ?? this.recType,
+      orderBy: orderBy ?? this.orderBy,
+      pickListOrderBy: pickListOrderBy ?? this.pickListOrderBy,
+      inactive: inactive ?? this.inactive,
+      dateStamp: dateStamp ?? this.dateStamp,
+      auditNote: auditNote ?? this.auditNote,
+      recordTitle: recordTitle ?? this.recordTitle,
+      urlIdentifier: urlIdentifier ?? this.urlIdentifier,
+      fields: fields ?? this.fields,
+      custom: custom ?? this.custom,
+      defaultFieldAttributes:
+          defaultFieldAttributes ?? this.defaultFieldAttributes,
+      original: original ?? this.original,
+      translation: translation ?? this.translation,
+      hasImport: hasImport ?? this.hasImport,
+      hasDocuments: hasDocuments ?? this.hasDocuments,
+      createdByUserId: createdByUserId ?? this.createdByUserId,
+      createdByUserName: createdByUserName ?? this.createdByUserName,
+      createdDateTime: createdDateTime ?? this.createdDateTime,
+      modifiedByUserId: modifiedByUserId ?? this.modifiedByUserId,
+      modifiedByUserName: modifiedByUserName ?? this.modifiedByUserName,
+      modifiedDateTime: modifiedDateTime ?? this.modifiedDateTime,
+    );
+  }
+
+  WebApiModulesSettingsSubCategorySubCategory copyWithWrapped({
+    Wrapped<String?>? subCategoryId,
+    Wrapped<String?>? subCategory,
+    Wrapped<String?>? categoryId,
+    Wrapped<String?>? category,
+    Wrapped<String?>? typeId,
+    Wrapped<String?>? type,
+    Wrapped<String?>? recTypeDescription,
+    Wrapped<String?>? recType,
+    Wrapped<double?>? orderBy,
+    Wrapped<int?>? pickListOrderBy,
+    Wrapped<bool?>? inactive,
+    Wrapped<String?>? dateStamp,
+    Wrapped<String?>? auditNote,
+    Wrapped<String?>? recordTitle,
+    Wrapped<dynamic>? urlIdentifier,
+    Wrapped<List<FwStandardBusinessLogicFwBusinessLogicFieldDefinition>?>?
+    fields,
+    Wrapped<List<FwStandardDataFwCustomValue>?>? custom,
+    Wrapped<List<FwStandardDataFwDefaultAttribute>?>? defaultFieldAttributes,
+    Wrapped<FwStandardBusinessLogicFwBusinessLogic?>? original,
+    Wrapped<List<FwStandardDataFwTranslatedValue>?>? translation,
+    Wrapped<bool?>? hasImport,
+    Wrapped<bool?>? hasDocuments,
+    Wrapped<String?>? createdByUserId,
+    Wrapped<String?>? createdByUserName,
+    Wrapped<String?>? createdDateTime,
+    Wrapped<String?>? modifiedByUserId,
+    Wrapped<String?>? modifiedByUserName,
+    Wrapped<String?>? modifiedDateTime,
+  }) {
+    return WebApiModulesSettingsSubCategorySubCategory(
+      subCategoryId: (subCategoryId != null
+          ? subCategoryId.value
+          : this.subCategoryId),
+      subCategory: (subCategory != null ? subCategory.value : this.subCategory),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      category: (category != null ? category.value : this.category),
+      typeId: (typeId != null ? typeId.value : this.typeId),
+      type: (type != null ? type.value : this.type),
+      recTypeDescription: (recTypeDescription != null
+          ? recTypeDescription.value
+          : this.recTypeDescription),
+      recType: (recType != null ? recType.value : this.recType),
+      orderBy: (orderBy != null ? orderBy.value : this.orderBy),
+      pickListOrderBy: (pickListOrderBy != null
+          ? pickListOrderBy.value
+          : this.pickListOrderBy),
+      inactive: (inactive != null ? inactive.value : this.inactive),
+      dateStamp: (dateStamp != null ? dateStamp.value : this.dateStamp),
+      auditNote: (auditNote != null ? auditNote.value : this.auditNote),
+      recordTitle: (recordTitle != null ? recordTitle.value : this.recordTitle),
+      urlIdentifier: (urlIdentifier != null
+          ? urlIdentifier.value
+          : this.urlIdentifier),
+      fields: (fields != null ? fields.value : this.fields),
+      custom: (custom != null ? custom.value : this.custom),
+      defaultFieldAttributes: (defaultFieldAttributes != null
+          ? defaultFieldAttributes.value
+          : this.defaultFieldAttributes),
+      original: (original != null ? original.value : this.original),
+      translation: (translation != null ? translation.value : this.translation),
+      hasImport: (hasImport != null ? hasImport.value : this.hasImport),
+      hasDocuments: (hasDocuments != null
+          ? hasDocuments.value
+          : this.hasDocuments),
+      createdByUserId: (createdByUserId != null
+          ? createdByUserId.value
+          : this.createdByUserId),
+      createdByUserName: (createdByUserName != null
+          ? createdByUserName.value
+          : this.createdByUserName),
+      createdDateTime: (createdDateTime != null
+          ? createdDateTime.value
+          : this.createdDateTime),
+      modifiedByUserId: (modifiedByUserId != null
+          ? modifiedByUserId.value
+          : this.modifiedByUserId),
+      modifiedByUserName: (modifiedByUserName != null
+          ? modifiedByUserName.value
+          : this.modifiedByUserName),
+      modifiedDateTime: (modifiedDateTime != null
+          ? modifiedDateTime.value
+          : this.modifiedDateTime),
     );
   }
 }
@@ -11170,6 +16137,8 @@ class WebApiModulesWarehouseCheckOutStagingTabsResponse {
     this.serialTab,
     this.usageTab,
     this.consignmentTab,
+    this.shippingCaseTab,
+    this.shippingNoteTab,
   });
 
   factory WebApiModulesWarehouseCheckOutStagingTabsResponse.fromJson(
@@ -11197,6 +16166,10 @@ class WebApiModulesWarehouseCheckOutStagingTabsResponse {
   final bool? usageTab;
   @JsonKey(name: 'ConsignmentTab', includeIfNull: false)
   final bool? consignmentTab;
+  @JsonKey(name: 'ShippingCaseTab', includeIfNull: false)
+  final bool? shippingCaseTab;
+  @JsonKey(name: 'ShippingNoteTab', includeIfNull: false)
+  final bool? shippingNoteTab;
   static const fromJsonFactory =
       _$WebApiModulesWarehouseCheckOutStagingTabsResponseFromJson;
 
@@ -11237,6 +16210,16 @@ class WebApiModulesWarehouseCheckOutStagingTabsResponse {
                 const DeepCollectionEquality().equals(
                   other.consignmentTab,
                   consignmentTab,
+                )) &&
+            (identical(other.shippingCaseTab, shippingCaseTab) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingCaseTab,
+                  shippingCaseTab,
+                )) &&
+            (identical(other.shippingNoteTab, shippingNoteTab) ||
+                const DeepCollectionEquality().equals(
+                  other.shippingNoteTab,
+                  shippingNoteTab,
                 )));
   }
 
@@ -11253,6 +16236,8 @@ class WebApiModulesWarehouseCheckOutStagingTabsResponse {
       const DeepCollectionEquality().hash(serialTab) ^
       const DeepCollectionEquality().hash(usageTab) ^
       const DeepCollectionEquality().hash(consignmentTab) ^
+      const DeepCollectionEquality().hash(shippingCaseTab) ^
+      const DeepCollectionEquality().hash(shippingNoteTab) ^
       runtimeType.hashCode;
 }
 
@@ -11267,6 +16252,8 @@ extension $WebApiModulesWarehouseCheckOutStagingTabsResponseExtension
     bool? serialTab,
     bool? usageTab,
     bool? consignmentTab,
+    bool? shippingCaseTab,
+    bool? shippingNoteTab,
   }) {
     return WebApiModulesWarehouseCheckOutStagingTabsResponse(
       status: status ?? this.status,
@@ -11277,6 +16264,8 @@ extension $WebApiModulesWarehouseCheckOutStagingTabsResponseExtension
       serialTab: serialTab ?? this.serialTab,
       usageTab: usageTab ?? this.usageTab,
       consignmentTab: consignmentTab ?? this.consignmentTab,
+      shippingCaseTab: shippingCaseTab ?? this.shippingCaseTab,
+      shippingNoteTab: shippingNoteTab ?? this.shippingNoteTab,
     );
   }
 
@@ -11289,6 +16278,8 @@ extension $WebApiModulesWarehouseCheckOutStagingTabsResponseExtension
     Wrapped<bool?>? serialTab,
     Wrapped<bool?>? usageTab,
     Wrapped<bool?>? consignmentTab,
+    Wrapped<bool?>? shippingCaseTab,
+    Wrapped<bool?>? shippingNoteTab,
   }) {
     return WebApiModulesWarehouseCheckOutStagingTabsResponse(
       status: (status != null ? status.value : this.status),
@@ -11301,62 +16292,12 @@ extension $WebApiModulesWarehouseCheckOutStagingTabsResponseExtension
       consignmentTab: (consignmentTab != null
           ? consignmentTab.value
           : this.consignmentTab),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class WebApiModulesWarehouseContractCancelContractRequest {
-  const WebApiModulesWarehouseContractCancelContractRequest({this.contractId});
-
-  factory WebApiModulesWarehouseContractCancelContractRequest.fromJson(
-    Map<String, dynamic> json,
-  ) => _$WebApiModulesWarehouseContractCancelContractRequestFromJson(json);
-
-  static const toJsonFactory =
-      _$WebApiModulesWarehouseContractCancelContractRequestToJson;
-  Map<String, dynamic> toJson() =>
-      _$WebApiModulesWarehouseContractCancelContractRequestToJson(this);
-
-  @JsonKey(name: 'ContractId', includeIfNull: false)
-  final String? contractId;
-  static const fromJsonFactory =
-      _$WebApiModulesWarehouseContractCancelContractRequestFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is WebApiModulesWarehouseContractCancelContractRequest &&
-            (identical(other.contractId, contractId) ||
-                const DeepCollectionEquality().equals(
-                  other.contractId,
-                  contractId,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(contractId) ^ runtimeType.hashCode;
-}
-
-extension $WebApiModulesWarehouseContractCancelContractRequestExtension
-    on WebApiModulesWarehouseContractCancelContractRequest {
-  WebApiModulesWarehouseContractCancelContractRequest copyWith({
-    String? contractId,
-  }) {
-    return WebApiModulesWarehouseContractCancelContractRequest(
-      contractId: contractId ?? this.contractId,
-    );
-  }
-
-  WebApiModulesWarehouseContractCancelContractRequest copyWithWrapped({
-    Wrapped<String?>? contractId,
-  }) {
-    return WebApiModulesWarehouseContractCancelContractRequest(
-      contractId: (contractId != null ? contractId.value : this.contractId),
+      shippingCaseTab: (shippingCaseTab != null
+          ? shippingCaseTab.value
+          : this.shippingCaseTab),
+      shippingNoteTab: (shippingNoteTab != null
+          ? shippingNoteTab.value
+          : this.shippingNoteTab),
     );
   }
 }
@@ -11602,9 +16543,9 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
 
     if (ResultType == DateTime) {
       return response.copyWith(
-        body:
-            DateTime.parse((response.body as String).replaceAll('"', ''))
-                as ResultType,
+        body: DateTime.parse(
+          (response.body as String).replaceAll('"', ''),
+        ) as ResultType,
       );
     }
 
