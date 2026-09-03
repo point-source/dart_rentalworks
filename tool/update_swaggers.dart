@@ -23,7 +23,7 @@ Future<void> main(List<String> args) async {
     'integrations',
   ];
 
-  final requestedPage = args.length > 1 ? args[1] : null;
+  final requestedPage = args.length > 1 ? args.elementAtOrNull(1) : null;
   assert(
     requestedPage == null || pages.contains(requestedPage),
     'Unknown page "$requestedPage". Available pages: ${pages.join(', ')}',

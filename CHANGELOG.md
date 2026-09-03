@@ -1,6 +1,7 @@
 ## 9.0.0
 
 - Update swagger specs for RW v2026.1.009
+- Refactor / fix test suite
 
 ## 8.0.0
 

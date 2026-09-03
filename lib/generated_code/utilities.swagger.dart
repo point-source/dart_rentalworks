@@ -3,7 +3,6 @@
 // ignore_for_file: unused_element_parameter
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_annotation/json_annotation.dart' as json;
 import 'package:collection/collection.dart';
 
 import 'dart:convert';
@@ -15,7 +14,6 @@ import 'client_mapping.dart';
 import 'dart:async';
 
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
 
 import 'utilities.enums.swagger.dart' as enums;
@@ -4039,7 +4037,8 @@ abstract class Utilities extends ChopperService {
   ///@param receivecontractid
   ///@param warehouseid
   @GET(
-    path: '/labeldesign/barcodes/contract/{receivecontractid}/warehouse/{warehouseid}',
+    path:
+        '/labeldesign/barcodes/contract/{receivecontractid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignBarcodesContractReceivecontractidWarehouseWarehouseidGet({
@@ -4048,7 +4047,8 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Get a comma separated list of barcodes from a receive contract for printing labels.',
+      summary:
+          'Get a comma separated list of barcodes from a receive contract for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4076,7 +4076,8 @@ abstract class Utilities extends ChopperService {
   ///@param purchaseorderid
   ///@param warehouseid
   @GET(
-    path: '/labeldesign/barcodes/purchaseorder/{purchaseorderid}/warehouse/{warehouseid}',
+    path:
+        '/labeldesign/barcodes/purchaseorder/{purchaseorderid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignBarcodesPurchaseorderPurchaseorderidWarehouseWarehouseidGet({
@@ -4085,7 +4086,8 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Get a comma separated list of barcodes from a purchase order for printing labels.',
+      summary:
+          'Get a comma separated list of barcodes from a purchase order for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4113,7 +4115,8 @@ abstract class Utilities extends ChopperService {
   ///@param rentalinventoryid
   ///@param warehouseid
   @GET(
-    path: '/labeldesign/barcodes/rentalinventory/{rentalinventoryid}/warehouse/{warehouseid}',
+    path:
+        '/labeldesign/barcodes/rentalinventory/{rentalinventoryid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignBarcodesRentalinventoryRentalinventoryidWarehouseWarehouseidGet({
@@ -4122,7 +4125,8 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Get a comma separated list of barcodes from a purchase order for printing labels.',
+      summary:
+          'Get a comma separated list of barcodes from a purchase order for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4150,7 +4154,8 @@ abstract class Utilities extends ChopperService {
   ///@param salesinventoryid
   ///@param warehouseid
   @GET(
-    path: '/labeldesign/barcodes/salesinventory/{salesinventoryid}/warehouse/{warehouseid}',
+    path:
+        '/labeldesign/barcodes/salesinventory/{salesinventoryid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignBarcodesSalesinventorySalesinventoryidWarehouseWarehouseidGet({
@@ -4159,7 +4164,8 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Get a comma separated list of barcodes from a purchase order for printing labels.',
+      summary:
+          'Get a comma separated list of barcodes from a purchase order for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4191,7 +4197,8 @@ abstract class Utilities extends ChopperService {
   ///@param tobarcode
   ///@param warehouseid
   @GET(
-    path: '/labeldesign/barcodes/from/{frombarcode}/to/{tobarcode}/warehouse/{warehouseid}',
+    path:
+        '/labeldesign/barcodes/from/{frombarcode}/to/{tobarcode}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignBarcodesFromFrombarcodeToTobarcodeWarehouseWarehouseidGet({
@@ -4201,7 +4208,8 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Get a comma separated list of barcodes by a range of barcodes for printing labels.',
+      summary:
+          'Get a comma separated list of barcodes by a range of barcodes for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4231,7 +4239,8 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Get a comma separated list of barcodes by inventory purchase utility sessionid for printing labels.',
+      summary:
+          'Get a comma separated list of barcodes by inventory purchase utility sessionid for printing labels.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4259,7 +4268,8 @@ abstract class Utilities extends ChopperService {
   ///@param orderid
   ///@param warehouseid
   @GET(
-    path: '/labeldesign/purchaseordernumber/orderid/{orderid}/warehouse/{warehouseid}',
+    path:
+        '/labeldesign/purchaseordernumber/orderid/{orderid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignPurchaseordernumberOrderidOrderidWarehouseWarehouseidGet({
@@ -4296,7 +4306,8 @@ abstract class Utilities extends ChopperService {
   ///@param contractid
   ///@param warehouseid
   @GET(
-    path: '/labeldesign/contractnumber/contractid/{contractid}/warehouse/{warehouseid}',
+    path:
+        '/labeldesign/contractnumber/contractid/{contractid}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<String>>
   _labeldesignContractnumberContractidContractidWarehouseWarehouseidGet({
@@ -4338,7 +4349,8 @@ abstract class Utilities extends ChopperService {
   ///@param barcode
   ///@param warehouseid
   @GET(
-    path: '/labeldesign/labeldata/asset/barcode/{barcode}/warehouse/{warehouseid}',
+    path:
+        '/labeldesign/labeldata/asset/barcode/{barcode}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
   _labeldesignLabeldataAssetBarcodeBarcodeWarehouseWarehouseidGet({
@@ -4415,7 +4427,8 @@ abstract class Utilities extends ChopperService {
   ///@param barcode
   ///@param warehouseid
   @GET(
-    path: '/labeldesign/labeldata/receivecontract/{contractid}/barcode/{barcode}/warehouse/{warehouseid}',
+    path:
+        '/labeldesign/labeldata/receivecontract/{contractid}/barcode/{barcode}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
   _labeldesignLabeldataReceivecontractContractidBarcodeBarcodeWarehouseWarehouseidGet({
@@ -4425,7 +4438,8 @@ abstract class Utilities extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Get fields replacements for printing a receive contract barcode label.',
+      summary:
+          'Get fields replacements for printing a receive contract barcode label.',
       operationId: '',
       consumes: [],
       produces: [],
@@ -4462,7 +4476,8 @@ abstract class Utilities extends ChopperService {
   ///@param barcode
   ///@param warehouseid
   @GET(
-    path: '/labeldesign/labeldata/purchaseorder/{orderid}/barcode/{barcode}/warehouse/{warehouseid}',
+    path:
+        '/labeldesign/labeldata/purchaseorder/{orderid}/barcode/{barcode}/warehouse/{warehouseid}',
   )
   Future<chopper.Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
   _labeldesignLabeldataPurchaseorderOrderidBarcodeBarcodeWarehouseWarehouseidGet({
@@ -4505,7 +4520,8 @@ abstract class Utilities extends ChopperService {
   ///@param sessionid
   ///@param barcode
   @GET(
-    path: '/labeldesign/labeldata/inventorypurchase/{sessionid}/barcode/{barcode}',
+    path:
+        '/labeldesign/labeldata/inventorypurchase/{sessionid}/barcode/{barcode}',
   )
   Future<chopper.Response<WebApiModulesUtilitiesLabelDesignBarcodeLabel>>
   _labeldesignLabeldataInventorypurchaseSessionidBarcodeBarcodeGet({
@@ -10859,7 +10875,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRental
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRentalInventoryLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRentalInventoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -10973,7 +10990,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryUnretiredUnretiredLog
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryUnretiredUnretiredLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryUnretiredUnretiredLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11086,7 +11104,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsCountry
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsCountryCountryLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesSettingsAddressSettingsCountryCountryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11200,7 +11219,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencySettingsCurren
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencySettingsCurrencyCurrencyLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCurrencySettingsCurrencyCurrencyLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11315,7 +11335,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsWareh
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsWarehouseWarehouseLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesSettingsWarehouseSettingsWarehouseWarehouseLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11430,7 +11451,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesLabelDesignLabelDesig
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesLabelDesignLabelDesignLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesLabelDesignLabelDesignLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11546,7 +11568,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOn
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesOnlineOrderTrackingOnlineOrderTrackingLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11663,7 +11686,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUp
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchRateUpdateBatchLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11779,7 +11803,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRa
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateBatchItemRateUpdateBatchItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -11896,7 +11921,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpd
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12010,7 +12036,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportWebImportLog
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportWebImportLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportWebImportLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12123,7 +12150,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportRecordWebImp
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportRecordWebImportRecordLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesWebImportRecordWebImportRecordLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12243,7 +12271,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveV
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsBrowseActiveViewFieldsBrowseActiveViewFieldsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -12371,7 +12400,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivityS
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesControlsQuikActivitySettingsQuikActivitySettingsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -16091,7 +16121,8 @@ class MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashb
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultFwStandardModulesUtilitiesDashboardDashboardLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -16165,7 +16196,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationI
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryLocationItemInventoryLocationItemLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -16240,7 +16272,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRate
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesRateUpdateItemRateUpdateItemLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -16314,7 +16347,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesWebImportRecordWeb
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesWebImportRecordWebImportRecordLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesWebImportRecordWebImportRecordLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -21961,7 +21995,8 @@ class WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResp
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse &&
+        (other
+                is WebApiModulesExportsOnlineOrderTrackingExportOnlineOrderTrackingExportResponse &&
             (identical(other.batchId, batchId) ||
                 const DeepCollectionEquality().equals(
                   other.batchId,
@@ -32312,7 +32347,8 @@ class WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerReposit
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerRepositionAsyncRequest &&
+        (other
+                is WebApiModulesSharedControlsSystemControlsAppImageAppImageControllerRepositionAsyncRequest &&
             (identical(other.appImageId, appImageId) ||
                 const DeepCollectionEquality().equals(
                   other.appImageId,
@@ -37201,8 +37237,7 @@ class WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse &&
+        (other is WebApiModulesUtilitiesMigrateSelectAllNoneMigrateItemResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -39601,7 +39636,8 @@ class WebApiModulesUtilitiesQuikActivityQuikActivityFuncPopulateQuikActivityRequ
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesUtilitiesQuikActivityQuikActivityFuncPopulateQuikActivityRequest &&
+        (other
+                is WebApiModulesUtilitiesQuikActivityQuikActivityFuncPopulateQuikActivityRequest &&
             (identical(other.fromDate, fromDate) ||
                 const DeepCollectionEquality().equals(
                   other.fromDate,
@@ -43771,8 +43807,7 @@ class WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse &&
+        (other is WebApiModulesUtilitiesReceiptProcessBatchReceiptProcessBatchResponse &&
             (identical(other.batch, batch) ||
                 const DeepCollectionEquality().equals(other.batch, batch)) &&
             (identical(other.status, status) ||
@@ -45987,7 +46022,8 @@ class WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchRe
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse &&
+        (other
+                is WebApiModulesUtilitiesVendorInvoiceProcessBatchVendorInvoiceProcessBatchResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -47976,9 +48012,9 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
 
     if (ResultType == DateTime) {
       return response.copyWith(
-        body: DateTime.parse(
-          (response.body as String).replaceAll('"', ''),
-        ) as ResultType,
+        body:
+            DateTime.parse((response.body as String).replaceAll('"', ''))
+                as ResultType,
       );
     }
 

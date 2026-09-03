@@ -3,7 +3,6 @@
 // ignore_for_file: unused_element_parameter
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_annotation/json_annotation.dart' as json;
 import 'package:collection/collection.dart';
 
 import 'dart:convert';
@@ -15,7 +14,6 @@ import 'client_mapping.dart';
 import 'dart:async';
 
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
 
 import 'home.enums.swagger.dart' as enums;
@@ -24447,7 +24445,8 @@ abstract class Home extends ChopperService {
   ///@param sort
   ///@param filter
   @GET(
-    path: '/inventorypackageinventory/packageid/{packageid}/warehouseid/{warehouseid}',
+    path:
+        '/inventorypackageinventory/packageid/{packageid}/warehouseid/{warehouseid}',
   )
   Future<
     chopper.Response<
@@ -24523,7 +24522,8 @@ abstract class Home extends ChopperService {
   ///@param sort
   ///@param filter
   @GET(
-    path: '/inventorypackageinventory/packageid/{packageid}/warehouseid/{warehouseid}/currencyid/{currencyid}',
+    path:
+        '/inventorypackageinventory/packageid/{packageid}/warehouseid/{warehouseid}/currencyid/{currencyid}',
   )
   Future<
     chopper.Response<
@@ -24584,7 +24584,8 @@ abstract class Home extends ChopperService {
   ///@param warehouseid
   ///@param inventorypackageinventoryid
   @GET(
-    path: '/inventorypackageinventory/packageid/{packageid}/warehouseid/{warehouseid}/inventorypackageinventoryid/{inventorypackageinventoryid}',
+    path:
+        '/inventorypackageinventory/packageid/{packageid}/warehouseid/{warehouseid}/inventorypackageinventoryid/{inventorypackageinventoryid}',
   )
   Future<
     chopper.Response<
@@ -24646,7 +24647,8 @@ abstract class Home extends ChopperService {
   ///@param currencyid
   ///@param inventorypackageinventoryid
   @GET(
-    path: '/inventorypackageinventory/packageid/{packageid}/warehouseid/{warehouseid}/currencyid/{currencyid}/inventorypackageinventoryid/{inventorypackageinventoryid}',
+    path:
+        '/inventorypackageinventory/packageid/{packageid}/warehouseid/{warehouseid}/currencyid/{currencyid}/inventorypackageinventoryid/{inventorypackageinventoryid}',
   )
   Future<
     chopper.Response<
@@ -43185,7 +43187,8 @@ abstract class Home extends ChopperService {
   ///@param orderid
   ///@param outcontractid
   @POST(
-    path: '/ordermanifest/manifest-with-documents/orderid/{orderid}/outcontractid/{outcontractid}',
+    path:
+        '/ordermanifest/manifest-with-documents/orderid/{orderid}/outcontractid/{outcontractid}',
     optionalBody: true,
   )
   Future<
@@ -43202,7 +43205,8 @@ abstract class Home extends ChopperService {
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
-      summary: 'Get a list of URLs for Manifest documents associated to an order (for printing).',
+      summary:
+          'Get a list of URLs for Manifest documents associated to an order (for printing).',
       operationId: '',
       consumes: [],
       produces: [],
@@ -53877,7 +53881,8 @@ abstract class Home extends ChopperService {
   ///@param documentid Unique identifier
   ///@param imageid Unique identifier
   @GET(
-    path: '/purchaseorder/{purchaseorderid}/document/{documentid}/image/{imageid}',
+    path:
+        '/purchaseorder/{purchaseorderid}/document/{documentid}/image/{imageid}',
   )
   Future<chopper.Response<FwStandardGridsAppDocumentGetDocumentImageResponse>>
   _purchaseorderPurchaseorderidDocumentDocumentidImageImageidGet({
@@ -53919,7 +53924,8 @@ abstract class Home extends ChopperService {
   ///@param documentid Unique identifier
   ///@param imageid Unique identifier
   @DELETE(
-    path: '/purchaseorder/{purchaseorderid}/document/{documentid}/image/{imageid}',
+    path:
+        '/purchaseorder/{purchaseorderid}/document/{documentid}/image/{imageid}',
   )
   Future<chopper.Response<bool>>
   _purchaseorderPurchaseorderidDocumentDocumentidImageImageidDelete({
@@ -54010,7 +54016,8 @@ abstract class Home extends ChopperService {
   ///@param purchaseorderid Unique identifier
   ///@param documentid Unique identifier
   @POST(
-    path: '/purchaseorder/{purchaseorderid}/document/{documentid}/imageformupload',
+    path:
+        '/purchaseorder/{purchaseorderid}/document/{documentid}/imageformupload',
     optionalBody: true,
   )
   @Multipart()
@@ -62059,7 +62066,8 @@ abstract class Home extends ChopperService {
   ///@param sort
   ///@param filter
   @GET(
-    path: '/receipt/location/{locationid}/customer/{customerid}/currency/{currencyid}/credits',
+    path:
+        '/receipt/location/{locationid}/customer/{customerid}/currency/{currencyid}/credits',
   )
   Future<
     chopper.Response<
@@ -62136,7 +62144,8 @@ abstract class Home extends ChopperService {
   ///@param sort
   ///@param filter
   @GET(
-    path: '/receipt/location/{locationid}/deal/{dealid}/currency/{currencyid}/credits',
+    path:
+        '/receipt/location/{locationid}/deal/{dealid}/currency/{currencyid}/credits',
   )
   Future<
     chopper.Response<
@@ -64226,7 +64235,8 @@ abstract class Home extends ChopperService {
   ///@param documentid Unique identifier
   ///@param imageid Unique identifier
   @GET(
-    path: '/rentalinventory/{inventoryid}/sethistory/{documentid}/image/{imageid}',
+    path:
+        '/rentalinventory/{inventoryid}/sethistory/{documentid}/image/{imageid}',
   )
   Future<chopper.Response<FwStandardGridsAppDocumentGetDocumentImageResponse>>
   _rentalinventoryInventoryidSethistoryDocumentidImageImageidGet({
@@ -64268,7 +64278,8 @@ abstract class Home extends ChopperService {
   ///@param documentid Unique identifier
   ///@param imageid Unique identifier
   @DELETE(
-    path: '/rentalinventory/{inventoryid}/sethistory/{documentid}/image/{imageid}',
+    path:
+        '/rentalinventory/{inventoryid}/sethistory/{documentid}/image/{imageid}',
   )
   Future<chopper.Response<bool>>
   _rentalinventoryInventoryidSethistoryDocumentidImageImageidDelete({
@@ -64359,7 +64370,8 @@ abstract class Home extends ChopperService {
   ///@param inventoryid Unique identifier
   ///@param documentid Unique identifier
   @POST(
-    path: '/rentalinventory/{inventoryid}/sethistory/{documentid}/imageformupload',
+    path:
+        '/rentalinventory/{inventoryid}/sethistory/{documentid}/imageformupload',
     optionalBody: true,
   )
   @Multipart()
@@ -67053,7 +67065,8 @@ abstract class Home extends ChopperService {
   ///@param pageno The page number of the result set, starting from page 1.
   ///@param pagesize The number of records per page of the result set.
   @GET(
-    path: '/rentalinventory/{inventoryid}/wallimagehistory/{documentid}/thumbnails',
+    path:
+        '/rentalinventory/{inventoryid}/wallimagehistory/{documentid}/thumbnails',
   )
   Future<
     chopper.Response<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>
@@ -67103,7 +67116,8 @@ abstract class Home extends ChopperService {
   ///@param documentid Unique identifier
   ///@param imageid Unique identifier
   @GET(
-    path: '/rentalinventory/{inventoryid}/wallimagehistory/{documentid}/image/{imageid}',
+    path:
+        '/rentalinventory/{inventoryid}/wallimagehistory/{documentid}/image/{imageid}',
   )
   Future<chopper.Response<FwStandardGridsAppDocumentGetDocumentImageResponse>>
   _rentalinventoryInventoryidWallimagehistoryDocumentidImageImageidGet({
@@ -67145,7 +67159,8 @@ abstract class Home extends ChopperService {
   ///@param documentid Unique identifier
   ///@param imageid Unique identifier
   @DELETE(
-    path: '/rentalinventory/{inventoryid}/wallimagehistory/{documentid}/image/{imageid}',
+    path:
+        '/rentalinventory/{inventoryid}/wallimagehistory/{documentid}/image/{imageid}',
   )
   Future<chopper.Response<bool>>
   _rentalinventoryInventoryidWallimagehistoryDocumentidImageImageidDelete({
@@ -67236,7 +67251,8 @@ abstract class Home extends ChopperService {
   ///@param inventoryid Unique identifier
   ///@param documentid Unique identifier
   @POST(
-    path: '/rentalinventory/{inventoryid}/wallimagehistory/{documentid}/imageformupload',
+    path:
+        '/rentalinventory/{inventoryid}/wallimagehistory/{documentid}/imageformupload',
     optionalBody: true,
   )
   @Multipart()
@@ -67408,7 +67424,8 @@ abstract class Home extends ChopperService {
   ///@param inventoryid Unique identifier
   ///@param documentid Unique identifier
   @PUT(
-    path: '/rentalinventory/{inventoryid}/wallimagehistory/{documentid}/fileformupload',
+    path:
+        '/rentalinventory/{inventoryid}/wallimagehistory/{documentid}/fileformupload',
     optionalBody: true,
   )
   @Multipart()
@@ -74704,7 +74721,8 @@ abstract class Home extends ChopperService {
   ///@param pageno The page number of the result set, starting from page 1.
   ///@param pagesize The number of records per page of the result set.
   @GET(
-    path: '/setimagehistory/{inventoryid}/setimagehistoryitem/{documentid}/thumbnails',
+    path:
+        '/setimagehistory/{inventoryid}/setimagehistoryitem/{documentid}/thumbnails',
   )
   Future<
     chopper.Response<FwStandardGridsAppDocumentGetDocumentThumbnailsResponse>
@@ -74754,7 +74772,8 @@ abstract class Home extends ChopperService {
   ///@param documentid Unique identifier
   ///@param imageid Unique identifier
   @GET(
-    path: '/setimagehistory/{inventoryid}/setimagehistoryitem/{documentid}/image/{imageid}',
+    path:
+        '/setimagehistory/{inventoryid}/setimagehistoryitem/{documentid}/image/{imageid}',
   )
   Future<chopper.Response<FwStandardGridsAppDocumentGetDocumentImageResponse>>
   _setimagehistoryInventoryidSetimagehistoryitemDocumentidImageImageidGet({
@@ -74796,7 +74815,8 @@ abstract class Home extends ChopperService {
   ///@param documentid Unique identifier
   ///@param imageid Unique identifier
   @DELETE(
-    path: '/setimagehistory/{inventoryid}/setimagehistoryitem/{documentid}/image/{imageid}',
+    path:
+        '/setimagehistory/{inventoryid}/setimagehistoryitem/{documentid}/image/{imageid}',
   )
   Future<chopper.Response<bool>>
   _setimagehistoryInventoryidSetimagehistoryitemDocumentidImageImageidDelete({
@@ -74888,7 +74908,8 @@ abstract class Home extends ChopperService {
   ///@param inventoryid Unique identifier
   ///@param documentid Unique identifier
   @POST(
-    path: '/setimagehistory/{inventoryid}/setimagehistoryitem/{documentid}/imageformupload',
+    path:
+        '/setimagehistory/{inventoryid}/setimagehistoryitem/{documentid}/imageformupload',
     optionalBody: true,
   )
   @Multipart()
@@ -75063,7 +75084,8 @@ abstract class Home extends ChopperService {
   ///@param inventoryid Unique identifier
   ///@param documentid Unique identifier
   @PUT(
-    path: '/setimagehistory/{inventoryid}/setimagehistoryitem/{documentid}/fileformupload',
+    path:
+        '/setimagehistory/{inventoryid}/setimagehistoryitem/{documentid}/fileformupload',
     optionalBody: true,
   )
   @Multipart()
@@ -80933,7 +80955,8 @@ abstract class Home extends ChopperService {
   ///@param documentid Unique identifier
   ///@param imageid Unique identifier
   @GET(
-    path: '/vendorinvoice/{vendorinvoiceid}/document/{documentid}/image/{imageid}',
+    path:
+        '/vendorinvoice/{vendorinvoiceid}/document/{documentid}/image/{imageid}',
   )
   Future<chopper.Response<FwStandardGridsAppDocumentGetDocumentImageResponse>>
   _vendorinvoiceVendorinvoiceidDocumentDocumentidImageImageidGet({
@@ -80975,7 +80998,8 @@ abstract class Home extends ChopperService {
   ///@param documentid Unique identifier
   ///@param imageid Unique identifier
   @DELETE(
-    path: '/vendorinvoice/{vendorinvoiceid}/document/{documentid}/image/{imageid}',
+    path:
+        '/vendorinvoice/{vendorinvoiceid}/document/{documentid}/image/{imageid}',
   )
   Future<chopper.Response<bool>>
   _vendorinvoiceVendorinvoiceidDocumentDocumentidImageImageidDelete({
@@ -81066,7 +81090,8 @@ abstract class Home extends ChopperService {
   ///@param vendorinvoiceid Unique identifier
   ///@param documentid Unique identifier
   @POST(
-    path: '/vendorinvoice/{vendorinvoiceid}/document/{documentid}/imageformupload',
+    path:
+        '/vendorinvoice/{vendorinvoiceid}/document/{documentid}/imageformupload',
     optionalBody: true,
   )
   @Multipart()
@@ -85576,7 +85601,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAdministratorUserUserLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -85802,7 +85828,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentContactNoteContactNoteLog
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentContactNoteContactNoteLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentContactNoteContactNoteLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -85915,7 +85942,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerCustomerLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerCustomerLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerCustomerLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -86028,7 +86056,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerCreditCustomerCre
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerCreditCustomerCreditLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerCreditCustomerCreditLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -86142,7 +86171,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerNoteCustomerNoteL
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerNoteCustomerNoteLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentCustomerNoteCustomerNoteLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -86366,7 +86396,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentDealNoteDealNoteLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentDealNoteDealNoteLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentDealNoteDealNoteLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -86591,7 +86622,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentOrderContactOrderContactL
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentOrderContactOrderContactLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentOrderContactOrderContactLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -86704,7 +86736,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentOrderItemOrderItemLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentOrderItemOrderItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentOrderItemOrderItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -86817,7 +86850,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentOrderNoteOrderNoteLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentOrderNoteOrderNoteLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentOrderNoteOrderNoteLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -86930,7 +86964,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentOrderStatusHistoryOrderSt
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentOrderStatusHistoryOrderStatusHistoryLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentOrderStatusHistoryOrderStatusHistoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -87158,7 +87193,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentProjectContactProjectCont
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentProjectContactProjectContactLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentProjectContactProjectContactLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -87272,7 +87308,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentProjectNoteProjectNoteLog
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentProjectNoteProjectNoteLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentProjectNoteProjectNoteLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -87385,7 +87422,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderPurchaseOrde
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderPurchaseOrderLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderPurchaseOrderLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -87505,7 +87543,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReceiveBarCo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -87633,7 +87672,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReturnBarCod
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReturnBarCodePurchaseOrderReturnBarCodeLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentPurchaseOrderReturnBarCodePurchaseOrderReturnBarCodeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -87979,7 +88019,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesAgentVendorNoteVendorNoteLogic
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesAgentVendorNoteVendorNoteLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesAgentVendorNoteVendorNoteLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -88092,7 +88133,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingBankAccountBankAccountL
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingBankAccountBankAccountLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingBankAccountBankAccountLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -88205,7 +88247,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingBillingWorksheetBilling
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingBillingWorksheetBillingWorksheetLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingBillingWorksheetBillingWorksheetLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -88319,7 +88362,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingDealCreditDealCreditLog
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingDealCreditDealCreditLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingDealCreditDealCreditLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -88432,7 +88476,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -88545,7 +88590,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceReceiptLo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceReceiptLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceInvoiceReceiptLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -88660,7 +88706,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceCreationBatchInv
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceCreationBatchInvoiceCreationBatchLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceCreationBatchInvoiceCreationBatchLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -88777,7 +88824,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceItemInvoiceItemL
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceItemInvoiceItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceItemInvoiceItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -88890,7 +88938,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceNoteInvoiceNoteL
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceNoteInvoiceNoteLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingInvoiceNoteInvoiceNoteLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -89003,7 +89052,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingPaymentPaymentLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingPaymentPaymentLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingPaymentPaymentLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -89122,7 +89172,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingPurchaseVendorInvoiceIt
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingPurchaseVendorInvoiceItemPurchaseVendorInvoiceItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingPurchaseVendorInvoiceItemPurchaseVendorInvoiceItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -89244,7 +89295,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptReceiptLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptReceiptLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptReceiptLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -89357,7 +89409,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptCreditReceiptCre
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptCreditReceiptCreditLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptCreditReceiptCreditLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -89471,7 +89524,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptInvoiceReceiptIn
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptInvoiceReceiptInvoiceLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingReceiptInvoiceReceiptInvoiceLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -89585,7 +89639,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceVendorInvo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceVendorInvoiceLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceVendorInvoiceLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -89699,7 +89754,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceItemVendor
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceItemVendorInvoiceItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceItemVendorInvoiceItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -89814,7 +89870,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceNoteVendor
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceNoteVendorInvoiceNoteLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesBillingVendorInvoiceNoteVendorInvoiceNoteLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -89929,7 +89986,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyCompanyLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyCompanyLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyCompanyLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -90042,7 +90100,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyContactCompanyCo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyContactCompanyContactLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyContactCompanyContactLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -90156,7 +90215,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxOptionCompany
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxOptionCompanyTaxOptionLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxOptionCompanyTaxOptionLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -90270,7 +90330,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxResaleCompany
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxResaleCompanyTaxResaleLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesCompanyCompanyTaxResaleCompanyTaxResaleLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -90384,7 +90445,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesContainersContainerContainerLo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesContainersContainerContainerLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesContainersContainerContainerLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -90611,7 +90673,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesHomeAlternativeDescriptionAlte
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesHomeAlternativeDescriptionAlternativeDescriptionLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesHomeAlternativeDescriptionAlternativeDescriptionLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -90730,7 +90793,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesHomeDealOrderTieredPricingDeal
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricingLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesHomeDealOrderTieredPricingDealOrderTieredPricingLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -90847,7 +90911,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesHomeDealShipperDealShipperLogi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesHomeDealShipperDealShipperLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesHomeDealShipperDealShipperLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -90960,7 +91025,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesHomeDeliveryDeliveryLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesHomeDeliveryDeliveryLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesHomeDeliveryDeliveryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -91073,7 +91139,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesHomeDepositPaymentDepositPayme
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesHomeDepositPaymentDepositPaymentLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesHomeDepositPaymentDepositPaymentLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -91187,7 +91254,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesHomeDepreciationDepreciationLo
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesHomeDepreciationDepreciationLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesHomeDepreciationDepreciationLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -91300,7 +91368,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesHomeEmailRecipientEmailRecipie
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesHomeEmailRecipientEmailRecipientLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesHomeEmailRecipientEmailRecipientLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -91414,7 +91483,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesHomeGlManualGlManualLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesHomeGlManualGlManualLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesHomeGlManualGlManualLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -91527,7 +91597,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesHomeItemChargeItemChargeLogic 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesHomeItemChargeItemChargeLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesHomeItemChargeItemChargeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -91640,7 +91711,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesHomeManifestManifestLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -91753,7 +91825,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesHomePersonalEventPersonalEvent
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesHomePersonalEventPersonalEventLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesHomePersonalEventPersonalEventLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -91980,7 +92053,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryContainerWarehouseCon
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryContainerWarehouseContainerWarehouseLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryContainerWarehouseContainerWarehouseLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -92101,7 +92175,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryAttributeVal
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryAttributeValueInventoryAttributeValueLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryAttributeValueInventoryAttributeValueLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -92221,7 +92296,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryColorInvento
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryColorInventoryColorLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryColorInventoryColorLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -92337,7 +92413,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompatibleIn
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompatibleInventoryCompatibleLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompatibleInventoryCompatibleLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -92456,7 +92533,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompleteKitI
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompleteKitInventoryCompleteKitLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryCompleteKitInventoryCompleteKitLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -92574,7 +92652,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryConsignorInv
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryConsignorInventoryConsignorLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryConsignorInventoryConsignorLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -92693,7 +92772,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryContainerIte
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -92813,7 +92893,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryLocationTaxI
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryLocationTaxInventoryLocationTaxLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryLocationTaxInventoryLocationTaxLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -92930,7 +93011,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryMaterialInve
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryMaterialInventoryMaterialLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryMaterialInventoryMaterialLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -93051,7 +93133,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPackageInven
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -93173,7 +93256,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPrepInventor
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPrepInventoryPrepLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryPrepInventoryPrepLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -93287,7 +93371,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptCredi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptCreditsLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptCreditsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -93402,7 +93487,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInven
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInventoryReceiptItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInventoryReceiptItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -93517,7 +93603,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInven
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInventoryReceiptLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptInventoryReceiptLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -93632,7 +93719,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemA
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemAttributeLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemAttributeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -93746,7 +93834,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemB
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemBarcodesLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemBarcodesLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -93860,7 +93949,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemC
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemColorLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemColorLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -93974,7 +94064,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemM
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemMaterialLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryReceiptItemMaterialLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -94090,7 +94181,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventorySubstituteIn
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventorySubstituteInventorySubstituteLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventorySubstituteInventorySubstituteLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -94207,7 +94299,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryVendorInvent
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryVendorInventoryVendorLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryVendorInventoryVendorLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -94322,7 +94415,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseInv
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseInventoryWarehouseLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseInventoryWarehouseLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -94443,7 +94537,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseSpe
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecificLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryInventoryWarehouseSpecificInventoryWarehouseSpecificLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -94566,7 +94661,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryItemAttributeValueIte
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryItemAttributeValueItemAttributeValueLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryItemAttributeValueItemAttributeValueLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -94681,7 +94777,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryItemQcItemQcLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryItemQcItemQcLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryItemQcItemQcLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -94794,7 +94891,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryPartsInventoryPartsIn
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryPartsInventoryPartsInventoryLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryPartsInventoryPartsInventoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -94914,7 +95012,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhys
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryCountQuantityLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryCountQuantityLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -95038,7 +95137,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhys
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryCountSerialLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryCountSerialLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -95160,7 +95260,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhys
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryItemsAddedLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryItemsAddedLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -95278,7 +95379,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhys
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -95395,7 +95497,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhys
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryRecountLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryPhysicalInventoryRecountLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -95519,7 +95622,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryCycl
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventoryLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryCycleInventoryPhysicalInventoryCycleInventoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -95647,7 +95751,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryExce
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryExceptionsPhysicalInventoryExceptionsLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryExceptionsPhysicalInventoryExceptionsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -95775,7 +95880,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryInve
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventoryLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryPhysicalInventoryInventoryPhysicalInventoryInventoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -95897,7 +96003,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRental
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRentalInventoryLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRentalInventoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -96011,7 +96118,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRental
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRentalInventoryWallsLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryRentalInventoryRentalInventoryWallsLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -96126,7 +96234,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairRepairLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairRepairLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairRepairLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -96239,7 +96348,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairCostRepairCostL
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairCostRepairCostLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairCostRepairCostLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -96352,7 +96462,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairPartRepairPartL
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairPartRepairPartLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairPartRepairPartLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -96465,7 +96576,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairReleaseRepairRe
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairReleaseRepairReleaseLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryRepairReleaseRepairReleaseLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -96580,7 +96692,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemRes
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemReservedRentalItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemReservedRentalItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -96697,7 +96810,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemLog
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemLogReservedRentalItemLogLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryReservedRentalItemLogReservedRentalItemLogLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -96815,7 +96929,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventoryRetiredRetiredLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventoryRetiredRetiredLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventoryRetiredRetiredLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -96928,7 +97043,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventorySalesInventorySalesIn
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventorySalesInventorySalesInventoryLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventorySalesInventorySalesInventoryLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -97042,7 +97158,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochur
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochureItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochureItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -97156,7 +97273,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochur
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochureLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesInventorySetBrochureSetBrochureLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -97276,7 +97394,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCred
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaymentTypeLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesSettingsCreditCardSettingsCreditCardPaymentTypeCreditCardPaymentTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -97404,7 +97523,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInven
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryStatusInventoryStatusLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesSettingsInventorySettingsInventoryStatusInventoryStatusLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -97525,7 +97645,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPayment
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPaymentTypePaymentTypeLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesSettingsPaymentSettingsPaymentTypePaymentTypeLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -97640,7 +97761,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesTransfersTransferOrderTransfer
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesTransfersTransferOrderTransferOrderLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesTransfersTransferOrderTransferOrderLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -97754,7 +97876,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistr
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesGLDistributionGLDistributionLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -97872,7 +97995,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtil
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -97990,7 +98114,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckInReconcileCheck
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckInReconcileCheckInReconcileLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckInReconcileCheckInReconcileLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -98105,7 +98230,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckOutStorageContai
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckOutStorageContainerGridLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckOutStorageContainerGridLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -98219,7 +98345,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckOutStorageContai
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckOutStorageContainerItemsGridLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesWarehouseCheckOutStorageContainerItemsGridLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -98334,7 +98461,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesWarehouseContractContractLogic
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesWarehouseContractContractLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesWarehouseContractContractLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -98448,7 +98576,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesWarehouseContractItemDetailCon
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesWarehouseContractItemDetailContractItemDetailLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesWarehouseContractItemDetailContractItemDetailLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -98563,7 +98692,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesWarehouseOrderStatusStorageCon
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesWarehouseOrderStatusStorageContainerGridLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesWarehouseOrderStatusStorageContainerGridLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -98679,7 +98809,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesWarehouseOrderStatusStorageCon
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesWarehouseOrderStatusStorageContainerItemsGridLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesWarehouseOrderStatusStorageContainerItemsGridLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -98794,7 +98925,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesWarehousePickListPickListLogic
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesWarehousePickListPickListLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesWarehousePickListPickListLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -98907,7 +99039,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesWarehousePickListItemPickListI
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesWarehousePickListItemPickListItemLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesWarehousePickListItemPickListItemLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -99021,7 +99154,8 @@ class FwStandardModelsFwQueryResponseWebApiModulesWarehouseQuikReceiptQuikReceip
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsFwQueryResponseWebApiModulesWarehouseQuikReceiptQuikReceiptGridLogic &&
+        (other
+                is FwStandardModelsFwQueryResponseWebApiModulesWarehouseQuikReceiptQuikReceiptGridLogic &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -99135,7 +99269,8 @@ class FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyRes
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse &&
+        (other
+                is FwStandardModelsGetResponseFwStandardGridsAppDocumentAppDocumentGetManyResponse &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -99255,7 +99390,8 @@ class FwStandardModelsGetResponseWebApiModulesSettingsOfficeLocationSettingsOffi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FwStandardModelsGetResponseWebApiModulesSettingsOfficeLocationSettingsOfficeLocationGetManyOfficeLocationModel &&
+        (other
+                is FwStandardModelsGetResponseWebApiModulesSettingsOfficeLocationSettingsOfficeLocationGetManyOfficeLocationModel &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)) &&
             (identical(other.pageNo, pageNo) ||
@@ -100174,7 +100310,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesAgentOrderItemOrderItemLogi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesAgentOrderItemOrderItemLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesAgentOrderItemOrderItemLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -100248,7 +100385,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesAgentPurchaseOrderReceiveBa
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesAgentPurchaseOrderReceiveBarCodePurchaseOrderReceiveBarCodeLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -100326,7 +100464,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesBillingVendorInvoiceItemVen
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesBillingVendorInvoiceItemVendorInvoiceItemLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesBillingVendorInvoiceItemVendorInvoiceItemLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -100400,7 +100539,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeOrderDayOrderDayLogic {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeOrderDayOrderDayLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeOrderDayOrderDayLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -100473,7 +100613,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeSubPurchaseOrderItemSub
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItemLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesHomeSubPurchaseOrderItemSubPurchaseOrderItemLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -100548,7 +100689,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryContainer
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryContainerItemInventoryContainerItemLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -100626,7 +100768,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryPackageIn
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryPackageInventoryInventoryPackageInventoryLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -100704,7 +100847,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptIn
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptInventoryReceiptItemLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptInventoryReceiptItemLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -100778,7 +100922,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptIn
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptInventoryReceiptLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryReceiptInventoryReceiptLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -100852,7 +100997,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryWarehouse
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryWarehouseInventoryWarehouseLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryInventoryWarehouseInventoryWarehouseLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -100926,7 +101072,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPartsInventoryPart
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPartsInventoryPartsInventoryLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPartsInventoryPartsInventoryLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -101000,7 +101147,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPricingPricingLogi
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPricingPricingLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryPricingPricingLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -101073,7 +101221,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryRentalInventoryRen
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryRentalInventoryRentalInventoryLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventoryRentalInventoryRentalInventoryLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -101147,7 +101296,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySalesInventorySale
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySalesInventorySalesInventoryLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySalesInventorySalesInventoryLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -101221,7 +101371,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySetBrochureSetBroc
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySetBrochureSetBrochureLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesInventorySetBrochureSetBrochureLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -101296,7 +101447,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseU
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesUtilitiesInventoryPurchaseUtilityInventoryPurchaseItemLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -101373,7 +101525,8 @@ class MicrosoftAspNetCoreMvcActionResultWebApiModulesWarehousePickListUtilityIte
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is MicrosoftAspNetCoreMvcActionResultWebApiModulesWarehousePickListUtilityItemPickListUtilityItemLogic &&
+        (other
+                is MicrosoftAspNetCoreMvcActionResultWebApiModulesWarehousePickListUtilityItemPickListUtilityItemLogic &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.value, value) ||
@@ -117512,8 +117665,7 @@ class WebApiModulesAgentLossAndDamageCompleteLossAndDamageSessionResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesAgentLossAndDamageCompleteLossAndDamageSessionResponse &&
+        (other is WebApiModulesAgentLossAndDamageCompleteLossAndDamageSessionResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -117601,7 +117753,8 @@ class WebApiModulesAgentLossAndDamageCreateLossAndDamageOrderFromRepairResponse 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesAgentLossAndDamageCreateLossAndDamageOrderFromRepairResponse &&
+        (other
+                is WebApiModulesAgentLossAndDamageCreateLossAndDamageOrderFromRepairResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -118035,8 +118188,7 @@ class WebApiModulesAgentLossAndDamageStartLossAndDamageSessionResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesAgentLossAndDamageStartLossAndDamageSessionResponse &&
+        (other is WebApiModulesAgentLossAndDamageStartLossAndDamageSessionResponse &&
             (identical(other.sessionId, sessionId) ||
                 const DeepCollectionEquality().equals(
                   other.sessionId,
@@ -118309,8 +118461,7 @@ class WebApiModulesAgentLossAndDamageUpdateLossAndDamageItemResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesAgentLossAndDamageUpdateLossAndDamageItemResponse &&
+        (other is WebApiModulesAgentLossAndDamageUpdateLossAndDamageItemResponse &&
             (identical(other.newQuantity, newQuantity) ||
                 const DeepCollectionEquality().equals(
                   other.newQuantity,
@@ -151307,8 +151458,7 @@ class WebApiModulesAgentOrderItemCopyOrderItemsToClipboardResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesAgentOrderItemCopyOrderItemsToClipboardResponse &&
+        (other is WebApiModulesAgentOrderItemCopyOrderItemsToClipboardResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -156513,8 +156663,7 @@ class WebApiModulesAgentOrderItemPasteOrderItemsFromClipboardResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesAgentOrderItemPasteOrderItemsFromClipboardResponse &&
+        (other is WebApiModulesAgentOrderItemPasteOrderItemsFromClipboardResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -185203,8 +185352,7 @@ class WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemResponse &&
+        (other is WebApiModulesAgentPurchaseOrderSelectAllNoneReceiveItemResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -185381,8 +185529,7 @@ class WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemResponse &&
+        (other is WebApiModulesAgentPurchaseOrderSelectAllNoneReturnItemResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -228912,7 +229059,8 @@ class WebApiModulesHomeActiveLinkPurchaseOrderApprovalPurchaseOrderApprovalActiv
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesHomeActiveLinkPurchaseOrderApprovalPurchaseOrderApprovalActivity &&
+        (other
+                is WebApiModulesHomeActiveLinkPurchaseOrderApprovalPurchaseOrderApprovalActivity &&
             (identical(other.username, username) ||
                 const DeepCollectionEquality().equals(
                   other.username,
@@ -237587,8 +237735,7 @@ class WebApiModulesHomeServiceOrderItemCompleteServiceOrderSessionResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesHomeServiceOrderItemCompleteServiceOrderSessionResponse &&
+        (other is WebApiModulesHomeServiceOrderItemCompleteServiceOrderSessionResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -237673,7 +237820,8 @@ class WebApiModulesHomeServiceOrderItemCreateServiceOrderFromRepairResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesHomeServiceOrderItemCreateServiceOrderFromRepairResponse &&
+        (other
+                is WebApiModulesHomeServiceOrderItemCreateServiceOrderFromRepairResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -251271,8 +251419,7 @@ class WebApiModulesInventoryContainerItemEmptyContainerItemResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesInventoryContainerItemEmptyContainerItemResponse &&
+        (other is WebApiModulesInventoryContainerItemEmptyContainerItemResponse &&
             (identical(other.inContractId, inContractId) ||
                 const DeepCollectionEquality().equals(
                   other.inContractId,
@@ -251473,8 +251620,7 @@ class WebApiModulesInventoryContainerItemInstantiateContainerItemResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesInventoryContainerItemInstantiateContainerItemResponse &&
+        (other is WebApiModulesInventoryContainerItemInstantiateContainerItemResponse &&
             (identical(other.containerItemId, containerItemId) ||
                 const DeepCollectionEquality().equals(
                   other.containerItemId,
@@ -251887,8 +252033,7 @@ class WebApiModulesInventoryContainerItemRemoveFromContainerResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesInventoryContainerItemRemoveFromContainerResponse &&
+        (other is WebApiModulesInventoryContainerItemRemoveFromContainerResponse &&
             (identical(other.outputContractId, outputContractId) ||
                 const DeepCollectionEquality().equals(
                   other.outputContractId,
@@ -269340,7 +269485,8 @@ class WebApiModulesInventoryItemAttributeValueMassUpdateItemAttributesRequest {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesInventoryItemAttributeValueMassUpdateItemAttributesRequest &&
+        (other
+                is WebApiModulesInventoryItemAttributeValueMassUpdateItemAttributesRequest &&
             (identical(other.sourceItemId, sourceItemId) ||
                 const DeepCollectionEquality().equals(
                   other.sourceItemId,
@@ -277195,7 +277341,8 @@ class WebApiModulesInventoryPhysicalInventoryPhysicalInventoryApproveResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesInventoryPhysicalInventoryPhysicalInventoryApproveResponse &&
+        (other
+                is WebApiModulesInventoryPhysicalInventoryPhysicalInventoryApproveResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -277411,7 +277558,8 @@ class WebApiModulesInventoryPhysicalInventoryPhysicalInventoryCloseResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesInventoryPhysicalInventoryPhysicalInventoryCloseResponse &&
+        (other
+                is WebApiModulesInventoryPhysicalInventoryPhysicalInventoryCloseResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -282057,7 +282205,8 @@ class WebApiModulesInventoryPhysicalInventoryPhysicalInventoryUncountSerialItemR
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiModulesInventoryPhysicalInventoryPhysicalInventoryUncountSerialItemResponse &&
+        (other
+                is WebApiModulesInventoryPhysicalInventoryPhysicalInventoryUncountSerialItemResponse &&
             (identical(other.success, success) ||
                 const DeepCollectionEquality().equals(other.success, success)));
   }
@@ -282336,8 +282485,7 @@ class WebApiModulesInventoryPhysicalInventoryPhysicalInventoryVoidResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesInventoryPhysicalInventoryPhysicalInventoryVoidResponse &&
+        (other is WebApiModulesInventoryPhysicalInventoryPhysicalInventoryVoidResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -320541,8 +320689,7 @@ class WebApiModulesTransfersTransferOrderCancelTransferOrderResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesTransfersTransferOrderCancelTransferOrderResponse &&
+        (other is WebApiModulesTransfersTransferOrderCancelTransferOrderResponse &&
             (identical(other.transfer, transfer) ||
                 const DeepCollectionEquality().equals(
                   other.transfer,
@@ -320640,8 +320787,7 @@ class WebApiModulesTransfersTransferOrderConfirmTransferOrderResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesTransfersTransferOrderConfirmTransferOrderResponse &&
+        (other is WebApiModulesTransfersTransferOrderConfirmTransferOrderResponse &&
             (identical(other.transfer, transfer) ||
                 const DeepCollectionEquality().equals(
                   other.transfer,
@@ -320736,8 +320882,7 @@ class WebApiModulesTransfersTransferOrderSubmitTransferRequestResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesTransfersTransferOrderSubmitTransferRequestResponse &&
+        (other is WebApiModulesTransfersTransferOrderSubmitTransferRequestResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -325331,8 +325476,7 @@ class WebApiModulesUtilitiesGLDistributionRefreshGLHistoryResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesUtilitiesGLDistributionRefreshGLHistoryResponse &&
+        (other is WebApiModulesUtilitiesGLDistributionRefreshGLHistoryResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -334836,8 +334980,7 @@ class WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemResponse &&
+        (other is WebApiModulesWarehouseCheckOutSelectAllNoneStageHoldingItemResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -335016,8 +335159,7 @@ class WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemResponse &&
+        (other is WebApiModulesWarehouseCheckOutSelectAllNoneStageQuantityItemResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -337767,8 +337909,7 @@ class WebApiModulesWarehouseCheckOutStagingApplySubstituteSessionResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesWarehouseCheckOutStagingApplySubstituteSessionResponse &&
+        (other is WebApiModulesWarehouseCheckOutStagingApplySubstituteSessionResponse &&
             (identical(other.status, status) ||
                 const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.success, success) ||
@@ -355612,8 +355753,7 @@ class WebApiModulesWarehousePickListUtilityItemCompleteSessionResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesWarehousePickListUtilityItemCompleteSessionResponse &&
+        (other is WebApiModulesWarehousePickListUtilityItemCompleteSessionResponse &&
             (identical(other.pickListId, pickListId) ||
                 const DeepCollectionEquality().equals(
                   other.pickListId,
@@ -356676,8 +356816,7 @@ class WebApiModulesWarehousePickListUtilityItemStartSessionResponse {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other
-                is WebApiModulesWarehousePickListUtilityItemStartSessionResponse &&
+        (other is WebApiModulesWarehousePickListUtilityItemStartSessionResponse &&
             (identical(other.sessionId, sessionId) ||
                 const DeepCollectionEquality().equals(
                   other.sessionId,
@@ -359790,7 +359929,8 @@ class WebApiServicesAvailabilityServiceMultiAvailabilityInventoryWarehouseReques
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiServicesAvailabilityServiceMultiAvailabilityInventoryWarehouseRequest &&
+        (other
+                is WebApiServicesAvailabilityServiceMultiAvailabilityInventoryWarehouseRequest &&
             (identical(other.items, items) ||
                 const DeepCollectionEquality().equals(other.items, items)));
   }
@@ -363785,7 +363925,8 @@ class WebApiServicesAvailabilityServiceTInventoryWarehouseAvailabilityQuantity {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WebApiServicesAvailabilityServiceTInventoryWarehouseAvailabilityQuantity &&
+        (other
+                is WebApiServicesAvailabilityServiceTInventoryWarehouseAvailabilityQuantity &&
             (identical(other.owned, owned) ||
                 const DeepCollectionEquality().equals(other.owned, owned)) &&
             (identical(other.subbed, subbed) ||
@@ -370986,9 +371127,9 @@ class $JsonSerializableConverter extends chopper.JsonConverter {
 
     if (ResultType == DateTime) {
       return response.copyWith(
-        body: DateTime.parse(
-          (response.body as String).replaceAll('"', ''),
-        ) as ResultType,
+        body:
+            DateTime.parse((response.body as String).replaceAll('"', ''))
+                as ResultType,
       );
     }
 
